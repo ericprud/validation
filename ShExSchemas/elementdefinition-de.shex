@@ -15,6 +15,10 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:AllowedUnits @<Extension>?;        # Units to use for measured value
 }  
 
+# Map element to another set of definitions
+<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
+}  
+
 # Base definition information for tools
 <ElementDefinition.base> EXTENDS @<Element> CLOSED {   
 }  
@@ -23,12 +27,16 @@ BASE <http://hl7.org/fhir/shape/>
 <ElementDefinition.constraint> EXTENDS @<Element> CLOSED {   
 }  
 
+# Example value (as defined for type)
+<ElementDefinition.example> EXTENDS @<Element> CLOSED {   
+}  
+
 # ValueSet details if this is coded
 <ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
 }  
 
-# Example value (as defined for type)
-<ElementDefinition.example> EXTENDS @<Element> CLOSED {   
+# This element is sliced - slices follow
+<ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
 }  
 
 # Data type and Profile for this element
@@ -37,14 +45,6 @@ BASE <http://hl7.org/fhir/shape/>
 
 # Element values that are used to distinguish the slices
 <ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
-}  
-
-# This element is sliced - slices follow
-<ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
-}  
-
-# Map element to another set of definitions
-<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

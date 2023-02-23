@@ -62,11 +62,11 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<DocumentReference> };  # Target of the relationship
 }  
 
-# Document referenced
-<DocumentReference.content> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:attachment @<Attachment>;          # Where to access the document
-    fhir:profile @<OneOrMore_BackboneElement>?;  # Content profile rules for the 
-                                            # document 
+# Content profile rules for the document
+<DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value (@<Coding>  OR 
+    			@<uri>  OR 
+    			@<canonical> )  AND { rdf:type IRI } ;  # Code|uri|canonical
 }  
 
 # Attests to accuracy of the document
@@ -82,11 +82,11 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> }?;  # Who attested the document
 }  
 
-# Content profile rules for the document
-<DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<Coding>  OR 
-    			@<uri>  OR 
-    			@<canonical> )  AND { rdf:type IRI } ;  # Code|uri|canonical
+# Document referenced
+<DocumentReference.content> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:attachment @<Attachment>;          # Where to access the document
+    fhir:profile @<OneOrMore_BackboneElement>?;  # Content profile rules for the 
+                                            # document 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -155,8 +155,8 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]
-
 # The status of the document reference.
 fhirvs:document-reference-status ["current" "superseded" "entered-in-error"]
+
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]

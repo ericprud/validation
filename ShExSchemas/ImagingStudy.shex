@@ -47,6 +47,15 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # of instances 
 }  
 
+# A single SOP instance from the series
+<ImagingStudy.series.instance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:uid @<id>;                         # DICOM SOP Instance UID
+    fhir:sopClass @<Coding>;                # DICOM class type
+    fhir:number @<unsignedInt>?;            # The number of this instance in the 
+                                            # series 
+    fhir:title @<string>?;                  # Description of instance
+}  
+
 # Each study has one or more series of instances
 <ImagingStudy.series> EXTENDS @<BackboneElement> CLOSED {   
     fhir:uid @<id>;                         # DICOM Series Instance UID for the 
@@ -64,15 +73,6 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:performer @<OneOrMore_BackboneElement>?;  # Who performed the series
     fhir:instance @<OneOrMore_BackboneElement>?;  # A single SOP instance from the 
                                             # series 
-}  
-
-# A single SOP instance from the series
-<ImagingStudy.series.instance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:uid @<id>;                         # DICOM SOP Instance UID
-    fhir:sopClass @<Coding>;                # DICOM class type
-    fhir:number @<unsignedInt>?;            # The number of this instance in the 
-                                            # series 
-    fhir:title @<string>?;                  # Description of instance
 }  
 
 # Who performed the series

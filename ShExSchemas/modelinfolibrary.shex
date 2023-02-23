@@ -15,10 +15,10 @@ start=@<modelinfolibrary> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# ModelInfo JSON Content
+# ModelInfo XML Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 
-# ModelInfo XML Content
+# ModelInfo JSON Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  

@@ -2,701 +2,701 @@ IMPORT <11179-objectClassProperty.shex>
 IMPORT <11179-objectClass.shex>
 IMPORT <11179-permitted-value-conceptmap.shex>
 IMPORT <11179-permitted-value-valueset.shex>
-IMPORT <Account.shex>
-IMPORT <actualgroup.shex>
-IMPORT <Address.shex>
-IMPORT <AdverseEvent.shex>
-IMPORT <Age.shex>
-IMPORT <allergyintolerance-abatement.shex>
-IMPORT <allergyintolerance-assertedDate.shex>
-IMPORT <allergyintolerance-certainty.shex>
-IMPORT <allergyintolerance-duration.shex>
-IMPORT <allergyintolerance-reasonRefuted.shex>
-IMPORT <allergyintolerance-resolutionAge.shex>
-IMPORT <AllergyIntolerance.shex>
-IMPORT <allergyintolerance-substanceExposureRisk.shex>
-IMPORT <Annotation.shex>
-IMPORT <AppointmentResponse.shex>
-IMPORT <Appointment.shex>
-IMPORT <ArtifactAssessment.shex>
-IMPORT <artifact-author.shex>
-IMPORT <artifact-contact.shex>
-IMPORT <artifact-copyright.shex>
-IMPORT <artifact-date.shex>
-IMPORT <artifact-description.shex>
-IMPORT <artifact-editor.shex>
-IMPORT <artifact-endorser.shex>
-IMPORT <artifact-experimental.shex>
-IMPORT <artifact-identifier.shex>
-IMPORT <artifact-jurisdiction.shex>
-IMPORT <artifact-knowledgeCapability.shex>
-IMPORT <artifact-knowledgeRepresentationLevel.shex>
-IMPORT <artifact-name.shex>
-IMPORT <artifact-publisher.shex>
-IMPORT <artifact-purpose.shex>
-IMPORT <artifact-relatedArtifact.shex>
-IMPORT <artifact-reviewer.shex>
-IMPORT <artifact-status.shex>
-IMPORT <artifact-title.shex>
-IMPORT <artifact-topic.shex>
-IMPORT <artifact-url.shex>
-IMPORT <artifact-useContext.shex>
-IMPORT <artifact-version.shex>
-IMPORT <Attachment.shex>
-IMPORT <auditevent-Accession.shex>
-IMPORT <auditevent-AlternativeUserID.shex>
-IMPORT <auditevent-Anonymized.shex>
-IMPORT <auditevent-Encrypted.shex>
-IMPORT <auditevent-Instance.shex>
-IMPORT <auditevent-Lifecycle.shex>
-IMPORT <auditevent-MPPS.shex>
-IMPORT <auditevent-NumberOfInstances.shex>
-IMPORT <auditevent-ParticipantObjectContainsStudy.shex>
-IMPORT <AuditEvent.shex>
-IMPORT <auditevent-SOPClass.shex>
-IMPORT <BackboneElement.shex>
-IMPORT <BackboneType.shex>
-IMPORT <base64Binary.shex>
-IMPORT <Base.shex>
-IMPORT <Basic.shex>
-IMPORT <Binary.shex>
-IMPORT <biologicallyderivedproduct-collection-procedure.shex>
-IMPORT <biologicallyderivedproduct-manipulation.shex>
-IMPORT <biologicallyderivedproduct-processing.shex>
-IMPORT <BiologicallyDerivedProduct.shex>
-IMPORT <bmi.shex>
-IMPORT <bodyheight.shex>
-IMPORT <bodySite.shex>
-IMPORT <BodyStructure.shex>
-IMPORT <bodytemp.shex>
-IMPORT <bodyweight.shex>
-IMPORT <boolean.shex>
-IMPORT <bp.shex>
-IMPORT <Bundle.shex>
-IMPORT <CanonicalResource.shex>
-IMPORT <canonical.shex>
-IMPORT <capabilities.shex>
-IMPORT <capabilitystatement2-expectation.shex>
-IMPORT <capabilitystatement2-prohibited.shex>
-IMPORT <capabilitystatement2-search-parameter-combination.shex>
-IMPORT <CapabilityStatement2.shex>
-IMPORT <capabilitystatement2-supported-system.shex>
-IMPORT <capabilitystatement2-websocket.shex>
-IMPORT <capabilitystatement-expectation.shex>
-IMPORT <capabilitystatement-prohibited.shex>
-IMPORT <capabilitystatement-search-parameter-combination.shex>
-IMPORT <CapabilityStatement.shex>
-IMPORT <capabilitystatement-supported-system.shex>
-IMPORT <capabilitystatement-websocket.shex>
-IMPORT <careplan-activity-title.shex>
-IMPORT <CarePlan.shex>
-IMPORT <careteam-alias.shex>
-IMPORT <CareTeam.shex>
-IMPORT <catalog.shex>
-IMPORT <cdshooksguidanceresponse.shex>
-IMPORT <cdshooksrequestgroup.shex>
-IMPORT <cdshooksserviceplandefinition.shex>
-IMPORT <ChargeItem.shex>
-IMPORT <cholesterol.shex>
-IMPORT <Citation.shex>
-IMPORT <ClaimResponse.shex>
-IMPORT <Claim.shex>
-IMPORT <clinicaldocument.shex>
-IMPORT <ClinicalImpression.shex>
-IMPORT <CodeableConcept.shex>
-IMPORT <CodeableReference.shex>
-IMPORT <code.shex>
-IMPORT <codesystem-alternate.shex>
-IMPORT <codesystem-author.shex>
-IMPORT <codesystem-concept-comments.shex>
-IMPORT <codesystem-conceptOrder.shex>
-IMPORT <codesystem-effectiveDate.shex>
-IMPORT <codesystem-expirationDate.shex>
-IMPORT <codesystem-history.shex>
-IMPORT <codesystem-keyWord.shex>
-IMPORT <codesystem-label.shex>
-IMPORT <codesystem-map.shex>
-IMPORT <codesystem-otherName.shex>
-IMPORT <codesystem-properties-mode.shex>
-IMPORT <codesystem-replacedby.shex>
-IMPORT <codesystem-sourceReference.shex>
-IMPORT <codesystem-trusted-expansion.shex>
-IMPORT <codesystem-usage.shex>
-IMPORT <codesystem-use-markdown.shex>
-IMPORT <codesystem-warning.shex>
-IMPORT <codesystem-workflowStatus.shex>
-IMPORT <coding-conformance.shex>
-IMPORT <coding-sctdescid.shex>
-IMPORT <Coding.shex>
-IMPORT <communication-media.shex>
-IMPORT <communicationrequest-initiatingLocation.shex>
-IMPORT <CommunicationRequest.shex>
-IMPORT <Communication.shex>
-IMPORT <composition-clinicaldocument-otherConfidentiality.shex>
-IMPORT <composition-clinicaldocument-versionNumber.shex>
-IMPORT <composition-section-subject.shex>
-IMPORT <Composition.shex>
-IMPORT <computableplandefinition.shex>
-IMPORT <concept-bidirectional.shex>
-IMPORT <condition-assertedDate.shex>
-IMPORT <ConditionDefinition.shex>
-IMPORT <condition-diseaseCourse.shex>
-IMPORT <condition-dueTo.shex>
-IMPORT <condition-occurredFollowing.shex>
-IMPORT <condition-outcome.shex>
-IMPORT <condition-related.shex>
-IMPORT <condition-reviewed.shex>
-IMPORT <condition-ruledOut.shex>
-IMPORT <Condition.shex>
-IMPORT <consent-location.shex>
-IMPORT <consent-NotificationEndpoint.shex>
-IMPORT <consent-ResearchStudyContext.shex>
-IMPORT <Consent.shex>
-IMPORT <consent-Transcriber.shex>
-IMPORT <consent-Witness.shex>
-IMPORT <ContactDetail.shex>
-IMPORT <contactpoint-area.shex>
-IMPORT <contactpoint-comment.shex>
-IMPORT <contactpoint-country.shex>
-IMPORT <contactpoint-extension.shex>
-IMPORT <contactpoint-local.shex>
-IMPORT <ContactPoint.shex>
-IMPORT <Contract.shex>
-IMPORT <Contributor.shex>
-IMPORT <Count.shex>
-IMPORT <CoverageEligibilityRequest.shex>
-IMPORT <CoverageEligibilityResponse.shex>
-IMPORT <Coverage.shex>
-IMPORT <cqf-alternativeExpression.shex>
-IMPORT <cqf-artifactComment.shex>
-IMPORT <cqf-calculatedValue.shex>
-IMPORT <cqf-cdsHooksEndpoint.shex>
-IMPORT <cqf-certainty.shex>
-IMPORT <cqf-citation.shex>
-IMPORT <cqf-contactAddress.shex>
-IMPORT <cqf-contactReference.shex>
-IMPORT <cqf-contributionTime.shex>
-IMPORT <cqf-directReferenceCode.shex>
-IMPORT <cqf-encounterClass.shex>
-IMPORT <cqf-encounterType.shex>
-IMPORT <cqf-expression.shex>
-IMPORT <cqf-initialValue.shex>
-IMPORT <cqf-initiatingOrganization.shex>
-IMPORT <cqf-initiatingPerson.shex>
-IMPORT <cqf-inputParameters.shex>
-IMPORT <cqf-knowledgeCapability.shex>
-IMPORT <cqf-knowledgeRepresentationLevel.shex>
-IMPORT <cqf-library.shex>
-IMPORT <cqf-logicDefinition.shex>
-IMPORT <cqf-measureInfo.shex>
-IMPORT <cqf-qualityOfEvidence.shex>
-IMPORT <cqf-receivingOrganization.shex>
-IMPORT <cqf-receivingPerson.shex>
-IMPORT <cqf-recipientLanguage.shex>
-IMPORT <cqf-recipientType.shex>
-IMPORT <cqf-relativeDateTime.shex>
-IMPORT <cqf-strengthOfRecommendation.shex>
-IMPORT <cqf-systemUserLanguage.shex>
-IMPORT <cqf-systemUserTaskContext.shex>
-IMPORT <cqf-systemUserType.shex>
-IMPORT <cqf-targetInvariant.shex>
-IMPORT <cqllibrary.shex>
-IMPORT <cqm-ValidityPeriod.shex>
-IMPORT <data-absent-reason.shex>
-IMPORT <DataRequirement.shex>
-IMPORT <DataType.shex>
-IMPORT <date.shex>
-IMPORT <dateTime.shex>
-IMPORT <decimal.shex>
-IMPORT <Definition.shex>
-IMPORT <derivation-reference.shex>
-IMPORT <designNote.shex>
-IMPORT <DetectedIssue.shex>
-IMPORT <device-commercialBrand.shex>
-IMPORT <DeviceDispense.shex>
-IMPORT <device-implantStatus.shex>
-IMPORT <devicemetricobservation.shex>
-IMPORT <DeviceMetric.shex>
-IMPORT <devicerequest-patientInstruction.shex>
-IMPORT <DeviceRequest.shex>
-IMPORT <Device.shex>
-IMPORT <DeviceUsage.shex>
-IMPORT <diagnosticReport-addendumOf.shex>
-IMPORT <diagnosticReport-extends.shex>
-IMPORT <diagnosticReport-locationPerformed.shex>
-IMPORT <diagnosticReport-replaces.shex>
-IMPORT <diagnosticReport-risk.shex>
-IMPORT <DiagnosticReport.shex>
-IMPORT <diagnosticReport-summaryOf.shex>
-IMPORT <display.shex>
-IMPORT <Distance.shex>
-IMPORT <DocumentManifest.shex>
-IMPORT <DocumentReference.shex>
-IMPORT <documentreference-thumbnail.shex>
-IMPORT <DomainResource.shex>
-IMPORT <dosage-conditions.shex>
-IMPORT <Dosage.shex>
-IMPORT <Duration.shex>
-IMPORT <ebmrecommendation.shex>
-IMPORT <elementdefinition-allowedUnits.shex>
-IMPORT <elementdefinition-bestpractice-explanation.shex>
-IMPORT <elementdefinition-bestpractice.shex>
-IMPORT <elementdefinition-bindingName.shex>
-IMPORT <elementdefinition-de.shex>
-IMPORT <elementdefinition-equivalence.shex>
-IMPORT <elementdefinition-identifier.shex>
-IMPORT <elementdefinition-inheritedExtensibleValueSet.shex>
-IMPORT <elementdefinition-isCommonBinding.shex>
-IMPORT <elementdefinition-maxValueSet.shex>
-IMPORT <elementdefinition-minValueSet.shex>
-IMPORT <elementdefinition-namespace.shex>
-IMPORT <elementdefinition-pattern.shex>
-IMPORT <elementdefinition-profile-element.shex>
-IMPORT <elementdefinition-question.shex>
-IMPORT <elementdefinition-selector.shex>
-IMPORT <elementdefinition-translatable.shex>
-IMPORT <elementdefinition-type-must-support.shex>
-IMPORT <Element.shex>
-IMPORT <elmlibrary.shex>
-IMPORT <encounter-associatedEncounter.shex>
-IMPORT <encounter-modeOfArrival.shex>
-IMPORT <encounter-reasonCancelled.shex>
-IMPORT <Encounter.shex>
-IMPORT <Endpoint.shex>
-IMPORT <EnrollmentRequest.shex>
-IMPORT <EnrollmentResponse.shex>
-IMPORT <entryFormat.shex>
-IMPORT <EpisodeOfCare.shex>
-IMPORT <event-basedOn.shex>
-IMPORT <event-eventHistory.shex>
-IMPORT <event-location.shex>
-IMPORT <event-partOf.shex>
-IMPORT <event-performerFunction.shex>
-IMPORT <Event.shex>
-IMPORT <event-statusReason.shex>
-IMPORT <EvidenceReport.shex>
-IMPORT <Evidence.shex>
-IMPORT <EvidenceVariable.shex>
-IMPORT <example-composition.shex>
-IMPORT <ExampleScenario.shex>
-IMPORT <example-section-library.shex>
-IMPORT <ExplanationOfBenefit.shex>
-IMPORT <Expression.shex>
-IMPORT <ExtendedContactDetail.shex>
-IMPORT <Extension.shex>
-IMPORT <familymemberhistory-abatement.shex>
-IMPORT <familymemberhistory-genetic.shex>
-IMPORT <family-member-history-genetics-observation.shex>
-IMPORT <family-member-history-genetics-parent.shex>
-IMPORT <family-member-history-genetics-sibling.shex>
-IMPORT <familymemberhistory-patient-record.shex>
-IMPORT <familymemberhistory-severity.shex>
-IMPORT <FamilyMemberHistory.shex>
-IMPORT <familymemberhistory-type.shex>
-IMPORT <fhirpathlibrary.shex>
-IMPORT <FiveWs.shex>
-IMPORT <flag-detail.shex>
-IMPORT <flag-priority.shex>
-IMPORT <Flag.shex>
-IMPORT <FormularyItem.shex>
-IMPORT <geolocation.shex>
-IMPORT <goal-acceptance.shex>
-IMPORT <goal-reasonRejected.shex>
-IMPORT <goal-relationship.shex>
-IMPORT <Goal.shex>
-IMPORT <groupdefinition.shex>
-IMPORT <Group.shex>
-IMPORT <hdlcholesterol.shex>
-IMPORT <headcircum.shex>
-IMPORT <HealthcareService.shex>
-IMPORT <heartrate.shex>
-IMPORT <http-response-header.shex>
-IMPORT <humanname-assembly-order.shex>
-IMPORT <humanname-fathers-family.shex>
-IMPORT <humanname-mothers-family.shex>
-IMPORT <humanname-own-name.shex>
-IMPORT <humanname-own-prefix.shex>
-IMPORT <humanname-partner-name.shex>
-IMPORT <humanname-partner-prefix.shex>
-IMPORT <HumanName.shex>
-IMPORT <Identifier.shex>
-IMPORT <identifier-validDate.shex>
-IMPORT <id.shex>
-IMPORT <ImagingSelection.shex>
-IMPORT <ImagingStudy.shex>
-IMPORT <ImmunizationEvaluation.shex>
-IMPORT <ImmunizationRecommendation.shex>
-IMPORT <Immunization.shex>
-IMPORT <ImplementationGuide.shex>
-IMPORT <individual-genderIdentity.shex>
-IMPORT <individual-pronouns.shex>
-IMPORT <individual-recordedSexOrGender.shex>
-IMPORT <Ingredient.shex>
-IMPORT <instant.shex>
-IMPORT <InsurancePlan.shex>
-IMPORT <integer64.shex>
-IMPORT <integer.shex>
-IMPORT <InventoryReport.shex>
-IMPORT <Invoice.shex>
-IMPORT <iso21090-AD-use.shex>
-IMPORT <iso21090-ADXP-additionalLocator.shex>
-IMPORT <iso21090-ADXP-buildingNumberSuffix.shex>
-IMPORT <iso21090-ADXP-careOf.shex>
-IMPORT <iso21090-ADXP-censusTract.shex>
-IMPORT <iso21090-ADXP-delimiter.shex>
-IMPORT <iso21090-ADXP-deliveryAddressLine.shex>
-IMPORT <iso21090-ADXP-deliveryInstallationArea.shex>
-IMPORT <iso21090-ADXP-deliveryInstallationQualifier.shex>
-IMPORT <iso21090-ADXP-deliveryInstallationType.shex>
-IMPORT <iso21090-ADXP-deliveryModeIdentifier.shex>
-IMPORT <iso21090-ADXP-deliveryMode.shex>
-IMPORT <iso21090-ADXP-direction.shex>
-IMPORT <iso21090-ADXP-houseNumberNumeric.shex>
-IMPORT <iso21090-ADXP-houseNumber.shex>
-IMPORT <iso21090-ADXP-postBox.shex>
-IMPORT <iso21090-ADXP-precinct.shex>
-IMPORT <iso21090-ADXP-streetAddressLine.shex>
-IMPORT <iso21090-ADXP-streetNameBase.shex>
-IMPORT <iso21090-ADXP-streetName.shex>
-IMPORT <iso21090-ADXP-streetNameType.shex>
-IMPORT <iso21090-ADXP-unitID.shex>
-IMPORT <iso21090-ADXP-unitType.shex>
-IMPORT <iso21090-EN-qualifier.shex>
-IMPORT <iso21090-EN-representation.shex>
-IMPORT <iso21090-EN-use.shex>
-IMPORT <iso21090-nullFlavor.shex>
-IMPORT <iso21090-PQ-translation.shex>
-IMPORT <iso21090-preferred.shex>
-IMPORT <iso21090-SC-coding.shex>
-IMPORT <iso21090-TEL-address.shex>
-IMPORT <iso21090-uncertainty.shex>
-IMPORT <iso21090-uncertaintyType.shex>
-IMPORT <language.shex>
-IMPORT <largeValue.shex>
-IMPORT <lastSourceSync.shex>
-IMPORT <ldlcholesterol.shex>
-IMPORT <Linkage.shex>
-IMPORT <lipidprofile.shex>
-IMPORT <list-changeBase.shex>
-IMPORT <List.shex>
-IMPORT <location-boundary-geojson.shex>
-IMPORT <location-distance.shex>
-IMPORT <Location.shex>
-IMPORT <logiclibrary.shex>
-IMPORT <markdown.shex>
-IMPORT <MarketingStatus.shex>
-IMPORT <match-grade.shex>
-IMPORT <maxDecimalPlaces.shex>
-IMPORT <maxSize.shex>
-IMPORT <maxValue.shex>
-IMPORT <MedicationAdministration.shex>
-IMPORT <medicationdispense-quantityRemaining.shex>
-IMPORT <medicationdispense-refillsRemaining.shex>
-IMPORT <MedicationDispense.shex>
-IMPORT <MedicationKnowledge.shex>
-IMPORT <medication-manufacturingBatch.shex>
-IMPORT <MedicationRequest.shex>
-IMPORT <Medication.shex>
-IMPORT <MedicationUsage.shex>
-IMPORT <messageheader-response-request.shex>
-IMPORT <MessageHeader.shex>
-IMPORT <MetadataResource.shex>
-IMPORT <Meta.shex>
-IMPORT <mimeType.shex>
-IMPORT <minLength.shex>
-IMPORT <minValue.shex>
-IMPORT <modelinfolibrary.shex>
-IMPORT <moduledefinitionlibrary.shex>
-IMPORT <MolecularSequence.shex>
-IMPORT <MoneyQuantity.shex>
-IMPORT <Money.shex>
-IMPORT <narrativeLink.shex>
-IMPORT <Narrative.shex>
-IMPORT <NutritionIntake.shex>
-IMPORT <nutritionorder-adaptiveFeedingDevice.shex>
-IMPORT <NutritionOrder.shex>
-IMPORT <NutritionProduct.shex>
-IMPORT <oauth-uris.shex>
-IMPORT <observation-bodyPosition.shex>
-IMPORT <observation-delta.shex>
-IMPORT <observation-deviceCode.shex>
-IMPORT <observation-focusCode.shex>
-IMPORT <observation-gatewayDevice.shex>
-IMPORT <observation-precondition.shex>
-IMPORT <observation-reagent.shex>
-IMPORT <observation-replaces.shex>
-IMPORT <observation-secondaryFinding.shex>
-IMPORT <observation-sequelTo.shex>
-IMPORT <Observation.shex>
-IMPORT <observation-specimenCode.shex>
-IMPORT <observation-timeOffset.shex>
-IMPORT <oid.shex>
-IMPORT <openEHR-administration.shex>
-IMPORT <openEHR-careplan.shex>
-IMPORT <openEHR-exposureDate.shex>
-IMPORT <openEHR-exposureDescription.shex>
-IMPORT <openEHR-exposureDuration.shex>
-IMPORT <openEHR-location.shex>
-IMPORT <openEHR-management.shex>
-IMPORT <openEHR-test.shex>
-IMPORT <operationdefinition-allowed-type.shex>
-IMPORT <operationdefinition-profile.shex>
-IMPORT <operationoutcome-authority.shex>
-IMPORT <operationoutcome-detectedIssue.shex>
-IMPORT <operationoutcome-issue-source.shex>
-IMPORT <OperationOutcome.shex>
-IMPORT <ordinalValue.shex>
-IMPORT <organizationaffiliation-primaryInd.shex>
-IMPORT <OrganizationAffiliation.shex>
-IMPORT <organization-period.shex>
-IMPORT <organization-preferredContact.shex>
-IMPORT <Organization.shex>
-IMPORT <originalText.shex>
-IMPORT <oxygensat.shex>
-IMPORT <parameters-fullUrl.shex>
-IMPORT <Parameters.shex>
-IMPORT <ParticipantContactable.shex>
-IMPORT <ParticipantLiving.shex>
-IMPORT <Participant.shex>
-IMPORT <patient-adoptionInfo.shex>
-IMPORT <patient-animal.shex>
-IMPORT <patient-birthPlace.shex>
-IMPORT <patient-birthTime.shex>
-IMPORT <patient-cadavericDonor.shex>
-IMPORT <patient-citizenship.shex>
-IMPORT <patient-congregation.shex>
-IMPORT <patient-disability.shex>
-IMPORT <patient-importance.shex>
-IMPORT <patient-interpreterRequired.shex>
-IMPORT <patient-mothersMaidenName.shex>
-IMPORT <patient-nationality.shex>
-IMPORT <patient-preferenceType.shex>
-IMPORT <patient-proficiency.shex>
-IMPORT <patient-relatedPerson.shex>
-IMPORT <patient-religion.shex>
-IMPORT <patient-sexForClinicalUse.shex>
-IMPORT <Patient.shex>
-IMPORT <PaymentNotice.shex>
-IMPORT <PaymentReconciliation.shex>
-IMPORT <Period.shex>
-IMPORT <Permission.shex>
-IMPORT <Person.shex>
-IMPORT <Population.shex>
-IMPORT <positiveInt.shex>
-IMPORT <practitioner-animalSpecies.shex>
-IMPORT <practitionerrole-primaryInd.shex>
-IMPORT <PractitionerRole.shex>
-IMPORT <Practitioner.shex>
-IMPORT <PrimitiveType.shex>
-IMPORT <procedure-approachBodyStructure.shex>
-IMPORT <procedure-causedBy.shex>
-IMPORT <procedure-directedBy.shex>
-IMPORT <procedure-incisionDateTime.shex>
-IMPORT <procedure-method.shex>
-IMPORT <procedure-progressStatus.shex>
-IMPORT <Procedure.shex>
-IMPORT <procedure-targetBodyStructure.shex>
-IMPORT <ProductShelfLife.shex>
-IMPORT <Product.shex>
-IMPORT <provenance-relevant-history.shex>
-IMPORT <Provenance.shex>
-IMPORT <publishablelibrary.shex>
-IMPORT <Publishable.shex>
-IMPORT <quantity-precision.shex>
-IMPORT <Quantity.shex>
-IMPORT <questionnaire-baseType.shex>
-IMPORT <questionnaire-choiceOrientation.shex>
-IMPORT <questionnaire-constraint.shex>
-IMPORT <questionnaire-definitionBased.shex>
-IMPORT <questionnaire-displayCategory.shex>
-IMPORT <questionnaire-fhirType.shex>
-IMPORT <questionnaire-hidden.shex>
-IMPORT <questionnaire-itemControl.shex>
-IMPORT <questionnaire-maxOccurs.shex>
-IMPORT <questionnaire-minOccurs.shex>
-IMPORT <questionnaire-optionExclusive.shex>
-IMPORT <questionnaire-optionPrefix.shex>
-IMPORT <questionnaire-optionRestriction.shex>
-IMPORT <questionnaire-referenceFilter.shex>
-IMPORT <questionnaire-referenceProfile.shex>
-IMPORT <questionnaire-referenceResource.shex>
-IMPORT <questionnaireresponse-attester.shex>
-IMPORT <questionnaireresponse-author.shex>
-IMPORT <questionnaireresponse-completionMode.shex>
-IMPORT <questionnaireresponse-reason.shex>
-IMPORT <questionnaireresponse-reviewer.shex>
-IMPORT <QuestionnaireResponse.shex>
-IMPORT <questionnaireresponse-signature.shex>
-IMPORT <Questionnaire.shex>
-IMPORT <questionnaire-signatureRequired.shex>
-IMPORT <questionnaire-sliderStepValue.shex>
-IMPORT <questionnaire-supportLink.shex>
-IMPORT <questionnaire-unitOption.shex>
-IMPORT <questionnaire-unit.shex>
-IMPORT <questionnaire-unitValueSet.shex>
-IMPORT <questionnaire-usageMode.shex>
-IMPORT <Range.shex>
-IMPORT <RatioRange.shex>
-IMPORT <Ratio.shex>
-IMPORT <Reference.shex>
-IMPORT <regex.shex>
-IMPORT <RegulatedAuthorization.shex>
-IMPORT <RelatedArtifact.shex>
-IMPORT <RelatedPerson.shex>
-IMPORT <relative-date.shex>
-IMPORT <rendered-value.shex>
-IMPORT <rendering-markdown.shex>
-IMPORT <rendering-styleSensitive.shex>
-IMPORT <rendering-style.shex>
-IMPORT <replaces.shex>
-IMPORT <request-doNotPerform.shex>
-IMPORT <RequestGroup.shex>
-IMPORT <request-insurance.shex>
-IMPORT <request-performerOrder.shex>
-IMPORT <request-relevantHistory.shex>
-IMPORT <request-replaces.shex>
-IMPORT <Request.shex>
-IMPORT <request-statusReason.shex>
-IMPORT <ResearchStudy.shex>
-IMPORT <researchStudy-siteRecruitment.shex>
-IMPORT <ResearchSubject.shex>
-IMPORT <resolve-as-version-specific.shex>
-IMPORT <resource-approvalDate.shex>
-IMPORT <resource-effectivePeriod.shex>
-IMPORT <resource-instance-description.shex>
-IMPORT <resource-instance-name.shex>
-IMPORT <resource-lastReviewDate.shex>
-IMPORT <resource-pertainsToGoal.shex>
-IMPORT <Resource.shex>
-IMPORT <resprate.shex>
-IMPORT <RiskAssessment.shex>
-IMPORT <SampledData.shex>
-IMPORT <Schedule.shex>
-IMPORT <servicerequest-precondition.shex>
-IMPORT <servicerequest-questionnaireRequest.shex>
-IMPORT <ServiceRequest.shex>
-IMPORT <shareableactivitydefinition.shex>
-IMPORT <shareablecodesystem.shex>
-IMPORT <shareablelibrary.shex>
-IMPORT <shareablemeasure.shex>
-IMPORT <shareableplandefinition.shex>
-IMPORT <Shareable.shex>
-IMPORT <shareabletestscript.shex>
-IMPORT <shareablevalueset.shex>
-IMPORT <Signature.shex>
-IMPORT <SimpleQuantity.shex>
-IMPORT <Slot.shex>
-IMPORT <specimen-collectionPriority.shex>
-IMPORT <specimen-isDryWeight.shex>
-IMPORT <specimen-processingTime.shex>
-IMPORT <specimen-sequenceNumber.shex>
-IMPORT <Specimen.shex>
-IMPORT <specimen-specialHandling.shex>
-IMPORT <string.shex>
-IMPORT <structuredefinition-ancestor.shex>
-IMPORT <structuredefinition-applicable-version.shex>
-IMPORT <structuredefinition-category.shex>
-IMPORT <structuredefinition-codegen-super.shex>
-IMPORT <structuredefinition-conformance-derivedFrom.shex>
-IMPORT <structuredefinition-dependencies.shex>
-IMPORT <structuredefinition-display-hint.shex>
-IMPORT <structuredefinition-explicit-type-name.shex>
-IMPORT <structuredefinition-fhir-type.shex>
-IMPORT <structuredefinition-fmm-no-warnings.shex>
-IMPORT <structuredefinition-fmm.shex>
-IMPORT <structuredefinition-fmm-support.shex>
-IMPORT <structuredefinition-hierarchy.shex>
-IMPORT <structuredefinition-interface.shex>
-IMPORT <structuredefinition-normative-version.shex>
-IMPORT <structuredefinition-security-category.shex>
-IMPORT <structuredefinition-standards-status.shex>
-IMPORT <structuredefinition-summary.shex>
-IMPORT <structuredefinition-table-name.shex>
-IMPORT <structuredefinition-template-status.shex>
-IMPORT <structuredefinition-wg.shex>
-IMPORT <structuredefinition-xml-no-order.shex>
-IMPORT <StructureMap.shex>
-IMPORT <Subscription.shex>
-IMPORT <SubscriptionStatus.shex>
-IMPORT <SubscriptionTopic.shex>
-IMPORT <SubstanceNucleicAcid.shex>
-IMPORT <SubstancePolymer.shex>
-IMPORT <SubstanceProtein.shex>
-IMPORT <SubstanceReferenceInformation.shex>
-IMPORT <Substance.shex>
-IMPORT <SubstanceSourceMaterial.shex>
-IMPORT <SupplyDelivery.shex>
-IMPORT <SupplyRequest.shex>
-IMPORT <targetElement.shex>
-IMPORT <targetPath.shex>
-IMPORT <task-candidateList.shex>
-IMPORT <task-replaces.shex>
-IMPORT <TestReport.shex>
-IMPORT <TestScript.shex>
-IMPORT <time.shex>
-IMPORT <timezone.shex>
-IMPORT <timing-dayOfMonth.shex>
-IMPORT <timing-daysOfCycle.shex>
-IMPORT <timing-exact.shex>
-IMPORT <Timing.shex>
-IMPORT <translation.shex>
-IMPORT <Transport.shex>
-IMPORT <triglyceride.shex>
-IMPORT <tz-offset.shex>
-IMPORT <unsignedInt.shex>
-IMPORT <uri.shex>
-IMPORT <url.shex>
-IMPORT <usagecontext-group.shex>
-IMPORT <UsageContext.shex>
-IMPORT <uuid.shex>
-IMPORT <valueset-authoritativeSource.shex>
-IMPORT <valueset-author.shex>
-IMPORT <valueset-caseSensitive.shex>
-IMPORT <valueset-compose-createdBy.shex>
-IMPORT <valueset-compose-creationDate.shex>
-IMPORT <valueset-compose-include-valueSetTitle.shex>
-IMPORT <valueset-concept-comments.shex>
-IMPORT <valueset-concept-definition.shex>
-IMPORT <valueset-conceptOrder.shex>
-IMPORT <valueset-deprecated.shex>
-IMPORT <valueset-effectiveDate.shex>
-IMPORT <valueset-expansionSource.shex>
-IMPORT <valueset-expirationDate.shex>
-IMPORT <valueset-expression.shex>
-IMPORT <valueset-extensible.shex>
-IMPORT <valueset-keyWord.shex>
-IMPORT <valueset-label.shex>
-IMPORT <valueset-map.shex>
-IMPORT <valueset-otherName.shex>
-IMPORT <valueset-otherTitle.shex>
-IMPORT <valueset-parameterSource.shex>
-IMPORT <valueset-reference.shex>
-IMPORT <valueset-rules-text.shex>
-IMPORT <valueset-sourceReference.shex>
-IMPORT <valueset-special-status.shex>
-IMPORT <valueset-status-activityStatusDate.shex>
-IMPORT <valueset-steward.shex>
-IMPORT <valueset-supplement.shex>
-IMPORT <valueset-systemRef.shex>
-IMPORT <valueset-system.shex>
-IMPORT <valueset-systemTitle.shex>
-IMPORT <valueset-toocostly.shex>
-IMPORT <valueset-trusted-expansion.shex>
-IMPORT <valueset-unclosed.shex>
-IMPORT <valueset-usage.shex>
-IMPORT <valueset-warning.shex>
-IMPORT <valueset-workflowStatusDescription.shex>
-IMPORT <variable.shex>
-IMPORT <VerificationResult.shex>
-IMPORT <VisionPrescription.shex>
-IMPORT <vitalsigns.shex>
-IMPORT <vitalspanel.shex>
-IMPORT <vsd-alignedvalueset.shex>
-IMPORT <workflow-episodeOfCare.shex>
-IMPORT <workflow-instantiatesCanonical.shex>
-IMPORT <workflow-instantiatesUri.shex>
-IMPORT <workflow-reasonCode.shex>
-IMPORT <workflow-reasonReference.shex>
-IMPORT <workflow-relatedArtifact.shex>
-IMPORT <workflow-researchStudy.shex>
-IMPORT <workflow-supportingInfo.shex>
+# IMPORT <Account.shex>
+# IMPORT <actualgroup.shex>
+# IMPORT <Address.shex>
+# IMPORT <AdverseEvent.shex>
+# IMPORT <Age.shex>
+# IMPORT <allergyintolerance-abatement.shex>
+# IMPORT <allergyintolerance-assertedDate.shex>
+# IMPORT <allergyintolerance-certainty.shex>
+# IMPORT <allergyintolerance-duration.shex>
+# IMPORT <allergyintolerance-reasonRefuted.shex>
+# IMPORT <allergyintolerance-resolutionAge.shex>
+# IMPORT <AllergyIntolerance.shex>
+# IMPORT <allergyintolerance-substanceExposureRisk.shex>
+# IMPORT <Annotation.shex>
+# IMPORT <AppointmentResponse.shex>
+# IMPORT <Appointment.shex>
+# IMPORT <ArtifactAssessment.shex>
+# IMPORT <artifact-author.shex>
+# IMPORT <artifact-contact.shex>
+# IMPORT <artifact-copyright.shex>
+# IMPORT <artifact-date.shex>
+# IMPORT <artifact-description.shex>
+# IMPORT <artifact-editor.shex>
+# IMPORT <artifact-endorser.shex>
+# IMPORT <artifact-experimental.shex>
+# IMPORT <artifact-identifier.shex>
+# IMPORT <artifact-jurisdiction.shex>
+# IMPORT <artifact-knowledgeCapability.shex>
+# IMPORT <artifact-knowledgeRepresentationLevel.shex>
+# IMPORT <artifact-name.shex>
+# IMPORT <artifact-publisher.shex>
+# IMPORT <artifact-purpose.shex>
+# IMPORT <artifact-relatedArtifact.shex>
+# IMPORT <artifact-reviewer.shex>
+# IMPORT <artifact-status.shex>
+# IMPORT <artifact-title.shex>
+# IMPORT <artifact-topic.shex>
+# IMPORT <artifact-url.shex>
+# IMPORT <artifact-useContext.shex>
+# IMPORT <artifact-version.shex>
+# IMPORT <Attachment.shex>
+# IMPORT <auditevent-Accession.shex>
+# IMPORT <auditevent-AlternativeUserID.shex>
+# IMPORT <auditevent-Anonymized.shex>
+# IMPORT <auditevent-Encrypted.shex>
+# IMPORT <auditevent-Instance.shex>
+# IMPORT <auditevent-Lifecycle.shex>
+# IMPORT <auditevent-MPPS.shex>
+# IMPORT <auditevent-NumberOfInstances.shex>
+# IMPORT <auditevent-ParticipantObjectContainsStudy.shex>
+# IMPORT <AuditEvent.shex>
+# IMPORT <auditevent-SOPClass.shex>
+# IMPORT <BackboneElement.shex>
+# IMPORT <BackboneType.shex>
+# IMPORT <base64Binary.shex>
+# IMPORT <Base.shex>
+# IMPORT <Basic.shex>
+# IMPORT <Binary.shex>
+# IMPORT <biologicallyderivedproduct-collection-procedure.shex>
+# IMPORT <biologicallyderivedproduct-manipulation.shex>
+# IMPORT <biologicallyderivedproduct-processing.shex>
+# IMPORT <BiologicallyDerivedProduct.shex>
+# IMPORT <bmi.shex>
+# IMPORT <bodyheight.shex>
+# IMPORT <bodySite.shex>
+# IMPORT <BodyStructure.shex>
+# IMPORT <bodytemp.shex>
+# IMPORT <bodyweight.shex>
+# IMPORT <boolean.shex>
+# IMPORT <bp.shex>
+# IMPORT <Bundle.shex>
+# IMPORT <CanonicalResource.shex>
+# IMPORT <canonical.shex>
+# IMPORT <capabilities.shex>
+# IMPORT <capabilitystatement2-expectation.shex>
+# IMPORT <capabilitystatement2-prohibited.shex>
+# IMPORT <capabilitystatement2-search-parameter-combination.shex>
+# IMPORT <CapabilityStatement2.shex>
+# IMPORT <capabilitystatement2-supported-system.shex>
+# IMPORT <capabilitystatement2-websocket.shex>
+# IMPORT <capabilitystatement-expectation.shex>
+# IMPORT <capabilitystatement-prohibited.shex>
+# IMPORT <capabilitystatement-search-parameter-combination.shex>
+# IMPORT <CapabilityStatement.shex>
+# IMPORT <capabilitystatement-supported-system.shex>
+# IMPORT <capabilitystatement-websocket.shex>
+# IMPORT <careplan-activity-title.shex>
+# IMPORT <CarePlan.shex>
+# IMPORT <careteam-alias.shex>
+# IMPORT <CareTeam.shex>
+# IMPORT <catalog.shex>
+# IMPORT <cdshooksguidanceresponse.shex>
+# IMPORT <cdshooksrequestgroup.shex>
+# IMPORT <cdshooksserviceplandefinition.shex>
+# IMPORT <ChargeItem.shex>
+# IMPORT <cholesterol.shex>
+# IMPORT <Citation.shex>
+# IMPORT <ClaimResponse.shex>
+# IMPORT <Claim.shex>
+# IMPORT <clinicaldocument.shex>
+# IMPORT <ClinicalImpression.shex>
+# IMPORT <CodeableConcept.shex>
+# IMPORT <CodeableReference.shex>
+# IMPORT <code.shex>
+# IMPORT <codesystem-alternate.shex>
+# IMPORT <codesystem-author.shex>
+# IMPORT <codesystem-concept-comments.shex>
+# IMPORT <codesystem-conceptOrder.shex>
+# IMPORT <codesystem-effectiveDate.shex>
+# IMPORT <codesystem-expirationDate.shex>
+# IMPORT <codesystem-history.shex>
+# IMPORT <codesystem-keyWord.shex>
+# IMPORT <codesystem-label.shex>
+# IMPORT <codesystem-map.shex>
+# IMPORT <codesystem-otherName.shex>
+# IMPORT <codesystem-properties-mode.shex>
+# IMPORT <codesystem-replacedby.shex>
+# IMPORT <codesystem-sourceReference.shex>
+# IMPORT <codesystem-trusted-expansion.shex>
+# IMPORT <codesystem-usage.shex>
+# IMPORT <codesystem-use-markdown.shex>
+# IMPORT <codesystem-warning.shex>
+# IMPORT <codesystem-workflowStatus.shex>
+# IMPORT <coding-conformance.shex>
+# IMPORT <coding-sctdescid.shex>
+# IMPORT <Coding.shex>
+# IMPORT <communication-media.shex>
+# IMPORT <communicationrequest-initiatingLocation.shex>
+# IMPORT <CommunicationRequest.shex>
+# IMPORT <Communication.shex>
+# IMPORT <composition-clinicaldocument-otherConfidentiality.shex>
+# IMPORT <composition-clinicaldocument-versionNumber.shex>
+# IMPORT <composition-section-subject.shex>
+# IMPORT <Composition.shex>
+# IMPORT <computableplandefinition.shex>
+# IMPORT <concept-bidirectional.shex>
+# IMPORT <condition-assertedDate.shex>
+# IMPORT <ConditionDefinition.shex>
+# IMPORT <condition-diseaseCourse.shex>
+# IMPORT <condition-dueTo.shex>
+# IMPORT <condition-occurredFollowing.shex>
+# IMPORT <condition-outcome.shex>
+# IMPORT <condition-related.shex>
+# IMPORT <condition-reviewed.shex>
+# IMPORT <condition-ruledOut.shex>
+# IMPORT <Condition.shex>
+# IMPORT <consent-location.shex>
+# IMPORT <consent-NotificationEndpoint.shex>
+# IMPORT <consent-ResearchStudyContext.shex>
+# IMPORT <Consent.shex>
+# IMPORT <consent-Transcriber.shex>
+# IMPORT <consent-Witness.shex>
+# IMPORT <ContactDetail.shex>
+# IMPORT <contactpoint-area.shex>
+# IMPORT <contactpoint-comment.shex>
+# IMPORT <contactpoint-country.shex>
+# IMPORT <contactpoint-extension.shex>
+# IMPORT <contactpoint-local.shex>
+# IMPORT <ContactPoint.shex>
+# IMPORT <Contract.shex>
+# IMPORT <Contributor.shex>
+# IMPORT <Count.shex>
+# IMPORT <CoverageEligibilityRequest.shex>
+# IMPORT <CoverageEligibilityResponse.shex>
+# IMPORT <Coverage.shex>
+# IMPORT <cqf-alternativeExpression.shex>
+# IMPORT <cqf-artifactComment.shex>
+# IMPORT <cqf-calculatedValue.shex>
+# IMPORT <cqf-cdsHooksEndpoint.shex>
+# IMPORT <cqf-certainty.shex>
+# IMPORT <cqf-citation.shex>
+# IMPORT <cqf-contactAddress.shex>
+# IMPORT <cqf-contactReference.shex>
+# IMPORT <cqf-contributionTime.shex>
+# IMPORT <cqf-directReferenceCode.shex>
+# IMPORT <cqf-encounterClass.shex>
+# IMPORT <cqf-encounterType.shex>
+# IMPORT <cqf-expression.shex>
+# IMPORT <cqf-initialValue.shex>
+# IMPORT <cqf-initiatingOrganization.shex>
+# IMPORT <cqf-initiatingPerson.shex>
+# IMPORT <cqf-inputParameters.shex>
+# IMPORT <cqf-knowledgeCapability.shex>
+# IMPORT <cqf-knowledgeRepresentationLevel.shex>
+# IMPORT <cqf-library.shex>
+# IMPORT <cqf-logicDefinition.shex>
+# IMPORT <cqf-measureInfo.shex>
+# IMPORT <cqf-qualityOfEvidence.shex>
+# IMPORT <cqf-receivingOrganization.shex>
+# IMPORT <cqf-receivingPerson.shex>
+# IMPORT <cqf-recipientLanguage.shex>
+# IMPORT <cqf-recipientType.shex>
+# IMPORT <cqf-relativeDateTime.shex>
+# IMPORT <cqf-strengthOfRecommendation.shex>
+# IMPORT <cqf-systemUserLanguage.shex>
+# IMPORT <cqf-systemUserTaskContext.shex>
+# IMPORT <cqf-systemUserType.shex>
+# IMPORT <cqf-targetInvariant.shex>
+# IMPORT <cqllibrary.shex>
+# IMPORT <cqm-ValidityPeriod.shex>
+# IMPORT <data-absent-reason.shex>
+# IMPORT <DataRequirement.shex>
+# IMPORT <DataType.shex>
+# IMPORT <date.shex>
+# IMPORT <dateTime.shex>
+# IMPORT <decimal.shex>
+# IMPORT <Definition.shex>
+# IMPORT <derivation-reference.shex>
+# IMPORT <designNote.shex>
+# IMPORT <DetectedIssue.shex>
+# IMPORT <device-commercialBrand.shex>
+# IMPORT <DeviceDispense.shex>
+# IMPORT <device-implantStatus.shex>
+# IMPORT <devicemetricobservation.shex>
+# IMPORT <DeviceMetric.shex>
+# IMPORT <devicerequest-patientInstruction.shex>
+# IMPORT <DeviceRequest.shex>
+# IMPORT <Device.shex>
+# IMPORT <DeviceUsage.shex>
+# IMPORT <diagnosticReport-addendumOf.shex>
+# IMPORT <diagnosticReport-extends.shex>
+# IMPORT <diagnosticReport-locationPerformed.shex>
+# IMPORT <diagnosticReport-replaces.shex>
+# IMPORT <diagnosticReport-risk.shex>
+# IMPORT <DiagnosticReport.shex>
+# IMPORT <diagnosticReport-summaryOf.shex>
+# IMPORT <display.shex>
+# IMPORT <Distance.shex>
+# IMPORT <DocumentManifest.shex>
+# IMPORT <DocumentReference.shex>
+# IMPORT <documentreference-thumbnail.shex>
+# IMPORT <DomainResource.shex>
+# IMPORT <dosage-conditions.shex>
+# IMPORT <Dosage.shex>
+# IMPORT <Duration.shex>
+# IMPORT <ebmrecommendation.shex>
+# IMPORT <elementdefinition-allowedUnits.shex>
+# IMPORT <elementdefinition-bestpractice-explanation.shex>
+# IMPORT <elementdefinition-bestpractice.shex>
+# IMPORT <elementdefinition-bindingName.shex>
+# IMPORT <elementdefinition-de.shex>
+# IMPORT <elementdefinition-equivalence.shex>
+# IMPORT <elementdefinition-identifier.shex>
+# IMPORT <elementdefinition-inheritedExtensibleValueSet.shex>
+# IMPORT <elementdefinition-isCommonBinding.shex>
+# IMPORT <elementdefinition-maxValueSet.shex>
+# IMPORT <elementdefinition-minValueSet.shex>
+# IMPORT <elementdefinition-namespace.shex>
+# IMPORT <elementdefinition-pattern.shex>
+# IMPORT <elementdefinition-profile-element.shex>
+# IMPORT <elementdefinition-question.shex>
+# IMPORT <elementdefinition-selector.shex>
+# IMPORT <elementdefinition-translatable.shex>
+# IMPORT <elementdefinition-type-must-support.shex>
+# IMPORT <Element.shex>
+# IMPORT <elmlibrary.shex>
+# IMPORT <encounter-associatedEncounter.shex>
+# IMPORT <encounter-modeOfArrival.shex>
+# IMPORT <encounter-reasonCancelled.shex>
+# IMPORT <Encounter.shex>
+# IMPORT <Endpoint.shex>
+# IMPORT <EnrollmentRequest.shex>
+# IMPORT <EnrollmentResponse.shex>
+# IMPORT <entryFormat.shex>
+# IMPORT <EpisodeOfCare.shex>
+# IMPORT <event-basedOn.shex>
+# IMPORT <event-eventHistory.shex>
+# IMPORT <event-location.shex>
+# IMPORT <event-partOf.shex>
+# IMPORT <event-performerFunction.shex>
+# IMPORT <Event.shex>
+# IMPORT <event-statusReason.shex>
+# IMPORT <EvidenceReport.shex>
+# IMPORT <Evidence.shex>
+# IMPORT <EvidenceVariable.shex>
+# IMPORT <example-composition.shex>
+# IMPORT <ExampleScenario.shex>
+# IMPORT <example-section-library.shex>
+# IMPORT <ExplanationOfBenefit.shex>
+# IMPORT <Expression.shex>
+# IMPORT <ExtendedContactDetail.shex>
+# IMPORT <Extension.shex>
+# IMPORT <familymemberhistory-abatement.shex>
+# IMPORT <familymemberhistory-genetic.shex>
+# IMPORT <family-member-history-genetics-observation.shex>
+# IMPORT <family-member-history-genetics-parent.shex>
+# IMPORT <family-member-history-genetics-sibling.shex>
+# IMPORT <familymemberhistory-patient-record.shex>
+# IMPORT <familymemberhistory-severity.shex>
+# IMPORT <FamilyMemberHistory.shex>
+# IMPORT <familymemberhistory-type.shex>
+# IMPORT <fhirpathlibrary.shex>
+# IMPORT <FiveWs.shex>
+# IMPORT <flag-detail.shex>
+# IMPORT <flag-priority.shex>
+# IMPORT <Flag.shex>
+# IMPORT <FormularyItem.shex>
+# IMPORT <geolocation.shex>
+# IMPORT <goal-acceptance.shex>
+# IMPORT <goal-reasonRejected.shex>
+# IMPORT <goal-relationship.shex>
+# IMPORT <Goal.shex>
+# IMPORT <groupdefinition.shex>
+# IMPORT <Group.shex>
+# IMPORT <hdlcholesterol.shex>
+# IMPORT <headcircum.shex>
+# IMPORT <HealthcareService.shex>
+# IMPORT <heartrate.shex>
+# IMPORT <http-response-header.shex>
+# IMPORT <humanname-assembly-order.shex>
+# IMPORT <humanname-fathers-family.shex>
+# IMPORT <humanname-mothers-family.shex>
+# IMPORT <humanname-own-name.shex>
+# IMPORT <humanname-own-prefix.shex>
+# IMPORT <humanname-partner-name.shex>
+# IMPORT <humanname-partner-prefix.shex>
+# IMPORT <HumanName.shex>
+# IMPORT <Identifier.shex>
+# IMPORT <identifier-validDate.shex>
+# IMPORT <id.shex>
+# IMPORT <ImagingSelection.shex>
+# IMPORT <ImagingStudy.shex>
+# IMPORT <ImmunizationEvaluation.shex>
+# IMPORT <ImmunizationRecommendation.shex>
+# IMPORT <Immunization.shex>
+# IMPORT <ImplementationGuide.shex>
+# IMPORT <individual-genderIdentity.shex>
+# IMPORT <individual-pronouns.shex>
+# IMPORT <individual-recordedSexOrGender.shex>
+# IMPORT <Ingredient.shex>
+# IMPORT <instant.shex>
+# IMPORT <InsurancePlan.shex>
+# IMPORT <integer64.shex>
+# IMPORT <integer.shex>
+# IMPORT <InventoryReport.shex>
+# IMPORT <Invoice.shex>
+# IMPORT <iso21090-AD-use.shex>
+# IMPORT <iso21090-ADXP-additionalLocator.shex>
+# IMPORT <iso21090-ADXP-buildingNumberSuffix.shex>
+# IMPORT <iso21090-ADXP-careOf.shex>
+# IMPORT <iso21090-ADXP-censusTract.shex>
+# IMPORT <iso21090-ADXP-delimiter.shex>
+# IMPORT <iso21090-ADXP-deliveryAddressLine.shex>
+# IMPORT <iso21090-ADXP-deliveryInstallationArea.shex>
+# IMPORT <iso21090-ADXP-deliveryInstallationQualifier.shex>
+# IMPORT <iso21090-ADXP-deliveryInstallationType.shex>
+# IMPORT <iso21090-ADXP-deliveryModeIdentifier.shex>
+# IMPORT <iso21090-ADXP-deliveryMode.shex>
+# IMPORT <iso21090-ADXP-direction.shex>
+# IMPORT <iso21090-ADXP-houseNumberNumeric.shex>
+# IMPORT <iso21090-ADXP-houseNumber.shex>
+# IMPORT <iso21090-ADXP-postBox.shex>
+# IMPORT <iso21090-ADXP-precinct.shex>
+# IMPORT <iso21090-ADXP-streetAddressLine.shex>
+# IMPORT <iso21090-ADXP-streetNameBase.shex>
+# IMPORT <iso21090-ADXP-streetName.shex>
+# IMPORT <iso21090-ADXP-streetNameType.shex>
+# IMPORT <iso21090-ADXP-unitID.shex>
+# IMPORT <iso21090-ADXP-unitType.shex>
+# IMPORT <iso21090-EN-qualifier.shex>
+# IMPORT <iso21090-EN-representation.shex>
+# IMPORT <iso21090-EN-use.shex>
+# IMPORT <iso21090-nullFlavor.shex>
+# IMPORT <iso21090-PQ-translation.shex>
+# IMPORT <iso21090-preferred.shex>
+# IMPORT <iso21090-SC-coding.shex>
+# IMPORT <iso21090-TEL-address.shex>
+# IMPORT <iso21090-uncertainty.shex>
+# IMPORT <iso21090-uncertaintyType.shex>
+# IMPORT <language.shex>
+# IMPORT <largeValue.shex>
+# IMPORT <lastSourceSync.shex>
+# IMPORT <ldlcholesterol.shex>
+# IMPORT <Linkage.shex>
+# IMPORT <lipidprofile.shex>
+# IMPORT <list-changeBase.shex>
+# IMPORT <List.shex>
+# IMPORT <location-boundary-geojson.shex>
+# IMPORT <location-distance.shex>
+# IMPORT <Location.shex>
+# IMPORT <logiclibrary.shex>
+# IMPORT <markdown.shex>
+# IMPORT <MarketingStatus.shex>
+# IMPORT <match-grade.shex>
+# IMPORT <maxDecimalPlaces.shex>
+# IMPORT <maxSize.shex>
+# IMPORT <maxValue.shex>
+# IMPORT <MedicationAdministration.shex>
+# IMPORT <medicationdispense-quantityRemaining.shex>
+# IMPORT <medicationdispense-refillsRemaining.shex>
+# IMPORT <MedicationDispense.shex>
+# IMPORT <MedicationKnowledge.shex>
+# IMPORT <medication-manufacturingBatch.shex>
+# IMPORT <MedicationRequest.shex>
+# IMPORT <Medication.shex>
+# IMPORT <MedicationUsage.shex>
+# IMPORT <messageheader-response-request.shex>
+# IMPORT <MessageHeader.shex>
+# IMPORT <MetadataResource.shex>
+# IMPORT <Meta.shex>
+# IMPORT <mimeType.shex>
+# IMPORT <minLength.shex>
+# IMPORT <minValue.shex>
+# IMPORT <modelinfolibrary.shex>
+# IMPORT <moduledefinitionlibrary.shex>
+# IMPORT <MolecularSequence.shex>
+# IMPORT <MoneyQuantity.shex>
+# IMPORT <Money.shex>
+# IMPORT <narrativeLink.shex>
+# IMPORT <Narrative.shex>
+# IMPORT <NutritionIntake.shex>
+# IMPORT <nutritionorder-adaptiveFeedingDevice.shex>
+# IMPORT <NutritionOrder.shex>
+# IMPORT <NutritionProduct.shex>
+# IMPORT <oauth-uris.shex>
+# IMPORT <observation-bodyPosition.shex>
+# IMPORT <observation-delta.shex>
+# IMPORT <observation-deviceCode.shex>
+# IMPORT <observation-focusCode.shex>
+# IMPORT <observation-gatewayDevice.shex>
+# IMPORT <observation-precondition.shex>
+# IMPORT <observation-reagent.shex>
+# IMPORT <observation-replaces.shex>
+# IMPORT <observation-secondaryFinding.shex>
+# IMPORT <observation-sequelTo.shex>
+# IMPORT <Observation.shex>
+# IMPORT <observation-specimenCode.shex>
+# IMPORT <observation-timeOffset.shex>
+# IMPORT <oid.shex>
+# IMPORT <openEHR-administration.shex>
+# IMPORT <openEHR-careplan.shex>
+# IMPORT <openEHR-exposureDate.shex>
+# IMPORT <openEHR-exposureDescription.shex>
+# IMPORT <openEHR-exposureDuration.shex>
+# IMPORT <openEHR-location.shex>
+# IMPORT <openEHR-management.shex>
+# IMPORT <openEHR-test.shex>
+# IMPORT <operationdefinition-allowed-type.shex>
+# IMPORT <operationdefinition-profile.shex>
+# IMPORT <operationoutcome-authority.shex>
+# IMPORT <operationoutcome-detectedIssue.shex>
+# IMPORT <operationoutcome-issue-source.shex>
+# IMPORT <OperationOutcome.shex>
+# IMPORT <ordinalValue.shex>
+# IMPORT <organizationaffiliation-primaryInd.shex>
+# IMPORT <OrganizationAffiliation.shex>
+# IMPORT <organization-period.shex>
+# IMPORT <organization-preferredContact.shex>
+# IMPORT <Organization.shex>
+# IMPORT <originalText.shex>
+# IMPORT <oxygensat.shex>
+# IMPORT <parameters-fullUrl.shex>
+# IMPORT <Parameters.shex>
+# IMPORT <ParticipantContactable.shex>
+# IMPORT <ParticipantLiving.shex>
+# IMPORT <Participant.shex>
+# IMPORT <patient-adoptionInfo.shex>
+# IMPORT <patient-animal.shex>
+# IMPORT <patient-birthPlace.shex>
+# IMPORT <patient-birthTime.shex>
+# IMPORT <patient-cadavericDonor.shex>
+# IMPORT <patient-citizenship.shex>
+# IMPORT <patient-congregation.shex>
+# IMPORT <patient-disability.shex>
+# IMPORT <patient-importance.shex>
+# IMPORT <patient-interpreterRequired.shex>
+# IMPORT <patient-mothersMaidenName.shex>
+# IMPORT <patient-nationality.shex>
+# IMPORT <patient-preferenceType.shex>
+# IMPORT <patient-proficiency.shex>
+# IMPORT <patient-relatedPerson.shex>
+# IMPORT <patient-religion.shex>
+# IMPORT <patient-sexForClinicalUse.shex>
+# IMPORT <Patient.shex>
+# IMPORT <PaymentNotice.shex>
+# IMPORT <PaymentReconciliation.shex>
+# IMPORT <Period.shex>
+# IMPORT <Permission.shex>
+# IMPORT <Person.shex>
+# IMPORT <Population.shex>
+# IMPORT <positiveInt.shex>
+# IMPORT <practitioner-animalSpecies.shex>
+# IMPORT <practitionerrole-primaryInd.shex>
+# IMPORT <PractitionerRole.shex>
+# IMPORT <Practitioner.shex>
+# IMPORT <PrimitiveType.shex>
+# IMPORT <procedure-approachBodyStructure.shex>
+# IMPORT <procedure-causedBy.shex>
+# IMPORT <procedure-directedBy.shex>
+# IMPORT <procedure-incisionDateTime.shex>
+# IMPORT <procedure-method.shex>
+# IMPORT <procedure-progressStatus.shex>
+# IMPORT <Procedure.shex>
+# IMPORT <procedure-targetBodyStructure.shex>
+# IMPORT <ProductShelfLife.shex>
+# IMPORT <Product.shex>
+# IMPORT <provenance-relevant-history.shex>
+# IMPORT <Provenance.shex>
+# IMPORT <publishablelibrary.shex>
+# IMPORT <Publishable.shex>
+# IMPORT <quantity-precision.shex>
+# IMPORT <Quantity.shex>
+# IMPORT <questionnaire-baseType.shex>
+# IMPORT <questionnaire-choiceOrientation.shex>
+# IMPORT <questionnaire-constraint.shex>
+# IMPORT <questionnaire-definitionBased.shex>
+# IMPORT <questionnaire-displayCategory.shex>
+# IMPORT <questionnaire-fhirType.shex>
+# IMPORT <questionnaire-hidden.shex>
+# IMPORT <questionnaire-itemControl.shex>
+# IMPORT <questionnaire-maxOccurs.shex>
+# IMPORT <questionnaire-minOccurs.shex>
+# IMPORT <questionnaire-optionExclusive.shex>
+# IMPORT <questionnaire-optionPrefix.shex>
+# IMPORT <questionnaire-optionRestriction.shex>
+# IMPORT <questionnaire-referenceFilter.shex>
+# IMPORT <questionnaire-referenceProfile.shex>
+# IMPORT <questionnaire-referenceResource.shex>
+# IMPORT <questionnaireresponse-attester.shex>
+# IMPORT <questionnaireresponse-author.shex>
+# IMPORT <questionnaireresponse-completionMode.shex>
+# IMPORT <questionnaireresponse-reason.shex>
+# IMPORT <questionnaireresponse-reviewer.shex>
+# IMPORT <QuestionnaireResponse.shex>
+# IMPORT <questionnaireresponse-signature.shex>
+# IMPORT <Questionnaire.shex>
+# IMPORT <questionnaire-signatureRequired.shex>
+# IMPORT <questionnaire-sliderStepValue.shex>
+# IMPORT <questionnaire-supportLink.shex>
+# IMPORT <questionnaire-unitOption.shex>
+# IMPORT <questionnaire-unit.shex>
+# IMPORT <questionnaire-unitValueSet.shex>
+# IMPORT <questionnaire-usageMode.shex>
+# IMPORT <Range.shex>
+# IMPORT <RatioRange.shex>
+# IMPORT <Ratio.shex>
+# IMPORT <Reference.shex>
+# IMPORT <regex.shex>
+# IMPORT <RegulatedAuthorization.shex>
+# IMPORT <RelatedArtifact.shex>
+# IMPORT <RelatedPerson.shex>
+# IMPORT <relative-date.shex>
+# IMPORT <rendered-value.shex>
+# IMPORT <rendering-markdown.shex>
+# IMPORT <rendering-styleSensitive.shex>
+# IMPORT <rendering-style.shex>
+# IMPORT <replaces.shex>
+# IMPORT <request-doNotPerform.shex>
+# IMPORT <RequestGroup.shex>
+# IMPORT <request-insurance.shex>
+# IMPORT <request-performerOrder.shex>
+# IMPORT <request-relevantHistory.shex>
+# IMPORT <request-replaces.shex>
+# IMPORT <Request.shex>
+# IMPORT <request-statusReason.shex>
+# IMPORT <ResearchStudy.shex>
+# IMPORT <researchStudy-siteRecruitment.shex>
+# IMPORT <ResearchSubject.shex>
+# IMPORT <resolve-as-version-specific.shex>
+# IMPORT <resource-approvalDate.shex>
+# IMPORT <resource-effectivePeriod.shex>
+# IMPORT <resource-instance-description.shex>
+# IMPORT <resource-instance-name.shex>
+# IMPORT <resource-lastReviewDate.shex>
+# IMPORT <resource-pertainsToGoal.shex>
+# IMPORT <Resource.shex>
+# IMPORT <resprate.shex>
+# IMPORT <RiskAssessment.shex>
+# IMPORT <SampledData.shex>
+# IMPORT <Schedule.shex>
+# IMPORT <servicerequest-precondition.shex>
+# IMPORT <servicerequest-questionnaireRequest.shex>
+# IMPORT <ServiceRequest.shex>
+# IMPORT <shareableactivitydefinition.shex>
+# IMPORT <shareablecodesystem.shex>
+# IMPORT <shareablelibrary.shex>
+# IMPORT <shareablemeasure.shex>
+# IMPORT <shareableplandefinition.shex>
+# IMPORT <Shareable.shex>
+# IMPORT <shareabletestscript.shex>
+# IMPORT <shareablevalueset.shex>
+# IMPORT <Signature.shex>
+# IMPORT <SimpleQuantity.shex>
+# IMPORT <Slot.shex>
+# IMPORT <specimen-collectionPriority.shex>
+# IMPORT <specimen-isDryWeight.shex>
+# IMPORT <specimen-processingTime.shex>
+# IMPORT <specimen-sequenceNumber.shex>
+# IMPORT <Specimen.shex>
+# IMPORT <specimen-specialHandling.shex>
+# IMPORT <string.shex>
+# IMPORT <structuredefinition-ancestor.shex>
+# IMPORT <structuredefinition-applicable-version.shex>
+# IMPORT <structuredefinition-category.shex>
+# IMPORT <structuredefinition-codegen-super.shex>
+# IMPORT <structuredefinition-conformance-derivedFrom.shex>
+# IMPORT <structuredefinition-dependencies.shex>
+# IMPORT <structuredefinition-display-hint.shex>
+# IMPORT <structuredefinition-explicit-type-name.shex>
+# IMPORT <structuredefinition-fhir-type.shex>
+# IMPORT <structuredefinition-fmm-no-warnings.shex>
+# IMPORT <structuredefinition-fmm.shex>
+# IMPORT <structuredefinition-fmm-support.shex>
+# IMPORT <structuredefinition-hierarchy.shex>
+# IMPORT <structuredefinition-interface.shex>
+# IMPORT <structuredefinition-normative-version.shex>
+# IMPORT <structuredefinition-security-category.shex>
+# IMPORT <structuredefinition-standards-status.shex>
+# IMPORT <structuredefinition-summary.shex>
+# IMPORT <structuredefinition-table-name.shex>
+# IMPORT <structuredefinition-template-status.shex>
+# IMPORT <structuredefinition-wg.shex>
+# IMPORT <structuredefinition-xml-no-order.shex>
+# IMPORT <StructureMap.shex>
+# IMPORT <Subscription.shex>
+# IMPORT <SubscriptionStatus.shex>
+# IMPORT <SubscriptionTopic.shex>
+# IMPORT <SubstanceNucleicAcid.shex>
+# IMPORT <SubstancePolymer.shex>
+# IMPORT <SubstanceProtein.shex>
+# IMPORT <SubstanceReferenceInformation.shex>
+# IMPORT <Substance.shex>
+# IMPORT <SubstanceSourceMaterial.shex>
+# IMPORT <SupplyDelivery.shex>
+# IMPORT <SupplyRequest.shex>
+# IMPORT <targetElement.shex>
+# IMPORT <targetPath.shex>
+# IMPORT <task-candidateList.shex>
+# IMPORT <task-replaces.shex>
+# IMPORT <TestReport.shex>
+# IMPORT <TestScript.shex>
+# IMPORT <time.shex>
+# IMPORT <timezone.shex>
+# IMPORT <timing-dayOfMonth.shex>
+# IMPORT <timing-daysOfCycle.shex>
+# IMPORT <timing-exact.shex>
+# IMPORT <Timing.shex>
+# IMPORT <translation.shex>
+# IMPORT <Transport.shex>
+# IMPORT <triglyceride.shex>
+# IMPORT <tz-offset.shex>
+# IMPORT <unsignedInt.shex>
+# IMPORT <uri.shex>
+# IMPORT <url.shex>
+# IMPORT <usagecontext-group.shex>
+# IMPORT <UsageContext.shex>
+# IMPORT <uuid.shex>
+# IMPORT <valueset-authoritativeSource.shex>
+# IMPORT <valueset-author.shex>
+# IMPORT <valueset-caseSensitive.shex>
+# IMPORT <valueset-compose-createdBy.shex>
+# IMPORT <valueset-compose-creationDate.shex>
+# IMPORT <valueset-compose-include-valueSetTitle.shex>
+# IMPORT <valueset-concept-comments.shex>
+# IMPORT <valueset-concept-definition.shex>
+# IMPORT <valueset-conceptOrder.shex>
+# IMPORT <valueset-deprecated.shex>
+# IMPORT <valueset-effectiveDate.shex>
+# IMPORT <valueset-expansionSource.shex>
+# IMPORT <valueset-expirationDate.shex>
+# IMPORT <valueset-expression.shex>
+# IMPORT <valueset-extensible.shex>
+# IMPORT <valueset-keyWord.shex>
+# IMPORT <valueset-label.shex>
+# IMPORT <valueset-map.shex>
+# IMPORT <valueset-otherName.shex>
+# IMPORT <valueset-otherTitle.shex>
+# IMPORT <valueset-parameterSource.shex>
+# IMPORT <valueset-reference.shex>
+# IMPORT <valueset-rules-text.shex>
+# IMPORT <valueset-sourceReference.shex>
+# IMPORT <valueset-special-status.shex>
+# IMPORT <valueset-status-activityStatusDate.shex>
+# IMPORT <valueset-steward.shex>
+# IMPORT <valueset-supplement.shex>
+# IMPORT <valueset-systemRef.shex>
+# IMPORT <valueset-system.shex>
+# IMPORT <valueset-systemTitle.shex>
+# IMPORT <valueset-toocostly.shex>
+# IMPORT <valueset-trusted-expansion.shex>
+# IMPORT <valueset-unclosed.shex>
+# IMPORT <valueset-usage.shex>
+# IMPORT <valueset-warning.shex>
+# IMPORT <valueset-workflowStatusDescription.shex>
+# IMPORT <variable.shex>
+# IMPORT <VerificationResult.shex>
+# IMPORT <VisionPrescription.shex>
+# IMPORT <vitalsigns.shex>
+# IMPORT <vitalspanel.shex>
+# IMPORT <vsd-alignedvalueset.shex>
+# IMPORT <workflow-episodeOfCare.shex>
+# IMPORT <workflow-instantiatesCanonical.shex>
+# IMPORT <workflow-instantiatesUri.shex>
+# IMPORT <workflow-reasonCode.shex>
+# IMPORT <workflow-reasonReference.shex>
+# IMPORT <workflow-relatedArtifact.shex>
+# IMPORT <workflow-researchStudy.shex>
+# IMPORT <workflow-supportingInfo.shex>

@@ -40,8 +40,8 @@ start=@<EnrollmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# This value set includes Status codes.
-fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
-
 # The outcome of the processing.
 fhirvs:enrollment-outcome ["queued" "complete" "error" "partial"]
+
+# This value set includes Status codes.
+fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]

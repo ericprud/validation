@@ -21,18 +21,7 @@ BASE <http://hl7.org/fhir/shape/>
                                             # = highest) 
     fhir:period @<Period>?;                 # Time period when the contact point 
                                             # was/is in use 
-} AND (
-
-# Constraint UniqueKey:cpt-2
-# Human readable:A system is required if a value is provided.
-
-# Constraint: value.empty() or system.exists()
-# ShEx:
-
- NOT { fhir:value {fhir:v .} }  OR {fhir:system .}
-
-)
- 
+}  
 
 #---------------------- Value Sets ------------------------
 

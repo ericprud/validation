@@ -19,20 +19,4 @@ BASE <http://hl7.org/fhir/shape/>
     ^fhir:extension { a [fhir:Resource] OR 
     				a [fhir:Element]
     		}
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# Unmapped construct found: where
-# # Constraint UniqueKey:der-1
-# Human readable:Cannot have length if offset is missing.
-#
-# Constraint: extension.where(url='length').exists() implies extension.where(url='offset').exists()
-# ShEx:
-#
-#{fhir:extension.  where  (url { fhir:v ['length'] } ) . AND {fhir:extension.  where  (url { fhir:v ['offset'] } ) .}}
-{}
-
-)
- 
+}  

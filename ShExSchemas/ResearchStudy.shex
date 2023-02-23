@@ -101,14 +101,13 @@ start=@<ResearchStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<EvidenceVariable> }?;  # Structured outcome definition
 }  
 
-# Drugs, devices, etc. under study
-<ResearchStudy.focus> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:productCode @<CodeableConcept>?;   # Identification of product under 
-                                            # study 
-    fhir:focusType @<OneOrMore_CodeableConcept>?;  # medication | device | intervention 
-                                            # | factor 
-    fhir:factor @<markdown>?;               # An independent variable 
-                                            # manipulated by the experimentalist 
+# Classification for the study
+<ResearchStudy.classification> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>?;          # phase | category | keyword 
+    fhir:classifier @<OneOrMore_CodeableConcept>?;  # n-a | early-phase-1 | phase-1 | 
+                                            # phase-1-phase-2 | phase-2 | 
+                                            # phase-2-phase-3 | phase-3 | 
+                                            # phase-4 
 }  
 
 # Sponsors, collaborators, and other parties
@@ -132,6 +131,20 @@ start=@<ResearchStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # organisation) 
 }  
 
+# Target or actual group of participants enrolled in study
+<ResearchStudy.recruitment> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:targetNumber @<unsignedInt>?;      # Estimated total number of 
+                                            # participants to be enrolled 
+    fhir:actualNumber @<unsignedInt>?;      # Actual total number of 
+                                            # participants enrolled in study 
+    fhir:eligibility @<Reference> AND {fhir:link 
+    			@<EvidenceVariable> OR 
+    			@<Group> }?;  # Inclusion and exclusion criteria
+    fhir:actualGroup @<Reference> AND {fhir:link 
+    			@<Group> }?;  # Group of participants who were 
+                                            # enrolled in study 
+}  
+
 # Additional names for the study
 <ResearchStudy.label> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # primary | official | scientific | 
@@ -141,6 +154,40 @@ start=@<ResearchStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # auto-translated | human-use | 
                                             # machine-use | duplicate-uid 
     fhir:value @<string>?;                  # The name
+}  
+
+# A goal for the study
+<ResearchStudy.objective> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Label for the objective
+    fhir:type @<CodeableConcept>?;          # primary | secondary | exploratory
+    fhir:description @<markdown>?;          # Description of the objective
+}  
+
+# Drugs, devices, etc. under study
+<ResearchStudy.focus> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:productCode @<CodeableConcept>?;   # Identification of product under 
+                                            # study 
+    fhir:focusType @<OneOrMore_CodeableConcept>?;  # medication | device | intervention 
+                                            # | factor 
+    fhir:factor @<markdown>?;               # An independent variable 
+                                            # manipulated by the experimentalist 
+}  
+
+# Defined path through the study for a subject
+<ResearchStudy.comparisonGroup> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier (@<uri>  OR 
+    			@<Identifier> )  AND { rdf:type IRI } ?;  # Allows the comparisonGroup for the 
+                                            # study and the comparisonGroup for 
+                                            # the subject to be linked easily 
+    fhir:name @<string>;                    # Label for study comparisonGroup
+    fhir:type @<CodeableConcept>?;          # Categorization of study 
+                                            # comparisonGroup 
+    fhir:description @<markdown>?;          # Short explanation of study path
+    fhir:intendedExposure @<OneOrMore_Reference_EvidenceVariable>?;  # Interventions or exposures in this 
+                                            # comparisonGroup or cohort 
+    fhir:observedGroup @<Reference> AND {fhir:link 
+    			@<Group> }?;  # Group of participants who were 
+                                            # enrolled in study comparisonGroup 
 }  
 
 # Status of study with time for that status
@@ -167,53 +214,6 @@ start=@<ResearchStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:classifier @<CodeableConcept>?;    # registry-page|recruitment-page|c-
                                             # ontact-page 
     fhir:url @<uri>;                        # The location address
-}  
-
-# Target or actual group of participants enrolled in study
-<ResearchStudy.recruitment> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:targetNumber @<unsignedInt>?;      # Estimated total number of 
-                                            # participants to be enrolled 
-    fhir:actualNumber @<unsignedInt>?;      # Actual total number of 
-                                            # participants enrolled in study 
-    fhir:eligibility @<Reference> AND {fhir:link 
-    			@<EvidenceVariable> OR 
-    			@<Group> }?;  # Inclusion and exclusion criteria
-    fhir:actualGroup @<Reference> AND {fhir:link 
-    			@<Group> }?;  # Group of participants who were 
-                                            # enrolled in study 
-}  
-
-# A goal for the study
-<ResearchStudy.objective> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Label for the objective
-    fhir:type @<CodeableConcept>?;          # primary | secondary | exploratory
-    fhir:description @<markdown>?;          # Description of the objective
-}  
-
-# Classification for the study
-<ResearchStudy.classification> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>?;          # phase | category | keyword 
-    fhir:classifier @<OneOrMore_CodeableConcept>?;  # n-a | early-phase-1 | phase-1 | 
-                                            # phase-1-phase-2 | phase-2 | 
-                                            # phase-2-phase-3 | phase-3 | 
-                                            # phase-4 
-}  
-
-# Defined path through the study for a subject
-<ResearchStudy.comparisonGroup> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier (@<uri>  OR 
-    			@<Identifier> )  AND { rdf:type IRI } ?;  # Allows the comparisonGroup for the 
-                                            # study and the comparisonGroup for 
-                                            # the subject to be linked easily 
-    fhir:name @<string>;                    # Label for study comparisonGroup
-    fhir:type @<CodeableConcept>?;          # Categorization of study 
-                                            # comparisonGroup 
-    fhir:description @<markdown>?;          # Short explanation of study path
-    fhir:intendedExposure @<OneOrMore_Reference_EvidenceVariable>?;  # Interventions or exposures in this 
-                                            # comparisonGroup or cohort 
-    fhir:observedGroup @<Reference> AND {fhir:link 
-    			@<Group> }?;  # Group of participants who were 
-                                            # enrolled in study comparisonGroup 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

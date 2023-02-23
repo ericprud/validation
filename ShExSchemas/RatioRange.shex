@@ -13,29 +13,4 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:lowNumerator @<Quantity>?;         # Low Numerator limit
     fhir:highNumerator @<Quantity>?;        # High Numerator limit
     fhir:denominator @<Quantity>?;          # Denominator value
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: LessOrEqual
-# # Constraint UniqueKey:inv-2
-# Human readable:If present, lowNumerator SHALL have a lower value than highNumerator
-#
-# Constraint: lowNumerator.empty() or highNumerator.empty() or (lowNumerator <= highNumerator)
-# ShEx:
-#
-# NOT { fhir:lowNumerator {fhir:v .} }  OR  NOT { fhir:highNumerator {fhir:v .} }  OR ({ fhir:lowNumerator  LessOrEqual  { fhir:highNumerator } })
-{}
-
-) AND (
-
-# Constraint UniqueKey:inv-1
-# Human readable:One of lowNumerator or highNumerator and denominator SHALL be present, or all are absent. If all are absent, there SHALL be some extension present
-
-# Constraint: ((lowNumerator.empty() and highNumerator.empty()) xor denominator.exists()) and (lowNumerator.exists() or extension.exists())
-# ShEx:
-
-((( NOT { fhir:lowNumerator {fhir:v .} }  AND  NOT { fhir:highNumerator {fhir:v .} } ) AND NOT  {fhir:denominator .}) OR ( NOT ( NOT { fhir:lowNumerator {fhir:v .} }  AND  NOT { fhir:highNumerator {fhir:v .} } ) AND  {fhir:denominator .})) AND ({fhir:lowNumerator . OR {fhir:extension .}})
-
-)
- 
+}  

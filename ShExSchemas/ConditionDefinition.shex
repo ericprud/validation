@@ -60,38 +60,6 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:team @<OneOrMore_Reference_CareTeam>?;  # Appropriate team for this condition
     fhir:questionnaire @<OneOrMore_BackboneElement>?;  # Questionnaire for this condition
     fhir:plan @<OneOrMore_BackboneElement>?;  # Plan that is appropriate
-} AND (
-
-# Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')
-# ShEx:
-
-{fhir:name . AND {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){0,254}'/ } }}
-
-)
- 
-
-# Questionnaire for this condition
-<ConditionDefinition.questionnaire> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:purpose @<code> AND
-    	{fhir:value @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<Questionnaire> };  # Specific Questionnaire
-}  
-
-# Medications particularly relevant for this condition
-<ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>?;      # Category that is relevant
-    fhir:code @<CodeableConcept>?;          # Code for relevant Medication
-}  
-
-# Plan that is appropriate
-<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<CodeableConcept>?;          # Use for the plan
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<PlanDefinition> };  # The actual plan
 }  
 
 # Observation that suggets this condition
@@ -107,6 +75,27 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <ConditionDefinition.observation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:category @<CodeableConcept>?;      # Category that is relevant
     fhir:code @<CodeableConcept>?;          # Code for relevant Observation
+}  
+
+# Medications particularly relevant for this condition
+<ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>?;      # Category that is relevant
+    fhir:code @<CodeableConcept>?;          # Code for relevant Medication
+}  
+
+# Questionnaire for this condition
+<ConditionDefinition.questionnaire> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:purpose @<code> AND
+    	{fhir:value @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<Questionnaire> };  # Specific Questionnaire
+}  
+
+# Plan that is appropriate
+<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<CodeableConcept>?;          # Use for the plan
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<PlanDefinition> };  # The actual plan
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -152,8 +141,8 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
-# The use of a questionnaire.
-fhirvs:condition-questionnaire-purpose ["preadmit" "diff-diagnosis" "outcome"]
-
 # Kind of precondition for the condition.
 fhirvs:condition-precondition-type ["sensitive" "specific"]
+
+# The use of a questionnaire.
+fhirvs:condition-questionnaire-purpose ["preadmit" "diff-diagnosis" "outcome"]

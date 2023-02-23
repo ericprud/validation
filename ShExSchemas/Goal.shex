@@ -51,18 +51,7 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:note @<OneOrMore_Annotation>?;     # Comments about the goal
     fhir:outcome @<OneOrMore_CodeableReference>?;  # What result was achieved regarding 
                                             # the goal? 
-} AND (
-
-# Constraint UniqueKey:gol-1
-# Human readable:Goal.target.measure is required if Goal.target.detail is populated
-
-# Constraint: (detail.exists() and measure.exists()) or detail.exists().not()
-# ShEx:
-
-({fhir:detail . AND {fhir:measure .}}) OR  NOT { fhir:detail . }
-
-)
- 
+}  
 
 # Target outcome for the goal
 <Goal.target> EXTENDS @<BackboneElement> CLOSED {   
@@ -77,18 +66,7 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Ratio> )  AND { rdf:type IRI } ?;  # The target value to be achieved
     fhir:due (@<date>  OR 
     			@<Duration> )  AND { rdf:type IRI } ?;  # Reach goal on or before
-} AND (
-
-# Constraint UniqueKey:gol-1
-# Human readable:Goal.target.measure is required if Goal.target.detail is populated
-
-# Constraint: (detail.exists() and measure.exists()) or detail.exists().not()
-# ShEx:
-
-({fhir:detail . AND {fhir:measure .}}) OR  NOT { fhir:detail . }
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

@@ -17,15 +17,4 @@ BASE <http://hl7.org/fhir/shape/>
     				( ^fhir:item {a [fhir:Questionnaire]} ) OR 
     				( ^fhir:item {( ^fhir:item {a [fhir:Questionnaire]} )} )
     		}
-} AND (
-
-# Constraint UniqueKey:ext-1
-# Human readable:Variable expressions must have a name
-
-# Constraint: value.name.exists()
-# ShEx:
-
-{fhir:value.name .}
-
-)
- 
+}  

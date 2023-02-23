@@ -65,18 +65,18 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:detail @<OneOrMore_Reference_Resource>?;  # Product or service details
 }  
 
-# Applicable diagnosis
-<CoverageEligibilityRequest.item.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:diagnosis (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ?;  # Nature of illness or problem
-}  
-
 # Supporting information
 <CoverageEligibilityRequest.supportingInfo> EXTENDS @<BackboneElement> CLOSED {   
     fhir:sequence @<positiveInt>;           # Information instance identifier
     fhir:information @<Reference> AND {fhir:link 
     			@<Resource> };  # Data to be provided
     fhir:appliesToAll @<boolean>?;          # Applies to all items
+}  
+
+# Applicable diagnosis
+<CoverageEligibilityRequest.item.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:diagnosis (@<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ?;  # Nature of illness or problem
 }  
 
 # Patient insurance information

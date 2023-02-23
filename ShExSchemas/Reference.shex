@@ -18,22 +18,4 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:identifier @<Identifier>?;         # Logical reference, when literal 
                                             # reference is not known 
     fhir:display @<string>?;                # Text alternative for the resource
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: startsWith
-# Unmapped construct found: substring
-# Unmapped construct found: trace
-# Unmapped construct found: trace
-# # Constraint UniqueKey:ref-1
-# Human readable:SHALL have a contained resource if a local reference is provided
-#
-# Constraint: reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids')) or (reference='#' and %rootResource!=%resource)
-# ShEx:
-#
-# NOT { fhir:reference.  startsWith  ('#') } OR ({fhir:reference.  substring  (1).  trace  ('url') { fhir:v ['%rootResource'.contained.id.  trace  ('ids')] } }) OR (({ fhir:reference { fhir:v ['#'] }  }) AND 'false' [fhir:v  . -'null'] )
-{}
-
-)
- 
+}  

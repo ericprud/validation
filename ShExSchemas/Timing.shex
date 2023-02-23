@@ -14,98 +14,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:repeat @<Element>?;                # When the event is to occur
     fhir:code @<CodeableConcept>?;          # C | BID | TID | QID | AM | PM | QD 
                                             # | QOD | + 
-} AND (
-
-# Constraint UniqueKey:tim-9
-# Human readable:If there's an offset, there must be a when (and not C, CM, CD, CV)
-
-# Constraint: offset.empty() or (when.exists() and ((when in ('C' | 'CM' | 'CD' | 'CV')).not()))
-# ShEx:
-
- NOT { fhir:offset {fhir:v .} }  OR ({fhir:when . AND ( NOT { { fhir:when { fhir:v ['C' 'CM' 'CD' 'CV'] }  } })})
-
-) AND (
-
-# Constraint UniqueKey:tim-5
-# Human readable:period SHALL be a non-negative value
-
-# Constraint: period.exists() implies period >= 0
-# ShEx:
-
-{fhir:period . AND ({ fhir:period { fhir:v MinInclusive 0 }  })}
-
-) AND (
-
-# Constraint UniqueKey:tim-6
-# Human readable:If there's a periodMax, there must be a period
-
-# Constraint: periodMax.empty() or period.exists()
-# ShEx:
-
- NOT { fhir:periodMax {fhir:v .} }  OR {fhir:period .}
-
-) AND (
-
-# Constraint UniqueKey:tim-7
-# Human readable:If there's a durationMax, there must be a duration
-
-# Constraint: durationMax.empty() or duration.exists()
-# ShEx:
-
- NOT { fhir:durationMax {fhir:v .} }  OR {fhir:duration .}
-
-) AND (
-
-# Constraint UniqueKey:tim-8
-# Human readable:If there's a countMax, there must be a count
-
-# Constraint: countMax.empty() or count.exists()
-# ShEx:
-
- NOT { fhir:countMax {fhir:v .} }  OR {fhir:count .}
-
-) AND (
-
-# Constraint UniqueKey:tim-1
-# Human readable:if there's a duration, there needs to be duration units
-
-# Constraint: duration.empty() or durationUnit.exists()
-# ShEx:
-
- NOT { fhir:duration {fhir:v .} }  OR {fhir:durationUnit .}
-
-) AND (
-
-# Constraint UniqueKey:tim-10
-# Human readable:If there's a timeOfDay, there cannot be a when, or vice versa
-
-# Constraint: timeOfDay.empty() or when.empty()
-# ShEx:
-
- NOT { fhir:timeOfDay {fhir:v .} }  OR  NOT { fhir:when {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:tim-2
-# Human readable:if there's a period, there needs to be period units
-
-# Constraint: period.empty() or periodUnit.exists()
-# ShEx:
-
- NOT { fhir:period {fhir:v .} }  OR {fhir:periodUnit .}
-
-) AND (
-
-# Constraint UniqueKey:tim-4
-# Human readable:duration SHALL be a non-negative value
-
-# Constraint: duration.exists() implies duration >= 0
-# ShEx:
-
-{fhir:duration . AND ({ fhir:duration { fhir:v MinInclusive 0 }  })}
-
-)
- 
+}  
 
 # When the event is to occur
 <Timing.repeat> EXTENDS @<Element> CLOSED {   
@@ -141,98 +50,7 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value @fhirvs:event-timing}?;  # Code for time period of occurrence
     fhir:offset @<unsignedInt>?;            # Minutes from event (before or 
                                             # after) 
-} AND (
-
-# Constraint UniqueKey:tim-9
-# Human readable:If there's an offset, there must be a when (and not C, CM, CD, CV)
-
-# Constraint: offset.empty() or (when.exists() and ((when in ('C' | 'CM' | 'CD' | 'CV')).not()))
-# ShEx:
-
- NOT { fhir:offset {fhir:v .} }  OR ({fhir:when . AND ( NOT { { fhir:when { fhir:v ['C' 'CM' 'CD' 'CV'] }  } })})
-
-) AND (
-
-# Constraint UniqueKey:tim-5
-# Human readable:period SHALL be a non-negative value
-
-# Constraint: period.exists() implies period >= 0
-# ShEx:
-
-{fhir:period . AND ({ fhir:period { fhir:v MinInclusive 0 }  })}
-
-) AND (
-
-# Constraint UniqueKey:tim-6
-# Human readable:If there's a periodMax, there must be a period
-
-# Constraint: periodMax.empty() or period.exists()
-# ShEx:
-
- NOT { fhir:periodMax {fhir:v .} }  OR {fhir:period .}
-
-) AND (
-
-# Constraint UniqueKey:tim-7
-# Human readable:If there's a durationMax, there must be a duration
-
-# Constraint: durationMax.empty() or duration.exists()
-# ShEx:
-
- NOT { fhir:durationMax {fhir:v .} }  OR {fhir:duration .}
-
-) AND (
-
-# Constraint UniqueKey:tim-8
-# Human readable:If there's a countMax, there must be a count
-
-# Constraint: countMax.empty() or count.exists()
-# ShEx:
-
- NOT { fhir:countMax {fhir:v .} }  OR {fhir:count .}
-
-) AND (
-
-# Constraint UniqueKey:tim-1
-# Human readable:if there's a duration, there needs to be duration units
-
-# Constraint: duration.empty() or durationUnit.exists()
-# ShEx:
-
- NOT { fhir:duration {fhir:v .} }  OR {fhir:durationUnit .}
-
-) AND (
-
-# Constraint UniqueKey:tim-10
-# Human readable:If there's a timeOfDay, there cannot be a when, or vice versa
-
-# Constraint: timeOfDay.empty() or when.empty()
-# ShEx:
-
- NOT { fhir:timeOfDay {fhir:v .} }  OR  NOT { fhir:when {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:tim-2
-# Human readable:if there's a period, there needs to be period units
-
-# Constraint: period.empty() or periodUnit.exists()
-# ShEx:
-
- NOT { fhir:period {fhir:v .} }  OR {fhir:periodUnit .}
-
-) AND (
-
-# Constraint UniqueKey:tim-4
-# Human readable:duration SHALL be a non-negative value
-
-# Constraint: duration.exists() implies duration >= 0
-# ShEx:
-
-{fhir:duration . AND ({ fhir:duration { fhir:v MinInclusive 0 }  })}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -253,11 +71,11 @@ BASE <http://hl7.org/fhir/shape/>
 
 #---------------------- Value Sets ------------------------
 
-# The days of the week.
-fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
-
 # A unit of time (units from UCUM).
 fhirvs:units-of-time EXTERNAL
 
 # Real world event relating to the schedule.
 fhirvs:event-timing ["MORN" "MORN.early" "MORN.late" "NOON" "AFT" "AFT.early" "AFT.late" "EVE" "EVE.early" "EVE.late" "NIGHT" "PHS" "IMD" "HS" "WAKE" "C" "CM" "CD" "CV" "AC" "ACM" "ACD" "ACV" "PC" "PCM" "PCD" "PCV"]
+
+# The days of the week.
+fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]

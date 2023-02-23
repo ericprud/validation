@@ -44,19 +44,6 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # instance 
 }  
 
-# How this product was collected
-<BiologicallyDerivedProduct.collection> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:collector @<Reference> AND {fhir:link 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Individual performing collection
-    fhir:source @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> }?;  # The patient or entity providing 
-                                            # the product 
-    fhir:collected (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Time of product collection
-}  
-
 # A property that is specific to this BiologicallyDerviedProduct instance
 <BiologicallyDerivedProduct.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<Coding>;                    # Code that specifies the property
@@ -69,6 +56,19 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Ratio>  OR 
     			@<string>  OR 
     			@<Attachment> )  AND { rdf:type IRI } ;  # Property values
+}  
+
+# How this product was collected
+<BiologicallyDerivedProduct.collection> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:collector @<Reference> AND {fhir:link 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> }?;  # Individual performing collection
+    fhir:source @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> }?;  # The patient or entity providing 
+                                            # the product 
+    fhir:collected (@<dateTime>  OR 
+    			@<Period> )  AND { rdf:type IRI } ?;  # Time of product collection
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

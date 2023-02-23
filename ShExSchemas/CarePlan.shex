@@ -59,18 +59,7 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:activity @<OneOrMore_BackboneElement>?;  # Action to occur or has occurred as 
                                             # part of plan 
     fhir:note @<OneOrMore_Annotation>?;     # Comments about the plan
-} AND (
-
-# Constraint UniqueKey:cpl-3
-# Human readable:Provide a plannedActivityReference or plannedActivityDetail, not both
-
-# Constraint: plannedActivityDetail.empty() or plannedActivityReference.empty()
-# ShEx:
-
- NOT { fhir:plannedActivityDetail {fhir:v .} }  OR  NOT { fhir:plannedActivityReference {fhir:v .} } 
-
-)
- 
+}  
 
 # In-line definition of activity
 <CarePlan.activity.plannedActivityDetail> EXTENDS @<BackboneElement> CLOSED {   
@@ -137,18 +126,7 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<VisionPrescription> }?;  # Activity that is intended to be 
                                             # part of the care plan 
     fhir:plannedActivityDetail @<BackboneElement>?;  # In-line definition of activity
-} AND (
-
-# Constraint UniqueKey:cpl-3
-# Human readable:Provide a plannedActivityReference or plannedActivityDetail, not both
-
-# Constraint: plannedActivityDetail.empty() or plannedActivityReference.empty()
-# ShEx:
-
- NOT { fhir:plannedActivityDetail {fhir:v .} }  OR  NOT { fhir:plannedActivityReference {fhir:v .} } 
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -241,11 +219,11 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 # Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
 fhirvs:care-plan-activity-kind ["Appointment" "CommunicationRequest" "DeviceRequest" "MedicationRequest" "NutritionOrder" "Task" "ServiceRequest" "VisionPrescription"]
 
-# Codes that reflect the current state of a care plan activity within its overall life cycle.
-fhirvs:care-plan-activity-status ["not-started" "scheduled" "in-progress" "on-hold" "completed" "cancelled" "stopped" "unknown" "entered-in-error"]
-
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
+
+# Codes that reflect the current state of a care plan activity within its overall life cycle.
+fhirvs:care-plan-activity-status ["not-started" "scheduled" "in-progress" "on-hold" "completed" "cancelled" "stopped" "unknown" "entered-in-error"]
 
 # Codes indicating the degree of authority/intentionality associated with a care plan.
 fhirvs:care-plan-intent ["proposal" "plan" "order" "option" "directive"]

@@ -10,15 +10,4 @@ BASE <http://hl7.org/fhir/shape/>
 
     a [fhir:Duration];
     fhir:nodeRole [fhir:treeRoot]?;
-} AND (
-
-# Constraint UniqueKey:drt-1
-# Human readable:There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.
-
-# Constraint: code.exists() implies ((system = %ucum) and value.exists())
-# ShEx:
-
-{fhir:code . AND (({ fhir:system { fhir:v ['http://unitsofmeasure.org'] }  }) AND {fhir:value .})}
-
-)
- 
+}  

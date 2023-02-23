@@ -43,18 +43,6 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:entity @<OneOrMore_BackboneElement>?;  # Data or objects used
 }  
 
-# Data or objects used
-<AuditEvent.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Specific instance of resource
-    fhir:role @<CodeableConcept>?;          # What role the entity played
-    fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Security labels on the entity
-    fhir:query @<base64Binary>?;            # Query parameters
-    fhir:detail @<OneOrMore_BackboneElement>?;  # Additional Information about the 
-                                            # entity 
-    fhir:agent @<OneOrMore_AuditEvent.agent>?;  # Entity is attributed to this agent
-}  
-
 # Audit Event Reporter
 <AuditEvent.source> EXTENDS @<BackboneElement> CLOSED {   
     fhir:site @<Reference> AND {fhir:link 
@@ -71,6 +59,22 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the event 
     fhir:type @<OneOrMore_CodeableConcept>?;  # The type of source where event 
                                             # originated 
+}  
+
+# Additional Information about the entity
+<AuditEvent.entity.detail> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Name of the property
+    fhir:value (@<Quantity>  OR 
+    			@<CodeableConcept>  OR 
+    			@<string>  OR 
+    			@<boolean>  OR 
+    			@<integer>  OR 
+    			@<Range>  OR 
+    			@<Ratio>  OR 
+    			@<time>  OR 
+    			@<dateTime>  OR 
+    			@<Period>  OR 
+    			@<base64Binary> )  AND { rdf:type IRI } ;  # Property value
 }  
 
 # Whether the event succeeded or failed
@@ -106,20 +110,16 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # agent 
 }  
 
-# Additional Information about the entity
-<AuditEvent.entity.detail> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Name of the property
-    fhir:value (@<Quantity>  OR 
-    			@<CodeableConcept>  OR 
-    			@<string>  OR 
-    			@<boolean>  OR 
-    			@<integer>  OR 
-    			@<Range>  OR 
-    			@<Ratio>  OR 
-    			@<time>  OR 
-    			@<dateTime>  OR 
-    			@<Period>  OR 
-    			@<base64Binary> )  AND { rdf:type IRI } ;  # Property value
+# Data or objects used
+<AuditEvent.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> }?;  # Specific instance of resource
+    fhir:role @<CodeableConcept>?;          # What role the entity played
+    fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Security labels on the entity
+    fhir:query @<base64Binary>?;            # Query parameters
+    fhir:detail @<OneOrMore_BackboneElement>?;  # Additional Information about the 
+                                            # entity 
+    fhir:agent @<OneOrMore_AuditEvent.agent>?;  # Entity is attributed to this agent
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -146,14 +146,14 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
 
-<OneOrMore_AuditEvent.agent> CLOSED {
-    rdf:first @<AuditEvent.agent>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_AuditEvent.agent> 
-}
-
 <OneOrMore_uri> CLOSED {
     rdf:first @<uri>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
+}
+
+<OneOrMore_AuditEvent.agent> CLOSED {
+    rdf:first @<AuditEvent.agent>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_AuditEvent.agent> 
 }
 
 #---------------------- Value Sets ------------------------

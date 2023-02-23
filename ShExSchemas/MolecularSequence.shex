@@ -33,38 +33,7 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # represent the sequence 
     fhir:relative @<OneOrMore_BackboneElement>?;  # A sequence defined relative to 
                                             # another sequence 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:msq-6
-# Human readable:Have and only have one of the following elements in referenceSeq : 1. referenceSequenceAssembly ; 2 referenceSequence
-#
-# Constraint: (referenceSequenceAssembly.count()+referenceSequenceCodeableConcept.count()+ referenceSequenceReference.count()+ referenceSequenceString.count()) = 1
-# ShEx:
-#
-#(   count  ( fhir:referenceSequenceAssembly )  Plus     count  ( fhir:referenceSequenceCodeableConcept )  Plus     count  ( fhir:referenceSequenceReference )  Plus     count  ( fhir:referenceSequenceString )) { fhir:v [1] } 
-{}
-
-) AND (
-
-# Constraint UniqueKey:msq-5
-# Human readable:Both referenceSequenceAssembly and chromosome must be both contained if either one of them is contained
-
-# Constraint: (chromosome.empty() and referenceSequenceAssembly.empty()) or (chromosome.exists() and referenceSequenceAssembly.exists())
-# ShEx:
-
-( NOT { fhir:chromosome {fhir:v .} }  AND  NOT { fhir:referenceSequenceAssembly {fhir:v .} } ) OR ({fhir:chromosome . AND {fhir:referenceSequenceAssembly .}})
-
-)
- 
+}  
 
 # A sequence used as reference
 <MolecularSequence.relative.reference> EXTENDS @<BackboneElement> CLOSED {   
@@ -123,11 +92,11 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Type for strand.
+fhirvs:strand-type ["watson" "crick"]
+
 # Type for orientation.
 fhirvs:orientation-type ["sense" "antisense"]
 
 # Type if a sequence -- DNA, RNA, or amino acid sequence.
 fhirvs:sequence-type ["aa" "dna" "rna"]
-
-# Type for strand.
-fhirvs:strand-type ["watson" "crick"]

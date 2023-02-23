@@ -49,6 +49,14 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the practitioner with this role 
 }  
 
+# Not available during this time due to provided reason
+<PractitionerRole.notAvailable> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>;             # Reason presented to the user 
+                                            # explaining why time not available 
+    fhir:during @<Period>?;                 # Service not available from this 
+                                            # date 
+}  
+
 # Times the Service Site is available
 <PractitionerRole.availableTime> EXTENDS @<BackboneElement> CLOSED {   
     fhir:daysOfWeek @<OneOrMore_code> AND
@@ -60,14 +68,6 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # allDay = true) 
     fhir:availableEndTime @<time>?;         # Closing time of day (ignored if 
                                             # allDay = true) 
-}  
-
-# Not available during this time due to provided reason
-<PractitionerRole.notAvailable> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>;             # Reason presented to the user 
-                                            # explaining why time not available 
-    fhir:during @<Period>?;                 # Service not available from this 
-                                            # date 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

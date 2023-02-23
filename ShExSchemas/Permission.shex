@@ -46,18 +46,6 @@ start=@<Permission> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the data 
 }  
 
-# The asserted justification for using the data
-<Permission.justification> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:evidence @<OneOrMore_Reference_Consent>?;  # Evidence – reference to consent, 
-                                            # or a contract, or a policy, or a 
-                                            # regulation, or an attachment that 
-                                            # contains a screenshot 
-    fhir:grounds @<OneOrMore_CodeableConcept>?;  # This would be a codeableconcept, 
-                                            # or a coding, which can be 
-                                            # constrained to , for example, the 
-                                            # 6 grounds for processing in GDPR 
-}  
-
 # A description or definition of which activities are allowed to be done on the data
 <Permission.processingActivity> EXTENDS @<BackboneElement> CLOSED {   
     fhir:partyReference @<OneOrMore_Reference_Organization>?;  # If the processing is a transfer, 
@@ -74,6 +62,18 @@ start=@<Permission> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the data 
     fhir:purpose @<OneOrMore_CodeableConcept>?;  # The purpose for which the 
                                             # permission is given 
+}  
+
+# The asserted justification for using the data
+<Permission.justification> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:evidence @<OneOrMore_Reference_Consent>?;  # Evidence – reference to consent, 
+                                            # or a contract, or a policy, or a 
+                                            # regulation, or an attachment that 
+                                            # contains a screenshot 
+    fhir:grounds @<OneOrMore_CodeableConcept>?;  # This would be a codeableconcept, 
+                                            # or a coding, which can be 
+                                            # constrained to , for example, the 
+                                            # 6 grounds for processing in GDPR 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -98,16 +98,16 @@ start=@<Permission> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
 
-<OneOrMore_Reference_Consent> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<Consent> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Consent> 
-}
-
 <OneOrMore_Reference_Organization> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<Organization> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Organization> 
+}
+
+<OneOrMore_Reference_Consent> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<Consent> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Consent> 
 }
 
 #---------------------- Value Sets ------------------------

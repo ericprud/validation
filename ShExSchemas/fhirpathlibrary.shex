@@ -15,12 +15,12 @@ start=@<fhirpathlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# Additional documentation, citations, etc.
-<Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
-}  
-
 # FHIRPath Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
+}  
+
+# Additional documentation, citations, etc.
+<Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 
 # Contents of the library, either embedded or referenced

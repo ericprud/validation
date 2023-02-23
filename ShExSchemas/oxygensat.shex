@@ -15,6 +15,14 @@ start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
+# Oxygen Saturation
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
 <Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
@@ -23,12 +31,12 @@ start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Oxygen Saturation
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
 # Classification of  type of observation
@@ -37,12 +45,4 @@ start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  

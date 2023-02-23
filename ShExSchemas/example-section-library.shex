@@ -19,8 +19,8 @@ start=@<example-section-library> AND {fhir:nodeRole [fhir:treeRoot]}
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Composition is broken into sections
-<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
+# The clinical service(s) being documented
+<Composition.event> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Composition is broken into sections
@@ -31,8 +31,8 @@ start=@<example-section-library> AND {fhir:nodeRole [fhir:treeRoot]}
 <Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# The clinical service(s) being documented
-<Composition.event> EXTENDS @<BackboneElement> CLOSED {   
+# Composition is broken into sections
+<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Composition is broken into sections

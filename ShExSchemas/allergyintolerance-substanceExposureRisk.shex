@@ -16,15 +16,4 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-substanceExposureRisk"]}; 
     ^fhir:extension { a [fhir:AllergyIntolerance]
     		}
-} AND (
-
-# Constraint UniqueKey:inv-1
-# Human readable:If the substanceExposureRisk extension element is present, the AllergyIntolerance.code element must be omitted.
-
-# Constraint: substanceExposureRisk.exists() and code.empty()
-# ShEx:
-
-{fhir:substanceExposureRisk . AND  NOT { fhir:code {fhir:v .} } }
-
-)
- 
+}  

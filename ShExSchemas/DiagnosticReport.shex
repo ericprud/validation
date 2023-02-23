@@ -60,28 +60,7 @@ start=@<DiagnosticReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:conclusionCode @<OneOrMore_CodeableConcept>?;  # Codes for the clinical conclusion 
                                             # of test results 
     fhir:presentedForm @<OneOrMore_Attachment>?;  # Entire report as issued
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: descendants
-# Unmapped construct found: where
-# Unmapped construct found: In
-# Unmapped construct found: descendants
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:dgr-1
-# Human readable:A resource referenced in a Composition entry must also be included in the DiagnosticReport result (Observation resources or nested resources via Observation.hasMember)
-#
-# Constraint: composition.exists() implies composition.resolve().section.entry.resolve().descendants().where((id in result.resolve().descendants().id).not()).empty()
-# ShEx:
-#
-#{fhir:composition . AND  NOT { fhir:composition.   resolve  (  ).section.entry.   resolve  (  ).   descendants  (  ).  where  ( NOT { .id  In     descendants  ( .result.   resolve  (  ) ).id }) {fhir:v .} } }
-{}
-
-)
- 
+}  
 
 # Key images or data associated with this report
 <DiagnosticReport.media> EXTENDS @<BackboneElement> CLOSED {   

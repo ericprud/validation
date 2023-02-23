@@ -68,23 +68,6 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # is part of 
 }  
 
-# List of participants involved in the encounter
-<Encounter.participant> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<OneOrMore_CodeableConcept>?;  # Role of participant in encounter
-    fhir:period @<Period>?;                 # Period of time during the 
-                                            # encounter that the participant 
-                                            # participated 
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<Device> OR 
-    			@<Group> OR 
-    			@<HealthcareService> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Persons involved in the encounter 
-                                            # (including patient) 
-}  
-
 # List of locations where the patient has been
 <Encounter.location> EXTENDS @<BackboneElement> CLOSED {   
     fhir:location @<Reference> AND {fhir:link 
@@ -98,6 +81,19 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:period @<Period>?;                 # Time period during which the 
                                             # patient was present at the 
                                             # location 
+}  
+
+# The list of diagnosis relevant to this encounter
+<Encounter.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:condition @<Reference> AND {fhir:link 
+    			@<Condition> OR 
+    			@<Procedure> };  # The diagnosis or procedure 
+                                            # relevant to the encounter 
+    fhir:use @<CodeableConcept>?;           # Role that this diagnosis has 
+                                            # within the encounter (e.g. 
+                                            # admission, billing, discharge …) 
+    fhir:rank @<positiveInt>?;              # Ranking of the diagnosis (for each 
+                                            # role type) 
 }  
 
 # Details about the admission to a healthcare service
@@ -128,6 +124,14 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # discharge 
 }  
 
+# List of past encounter classes
+<Encounter.classHistory> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:class @<Coding>;                   # inpatient | outpatient | 
+                                            # ambulatory | emergency + 
+    fhir:period @<Period>;                  # The time that the episode was in 
+                                            # the specified class 
+}  
+
 # List of past encounter statuses
 <Encounter.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
     fhir:status @<code> AND
@@ -138,25 +142,21 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the specified status 
 }  
 
-# List of past encounter classes
-<Encounter.classHistory> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:class @<Coding>;                   # inpatient | outpatient | 
-                                            # ambulatory | emergency + 
-    fhir:period @<Period>;                  # The time that the episode was in 
-                                            # the specified class 
-}  
-
-# The list of diagnosis relevant to this encounter
-<Encounter.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:condition @<Reference> AND {fhir:link 
-    			@<Condition> OR 
-    			@<Procedure> };  # The diagnosis or procedure 
-                                            # relevant to the encounter 
-    fhir:use @<CodeableConcept>?;           # Role that this diagnosis has 
-                                            # within the encounter (e.g. 
-                                            # admission, billing, discharge …) 
-    fhir:rank @<positiveInt>?;              # Ranking of the diagnosis (for each 
-                                            # role type) 
+# List of participants involved in the encounter
+<Encounter.participant> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<OneOrMore_CodeableConcept>?;  # Role of participant in encounter
+    fhir:period @<Period>?;                 # Period of time during the 
+                                            # encounter that the participant 
+                                            # participated 
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<Device> OR 
+    			@<Group> OR 
+    			@<HealthcareService> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> }?;  # Persons involved in the encounter 
+                                            # (including patient) 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -210,8 +210,8 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Current state of the encounter.
-fhirvs:encounter-status ["planned" "in-progress" "onhold" "completed" "cancelled" "entered-in-error" "unknown"]
-
 # The status of the location.
 fhirvs:encounter-location-status ["planned" "active" "reserved" "completed"]
+
+# Current state of the encounter.
+fhirvs:encounter-status ["planned" "in-progress" "onhold" "completed" "cancelled" "entered-in-error" "unknown"]

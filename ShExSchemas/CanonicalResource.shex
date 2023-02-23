@@ -39,18 +39,7 @@ start=@<CanonicalResource> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # {{title}} (if applicable) 
     fhir:purpose @<markdown>?;              # Why this {{title}} is defined
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
-} AND (
-
-# Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')
-# ShEx:
-
-{fhir:name . AND {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){0,254}'/ } }}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

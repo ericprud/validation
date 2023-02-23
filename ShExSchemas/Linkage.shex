@@ -20,22 +20,7 @@ start=@<Linkage> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> }?;  # Who is responsible for linkages
     fhir:item @<OneOrMore_BackboneElement>;  # Item to be linked
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# # Constraint UniqueKey:lnk-1
-# Human readable:Must have at least two items
-#
-# Constraint: item.count()>1
-# ShEx:
-#
-#   count  ( fhir:item ) { fhir:v MinExclusive 1 } 
-{}
-
-)
- 
+}  
 
 # Item to be linked
 <Linkage.item> EXTENDS @<BackboneElement> CLOSED {   

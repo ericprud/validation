@@ -15,8 +15,8 @@ start=@<vitalspanel> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# Vital Signs Panel
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
 # Provides guide for interpretation
@@ -27,18 +27,18 @@ start=@<vitalspanel> AND {fhir:nodeRole [fhir:treeRoot]}
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Classification of  type of observation
 <Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Vital Signs Panel
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  

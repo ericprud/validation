@@ -42,6 +42,16 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:signature @<OneOrMore_Signature>?;  # Signature on target
 }  
 
+# An entity used in this activity
+<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<code> AND
+    	{fhir:value @fhirvs:provenance-entity-role};  # revision | quotation | source | 
+                                            # instantiates | removal 
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> };  # Identity of entity
+    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
+}  
+
 # Actor involved
 <Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # How the agent participated
@@ -62,16 +72,6 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> }?;  # The agent that delegated
-}  
-
-# An entity used in this activity
-<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<code> AND
-    	{fhir:value @fhirvs:provenance-entity-role};  # revision | quotation | source | 
-                                            # instantiates | removal 
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> };  # Identity of entity
-    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -114,14 +114,14 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Signature> 
 }
 
-<OneOrMore_CodeableConcept> CLOSED {
-    rdf:first @<CodeableConcept>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
-}
-
 <OneOrMore_Provenance.agent> CLOSED {
     rdf:first @<Provenance.agent>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Provenance.agent> 
+}
+
+<OneOrMore_CodeableConcept> CLOSED {
+    rdf:first @<CodeableConcept>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
 #---------------------- Value Sets ------------------------

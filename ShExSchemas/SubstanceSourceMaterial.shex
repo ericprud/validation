@@ -87,16 +87,38 @@ start=@<SubstanceSourceMaterial> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:partDescription @<OneOrMore_BackboneElement>?;  # To do
 }  
 
-# To do
-<SubstanceSourceMaterial.partDescription> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:part @<CodeableConcept>?;          # Entity of anatomical origin of 
-                                            # source material within an organism 
-    fhir:partLocation @<CodeableConcept>?;  # The detailed anatomic location 
-                                            # when the part can be extracted 
-                                            # from different anatomical 
-                                            # locations of the organism. 
-                                            # Multiple alternative locations may 
-                                            # apply 
+# 4.9.13.6.1 Author type (Conditional)
+<SubstanceSourceMaterial.organism.author> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:authorType @<CodeableConcept>?;    # The type of author of an organism 
+                                            # species shall be specified. The 
+                                            # parenthetical author of an 
+                                            # organism species refers to the 
+                                            # first author who published the 
+                                            # plant/animal name (of any rank). 
+                                            # The primary author of an organism 
+                                            # species refers to the first 
+                                            # author(s), who validly published 
+                                            # the plant/animal name 
+    fhir:authorDescription @<string>?;      # The author of an organism species 
+                                            # shall be specified. The author 
+                                            # year of an organism shall also be 
+                                            # specified when applicable; refers 
+                                            # to the year in which the first 
+                                            # author(s) published the 
+                                            # infraspecific plant/animal name 
+                                            # (of any rank) 
+}  
+
+# 4.9.13.7.1 Kingdom (Conditional)
+<SubstanceSourceMaterial.organism.organismGeneral> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:kingdom @<CodeableConcept>?;       # The kingdom of an organism shall 
+                                            # be specified 
+    fhir:phylum @<CodeableConcept>?;        # The phylum of an organism shall be 
+                                            # specified 
+    fhir:class @<CodeableConcept>?;         # The class of an organism shall be 
+                                            # specified 
+    fhir:order @<CodeableConcept>?;         # The order of an organism shall be 
+                                            # specified, 
 }  
 
 # Many complex materials are fractions of parts of plants, animals, or minerals. Fraction elements are often necessary to define both Substances and Specified Group 1 Substances. For substances derived from Plants, fraction information will be captured at the Substance information level ( . Oils, Juices and Exudates). Additional information for Extracts, such as extraction solvent composition, will be captured at the Specified Substance Group 1 information level. For plasma-derived products fraction information will be captured at the Substance and the Specified Substance Group 1 levels
@@ -111,18 +133,6 @@ start=@<SubstanceSourceMaterial> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # particulars of the extracts 
                                             # (liquid/dry) is described in 
                                             # Specified Substance Group 1 
-}  
-
-# 4.9.13.7.1 Kingdom (Conditional)
-<SubstanceSourceMaterial.organism.organismGeneral> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:kingdom @<CodeableConcept>?;       # The kingdom of an organism shall 
-                                            # be specified 
-    fhir:phylum @<CodeableConcept>?;        # The phylum of an organism shall be 
-                                            # specified 
-    fhir:class @<CodeableConcept>?;         # The class of an organism shall be 
-                                            # specified 
-    fhir:order @<CodeableConcept>?;         # The order of an organism shall be 
-                                            # specified, 
 }  
 
 # This subclause describes the organism which the substance is derived from. For vaccines, the parent organism shall be specified based on these subclause elements. As an example, full taxonomy will be described for the Substance Name: ., Leaf
@@ -156,26 +166,16 @@ start=@<SubstanceSourceMaterial> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:organismGeneral @<BackboneElement>?;  # 4.9.13.7.1 Kingdom (Conditional)
 }  
 
-# 4.9.13.6.1 Author type (Conditional)
-<SubstanceSourceMaterial.organism.author> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:authorType @<CodeableConcept>?;    # The type of author of an organism 
-                                            # species shall be specified. The 
-                                            # parenthetical author of an 
-                                            # organism species refers to the 
-                                            # first author who published the 
-                                            # plant/animal name (of any rank). 
-                                            # The primary author of an organism 
-                                            # species refers to the first 
-                                            # author(s), who validly published 
-                                            # the plant/animal name 
-    fhir:authorDescription @<string>?;      # The author of an organism species 
-                                            # shall be specified. The author 
-                                            # year of an organism shall also be 
-                                            # specified when applicable; refers 
-                                            # to the year in which the first 
-                                            # author(s) published the 
-                                            # infraspecific plant/animal name 
-                                            # (of any rank) 
+# To do
+<SubstanceSourceMaterial.partDescription> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:part @<CodeableConcept>?;          # Entity of anatomical origin of 
+                                            # source material within an organism 
+    fhir:partLocation @<CodeableConcept>?;  # The detailed anatomic location 
+                                            # when the part can be extracted 
+                                            # from different anatomical 
+                                            # locations of the organism. 
+                                            # Multiple alternative locations may 
+                                            # apply 
 }  
 
 # 4.9.13.8.1 Hybrid species maternal organism ID (Optional)

@@ -61,22 +61,7 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:substitution @<BackboneElement>?;  # Whether a substitution was 
                                             # performed on the dispense 
     fhir:eventHistory @<OneOrMore_Reference_Provenance>?;  # A list of relevant lifecycle events
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: GreaterOrEqual
-# # Constraint UniqueKey:mdd-1
-# Human readable:whenHandedOver cannot be before whenPrepared
-#
-# Constraint: whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver >= whenPrepared
-# ShEx:
-#
-# NOT { fhir:whenHandedOver {fhir:v .} }  OR  NOT { fhir:whenPrepared {fhir:v .} }  OR ({ fhir:whenHandedOver  GreaterOrEqual  { fhir:whenPrepared } })
-{}
-
-)
- 
+}  
 
 # Who performed event
 <MedicationDispense.performer> EXTENDS @<BackboneElement> CLOSED {   

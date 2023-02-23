@@ -15,10 +15,10 @@ start=@<familymemberhistory-genetic> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# Condition that the related person had
-<FamilyMemberHistory.condition> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Procedures that the related person had
 <FamilyMemberHistory.procedure> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Condition that the related person had
+<FamilyMemberHistory.condition> EXTENDS @<BackboneElement> CLOSED {   
 }  

@@ -52,53 +52,6 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:event @<OneOrMore_BackboneElement>?;  # The clinical service(s) being 
                                             # documented 
     fhir:section @<OneOrMore_BackboneElement>?;  # Composition is broken into sections
-} AND (
-
-# Constraint UniqueKey:cmp-1
-# Human readable:A section must contain at least one of text, entries, or sub-sections
-
-# Constraint: text.exists() or entry.exists() or section.exists()
-# ShEx:
-
-{fhir:text . OR {fhir:entry . OR {fhir:section .}}}
-
-) AND (
-
-# Constraint UniqueKey:cmp-2
-# Human readable:A section can only have an emptyReason if it is empty
-
-# Constraint: emptyReason.empty() or entry.empty()
-# ShEx:
-
- NOT { fhir:emptyReason {fhir:v .} }  OR  NOT { fhir:entry {fhir:v .} } 
-
-)
- 
-
-# The clinical service(s) being documented
-<Composition.event> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<OneOrMore_CodeableConcept>?;  # Code(s) that apply to the event 
-                                            # being documented 
-    fhir:period @<Period>?;                 # The period covered by the 
-                                            # documentation 
-    fhir:detail @<OneOrMore_Reference_Resource>?;  # The event(s) being documented
-}  
-
-# Nested Section
-<Composition.section.section> CLOSED {   
-}  
-
-# Attests to accuracy of composition
-<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
-                                            # official 
-    fhir:time @<dateTime>?;                 # When the composition was attested
-    fhir:party @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who attested the composition
 }  
 
 # Composition is broken into sections
@@ -121,28 +74,33 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # this section 
     fhir:emptyReason @<CodeableConcept>?;   # Why the section is empty
     fhir:section @<OneOrMore_Composition.section>?;  # Nested Section
-} AND (
+}  
 
-# Constraint UniqueKey:cmp-1
-# Human readable:A section must contain at least one of text, entries, or sub-sections
+# The clinical service(s) being documented
+<Composition.event> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<OneOrMore_CodeableConcept>?;  # Code(s) that apply to the event 
+                                            # being documented 
+    fhir:period @<Period>?;                 # The period covered by the 
+                                            # documentation 
+    fhir:detail @<OneOrMore_Reference_Resource>?;  # The event(s) being documented
+}  
 
-# Constraint: text.exists() or entry.exists() or section.exists()
-# ShEx:
+# Attests to accuracy of composition
+<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
+                                            # official 
+    fhir:time @<dateTime>?;                 # When the composition was attested
+    fhir:party @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> }?;  # Who attested the composition
+}  
 
-{fhir:text . OR {fhir:entry . OR {fhir:section .}}}
-
-) AND (
-
-# Constraint UniqueKey:cmp-2
-# Human readable:A section can only have an emptyReason if it is empty
-
-# Constraint: emptyReason.empty() or entry.empty()
-# ShEx:
-
- NOT { fhir:emptyReason {fhir:v .} }  OR  NOT { fhir:entry {fhir:v .} } 
-
-)
- 
+# Nested Section
+<Composition.section.section> CLOSED {   
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -198,8 +156,8 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
 
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]
-
 # Set of codes used to value Act.Confidentiality and Role.Confidentiality attribute in accordance with the definition for concept domain "Confidentiality".
 <http://terminology.hl7.org/ValueSet/v3-Confidentiality> ["L" "M" "N" "R" "U" "V"]
+
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]

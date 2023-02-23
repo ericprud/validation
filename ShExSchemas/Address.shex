@@ -38,8 +38,8 @@ BASE <http://hl7.org/fhir/shape/>
 
 #---------------------- Value Sets ------------------------
 
-# The type of an address (physical / postal).
-fhirvs:address-type ["postal" "physical" "both"]
-
 # The use of an address.
 fhirvs:address-use ["home" "work" "temp" "old" "billing"]
+
+# The type of an address (physical / postal).
+fhirvs:address-type ["postal" "physical" "both"]

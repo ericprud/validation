@@ -10,15 +10,4 @@ BASE <http://hl7.org/fhir/shape/>
 
     a [fhir:Distance];
     fhir:nodeRole [fhir:treeRoot]?;
-} AND (
-
-# Constraint UniqueKey:dis-1
-# Human readable:There SHALL be a code if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.
-
-# Constraint: (code.exists() or value.empty()) and (system.empty() or system = %ucum)
-# ShEx:
-
-({fhir:code . OR  NOT { fhir:value {fhir:v .} } }) AND ( NOT { fhir:system {fhir:v .} }  OR ({ fhir:system { fhir:v ['http://unitsofmeasure.org'] }  }))
-
-)
- 
+}  

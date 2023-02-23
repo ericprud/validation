@@ -49,28 +49,7 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # had 
     fhir:procedure @<OneOrMore_BackboneElement>?;  # Procedures that the related person 
                                             # had 
-} AND (
-
-# Constraint UniqueKey:fhs-2
-# Human readable:Can only have estimatedAge if age[x] is present
-
-# Constraint: age.exists() or estimatedAge.empty()
-# ShEx:
-
-{fhir:age . OR  NOT { fhir:estimatedAge {fhir:v .} } }
-
-) AND (
-
-# Constraint UniqueKey:fhs-1
-# Human readable:Can have age[x] or born[x], but not both
-
-# Constraint: age.empty() or born.empty()
-# ShEx:
-
- NOT { fhir:age {fhir:v .} }  OR  NOT { fhir:born {fhir:v .} } 
-
-)
- 
+}  
 
 # Condition that the related person had
 <FamilyMemberHistory.condition> EXTENDS @<BackboneElement> CLOSED {   

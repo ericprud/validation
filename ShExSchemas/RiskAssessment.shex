@@ -45,28 +45,7 @@ start=@<RiskAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:prediction @<OneOrMore_BackboneElement>?;  # Outcome predicted
     fhir:mitigation @<string>?;             # How to reduce risk
     fhir:note @<OneOrMore_Annotation>?;     # Comments on the risk assessment
-} AND (
-
-# Constraint UniqueKey:ras-2
-# Human readable:Must be <= 100
-
-# Constraint: probability is decimal implies (probability as decimal) <= 100
-# ShEx:
-
-({ fhir:probability a { fhir:decimal } }) AND (({ fhir:probability a { fhir:decimal } }) { fhir:v MaxInclusive 100 } )
-
-) AND (
-
-# Constraint UniqueKey:ras-1
-# Human readable:low and high must be percentages, if present
-
-# Constraint: (low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))
-# ShEx:
-
-( NOT { fhir:low {fhir:v .} }  OR (({fhir:low.code { fhir:v ['%'] } }) AND ({fhir:low.system { fhir:v ['http://unitsofmeasure.org'] } }))) AND ( NOT { fhir:high {fhir:v .} }  OR (({fhir:high.code { fhir:v ['%'] } }) AND ({fhir:high.system { fhir:v ['http://unitsofmeasure.org'] } })))
-
-)
- 
+}  
 
 # Outcome predicted
 <RiskAssessment.prediction> EXTENDS @<BackboneElement> CLOSED {   
@@ -79,28 +58,7 @@ start=@<RiskAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:when (@<Period>  OR 
     			@<Range> )  AND { rdf:type IRI } ?;  # Timeframe or age range
     fhir:rationale @<string>?;              # Explanation of prediction
-} AND (
-
-# Constraint UniqueKey:ras-2
-# Human readable:Must be <= 100
-
-# Constraint: probability is decimal implies (probability as decimal) <= 100
-# ShEx:
-
-({ fhir:probability a { fhir:decimal } }) AND (({ fhir:probability a { fhir:decimal } }) { fhir:v MaxInclusive 100 } )
-
-) AND (
-
-# Constraint UniqueKey:ras-1
-# Human readable:low and high must be percentages, if present
-
-# Constraint: (low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))
-# ShEx:
-
-( NOT { fhir:low {fhir:v .} }  OR (({fhir:low.code { fhir:v ['%'] } }) AND ({fhir:low.system { fhir:v ['http://unitsofmeasure.org'] } }))) AND ( NOT { fhir:high {fhir:v .} }  OR (({fhir:high.code { fhir:v ['%'] } }) AND ({fhir:high.system { fhir:v ['http://unitsofmeasure.org'] } })))
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

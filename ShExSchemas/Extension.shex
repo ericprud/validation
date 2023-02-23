@@ -64,19 +64,4 @@ BASE <http://hl7.org/fhir/shape/>
     			@<UsageContext>  OR 
     			@<Dosage>  OR 
     			@<Meta> )  AND { rdf:type IRI } ?; 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: NotEquals
-# # Constraint UniqueKey:ext-1
-# Human readable:Must have either extensions or value[x], not both
-#
-# Constraint: extension.exists() != value.exists()
-# ShEx:
-#
-#{fhir:extension .  NotEquals  {fhir:value .}}
-{}
-
-)
- 
+}  

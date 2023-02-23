@@ -37,18 +37,7 @@ BASE <http://hl7.org/fhir/shape/>
                                             # administration 
     fhir:maxDosePerLifetime @<Quantity>?;   # Upper limit on medication per 
                                             # lifetime of the patient 
-} AND (
-
-# Constraint UniqueKey:dosage-1
-# Human readable:AsNeededFor can only be set if AsNeeded is empty or true
-
-# Constraint: asNeededFor.empty() or asNeeded.empty() or asNeeded
-# ShEx:
-
- NOT { fhir:asNeededFor {fhir:v .} }  OR  NOT { fhir:asNeeded {fhir:v .} }  OR { fhir:asNeeded }
-
-)
- 
+}  
 
 # Amount of medication administered, to be administered or typical amount to be administered
 <Dosage.doseAndRate> EXTENDS @<Element> CLOSED {   

@@ -19,18 +19,6 @@ start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
 # Respiratory Rate
 <Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
@@ -39,8 +27,20 @@ start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Classification of  type of observation
 <Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Code defined by a terminology system

@@ -19,16 +19,16 @@ start=@<shareablemeasure> AND {fhir:nodeRole [fhir:treeRoot]}
 <Measure.group.population> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Stratifier criteria for the measure
+<Measure.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Population criteria group
 <Measure.group> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # What other data should be reported with the measure
 <Measure.supplementalData> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Stratifier criteria for the measure
-<Measure.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Stratifier criteria component for the measure

@@ -47,6 +47,10 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # Consent.policyRule/Consent.policy 
 }  
 
+# Nested Exception Rules
+<Consent.provision.provision> CLOSED {   
+}  
+
 # Computable version of the backing policy
 <Consent.policyBasis> EXTENDS @<BackboneElement> CLOSED {   
     fhir:reference @<Reference> AND {fhir:link 
@@ -66,6 +70,15 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<RelatedPerson> }?;  # Person who verified
     fhir:verificationDate @<OneOrMore_dateTime>?;  # When consent verified
+}  
+
+# Data controlled by this rule
+<Consent.provision.data> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:meaning @<code> AND
+    	{fhir:value @fhirvs:consent-data-meaning};  # instance | related | dependents | 
+                                            # authoredby 
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<Resource> };  # The actual data reference
 }  
 
 # Constraints to the base Consent.policyRule/Consent.policy
@@ -90,19 +103,6 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:expression @<Expression>?;         # A computable expression of the 
                                             # consent 
     fhir:provision @<OneOrMore_Consent.provision>?;  # Nested Exception Rules
-}  
-
-# Nested Exception Rules
-<Consent.provision.provision> CLOSED {   
-}  
-
-# Data controlled by this rule
-<Consent.provision.data> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:meaning @<code> AND
-    	{fhir:value @fhirvs:consent-data-meaning};  # instance | related | dependents | 
-                                            # authoredby 
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<Resource> };  # The actual data reference
 }  
 
 # Who|what controlled by this rule (or group, by role)

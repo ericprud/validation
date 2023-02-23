@@ -84,62 +84,6 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:derivedFrom @<OneOrMore_Reference_DocumentReference_OR_ImagingSelection_OR_ImagingStudy_OR_MolecularSequence_OR_Observation_OR_QuestionnaireResponse>?;  # Related resource from which the 
                                             # observation is made 
     fhir:component @<OneOrMore_BackboneElement>?;  # Component results
-} AND (
-
-# Constraint UniqueKey:obs-8
-# Human readable:bodyStructure SHALL only be present if Observation.bodySite is not present
-
-# Constraint: bodyStructure.empty() or bodySite.empty()
-# ShEx:
-
- NOT { fhir:bodyStructure {fhir:v .} }  OR  NOT { fhir:bodySite {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# Unmapped construct found: intersect
-# # Constraint UniqueKey:obs-7
-# Human readable:If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present
-#
-# Constraint: value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()
-# ShEx:
-#
-# NOT { fhir:value {fhir:v .} }  OR  NOT { fhir:component.code.  where  (coding.  intersect  ('%resource'.code.coding) .) {fhir:v .} } 
-{}
-
-) AND (
-
-# Constraint UniqueKey:obs-6
-# Human readable:dataAbsentReason SHALL only be present if Observation.value[x] is not present
-
-# Constraint: dataAbsentReason.empty() or value.empty()
-# ShEx:
-
- NOT { fhir:dataAbsentReason {fhir:v .} }  OR  NOT { fhir:value {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:obs-3
-# Human readable:Must have at least a low or a high or text
-
-# Constraint: low.exists() or high.exists() or text.exists()
-# ShEx:
-
-{fhir:low . OR {fhir:high . OR {fhir:text .}}}
-
-)
- 
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:observation @<Reference> AND {fhir:link 
-    			@<Observation> };  # Triggering observation
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
-    fhir:reason @<string>?;                 # Reason that the observation was 
-                                            # triggered 
 }  
 
 # Provides guide for interpretation
@@ -152,53 +96,17 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:age @<Range>?;                     # Applicable age range, if relevant
     fhir:text @<string>?;                   # Text based reference range in an 
                                             # observation 
-} AND (
+}  
 
-# Constraint UniqueKey:obs-8
-# Human readable:bodyStructure SHALL only be present if Observation.bodySite is not present
-
-# Constraint: bodyStructure.empty() or bodySite.empty()
-# ShEx:
-
- NOT { fhir:bodyStructure {fhir:v .} }  OR  NOT { fhir:bodySite {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# Unmapped construct found: intersect
-# # Constraint UniqueKey:obs-7
-# Human readable:If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present
-#
-# Constraint: value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()
-# ShEx:
-#
-# NOT { fhir:value {fhir:v .} }  OR  NOT { fhir:component.code.  where  (coding.  intersect  ('%resource'.code.coding) .) {fhir:v .} } 
-{}
-
-) AND (
-
-# Constraint UniqueKey:obs-6
-# Human readable:dataAbsentReason SHALL only be present if Observation.value[x] is not present
-
-# Constraint: dataAbsentReason.empty() or value.empty()
-# ShEx:
-
- NOT { fhir:dataAbsentReason {fhir:v .} }  OR  NOT { fhir:value {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:obs-3
-# Human readable:Must have at least a low or a high or text
-
-# Constraint: low.exists() or high.exists() or text.exists()
-# ShEx:
-
-{fhir:low . OR {fhir:high . OR {fhir:text .}}}
-
-)
- 
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:observation @<Reference> AND {fhir:link 
+    			@<Observation> };  # Triggering observation
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
+    fhir:reason @<string>?;                 # Reason that the observation was 
+                                            # triggered 
+}  
 
 # Component results
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   

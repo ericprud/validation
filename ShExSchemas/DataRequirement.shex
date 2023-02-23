@@ -24,28 +24,15 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:dateFilter @<OneOrMore_Element>?;  # What dates/date ranges are expected
     fhir:limit @<positiveInt>?;             # Number of results
     fhir:sort @<OneOrMore_Element>?;        # Order of the results
-} AND (
+}  
 
-# Constraint UniqueKey:drq-1
-# Human readable:Either a path or a searchParam must be provided, but not both
-
-# Constraint: path.exists() xor searchParam.exists()
-# ShEx:
-
-{(fhir:path . AND NOT  {fhir:searchParam .}) OR ( NOT fhir:path . AND  {fhir:searchParam .})}
-
-) AND (
-
-# Constraint UniqueKey:drq-2
-# Human readable:Either a path or a searchParam must be provided, but not both
-
-# Constraint: path.exists() xor searchParam.exists()
-# ShEx:
-
-{(fhir:path . AND NOT  {fhir:searchParam .}) OR ( NOT fhir:path . AND  {fhir:searchParam .})}
-
-)
- 
+# Order of the results
+<DataRequirement.sort> EXTENDS @<Element> CLOSED {   
+    fhir:path @<string>;                    # The name of the attribute to 
+                                            # perform the sort 
+    fhir:direction @<code> AND
+    	{fhir:value @fhirvs:sort-direction};  # ascending | descending
+}  
 
 # What codes are expected
 <DataRequirement.codeFilter> EXTENDS @<Element> CLOSED {   
@@ -55,28 +42,7 @@ BASE <http://hl7.org/fhir/shape/>
                                             # search on 
     fhir:valueSet @<canonical>?;            # Valueset for the filter
     fhir:code @<OneOrMore_Coding>?;         # What code is expected
-} AND (
-
-# Constraint UniqueKey:drq-1
-# Human readable:Either a path or a searchParam must be provided, but not both
-
-# Constraint: path.exists() xor searchParam.exists()
-# ShEx:
-
-{(fhir:path . AND NOT  {fhir:searchParam .}) OR ( NOT fhir:path . AND  {fhir:searchParam .})}
-
-) AND (
-
-# Constraint UniqueKey:drq-2
-# Human readable:Either a path or a searchParam must be provided, but not both
-
-# Constraint: path.exists() xor searchParam.exists()
-# ShEx:
-
-{(fhir:path . AND NOT  {fhir:searchParam .}) OR ( NOT fhir:path . AND  {fhir:searchParam .})}
-
-)
- 
+}  
 
 # What dates/date ranges are expected
 <DataRequirement.dateFilter> EXTENDS @<Element> CLOSED {   
@@ -89,35 +55,6 @@ BASE <http://hl7.org/fhir/shape/>
     			@<Duration> )  AND { rdf:type IRI } ?;  # The value of the filter, as a 
                                             # Period, DateTime, or Duration 
                                             # value 
-} AND (
-
-# Constraint UniqueKey:drq-1
-# Human readable:Either a path or a searchParam must be provided, but not both
-
-# Constraint: path.exists() xor searchParam.exists()
-# ShEx:
-
-{(fhir:path . AND NOT  {fhir:searchParam .}) OR ( NOT fhir:path . AND  {fhir:searchParam .})}
-
-) AND (
-
-# Constraint UniqueKey:drq-2
-# Human readable:Either a path or a searchParam must be provided, but not both
-
-# Constraint: path.exists() xor searchParam.exists()
-# ShEx:
-
-{(fhir:path . AND NOT  {fhir:searchParam .}) OR ( NOT fhir:path . AND  {fhir:searchParam .})}
-
-)
- 
-
-# Order of the results
-<DataRequirement.sort> EXTENDS @<Element> CLOSED {   
-    fhir:path @<string>;                    # The name of the attribute to 
-                                            # perform the sort 
-    fhir:direction @<code> AND
-    	{fhir:value @fhirvs:sort-direction};  # ascending | descending
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

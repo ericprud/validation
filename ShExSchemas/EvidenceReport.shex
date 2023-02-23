@@ -43,18 +43,17 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:relatesTo @<OneOrMore_BackboneElement>?;  # Relationships to other 
                                             # compositions/documents 
     fhir:section @<OneOrMore_BackboneElement>?;  # Composition is broken into sections
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')
-# ShEx:
-
-{fhir:name . AND {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){0,254}'/ } }}
-
-)
- 
+# Relationships to other compositions/documents
+<EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code> AND
+    	{fhir:value @fhirvs:report-relation-type};  # replaces | amends | appends | 
+                                            # transforms | replacedWith | 
+                                            # amendedWith | appendedWith | 
+                                            # transformedWith 
+    fhir:target @<BackboneElement>;         # Target of the relationship
+}  
 
 # Nested Section
 <EvidenceReport.section.section> CLOSED {   
@@ -82,6 +81,12 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:section @<OneOrMore_EvidenceReport.section>?;  # Nested Section
 }  
 
+# Focus of the report
+<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Characteristic
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
+}  
+
 # Characteristic
 <EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Characteristic code
@@ -104,22 +109,6 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:resource @<Reference> AND {fhir:link 
     			@<Resource> }?;  # Target of the relationship 
                                             # Resource reference 
-}  
-
-# Focus of the report
-<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Characteristic
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-}  
-
-# Relationships to other compositions/documents
-<EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code> AND
-    	{fhir:value @fhirvs:report-relation-type};  # replaces | amends | appends | 
-                                            # transforms | replacedWith | 
-                                            # amendedWith | appendedWith | 
-                                            # transformedWith 
-    fhir:target @<BackboneElement>;         # Target of the relationship
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -189,8 +178,8 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
 
-# The type of relationship between reports.
-fhirvs:report-relation-type ["replaces" "amends" "appends" "transforms" "replacedWith" "amendedWith" "appendedWith" "transformedWith"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# The type of relationship between reports.
+fhirvs:report-relation-type ["replaces" "amends" "appends" "transforms" "replacedWith" "amendedWith" "appendedWith" "transformedWith"]

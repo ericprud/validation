@@ -18,15 +18,4 @@ BASE <http://hl7.org/fhir/shape/>
                                             # application/x-fhir-query | etc. 
     fhir:expression @<string>?;             # Expression in specified language
     fhir:reference @<uri>?;                 # Where the expression is found
-} AND (
-
-# Constraint UniqueKey:exp-1
-# Human readable:An expression or a reference must be provided
-
-# Constraint: expression.exists() or reference.exists()
-# ShEx:
-
-{fhir:expression . OR {fhir:reference .}}
-
-)
- 
+}  

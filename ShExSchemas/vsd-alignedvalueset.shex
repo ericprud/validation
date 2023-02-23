@@ -13,33 +13,26 @@ start=@<vsd-alignedvalueset> AND {fhir:nodeRole [fhir:treeRoot]}
 
     a [fhir:vsd-alignedvalueset];
     fhir:nodeRole [fhir:treeRoot]?;
-} AND (
-
-# Constraint UniqueKey:vsd-1
-# Human readable:Identifier.system is restricted to OID, RUID, UUID, URI
-
-# Constraint: identifier.exists(system in ('OID' or 'RUID' or 'UUID' or 'URI'))
-# ShEx:
-
-{fhir:identifier.system { fhir:v ['OID' OR 'RUID' OR 'UUID' OR 'URI'] } }
-
-)
- 
-
-# Property value for the concept
-<ValueSet.expansion.contains.property> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Used when the value set is "expanded"
-<ValueSet.expansion> EXTENDS @<BackboneElement> CLOSED {   
+# Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description
+<ValueSet.scope> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Content logical definition of the value set (CLD)
 <ValueSet.compose> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Codes in the value set
+<ValueSet.expansion.contains> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Additional representations for this concept
 <ValueSet.compose.include.concept.designation> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# draft | active | retired | unknown
+<ValueSet.status> EXTENDS @<code> CLOSED {   
 }  
 
 # Additional information supplied about each concept
@@ -50,26 +43,22 @@ start=@<vsd-alignedvalueset> AND {fhir:nodeRole [fhir:treeRoot]}
 <ValueSet.expansion.parameter> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# A concept defined in the system
-<ValueSet.compose.include.concept> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# draft | active | retired | unknown
-<ValueSet.status> EXTENDS @<code> CLOSED {   
-}  
-
-# Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description
-<ValueSet.scope> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Select codes/concepts by their properties (including relationships)
 <ValueSet.compose.include.filter> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Codes in the value set
-<ValueSet.expansion.contains> EXTENDS @<BackboneElement> CLOSED {   
+# Property value for the concept
+<ValueSet.expansion.contains.property> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Include one or more codes from a code system or other value set(s)
 <ValueSet.compose.include> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Used when the value set is "expanded"
+<ValueSet.expansion> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# A concept defined in the system
+<ValueSet.compose.include.concept> EXTENDS @<BackboneElement> CLOSED {   
 }  

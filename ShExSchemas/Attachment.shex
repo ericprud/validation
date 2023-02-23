@@ -30,18 +30,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:frames @<positiveInt>?;            # Number of frames if > 1 (photo)
     fhir:duration @<decimal>?;              # Length in seconds (audio / video)
     fhir:pages @<positiveInt>?;             # Number of printed pages
-} AND (
-
-# Constraint UniqueKey:att-1
-# Human readable:If the Attachment has data, it SHALL have a contentType
-
-# Constraint: data.empty() or contentType.exists()
-# ShEx:
-
- NOT { fhir:data {fhir:v .} }  OR {fhir:contentType .}
-
-)
- 
+}  
 
 #---------------------- Value Sets ------------------------
 

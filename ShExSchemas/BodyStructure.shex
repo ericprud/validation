@@ -25,16 +25,6 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> };  # Who this is about
 }  
 
-# Excluded anatomic locations(s)
-<BodyStructure.excludedStructure> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:structure @<CodeableConcept>;      # Code that represents the excluded 
-                                            # structure 
-    fhir:laterality @<CodeableConcept>?;    # Code that represents the excluded 
-                                            # structure laterality 
-    fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the excluded 
-                                            # structure qualifier 
-}  
-
 # Included anatomic location(s)
 <BodyStructure.includedStructure> EXTENDS @<BackboneElement> CLOSED {   
     fhir:structure @<CodeableConcept>;      # Code that represents the included 
@@ -42,6 +32,16 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:laterality @<CodeableConcept>?;    # Code that represents the included 
                                             # structure laterality 
     fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the included 
+                                            # structure qualifier 
+}  
+
+# Excluded anatomic locations(s)
+<BodyStructure.excludedStructure> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:structure @<CodeableConcept>;      # Code that represents the excluded 
+                                            # structure 
+    fhir:laterality @<CodeableConcept>?;    # Code that represents the excluded 
+                                            # structure laterality 
+    fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the excluded 
                                             # structure qualifier 
 }  
 

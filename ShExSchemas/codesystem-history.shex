@@ -18,11 +18,7 @@ BASE <http://hl7.org/fhir/shape/>
     		}
 }  
 
-# Information about the change
-<Element.extension> EXTENDS @<Extension> CLOSED {   
-}  
-
-# Date the change was made
+# Version marker after the change was made
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
@@ -30,7 +26,11 @@ BASE <http://hl7.org/fhir/shape/>
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
-# Version marker after the change was made
+# Information about the change
+<Element.extension> EXTENDS @<Extension> CLOSED {   
+}  
+
+# Date the change was made
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 

@@ -37,18 +37,7 @@ start=@<AppointmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:value @fhirvs:participationstatus};  # accepted | declined | tentative | 
                                             # needs-action 
     fhir:comment @<string>?;                # Additional comments
-} AND (
-
-# Constraint UniqueKey:apr-1
-# Human readable:Either the participantType or actor must be specified
-
-# Constraint: participantType.exists() or actor.exists()
-# ShEx:
-
-{fhir:participantType . OR {fhir:actor .}}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

@@ -34,18 +34,7 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:characteristic @<OneOrMore_BackboneElement>?;  # Include / Exclude group members by 
                                             # Trait 
     fhir:member @<OneOrMore_BackboneElement>?;  # Who or what is in group
-} AND (
-
-# Constraint UniqueKey:grp-1
-# Human readable:Can only have members if group is "actual"
-
-# Constraint: member.empty() or (actual = true)
-# ShEx:
-
- NOT { fhir:member {fhir:v .} }  OR ({ fhir:actual { fhir:v [true] }  })
-
-)
- 
+}  
 
 # Include / Exclude group members by Trait
 <Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   

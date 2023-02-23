@@ -15,18 +15,18 @@ start=@<cdshooksrequestgroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# Who should perform the action
-<RequestGroup.action.participant> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Relationship to another action
-<RequestGroup.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
+# Whether or not the action is applicable
+<RequestGroup.action.condition> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Proposed actions, if any
 <RequestGroup.action> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Whether or not the action is applicable
-<RequestGroup.action.condition> EXTENDS @<BackboneElement> CLOSED {   
+# Who should perform the action
+<RequestGroup.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Relationship to another action
+<RequestGroup.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
 }  

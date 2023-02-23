@@ -31,32 +31,7 @@ start=@<CareTeam> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:telecom @<OneOrMore_ContactPoint>?;  # A contact detail for the care team 
                                             # (that applies to all members) 
     fhir:note @<OneOrMore_Annotation>?;     # Comments made about the CareTeam
-} AND (
-
-# Constraint UniqueKey:ctm-2
-# Human readable:CareTeam.participant.role or CareTeam.participant.member exists
-
-# Constraint: role.exists() or member.exists()
-# ShEx:
-
-{fhir:role . OR {fhir:member .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:ctm-1
-# Human readable:CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
-#
-# Constraint: onBehalfOf.exists() implies (member.resolve() is Practitioner)
-# ShEx:
-#
-#{fhir:onBehalfOf . AND (   resolve  ( fhir:member ) a { fhir:Practitioner })}
-{}
-
-)
- 
+}  
 
 # Members of the team
 <CareTeam.participant> EXTENDS @<BackboneElement> CLOSED {   
@@ -73,32 +48,7 @@ start=@<CareTeam> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:coverage (@<Period>  OR 
     			@<Timing> )  AND { rdf:type IRI } ?;  # When the member is generally 
                                             # available within this care team 
-} AND (
-
-# Constraint UniqueKey:ctm-2
-# Human readable:CareTeam.participant.role or CareTeam.participant.member exists
-
-# Constraint: role.exists() or member.exists()
-# ShEx:
-
-{fhir:role . OR {fhir:member .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:ctm-1
-# Human readable:CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
-#
-# Constraint: onBehalfOf.exists() implies (member.resolve() is Practitioner)
-# ShEx:
-#
-#{fhir:onBehalfOf . AND (   resolve  ( fhir:member ) a { fhir:Practitioner })}
-{}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

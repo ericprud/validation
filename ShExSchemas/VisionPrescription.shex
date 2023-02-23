@@ -32,13 +32,6 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:lensSpecification @<OneOrMore_BackboneElement>;  # Vision lens authorization
 }  
 
-# Eye alignment compensation
-<VisionPrescription.lensSpecification.prism> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:amount @<decimal>;                 # Amount of adjustment
-    fhir:base @<code> AND
-    	{fhir:value @fhirvs:vision-base-codes};  # up | down | in | out
-}  
-
 # Vision lens authorization
 <VisionPrescription.lensSpecification> EXTENDS @<BackboneElement> CLOSED {   
     fhir:product @<CodeableConcept>;        # Product to be supplied
@@ -57,6 +50,13 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:color @<string>?;                  # Color required
     fhir:brand @<string>?;                  # Brand required
     fhir:note @<OneOrMore_Annotation>?;     # Notes for coatings
+}  
+
+# Eye alignment compensation
+<VisionPrescription.lensSpecification.prism> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:amount @<decimal>;                 # Amount of adjustment
+    fhir:base @<code> AND
+    	{fhir:value @fhirvs:vision-base-codes};  # up | down | in | out
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -81,8 +81,8 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
 # A coded concept listing the base codes.
 fhirvs:vision-base-codes ["up" "down" "in" "out"]
 
-# This value set includes Status codes.
-fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
-
 # A coded concept listing the eye codes.
 fhirvs:vision-eye-codes ["right" "left"]
+
+# This value set includes Status codes.
+fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]

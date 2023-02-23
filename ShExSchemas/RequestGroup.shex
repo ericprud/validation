@@ -48,22 +48,7 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:goal @<OneOrMore_Reference_Goal>?;  # What goals
     fhir:note @<OneOrMore_Annotation>?;     # Additional notes about the response
     fhir:action @<OneOrMore_BackboneElement>?;  # Proposed actions, if any
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: NotEquals
-# # Constraint UniqueKey:rqg-1
-# Human readable:Must have resource or action but not both
-#
-# Constraint: resource.exists() != action.exists()
-# ShEx:
-#
-#{fhir:resource .  NotEquals  {fhir:action .}}
-{}
-
-)
- 
+}  
 
 # Whether or not the action is applicable
 <RequestGroup.action.condition> EXTENDS @<BackboneElement> CLOSED {   
@@ -156,25 +141,6 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:resource @<Reference> AND {fhir:link 
     			@<Resource> }?;  # The target of the action
     fhir:action @<OneOrMore_RequestGroup.action>?;  # Sub action
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: NotEquals
-# # Constraint UniqueKey:rqg-1
-# Human readable:Must have resource or action but not both
-#
-# Constraint: resource.exists() != action.exists()
-# ShEx:
-#
-#{fhir:resource .  NotEquals  {fhir:action .}}
-{}
-
-)
- 
-
-# Sub action
-<RequestGroup.action.action> CLOSED {   
 }  
 
 # Relationship to another action
@@ -187,6 +153,10 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # after-start | after | after-end 
     fhir:offset (@<Duration>  OR 
     			@<Range> )  AND { rdf:type IRI } ?;  # Time offset for the relationship
+}  
+
+# Sub action
+<RequestGroup.action.action> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -253,8 +223,11 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
 # Defines behavior for an action or a group for how many times that item may be repeated.
 fhirvs:action-cardinality-behavior ["single" "multiple"]
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+# Codes identifying the lifecycle stage of a request.
+fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
+
+# Defines the types of relationships between actions.
+fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
 
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
@@ -262,23 +235,20 @@ fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "r
 # Defines expectations around whether an action or action group is required.
 fhirvs:action-required-behavior ["must" "could" "must-unless-documented"]
 
-# The type of participant for the action.
-fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
+# Defines the kinds of conditions that can appear on actions.
+fhirvs:action-condition-kind ["applicability" "start" "stop"]
 
 # Defines organization behavior of a group.
 fhirvs:action-grouping-behavior ["visual-group" "logical-group" "sentence-group"]
 
-# Defines the kinds of conditions that can appear on actions.
-fhirvs:action-condition-kind ["applicability" "start" "stop"]
+# The type of participant for the action.
+fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
 
-# Codes identifying the lifecycle stage of a request.
-fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
-
-# Defines selection frequency behavior for an action or group.
-fhirvs:action-precheck-behavior ["yes" "no"]
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 
 # Defines selection behavior of a group.
 fhirvs:action-selection-behavior ["any" "all" "all-or-none" "exactly-one" "at-most-one" "one-or-more"]
 
-# Defines the types of relationships between actions.
-fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
+# Defines selection frequency behavior for an action or group.
+fhirvs:action-precheck-behavior ["yes" "no"]

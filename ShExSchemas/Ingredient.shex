@@ -35,36 +35,6 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # this ingredient 
     fhir:substance @<BackboneElement>;      # The substance that comprises this 
                                             # ingredient 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: where
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:ing-1
-# Human readable:If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allegen information should be documented in that resource
-#
-# Constraint: (Ingredient.allergenicIndicator.where(value='true').count() + Ingredient.substance.code.reference.count())  < 2
-# ShEx:
-#
-#(   count  ( fhir:Ingredient.allergenicIndicator.  where  (value { fhir:v ['true'] } ) )  Plus     count  ( fhir:Ingredient.substance.code.reference )) { fhir:v MaxExclusive 2 } 
-{}
-
-)
- 
-
-# Strength expressed in terms of a reference substance
-<Ingredient.substance.strength.referenceStrength> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:substance @<CodeableReference>?;   # Relevant reference substance
-    fhir:strength (@<Ratio>  OR 
-    			@<RatioRange>  OR 
-    			@<Quantity> )  AND { rdf:type IRI } ;  # Strength expressed in terms of a 
-                                            # reference substance 
-    fhir:measurementPoint @<string>?;       # When strength is measured at a 
-                                            # particular point or distance 
-    fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
 }  
 
 # The quantity of substance, per presentation, or per volume or mass, and type of quantity
@@ -97,6 +67,18 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
     fhir:referenceStrength @<OneOrMore_BackboneElement>?;  # Strength expressed in terms of a 
                                             # reference substance 
+}  
+
+# Strength expressed in terms of a reference substance
+<Ingredient.substance.strength.referenceStrength> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:substance @<CodeableReference>?;   # Relevant reference substance
+    fhir:strength (@<Ratio>  OR 
+    			@<RatioRange>  OR 
+    			@<Quantity> )  AND { rdf:type IRI } ;  # Strength expressed in terms of a 
+                                            # reference substance 
+    fhir:measurementPoint @<string>?;       # When strength is measured at a 
+                                            # particular point or distance 
+    fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
 }  
 
 # An organization that manufactures this ingredient
@@ -140,8 +122,8 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role.
-fhirvs:ingredient-manufacturer-role ["allowed" "possible" "actual"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role.
+fhirvs:ingredient-manufacturer-role ["allowed" "possible" "actual"]

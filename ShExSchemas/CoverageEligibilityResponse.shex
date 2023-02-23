@@ -42,18 +42,16 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:preAuthRef @<string>?;             # Preauthorization reference
     fhir:form @<CodeableConcept>?;          # Printed form identifier
     fhir:error @<OneOrMore_BackboneElement>?;  # Processing errors
-} AND (
+}  
 
-# Constraint UniqueKey:ces-1
-# Human readable:SHALL contain a category or a billcode but not both.
-
-# Constraint: category.exists() xor productOrService.exists()
-# ShEx:
-
-{(fhir:category . AND NOT  {fhir:productOrService .}) OR ( NOT fhir:category . AND  {fhir:productOrService .})}
-
-)
- 
+# Patient insurance information
+<CoverageEligibilityResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:coverage @<Reference> AND {fhir:link 
+    			@<Coverage> };  # Insurance information
+    fhir:inforce @<boolean>?;               # Coverage inforce indicator
+    fhir:benefitPeriod @<Period>?;          # When the benefits are applicable
+    fhir:item @<OneOrMore_BackboneElement>?;  # Benefits and authorization details
+}  
 
 # Benefits and authorization details
 <CoverageEligibilityResponse.insurance.item> EXTENDS @<BackboneElement> CLOSED {   
@@ -80,12 +78,6 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # endpoint 
 }  
 
-# Processing errors
-<CoverageEligibilityResponse.error> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Error code detailing processing 
-                                            # issues 
-}  
-
 # Benefit Summary
 <CoverageEligibilityResponse.insurance.item.benefit> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Benefit classification
@@ -97,13 +89,10 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Money> )  AND { rdf:type IRI } ?;  # Benefits used
 }  
 
-# Patient insurance information
-<CoverageEligibilityResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:coverage @<Reference> AND {fhir:link 
-    			@<Coverage> };  # Insurance information
-    fhir:inforce @<boolean>?;               # Coverage inforce indicator
-    fhir:benefitPeriod @<Period>?;          # When the benefits are applicable
-    fhir:item @<OneOrMore_BackboneElement>?;  # Benefits and authorization details
+# Processing errors
+<CoverageEligibilityResponse.error> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Error code detailing processing 
+                                            # issues 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -130,11 +119,11 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The outcome of the processing.
+fhirvs:eligibility-outcome ["queued" "complete" "error" "partial"]
+
 # A code specifying the types of information being requested.
 fhirvs:eligibilityresponse-purpose ["auth-requirements" "benefits" "discovery" "validation"]
 
 # This value set includes Status codes.
 fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
-
-# The outcome of the processing.
-fhirvs:eligibility-outcome ["queued" "complete" "error" "partial"]

@@ -38,16 +38,6 @@ start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Account> }?;  # Reference to a parent Account
 }  
 
-# The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
-<Account.coverage> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:coverage @<Reference> AND {fhir:link 
-    			@<Coverage> };  # The party(s), such as insurances, 
-                                            # that may contribute to the payment 
-                                            # of this account 
-    fhir:priority @<positiveInt>?;          # The priority of the coverage in 
-                                            # the context of this account 
-}  
-
 # The parties ultimately responsible for balancing the Account
 <Account.guarantor> EXTENDS @<BackboneElement> CLOSED {   
     fhir:party @<Reference> AND {fhir:link 
@@ -56,6 +46,16 @@ start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> };  # Responsible entity
     fhir:onHold @<boolean>?;                # Credit or other hold applied
     fhir:period @<Period>?;                 # Guarantee account during
+}  
+
+# The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
+<Account.coverage> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:coverage @<Reference> AND {fhir:link 
+    			@<Coverage> };  # The party(s), such as insurances, 
+                                            # that may contribute to the payment 
+                                            # of this account 
+    fhir:priority @<positiveInt>?;          # The priority of the coverage in 
+                                            # the context of this account 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

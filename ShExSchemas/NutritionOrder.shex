@@ -52,24 +52,21 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:supplement @<OneOrMore_BackboneElement>?;  # Supplement components
     fhir:enteralFormula @<BackboneElement>?;  # Enteral formula components
     fhir:note @<OneOrMore_Annotation>?;     # Comments
-} AND (
+}  
 
-# Constraint UniqueKey:nor-1
-# Human readable:Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class
-
-# Constraint: oralDiet.exists() or supplement.exists() or enteralFormula.exists()
-# ShEx:
-
-{fhir:oralDiet . OR {fhir:supplement . OR {fhir:enteralFormula .}}}
-
-)
- 
-
-# Required  nutrient modifications
-<NutritionOrder.oralDiet.nutrient> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:modifier @<CodeableConcept>?;      # Type of nutrient that is being 
-                                            # modified 
-    fhir:amount @<Quantity>?;               # Quantity of the specified nutrient
+# Oral diet components
+<NutritionOrder.oralDiet> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<OneOrMore_CodeableConcept>?;  # Type of oral diet or diet 
+                                            # restrictions that describe what 
+                                            # can be consumed orally 
+    fhir:schedule @<OneOrMore_Timing>?;     # Scheduled frequency of diet
+    fhir:nutrient @<OneOrMore_BackboneElement>?;  # Required  nutrient modifications
+    fhir:texture @<OneOrMore_BackboneElement>?;  # Required  texture modifications
+    fhir:fluidConsistencyType @<OneOrMore_CodeableConcept>?;  # The required consistency of fluids 
+                                            # and liquids provided to the 
+                                            # patient 
+    fhir:instruction @<string>?;            # Instructions or additional 
+                                            # information about the oral diet 
 }  
 
 # Supplement components
@@ -84,6 +81,16 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:instruction @<string>?;            # Instructions or additional 
                                             # information about the oral 
                                             # supplement 
+}  
+
+# Formula feeding instruction as structured data
+<NutritionOrder.enteralFormula.administration> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:schedule @<Timing>?;               # Scheduled frequency of enteral 
+                                            # feeding 
+    fhir:quantity @<Quantity>?;             # The volume of formula to provide
+    fhir:rate (@<SimpleQuantity>  OR 
+    			@<Ratio> )  AND { rdf:type IRI } ?;  # Speed with which the formula is 
+                                            # provided per period of time 
 }  
 
 # Enteral formula components
@@ -107,21 +114,6 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # expressed as text 
 }  
 
-# Oral diet components
-<NutritionOrder.oralDiet> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<OneOrMore_CodeableConcept>?;  # Type of oral diet or diet 
-                                            # restrictions that describe what 
-                                            # can be consumed orally 
-    fhir:schedule @<OneOrMore_Timing>?;     # Scheduled frequency of diet
-    fhir:nutrient @<OneOrMore_BackboneElement>?;  # Required  nutrient modifications
-    fhir:texture @<OneOrMore_BackboneElement>?;  # Required  texture modifications
-    fhir:fluidConsistencyType @<OneOrMore_CodeableConcept>?;  # The required consistency of fluids 
-                                            # and liquids provided to the 
-                                            # patient 
-    fhir:instruction @<string>?;            # Instructions or additional 
-                                            # information about the oral diet 
-}  
-
 # Required  texture modifications
 <NutritionOrder.oralDiet.texture> EXTENDS @<BackboneElement> CLOSED {   
     fhir:modifier @<CodeableConcept>?;      # Code to indicate how to alter the 
@@ -131,14 +123,11 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # nutritional purposes 
 }  
 
-# Formula feeding instruction as structured data
-<NutritionOrder.enteralFormula.administration> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:schedule @<Timing>?;               # Scheduled frequency of enteral 
-                                            # feeding 
-    fhir:quantity @<Quantity>?;             # The volume of formula to provide
-    fhir:rate (@<SimpleQuantity>  OR 
-    			@<Ratio> )  AND { rdf:type IRI } ?;  # Speed with which the formula is 
-                                            # provided per period of time 
+# Required  nutrient modifications
+<NutritionOrder.oralDiet.nutrient> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:modifier @<CodeableConcept>?;      # Type of nutrient that is being 
+                                            # modified 
+    fhir:amount @<Quantity>?;               # Quantity of the specified nutrient
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -186,8 +175,8 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes indicating the degree of authority/intentionality associated with a request.
-fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
-
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
+
+# Codes indicating the degree of authority/intentionality associated with a request.
+fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]

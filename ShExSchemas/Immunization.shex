@@ -59,18 +59,19 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:reaction @<OneOrMore_BackboneElement>?;  # Details of a reaction that follows 
                                             # immunization 
     fhir:protocolApplied @<OneOrMore_BackboneElement>?;  # Protocol followed by the provider
-} AND (
+}  
 
-# Constraint UniqueKey:imm-1
-# Human readable:One of documentType or reference SHALL be present
-
-# Constraint: documentType.exists() or reference.exists()
-# ShEx:
-
-{fhir:documentType . OR {fhir:reference .}}
-
-)
- 
+# Educational material presented to patient
+<Immunization.education> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:documentType @<string>?;           # Educational material document 
+                                            # identifier 
+    fhir:reference @<uri>?;                 # Educational material reference 
+                                            # pointer 
+    fhir:publicationDate @<dateTime>?;      # Educational material publication 
+                                            # date 
+    fhir:presentationDate @<dateTime>?;     # Educational material presentation 
+                                            # date 
+}  
 
 # Protocol followed by the provider
 <Immunization.protocolApplied> EXTENDS @<BackboneElement> CLOSED {   
@@ -91,29 +92,6 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:manifestation @<CodeableReference>?;  # Additional information on reaction
     fhir:reported @<boolean>?;              # Indicates self-reported reaction
 }  
-
-# Educational material presented to patient
-<Immunization.education> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:documentType @<string>?;           # Educational material document 
-                                            # identifier 
-    fhir:reference @<uri>?;                 # Educational material reference 
-                                            # pointer 
-    fhir:publicationDate @<dateTime>?;      # Educational material publication 
-                                            # date 
-    fhir:presentationDate @<dateTime>?;     # Educational material presentation 
-                                            # date 
-} AND (
-
-# Constraint UniqueKey:imm-1
-# Human readable:One of documentType or reference SHALL be present
-
-# Constraint: documentType.exists() or reference.exists()
-# ShEx:
-
-{fhir:documentType . OR {fhir:reference .}}
-
-)
- 
 
 # Who performed event
 <Immunization.performer> EXTENDS @<BackboneElement> CLOSED {   

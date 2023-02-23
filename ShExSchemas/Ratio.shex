@@ -12,15 +12,4 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:numerator @<Quantity>?;            # Numerator value
     fhir:denominator @<Quantity>?;          # Denominator value
-} AND (
-
-# Constraint UniqueKey:rat-1
-# Human readable:Numerator and denominator SHALL both be present, or both are absent. If both are absent, there SHALL be some extension present
-
-# Constraint: (numerator.empty() xor denominator.exists()) and (numerator.exists() or extension.exists())
-# ShEx:
-
-(( NOT { fhir:numerator {fhir:v .} }  AND NOT  {fhir:denominator .}) OR ( NOT  NOT { fhir:numerator {fhir:v .} }  AND  {fhir:denominator .})) AND ({fhir:numerator . OR {fhir:extension .}})
-
-)
- 
+}  

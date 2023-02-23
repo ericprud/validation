@@ -40,16 +40,6 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # message 
 }  
 
-# If this is a reply to prior message
-<MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier @<Identifier>;          # Id of original message
-    fhir:code @<code> AND
-    	{fhir:value @fhirvs:response-code};  # ok | transient-error | fatal-error
-    fhir:details @<Reference> AND {fhir:link 
-    			@<OperationOutcome> }?;  # Specific list of 
-                                            # hints/warnings/errors 
-}  
-
 # Message destination application(s)
 <MessageHeader.destination> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>?;                   # Name of system
@@ -71,6 +61,16 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:version @<string>?;                # Version of software running
     fhir:contact @<ContactPoint>?;          # Human contact for problems
     fhir:endpoint @<url>?;                  # Actual message source address or id
+}  
+
+# If this is a reply to prior message
+<MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier @<Identifier>;          # Id of original message
+    fhir:code @<code> AND
+    	{fhir:value @fhirvs:response-code};  # ok | transient-error | fatal-error
+    fhir:details @<Reference> AND {fhir:link 
+    			@<OperationOutcome> }?;  # Specific list of 
+                                            # hints/warnings/errors 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

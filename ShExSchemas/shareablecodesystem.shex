@@ -15,10 +15,6 @@ start=@<shareablecodesystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# Property value for the concept
-<CodeSystem.concept.property> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Filter that can be used in a value set
 <CodeSystem.filter> EXTENDS @<BackboneElement> CLOSED {   
 }  
@@ -29,6 +25,10 @@ start=@<shareablecodesystem> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Concepts in the code system
 <CodeSystem.concept> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Property value for the concept
+<CodeSystem.concept.property> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Additional representations for the concept

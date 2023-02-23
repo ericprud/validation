@@ -61,19 +61,6 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # consumption 
 }  
 
-# Who was performed in the intake
-<NutritionIntake.performer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:function @<CodeableConcept>?;      # Type of performer
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Who performed the intake
-}  
-
 # What food or fluid product or item was consumed
 <NutritionIntake.consumedItem> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # The type of food or fluid product
@@ -94,6 +81,19 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
 <NutritionIntake.ingredientLabel> EXTENDS @<BackboneElement> CLOSED {   
     fhir:nutrient @<CodeableReference>;     # Total nutrient consumed
     fhir:amount @<Quantity>;                # Total amount of nutrient consumed
+}  
+
+# Who was performed in the intake
+<NutritionIntake.performer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:function @<CodeableConcept>?;      # Type of performer
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> };  # Who performed the intake
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

@@ -32,29 +32,6 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:network @<OneOrMore_Reference_Organization>?;  # What networks are Included
     fhir:coverage @<OneOrMore_BackboneElement>?;  # Coverage details
     fhir:plan @<OneOrMore_BackboneElement>?;  # Plan details
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:ipn-1
-# Human readable:The organization SHALL at least have a name or an identifier, and possibly more than one
-#
-# Constraint: (identifier.count() + name.count()) > 0
-# ShEx:
-#
-#(   count  ( fhir:identifier )  Plus     count  ( fhir:name )) { fhir:v MinExclusive 0 } 
-{}
-
-)
- 
-
-# Benefit limits
-<InsurancePlan.coverage.benefit.limit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<Quantity>?;                # Maximum value allowed
-    fhir:code @<CodeableConcept>?;          # Benefit limit details
 }  
 
 # Coverage details
@@ -64,19 +41,24 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:benefit @<OneOrMore_BackboneElement>;  # List of benefits
 }  
 
+# Specific costs
+<InsurancePlan.plan.specificCost> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>;       # General category of benefit
+    fhir:benefit @<OneOrMore_BackboneElement>?;  # Benefits list
+}  
+
+# Benefit limits
+<InsurancePlan.coverage.benefit.limit> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<Quantity>?;                # Maximum value allowed
+    fhir:code @<CodeableConcept>?;          # Benefit limit details
+}  
+
 # Overall costs
 <InsurancePlan.plan.generalCost> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # Type of cost
     fhir:groupSize @<positiveInt>?;         # Number of enrollees
     fhir:cost @<Money>?;                    # Cost value
     fhir:comment @<string>?;                # Additional cost information
-}  
-
-# List of benefits
-<InsurancePlan.coverage.benefit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Type of benefit
-    fhir:requirement @<string>?;            # Referral requirements
-    fhir:limit @<OneOrMore_BackboneElement>?;  # Benefit limits
 }  
 
 # Plan details
@@ -89,10 +71,11 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:specificCost @<OneOrMore_BackboneElement>?;  # Specific costs
 }  
 
-# Specific costs
-<InsurancePlan.plan.specificCost> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>;       # General category of benefit
-    fhir:benefit @<OneOrMore_BackboneElement>?;  # Benefits list
+# List of benefits
+<InsurancePlan.coverage.benefit> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Type of benefit
+    fhir:requirement @<string>?;            # Referral requirements
+    fhir:limit @<OneOrMore_BackboneElement>?;  # Benefit limits
 }  
 
 # List of the costs
