@@ -1,0 +1,92 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# - resource -------------------------------------------------------------------
+
+[] a fhir:OperationDefinition ;
+  fhir:Resource.id [ fhir:value "CoverageEligibilityRequest-submit"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ]
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.value [ fhir:value "2" ]
+  ], [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.value [ fhir:value "trial-use" ]
+  ] ;
+  fhir:CanonicalResource.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/CoverageEligibilityRequest-submit"] ;
+  fhir:CanonicalResource.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:CanonicalResource.name [ fhir:value "Submit"] ;
+  fhir:CanonicalResource.title [ fhir:value "Submit an EligibilityRequest resource for assessment"] ;
+  fhir:CanonicalResource.status [ fhir:value "draft"] ;
+  fhir:CanonicalResource.experimental [ fhir:value "false"] ;
+  fhir:CanonicalResource.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:CanonicalResource.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:CanonicalResource.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:CanonicalResource.description [ fhir:value "This operation is used to submit an EligibilityRequest for assessment either as a single EligibilityRequest resource instance or as a Bundle containing the EligibilityRequest and other referenced resources, or Bundle containing a batch of EligibilityRequest resources, either as single EligibilityRequests resources or Bundle resources, for processing. The only input parameter is the single EligibilityRequest or Bundle resource and the only output is a single EligibilityResponse, Bundle of EligibilityResponses or an OperationOutcome resource."] ;
+  fhir:CanonicalResource.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/CoverageEligibilityRequest-submit"] ;
+  fhir:OperationDefinition.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:OperationDefinition.name [ fhir:value "Submit"] ;
+  fhir:OperationDefinition.title [ fhir:value "Submit an EligibilityRequest resource for assessment"] ;
+  fhir:OperationDefinition.status [ fhir:value "draft"] ;
+  fhir:OperationDefinition.kind [ fhir:value "operation"] ;
+  fhir:OperationDefinition.experimental [ fhir:value "false"] ;
+  fhir:OperationDefinition.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:OperationDefinition.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:OperationDefinition.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.description [ fhir:value "This operation is used to submit an EligibilityRequest for assessment either as a single EligibilityRequest resource instance or as a Bundle containing the EligibilityRequest and other referenced resources, or Bundle containing a batch of EligibilityRequest resources, either as single EligibilityRequests resources or Bundle resources, for processing. The only input parameter is the single EligibilityRequest or Bundle resource and the only output is a single EligibilityResponse, Bundle of EligibilityResponses or an OperationOutcome resource."] ;
+  fhir:OperationDefinition.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.affectsState [ fhir:value "true"] ;
+  fhir:OperationDefinition.code [ fhir:value "submit"] ;
+  fhir:OperationDefinition.resource [ fhir:value "CoverageEligibilityRequest"] ;
+  fhir:OperationDefinition.system [ fhir:value "false"] ;
+  fhir:OperationDefinition.type [ fhir:value "true"] ;
+  fhir:OperationDefinition.instance [ fhir:value "false"] ;
+  fhir:OperationDefinition.parameter [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "resource" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "An EligibilityRequest resource or Bundle of EligibilityRequests, either as individual EligibilityRequest resources or as Bundles each containing a single EligibilityRequest plus referenced resources." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "Resource" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "return" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "An EligibilityResponse resource or Bundle of EligibilityResponse responses, either as individual EligibilityResponse resources or as Bundles each containing a single EligibilityResponse plus referenced resources." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "Resource" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,82 @@
+﻿PREFIX fhir: <http://hl7.org/fhir/> 
+PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+BASE <http://hl7.org/fhir/shape/>
+
+
+# Optional Extensions Element
+<Extension> EXTENDS @<DataType> CLOSED {   
+
+    a [fhir:Extension];
+    fhir:nodeRole [fhir:treeRoot]?;
+    fhir:v @<uri>; 
+    fhir:value (@<base64Binary>  OR 
+    			@<boolean>  OR 
+    			@<canonical>  OR 
+    			@<code>  OR 
+    			@<date>  OR 
+    			@<dateTime>  OR 
+    			@<decimal>  OR 
+    			@<id>  OR 
+    			@<instant>  OR 
+    			@<integer>  OR 
+    			@<integer64>  OR 
+    			@<markdown>  OR 
+    			@<oid>  OR 
+    			@<positiveInt>  OR 
+    			@<string>  OR 
+    			@<time>  OR 
+    			@<unsignedInt>  OR 
+    			@<uri>  OR 
+    			@<url>  OR 
+    			@<uuid>  OR 
+    			@<Address>  OR 
+    			@<Age>  OR 
+    			@<Annotation>  OR 
+    			@<Attachment>  OR 
+    			@<CodeableConcept>  OR 
+    			@<CodeableReference>  OR 
+    			@<Coding>  OR 
+    			@<ContactPoint>  OR 
+    			@<Count>  OR 
+    			@<Distance>  OR 
+    			@<Duration>  OR 
+    			@<HumanName>  OR 
+    			@<Identifier>  OR 
+    			@<Money>  OR 
+    			@<Period>  OR 
+    			@<Quantity>  OR 
+    			@<Range>  OR 
+    			@<Ratio>  OR 
+    			@<RatioRange>  OR 
+    			@<Reference>  OR 
+    			@<SampledData>  OR 
+    			@<Signature>  OR 
+    			@<Timing>  OR 
+    			@<ContactDetail>  OR 
+    			@<Contributor>  OR 
+    			@<DataRequirement>  OR 
+    			@<Expression>  OR 
+    			@<ParameterDefinition>  OR 
+    			@<RelatedArtifact>  OR 
+    			@<TriggerDefinition>  OR 
+    			@<UsageContext>  OR 
+    			@<Dosage>  OR 
+    			@<Meta> )  AND { rdf:type IRI } ?; 
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: NotEquals
+# # Constraint UniqueKey:ext-1
+# Human readable:Must have either extensions or value[x], not both
+#
+# Constraint: extension.exists() != value.exists()
+# ShEx:
+#
+#{fhir:extension .  NotEquals  {fhir:value .}}
+{}
+
+)
+ 

@@ -1,0 +1,125 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# - resource -------------------------------------------------------------------
+
+[] a fhir:OperationDefinition ;
+  fhir:Resource.id [ fhir:value "DocumentReference-docref"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ]
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.value [ fhir:value "3" ]
+  ], [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.value [ fhir:value "trial-use" ]
+  ] ;
+  fhir:CanonicalResource.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/DocumentReference-docref"] ;
+  fhir:CanonicalResource.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:CanonicalResource.name [ fhir:value "Docref"] ;
+  fhir:CanonicalResource.title [ fhir:value "Fetch DocumentReference"] ;
+  fhir:CanonicalResource.status [ fhir:value "draft"] ;
+  fhir:CanonicalResource.experimental [ fhir:value "false"] ;
+  fhir:CanonicalResource.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:CanonicalResource.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:CanonicalResource.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:CanonicalResource.description [ fhir:value "This operation is used to return all the references to documents related to a patient. \n\n The operation requires a patient id and takes the optional input parameters: \n  - start date\n  - end date\n  - document type \n\n and returns a [Bundle](bundle.html) of type \"searchset\" containing [DocumentReference](documentreference.html) resources for the patient. If the server has or can create documents that are related to the patient, and that are available for the given user, the server returns the DocumentReference resources needed to support the records.  The principle intended use for this operation is to provide a provider or patient with access to their available document information. \n\n This operation is *different* from a search by patient and type and date range because: \n\n 1. It is used to request a server to *generate* a document based on the specified parameters. \n\n 1. If no parameters are specified, the server SHALL return a DocumentReference to the patient's most current CCD \n\n 1. If the server cannot *generate* a document based on the specified parameters, the operation will return an empty search bundle. \n\n This operation is the *same* as a FHIR RESTful search by patient, type and date range because: \n\n 1. References for *existing* documents that meet the requirements of the request SHOULD also be returned unless the client indicates they are only interested in 'on-demand' documents using the *on-demand* parameter."] ;
+  fhir:CanonicalResource.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/DocumentReference-docref"] ;
+  fhir:OperationDefinition.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:OperationDefinition.name [ fhir:value "Docref"] ;
+  fhir:OperationDefinition.title [ fhir:value "Fetch DocumentReference"] ;
+  fhir:OperationDefinition.status [ fhir:value "draft"] ;
+  fhir:OperationDefinition.kind [ fhir:value "operation"] ;
+  fhir:OperationDefinition.experimental [ fhir:value "false"] ;
+  fhir:OperationDefinition.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:OperationDefinition.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:OperationDefinition.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.description [ fhir:value "This operation is used to return all the references to documents related to a patient. \n\n The operation requires a patient id and takes the optional input parameters: \n  - start date\n  - end date\n  - document type \n\n and returns a [Bundle](bundle.html) of type \"searchset\" containing [DocumentReference](documentreference.html) resources for the patient. If the server has or can create documents that are related to the patient, and that are available for the given user, the server returns the DocumentReference resources needed to support the records.  The principle intended use for this operation is to provide a provider or patient with access to their available document information. \n\n This operation is *different* from a search by patient and type and date range because: \n\n 1. It is used to request a server to *generate* a document based on the specified parameters. \n\n 1. If no parameters are specified, the server SHALL return a DocumentReference to the patient's most current CCD \n\n 1. If the server cannot *generate* a document based on the specified parameters, the operation will return an empty search bundle. \n\n This operation is the *same* as a FHIR RESTful search by patient, type and date range because: \n\n 1. References for *existing* documents that meet the requirements of the request SHOULD also be returned unless the client indicates they are only interested in 'on-demand' documents using the *on-demand* parameter."] ;
+  fhir:OperationDefinition.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.affectsState [ fhir:value "true"] ;
+  fhir:OperationDefinition.code [ fhir:value "docref"] ;
+  fhir:OperationDefinition.comment [ fhir:value "The server either returns a search result containing a single DocumentReference, \nor it returns an error."] ;
+  fhir:OperationDefinition.resource [ fhir:value "DocumentReference"] ;
+  fhir:OperationDefinition.system [ fhir:value "false"] ;
+  fhir:OperationDefinition.type [ fhir:value "true"] ;
+  fhir:OperationDefinition.instance [ fhir:value "false"] ;
+  fhir:OperationDefinition.parameter [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "patient" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The id of the patient resource located on the server on which this operation is executed.  If there is no match, an empty Bundle is returned" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "id" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "start" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no start date is provided, all documents prior to the end date are in scope.  If neither a start date nor an end date is provided, the most recent or current document is in scope.  The client **SHOULD** provide values precise to the second + time offset." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "dateTime" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "end" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no end date is provided, all documents subsequent to the start date are in scope. If neither a start date nor an end date is provided, the most recent or current document is in scope.  The client **SHOULD** provide values precise to the second + time offset." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "dateTime" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "type" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The type relates to document type e.g. for the LOINC code for a C-CDA Clinical Summary of Care (CCD) is 34133-9 (Summary of episode note). If no type is provided, the CCD document, if available, SHALL be in scope and all other document types MAY be in scope" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "CodeableConcept" ] ;
+     fhir:OperationDefinitionParameterComponent.binding [
+       fhir:OperationDefinitionParameterBindingComponent.strength [ fhir:value "required" ] ;
+       fhir:OperationDefinitionParameterBindingComponent.valueSet [ fhir:value "http://hl7.org/fhir/ValueSet/doc-typecodes|5.0.0-snapshot3" ]
+     ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "on-demand" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "This on-demand parameter allows client to dictate whether they are requesting only 'on-demand' or both 'on-demand' and 'stable' documents (or delayed/deferred assembly) that meet the query parameters" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "boolean" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "return" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The bundle type is \"searchset\"containing [DocumentReference](documentreference.html) resources." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "Bundle" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

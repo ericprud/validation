@@ -1,0 +1,113 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+[a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/shareablecodesystem" ;
+       fhir:link <http://hl7.org/fhir/StructureDefinition/shareablecodesystem>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "additional" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>CodeSystem &quot;ACME Codes for Cholesterol&quot;: This is an example code system that includes \n        all the codes for serum cholesterol defined by ACME inc.</p>\n      <p>Developed by: FHIR project team (example)</p>\n      <p>Published for testing on 28-Jan 2016</p>\n      <p>This code system defines all the ACME codes for serum cholesterol:</p>\n      <table class=\"grid\">\n        <tr>\n          <td>\n            <b>Code</b>\n          </td>\n          <td>\n            <b>Display</b>\n          </td>\n          <td>\n            <b>Definition</b>\n          </td>\n        </tr>\n        <tr>\n          <td>chol-mmol</td>\n          <td>SChol (mmol/L)</td>\n          <td>Serum Cholesterol, in mmol/L</td>\n        </tr>\n        <tr>\n          <td>chol-mass</td>\n          <td>SChol (mg/L)</td>\n          <td>Serum Cholesterol, in mg/L</td>\n        </tr>\n        <tr>\n          <td>chol</td>\n          <td>SChol</td>\n          <td>Serum Cholesterol</td>\n        </tr>\n      </table>\n    </div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://hl7.org/fhir/CodeSystem/example"] ; #     
+#	  for this example, we use a real URI, since this example does have a canonical URL
+#		at which it's posted. Alternatively, We could have used an OID, or a UUID 
+#
+#    note that since we give a literal URL here, there's an expectation 
+#			that accessing that URL will give some form of representation of 
+#			the full code system, or a pointer about how to get more information. 
+#	
+#			This is not an absolute requirement, but it may be enforced by some 
+#			servers - for instance, the HL7 valueset registry will.    
+  fhir:identifier ( [
+     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.4.1827" ]
+  ] [
+     fhir:system [ fhir:v "http://acme.com/identifiers/codesystems" ] ;
+     fhir:value [ fhir:v "internal-cholesterol-inl" ]
+  ] ) ; #     an imaginary identifier. This is a non FHIR identifier - might be used in a 
+#	  v2 context (though you always need to translate namespaces for v2)    
+  fhir:version [ fhir:v "20160128"] ; #     for version, we are going to simply use the day of publication. This is also 
+#    arbitrary - whatever is here is what people use to refer to the version. 
+#    Could also be a UUID too. Note that you should change the identify of the code 
+#    system, not the version, if existing codes are redefined (e.g. don't do that!)   
+  fhir:name [ fhir:v "ACMECholCodesBlood"] ; # 
+  fhir:title [ fhir:v "ACME Codes for Cholesterol in Serum/Plasma"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v "true"^^xsd:boolean] ; # 
+  fhir:date [ fhir:v "2016-01-28"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Acme Co"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "FHIR project team" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://hl7.org/fhir" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36."] ; # 
+  fhir:caseSensitive [ fhir:v "true"^^xsd:boolean] ; #     it's often unstated - are codes case sensitive or not. And 
+#       it can be the cause of operational or clinical safety problems. 
+#       So FHIR requires that it always be specified.    
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:filter ( [
+     fhir:code [ fhir:v "acme-plasma" ] ;
+     fhir:description [ fhir:v "An internal filter used to select codes that are only used with plasma" ] ;
+     fhir:operator ( [ fhir:v "=" ] ) ;
+     fhir:value [ fhir:v "the value of this filter is either 'true' or 'false'" ]
+  ] ) ; #   filter: Code Systems can define filters that value sets can 
+#    use to select sets of codes. Note that value sets can also use
+#    properties (see, e.g. the valueset-example-supplement example)
+#    and this is always preferred because anything asserted as a 
+#    filter in the code system will need custom code to make it work.
+#    For this reason, filters are generally only defined in high value 
+#    published code systems (unlike this extremely low value example)   
+  fhir:concept ( [
+     fhir:code [ fhir:v "chol-mmol" ] ;
+     fhir:display [ fhir:v "SChol (mmol/L)" ] ;
+     fhir:definition [ fhir:v "Serum Cholesterol, in mmol/L" ] ;
+     fhir:designation ( [
+       fhir:use [
+         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal" ] ;
+         fhir:code [ fhir:v "internal-label" ]
+       ] ;
+       fhir:value [ fhir:v "From ACME POC Testing" ]
+     ] )
+  ] [
+     fhir:code [ fhir:v "chol-mass" ] ;
+     fhir:display [ fhir:v "SChol (mg/L)" ] ;
+     fhir:definition [ fhir:v "Serum Cholesterol, in mg/L" ] ;
+     fhir:designation ( [
+       fhir:use [
+         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal" ] ;
+         fhir:code [ fhir:v "internal-label" ]
+       ] ;
+       fhir:value [ fhir:v "From Paragon Labs" ]
+     ] )
+  ] [
+     fhir:code [ fhir:v "chol" ] ;
+     fhir:display [ fhir:v "SChol" ] ;
+     fhir:definition [ fhir:v "Serum Cholesterol" ] ;
+     fhir:designation ( [
+       fhir:use [
+         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal" ] ;
+         fhir:code [ fhir:v "internal-label" ]
+       ] ;
+       fhir:value [ fhir:v "Obdurate Labs uses this with both kinds of units..." ]
+     ] )
+  ] )] . #     
+#			ACME's defined definitions. Note that these are not 
+#			*good* definitions - but they are very commonly the kind 
+#			of definitions that are encountered in production
+#		   
+
+# -------------------------------------------------------------------------------------
+

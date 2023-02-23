@@ -1,0 +1,31 @@
+﻿PREFIX fhir: <http://hl7.org/fhir/> 
+PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+BASE <http://hl7.org/fhir/shape/>
+
+
+# Variable for processing
+<variable> EXTENDS @<Extension> CLOSED {   
+
+    a [fhir:variable];
+    fhir:nodeRole [fhir:treeRoot]?;
+    fhir:v @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/variable"]}; 
+    fhir:value (@<Expression> )  AND { rdf:type IRI } ; 
+    ^fhir:extension { a [fhir:Questionnaire] OR 
+    				( ^fhir:item {a [fhir:Questionnaire]} ) OR 
+    				( ^fhir:item {( ^fhir:item {a [fhir:Questionnaire]} )} )
+    		}
+} AND (
+
+# Constraint UniqueKey:ext-1
+# Human readable:Variable expressions must have a name
+
+# Constraint: value.name.exists()
+# ShEx:
+
+{fhir:value.name .}
+
+)
+ 

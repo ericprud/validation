@@ -1,0 +1,94 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+[a fhir:Library ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "omtk-modelinfo"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <h2>Participants</h2>\n      <table class=\"grid\">\n        <tr>\n          <td>Author</td>\n          <td>Kensaku Kawamoto, MD, PhD, MHS</td>\n        </tr>\n        <tr>\n          <td>Author</td>\n          <td>Bryn Rhodes</td>\n        </tr>\n        <tr>\n          <td>Author</td>\n          <td>Floyd Eisenberg, MD, MPH</td>\n        </tr>\n        <tr>\n          <td>Author</td>\n          <td>Robert McClure, MD, MPH</td>\n        </tr>\n      </table>\n      <h2>Contents</h2>\n      <p>\n        <code>application/xml</code>\n      </p>\n      <pre>\n        <code class=\"language-xml\">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;\n&lt;ns4:modelInfo name=&quot;OMTK&quot; url=&quot;http://org.opencds/opioid-cds&quot; targetQualifier=&quot;cdc&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:ns4=&quot;urn:hl7-org:elm-modelinfo:r1&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;\n               version=&quot;0.1.0&quot;&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_DOSE_FORM&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;DOSE_FORM_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;DOSE_FORM_NAME&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_DOSE_FORM_GROUP&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;DOSE_FORM_GROUP_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;DOSE_FORM_GROUP_NAME&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_DRUG&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;DRUG_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;DRUG_TYPE&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;DRUG_NAME&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;DOSE_FORM_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_DRUG_DOSE_FORM_GROUP&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;DRUG_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;DOSE_FORM_GROUP_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_DRUG_VALUE_SET&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;VALUE_SET_ID&quot; type=&quot;System.Integer&quot;/&gt;\n        &lt;ns4:element name=&quot;DRUG_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_DRUG_WITH_INGREDIENT&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;DRUG_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_INGREDIENT&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_NAME&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;USE_TO_POPULATE_DB&quot; type=&quot;System.Integer&quot;/&gt;\n        &lt;ns4:element name=&quot;SKIP&quot; type=&quot;System.Integer&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_INGREDIENT_IN_CLASS&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;MED_CLASS_ID&quot; type=&quot;System.Integer&quot;/&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_INGREDIENT_TYPE&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_TYPE&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_SCDC&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;SCDC_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;SCDC_NAME&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;INGREDIENT_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;STRENGTH&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;STRENGTH_VALUE&quot; type=&quot;System.Decimal&quot;/&gt;\n        &lt;ns4:element name=&quot;STRENGTH_UNIT&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.MED_SCDC_FOR_DRUG&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;DRUG_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;SCDC_RXCUI&quot; type=&quot;System.Code&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n    &lt;ns4:typeInfo xsi:type=&quot;ns4:ClassInfo&quot; name=&quot;OMTK.VALUE_SET&quot; baseType=&quot;System.Any&quot; retrievable=&quot;true&quot;&gt;\n        &lt;ns4:element name=&quot;VALUE_SET_ID&quot; type=&quot;System.Integer&quot;/&gt;\n        &lt;ns4:element name=&quot;EXECUTE_ORDER&quot; type=&quot;System.Integer&quot;/&gt;\n        &lt;ns4:element name=&quot;VALUE_SET_NAME&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;DESCRIPTION&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;SQL&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;COMMENTS&quot; type=&quot;System.String&quot;/&gt;\n        &lt;ns4:element name=&quot;UPDATE_DTM&quot; type=&quot;System.DateTime&quot;/&gt;\n    &lt;/ns4:typeInfo&gt;\n&lt;/ns4:modelInfo&gt;\n</code>\n      </pre>\n    </div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:value [ fhir:v "OMTKModelInfo" ]
+  ] ) ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "OMTKModelInfo"] ; # 
+  fhir:title [ fhir:v "OMTK Model Info"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v "true"^^xsd:boolean] ; # 
+  fhir:type [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/library-type" ] ;
+       fhir:code [ fhir:v "model-definition" ]
+     ] )
+  ] ; # 
+  fhir:date [ fhir:v "2017-05-05"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Centers for Disease Control and Prevention (CDC)"] ; # 
+  fhir:description [ fhir:v "Opioid Management Terminology Knowledge Base Model Definition for use in implementing CDC Opioid Prescribing Guidelines."] ; # 
+  fhir:useContext ( [
+     fhir:code [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:code [ fhir:v "focus" ] ;
+       fhir:display [ fhir:v "Clinical Focus" ]
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:182888003 ;
+         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:code [ fhir:v "182888003" ] ;
+         fhir:display [ fhir:v "Medication requested (situation)" ]
+       ] )
+     ]
+  ] [
+     fhir:code [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:code [ fhir:v "focus" ] ;
+       fhir:display [ fhir:v "Clinical Focus" ]
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:82423001 ;
+         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:code [ fhir:v "82423001" ] ;
+         fhir:display [ fhir:v "Chronic pain (finding)" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:code [ fhir:v "US" ] ;
+       fhir:display [ fhir:v "United States of America" ]
+     ] )
+  ] ) ; # 
+  fhir:purpose [ fhir:v "This library defines the Opioid Management Terminology Knowledge Base model"] ; # 
+  fhir:usage [ fhir:v "This library is used to resolve data elements in the Opioid Management Terminology Knowledge Base model"] ; # 
+  fhir:copyright [ fhir:v "© CDC 2016+."] ; # 
+  fhir:topic ( [
+     fhir:text [ fhir:v "Opioid Prescribing" ]
+  ] ) ; # 
+  fhir:author ( [
+     fhir:name [ fhir:v "Kensaku Kawamoto, MD, PhD, MHS" ]
+  ] [
+     fhir:name [ fhir:v "Bryn Rhodes" ]
+  ] [
+     fhir:name [ fhir:v "Floyd Eisenberg, MD, MPH" ]
+  ] [
+     fhir:name [ fhir:v "Robert McClure, MD, MPH" ]
+  ] ) ; # 
+  fhir:content ( [
+     fhir:contentType [ fhir:v "application/xml" ] ;
+     fhir:data [ fhir:v "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pg0KPG5zNDptb2RlbEluZm8gbmFtZT0iT01USyIgdXJsPSJodHRwOi8vb3JnLm9wZW5jZHMvb3Bpb2lkLWNkcyIgdGFyZ2V0UXVhbGlmaWVyPSJjZGMiIHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6bnM0PSJ1cm46aGw3LW9yZzplbG0tbW9kZWxpbmZvOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIg0KICAgICAgICAgICAgICAgdmVyc2lvbj0iMC4xLjAiPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0RPU0VfRk9STSIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRPU0VfRk9STV9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRPU0VfRk9STV9OQU1FIiB0eXBlPSJTeXN0ZW0uU3RyaW5nIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9ET1NFX0ZPUk1fR1JPVVAiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJET1NFX0ZPUk1fR1JPVVBfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJET1NFX0ZPUk1fR1JPVVBfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVRyIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1RZUEUiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRE9TRV9GT1JNX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVR19ET1NFX0ZPUk1fR1JPVVAiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRE9TRV9GT1JNX0dST1VQX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVR19WQUxVRV9TRVQiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJWQUxVRV9TRVRfSUQiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0RSVUdfV0lUSF9JTkdSRURJRU5UIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9JTkdSRURJRU5UIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVNFX1RPX1BPUFVMQVRFX0RCIiB0eXBlPSJTeXN0ZW0uSW50ZWdlciIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iU0tJUCIgdHlwZT0iU3lzdGVtLkludGVnZXIiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlVQREFURV9EVE0iIHR5cGU9IlN5c3RlbS5EYXRlVGltZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0lOR1JFRElFTlRfSU5fQ0xBU1MiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJNRURfQ0xBU1NfSUQiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJJTkdSRURJRU5UX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfSU5HUkVESUVOVF9UWVBFIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfVFlQRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfU0NEQyIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNDRENfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTQ0RDX05BTUUiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTVFJFTkdUSCIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iU1RSRU5HVEhfVkFMVUUiIHR5cGU9IlN5c3RlbS5EZWNpbWFsIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTVFJFTkdUSF9VTklUIiB0eXBlPSJTeXN0ZW0uU3RyaW5nIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9TQ0RDX0ZPUl9EUlVHIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRFJVR19SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNDRENfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLlZBTFVFX1NFVCIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlZBTFVFX1NFVF9JRCIgdHlwZT0iU3lzdGVtLkludGVnZXIiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkVYRUNVVEVfT1JERVIiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJWQUxVRV9TRVRfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iREVTQ1JJUFRJT04iIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNRTCIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iQ09NTUVOVFMiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlVQREFURV9EVE0iIHR5cGU9IlN5c3RlbS5EYXRlVGltZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KPC9uczQ6bW9kZWxJbmZvPg0K"^^xsd:base64Binary ] ;
+     fhir:url [ fhir:v "elm/OMTK-modelinfo-0.1.0.xml" ]
+  ] )] . # 
+
+# -------------------------------------------------------------------------------------
+

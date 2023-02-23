@@ -1,0 +1,131 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+[a fhir:CarePlan ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "f201"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: CarePlan</b><a name=\"f201\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource CarePlan &quot;f201&quot; </p></div><p><b>status</b>: draft</p><p><b>intent</b>: proposal</p><p><b>subject</b>: <span title=\" This careplan is &quot;ended&quot;, but was never closed in the EHR, wherefore the status is &quot;planned&quot; \"><a href=\"patient-example-f201-roel.html\">Patient/f201: Roel</a> &quot;Roel&quot;</span></p><p><b>period</b>: 2013-03-11 --&gt; 2013-03-13</p><p><b>careTeam</b>: <a name=\"careteam\"> </a></p><blockquote><p/><p><a name=\"careteam\"> </a></p><blockquote><p><b>participant</b></p><p><b>role</b>: Review of care plan <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#425268008)</span></p><p><b>member</b>: <a href=\"practitioner-example-f201-ab.html\">Practitioner/f201: Dokter Bronsig</a> &quot;Dokter Bronsig&quot;</p></blockquote><blockquote><p><b>participant</b></p><p><b>role</b>: Carer <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#229774002)</span></p><p><b>member</b>: <a href=\"practitioner-example-f204-ce.html\">Practitioner/f204: Nurse Carla Espinosa</a> &quot;Carla Espinosa&quot;</p></blockquote></blockquote><h3>Addresses</h3><table class=\"grid\"><tr><td>-</td><td><b>Reference</b></td></tr><tr><td>*</td><td><a href=\"condition-example-f204-renal.html\">Condition/f204: Roel's renal insufficiency</a></td></tr></table><p><b>goal</b>: <a name=\"goal\"> </a></p><blockquote><p/><p><a name=\"goal\"> </a></p><p><b>lifecycleStatus</b>: completed</p><p><b>achievementStatus</b>: Achieved <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/4.0.0/CodeSystem-goal-achievement.html\">Goal achievement status</a>#achieved)</span></p><p><b>description</b>: Re-established renal function with at least healthy nutrients. <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> ()</span></p><p><b>subject</b>: <a href=\"patient-example-f201-roel.html\">Patient/f201: Roel</a> &quot;Roel&quot;</p></blockquote><blockquote><p><b>activity</b></p><h3>PlannedActivityDetails</h3><table class=\"grid\"><tr><td>-</td><td><b>Kind</b></td><td><b>Code</b></td><td><b>Status</b></td><td><b>DoNotPerform</b></td><td><b>Scheduled[x]</b></td><td><b>Product[x]</b></td><td><b>DailyAmount</b></td></tr><tr><td>*</td><td>NutritionOrder</td><td>Potassium supplementation <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#284093001)</span></td><td>completed</td><td>false</td><td>daily</td><td><span title=\" TODO Isn't &lt;performer&gt; redundant when considering &lt;participant&gt; that was defined before? \"><a href=\"substance-example-f203-potassium.html\">Substance/f203: Potassium</a></span></td><td>80 mmol<span style=\"background: LightGoldenRodYellow\"> (Details: SNOMED CT code 258718000 = 'millimole')</span></td></tr></table></blockquote><blockquote><p><b>activity</b></p><h3>PlannedActivityDetails</h3><table class=\"grid\"><tr><td>-</td><td><b>Kind</b></td><td><b>Code</b></td><td><b>Status</b></td><td><b>DoNotPerform</b></td></tr><tr><td>*</td><td>ServiceRequest</td><td>Echography of kidney <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#306005)</span></td><td>completed</td><td>false</td></tr></table></blockquote></div>"
+  ] ; # 
+  fhir:contained ( [
+     a fhir:CareTeam ;
+     fhir:id [ fhir:v "careteam" ] ;
+     fhir:participant ( [
+       fhir:role [
+         fhir:coding ( [
+           a sct:425268008 ;
+           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:code [ fhir:v "425268008" ] ;
+           fhir:display [ fhir:v "Review of care plan" ]
+         ] )
+       ] ;
+       fhir:member [
+         fhir:reference [ fhir:v "Practitioner/f201" ] ;
+         fhir:display [ fhir:v "Dokter Bronsig" ]
+       ]
+     ] [
+       fhir:role [
+         fhir:coding ( [
+           a sct:229774002 ;
+           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:code [ fhir:v "229774002" ] ;
+           fhir:display [ fhir:v "Carer" ]
+         ] )
+       ] ;
+       fhir:member [
+         fhir:reference [ fhir:v "Practitioner/f204" ] ;
+         fhir:display [ fhir:v "Nurse Carla Espinosa" ]
+       ]
+     ] )
+  ] [
+     a fhir:Goal ;
+     fhir:id [ fhir:v "goal" ] ;
+     fhir:lifecycleStatus [ fhir:v "completed" ] ;
+     fhir:achievementStatus [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement" ] ;
+         fhir:code [ fhir:v "achieved" ] ;
+         fhir:display [ fhir:v "Achieved" ]
+       ] ) ;
+       fhir:text [ fhir:v "Achieved" ]
+     ] ;
+     fhir:description [
+       fhir:text [ fhir:v "Re-established renal function with at least healthy nutrients." ]
+     ] ;
+     fhir:subject [
+       fhir:reference [ fhir:v "Patient/f201" ] ;
+       fhir:display [ fhir:v "Roel" ]
+     ]
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:reference [ fhir:v "Patient/f201" ] ; #   It entails Roel's careplan  
+     fhir:display [ fhir:v "Roel" ]
+  ] ; #   This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"  
+  fhir:period [
+     fhir:start [ fhir:v "2013-03-11"^^xsd:date ] ;
+     fhir:end [ fhir:v "2013-03-13"^^xsd:date ]
+  ] ; #   Period is less than nine days because the careplan requires adjustments after evaluation  
+  fhir:careTeam ( [
+     fhir:reference [ fhir:v "#careteam" ]
+  ] ) ; # 
+  fhir:addresses ( [
+     fhir:reference [
+       fhir:reference [ fhir:v "Condition/f204" ] ;
+       fhir:display [ fhir:v "Roel's renal insufficiency" ]
+     ]
+  ] ) ; # 
+  fhir:goal ( [
+     fhir:reference [ fhir:v "#goal" ]
+  ] ) ; # 
+  fhir:activity ( [
+     fhir:plannedActivityDetail [
+       fhir:kind [ fhir:v "NutritionOrder" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:284093001 ;
+           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:code [ fhir:v "284093001" ] ;
+           fhir:display [ fhir:v "Potassium supplementation" ]
+         ] )
+       ] ;
+       fhir:status [ fhir:v "completed" ] ;
+       fhir:doNotPerform [ fhir:v "false"^^xsd:boolean ] ;
+       fhir:scheduled [ fhir:v "daily" ] ;
+       fhir:product [
+         a fhir:Reference ;
+         fhir:reference [ fhir:v "Substance/f203" ] ;
+         fhir:display [ fhir:v "Potassium" ]
+       ] ; #   TODO Isn't <performer> redundant when considering <participant> that was defined before?  
+       fhir:dailyAmount [
+         fhir:value [ fhir:v "80"^^xsd:decimal ] ;
+         fhir:unit [ fhir:v "mmol" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:code [ fhir:v "258718000" ]
+       ]
+     ] #   Potassium supplement  
+  ] [
+     fhir:plannedActivityDetail [
+       fhir:kind [ fhir:v "ServiceRequest" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:306005 ;
+           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:code [ fhir:v "306005" ] ;
+           fhir:display [ fhir:v "Echography of kidney" ]
+         ] )
+       ] ;
+       fhir:status [ fhir:v "completed" ] ;
+       fhir:doNotPerform [ fhir:v "false"^^xsd:boolean ]
+     ] #   Echo of the kidney  
+  ] )] . # 
+
+# -------------------------------------------------------------------------------------
+

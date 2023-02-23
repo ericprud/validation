@@ -1,0 +1,100 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# - resource -------------------------------------------------------------------
+
+[] a fhir:OperationDefinition ;
+  fhir:Resource.id [ fhir:value "StructureMap-transform"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ]
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.value [ fhir:value "2" ]
+  ], [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.value [ fhir:value "trial-use" ]
+  ] ;
+  fhir:CanonicalResource.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/StructureMap-transform"] ;
+  fhir:CanonicalResource.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:CanonicalResource.name [ fhir:value "Transform"] ;
+  fhir:CanonicalResource.title [ fhir:value "Model Instance Transformation"] ;
+  fhir:CanonicalResource.status [ fhir:value "draft"] ;
+  fhir:CanonicalResource.experimental [ fhir:value "false"] ;
+  fhir:CanonicalResource.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:CanonicalResource.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:CanonicalResource.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:CanonicalResource.description [ fhir:value "The transform operation takes input content, applies a structure map transform, and then returns the output."] ;
+  fhir:CanonicalResource.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/StructureMap-transform"] ;
+  fhir:OperationDefinition.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:OperationDefinition.name [ fhir:value "Transform"] ;
+  fhir:OperationDefinition.title [ fhir:value "Model Instance Transformation"] ;
+  fhir:OperationDefinition.status [ fhir:value "draft"] ;
+  fhir:OperationDefinition.kind [ fhir:value "operation"] ;
+  fhir:OperationDefinition.experimental [ fhir:value "false"] ;
+  fhir:OperationDefinition.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:OperationDefinition.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:OperationDefinition.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.description [ fhir:value "The transform operation takes input content, applies a structure map transform, and then returns the output."] ;
+  fhir:OperationDefinition.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.affectsState [ fhir:value "false"] ;
+  fhir:OperationDefinition.code [ fhir:value "transform"] ;
+  fhir:OperationDefinition.comment [ fhir:value "The input and return are specified as 'Resources'. In most usage of the $transform operation, either the input or return content is not a valid FHIR resource. In these cases, the return type is actually a [Binary](binary.html) resource. For this operation, the Binary resources may be encoded directly, using a mime-type, as shown in the example. Note: this specification does not yet address the means by which the servers may know the correct mime types for the various content involved"] ;
+  fhir:OperationDefinition.resource [ fhir:value "StructureMap"] ;
+  fhir:OperationDefinition.system [ fhir:value "false"] ;
+  fhir:OperationDefinition.type [ fhir:value "true"] ;
+  fhir:OperationDefinition.instance [ fhir:value "true"] ;
+  fhir:OperationDefinition.parameter [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "source" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The structure map to apply. This is only needed if the operation is invoked at the resource level. If the $transform operation is invoked on a particular structure map, this will be ignored by the server" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "uri" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "content" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The logical content to transform" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "Resource" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "return" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The result of the transform" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "Resource" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

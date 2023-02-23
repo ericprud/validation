@@ -1,0 +1,107 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# - resource -------------------------------------------------------------------
+
+[] a fhir:OperationDefinition ;
+  fhir:Resource.id [ fhir:value "CapabilityStatement-implements"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ]
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.value [ fhir:value "5" ]
+  ], [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.value [ fhir:value "trial-use" ]
+  ] ;
+  fhir:CanonicalResource.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/CapabilityStatement-implements"] ;
+  fhir:CanonicalResource.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:CanonicalResource.name [ fhir:value "Implements"] ;
+  fhir:CanonicalResource.title [ fhir:value "Test if a server implements a client's required operations"] ;
+  fhir:CanonicalResource.status [ fhir:value "draft"] ;
+  fhir:CanonicalResource.experimental [ fhir:value "false"] ;
+  fhir:CanonicalResource.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:CanonicalResource.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:CanonicalResource.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:CanonicalResource.description [ fhir:value "This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides its capability statement inline, or by referring the server to the canonical URL of its capability statement"] ;
+  fhir:CanonicalResource.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/CapabilityStatement-implements"] ;
+  fhir:OperationDefinition.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:OperationDefinition.name [ fhir:value "Implements"] ;
+  fhir:OperationDefinition.title [ fhir:value "Test if a server implements a client's required operations"] ;
+  fhir:OperationDefinition.status [ fhir:value "draft"] ;
+  fhir:OperationDefinition.kind [ fhir:value "operation"] ;
+  fhir:OperationDefinition.experimental [ fhir:value "false"] ;
+  fhir:OperationDefinition.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:OperationDefinition.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:OperationDefinition.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.description [ fhir:value "This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides its capability statement inline, or by referring the server to the canonical URL of its capability statement"] ;
+  fhir:OperationDefinition.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.affectsState [ fhir:value "false"] ;
+  fhir:OperationDefinition.code [ fhir:value "implements"] ;
+  fhir:OperationDefinition.comment [ fhir:value "The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided    Technically, this operation is implemented as follows:   \n\n* The server's capability statement must have an entry for each resource in the client's capability statement    \n* The server's resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalPatch, conditionalDelete, searchInclude, searchRevInclude   \n* The server's capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)   \n* The server's capability statement must have a search parameter with matching name and definition for any search parameters in the client capability statement   \n* The server must have an operation definition with a matching reference for any operations in the client capability statement   \n\nIf the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity >= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error"] ;
+  fhir:OperationDefinition.resource [ fhir:value "CapabilityStatement"] ;
+  fhir:OperationDefinition.system [ fhir:value "false"] ;
+  fhir:OperationDefinition.type [ fhir:value "true"] ;
+  fhir:OperationDefinition.instance [ fhir:value "true"] ;
+  fhir:OperationDefinition.parameter [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "server" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "A canonical reference to the server capability statement - use this if the implements is not invoked on an instance (or on the /metadata end-point)" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "canonical" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "client" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "A canonical reference to the client capability statement - use this if the implements is not invoked on an instance (or on the /metadata end-point)" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "canonical" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "resource" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The client capability statement, provided inline" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "CapabilityStatement" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "return" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "Outcome of the CapabilityStatement test" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "OperationOutcome" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

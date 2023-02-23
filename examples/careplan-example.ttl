@@ -1,0 +1,147 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+[a fhir:CarePlan ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "additional" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.</p>\n    </div>"
+  ] ; # 
+  fhir:contained ( [
+     a fhir:Condition ;
+     fhir:id [ fhir:v "p1" ] ;
+     fhir:clinicalStatus [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:code [ fhir:v "active" ]
+       ] )
+     ] ;
+     fhir:verificationStatus [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:code [ fhir:v "confirmed" ]
+       ] )
+     ] ;
+     fhir:code [
+       fhir:text [ fhir:v "Obesity" ]
+     ] ;
+     fhir:subject [
+       fhir:reference [ fhir:v "Patient/example" ] ;
+       fhir:display [ fhir:v "Peter James Chalmers" ]
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "12345" ]
+  ] ) ; # 
+  fhir:instantiatesUri ( [ fhir:v "http://example.org/protocol-for-obesity"] ) ; # 
+  fhir:basedOn ( [
+     fhir:display [ fhir:v "Management of Type 2 Diabetes" ]
+  ] ) ; # 
+  fhir:replaces ( [
+     fhir:display [ fhir:v "Plan from urgent care clinic" ]
+  ] ) ; # 
+  fhir:partOf ( [
+     fhir:display [ fhir:v "Overall wellness plan" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:intent [ fhir:v "plan"] ; # 
+  fhir:category ( [
+     fhir:text [ fhir:v "Weight management plan" ]
+  ] ) ; # 
+  fhir:description [ fhir:v "Manage obesity and weight loss"] ; # 
+  fhir:subject [
+     fhir:reference [ fhir:v "Patient/example" ] ;
+     fhir:display [ fhir:v "Peter James Chalmers" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:reference [ fhir:v "Encounter/home" ]
+  ] ; # 
+  fhir:period [
+     fhir:end [ fhir:v "2017-06-01"^^xsd:date ]
+  ] ; # 
+  fhir:created [ fhir:v "2016-01-01"^^xsd:date] ; # 
+  fhir:custodian [
+     fhir:reference [ fhir:v "Practitioner/example" ] ;
+     fhir:display [ fhir:v "Dr Adam Careful" ]
+  ] ; # 
+  fhir:careTeam ( [
+     fhir:reference [ fhir:v "CareTeam/example" ]
+  ] ) ; # 
+  fhir:addresses ( [
+     fhir:reference [
+       fhir:reference [ fhir:v "#p1" ] ;
+       fhir:display [ fhir:v "obesity" ]
+     ]
+  ] ) ; # 
+  fhir:goal ( [
+     fhir:reference [ fhir:v "Goal/example" ]
+  ] ) ; # 
+  fhir:activity ( [
+     fhir:performedActivity ( [
+       fhir:concept [
+         fhir:coding ( [
+           a sct:161832001 ;
+           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:code [ fhir:v "161832001" ] ;
+           fhir:display [ fhir:v "Progressive weight loss" ]
+         ] )
+       ]
+     ] [
+       fhir:reference [
+         fhir:reference [ fhir:v "Observation/example" ] ;
+         fhir:display [ fhir:v "Weight Measured" ]
+       ]
+     ] ) ;
+     fhir:plannedActivityDetail [
+       fhir:code [
+         fhir:coding ( [
+           a loinc:3141-9 ;
+           fhir:system [ fhir:v "http://loinc.org" ] ;
+           fhir:code [ fhir:v "3141-9" ] ;
+           fhir:display [ fhir:v "Weight Measured" ]
+         ] [
+           a sct:27113001 ;
+           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:code [ fhir:v "27113001" ] ;
+           fhir:display [ fhir:v "Body weight" ]
+         ] ) #       LOINC code      
+       ] ;
+       fhir:status [ fhir:v "completed" ] ;
+       fhir:statusReason [
+         fhir:text [ fhir:v "Achieved weight loss to mitigate diabetes risk." ]
+       ] ;
+       fhir:doNotPerform [ fhir:v "false"^^xsd:boolean ] ;
+       fhir:scheduled [
+         a fhir:Timing ;
+         fhir:repeat [
+           fhir:frequency [ fhir:v "1"^^xsd:positiveInteger ] ;
+           fhir:period [ fhir:v "1"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ] ;
+       fhir:location [
+         fhir:concept [
+           fhir:coding ( [
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+             fhir:code [ fhir:v "PTRES" ] ;
+             fhir:display [ fhir:v "Patient's Residence" ]
+           ] )
+         ]
+       ] ;
+       fhir:reported [ fhir:v "false"^^xsd:boolean ] ;
+       fhir:performer ( [
+         fhir:reference [ fhir:v "Patient/example" ] ;
+         fhir:display [ fhir:v "Peter James Chalmers" ]
+       ] )
+     ]
+  ] )] . # 
+
+# -------------------------------------------------------------------------------------
+

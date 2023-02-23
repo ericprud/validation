@@ -1,0 +1,64 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+[a fhir:StructureMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: StructureMap</b><a name=\"example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource StructureMap &quot;example&quot; </p></div><p><b>url</b>: <code>http://hl7.org/fhir/StructureMap/example</code></p><p><b>identifier</b>: id: urn:oid:2.16.840.1.113883.4.642.13.2</p><p><b>version</b>: 0.1</p><p><b>name</b>: ExampleMap</p><p><b>title</b>: Example Map</p><p><b>status</b>: draft</p><p><b>date</b>: 2017-03-09</p><p><b>publisher</b>: HL7 FHIR Standard</p><p><b>contact</b>: <a href=\"http://hl7.org/fhir\">http://hl7.org/fhir</a></p><p><b>description</b>: Example Structure Map</p><p><b>jurisdiction</b>: Oceania <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (m49.htm#009)</span></p><blockquote><p><b>group</b></p><p><b>name</b>: Examples</p><p><b>documentation</b>: test -&gt; testValue</p><h3>Inputs</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Mode</b></td></tr><tr><td>*</td><td>test</td><td>source</td></tr></table><blockquote><p><b>rule</b></p><p><b>name</b>: rule1</p><h3>Sources</h3><table class=\"grid\"><tr><td>-</td><td><b>Context</b></td><td><b>Type</b></td><td><b>Element</b></td><td><b>Variable</b></td></tr><tr><td>*</td><td>Source</td><td>SourceClassA</td><td>test</td><td>t</td></tr></table><h3>Targets</h3><table class=\"grid\"><tr><td>-</td><td><b>Context</b></td><td><b>Element</b></td><td><b>Transform</b></td></tr><tr><td>*</td><td>Destination</td><td>testValue</td><td>copy</td></tr></table></blockquote></blockquote></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://hl7.org/fhir/StructureMap/example"] ; # 
+  fhir:identifier ( [
+     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.13.2" ]
+  ] ) ; # 
+  fhir:version [ fhir:v "0.1"] ; # 
+  fhir:name [ fhir:v "ExampleMap"] ; # 
+  fhir:title [ fhir:v "Example Map"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2017-03-09"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "HL7 FHIR Standard"] ; # 
+  fhir:contact ( [
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://hl7.org/fhir" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Example Structure Map"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:code [ fhir:v "009" ] ;
+       fhir:display [ fhir:v "Oceania" ]
+     ] )
+  ] ) ; # 
+  fhir:group ( [
+     fhir:name [ fhir:v "Examples" ] ;
+     fhir:documentation [ fhir:v "test -> testValue" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "test" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "rule1" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "Source" ] ;
+         fhir:type [ fhir:v "SourceClassA" ] ;
+         fhir:element [ fhir:v "test" ] ;
+         fhir:variable [ fhir:v "t" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "Destination" ] ;
+         fhir:element [ fhir:v "testValue" ] ;
+         fhir:transform [ fhir:v "copy" ]
+       ] )
+     ] )
+  ] )] . # 
+
+# -------------------------------------------------------------------------------------
+

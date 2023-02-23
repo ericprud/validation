@@ -1,0 +1,1326 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# - resource -------------------------------------------------------------------
+
+[] a fhir:Bundle ;
+  fhir:Resource.id [ fhir:value "terminologies"] ;
+  fhir:Bundle.type [ fhir:value "collection"] ;
+  fhir:Bundle.entry [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/sort-direction" ] ;
+     fhir:Resource.id [ fhir:value "sort-direction" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/document-reference-status" ] ;
+     fhir:Resource.id [ fhir:value "document-reference-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/administrative-gender" ] ;
+     fhir:Resource.id [ fhir:value "administrative-gender" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/product-status" ] ;
+     fhir:Resource.id [ fhir:value "product-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/publication-status" ] ;
+     fhir:Resource.id [ fhir:value "publication-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/identifier-use" ] ;
+     fhir:Resource.id [ fhir:value "identifier-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/request-priority" ] ;
+     fhir:Resource.id [ fhir:value "request-priority" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/address-type" ] ;
+     fhir:Resource.id [ fhir:value "address-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/concept-map-equivalence" ] ;
+     fhir:Resource.id [ fhir:value "concept-map-equivalence" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/request-intent" ] ;
+     fhir:Resource.id [ fhir:value "request-intent" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/request-status" ] ;
+     fhir:Resource.id [ fhir:value "request-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/quantity-comparator" ] ;
+     fhir:Resource.id [ fhir:value "quantity-comparator" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/constraint-severity" ] ;
+     fhir:Resource.id [ fhir:value "constraint-severity" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/related-artifact-type" ] ;
+     fhir:Resource.id [ fhir:value "related-artifact-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/trigger-type" ] ;
+     fhir:Resource.id [ fhir:value "trigger-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/discriminator-type" ] ;
+     fhir:Resource.id [ fhir:value "discriminator-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/property-representation" ] ;
+     fhir:Resource.id [ fhir:value "property-representation" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/note-type" ] ;
+     fhir:Resource.id [ fhir:value "note-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/concept-map-relationship" ] ;
+     fhir:Resource.id [ fhir:value "concept-map-relationship" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contributor-type" ] ;
+     fhir:Resource.id [ fhir:value "contributor-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contact-point-system" ] ;
+     fhir:Resource.id [ fhir:value "contact-point-system" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/resource-aggregation-mode" ] ;
+     fhir:Resource.id [ fhir:value "resource-aggregation-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/binding-strength" ] ;
+     fhir:Resource.id [ fhir:value "binding-strength" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/event-timing" ] ;
+     fhir:Resource.id [ fhir:value "event-timing" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/reference-version-rules" ] ;
+     fhir:Resource.id [ fhir:value "reference-version-rules" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/search-param-type" ] ;
+     fhir:Resource.id [ fhir:value "search-param-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/remittance-outcome" ] ;
+     fhir:Resource.id [ fhir:value "remittance-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/account-aggregate" ] ;
+     fhir:Resource.id [ fhir:value "account-aggregate" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/account-balance-term" ] ;
+     fhir:Resource.id [ fhir:value "account-balance-term" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/account-billing-status" ] ;
+     fhir:Resource.id [ fhir:value "account-billing-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/account-relationship" ] ;
+     fhir:Resource.id [ fhir:value "account-relationship" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/account-status" ] ;
+     fhir:Resource.id [ fhir:value "account-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-cardinality-behavior" ] ;
+     fhir:Resource.id [ fhir:value "action-cardinality-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-code" ] ;
+     fhir:Resource.id [ fhir:value "action-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-condition-kind" ] ;
+     fhir:Resource.id [ fhir:value "action-condition-kind" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-grouping-behavior" ] ;
+     fhir:Resource.id [ fhir:value "action-grouping-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-participant-function" ] ;
+     fhir:Resource.id [ fhir:value "action-participant-function" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-participant-type" ] ;
+     fhir:Resource.id [ fhir:value "action-participant-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-precheck-behavior" ] ;
+     fhir:Resource.id [ fhir:value "action-precheck-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-reason-code" ] ;
+     fhir:Resource.id [ fhir:value "action-reason-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-relationship-type" ] ;
+     fhir:Resource.id [ fhir:value "action-relationship-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-required-behavior" ] ;
+     fhir:Resource.id [ fhir:value "action-required-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/action-selection-behavior" ] ;
+     fhir:Resource.id [ fhir:value "action-selection-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/additional-binding-purpose" ] ;
+     fhir:Resource.id [ fhir:value "additional-binding-purpose" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/administrable-dose-form" ] ;
+     fhir:Resource.id [ fhir:value "administrable-dose-form" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/administration-subpotent-reason" ] ;
+     fhir:Resource.id [ fhir:value "administration-subpotent-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/adverse-event-actuality" ] ;
+     fhir:Resource.id [ fhir:value "adverse-event-actuality" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/allergy-intolerance-category" ] ;
+     fhir:Resource.id [ fhir:value "allergy-intolerance-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/allergy-intolerance-criticality" ] ;
+     fhir:Resource.id [ fhir:value "allergy-intolerance-criticality" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/allergy-intolerance-type" ] ;
+     fhir:Resource.id [ fhir:value "allergy-intolerance-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/animal-tissue-type" ] ;
+     fhir:Resource.id [ fhir:value "animal-tissue-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/appointmentstatus" ] ;
+     fhir:Resource.id [ fhir:value "appointmentstatus" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/artifact-contribution-instance-type" ] ;
+     fhir:Resource.id [ fhir:value "artifact-contribution-instance-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/artifact-contribution-type" ] ;
+     fhir:Resource.id [ fhir:value "artifact-contribution-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/artifact-url-classifier" ] ;
+     fhir:Resource.id [ fhir:value "artifact-url-classifier" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/artifactassessment-disposition" ] ;
+     fhir:Resource.id [ fhir:value "artifactassessment-disposition" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/artifactassessment-information-type" ] ;
+     fhir:Resource.id [ fhir:value "artifactassessment-information-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/artifactassessment-workflow-status" ] ;
+     fhir:Resource.id [ fhir:value "artifactassessment-workflow-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/assert-direction-codes" ] ;
+     fhir:Resource.id [ fhir:value "assert-direction-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/assert-manual-completion-codes" ] ;
+     fhir:Resource.id [ fhir:value "assert-manual-completion-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/assert-operator-codes" ] ;
+     fhir:Resource.id [ fhir:value "assert-operator-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/assert-response-code-types" ] ;
+     fhir:Resource.id [ fhir:value "assert-response-code-types" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/asset-availability" ] ;
+     fhir:Resource.id [ fhir:value "asset-availability" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/astm-signature-type" ] ;
+     fhir:Resource.id [ fhir:value "astm-signature-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/audit-event-action" ] ;
+     fhir:Resource.id [ fhir:value "audit-event-action" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/audit-event-severity" ] ;
+     fhir:Resource.id [ fhir:value "audit-event-severity" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/timing-abbreviation" ] ;
+     fhir:Resource.id [ fhir:value "timing-abbreviation" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderived-product-property-type-codes" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderived-product-property-type-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderived-product-status" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderived-product-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderived-productcodes" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderived-productcodes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderivedproductdispense-match-status" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderivedproductdispense-match-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderivedproductdispense-origin-relationship" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderivedproductdispense-origin-relationship" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderivedproductdispense-performer-function" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderivedproductdispense-performer-function" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/biologicallyderivedproductdispense-status" ] ;
+     fhir:Resource.id [ fhir:value "biologicallyderivedproductdispense-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/bundle-type" ] ;
+     fhir:Resource.id [ fhir:value "bundle-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/name-use" ] ;
+     fhir:Resource.id [ fhir:value "name-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/usage-context-type" ] ;
+     fhir:Resource.id [ fhir:value "usage-context-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/event-status" ] ;
+     fhir:Resource.id [ fhir:value "event-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/capability-statement-kind" ] ;
+     fhir:Resource.id [ fhir:value "capability-statement-kind" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/care-plan-activity-status" ] ;
+     fhir:Resource.id [ fhir:value "care-plan-activity-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/care-team-status" ] ;
+     fhir:Resource.id [ fhir:value "care-team-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/catalogType" ] ;
+     fhir:Resource.id [ fhir:value "catalogType" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/narrative-status" ] ;
+     fhir:Resource.id [ fhir:value "narrative-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/cdshooks-indicator" ] ;
+     fhir:Resource.id [ fhir:value "cdshooks-indicator" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/certainty-rating" ] ;
+     fhir:Resource.id [ fhir:value "certainty-rating" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/certainty-type" ] ;
+     fhir:Resource.id [ fhir:value "certainty-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/characteristic-combination" ] ;
+     fhir:Resource.id [ fhir:value "characteristic-combination" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/characteristic-offset" ] ;
+     fhir:Resource.id [ fhir:value "characteristic-offset" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/chargeitem-status" ] ;
+     fhir:Resource.id [ fhir:value "chargeitem-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/citation-artifact-classifier" ] ;
+     fhir:Resource.id [ fhir:value "citation-artifact-classifier" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/citation-classification-type" ] ;
+     fhir:Resource.id [ fhir:value "citation-classification-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/citation-status-type" ] ;
+     fhir:Resource.id [ fhir:value "citation-status-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/citation-summary-style" ] ;
+     fhir:Resource.id [ fhir:value "citation-summary-style" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/cited-artifact-abstract-type" ] ;
+     fhir:Resource.id [ fhir:value "cited-artifact-abstract-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/cited-artifact-classification-type" ] ;
+     fhir:Resource.id [ fhir:value "cited-artifact-classification-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/cited-artifact-part-type" ] ;
+     fhir:Resource.id [ fhir:value "cited-artifact-part-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/cited-artifact-status-type" ] ;
+     fhir:Resource.id [ fhir:value "cited-artifact-status-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/cited-medium" ] ;
+     fhir:Resource.id [ fhir:value "cited-medium" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/claim-decision" ] ;
+     fhir:Resource.id [ fhir:value "claim-decision" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/claim-outcome" ] ;
+     fhir:Resource.id [ fhir:value "claim-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/claim-use" ] ;
+     fhir:Resource.id [ fhir:value "claim-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/clinical-use-definition-category" ] ;
+     fhir:Resource.id [ fhir:value "clinical-use-definition-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/clinical-use-definition-type" ] ;
+     fhir:Resource.id [ fhir:value "clinical-use-definition-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/code-search-support" ] ;
+     fhir:Resource.id [ fhir:value "code-search-support" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/codesystem-content-mode" ] ;
+     fhir:Resource.id [ fhir:value "codesystem-content-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/codesystem-hierarchy-meaning" ] ;
+     fhir:Resource.id [ fhir:value "codesystem-hierarchy-meaning" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/combined-dose-form" ] ;
+     fhir:Resource.id [ fhir:value "combined-dose-form" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/compartment-type" ] ;
+     fhir:Resource.id [ fhir:value "compartment-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/composition-attestation-mode" ] ;
+     fhir:Resource.id [ fhir:value "composition-attestation-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/composition-status" ] ;
+     fhir:Resource.id [ fhir:value "composition-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/concept-properties" ] ;
+     fhir:Resource.id [ fhir:value "concept-properties" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/concept-property-type" ] ;
+     fhir:Resource.id [ fhir:value "concept-property-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/concept-subsumption-outcome" ] ;
+     fhir:Resource.id [ fhir:value "concept-subsumption-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/conceptmap-properties" ] ;
+     fhir:Resource.id [ fhir:value "conceptmap-properties" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/conceptmap-unmapped-mode" ] ;
+     fhir:Resource.id [ fhir:value "conceptmap-unmapped-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/condition-precondition-type" ] ;
+     fhir:Resource.id [ fhir:value "condition-precondition-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/condition-questionnaire-purpose" ] ;
+     fhir:Resource.id [ fhir:value "condition-questionnaire-purpose" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/conditional-delete-status" ] ;
+     fhir:Resource.id [ fhir:value "conditional-delete-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/conditional-read-status" ] ;
+     fhir:Resource.id [ fhir:value "conditional-read-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/conformance-expectation" ] ;
+     fhir:Resource.id [ fhir:value "conformance-expectation" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/consent-data-meaning" ] ;
+     fhir:Resource.id [ fhir:value "consent-data-meaning" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/consent-provision-type" ] ;
+     fhir:Resource.id [ fhir:value "consent-provision-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/consent-state-codes" ] ;
+     fhir:Resource.id [ fhir:value "consent-state-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-actionstatus" ] ;
+     fhir:Resource.id [ fhir:value "contract-actionstatus" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-assetcontext" ] ;
+     fhir:Resource.id [ fhir:value "contract-assetcontext" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-assetscope" ] ;
+     fhir:Resource.id [ fhir:value "contract-assetscope" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-assetsubtype" ] ;
+     fhir:Resource.id [ fhir:value "contract-assetsubtype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-assettype" ] ;
+     fhir:Resource.id [ fhir:value "contract-assettype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-decision-mode" ] ;
+     fhir:Resource.id [ fhir:value "contract-decision-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-definition-subtype" ] ;
+     fhir:Resource.id [ fhir:value "contract-definition-subtype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-definition-type" ] ;
+     fhir:Resource.id [ fhir:value "contract-definition-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-expiration-type" ] ;
+     fhir:Resource.id [ fhir:value "contract-expiration-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-legalstate" ] ;
+     fhir:Resource.id [ fhir:value "contract-legalstate" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-party-role" ] ;
+     fhir:Resource.id [ fhir:value "contract-party-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-publicationstatus" ] ;
+     fhir:Resource.id [ fhir:value "contract-publicationstatus" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-scope" ] ;
+     fhir:Resource.id [ fhir:value "contract-scope" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-security-category" ] ;
+     fhir:Resource.id [ fhir:value "contract-security-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-security-classification" ] ;
+     fhir:Resource.id [ fhir:value "contract-security-classification" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-security-control" ] ;
+     fhir:Resource.id [ fhir:value "contract-security-control" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contract-status" ] ;
+     fhir:Resource.id [ fhir:value "contract-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contributor-role" ] ;
+     fhir:Resource.id [ fhir:value "contributor-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contributor-summary-source" ] ;
+     fhir:Resource.id [ fhir:value "contributor-summary-source" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contributor-summary-style" ] ;
+     fhir:Resource.id [ fhir:value "contributor-summary-style" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contributor-summary-type" ] ;
+     fhir:Resource.id [ fhir:value "contributor-summary-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/coverage-kind" ] ;
+     fhir:Resource.id [ fhir:value "coverage-kind" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/FHIR-version" ] ;
+     fhir:Resource.id [ fhir:value "FHIR-version" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/name-assembly-order" ] ;
+     fhir:Resource.id [ fhir:value "name-assembly-order" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/days-of-week" ] ;
+     fhir:Resource.id [ fhir:value "days-of-week" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/definition-method" ] ;
+     fhir:Resource.id [ fhir:value "definition-method" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/detectedissue-severity" ] ;
+     fhir:Resource.id [ fhir:value "detectedissue-severity" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/detectedissue-status" ] ;
+     fhir:Resource.id [ fhir:value "detectedissue-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-action" ] ;
+     fhir:Resource.id [ fhir:value "device-action" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-availability-status" ] ;
+     fhir:Resource.id [ fhir:value "device-availability-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-category" ] ;
+     fhir:Resource.id [ fhir:value "device-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-correctiveactionscope" ] ;
+     fhir:Resource.id [ fhir:value "device-correctiveactionscope" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-nametype" ] ;
+     fhir:Resource.id [ fhir:value "device-nametype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-operation-mode" ] ;
+     fhir:Resource.id [ fhir:value "device-operation-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-productidentifierinudi" ] ;
+     fhir:Resource.id [ fhir:value "device-productidentifierinudi" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-specification-category" ] ;
+     fhir:Resource.id [ fhir:value "device-specification-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/device-status" ] ;
+     fhir:Resource.id [ fhir:value "device-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/deviceassociation-status" ] ;
+     fhir:Resource.id [ fhir:value "deviceassociation-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/devicedefinition-regulatory-identifier-type" ] ;
+     fhir:Resource.id [ fhir:value "devicedefinition-regulatory-identifier-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/devicedefinition-relationtype" ] ;
+     fhir:Resource.id [ fhir:value "devicedefinition-relationtype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/devicedispense-status" ] ;
+     fhir:Resource.id [ fhir:value "devicedispense-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/devicedispense-status-reason" ] ;
+     fhir:Resource.id [ fhir:value "devicedispense-status-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/deviceusage-adherence-code" ] ;
+     fhir:Resource.id [ fhir:value "deviceusage-adherence-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/deviceusage-adherence-reason" ] ;
+     fhir:Resource.id [ fhir:value "deviceusage-adherence-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/deviceusage-status" ] ;
+     fhir:Resource.id [ fhir:value "deviceusage-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/diagnostic-report-status" ] ;
+     fhir:Resource.id [ fhir:value "diagnostic-report-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/directness" ] ;
+     fhir:Resource.id [ fhir:value "directness" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/document-mode" ] ;
+     fhir:Resource.id [ fhir:value "document-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/document-relationship-type" ] ;
+     fhir:Resource.id [ fhir:value "document-relationship-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/address-use" ] ;
+     fhir:Resource.id [ fhir:value "address-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/resource-slicing-rules" ] ;
+     fhir:Resource.id [ fhir:value "resource-slicing-rules" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/eligibility-outcome" ] ;
+     fhir:Resource.id [ fhir:value "eligibility-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/eligibilityrequest-purpose" ] ;
+     fhir:Resource.id [ fhir:value "eligibilityrequest-purpose" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/eligibilityresponse-purpose" ] ;
+     fhir:Resource.id [ fhir:value "eligibilityresponse-purpose" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/encounter-location-status" ] ;
+     fhir:Resource.id [ fhir:value "encounter-location-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/encounter-status" ] ;
+     fhir:Resource.id [ fhir:value "encounter-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/endpoint-environment" ] ;
+     fhir:Resource.id [ fhir:value "endpoint-environment" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/endpoint-status" ] ;
+     fhir:Resource.id [ fhir:value "endpoint-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/enrollment-outcome" ] ;
+     fhir:Resource.id [ fhir:value "enrollment-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/episode-of-care-status" ] ;
+     fhir:Resource.id [ fhir:value "episode-of-care-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/etsi-signature-type" ] ;
+     fhir:Resource.id [ fhir:value "etsi-signature-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/event-capability-mode" ] ;
+     fhir:Resource.id [ fhir:value "event-capability-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/evidence-classifier-code" ] ;
+     fhir:Resource.id [ fhir:value "evidence-classifier-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/evidence-report-section" ] ;
+     fhir:Resource.id [ fhir:value "evidence-report-section" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/evidence-report-type" ] ;
+     fhir:Resource.id [ fhir:value "evidence-report-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/evidence-variable-event" ] ;
+     fhir:Resource.id [ fhir:value "evidence-variable-event" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/example" ] ;
+     fhir:Resource.id [ fhir:value "example" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/example-metadata" ] ;
+     fhir:Resource.id [ fhir:value "example-metadata" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/example-metadata-2" ] ;
+     fhir:Resource.id [ fhir:value "example-metadata-2" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/example-supplement" ] ;
+     fhir:Resource.id [ fhir:value "example-supplement" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/example-supplement-2" ] ;
+     fhir:Resource.id [ fhir:value "example-supplement-2" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/examplescenario-actor-type" ] ;
+     fhir:Resource.id [ fhir:value "examplescenario-actor-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/explanationofbenefit-status" ] ;
+     fhir:Resource.id [ fhir:value "explanationofbenefit-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/extension-context-type" ] ;
+     fhir:Resource.id [ fhir:value "extension-context-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/extra-activity-type" ] ;
+     fhir:Resource.id [ fhir:value "extra-activity-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/contact-point-use" ] ;
+     fhir:Resource.id [ fhir:value "contact-point-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/fhir-format-type" ] ;
+     fhir:Resource.id [ fhir:value "fhir-format-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/fhir-old-types" ] ;
+     fhir:Resource.id [ fhir:value "fhir-old-types" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/fhir-types" ] ;
+     fhir:Resource.id [ fhir:value "fhir-types" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/fhirpath-types" ] ;
+     fhir:Resource.id [ fhir:value "fhirpath-types" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/filter-operator" ] ;
+     fhir:Resource.id [ fhir:value "filter-operator" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/flag-status" ] ;
+     fhir:Resource.id [ fhir:value "flag-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/fm-status" ] ;
+     fhir:Resource.id [ fhir:value "fm-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/focus-characteristic-code" ] ;
+     fhir:Resource.id [ fhir:value "focus-characteristic-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/formularyitem-status" ] ;
+     fhir:Resource.id [ fhir:value "formularyitem-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/genomicstudy-changetype" ] ;
+     fhir:Resource.id [ fhir:value "genomicstudy-changetype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/genomicstudy-dataformat" ] ;
+     fhir:Resource.id [ fhir:value "genomicstudy-dataformat" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/genomicstudy-methodtype" ] ;
+     fhir:Resource.id [ fhir:value "genomicstudy-methodtype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/genomicstudy-status" ] ;
+     fhir:Resource.id [ fhir:value "genomicstudy-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/genomicstudy-type" ] ;
+     fhir:Resource.id [ fhir:value "genomicstudy-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/goal-status" ] ;
+     fhir:Resource.id [ fhir:value "goal-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/graph-compartment-rule" ] ;
+     fhir:Resource.id [ fhir:value "graph-compartment-rule" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/graph-compartment-use" ] ;
+     fhir:Resource.id [ fhir:value "graph-compartment-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/group-membership-basis" ] ;
+     fhir:Resource.id [ fhir:value "group-membership-basis" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/group-type" ] ;
+     fhir:Resource.id [ fhir:value "group-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/guidance-module-code" ] ;
+     fhir:Resource.id [ fhir:value "guidance-module-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/guidance-response-status" ] ;
+     fhir:Resource.id [ fhir:value "guidance-response-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/guide-page-generation" ] ;
+     fhir:Resource.id [ fhir:value "guide-page-generation" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/guide-parameter-code" ] ;
+     fhir:Resource.id [ fhir:value "guide-parameter-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/history-status" ] ;
+     fhir:Resource.id [ fhir:value "history-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/nhin-purposeofuse" ] ;
+     fhir:Resource.id [ fhir:value "nhin-purposeofuse" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/knowledge-representation-level" ] ;
+     fhir:Resource.id [ fhir:value "knowledge-representation-level" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/summary" ] ;
+     fhir:Resource.id [ fhir:value "summary" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/usage-context-agreement-scope" ] ;
+     fhir:Resource.id [ fhir:value "usage-context-agreement-scope" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/message-events" ] ;
+     fhir:Resource.id [ fhir:value "message-events" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/operation-outcome" ] ;
+     fhir:Resource.id [ fhir:value "operation-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/operation-parameter-use" ] ;
+     fhir:Resource.id [ fhir:value "operation-parameter-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/price-component-type" ] ;
+     fhir:Resource.id [ fhir:value "price-component-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/related-artifact-type-expanded" ] ;
+     fhir:Resource.id [ fhir:value "related-artifact-type-expanded" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/relationship" ] ;
+     fhir:Resource.id [ fhir:value "relationship" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/resource-status" ] ;
+     fhir:Resource.id [ fhir:value "resource-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/restful-interaction" ] ;
+     fhir:Resource.id [ fhir:value "restful-interaction" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/safety-entries" ] ;
+     fhir:Resource.id [ fhir:value "safety-entries" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/sample-security-structural-roles" ] ;
+     fhir:Resource.id [ fhir:value "sample-security-structural-roles" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/virtual-service-type" ] ;
+     fhir:Resource.id [ fhir:value "virtual-service-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/w3c-provenance-activity-type" ] ;
+     fhir:Resource.id [ fhir:value "w3c-provenance-activity-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/tldc" ] ;
+     fhir:Resource.id [ fhir:value "tldc" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/http-operations" ] ;
+     fhir:Resource.id [ fhir:value "http-operations" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/http-verb" ] ;
+     fhir:Resource.id [ fhir:value "http-verb" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/iana-link-relations" ] ;
+     fhir:Resource.id [ fhir:value "iana-link-relations" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-aggregate-method" ] ;
+     fhir:Resource.id [ fhir:value "measure-aggregate-method" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-admin-status" ] ;
+     fhir:Resource.id [ fhir:value "medication-admin-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-dose-aid" ] ;
+     fhir:Resource.id [ fhir:value "medication-dose-aid" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-ingredientstrength" ] ;
+     fhir:Resource.id [ fhir:value "medication-ingredientstrength" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-intended-performer-role" ] ;
+     fhir:Resource.id [ fhir:value "medication-intended-performer-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-statement-adherence" ] ;
+     fhir:Resource.id [ fhir:value "medication-statement-adherence" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-statement-status" ] ;
+     fhir:Resource.id [ fhir:value "medication-statement-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-status" ] ;
+     fhir:Resource.id [ fhir:value "medication-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicationdispense-status" ] ;
+     fhir:Resource.id [ fhir:value "medicationdispense-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicationdispense-status-reason" ] ;
+     fhir:Resource.id [ fhir:value "medicationdispense-status-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicationknowledge-status" ] ;
+     fhir:Resource.id [ fhir:value "medicationknowledge-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicationrequest-intent" ] ;
+     fhir:Resource.id [ fhir:value "medicationrequest-intent" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicationrequest-status" ] ;
+     fhir:Resource.id [ fhir:value "medicationrequest-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/submit-data-update-type" ] ;
+     fhir:Resource.id [ fhir:value "submit-data-update-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/task-code" ] ;
+     fhir:Resource.id [ fhir:value "task-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/transport-code" ] ;
+     fhir:Resource.id [ fhir:value "transport-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/verificationresult-status" ] ;
+     fhir:Resource.id [ fhir:value "verificationresult-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/identity-assuranceLevel" ] ;
+     fhir:Resource.id [ fhir:value "identity-assuranceLevel" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/imagingselection-2dgraphictype" ] ;
+     fhir:Resource.id [ fhir:value "imagingselection-2dgraphictype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/imagingselection-3dgraphictype" ] ;
+     fhir:Resource.id [ fhir:value "imagingselection-3dgraphictype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/imagingselection-status" ] ;
+     fhir:Resource.id [ fhir:value "imagingselection-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/imagingstudy-status" ] ;
+     fhir:Resource.id [ fhir:value "imagingstudy-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/ingredient-function" ] ;
+     fhir:Resource.id [ fhir:value "ingredient-function" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/ingredient-manufacturer-role" ] ;
+     fhir:Resource.id [ fhir:value "ingredient-manufacturer-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/ingredient-role" ] ;
+     fhir:Resource.id [ fhir:value "ingredient-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/interaction-incidence" ] ;
+     fhir:Resource.id [ fhir:value "interaction-incidence" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/interaction-type" ] ;
+     fhir:Resource.id [ fhir:value "interaction-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/inventoryitem-nametype" ] ;
+     fhir:Resource.id [ fhir:value "inventoryitem-nametype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/inventoryitem-status" ] ;
+     fhir:Resource.id [ fhir:value "inventoryitem-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/inventoryreport-counttype" ] ;
+     fhir:Resource.id [ fhir:value "inventoryreport-counttype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/inventoryreport-status" ] ;
+     fhir:Resource.id [ fhir:value "inventoryreport-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/invoice-status" ] ;
+     fhir:Resource.id [ fhir:value "invoice-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/issue-severity" ] ;
+     fhir:Resource.id [ fhir:value "issue-severity" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/issue-type" ] ;
+     fhir:Resource.id [ fhir:value "issue-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/item-type" ] ;
+     fhir:Resource.id [ fhir:value "item-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/legal-status-of-supply" ] ;
+     fhir:Resource.id [ fhir:value "legal-status-of-supply" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/link-type" ] ;
+     fhir:Resource.id [ fhir:value "link-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/linkage-type" ] ;
+     fhir:Resource.id [ fhir:value "linkage-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/list-mode" ] ;
+     fhir:Resource.id [ fhir:value "list-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/list-status" ] ;
+     fhir:Resource.id [ fhir:value "list-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/location-characteristic" ] ;
+     fhir:Resource.id [ fhir:value "location-characteristic" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/location-mode" ] ;
+     fhir:Resource.id [ fhir:value "location-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/location-status" ] ;
+     fhir:Resource.id [ fhir:value "location-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/manufactured-dose-form" ] ;
+     fhir:Resource.id [ fhir:value "manufactured-dose-form" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/map-group-type-mode" ] ;
+     fhir:Resource.id [ fhir:value "map-group-type-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/map-input-mode" ] ;
+     fhir:Resource.id [ fhir:value "map-input-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/map-model-mode" ] ;
+     fhir:Resource.id [ fhir:value "map-model-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/map-source-list-mode" ] ;
+     fhir:Resource.id [ fhir:value "map-source-list-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/map-target-list-mode" ] ;
+     fhir:Resource.id [ fhir:value "map-target-list-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/map-transform" ] ;
+     fhir:Resource.id [ fhir:value "map-transform" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-definition-example" ] ;
+     fhir:Resource.id [ fhir:value "measure-definition-example" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-group-example" ] ;
+     fhir:Resource.id [ fhir:value "measure-group-example" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-report-status" ] ;
+     fhir:Resource.id [ fhir:value "measure-report-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-report-type" ] ;
+     fhir:Resource.id [ fhir:value "measure-report-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-stratifier-example" ] ;
+     fhir:Resource.id [ fhir:value "measure-stratifier-example" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-supplemental-data-example" ] ;
+     fhir:Resource.id [ fhir:value "measure-supplemental-data-example" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measurereport-stratifier-value-example" ] ;
+     fhir:Resource.id [ fhir:value "measurereport-stratifier-value-example" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medication-cost-category" ] ;
+     fhir:Resource.id [ fhir:value "medication-cost-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicationdispense-admin-location" ] ;
+     fhir:Resource.id [ fhir:value "medicationdispense-admin-location" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-additional-monitoring" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-additional-monitoring" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-confidentiality" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-confidentiality" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-contact-type" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-contact-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-cross-reference-type" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-cross-reference-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-domain" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-domain" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-name-part-type" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-name-part-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-name-type" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-name-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-package-type" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-package-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-pediatric-use" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-pediatric-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-special-measures" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-special-measures" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/medicinal-product-type" ] ;
+     fhir:Resource.id [ fhir:value "medicinal-product-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/message-significance-category" ] ;
+     fhir:Resource.id [ fhir:value "message-significance-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/message-transport" ] ;
+     fhir:Resource.id [ fhir:value "message-transport" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/messageheader-response-request" ] ;
+     fhir:Resource.id [ fhir:value "messageheader-response-request" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/metric-calibration-state" ] ;
+     fhir:Resource.id [ fhir:value "metric-calibration-state" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/metric-calibration-type" ] ;
+     fhir:Resource.id [ fhir:value "metric-calibration-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/metric-category" ] ;
+     fhir:Resource.id [ fhir:value "metric-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/metric-color" ] ;
+     fhir:Resource.id [ fhir:value "metric-color" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/metric-operational-status" ] ;
+     fhir:Resource.id [ fhir:value "metric-operational-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/namingsystem-identifier-type" ] ;
+     fhir:Resource.id [ fhir:value "namingsystem-identifier-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/namingsystem-type" ] ;
+     fhir:Resource.id [ fhir:value "namingsystem-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/nutritionproduct-status" ] ;
+     fhir:Resource.id [ fhir:value "nutritionproduct-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/observation-range-category" ] ;
+     fhir:Resource.id [ fhir:value "observation-range-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/observation-referencerange-normalvalue" ] ;
+     fhir:Resource.id [ fhir:value "observation-referencerange-normalvalue" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/observation-statistics" ] ;
+     fhir:Resource.id [ fhir:value "observation-statistics" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/observation-status" ] ;
+     fhir:Resource.id [ fhir:value "observation-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/observation-triggeredbytype" ] ;
+     fhir:Resource.id [ fhir:value "observation-triggeredbytype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/operation-kind" ] ;
+     fhir:Resource.id [ fhir:value "operation-kind" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/operation-parameter-scope" ] ;
+     fhir:Resource.id [ fhir:value "operation-parameter-scope" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/organization-role" ] ;
+     fhir:Resource.id [ fhir:value "organization-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/orientation-type" ] ;
+     fhir:Resource.id [ fhir:value "orientation-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/package-material" ] ;
+     fhir:Resource.id [ fhir:value "package-material" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/package-type" ] ;
+     fhir:Resource.id [ fhir:value "package-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/packaging-type" ] ;
+     fhir:Resource.id [ fhir:value "packaging-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/participationstatus" ] ;
+     fhir:Resource.id [ fhir:value "participationstatus" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/payment-issuertype" ] ;
+     fhir:Resource.id [ fhir:value "payment-issuertype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/payment-kind" ] ;
+     fhir:Resource.id [ fhir:value "payment-kind" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/payment-outcome" ] ;
+     fhir:Resource.id [ fhir:value "payment-outcome" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/permission-rule-combining" ] ;
+     fhir:Resource.id [ fhir:value "permission-rule-combining" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/permission-status" ] ;
+     fhir:Resource.id [ fhir:value "permission-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/permitted-data-type" ] ;
+     fhir:Resource.id [ fhir:value "permitted-data-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/product-category" ] ;
+     fhir:Resource.id [ fhir:value "product-category" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/product-intended-use" ] ;
+     fhir:Resource.id [ fhir:value "product-intended-use" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/provenance-entity-role" ] ;
+     fhir:Resource.id [ fhir:value "provenance-entity-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/published-in-type" ] ;
+     fhir:Resource.id [ fhir:value "published-in-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/questionnaire-answer-constraint" ] ;
+     fhir:Resource.id [ fhir:value "questionnaire-answer-constraint" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/questionnaire-answers-status" ] ;
+     fhir:Resource.id [ fhir:value "questionnaire-answers-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/questionnaire-disabled-display" ] ;
+     fhir:Resource.id [ fhir:value "questionnaire-disabled-display" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/questionnaire-enable-behavior" ] ;
+     fhir:Resource.id [ fhir:value "questionnaire-enable-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/questionnaire-enable-operator" ] ;
+     fhir:Resource.id [ fhir:value "questionnaire-enable-operator" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/reaction-event-severity" ] ;
+     fhir:Resource.id [ fhir:value "reaction-event-severity" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/reason-medication-not-given-codes" ] ;
+     fhir:Resource.id [ fhir:value "reason-medication-not-given-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/reference-handling-policy" ] ;
+     fhir:Resource.id [ fhir:value "reference-handling-policy" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/regulated-authorization-basis" ] ;
+     fhir:Resource.id [ fhir:value "regulated-authorization-basis" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/regulated-authorization-case-type" ] ;
+     fhir:Resource.id [ fhir:value "regulated-authorization-case-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/regulated-authorization-type" ] ;
+     fhir:Resource.id [ fhir:value "regulated-authorization-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/report-action-result-codes" ] ;
+     fhir:Resource.id [ fhir:value "report-action-result-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/report-participant-type" ] ;
+     fhir:Resource.id [ fhir:value "report-participant-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/report-relation-type" ] ;
+     fhir:Resource.id [ fhir:value "report-relation-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/report-result-codes" ] ;
+     fhir:Resource.id [ fhir:value "report-result-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/report-status-codes" ] ;
+     fhir:Resource.id [ fhir:value "report-status-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/research-study-classifiers" ] ;
+     fhir:Resource.id [ fhir:value "research-study-classifiers" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/research-study-party-role" ] ;
+     fhir:Resource.id [ fhir:value "research-study-party-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/research-study-status" ] ;
+     fhir:Resource.id [ fhir:value "research-study-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/resource-validation-mode" ] ;
+     fhir:Resource.id [ fhir:value "resource-validation-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/response-code" ] ;
+     fhir:Resource.id [ fhir:value "response-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/restful-capability-mode" ] ;
+     fhir:Resource.id [ fhir:value "restful-capability-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/restful-security-service" ] ;
+     fhir:Resource.id [ fhir:value "restful-security-service" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/search-comparator" ] ;
+     fhir:Resource.id [ fhir:value "search-comparator" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/search-entry-mode" ] ;
+     fhir:Resource.id [ fhir:value "search-entry-mode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/search-modifier-code" ] ;
+     fhir:Resource.id [ fhir:value "search-modifier-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/search-processingmode" ] ;
+     fhir:Resource.id [ fhir:value "search-processingmode" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/sequence-type" ] ;
+     fhir:Resource.id [ fhir:value "sequence-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/icd-10-procedures" ] ;
+     fhir:Resource.id [ fhir:value "icd-10-procedures" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/slotstatus" ] ;
+     fhir:Resource.id [ fhir:value "slotstatus" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/spdx-license" ] ;
+     fhir:Resource.id [ fhir:value "spdx-license" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/specimen-combined" ] ;
+     fhir:Resource.id [ fhir:value "specimen-combined" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/specimen-contained-preference" ] ;
+     fhir:Resource.id [ fhir:value "specimen-contained-preference" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/specimen-role" ] ;
+     fhir:Resource.id [ fhir:value "specimen-role" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/specimen-status" ] ;
+     fhir:Resource.id [ fhir:value "specimen-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/statistic-model-code" ] ;
+     fhir:Resource.id [ fhir:value "statistic-model-code" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/strand-type" ] ;
+     fhir:Resource.id [ fhir:value "strand-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/structure-definition-kind" ] ;
+     fhir:Resource.id [ fhir:value "structure-definition-kind" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/subscription-notification-type" ] ;
+     fhir:Resource.id [ fhir:value "subscription-notification-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/subscription-payload-content" ] ;
+     fhir:Resource.id [ fhir:value "subscription-payload-content" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/subscription-search-modifier" ] ;
+     fhir:Resource.id [ fhir:value "subscription-search-modifier" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/subscription-status" ] ;
+     fhir:Resource.id [ fhir:value "subscription-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/subscriptiontopic-cr-behavior" ] ;
+     fhir:Resource.id [ fhir:value "subscriptiontopic-cr-behavior" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-amount-type" ] ;
+     fhir:Resource.id [ fhir:value "substance-amount-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-form" ] ;
+     fhir:Resource.id [ fhir:value "substance-form" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-grade" ] ;
+     fhir:Resource.id [ fhir:value "substance-grade" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-name-authority" ] ;
+     fhir:Resource.id [ fhir:value "substance-name-authority" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-name-domain" ] ;
+     fhir:Resource.id [ fhir:value "substance-name-domain" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-name-type" ] ;
+     fhir:Resource.id [ fhir:value "substance-name-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-optical-activity" ] ;
+     fhir:Resource.id [ fhir:value "substance-optical-activity" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-relationship-type" ] ;
+     fhir:Resource.id [ fhir:value "substance-relationship-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-representation-format" ] ;
+     fhir:Resource.id [ fhir:value "substance-representation-format" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-representation-type" ] ;
+     fhir:Resource.id [ fhir:value "substance-representation-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-source-material-genus" ] ;
+     fhir:Resource.id [ fhir:value "substance-source-material-genus" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-source-material-part" ] ;
+     fhir:Resource.id [ fhir:value "substance-source-material-part" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-source-material-species" ] ;
+     fhir:Resource.id [ fhir:value "substance-source-material-species" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-source-material-type" ] ;
+     fhir:Resource.id [ fhir:value "substance-source-material-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-status" ] ;
+     fhir:Resource.id [ fhir:value "substance-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-stereochemistry" ] ;
+     fhir:Resource.id [ fhir:value "substance-stereochemistry" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-structure-technique" ] ;
+     fhir:Resource.id [ fhir:value "substance-structure-technique" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-weight-method" ] ;
+     fhir:Resource.id [ fhir:value "substance-weight-method" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/substance-weight-type" ] ;
+     fhir:Resource.id [ fhir:value "substance-weight-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/supplydelivery-status" ] ;
+     fhir:Resource.id [ fhir:value "supplydelivery-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/supplydelivery-supplyitemtype" ] ;
+     fhir:Resource.id [ fhir:value "supplydelivery-supplyitemtype" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/supplyrequest-status" ] ;
+     fhir:Resource.id [ fhir:value "supplyrequest-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/target-species" ] ;
+     fhir:Resource.id [ fhir:value "target-species" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/task-intent" ] ;
+     fhir:Resource.id [ fhir:value "task-intent" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/task-status" ] ;
+     fhir:Resource.id [ fhir:value "task-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/task-status-reason" ] ;
+     fhir:Resource.id [ fhir:value "task-status-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/testscript-scope-conformance-codes" ] ;
+     fhir:Resource.id [ fhir:value "testscript-scope-conformance-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/testscript-scope-phase-codes" ] ;
+     fhir:Resource.id [ fhir:value "testscript-scope-phase-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/therapy-relationship-type" ] ;
+     fhir:Resource.id [ fhir:value "therapy-relationship-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/title-type" ] ;
+     fhir:Resource.id [ fhir:value "title-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/transport-intent" ] ;
+     fhir:Resource.id [ fhir:value "transport-intent" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/transport-status" ] ;
+     fhir:Resource.id [ fhir:value "transport-status" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/transport-status-reason" ] ;
+     fhir:Resource.id [ fhir:value "transport-status-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/type-derivation-rule" ] ;
+     fhir:Resource.id [ fhir:value "type-derivation-rule" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/udi-entry-type" ] ;
+     fhir:Resource.id [ fhir:value "udi-entry-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/undesirable-effect-frequency" ] ;
+     fhir:Resource.id [ fhir:value "undesirable-effect-frequency" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/unit-of-presentation" ] ;
+     fhir:Resource.id [ fhir:value "unit-of-presentation" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/variable-handling" ] ;
+     fhir:Resource.id [ fhir:value "variable-handling" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/version-algorithm" ] ;
+     fhir:Resource.id [ fhir:value "version-algorithm" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/versioning-policy" ] ;
+     fhir:Resource.id [ fhir:value "versioning-policy" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/vision-base-codes" ] ;
+     fhir:Resource.id [ fhir:value "vision-base-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/vision-eye-codes" ] ;
+     fhir:Resource.id [ fhir:value "vision-eye-codes" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/warning-type" ] ;
+     fhir:Resource.id [ fhir:value "warning-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/week-of-month" ] ;
+     fhir:Resource.id [ fhir:value "week-of-month" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/measure-scoring" ] ;
+     fhir:Resource.id [ fhir:value "measure-scoring" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/state-change-reason" ] ;
+     fhir:Resource.id [ fhir:value "state-change-reason" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/synthesis-type" ] ;
+     fhir:Resource.id [ fhir:value "synthesis-type" ]
+  ], [
+     fhir:BundleEntryComponent.fullUrl [ fhir:value "http://hl7.org/fhir/NamingSystem/list-item-flag" ] ;
+     fhir:Resource.id [ fhir:value "list-item-flag" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,204 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# - resource -------------------------------------------------------------------
+
+[] a fhir:OperationDefinition ;
+  fhir:Resource.id [ fhir:value "CodeSystem-validate-code"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ]
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.value [ fhir:value "5" ]
+  ], [
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.value [ fhir:value "normative" ]
+  ] ;
+  fhir:CanonicalResource.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/CodeSystem-validate-code"] ;
+  fhir:CanonicalResource.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:CanonicalResource.name [ fhir:value "ValidateCode"] ;
+  fhir:CanonicalResource.title [ fhir:value "Code System based Validation"] ;
+  fhir:CanonicalResource.status [ fhir:value "active"] ;
+  fhir:CanonicalResource.experimental [ fhir:value "false"] ;
+  fhir:CanonicalResource.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:CanonicalResource.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:CanonicalResource.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:CanonicalResource.description [ fhir:value "Validate that a coded value is in the code system. If the operation is not called at the instance level, one of the parameters \"url\" or \"codeSystem\" must be provided. The operation returns a result (true / false), an error message, and the recommended display for the code.\n\nWhen invoking this operation, a client **SHALL** provide one (and only one) of the parameters (code+system, coding, or codeableConcept). Other parameters (including version and display) are optional. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible."] ;
+  fhir:CanonicalResource.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.url [ fhir:value "http://hl7.org/fhir/OperationDefinition/CodeSystem-validate-code"] ;
+  fhir:OperationDefinition.version [ fhir:value "5.0.0-snapshot3"] ;
+  fhir:OperationDefinition.name [ fhir:value "ValidateCode"] ;
+  fhir:OperationDefinition.title [ fhir:value "Code System based Validation"] ;
+  fhir:OperationDefinition.status [ fhir:value "active"] ;
+  fhir:OperationDefinition.kind [ fhir:value "operation"] ;
+  fhir:OperationDefinition.experimental [ fhir:value "false"] ;
+  fhir:OperationDefinition.date [ fhir:value "2023-02-14T20:33:50-05:00"] ;
+  fhir:OperationDefinition.publisher [ fhir:value "HL7 (FHIR Project)"] ;
+  fhir:OperationDefinition.contact [
+     fhir:ContactDetail.telecom [
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ], [
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "fhir@lists.hl7.org" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.description [ fhir:value "Validate that a coded value is in the code system. If the operation is not called at the instance level, one of the parameters \"url\" or \"codeSystem\" must be provided. The operation returns a result (true / false), an error message, and the recommended display for the code.\n\nWhen invoking this operation, a client **SHALL** provide one (and only one) of the parameters (code+system, coding, or codeableConcept). Other parameters (including version and display) are optional. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible."] ;
+  fhir:OperationDefinition.jurisdiction [
+     fhir:CodeableConcept.coding [
+       fhir:Coding.system [ fhir:value "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:Coding.code [ fhir:value "001" ] ;
+       fhir:Coding.display [ fhir:value "World" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.affectsState [ fhir:value "false"] ;
+  fhir:OperationDefinition.code [ fhir:value "validate-code"] ;
+  fhir:OperationDefinition.resource [ fhir:value "CodeSystem"] ;
+  fhir:OperationDefinition.system [ fhir:value "false"] ;
+  fhir:OperationDefinition.type [ fhir:value "true"] ;
+  fhir:OperationDefinition.instance [ fhir:value "true"] ;
+  fhir:OperationDefinition.parameter [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "url" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "CodeSystem URL. The server must know the code system (e.g. it is defined explicitly in the server'scode systems, or it is known implicitly by the server" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "uri" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "codeSystem" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The codeSystem is provided directly as part of the request. Servers may choose not to accept code systems in this fashion. This parameter is used when the client wants the server to check against a code system that is not stored on the server" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "CodeSystem" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "code" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The code that is to be validated" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "code" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "version" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The version of the code system, if one was provided in the source data" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "string" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "display" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The display associated with the code, if provided. If a display is provided a code must be provided. If no display is provided, the server cannot validate the display value, but may choose to return a recommended display name in an extension in the outcome. Whether displays are case sensitive is code system dependent" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "string" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "coding" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "A coding to validate. The system must match the specified code system" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "Coding" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "codeableConcept" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "A full codeableConcept to validate. The server returns true if one of the coding values is in the code system, and may also validate that the codings are not in conflict with each other if more than one is present" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "CodeableConcept" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "date" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The date for which the validation should be checked. Normally, this is the current conditions (which is the default values) but under some circumstances, systems need to validate that a correct code was used at some point in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "dateTime" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "abstract" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "If this parameter has a value of true, the client is stating that the validation is being performed in a context where a concept designated as 'abstract' is appropriate/allowed to be used, and the server should regard abstract codes as valid. If this parameter is false, abstract codes are not considered to be valid.\n\nNote that. 'abstract' is a property defined by many HL7 code systems that indicates that the concept is a logical grouping concept that is not intended to be used asa 'concrete' concept to in an actual patient/care/process record. This language is borrowed from Object Orienated theory where 'asbtract' objects are never instantiated. However in the general record and terminology eco-system, there are many contexts where it is appropraite to use these codes e.g. as decision making criterion, or when editing value sets themselves. This parameter allows a client to indicate to the server that it is working in such a context." ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "boolean" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "displayLanguage" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "in" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "Specifies the language to be used for description when validating the display property" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "code" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "result" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "True if the concept details supplied are valid" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "boolean" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "message" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "Error details, if result = false. If this is provided when result = true, the message carries hints and warnings" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "string" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "display" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "A valid display for the concept if the system wishes to display this to a user" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "string" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "code" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The code that was validated" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "code" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "system" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The system for the code that was validated" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "uri" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "version" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "The version of the system of the code that was validated" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "string" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "codeableConcept" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "A codeableConcept containing codings for all the validated codes" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "CodeableConcept" ]
+  ], [
+     fhir:OperationDefinitionParameterComponent.name [ fhir:value "issues" ] ;
+     fhir:OperationDefinitionParameterComponent.use [ fhir:value "out" ] ;
+     fhir:OperationDefinitionParameterComponent.min [ fhir:value "0" ] ;
+     fhir:OperationDefinitionParameterComponent.max [ fhir:value "1" ] ;
+     fhir:OperationDefinitionParameterComponent.documentation [ fhir:value "List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display" ] ;
+     fhir:OperationDefinitionParameterComponent.type [ fhir:value "OperationOutcome" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

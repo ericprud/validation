@@ -1,0 +1,69 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+[a fhir:ResearchSubject ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:type [
+       fhir:text [ fhir:v "Subject id" ]
+     ] ;
+     fhir:system [ fhir:v "http://example.org/studysubjectids" ] ;
+     fhir:value [ fhir:v "123" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:progress ( [
+     fhir:type [
+       fhir:coding ( [
+         fhir:code [ fhir:v "state" ]
+       ] )
+     ] ;
+     fhir:subjectState [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/research-subject-state" ] ;
+         fhir:code [ fhir:v "on-study" ]
+       ] )
+     ] ;
+     fhir:startDate [ fhir:v "2019-06-10"^^xsd:date ]
+  ] [
+     fhir:type [
+       fhir:coding ( [
+         fhir:code [ fhir:v "milestone" ]
+       ] )
+     ] ;
+     fhir:milestone [
+       fhir:coding ( [
+         fhir:code [ fhir:v "SignedUp" ]
+       ] )
+     ] ;
+     fhir:startDate [ fhir:v "2019-06-06"^^xsd:date ]
+  ] [
+     fhir:type [
+       fhir:coding ( [
+         fhir:code [ fhir:v "milestone" ]
+       ] )
+     ] ;
+     fhir:milestone [
+       fhir:coding ( [
+         fhir:code [ fhir:v "Randomized" ]
+       ] )
+     ] ;
+     fhir:startDate [ fhir:v "2019-06-10"^^xsd:date ]
+  ] ) ; # 
+  fhir:study [
+     fhir:reference [ fhir:v "ResearchStudy/example" ]
+  ] ; # 
+  fhir:subject [
+     fhir:reference [ fhir:v "Patient/example" ]
+  ]] . # 
+
+# -------------------------------------------------------------------------------------
+
