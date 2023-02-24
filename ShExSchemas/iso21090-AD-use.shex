@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Extension.shex>
 
 # BAD | CONF | HP | HV | DIR | PUB | PHYS | PST
 <iso21090-AD-use> EXTENDS @<Extension> CLOSED {   
@@ -15,10 +18,11 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:value (@<code> AND
     	{fhir:value @fhirvs:postal-address-use} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Address]
-    		}
+        }
 }  
 
 #---------------------- Value Sets ------------------------
 
 # Uses of an address not included in Address.use.
 fhirvs:postal-address-use ["BAD" "CONF" "HP" "HV" "DIR" "PUB" "PHYS" "PST"]
+

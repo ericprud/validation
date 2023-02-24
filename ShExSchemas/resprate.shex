@@ -4,9 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Coding.shex>
+IMPORT <Quantity.shex>
+IMPORT <vitalsigns.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+
 
 start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # FHIR Respiratory Rate Profile
 <resprate> EXTENDS @<vitalsigns> CLOSED {   
@@ -19,24 +24,20 @@ start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Respiratory Rate
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
-# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Used when reporting systolic and diastolic blood pressure.
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Respiratory Rate
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Provides guide for interpretation
@@ -46,3 +47,8 @@ start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
+
+# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+}  
+

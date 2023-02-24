@@ -4,9 +4,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <url.shex>
+IMPORT <code.shex>
+IMPORT <Coding.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <ContactPoint.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <OperationOutcome.shex>
+
 
 start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A resource that describes a message that is exchanged between systems
 <MessageHeader> EXTENDS @<DomainResource> CLOSED {   
@@ -40,20 +58,6 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # message 
 }  
 
-# Message destination application(s)
-<MessageHeader.destination> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Name of system
-    fhir:target @<Reference> AND {fhir:link 
-    			@<Device> }?;  # Particular delivery destination 
-                                            # within the destination 
-    fhir:endpoint @<url>?;                  # Actual destination address or id
-    fhir:receiver @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Intended "real-world" recipient 
-                                            # for the data 
-}  
-
 # Message source application
 <MessageHeader.source> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>?;                   # Name of system
@@ -73,6 +77,20 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # hints/warnings/errors 
 }  
 
+# Message destination application(s)
+<MessageHeader.destination> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Name of system
+    fhir:target @<Reference> AND {fhir:link 
+    			@<Device> }?;  # Particular delivery destination 
+                                            # within the destination 
+    fhir:endpoint @<url>?;                  # Actual destination address or id
+    fhir:receiver @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> }?;  # Intended "real-world" recipient 
+                                            # for the data 
+}  
+
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_BackboneElement> CLOSED {
@@ -90,3 +108,4 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The kind of response to a message.
 fhirvs:response-code ["ok" "transient-error" "fatal-error"]
+

@@ -4,9 +4,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <Quantity.shex>
+IMPORT <Contract.shex>
+IMPORT <Reference.shex>
+IMPORT <Substance.shex>
+IMPORT <Medication.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <SupplyRequest.shex>
+IMPORT <DomainResource.shex>
+IMPORT <SupplyDelivery.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Delivery of bulk Supplies
 <SupplyDelivery> EXTENDS @<DomainResource> CLOSED {   
@@ -78,3 +98,4 @@ start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Status of the supply delivery.
 fhirvs:supplydelivery-status ["in-progress" "completed" "abandoned" "entered-in-error"]
+

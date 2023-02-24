@@ -4,6 +4,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <Reference.shex>
+IMPORT <Condition.shex>
+IMPORT <Observation.shex>
+IMPORT <DiagnosticReport.shex>
+IMPORT <DocumentReference.shex>
 
 # Why was event performed?
 <workflow-reasonReference> EXTENDS @<Extension> CLOSED {   
@@ -17,8 +24,9 @@ BASE <http://hl7.org/fhir/shape/>
     			 @<DocumentReference> OR 
     			 @<Observation> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Observation] OR 
-    				a [fhir:DiagnosticReport] OR 
-    				a [fhir:DocumentReference] OR 
-    				a [fhir:NutritionOrder]
-    		}
+          a [fhir:DiagnosticReport] OR 
+          a [fhir:DocumentReference] OR 
+          a [fhir:NutritionOrder]
+        }
 }  
+

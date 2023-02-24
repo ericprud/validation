@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <BackboneElement.shex>
+IMPORT <DiagnosticReport.shex>
+
 
 start=@<lipidprofile> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Lipid Lab Report
 <lipidprofile> EXTENDS @<DiagnosticReport> CLOSED {   
@@ -18,3 +20,4 @@ start=@<lipidprofile> AND {fhir:nodeRole [fhir:treeRoot]}
 # Key images or data associated with this report
 <DiagnosticReport.media> EXTENDS @<BackboneElement> CLOSED {   
 }  
+

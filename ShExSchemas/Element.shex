@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <Base.shex>
 
 # Base for all elements
 <Element> EXTENDS @<Base> CLOSED {   
@@ -22,3 +24,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Extension>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Extension> 
 }
+

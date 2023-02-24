@@ -4,9 +4,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <date.shex>
+IMPORT <Period.shex>
+IMPORT <CanonicalResource.shex>
+
 
 start=@<MetadataResource> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Common Ancestor declaration for definitional resources
 <MetadataResource> EXTENDS @<CanonicalResource> CLOSED {   
@@ -45,3 +48,4 @@ start=@<MetadataResource> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<RelatedArtifact>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_RelatedArtifact> 
 }
+

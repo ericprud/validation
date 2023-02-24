@@ -4,9 +4,32 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Range.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <Quantity.shex>
+IMPORT <Evidence.shex>
+IMPORT <Reference.shex>
+IMPORT <canonical.shex>
+IMPORT <Expression.shex>
+IMPORT <positiveInt.shex>
+IMPORT <DeviceMetric.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <MetadataResource.shex>
+IMPORT <EvidenceVariable.shex>
+
 
 start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A definition of an exposure, outcome, or other variable
 <EvidenceVariable> EXTENDS @<MetadataResource> CLOSED {   
@@ -80,6 +103,19 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:offset @<CodeableConcept>?;        # Reference point for valueQuantity
 }  
 
+# Used to specify how two or more characteristics are combined
+<EvidenceVariable.characteristic.definitionByCombination> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code> AND
+    	{fhir:value @fhirvs:characteristic-combination};  # all-of | any-of | at-least | 
+                                            # at-most | statistical | net-effect 
+                                            # | dataset 
+    fhir:threshold @<positiveInt>?;         # Provides the value of "n" when 
+                                            # "at-least" or "at-most" codes are 
+                                            # used 
+    fhir:characteristic @<OneOrMore_EvidenceVariable.characteristic>;  # A defining factor of the 
+                                            # characteristic 
+}  
+
 # A defining factor of the EvidenceVariable
 <EvidenceVariable.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:linkId @<id>?;                     # Label for internal linking
@@ -125,27 +161,6 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # median-of-median 
 }  
 
-# A grouping for ordinal or polychotomous variables
-<EvidenceVariable.category> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Description of the grouping
-    fhir:value (@<CodeableConcept>  OR 
-    			@<Quantity>  OR 
-    			@<Range> )  AND { rdf:type IRI } ?;  # Definition of the grouping
-}  
-
-# Used to specify how two or more characteristics are combined
-<EvidenceVariable.characteristic.definitionByCombination> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code> AND
-    	{fhir:value @fhirvs:characteristic-combination};  # all-of | any-of | at-least | 
-                                            # at-most | statistical | net-effect 
-                                            # | dataset 
-    fhir:threshold @<positiveInt>?;         # Provides the value of "n" when 
-                                            # "at-least" or "at-most" codes are 
-                                            # used 
-    fhir:characteristic @<OneOrMore_EvidenceVariable.characteristic>;  # A defining factor of the 
-                                            # characteristic 
-}  
-
 # Observation time from study specified event
 <EvidenceVariable.characteristic.timeFromEvent> EXTENDS @<BackboneElement> CLOSED {   
     fhir:description @<string>?;            # Human readable description
@@ -162,6 +177,14 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:range @<Range>?;                   # Used to express the observation 
                                             # within a period after the study 
                                             # start 
+}  
+
+# A grouping for ordinal or polychotomous variables
+<EvidenceVariable.category> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Description of the grouping
+    fhir:value (@<CodeableConcept>  OR 
+    			@<Quantity>  OR 
+    			@<Range> )  AND { rdf:type IRI } ?;  # Definition of the grouping
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -196,26 +219,27 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
 
-<OneOrMore_CodeableConcept> CLOSED {
-    rdf:first @<CodeableConcept>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
-}
-
 <OneOrMore_EvidenceVariable.characteristic> CLOSED {
     rdf:first @<EvidenceVariable.characteristic>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceVariable.characteristic> 
 }
 
+<OneOrMore_CodeableConcept> CLOSED {
+    rdf:first @<CodeableConcept>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
 #---------------------- Value Sets ------------------------
-
-# Logical grouping of characteristics.
-fhirvs:characteristic-combination ["all-of" "any-of" "at-least" "at-most" "statistical" "net-effect" "dataset"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # Possible group measure aggregates (E.g. Mean, Median).
 fhirvs:group-measure ["mean" "median" "mean-of-mean" "mean-of-median" "median-of-mean" "median-of-median"]
 
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
 # The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
 fhirvs:variable-handling ["continuous" "dichotomous" "ordinal" "polychotomous"]
+
+# Logical grouping of characteristics.
+fhirvs:characteristic-combination ["all-of" "any-of" "at-least" "at-most" "statistical" "net-effect" "dataset"]
+

@@ -4,9 +4,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Coding.shex>
+IMPORT <Observation.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # FHIR Vital Signs Profile
 <vitalsigns> EXTENDS @<Observation> CLOSED {   
@@ -19,8 +23,8 @@ start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Provides guide for interpretation
@@ -31,6 +35,7 @@ start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
+

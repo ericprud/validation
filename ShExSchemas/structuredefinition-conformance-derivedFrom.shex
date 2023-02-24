@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <canonical.shex>
 
 # FMM Level
 <structuredefinition-conformance-derivedFrom> EXTENDS @<Extension> CLOSED {   
@@ -13,7 +16,8 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom"]}; 
     fhir:value (@<canonical> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:value {( ^fhir:org/fhir/StructureDefinition/structuredefinition-fmm') {a [fhir:extension('http://hl7]} )} ) OR 
-    				( ^fhir:value {( ^fhir:org/fhir/StructureDefinition/structuredefinition-standards-status') {a [fhir:extension('http://hl7]} )} )
-    		}
+    ^fhir:extension { ^fhir:value {^fhir:org/fhir/StructureDefinition/structuredefinition-fmm') {a [fhir:extension('http://hl7]}} OR 
+          ^fhir:value {^fhir:org/fhir/StructureDefinition/structuredefinition-standards-status') {a [fhir:extension('http://hl7]}}
+        }
 }  
+

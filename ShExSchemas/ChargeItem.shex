@@ -4,9 +4,42 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Money.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <decimal.shex>
+IMPORT <Account.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <ChargeItem.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <ImagingStudy.shex>
+IMPORT <Immunization.shex>
+IMPORT <EpisodeOfCare.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <SupplyDelivery.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DiagnosticReport.shex>
+IMPORT <MedicationDispense.shex>
+IMPORT <MedicationAdministration.shex>
+
 
 start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Item containing charge code(s) associated with the provision of healthcare provider products
 <ChargeItem> EXTENDS @<DomainResource> CLOSED {   
@@ -159,3 +192,4 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Codes identifying the lifecycle stage of a ChargeItem.
 fhirvs:chargeitem-status ["planned" "billable" "not-billable" "aborted" "billed" "entered-in-error" "unknown"]
+

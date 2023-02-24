@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Composition.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<example-composition> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A set of resources composed into a single coherent clinical statement with clinical attestation
 <example-composition> EXTENDS @<Composition> CLOSED {   
@@ -15,26 +17,27 @@ start=@<example-composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
-# A set of resources composed into a single coherent clinical statement with clinical attestation
-<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# A set of resources composed into a single coherent clinical statement with clinical attestation
-<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# A set of resources composed into a single coherent clinical statement with clinical attestation
-<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # The clinical service(s) being documented
 <Composition.event> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Composition is broken into sections
+# A set of resources composed into a single coherent clinical statement with clinical attestation
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Attests to accuracy of composition
 <Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
 }  
+
+# A set of resources composed into a single coherent clinical statement with clinical attestation
+<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# A set of resources composed into a single coherent clinical statement with clinical attestation
+<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Composition is broken into sections
+<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
+}  
+

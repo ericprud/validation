@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <uri.shex>
+IMPORT <instant.shex>
+IMPORT <DataType.shex>
 
 # Metadata about a resource
 <Meta> EXTENDS @<DataType> CLOSED {   
@@ -33,3 +37,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Coding>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Coding> 
 }
+

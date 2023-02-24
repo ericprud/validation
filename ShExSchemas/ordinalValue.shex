@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <decimal.shex>
+IMPORT <Extension.shex>
 
 # Assigned Ordinal Value
 <ordinalValue> EXTENDS @<Extension> CLOSED {   
@@ -14,8 +17,9 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/ordinalValue"]}; 
     fhir:value (@<decimal> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Coding] OR 
-    				( ^fhir:answerOption {( ^fhir:item {a [fhir:Questionnaire]} )} ) OR 
-    				( ^fhir:concept {a [fhir:CodeSystem]} ) OR 
-    				( ^fhir:concept {( ^fhir:include {( ^fhir:compose {a [fhir:ValueSet]} )} )} )
-    		}
+          ^fhir:answerOption {^fhir:item {a [fhir:Questionnaire]}} OR 
+          ^fhir:concept {a [fhir:CodeSystem]} OR 
+          ^fhir:concept {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}
+        }
 }  
+

@@ -4,9 +4,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <Condition.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+
 
 start=@<MedicationUsage> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Record of medication being taken by a patient
 <MedicationUsage> EXTENDS @<DomainResource> CLOSED {   
@@ -115,3 +135,4 @@ start=@<MedicationUsage> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # MedicationUsage Status Codes
 fhirvs:medication-usage-status ["recorded" "entered-in-error" "draft"]
+

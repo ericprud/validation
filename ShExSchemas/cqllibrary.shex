@@ -4,19 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Attachment.shex>
+IMPORT <logiclibrary.shex>
+IMPORT <RelatedArtifact.shex>
+
 
 start=@<cqllibrary> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Represents a library of quality improvement components
 <cqllibrary> EXTENDS @<logiclibrary> CLOSED {   
 
     a [fhir:cqllibrary];
     fhir:nodeRole [fhir:treeRoot]?;
-}  
-
-# CQL Content
-<Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 
 # Additional documentation, citations, etc.
@@ -26,3 +25,8 @@ start=@<cqllibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Contents of the library, either embedded or referenced
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
+
+# CQL Content
+<Library.content> EXTENDS @<Attachment> CLOSED {   
+}  
+

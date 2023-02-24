@@ -4,9 +4,32 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <Location.shex>
+IMPORT <Quantity.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <Provenance.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+
 
 start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Device Dispense
 <DeviceDispense> EXTENDS @<DomainResource> CLOSED {   
@@ -117,3 +140,4 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # DeviceDispense Status Codes
 fhirvs:devicedispense-status ["preparation" "in-progress" "cancelled" "on-hold" "completed" "entered-in-error" "stopped" "declined" "unknown"]
+

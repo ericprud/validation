@@ -4,6 +4,44 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Claim.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Device.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Contract.shex>
+IMPORT <Coverage.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Provenance.shex>
+IMPORT <Appointment.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RequestGroup.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <SupplyRequest.shex>
+IMPORT <ClaimResponse.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <EnrollmentRequest.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <VisionPrescription.shex>
+IMPORT <AppointmentResponse.shex>
+IMPORT <CommunicationRequest.shex>
+IMPORT <CoverageEligibilityRequest.shex>
+IMPORT <ImmunizationRecommendation.shex>
 
 # Request Pattern
 <Request> CLOSED {   
@@ -150,3 +188,4 @@ fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "r
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+

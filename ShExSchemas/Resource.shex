@@ -4,9 +4,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <uri.shex>
+IMPORT <Meta.shex>
+IMPORT <code.shex>
+
 
 start=@<Resource> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Base Resource
 <Resource> {a .+;
@@ -16,3 +20,4 @@ start=@<Resource> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # content was created 
     fhir:language @<code>?;                 # Language of the resource content
 }  
+

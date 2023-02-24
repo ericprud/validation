@@ -4,9 +4,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Immunization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <ImmunizationEvaluation.shex>
+
 
 start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Guidance or advice relating to an immunization
 <ImmunizationRecommendation> EXTENDS @<DomainResource> CLOSED {   
@@ -98,3 +109,4 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
 			@<Resource> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
+

@@ -4,6 +4,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Device.shex>
+IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <DataType.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <base64Binary.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <PractitionerRole.shex>
 
 # A Signature - XML DigSig, JWS, Graphical image of signature, etc.
 <Signature> EXTENDS @<DataType> CLOSED {   
@@ -48,3 +59,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
 fhirvs:mimetypes EXTERNAL
+

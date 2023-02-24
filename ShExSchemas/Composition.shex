@@ -4,9 +4,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <http:.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <Resource.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Narrative.shex>
+IMPORT <Identifier.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A set of resources composed into a single coherent clinical statement with clinical attestation
 <Composition> EXTENDS @<DomainResource> CLOSED {   
@@ -54,6 +74,19 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:section @<OneOrMore_BackboneElement>?;  # Composition is broken into sections
 }  
 
+# Attests to accuracy of composition
+<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
+                                            # official 
+    fhir:time @<dateTime>?;                 # When the composition was attested
+    fhir:party @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> }?;  # Who attested the composition
+}  
+
 # Composition is broken into sections
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
     fhir:title @<string>?;                  # Label for section (e.g. for ToC)
@@ -76,6 +109,10 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:section @<OneOrMore_Composition.section>?;  # Nested Section
 }  
 
+# Nested Section
+<Composition.section.section> CLOSED {   
+}  
+
 # The clinical service(s) being documented
 <Composition.event> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<OneOrMore_CodeableConcept>?;  # Code(s) that apply to the event 
@@ -83,23 +120,6 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:period @<Period>?;                 # The period covered by the 
                                             # documentation 
     fhir:detail @<OneOrMore_Reference_Resource>?;  # The event(s) being documented
-}  
-
-# Attests to accuracy of composition
-<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
-                                            # official 
-    fhir:time @<dateTime>?;                 # When the composition was attested
-    fhir:party @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who attested the composition
-}  
-
-# Nested Section
-<Composition.section.section> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -156,8 +176,9 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
 
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]
+
 # Set of codes used to value Act.Confidentiality and Role.Confidentiality attribute in accordance with the definition for concept domain "Confidentiality".
 <http://terminology.hl7.org/ValueSet/v3-Confidentiality> ["L" "M" "N" "R" "U" "V"]
 
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]

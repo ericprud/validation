@@ -4,9 +4,23 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<DetectedIssue> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Clinical issue with action
 <DetectedIssue> EXTENDS @<DomainResource> CLOSED {   
@@ -77,8 +91,9 @@ start=@<DetectedIssue> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Codes providing the status of an observation.
+fhirvs:observation-status ["registered" "preliminary" "final" "amended" "corrected" "cancelled" "entered-in-error" "unknown"]
+
 # Indicates the potential degree of impact of the identified issue on the patient.
 fhirvs:detectedissue-severity ["high" "moderate" "low"]
 
-# Codes providing the status of an observation.
-fhirvs:observation-status ["registered" "preliminary" "final" "amended" "corrected" "cancelled" "entered-in-error" "unknown"]

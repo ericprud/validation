@@ -4,9 +4,33 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Range.shex>
+IMPORT <Count.shex>
+IMPORT <string.shex>
+IMPORT <Coding.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <Quantity.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <base64Binary.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <CodeableReference.shex>
+
 
 start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Item used in healthcare
 <Device> EXTENDS @<DomainResource> CLOSED {   
@@ -81,13 +105,12 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # attached to or is part of 
 }  
 
-# The standard(s) the device supports
-<Device.specialization> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:systemType @<CodeableConcept>;     # Code that specifies the property 
-                                            # being represented 
-    fhir:version @<string>?;                # Standard version used
-    fhir:category @<Coding>?;               # communication | performance | 
-                                            # measurement 
+# An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device
+<Device.link> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:relation @<Coding>;                # The type indicates the 
+                                            # relationship of the related device 
+                                            # to the device instance 
+    fhir:relatedDevice @<CodeableReference>;  # A reference to the linked device
 }  
 
 # The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties
@@ -118,35 +141,22 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # electronic-transmission | unknown 
 }  
 
-# The status of the device itself - whether it is switched on, or activated, etc
-<Device.operationalState> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:status @<CodeableConcept>;         # Device operational condition
-    fhir:statusReason @<OneOrMore_CodeableConcept>?;  # The reasons given for the current 
-                                            # operational status 
-    fhir:operator @<OneOrMore_Reference_Patient_OR_Practitioner_OR_RelatedPerson>?;  # The current device operator
-    fhir:mode @<CodeableConcept>?;          # Designated condition for task
-    fhir:cycle @<Count>?;                   # Number of operationcycles
-    fhir:duration @<CodeableConcept>?;      # Operation time measurement
+# The name or names of the device as known to the manufacturer and/or patient
+<Device.deviceName> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>;                    # The name that identifies the device
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:device-nametype};  # registered-name | 
+                                            # user-friendly-name | 
+                                            # patient-reported-name 
 }  
 
-# Current association of the device
-<Device.association> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:status @<CodeableConcept>;         # Device useage state
-    fhir:statusReason @<OneOrMore_CodeableConcept>?;  # The reasons given for the current 
-                                            # association status 
-    fhir:humanSubject @<Reference> AND {fhir:link 
-    			@<Patient> }?;  # The individual associated with the 
-                                            # device 
-    fhir:bodyStructure @<CodeableReference>?;  # Current anatomical location of 
-                                            # device in/on humanSubject 
-}  
-
-# An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device
-<Device.link> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:relation @<Coding>;                # The type indicates the 
-                                            # relationship of the related device 
-                                            # to the device instance 
-    fhir:relatedDevice @<CodeableReference>;  # A reference to the linked device
+# The standard(s) the device supports
+<Device.specialization> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:systemType @<CodeableConcept>;     # Code that specifies the property 
+                                            # being represented 
+    fhir:version @<string>?;                # Standard version used
+    fhir:category @<Coding>?;               # communication | performance | 
+                                            # measurement 
 }  
 
 # The actual design of the device or software version running on the device
@@ -162,13 +172,27 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:value @<string>;                   # The version text
 }  
 
-# The name or names of the device as known to the manufacturer and/or patient
-<Device.deviceName> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>;                    # The name that identifies the device
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:device-nametype};  # registered-name | 
-                                            # user-friendly-name | 
-                                            # patient-reported-name 
+# Current association of the device
+<Device.association> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:status @<CodeableConcept>;         # Device useage state
+    fhir:statusReason @<OneOrMore_CodeableConcept>?;  # The reasons given for the current 
+                                            # association status 
+    fhir:humanSubject @<Reference> AND {fhir:link 
+    			@<Patient> }?;  # The individual associated with the 
+                                            # device 
+    fhir:bodyStructure @<CodeableReference>?;  # Current anatomical location of 
+                                            # device in/on humanSubject 
+}  
+
+# The status of the device itself - whether it is switched on, or activated, etc
+<Device.operationalState> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:status @<CodeableConcept>;         # Device operational condition
+    fhir:statusReason @<OneOrMore_CodeableConcept>?;  # The reasons given for the current 
+                                            # operational status 
+    fhir:operator @<OneOrMore_Reference_Patient_OR_Practitioner_OR_RelatedPerson>?;  # The current device operator
+    fhir:mode @<CodeableConcept>?;          # Designated condition for task
+    fhir:cycle @<Count>?;                   # Number of operationcycles
+    fhir:duration @<CodeableConcept>?;      # Operation time measurement
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -222,3 +246,4 @@ fhirvs:device-status ["active" "inactive" "entered-in-error"]
 
 # The type of name the device is referred by.
 fhirvs:device-nametype ["registered-name" "user-friendly-name" "patient-reported-name"]
+

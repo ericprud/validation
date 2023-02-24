@@ -4,9 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CanonicalResource.shex>
+IMPORT <ExampleScenario.instance.containedInstance.shex>
+
 
 start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Example of workflow instance
 <ExampleScenario> EXTENDS @<CanonicalResource> CLOSED {   
@@ -53,15 +62,6 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:alternative @<OneOrMore_BackboneElement>?;  # Alternate non-typical step action
 }  
 
-# Alternate non-typical step action
-<ExampleScenario.process.step.alternative> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:title @<string>;                   # Label for alternative
-    fhir:description @<markdown>?;          # A human-readable description of 
-                                            # each option 
-    fhir:step @<OneOrMore_ExampleScenario.process.step>?;  # What happens in each alternative 
-                                            # option 
-}  
-
 # Each resource and each version that is present in the workflow
 <ExampleScenario.instance> EXTENDS @<BackboneElement> CLOSED {   
     fhir:resourceId @<string>;              # The id of the resource for 
@@ -76,12 +76,17 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:containedInstance @<OneOrMore_BackboneElement>?;  # Resources contained in the instance
 }  
 
-# Resources contained in the instance
-<ExampleScenario.instance.containedInstance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:resourceId @<string>;              # Each resource contained in the 
-                                            # instance 
-    fhir:versionId @<string>?;              # A specific version of a resource 
-                                            # contained in the instance 
+# Each major process - a group of operations
+<ExampleScenario.process> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:title @<string>;                   # The diagram title of the group of 
+                                            # operations 
+    fhir:description @<markdown>?;          # A longer description of the group 
+                                            # of operations 
+    fhir:preConditions @<markdown>?;        # Description of initial status 
+                                            # before the process starts 
+    fhir:postConditions @<markdown>?;       # Description of final status after 
+                                            # the process ends 
+    fhir:step @<OneOrMore_BackboneElement>?;  # Each step of the process
 }  
 
 # A specific version of the resource
@@ -90,6 +95,16 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # version of a resource 
     fhir:description @<markdown>;           # The description of the resource 
                                             # version 
+}  
+
+# Actor participating in the resource
+<ExampleScenario.actor> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:actorId @<string>;                 # ID or acronym of the actor
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:examplescenario-actor-type};  # person | entity
+    fhir:name @<string>?;                   # The name of the actor as shown in 
+                                            # the page 
+    fhir:description @<markdown>?;          # The description of the actor
 }  
 
 # Each interaction or action
@@ -115,27 +130,21 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # responder 
 }  
 
-# Each major process - a group of operations
-<ExampleScenario.process> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:title @<string>;                   # The diagram title of the group of 
-                                            # operations 
-    fhir:description @<markdown>?;          # A longer description of the group 
-                                            # of operations 
-    fhir:preConditions @<markdown>?;        # Description of initial status 
-                                            # before the process starts 
-    fhir:postConditions @<markdown>?;       # Description of final status after 
-                                            # the process ends 
-    fhir:step @<OneOrMore_BackboneElement>?;  # Each step of the process
+# Alternate non-typical step action
+<ExampleScenario.process.step.alternative> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:title @<string>;                   # Label for alternative
+    fhir:description @<markdown>?;          # A human-readable description of 
+                                            # each option 
+    fhir:step @<OneOrMore_ExampleScenario.process.step>?;  # What happens in each alternative 
+                                            # option 
 }  
 
-# Actor participating in the resource
-<ExampleScenario.actor> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:actorId @<string>;                 # ID or acronym of the actor
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:examplescenario-actor-type};  # person | entity
-    fhir:name @<string>?;                   # The name of the actor as shown in 
-                                            # the page 
-    fhir:description @<markdown>?;          # The description of the actor
+# Resources contained in the instance
+<ExampleScenario.instance.containedInstance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:resourceId @<string>;              # Each resource contained in the 
+                                            # instance 
+    fhir:versionId @<string>?;              # A specific version of a resource 
+                                            # contained in the instance 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -182,11 +191,12 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The type of actor - system or human.
-fhirvs:examplescenario-actor-type ["person" "entity"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
+# The type of actor - system or human.
+fhirvs:examplescenario-actor-type ["person" "entity"]
+
 # One of the resource types defined as part of this version of FHIR.
 fhirvs:resource-types ["Resource" "Binary" "Bundle" "DomainResource" "Account" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CapabilityStatement2" "CodeSystem" "CompartmentDefinition" "ExampleScenario" "GraphDefinition" "ImplementationGuide" "MessageDefinition" "MetadataResource" "ActivityDefinition" "ChargeItemDefinition" "Citation" "ConceptMap" "ConditionDefinition" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "Library" "Measure" "NamingSystem" "PlanDefinition" "Questionnaire" "OperationDefinition" "SearchParameter" "StructureDefinition" "StructureMap" "SubscriptionTopic" "TerminologyCapabilities" "TestScript" "ValueSet" "CarePlan" "CareTeam" "ChargeItem" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "Communication" "CommunicationRequest" "Composition" "Condition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "Goal" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Linkage" "List" "Location" "ManufacturedItemDefinition" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageHeader" "MolecularSequence" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestGroup" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "Subscription" "SubscriptionStatus" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TestReport" "Transport" "VerificationResult" "VisionPrescription" "Parameters"]
+

@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <Reference.shex>
+IMPORT <Provenance.shex>
 
 # Events of interest in the resource lifecycle
 <event-eventHistory> EXTENDS @<Extension> CLOSED {   
@@ -14,9 +18,10 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-eventHistory"]}; 
     fhir:value ((@<Reference>  AND {fhir:link @<Provenance> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Observation] OR 
-    				a [fhir:DiagnosticReport] OR 
-    				a [fhir:Task] OR 
-    				a [fhir:SupplyDelivery] OR 
-    				a [fhir:DeviceUsage]
-    		}
+          a [fhir:DiagnosticReport] OR 
+          a [fhir:Task] OR 
+          a [fhir:SupplyDelivery] OR 
+          a [fhir:DeviceUsage]
+        }
 }  
+

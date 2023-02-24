@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Extension.shex>
 
 # Type of attachment
 <mimeType> EXTENDS @<Extension> CLOSED {   
@@ -14,12 +17,13 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/mimeType"]}; 
     fhir:value (@<code> AND
     	{fhir:value @fhirvs:mimetypes} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:item {a [fhir:Questionnaire]} ) OR 
-    				a [fhir:ElementDefinition]
-    		}
+    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]} OR 
+          a [fhir:ElementDefinition]
+        }
 }  
 
 #---------------------- Value Sets ------------------------
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
 fhirvs:mimetypes EXTERNAL
+

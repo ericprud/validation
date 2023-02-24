@@ -4,6 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Element.shex>
+IMPORT <Patient.shex>
+IMPORT <Quantity.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <CodeableConcept.shex>
 
 # Product Pattern
 <Product> CLOSED {   
@@ -68,3 +78,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # Codes identifying the lifecycle stage of a product.
 fhirvs:product-status ["active" "entered-in-error"]
+

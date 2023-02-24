@@ -4,6 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <DataType.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <CodeableConcept.shex>
 
 # An identifier intended for computation
 <Identifier> EXTENDS @<DataType> CLOSED {   
@@ -28,3 +36,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # Identifies the purpose for this identifier, if known .
 fhirvs:identifier-use ["usual" "official" "temp" "secondary" "old"]
+

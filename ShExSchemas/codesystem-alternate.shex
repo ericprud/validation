@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
 
 # Additional code for the concept
 <codesystem-alternate> EXTENDS @<Extension> CLOSED {   
@@ -14,6 +16,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:use @<Extension>; 
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-alternate"]}; 
-    ^fhir:extension { ( ^fhir:concept {a [fhir:CodeSystem]} )
-    		}
+    ^fhir:extension { ^fhir:concept {a [fhir:CodeSystem]}
+        }
 }  
+

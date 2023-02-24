@@ -4,9 +4,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <time.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <boolean.shex>
+IMPORT <markdown.shex>
+IMPORT <Location.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <Attachment.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+
 
 start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # The details of a healthcare service available at a location
 <HealthcareService> EXTENDS @<DomainResource> CLOSED {   
@@ -76,6 +89,13 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # date 
 }  
 
+# Specific eligibility requirements required to use the service
+<HealthcareService.eligibility> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # Coded value for the eligibility
+    fhir:comment @<markdown>?;              # Describes the eligibility 
+                                            # conditions for the service 
+}  
+
 # Times the Service Site is available
 <HealthcareService.availableTime> EXTENDS @<BackboneElement> CLOSED {   
     fhir:daysOfWeek @<OneOrMore_code> AND
@@ -87,13 +107,6 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # allDay = true) 
     fhir:availableEndTime @<time>?;         # Closing time of day (ignored if 
                                             # allDay = true) 
-}  
-
-# Specific eligibility requirements required to use the service
-<HealthcareService.eligibility> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # Coded value for the eligibility
-    fhir:comment @<markdown>?;              # Describes the eligibility 
-                                            # conditions for the service 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -144,3 +157,4 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The days of the week.
 fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
+

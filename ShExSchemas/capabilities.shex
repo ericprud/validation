@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Extension.shex>
 
 # Server Capabilities
 <capabilities> EXTENDS @<Extension> CLOSED {   
@@ -14,11 +17,12 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities"]}; 
     fhir:value (@<code> AND
     	{fhir:value @fhirvs:smart-capabilities} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:security {( ^fhir:rest {a [fhir:CapabilityStatement]} )} )
-    		}
+    ^fhir:extension { ^fhir:security {^fhir:rest {a [fhir:CapabilityStatement]}}
+        }
 }  
 
 #---------------------- Value Sets ------------------------
 
 # Codes that define what the server is capable of.
 fhirvs:smart-capabilities ["launch-ehr" "launch-standalone" "client-public" "client-confidential-symmetric" "sso-openid-connect" "context-passthrough-banner" "context-passthrough-style" "context-ehr-patient" "context-ehr-encounter" "context-standalone-patient" "context-standalone-encounter" "permission-offline" "permission-patient" "permission-user"]
+

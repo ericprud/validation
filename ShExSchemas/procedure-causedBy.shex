@@ -4,6 +4,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <Reference.shex>
+IMPORT <Procedure.shex>
+IMPORT <Observation.shex>
+IMPORT <ImagingStudy.shex>
+IMPORT <Immunization.shex>
+IMPORT <MedicationUsage.shex>
+IMPORT <DiagnosticReport.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <AllergyIntolerance.shex>
+IMPORT <FamilyMemberHistory.shex>
+IMPORT <MedicationAdministration.shex>
+IMPORT <ImmunizationRecommendation.shex>
 
 # Related item that caused this procedure.
 <procedure-causedBy> EXTENDS @<Extension> CLOSED {   
@@ -24,5 +38,6 @@ BASE <http://hl7.org/fhir/shape/>
     			 @<Observation> OR 
     			 @<Procedure> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Procedure]
-    		}
+        }
 }  
+

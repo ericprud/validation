@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Range.shex>
+IMPORT <BackboneType.shex>
+IMPORT <CodeableConcept.shex>
 
 # A definition of a set of people that apply to some clinically related context, for example people contraindicated for a certain medication
 <Population> EXTENDS @<BackboneType> CLOSED {   
@@ -19,3 +22,4 @@ BASE <http://hl7.org/fhir/shape/>
                                             # conditions of the specific 
                                             # population to which this applies 
 }  
+

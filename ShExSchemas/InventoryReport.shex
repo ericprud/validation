@@ -4,9 +4,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <Annotation.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableReference.shex>
+
 
 start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A report of inventory or stock items
 <InventoryReport> EXTENDS @<DomainResource> CLOSED {   
@@ -36,6 +52,16 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # InventoryReport 
 }  
 
+# An inventory listing section (grouped by any of the attributes)
+<InventoryReport.inventoryListing> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:location @<Reference> AND {fhir:link 
+    			@<Location> }?;  # Location of the inventory items
+    fhir:itemStatus @<CodeableConcept>?;    # The status of the items
+    fhir:countingDateTime @<dateTime>?;     # The date and time when the items 
+                                            # were counted 
+    fhir:items @<OneOrMore_BackboneElement>?;  # The item or items in this listing
+}  
+
 # The item or items in this listing
 <InventoryReport.inventoryListing.items> EXTENDS @<BackboneElement> CLOSED {   
     fhir:category @<CodeableConcept>?;      # The category of the item or items
@@ -48,16 +74,6 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # items 
     fhir:manufacturingDate @<dateTime>?;    # The manufacturingDate of the item 
                                             # or items 
-}  
-
-# An inventory listing section (grouped by any of the attributes)
-<InventoryReport.inventoryListing> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Location of the inventory items
-    fhir:itemStatus @<CodeableConcept>?;    # The status of the items
-    fhir:countingDateTime @<dateTime>?;     # The date and time when the items 
-                                            # were counted 
-    fhir:items @<OneOrMore_BackboneElement>?;  # The item or items in this listing
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -79,3 +95,4 @@ fhirvs:inventoryreport-counttype ["snapshot" "difference"]
 
 # The status of the InventoryReport.
 fhirvs:inventoryreport-status ["draft" "requested" "active" "entered-in-error"]
+

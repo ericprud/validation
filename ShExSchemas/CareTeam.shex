@@ -4,9 +4,24 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Patient.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<CareTeam> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Planned participants in the coordination and delivery of care
 <CareTeam> EXTENDS @<DomainResource> CLOSED {   
@@ -92,3 +107,4 @@ start=@<CareTeam> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Indicates the status of the care team.
 fhirvs:care-team-status ["proposed" "active" "suspended" "inactive" "entered-in-error"]
+

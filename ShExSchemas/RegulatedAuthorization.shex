@@ -4,9 +4,33 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Period.shex>
+IMPORT <markdown.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Ingredient.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <ResearchStudy.shex>
+IMPORT <DomainResource.shex>
+IMPORT <PlanDefinition.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <DeviceDefinition.shex>
+IMPORT <NutritionProduct.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <ActivityDefinition.shex>
+IMPORT <SubstanceDefinition.shex>
+IMPORT <ObservationDefinition.shex>
+IMPORT <PackagedProductDefinition.shex>
+IMPORT <BiologicallyDerivedProduct.shex>
+IMPORT <MedicinalProductDefinition.shex>
+
 
 start=@<RegulatedAuthorization> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity e.g. Market Authorization for a Medicinal Product
 <RegulatedAuthorization> EXTENDS @<DomainResource> CLOSED {   
@@ -67,10 +91,6 @@ start=@<RegulatedAuthorization> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # page) 
 }  
 
-# Applications submitted to obtain a regulated authorization. Steps within the longer running case or procedure
-<RegulatedAuthorization.case.application> CLOSED {   
-}  
-
 # The case or regulatory procedure for granting or amending a regulated authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)
 <RegulatedAuthorization.case> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>?;         # Identifier by which this case can 
@@ -83,6 +103,10 @@ start=@<RegulatedAuthorization> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # regulated authorization. Steps 
                                             # within the longer running case or 
                                             # procedure 
+}  
+
+# Applications submitted to obtain a regulated authorization. Steps within the longer running case or procedure
+<RegulatedAuthorization.case.application> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -126,3 +150,4 @@ start=@<RegulatedAuthorization> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<RegulatedAuthorization.case>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_RegulatedAuthorization.case> 
 }
+

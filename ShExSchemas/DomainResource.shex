@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Resource.shex>
+IMPORT <Narrative.shex>
+
 
 start=@<DomainResource> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A resource with narrative, extensions, and contained resources
 <DomainResource> EXTENDS @<Resource> CLOSED {   
@@ -32,3 +34,4 @@ start=@<DomainResource> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<Extension>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Extension> 
 }
+

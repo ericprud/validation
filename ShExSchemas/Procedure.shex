@@ -4,9 +4,42 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Age.shex>
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Timing.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Location.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <Condition.shex>
+IMPORT <Observation.shex>
+IMPORT <Composition.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DiagnosticReport.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <MedicationAdministration.shex>
+
 
 start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # An action that is being or was performed on an individual or entity
 <Procedure> EXTENDS @<DomainResource> CLOSED {   
@@ -84,13 +117,6 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # procedure 
 }  
 
-# Manipulated, implanted, or removed device
-<Procedure.focalDevice> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<CodeableConcept>?;        # Kind of change to device
-    fhir:manipulated @<Reference> AND {fhir:link 
-    			@<Device> };  # Device that was changed
-}  
-
 # The people who performed the procedure
 <Procedure.performer> EXTENDS @<BackboneElement> CLOSED {   
     fhir:function @<CodeableConcept>?;      # Type of performance
@@ -106,6 +132,13 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:onBehalfOf @<Reference> AND {fhir:link 
     			@<Organization> }?;  # Organization the device or 
                                             # practitioner was acting for 
+}  
+
+# Manipulated, implanted, or removed device
+<Procedure.focalDevice> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<CodeableConcept>?;        # Kind of change to device
+    fhir:manipulated @<Reference> AND {fhir:link 
+    			@<Device> };  # Device that was changed
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -184,3 +217,4 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Codes identifying the lifecycle stage of an event.
 fhirvs:event-status ["preparation" "in-progress" "not-done" "on-hold" "stopped" "completed" "entered-in-error" "unknown"]
+

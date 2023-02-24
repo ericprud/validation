@@ -4,9 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Period.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <Reference.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+
 
 start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A person that is related to a patient, but who is not a direct target of care
 <RelatedPerson> EXTENDS @<DomainResource> CLOSED {   
@@ -86,3 +95,4 @@ start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The gender of a person used for administrative purposes.
 fhirvs:administrative-gender ["male" "female" "other" "unknown"]
+

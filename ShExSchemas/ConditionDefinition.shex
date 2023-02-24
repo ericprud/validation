@@ -4,9 +4,23 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <Quantity.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <Questionnaire.shex>
+IMPORT <PlanDefinition.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MetadataResource.shex>
+
 
 start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A definition of a condition
 <ConditionDefinition> EXTENDS @<MetadataResource> CLOSED {   
@@ -62,25 +76,23 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:plan @<OneOrMore_BackboneElement>?;  # Plan that is appropriate
 }  
 
-# Observation that suggets this condition
-<ConditionDefinition.precondition> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:condition-precondition-type};  # sensitive | specific
-    fhir:code @<CodeableConcept>;           # Code for relevant Observation
-    fhir:value (@<CodeableConcept>  OR 
-    			@<Quantity> )  AND { rdf:type IRI } ?;  # Value of Observation
-}  
-
-# Observations particularly relevant to this condition
-<ConditionDefinition.observation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>?;      # Category that is relevant
-    fhir:code @<CodeableConcept>?;          # Code for relevant Observation
+# Plan that is appropriate
+<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<CodeableConcept>?;          # Use for the plan
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<PlanDefinition> };  # The actual plan
 }  
 
 # Medications particularly relevant for this condition
 <ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
     fhir:category @<CodeableConcept>?;      # Category that is relevant
     fhir:code @<CodeableConcept>?;          # Code for relevant Medication
+}  
+
+# Observations particularly relevant to this condition
+<ConditionDefinition.observation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>?;      # Category that is relevant
+    fhir:code @<CodeableConcept>?;          # Code for relevant Observation
 }  
 
 # Questionnaire for this condition
@@ -91,11 +103,13 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Questionnaire> };  # Specific Questionnaire
 }  
 
-# Plan that is appropriate
-<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<CodeableConcept>?;          # Use for the plan
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<PlanDefinition> };  # The actual plan
+# Observation that suggets this condition
+<ConditionDefinition.precondition> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:condition-precondition-type};  # sensitive | specific
+    fhir:code @<CodeableConcept>;           # Code for relevant Observation
+    fhir:value (@<CodeableConcept>  OR 
+    			@<Quantity> )  AND { rdf:type IRI } ?;  # Value of Observation
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -138,11 +152,12 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # Kind of precondition for the condition.
 fhirvs:condition-precondition-type ["sensitive" "specific"]
 
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
 # The use of a questionnaire.
 fhirvs:condition-questionnaire-purpose ["preadmit" "diff-diagnosis" "outcome"]
+

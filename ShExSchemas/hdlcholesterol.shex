@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Observation.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<hdlcholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # HDL Cholesterol Result
 <hdlcholesterol> EXTENDS @<Observation> CLOSED {   
@@ -19,10 +21,11 @@ start=@<hdlcholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Component results
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Component results
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  

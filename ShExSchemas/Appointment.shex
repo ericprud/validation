@@ -4,9 +4,37 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Slot.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Account.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Location.shex>
+IMPORT <Resource.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Reference.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Appointment.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <MedicationRequest.shex>
+
 
 start=@<Appointment> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)
 <Appointment> EXTENDS @<DomainResource> CLOSED {   
@@ -166,3 +194,4 @@ fhirvs:appointmentstatus ["proposed" "pending" "booked" "arrived" "fulfilled" "c
 
 # The Participation status of an appointment.
 fhirvs:participationstatus ["accepted" "declined" "tentative" "needs-action"]
+

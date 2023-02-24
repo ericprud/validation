@@ -4,9 +4,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Ratio.shex>
+IMPORT <string.shex>
+IMPORT <Timing.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <SimpleQuantity.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <AllergyIntolerance.shex>
+
 
 start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Diet, formula or nutritional supplement request
 <NutritionOrder> EXTENDS @<DomainResource> CLOSED {   
@@ -83,16 +99,6 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # supplement 
 }  
 
-# Formula feeding instruction as structured data
-<NutritionOrder.enteralFormula.administration> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:schedule @<Timing>?;               # Scheduled frequency of enteral 
-                                            # feeding 
-    fhir:quantity @<Quantity>?;             # The volume of formula to provide
-    fhir:rate (@<SimpleQuantity>  OR 
-    			@<Ratio> )  AND { rdf:type IRI } ?;  # Speed with which the formula is 
-                                            # provided per period of time 
-}  
-
 # Enteral formula components
 <NutritionOrder.enteralFormula> EXTENDS @<BackboneElement> CLOSED {   
     fhir:baseFormulaType @<CodeableConcept>?;  # Type of enteral or infant formula
@@ -112,6 +118,16 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # unit of time 
     fhir:administrationInstruction @<string>?;  # Formula feeding instructions 
                                             # expressed as text 
+}  
+
+# Formula feeding instruction as structured data
+<NutritionOrder.enteralFormula.administration> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:schedule @<Timing>?;               # Scheduled frequency of enteral 
+                                            # feeding 
+    fhir:quantity @<Quantity>?;             # The volume of formula to provide
+    fhir:rate (@<SimpleQuantity>  OR 
+    			@<Ratio> )  AND { rdf:type IRI } ?;  # Speed with which the formula is 
+                                            # provided per period of time 
 }  
 
 # Required  texture modifications
@@ -180,3 +196,4 @@ fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered
 
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
+

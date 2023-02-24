@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <time.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Location.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Roles/organizations the practitioner is associated with
 <PractitionerRole> EXTENDS @<DomainResource> CLOSED {   
@@ -49,14 +61,6 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the practitioner with this role 
 }  
 
-# Not available during this time due to provided reason
-<PractitionerRole.notAvailable> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>;             # Reason presented to the user 
-                                            # explaining why time not available 
-    fhir:during @<Period>?;                 # Service not available from this 
-                                            # date 
-}  
-
 # Times the Service Site is available
 <PractitionerRole.availableTime> EXTENDS @<BackboneElement> CLOSED {   
     fhir:daysOfWeek @<OneOrMore_code> AND
@@ -68,6 +72,14 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # allDay = true) 
     fhir:availableEndTime @<time>?;         # Closing time of day (ignored if 
                                             # allDay = true) 
+}  
+
+# Not available during this time due to provided reason
+<PractitionerRole.notAvailable> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>;             # Reason presented to the user 
+                                            # explaining why time not available 
+    fhir:during @<Period>?;                 # Service not available from this 
+                                            # date 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -124,3 +136,4 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The days of the week.
 fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
+

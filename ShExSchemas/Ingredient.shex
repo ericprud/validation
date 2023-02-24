@@ -4,9 +4,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Ratio.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <RatioRange.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <ManufacturedItemDefinition.shex>
+IMPORT <MedicinalProductDefinition.shex>
+IMPORT <AdministrableProductDefinition.shex>
+
 
 start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # An ingredient of a manufactured item or pharmaceutical product
 <Ingredient> EXTENDS @<DomainResource> CLOSED {   
@@ -35,6 +51,28 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # this ingredient 
     fhir:substance @<BackboneElement>;      # The substance that comprises this 
                                             # ingredient 
+}  
+
+# The substance that comprises this ingredient
+<Ingredient.substance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableReference>;         # A code or full resource that 
+                                            # represents the ingredient 
+                                            # substance 
+    fhir:strength @<OneOrMore_BackboneElement>?;  # The quantity of substance, per 
+                                            # presentation, or per volume or 
+                                            # mass, and type of quantity 
+}  
+
+# Strength expressed in terms of a reference substance
+<Ingredient.substance.strength.referenceStrength> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:substance @<CodeableReference>?;   # Relevant reference substance
+    fhir:strength (@<Ratio>  OR 
+    			@<RatioRange>  OR 
+    			@<Quantity> )  AND { rdf:type IRI } ;  # Strength expressed in terms of a 
+                                            # reference substance 
+    fhir:measurementPoint @<string>?;       # When strength is measured at a 
+                                            # particular point or distance 
+    fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
 }  
 
 # The quantity of substance, per presentation, or per volume or mass, and type of quantity
@@ -69,18 +107,6 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # reference substance 
 }  
 
-# Strength expressed in terms of a reference substance
-<Ingredient.substance.strength.referenceStrength> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:substance @<CodeableReference>?;   # Relevant reference substance
-    fhir:strength (@<Ratio>  OR 
-    			@<RatioRange>  OR 
-    			@<Quantity> )  AND { rdf:type IRI } ;  # Strength expressed in terms of a 
-                                            # reference substance 
-    fhir:measurementPoint @<string>?;       # When strength is measured at a 
-                                            # particular point or distance 
-    fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
-}  
-
 # An organization that manufactures this ingredient
 <Ingredient.manufacturer> EXTENDS @<BackboneElement> CLOSED {   
     fhir:role @<code> AND
@@ -88,16 +114,6 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:manufacturer @<Reference> AND {fhir:link 
     			@<Organization> };  # An organization that manufactures 
                                             # this ingredient 
-}  
-
-# The substance that comprises this ingredient
-<Ingredient.substance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableReference>;         # A code or full resource that 
-                                            # represents the ingredient 
-                                            # substance 
-    fhir:strength @<OneOrMore_BackboneElement>?;  # The quantity of substance, per 
-                                            # presentation, or per volume or 
-                                            # mass, and type of quantity 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -127,3 +143,4 @@ fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role.
 fhirvs:ingredient-manufacturer-role ["allowed" "possible" "actual"]
+

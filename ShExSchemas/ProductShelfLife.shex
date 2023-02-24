@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <Duration.shex>
+IMPORT <BackboneType.shex>
+IMPORT <CodeableConcept.shex>
 
 # The shelf-life and storage information for a medicinal product item or container can be described using this class
 <ProductShelfLife> EXTENDS @<BackboneType> CLOSED {   
@@ -47,3 +51,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
+

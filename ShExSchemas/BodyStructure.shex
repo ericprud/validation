@@ -4,9 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <Reference.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Specific and identified anatomical structure
 <BodyStructure> EXTENDS @<DomainResource> CLOSED {   
@@ -25,16 +32,6 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> };  # Who this is about
 }  
 
-# Included anatomic location(s)
-<BodyStructure.includedStructure> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:structure @<CodeableConcept>;      # Code that represents the included 
-                                            # structure 
-    fhir:laterality @<CodeableConcept>?;    # Code that represents the included 
-                                            # structure laterality 
-    fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the included 
-                                            # structure qualifier 
-}  
-
 # Excluded anatomic locations(s)
 <BodyStructure.excludedStructure> EXTENDS @<BackboneElement> CLOSED {   
     fhir:structure @<CodeableConcept>;      # Code that represents the excluded 
@@ -42,6 +39,16 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:laterality @<CodeableConcept>?;    # Code that represents the excluded 
                                             # structure laterality 
     fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the excluded 
+                                            # structure qualifier 
+}  
+
+# Included anatomic location(s)
+<BodyStructure.includedStructure> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:structure @<CodeableConcept>;      # Code that represents the included 
+                                            # structure 
+    fhir:laterality @<CodeableConcept>?;    # Code that represents the included 
+                                            # structure laterality 
+    fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the included 
                                             # structure qualifier 
 }  
 
@@ -66,3 +73,4 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
+

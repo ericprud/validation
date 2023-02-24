@@ -4,9 +4,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Task.shex>
+IMPORT <date.shex>
+IMPORT <Money.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # PaymentReconciliation resource
 <PaymentReconciliation> EXTENDS @<DomainResource> CLOSED {   
@@ -39,13 +55,6 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:processNote @<OneOrMore_BackboneElement>?;  # Note concerning processing
 }  
 
-# Note concerning processing
-<PaymentReconciliation.processNote> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:note-type}?;  # display | print | printoper
-    fhir:text @<string>?;                   # Note explanatory text
-}  
-
 # Settlement particulars
 <PaymentReconciliation.detail> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>?;         # Business identifier of the payment 
@@ -71,6 +80,13 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:amount @<Money>?;                  # Amount allocated to this payable
 }  
 
+# Note concerning processing
+<PaymentReconciliation.processNote> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:note-type}?;  # display | print | printoper
+    fhir:text @<string>?;                   # Note explanatory text
+}  
+
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
@@ -85,11 +101,12 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The outcome of the processing.
-fhirvs:payment-outcome ["queued" "complete" "error" "partial"]
+# This value set includes Status codes.
+fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
 
 # The presentation types of notes.
 fhirvs:note-type ["display" "print" "printoper"]
 
-# This value set includes Status codes.
-fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
+# The outcome of the processing.
+fhirvs:payment-outcome ["queued" "complete" "error" "partial"]
+

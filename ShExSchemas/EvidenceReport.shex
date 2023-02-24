@@ -4,9 +4,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Range.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <Person.shex>
+IMPORT <boolean.shex>
+IMPORT <markdown.shex>
+IMPORT <Citation.shex>
+IMPORT <Resource.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <Narrative.shex>
+IMPORT <Identifier.shex>
+IMPORT <Organization.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MetadataResource.shex>
+
 
 start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A EvidenceReport
 <EvidenceReport> EXTENDS @<MetadataResource> CLOSED {   
@@ -45,14 +65,34 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:section @<OneOrMore_BackboneElement>?;  # Composition is broken into sections
 }  
 
-# Relationships to other compositions/documents
-<EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code> AND
-    	{fhir:value @fhirvs:report-relation-type};  # replaces | amends | appends | 
-                                            # transforms | replacedWith | 
-                                            # amendedWith | appendedWith | 
-                                            # transformedWith 
-    fhir:target @<BackboneElement>;         # Target of the relationship
+# Target of the relationship
+<EvidenceReport.relatesTo.target> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:url @<uri>?;                       # Target of the relationship URL
+    fhir:identifier @<Identifier>?;         # Target of the relationship 
+                                            # Identifier 
+    fhir:display @<markdown>?;              # Target of the relationship Display
+    fhir:resource @<Reference> AND {fhir:link 
+    			@<Resource> }?;  # Target of the relationship 
+                                            # Resource reference 
+}  
+
+# Characteristic
+<EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Characteristic code
+    fhir:value ((@<Reference>  AND {fhir:link @<Resource> })  OR 
+    			@<CodeableConcept>  OR 
+    			@<boolean>  OR 
+    			@<Quantity>  OR 
+    			@<Range> )  AND { rdf:type IRI } ;  # Characteristic value
+    fhir:exclude @<boolean>?;               # Is used to express not the 
+                                            # characteristic 
+    fhir:period @<Period>?;                 # Timeframe for the characteristic
+}  
+
+# Focus of the report
+<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Characteristic
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
 }  
 
 # Nested Section
@@ -81,34 +121,14 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:section @<OneOrMore_EvidenceReport.section>?;  # Nested Section
 }  
 
-# Focus of the report
-<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Characteristic
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-}  
-
-# Characteristic
-<EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Characteristic code
-    fhir:value ((@<Reference>  AND {fhir:link @<Resource> })  OR 
-    			@<CodeableConcept>  OR 
-    			@<boolean>  OR 
-    			@<Quantity>  OR 
-    			@<Range> )  AND { rdf:type IRI } ;  # Characteristic value
-    fhir:exclude @<boolean>?;               # Is used to express not the 
-                                            # characteristic 
-    fhir:period @<Period>?;                 # Timeframe for the characteristic
-}  
-
-# Target of the relationship
-<EvidenceReport.relatesTo.target> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:url @<uri>?;                       # Target of the relationship URL
-    fhir:identifier @<Identifier>?;         # Target of the relationship 
-                                            # Identifier 
-    fhir:display @<markdown>?;              # Target of the relationship Display
-    fhir:resource @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Target of the relationship 
-                                            # Resource reference 
+# Relationships to other compositions/documents
+<EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code> AND
+    	{fhir:value @fhirvs:report-relation-type};  # replaces | amends | appends | 
+                                            # transforms | replacedWith | 
+                                            # amendedWith | appendedWith | 
+                                            # transformedWith 
+    fhir:target @<BackboneElement>;         # Target of the relationship
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -175,11 +195,12 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The processing mode that applies to this list.
-fhirvs:list-mode ["working" "snapshot" "changes"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
+# The processing mode that applies to this list.
+fhirvs:list-mode ["working" "snapshot" "changes"]
+
 # The type of relationship between reports.
 fhirvs:report-relation-type ["replaces" "amends" "appends" "transforms" "replacedWith" "amendedWith" "appendedWith" "transformedWith"]
+

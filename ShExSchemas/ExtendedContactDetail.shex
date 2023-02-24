@@ -4,6 +4,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Period.shex>
+IMPORT <Address.shex>
+IMPORT <DataType.shex>
+IMPORT <HumanName.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <CodeableConcept.shex>
 
 # Contact information
 <ExtendedContactDetail> EXTENDS @<DataType> CLOSED {   
@@ -26,3 +33,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<ContactPoint>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ContactPoint> 
 }
+

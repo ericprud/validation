@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <PlanDefinition.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<shareableplandefinition> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # The definition of a plan for a series of actions, independent of any specific patient or context
 <shareableplandefinition> EXTENDS @<PlanDefinition> CLOSED {   
@@ -15,16 +17,32 @@ start=@<shareableplandefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
+# What the plan is trying to accomplish
+<PlanDefinition.goal> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Who or what can be this actor
+<PlanDefinition.actor.option> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Dynamic aspects of the definition
+<PlanDefinition.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Whether or not the action is applicable
 <PlanDefinition.action.condition> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Who should participate in the action
-<PlanDefinition.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+# Relationship to another action
+<PlanDefinition.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Target outcome for the goal
-<PlanDefinition.goal.target> EXTENDS @<BackboneElement> CLOSED {   
+# Input data requirements
+<PlanDefinition.action.input> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Action defined by the plan
+<PlanDefinition.action> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Actors within the plan
@@ -35,26 +53,11 @@ start=@<shareableplandefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <PlanDefinition.action.output> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Relationship to another action
-<PlanDefinition.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
+# Who should participate in the action
+<PlanDefinition.action.participant> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Dynamic aspects of the definition
-<PlanDefinition.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+# Target outcome for the goal
+<PlanDefinition.goal.target> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Action defined by the plan
-<PlanDefinition.action> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Who or what can be this actor
-<PlanDefinition.actor.option> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Input data requirements
-<PlanDefinition.action.input> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# What the plan is trying to accomplish
-<PlanDefinition.goal> EXTENDS @<BackboneElement> CLOSED {   
-}  

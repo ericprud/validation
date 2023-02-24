@@ -4,6 +4,19 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Range.shex>
+IMPORT <Group.shex>
+IMPORT <Coding.shex>
+IMPORT <DataType.shex>
+IMPORT <Quantity.shex>
+IMPORT <Location.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <ResearchStudy.shex>
+IMPORT <InsurancePlan.shex>
+IMPORT <PlanDefinition.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <HealthcareService.shex>
 
 # Describes the context of use for a conformance or knowledge resource
 <UsageContext> EXTENDS @<DataType> CLOSED {   
@@ -22,3 +35,4 @@ BASE <http://hl7.org/fhir/shape/>
     			 @<Location> OR 
     			 @<Organization> }) )  AND { rdf:type IRI } ;  # Value that defines the context
 }  
+

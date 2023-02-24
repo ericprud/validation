@@ -4,9 +4,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Money.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <Quantity.shex>
+IMPORT <Resource.shex>
+IMPORT <Coverage.shex>
+IMPORT <Reference.shex>
+IMPORT <Condition.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # CoverageEligibilityRequest resource
 <CoverageEligibilityRequest> EXTENDS @<DomainResource> CLOSED {   
@@ -44,6 +65,12 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:item @<OneOrMore_BackboneElement>?;  # Item to be evaluated for eligibiity
 }  
 
+# Applicable diagnosis
+<CoverageEligibilityRequest.item.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:diagnosis (@<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ?;  # Nature of illness or problem
+}  
+
 # Item to be evaluated for eligibiity
 <CoverageEligibilityRequest.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:supportingInfoSequence @<OneOrMore_positiveInt>?;  # Applicable exception or supporting 
@@ -71,12 +98,6 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:information @<Reference> AND {fhir:link 
     			@<Resource> };  # Data to be provided
     fhir:appliesToAll @<boolean>?;          # Applies to all items
-}  
-
-# Applicable diagnosis
-<CoverageEligibilityRequest.item.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:diagnosis (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ?;  # Nature of illness or problem
 }  
 
 # Patient insurance information
@@ -122,8 +143,9 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# This value set includes Status codes.
+fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
+
 # A code specifying the types of information being requested.
 fhirvs:eligibilityrequest-purpose ["auth-requirements" "benefits" "discovery" "validation"]
 
-# This value set includes Status codes.
-fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]

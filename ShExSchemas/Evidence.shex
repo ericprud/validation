@@ -4,9 +4,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <decimal.shex>
+IMPORT <markdown.shex>
+IMPORT <Citation.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <unsignedInt.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MetadataResource.shex>
+IMPORT <EvidenceVariable.shex>
+
 
 start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Single evidence bit
 <Evidence> EXTENDS @<MetadataResource> CLOSED {   
@@ -60,16 +78,20 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # evidence 
 }  
 
-# Number of samples in the statistic
-<Evidence.statistic.sampleSize> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Textual description of sample size 
-                                            # for statistic 
-    fhir:note @<OneOrMore_Annotation>?;     # Footnote or explanatory note about 
-                                            # the sample size 
-    fhir:numberOfStudies @<unsignedInt>?;   # Number of contributing studies
-    fhir:numberOfParticipants @<unsignedInt>?;  # Cumulative number of participants
-    fhir:knownDataCount @<unsignedInt>?;    # Number of participants with known 
-                                            # results for measured variables 
+# A variable adjusted for in the adjusted analysis
+<Evidence.statistic.modelCharacteristic.variable> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:variableDefinition @<Reference> AND {fhir:link 
+    			@<EvidenceVariable> OR 
+    			@<Group> };  # Description of the variable
+    fhir:handling @<code> AND
+    	{fhir:value @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
+                                            # | polychotomous 
+    fhir:valueCategory @<OneOrMore_CodeableConcept>?;  # Description for grouping of 
+                                            # ordinal or polychotomous variables 
+    fhir:valueQuantity @<OneOrMore_Quantity>?;  # Discrete value for grouping of 
+                                            # ordinal or polychotomous variables 
+    fhir:valueRange @<OneOrMore_Range>?;    # Range of values for grouping of 
+                                            # ordinal or polychotomous variables 
 }  
 
 # Certainty or quality of the evidence
@@ -82,6 +104,23 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:rater @<string>?;                  # Individual or group who did the 
                                             # rating 
     fhir:subcomponent @<OneOrMore_Evidence.certainty>?;  # A domain or subdomain of certainty
+}  
+
+# Values and parameters for a single statistic
+<Evidence.statistic> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Description of content
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
+    fhir:statisticType @<CodeableConcept>?;  # Type of statistic, e.g., relative 
+                                            # risk 
+    fhir:category @<CodeableConcept>?;      # Associated category for 
+                                            # categorical variable 
+    fhir:quantity @<Quantity>?;             # Statistic value
+    fhir:numberOfEvents @<unsignedInt>?;    # The number of events associated 
+                                            # with the statistic 
+    fhir:numberAffected @<unsignedInt>?;    # The number of participants affected
+    fhir:sampleSize @<BackboneElement>?;    # Number of samples in the statistic
+    fhir:attributeEstimate @<OneOrMore_BackboneElement>?;  # An attribute of the Statistic
+    fhir:modelCharacteristic @<OneOrMore_BackboneElement>?;  # An aspect of the statistical model
 }  
 
 # A nested attribute estimate; which is the attribute estimate of an attribute estimate
@@ -107,25 +146,16 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:directnessMatch @<CodeableConcept>?;  # low | moderate | high | exact
 }  
 
-# Values and parameters for a single statistic
-<Evidence.statistic> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Description of content
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-    fhir:statisticType @<CodeableConcept>?;  # Type of statistic, e.g., relative 
-                                            # risk 
-    fhir:category @<CodeableConcept>?;      # Associated category for 
-                                            # categorical variable 
-    fhir:quantity @<Quantity>?;             # Statistic value
-    fhir:numberOfEvents @<unsignedInt>?;    # The number of events associated 
-                                            # with the statistic 
-    fhir:numberAffected @<unsignedInt>?;    # The number of participants affected
-    fhir:sampleSize @<BackboneElement>?;    # Number of samples in the statistic
-    fhir:attributeEstimate @<OneOrMore_BackboneElement>?;  # An attribute of the Statistic
-    fhir:modelCharacteristic @<OneOrMore_BackboneElement>?;  # An aspect of the statistical model
-}  
-
-# A domain or subdomain of certainty
-<Evidence.certainty.subcomponent> CLOSED {   
+# Number of samples in the statistic
+<Evidence.statistic.sampleSize> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Textual description of sample size 
+                                            # for statistic 
+    fhir:note @<OneOrMore_Annotation>?;     # Footnote or explanatory note about 
+                                            # the sample size 
+    fhir:numberOfStudies @<unsignedInt>?;   # Number of contributing studies
+    fhir:numberOfParticipants @<unsignedInt>?;  # Cumulative number of participants
+    fhir:knownDataCount @<unsignedInt>?;    # Number of participants with known 
+                                            # results for measured variables 
 }  
 
 # An aspect of the statistical model
@@ -137,6 +167,10 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # adjusted analysis 
     fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # An attribute of the statistic used 
                                             # as a model characteristic 
+}  
+
+# A domain or subdomain of certainty
+<Evidence.certainty.subcomponent> CLOSED {   
 }  
 
 # An attribute of the Statistic
@@ -161,22 +195,6 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # A nested attribute estimate; which 
                                             # is the attribute estimate of an 
                                             # attribute estimate 
-}  
-
-# A variable adjusted for in the adjusted analysis
-<Evidence.statistic.modelCharacteristic.variable> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:variableDefinition @<Reference> AND {fhir:link 
-    			@<EvidenceVariable> OR 
-    			@<Group> };  # Description of the variable
-    fhir:handling @<code> AND
-    	{fhir:value @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
-                                            # | polychotomous 
-    fhir:valueCategory @<OneOrMore_CodeableConcept>?;  # Description for grouping of 
-                                            # ordinal or polychotomous variables 
-    fhir:valueQuantity @<OneOrMore_Quantity>?;  # Discrete value for grouping of 
-                                            # ordinal or polychotomous variables 
-    fhir:valueRange @<OneOrMore_Range>?;    # Range of values for grouping of 
-                                            # ordinal or polychotomous variables 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -211,16 +229,6 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
 
-<OneOrMore_Evidence.certainty> CLOSED {
-    rdf:first @<Evidence.certainty>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.certainty> 
-}
-
-<OneOrMore_Evidence.statistic.attributeEstimate> CLOSED {
-    rdf:first @<Evidence.statistic.attributeEstimate>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.statistic.attributeEstimate> 
-}
-
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
@@ -236,6 +244,16 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Range> 
 }
 
+<OneOrMore_Evidence.certainty> CLOSED {
+    rdf:first @<Evidence.certainty>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.certainty> 
+}
+
+<OneOrMore_Evidence.statistic.attributeEstimate> CLOSED {
+    rdf:first @<Evidence.statistic.attributeEstimate>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.statistic.attributeEstimate> 
+}
+
 #---------------------- Value Sets ------------------------
 
 # The lifecycle status of an artifact.
@@ -243,3 +261,4 @@ fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
 fhirvs:variable-handling ["continuous" "dichotomous" "ordinal" "polychotomous"]
+

@@ -4,9 +4,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <url.shex>
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Coding.shex>
+IMPORT <instant.shex>
+IMPORT <canonical.shex>
+IMPORT <unsignedInt.shex>
+IMPORT <positiveInt.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Notification about a SubscriptionTopic
 <Subscription> EXTENDS @<DomainResource> CLOSED {   
@@ -91,8 +102,9 @@ fhirvs:subscription-payload-content ["empty" "id-only" "full-resource"]
 # FHIR search modifiers allowed for use in Subscriptions and SubscriptionTopics.
 fhirvs:subscription-search-modifier ["=" "eq" "ne" "gt" "lt" "ge" "le" "sa" "eb" "ap" "above" "below" "in" "not-in" "of-type"]
 
+# State values for FHIR Subscriptions.
+fhirvs:subscription-status ["requested" "active" "error" "off" "entered-in-error"]
+
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
 fhirvs:mimetypes EXTERNAL
 
-# State values for FHIR Subscriptions.
-fhirvs:subscription-status ["requested" "active" "error" "off" "entered-in-error"]

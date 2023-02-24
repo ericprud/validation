@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <date.shex>
+IMPORT <code.shex>
 
 # Participant Pattern
 <ParticipantLiving> CLOSED {   
@@ -35,3 +37,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # The gender of a person used for administrative purposes.
 fhirvs:administrative-gender ["male" "female" "other" "unknown"]
+

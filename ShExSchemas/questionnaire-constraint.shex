@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
 
 # Constraint
 <questionnaire-constraint> EXTENDS @<Extension> CLOSED {   
@@ -19,8 +21,8 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-constraint"]}; 
     ^fhir:extension { a [fhir:Questionnaire] OR 
-    				( ^fhir:item {a [fhir:Questionnaire]} )
-    		}
+          ^fhir:item {a [fhir:Questionnaire]}
+        }
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -29,3 +31,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Extension>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Extension> 
 }
+

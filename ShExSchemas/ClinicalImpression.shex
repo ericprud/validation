@@ -4,9 +4,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Condition.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <RiskAssessment.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <AllergyIntolerance.shex>
+
 
 start=@<ClinicalImpression> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A clinical assessment performed when planning treatments and management strategies for a patient
 <ClinicalImpression> EXTENDS @<DomainResource> CLOSED {   
@@ -109,3 +127,4 @@ start=@<ClinicalImpression> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Codes identifying the lifecycle stage of an event.
 fhirvs:event-status ["preparation" "in-progress" "not-done" "on-hold" "stopped" "completed" "entered-in-error" "unknown"]
+

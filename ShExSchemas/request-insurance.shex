@@ -4,6 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Coverage.shex>
+IMPORT <Extension.shex>
+IMPORT <Reference.shex>
+IMPORT <ClaimResponse.shex>
 
 # Associated insurance coverage
 <request-insurance> EXTENDS @<Extension> CLOSED {   
@@ -15,5 +20,6 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:value ((@<Reference>  AND {fhir:link @<Coverage> OR 
     			 @<ClaimResponse> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:NutritionOrder]
-    		}
+        }
 }  
+

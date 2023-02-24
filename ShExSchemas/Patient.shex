@@ -4,9 +4,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Period.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <Address.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <HumanName.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Information about an individual or animal receiving health care services
 <Patient> EXTENDS @<DomainResource> CLOSED {   
@@ -64,6 +81,14 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # this patient 
 }  
 
+# A language which may be used to communicate with the patient about his or her health
+<Patient.communication> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:language @<CodeableConcept>;       # The language which can be used to 
+                                            # communicate with the patient about 
+                                            # his or her health 
+    fhir:preferred @<boolean>?;             # Language preference indicator
+}  
+
 # Link to a Patient or RelatedPerson resource that concerns the same actual individual
 <Patient.link> EXTENDS @<BackboneElement> CLOSED {   
     fhir:other @<Reference> AND {fhir:link 
@@ -74,14 +99,6 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<code> AND
     	{fhir:value @fhirvs:link-type};  # replaced-by | replaces | refer | 
                                             # seealso 
-}  
-
-# A language which may be used to communicate with the patient about his or her health
-<Patient.communication> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:language @<CodeableConcept>;       # The language which can be used to 
-                                            # communicate with the patient about 
-                                            # his or her health 
-    fhir:preferred @<boolean>?;             # Language preference indicator
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -131,8 +148,9 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The type of link between this patient resource and another patient resource.
+fhirvs:link-type ["replaced-by" "replaces" "refer" "seealso"]
+
 # The gender of a person used for administrative purposes.
 fhirvs:administrative-gender ["male" "female" "other" "unknown"]
 
-# The type of link between this patient resource and another patient resource.
-fhirvs:link-type ["replaced-by" "replaces" "refer" "seealso"]

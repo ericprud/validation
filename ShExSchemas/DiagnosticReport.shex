@@ -4,9 +4,41 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <instant.shex>
+IMPORT <Location.shex>
+IMPORT <dateTime.shex>
+IMPORT <CarePlan.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Specimen.shex>
+IMPORT <Reference.shex>
+IMPORT <Procedure.shex>
+IMPORT <Substance.shex>
+IMPORT <Encounter.shex>
+IMPORT <Medication.shex>
+IMPORT <Composition.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <ImagingStudy.shex>
+IMPORT <DomainResource.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <BiologicallyDerivedProduct.shex>
+IMPORT <ImmunizationRecommendation.shex>
+
 
 start=@<DiagnosticReport> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports
 <DiagnosticReport> EXTENDS @<DomainResource> CLOSED {   
@@ -139,3 +171,4 @@ start=@<DiagnosticReport> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The status of the diagnostic report.
 fhirvs:diagnostic-report-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "unknown"]
+

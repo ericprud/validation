@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <positiveInt.shex>
 
 # Day of Month for schedule
 <timing-dayOfMonth> EXTENDS @<Extension> CLOSED {   
@@ -13,6 +16,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth"]}; 
     fhir:value (@<positiveInt> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:repeat {a [fhir:Timing]} )
-    		}
+    ^fhir:extension { ^fhir:repeat {a [fhir:Timing]}
+        }
 }  
+

@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Ratio.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <Substance.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <CodeableReference.shex>
+
 
 start=@<Substance> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A homogeneous material with a definite composition
 <Substance> EXTENDS @<DomainResource> CLOSED {   
@@ -58,3 +70,4 @@ start=@<Substance> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # A code to indicate if the substance is actively used.
 fhirvs:substance-status ["active" "inactive" "entered-in-error"]
+

@@ -4,9 +4,41 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Duration.shex>
+IMPORT <Quantity.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Coverage.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Provenance.shex>
+IMPORT <unsignedInt.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <ClaimResponse.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <ImmunizationRecommendation.shex>
+
 
 start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Ordering of medication for patient or group
 <MedicationRequest> EXTENDS @<DomainResource> CLOSED {   
@@ -87,10 +119,13 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the lifecycle 
 }  
 
-# First fill details
-<MedicationRequest.dispenseRequest.initialFill> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:quantity @<Quantity>?;             # First fill quantity
-    fhir:duration @<Duration>?;             # First fill duration
+# Any restrictions on medication substitution
+<MedicationRequest.substitution> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:allowed (@<boolean>  OR 
+    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Whether substitution is allowed or 
+                                            # not 
+    fhir:reason @<CodeableConcept>?;        # Why should (not) substitution be 
+                                            # made 
 }  
 
 # Medication supply authorization
@@ -122,13 +157,10 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # medication should be taken 
 }  
 
-# Any restrictions on medication substitution
-<MedicationRequest.substitution> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:allowed (@<boolean>  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Whether substitution is allowed or 
-                                            # not 
-    fhir:reason @<CodeableConcept>?;        # Why should (not) substitution be 
-                                            # made 
+# First fill details
+<MedicationRequest.dispenseRequest.initialFill> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:quantity @<Quantity>?;             # First fill quantity
+    fhir:duration @<Duration>?;             # First fill duration
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -221,11 +253,12 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
 # MedicationRequest Status Codes
 fhirvs:medicationrequest-status ["active" "on-hold" "ended" "stopped" "completed" "cancelled" "entered-in-error" "draft" "unknown"]
 
 # MedicationRequest Intent Codes
 fhirvs:medicationrequest-intent ["proposal" "plan" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]

@@ -4,6 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <date.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
 
 # Publishable Pattern
 <Publishable> CLOSED {   
@@ -64,3 +69,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<RelatedArtifact>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_RelatedArtifact> 
 }
+

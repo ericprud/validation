@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <CodeableConcept.shex>
 
 # Type of performance
 <event-performerFunction> EXTENDS @<Extension> CLOSED {   
@@ -13,9 +16,10 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-performerFunction"]}; 
     fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:performer {a [fhir:Observation]} ) OR 
-    				( ^fhir:performer {a [fhir:DiagnosticReport]} ) OR 
-    				( ^fhir:author {a [fhir:DocumentReference]} ) OR 
-    				( ^fhir:grantee {a [fhir:Consent]} )
-    		}
+    ^fhir:extension { ^fhir:performer {a [fhir:Observation]} OR 
+          ^fhir:performer {a [fhir:DiagnosticReport]} OR 
+          ^fhir:author {a [fhir:DocumentReference]} OR 
+          ^fhir:grantee {a [fhir:Consent]}
+        }
 }  
+

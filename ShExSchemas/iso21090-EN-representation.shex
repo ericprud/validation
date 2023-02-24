@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Extension.shex>
 
 # ABC | IDE | SYL
 <iso21090-EN-representation> EXTENDS @<Extension> CLOSED {   
@@ -15,10 +18,11 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:value (@<code> AND
     	{fhir:value @fhirvs:name-v3-representation} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:HumanName]
-    		}
+        }
 }  
 
 #---------------------- Value Sets ------------------------
 
 # A set of codes for each different representation of a name.
 fhirvs:name-v3-representation ["ABC" "IDE" "SYL"]
+

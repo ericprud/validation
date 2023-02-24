@@ -4,9 +4,38 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <Age.shex>
+IMPORT <code.shex>
+IMPORT <Goal.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Duration.shex>
+IMPORT <Resource.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Location.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Expression.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A group of related requests
 <RequestGroup> EXTENDS @<DomainResource> CLOSED {   
@@ -50,46 +79,20 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:action @<OneOrMore_BackboneElement>?;  # Proposed actions, if any
 }  
 
-# Whether or not the action is applicable
-<RequestGroup.action.condition> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:kind @<code> AND
-    	{fhir:value @fhirvs:action-condition-kind};  # applicability | start | stop
-    fhir:expression @<Expression>?;         # Boolean-valued expression
+# Sub action
+<RequestGroup.action.action> CLOSED {   
 }  
 
-# Who should perform the action
-<RequestGroup.action.participant> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:action-participant-type}?;  # careteam | device | group | 
-                                            # healthcareservice | location | 
-                                            # organization | patient | 
-                                            # practitioner | practitionerrole | 
-                                            # relatedperson 
-    fhir:typeReference @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<Group> OR 
-    			@<HealthcareService> OR 
-    			@<Location> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who or what can participate
-    fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent, etc.
-    fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
-                                            # etc. 
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<Group> OR 
-    			@<HealthcareService> OR 
-    			@<Location> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who/what is participating?
+# Relationship to another action
+<RequestGroup.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:targetId @<id>;                    # What action this is related to
+    fhir:relationship @<code> AND
+    	{fhir:value @fhirvs:action-relationship-type};  # before-start | before | before-end 
+                                            # | concurrent-with-start | 
+                                            # concurrent | concurrent-with-end | 
+                                            # after-start | after | after-end 
+    fhir:offset (@<Duration>  OR 
+    			@<Range> )  AND { rdf:type IRI } ?;  # Time offset for the relationship
 }  
 
 # Proposed actions, if any
@@ -143,20 +146,46 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:action @<OneOrMore_RequestGroup.action>?;  # Sub action
 }  
 
-# Relationship to another action
-<RequestGroup.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:targetId @<id>;                    # What action this is related to
-    fhir:relationship @<code> AND
-    	{fhir:value @fhirvs:action-relationship-type};  # before-start | before | before-end 
-                                            # | concurrent-with-start | 
-                                            # concurrent | concurrent-with-end | 
-                                            # after-start | after | after-end 
-    fhir:offset (@<Duration>  OR 
-    			@<Range> )  AND { rdf:type IRI } ?;  # Time offset for the relationship
+# Who should perform the action
+<RequestGroup.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:action-participant-type}?;  # careteam | device | group | 
+                                            # healthcareservice | location | 
+                                            # organization | patient | 
+                                            # practitioner | practitionerrole | 
+                                            # relatedperson 
+    fhir:typeReference @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<Group> OR 
+    			@<HealthcareService> OR 
+    			@<Location> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> }?;  # Who or what can participate
+    fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent, etc.
+    fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
+                                            # etc. 
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<Group> OR 
+    			@<HealthcareService> OR 
+    			@<Location> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> }?;  # Who/what is participating?
 }  
 
-# Sub action
-<RequestGroup.action.action> CLOSED {   
+# Whether or not the action is applicable
+<RequestGroup.action.condition> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:kind @<code> AND
+    	{fhir:value @fhirvs:action-condition-kind};  # applicability | start | stop
+    fhir:expression @<Expression>?;         # Boolean-valued expression
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -220,8 +249,14 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Defines behavior for an action or a group for how many times that item may be repeated.
-fhirvs:action-cardinality-behavior ["single" "multiple"]
+# Defines selection behavior of a group.
+fhirvs:action-selection-behavior ["any" "all" "all-or-none" "exactly-one" "at-most-one" "one-or-more"]
+
+# The type of participant for the action.
+fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
+
+# Defines the kinds of conditions that can appear on actions.
+fhirvs:action-condition-kind ["applicability" "start" "stop"]
 
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
@@ -229,26 +264,21 @@ fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered
 # Defines the types of relationships between actions.
 fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
 
-# Codes indicating the degree of authority/intentionality associated with a request.
-fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
+# Defines organization behavior of a group.
+fhirvs:action-grouping-behavior ["visual-group" "logical-group" "sentence-group"]
+
+# Defines selection frequency behavior for an action or group.
+fhirvs:action-precheck-behavior ["yes" "no"]
 
 # Defines expectations around whether an action or action group is required.
 fhirvs:action-required-behavior ["must" "could" "must-unless-documented"]
 
-# Defines the kinds of conditions that can appear on actions.
-fhirvs:action-condition-kind ["applicability" "start" "stop"]
+# Defines behavior for an action or a group for how many times that item may be repeated.
+fhirvs:action-cardinality-behavior ["single" "multiple"]
 
-# Defines organization behavior of a group.
-fhirvs:action-grouping-behavior ["visual-group" "logical-group" "sentence-group"]
-
-# The type of participant for the action.
-fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
+# Codes indicating the degree of authority/intentionality associated with a request.
+fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 
-# Defines selection behavior of a group.
-fhirvs:action-selection-behavior ["any" "all" "all-or-none" "exactly-one" "at-most-one" "one-or-more"]
-
-# Defines selection frequency behavior for an action or group.
-fhirvs:action-precheck-behavior ["yes" "no"]

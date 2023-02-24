@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Duration.shex>
+IMPORT <Extension.shex>
 
 # Amount of time individual was exposed to Substance
 <openEHR-exposureDuration> EXTENDS @<Extension> CLOSED {   
@@ -13,6 +16,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-exposureDuration"]}; 
     fhir:value (@<Duration> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:reaction {a [fhir:AllergyIntolerance]} )
-    		}
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
+        }
 }  
+

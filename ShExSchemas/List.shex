@@ -4,9 +4,28 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Location.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A list is a curated collection of resources
 <List> EXTENDS @<DomainResource> CLOSED {   
@@ -75,8 +94,9 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The current state of the list.
+fhirvs:list-status ["current" "retired" "entered-in-error"]
+
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
 
-# The current state of the list.
-fhirvs:list-status ["current" "retired" "entered-in-error"]

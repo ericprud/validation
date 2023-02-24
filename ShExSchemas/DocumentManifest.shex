@@ -4,9 +4,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A list that defines a set of documents
 <DocumentManifest> EXTENDS @<DomainResource> CLOSED {   
@@ -88,3 +105,4 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The status of the document reference.
 fhirvs:document-reference-status ["current" "superseded" "entered-in-error"]
+

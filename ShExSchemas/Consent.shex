@@ -4,9 +4,33 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <url.shex>
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Consent.shex>
+IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Contract.shex>
+IMPORT <Reference.shex>
+IMPORT <Expression.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <QuestionnaireResponse.shex>
+
 
 start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A healthcare consumer's  or third party's choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time
 <Consent> EXTENDS @<DomainResource> CLOSED {   
@@ -51,13 +75,6 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
 <Consent.provision.provision> CLOSED {   
 }  
 
-# Computable version of the backing policy
-<Consent.policyBasis> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Reference backing policy resource
-    fhir:url @<url>?;                       # URL to a computable backing policy
-}  
-
 # Consent Verified by patient or family
 <Consent.verification> EXTENDS @<BackboneElement> CLOSED {   
     fhir:verified @<boolean>;               # Has been verified
@@ -79,6 +96,28 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # authoredby 
     fhir:reference @<Reference> AND {fhir:link 
     			@<Resource> };  # The actual data reference
+}  
+
+# Computable version of the backing policy
+<Consent.policyBasis> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<Resource> }?;  # Reference backing policy resource
+    fhir:url @<url>?;                       # URL to a computable backing policy
+}  
+
+# Who|what controlled by this rule (or group, by role)
+<Consent.provision.actor> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<CodeableConcept>?;          # How the actor is involved
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<Group> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> }?;  # Resource for the actor (or group, 
+                                            # by role) 
 }  
 
 # Constraints to the base Consent.policyRule/Consent.policy
@@ -103,21 +142,6 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:expression @<Expression>?;         # A computable expression of the 
                                             # consent 
     fhir:provision @<OneOrMore_Consent.provision>?;  # Nested Exception Rules
-}  
-
-# Who|what controlled by this rule (or group, by role)
-<Consent.provision.actor> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<CodeableConcept>?;          # How the actor is involved
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<Group> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Resource for the actor (or group, 
-                                            # by role) 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -195,11 +219,12 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Indicates the state of the consent.
+fhirvs:consent-state-codes ["draft" "active" "inactive" "not-done" "entered-in-error" "unknown"]
+
 # How a resource reference is interpreted when testing consent restrictions.
 fhirvs:consent-data-meaning ["instance" "related" "dependents" "authoredby"]
 
 # How a rule statement is applied, such as adding additional consent or removing consent.
 fhirvs:consent-provision-type ["deny" "permit"]
 
-# Indicates the state of the consent.
-fhirvs:consent-state-codes ["draft" "active" "inactive" "not-done" "entered-in-error" "unknown"]

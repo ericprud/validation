@@ -4,9 +4,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Age.shex>
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Range.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Information about patient's relatives, relevant for patient
 <FamilyMemberHistory> EXTENDS @<DomainResource> CLOSED {   
@@ -118,3 +131,4 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # A code that identifies the status of the family history record.
 fhirvs:history-status ["partial" "completed" "entered-in-error" "health-unknown"]
+

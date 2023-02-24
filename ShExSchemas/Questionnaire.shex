@@ -4,9 +4,28 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <time.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Coding.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <decimal.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <Resource.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <canonical.shex>
+IMPORT <Attachment.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MetadataResource.shex>
+
 
 start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A structured set of questions
 <Questionnaire> EXTENDS @<MetadataResource> CLOSED {   
@@ -68,40 +87,6 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # default 
 }  
 
-# Questions and sections within the Questionnaire
-<Questionnaire.item> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:linkId @<string>;                  # Unique id for item in questionnaire
-    fhir:definition @<uri>?;                # ElementDefinition - details for 
-                                            # the item 
-    fhir:code @<OneOrMore_Coding>?;         # Corresponding concept for this 
-                                            # item in a terminology 
-    fhir:prefix @<string>?;                 # E.g. "1(a)", "2.5.3"
-    fhir:text @<markdown>?;                 # Primary text for the item
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:item-type};  # group | display | boolean | 
-                                            # decimal | integer | date | 
-                                            # dateTime + 
-    fhir:enableWhen @<OneOrMore_BackboneElement>?;  # Only allow data when
-    fhir:enableBehavior @<code> AND
-    	{fhir:value @fhirvs:questionnaire-enable-behavior}?;  # all | any
-    fhir:disabledDisplay @<code> AND
-    	{fhir:value @fhirvs:questionnaire-disabled-display}?;  # hidden | protected
-    fhir:required @<boolean>?;              # Whether the item must be included 
-                                            # in data results 
-    fhir:repeats @<boolean>?;               # Whether the item may repeat
-    fhir:readOnly @<boolean>?;              # Don't allow human editing
-    fhir:maxLength @<integer>?;             # No more than this many characters
-    fhir:answerConstraint @<code> AND
-    	{fhir:value @fhirvs:questionnaire-answer-constraint}?;  # optionsOnly | optionsOrType | 
-                                            # optionsOrString 
-    fhir:answerValueSet @<canonical>?;      # Valueset containing permitted 
-                                            # answers 
-    fhir:answerOption @<OneOrMore_BackboneElement>?;  # Permitted answer
-    fhir:initial @<OneOrMore_BackboneElement>?;  # Initial value(s) when item is 
-                                            # first rendered 
-    fhir:item @<OneOrMore_Questionnaire.item>?;  # Nested questionnaire items
-}  
-
 # Initial value(s) when item is first rendered
 <Questionnaire.item.initial> EXTENDS @<BackboneElement> CLOSED {   
     fhir:value (@<boolean>  OR 
@@ -141,6 +126,40 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Nested questionnaire items
 <Questionnaire.item.item> CLOSED {   
+}  
+
+# Questions and sections within the Questionnaire
+<Questionnaire.item> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:linkId @<string>;                  # Unique id for item in questionnaire
+    fhir:definition @<uri>?;                # ElementDefinition - details for 
+                                            # the item 
+    fhir:code @<OneOrMore_Coding>?;         # Corresponding concept for this 
+                                            # item in a terminology 
+    fhir:prefix @<string>?;                 # E.g. "1(a)", "2.5.3"
+    fhir:text @<markdown>?;                 # Primary text for the item
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:item-type};  # group | display | boolean | 
+                                            # decimal | integer | date | 
+                                            # dateTime + 
+    fhir:enableWhen @<OneOrMore_BackboneElement>?;  # Only allow data when
+    fhir:enableBehavior @<code> AND
+    	{fhir:value @fhirvs:questionnaire-enable-behavior}?;  # all | any
+    fhir:disabledDisplay @<code> AND
+    	{fhir:value @fhirvs:questionnaire-disabled-display}?;  # hidden | protected
+    fhir:required @<boolean>?;              # Whether the item must be included 
+                                            # in data results 
+    fhir:repeats @<boolean>?;               # Whether the item may repeat
+    fhir:readOnly @<boolean>?;              # Don't allow human editing
+    fhir:maxLength @<integer>?;             # No more than this many characters
+    fhir:answerConstraint @<code> AND
+    	{fhir:value @fhirvs:questionnaire-answer-constraint}?;  # optionsOnly | optionsOrType | 
+                                            # optionsOrString 
+    fhir:answerValueSet @<canonical>?;      # Valueset containing permitted 
+                                            # answers 
+    fhir:answerOption @<OneOrMore_BackboneElement>?;  # Permitted answer
+    fhir:initial @<OneOrMore_BackboneElement>?;  # Initial value(s) when item is 
+                                            # first rendered 
+    fhir:item @<OneOrMore_Questionnaire.item>?;  # Nested questionnaire items
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -192,23 +211,24 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The criteria by which a question is enabled.
-fhirvs:questionnaire-enable-operator ["exists" "=" "!=" ">" "<" ">=" "<="]
-
-# Codes that describe the types of constraints possible on a question item that has a list of permitted answers
-fhirvs:questionnaire-answer-constraint ["optionsOnly" "optionsOrType" "optionsOrString"]
-
 # Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
 fhirvs:questionnaire-enable-behavior ["all" "any"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # Distinguishes groups from questions and display text and indicates data type for questions.
 fhirvs:item-type ["group" "display" "question" "boolean" "decimal" "integer" "date" "dateTime" "time" "string" "text" "url" "coding" "attachment" "reference" "quantity"]
 
-# Codes that guide the display of disabled questionnaire items
-fhirvs:questionnaire-disabled-display ["hidden" "protected"]
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Codes that describe the types of constraints possible on a question item that has a list of permitted answers
+fhirvs:questionnaire-answer-constraint ["optionsOnly" "optionsOrType" "optionsOrString"]
 
 # One of the resource types defined as part of this version of FHIR.
 fhirvs:resource-types ["Resource" "Binary" "Bundle" "DomainResource" "Account" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CapabilityStatement2" "CodeSystem" "CompartmentDefinition" "ExampleScenario" "GraphDefinition" "ImplementationGuide" "MessageDefinition" "MetadataResource" "ActivityDefinition" "ChargeItemDefinition" "Citation" "ConceptMap" "ConditionDefinition" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "Library" "Measure" "NamingSystem" "PlanDefinition" "Questionnaire" "OperationDefinition" "SearchParameter" "StructureDefinition" "StructureMap" "SubscriptionTopic" "TerminologyCapabilities" "TestScript" "ValueSet" "CarePlan" "CareTeam" "ChargeItem" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "Communication" "CommunicationRequest" "Composition" "Condition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "Goal" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Linkage" "List" "Location" "ManufacturedItemDefinition" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageHeader" "MolecularSequence" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestGroup" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "Subscription" "SubscriptionStatus" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TestReport" "Transport" "VerificationResult" "VisionPrescription" "Parameters"]
+
+# Codes that guide the display of disabled questionnaire items
+fhirvs:questionnaire-disabled-display ["hidden" "protected"]
+
+# The criteria by which a question is enabled.
+fhirvs:questionnaire-enable-operator ["exists" "=" "!=" ">" "<" ">=" "<="]
+

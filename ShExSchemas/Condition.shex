@@ -4,9 +4,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Age.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DiagnosticReport.shex>
+IMPORT <ClinicalImpression.shex>
+
 
 start=@<Condition> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Detailed information about conditions, problems or diagnoses
 <Condition> EXTENDS @<DomainResource> CLOSED {   
@@ -55,13 +76,6 @@ start=@<Condition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # Condition 
 }  
 
-# Stage/grade, usually assessed formally
-<Condition.stage> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:summary @<CodeableConcept>?;       # Simple summary (disease specific)
-    fhir:assessment @<OneOrMore_Reference_ClinicalImpression_OR_DiagnosticReport_OR_Observation>?;  # Formal record of assessment
-    fhir:type @<CodeableConcept>?;          # Kind of staging
-}  
-
 # Who or what participated in the activities related to the condition and how they were involved
 <Condition.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:function @<CodeableConcept>?;      # Type of involvement
@@ -75,6 +89,13 @@ start=@<Condition> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> };  # Who or what participated in the 
                                             # activities related to the 
                                             # condition 
+}  
+
+# Stage/grade, usually assessed formally
+<Condition.stage> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:summary @<CodeableConcept>?;       # Simple summary (disease specific)
+    fhir:assessment @<OneOrMore_Reference_ClinicalImpression_OR_DiagnosticReport_OR_Observation>?;  # Formal record of assessment
+    fhir:type @<CodeableConcept>?;          # Kind of staging
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -111,3 +132,4 @@ start=@<Condition> AND {fhir:nodeRole [fhir:treeRoot]}
 			@<Observation> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_ClinicalImpression_OR_DiagnosticReport_OR_Observation> 
 }
+

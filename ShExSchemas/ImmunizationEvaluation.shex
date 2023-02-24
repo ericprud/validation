@@ -4,9 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Immunization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+
 
 start=@<ImmunizationEvaluation> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Immunization evaluation information
 <ImmunizationEvaluation> EXTENDS @<DomainResource> CLOSED {   
@@ -54,3 +63,4 @@ start=@<ImmunizationEvaluation> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the evaluation for vaccine administration event.
 fhirvs:immunization-evaluation-status ["completed" "entered-in-error"]
+

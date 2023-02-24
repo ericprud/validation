@@ -4,9 +4,31 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Range.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Quantity.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Location.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Request for a medication, substance or device
 <SupplyRequest> EXTENDS @<DomainResource> CLOSED {   
@@ -100,3 +122,4 @@ fhirvs:supplyrequest-status ["draft" "active" "suspended" "cancelled" "completed
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+

@@ -4,9 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <DomainResource.shex>
+
 
 start=@<CanonicalResource> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Common Ancestor declaration for definitional resources
 <CanonicalResource> EXTENDS @<DomainResource> CLOSED {   
@@ -67,3 +74,4 @@ start=@<CanonicalResource> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+

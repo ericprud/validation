@@ -4,6 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <date.shex>
+IMPORT <time.shex>
+IMPORT <decimal.shex>
+IMPORT <integer.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <Extension.shex>
 
 # Must be >= this value
 <minValue> EXTENDS @<Extension> CLOSED {   
@@ -18,6 +26,7 @@ BASE <http://hl7.org/fhir/shape/>
     			@<decimal>  OR 
     			@<integer>  OR 
     			@<Quantity> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:item {a [fhir:Questionnaire]} )
-    		}
+    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}
+        }
 }  
+

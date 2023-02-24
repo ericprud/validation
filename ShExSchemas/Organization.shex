@@ -4,9 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <DomainResource.shex>
+
 
 start=@<Organization> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A grouping of people or organizations with a common purpose
 <Organization> EXTENDS @<DomainResource> CLOSED {   
@@ -76,3 +81,4 @@ start=@<Organization> AND {fhir:nodeRole [fhir:treeRoot]}
 			@<Endpoint> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Endpoint> 
 }
+

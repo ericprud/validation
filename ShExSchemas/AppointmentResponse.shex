@@ -4,9 +4,23 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <Location.shex>
+IMPORT <Reference.shex>
+IMPORT <Appointment.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<AppointmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
 <AppointmentResponse> EXTENDS @<DomainResource> CLOSED {   
@@ -55,3 +69,4 @@ start=@<AppointmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The Participation status of an appointment.
 fhirvs:participationstatus ["accepted" "declined" "tentative" "needs-action"]
+

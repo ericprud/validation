@@ -4,9 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <boolean.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<Linkage> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Links records for 'same' item
 <Linkage> EXTENDS @<DomainResource> CLOSED {   
@@ -41,3 +50,4 @@ start=@<Linkage> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Used to distinguish different roles a resource can play within a set of linked resources.
 fhirvs:linkage-type ["source" "alternate" "historical"]
+

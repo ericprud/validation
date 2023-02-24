@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
 
 # Code system not defined in a value set
 <capabilitystatement2-supported-system> EXTENDS @<Extension> CLOSED {   
@@ -14,5 +16,6 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement2-supported-system"]}; 
     fhir:value (@<uri> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:CapabilityStatement2]
-    		}
+        }
 }  
+

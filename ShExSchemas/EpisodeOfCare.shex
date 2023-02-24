@@ -4,9 +4,24 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Period.shex>
+IMPORT <Patient.shex>
+IMPORT <Account.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <Condition.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
 <EpisodeOfCare> EXTENDS @<DomainResource> CLOSED {   
@@ -46,6 +61,16 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # EpisodeOfCare 
 }  
 
+# Past list of status codes (the current status may be included to cover the start date of the status)
+<EpisodeOfCare.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:status @<code> AND
+    	{fhir:value @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
+                                            # onhold | finished | cancelled | 
+                                            # entered-in-error 
+    fhir:period @<Period>;                  # Duration the EpisodeOfCare was in 
+                                            # the specified status 
+}  
+
 # The list of diagnosis relevant to this episode of care
 <EpisodeOfCare.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
     fhir:condition @<Reference> AND {fhir:link 
@@ -56,16 +81,6 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # admission, billing, discharge …) 
     fhir:rank @<positiveInt>?;              # Ranking of the diagnosis (for each 
                                             # role type) 
-}  
-
-# Past list of status codes (the current status may be included to cover the start date of the status)
-<EpisodeOfCare.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:status @<code> AND
-    	{fhir:value @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
-                                            # onhold | finished | cancelled | 
-                                            # entered-in-error 
-    fhir:period @<Period>;                  # Duration the EpisodeOfCare was in 
-                                            # the specified status 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -107,3 +122,4 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The status of the episode of care.
 fhirvs:episode-of-care-status ["planned" "waitlist" "active" "onhold" "finished" "cancelled" "entered-in-error"]
+

@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <DataType.shex>
 
 # Name of a human - parts and usage
 <HumanName> EXTENDS @<DataType> CLOSED {   
@@ -35,3 +39,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # The use of a human name.
 fhirvs:name-use ["usual" "official" "temp" "nickname" "anonymous" "old" "maiden"]
+

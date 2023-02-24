@@ -4,9 +4,49 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Claim.shex>
+IMPORT <Period.shex>
+IMPORT <Coding.shex>
+IMPORT <Device.shex>
+IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <Resource.shex>
+IMPORT <markdown.shex>
+IMPORT <dateTime.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Contract.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <canonical.shex>
+IMPORT <Encounter.shex>
+IMPORT <Attachment.shex>
+IMPORT <Appointment.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RequestGroup.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <EpisodeOfCare.shex>
+IMPORT <SupplyRequest.shex>
+IMPORT <DomainResource.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <EnrollmentRequest.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <VisionPrescription.shex>
+IMPORT <AppointmentResponse.shex>
+IMPORT <CommunicationRequest.shex>
+IMPORT <CoverageEligibilityRequest.shex>
+IMPORT <ImmunizationRecommendation.shex>
+
 
 start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A reference to a document
 <DocumentReference> EXTENDS @<DomainResource> CLOSED {   
@@ -62,13 +102,6 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<DocumentReference> };  # Target of the relationship
 }  
 
-# Content profile rules for the document
-<DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<Coding>  OR 
-    			@<uri>  OR 
-    			@<canonical> )  AND { rdf:type IRI } ;  # Code|uri|canonical
-}  
-
 # Attests to accuracy of the document
 <DocumentReference.attester> EXTENDS @<BackboneElement> CLOSED {   
     fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
@@ -87,6 +120,13 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:attachment @<Attachment>;          # Where to access the document
     fhir:profile @<OneOrMore_BackboneElement>?;  # Content profile rules for the 
                                             # document 
+}  
+
+# Content profile rules for the document
+<DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value (@<Coding>  OR 
+    			@<uri>  OR 
+    			@<canonical> )  AND { rdf:type IRI } ;  # Code|uri|canonical
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -155,8 +195,9 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]
+
 # The status of the document reference.
 fhirvs:document-reference-status ["current" "superseded" "entered-in-error"]
 
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]

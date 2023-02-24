@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <xhtml.shex>
+IMPORT <DataType.shex>
 
 # Human-readable summary of the resource (essential clinical and business information)
 <Narrative> EXTENDS @<DataType> CLOSED {   
@@ -20,3 +23,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # The status of a resource narrative.
 fhirvs:narrative-status ["generated" "extensions" "additional" "empty"]
+

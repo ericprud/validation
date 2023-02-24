@@ -4,9 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <integer.shex>
+IMPORT <Attachment.shex>
+IMPORT <Identifier.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<SubstanceNucleicAcid> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction
 <SubstanceNucleicAcid> EXTENDS @<DomainResource> CLOSED {   
@@ -133,3 +140,4 @@ start=@<SubstanceNucleicAcid> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<BackboneElement>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
+

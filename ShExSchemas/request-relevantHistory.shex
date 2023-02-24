@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
+IMPORT <Reference.shex>
+IMPORT <Provenance.shex>
 
 # Key events in history of request
 <request-relevantHistory> EXTENDS @<Extension> CLOSED {   
@@ -14,7 +18,8 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/request-relevantHistory"]}; 
     fhir:value ((@<Reference>  AND {fhir:link @<Provenance> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:NutritionOrder] OR 
-    				a [fhir:CommunicationRequest] OR 
-    				a [fhir:CarePlan]
-    		}
+          a [fhir:CommunicationRequest] OR 
+          a [fhir:CarePlan]
+        }
 }  
+

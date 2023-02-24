@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <DataType.shex>
 
 # An address expressed using postal conventions (as opposed to GPS or other location definition formats)
 <Address> EXTENDS @<DataType> CLOSED {   
@@ -38,8 +42,9 @@ BASE <http://hl7.org/fhir/shape/>
 
 #---------------------- Value Sets ------------------------
 
+# The type of an address (physical / postal).
+fhirvs:address-type ["postal" "physical" "both"]
+
 # The use of an address.
 fhirvs:address-use ["home" "work" "temp" "old" "billing"]
 
-# The type of an address (physical / postal).
-fhirvs:address-type ["postal" "physical" "both"]

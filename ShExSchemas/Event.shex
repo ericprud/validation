@@ -4,6 +4,78 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Claim.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Element.shex>
+IMPORT <Consent.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <CareTeam.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Contract.shex>
+IMPORT <Coverage.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <Transport.shex>
+IMPORT <AuditEvent.shex>
+IMPORT <ChargeItem.shex>
+IMPORT <Provenance.shex>
+IMPORT <Appointment.shex>
+IMPORT <Composition.shex>
+IMPORT <DeviceUsage.shex>
+IMPORT <Observation.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <RequestGroup.shex>
+IMPORT <ImagingStudy.shex>
+IMPORT <Immunization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <SupplyRequest.shex>
+IMPORT <ClaimResponse.shex>
+IMPORT <Communication.shex>
+IMPORT <DetectedIssue.shex>
+IMPORT <EpisodeOfCare.shex>
+IMPORT <PaymentNotice.shex>
+IMPORT <ResearchStudy.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <RiskAssessment.shex>
+IMPORT <SupplyDelivery.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <InventoryReport.shex>
+IMPORT <MedicationUsage.shex>
+IMPORT <NutritionIntake.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DiagnosticReport.shex>
+IMPORT <DocumentManifest.shex>
+IMPORT <GuidanceResponse.shex>
+IMPORT <ImagingSelection.shex>
+IMPORT <EnrollmentRequest.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <VisionPrescription.shex>
+IMPORT <ClinicalImpression.shex>
+IMPORT <EnrollmentResponse.shex>
+IMPORT <MedicationDispense.shex>
+IMPORT <AppointmentResponse.shex>
+IMPORT <FamilyMemberHistory.shex>
+IMPORT <CommunicationRequest.shex>
+IMPORT <ExplanationOfBenefit.shex>
+IMPORT <PaymentReconciliation.shex>
+IMPORT <QuestionnaireResponse.shex>
+IMPORT <ImmunizationEvaluation.shex>
+IMPORT <MedicationAdministration.shex>
+IMPORT <CoverageEligibilityRequest.shex>
+IMPORT <ImmunizationRecommendation.shex>
+IMPORT <CoverageEligibilityResponse.shex>
 
 # Event Pattern
 <Event> CLOSED {   
@@ -169,3 +241,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # Codes identifying the lifecycle stage of an event.
 fhirvs:event-status ["preparation" "in-progress" "not-done" "on-hold" "stopped" "completed" "entered-in-error" "unknown"]
+

@@ -4,9 +4,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Money.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <Account.shex>
+IMPORT <decimal.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <Reference.shex>
+IMPORT <ChargeItem.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<Invoice> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Invoice containing ChargeItems from an Account
 <Invoice> EXTENDS @<DomainResource> CLOSED {   
@@ -102,8 +122,9 @@ start=@<Invoice> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Codes identifying the lifecycle stage of an Invoice.
+fhirvs:invoice-status ["draft" "issued" "balanced" "cancelled" "entered-in-error"]
+
 # Codes indicating the kind of the price component.
 fhirvs:invoice-priceComponentType ["base" "surcharge" "deduction" "discount" "tax" "informational"]
 
-# Codes identifying the lifecycle stage of an Invoice.
-fhirvs:invoice-status ["draft" "issued" "balanced" "cancelled" "entered-in-error"]

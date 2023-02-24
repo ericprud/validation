@@ -4,9 +4,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Attachment.shex>
+IMPORT <logiclibrary.shex>
+IMPORT <RelatedArtifact.shex>
+
 
 start=@<elmlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Represents a library of quality improvement components
 <elmlibrary> EXTENDS @<logiclibrary> CLOSED {   
@@ -15,11 +18,15 @@ start=@<elmlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 }  
 
+# ELM XML Content
+<Library.content> EXTENDS @<Attachment> CLOSED {   
+}  
+
 # Contents of the library, either embedded or referenced
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 
-# ELM XML Content
+# ELM JSON Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 
@@ -27,6 +34,3 @@ start=@<elmlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 <Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 
-# ELM JSON Content
-<Library.content> EXTENDS @<Attachment> CLOSED {   
-}  

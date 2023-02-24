@@ -4,9 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <url.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+
 
 start=@<Endpoint> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # The technical details of an endpoint that can be used for electronic services
 <Endpoint> EXTENDS @<DomainResource> CLOSED {   
@@ -78,8 +85,9 @@ start=@<Endpoint> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The status of the endpoint.
+fhirvs:endpoint-status ["active" "suspended" "error" "off" "entered-in-error" "test"]
+
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
 fhirvs:mimetypes EXTERNAL
 
-# The status of the endpoint.
-fhirvs:endpoint-status ["active" "suspended" "error" "off" "entered-in-error" "test"]

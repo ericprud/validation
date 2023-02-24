@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <Extension.shex>
 
 # SHALL | SHOULD | MAY |SHOULD-NOT
 <capabilitystatement-expectation> EXTENDS @<Extension> CLOSED {   
@@ -14,24 +17,25 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"]}; 
     fhir:value (@<code> AND
     	{fhir:value @fhirvs:conformance-expectation} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:interaction {( ^fhir:resource {( ^fhir:rest {a [fhir:CapabilityStatement]} )} )} ) OR 
-    				( ^fhir:searchParam {( ^fhir:resource {( ^fhir:rest {a [fhir:CapabilityStatement]} )} )} ) OR 
-    				( ^fhir:searchParam {( ^fhir:rest {a [fhir:CapabilityStatement]} )} ) OR 
-    				( ^fhir:operation {( ^fhir:rest {a [fhir:CapabilityStatement]} )} ) OR 
-    				( ^fhir:document {a [fhir:CapabilityStatement]} ) OR 
-    				( ^fhir:interaction {( ^fhir:rest {a [fhir:CapabilityStatement]} )} ) OR 
-    				( ^fhir:searchInclude {( ^fhir:resource {( ^fhir:rest {a [fhir:CapabilityStatement]} )} )} ) OR 
-    				( ^fhir:searchRevInclude {( ^fhir:resource {( ^fhir:rest {a [fhir:CapabilityStatement]} )} )} ) OR 
-    				( ^fhir:operation {( ^fhir:resource {( ^fhir:rest {a [fhir:CapabilityStatement]} )} )} ) OR 
-    				( ^fhir:multipleOr {a [fhir:SearchParameter]} ) OR 
-    				( ^fhir:multipleAnd {a [fhir:SearchParameter]} ) OR 
-    				( ^fhir:comparator {a [fhir:SearchParameter]} ) OR 
-    				( ^fhir:modifer {a [fhir:SearchParameter]} ) OR 
-    				( ^fhir:chain {a [fhir:SearchParameter]} )
-    		}
+    ^fhir:extension { ^fhir:interaction {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          ^fhir:searchParam {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          ^fhir:searchParam {^fhir:rest {a [fhir:CapabilityStatement]}} OR 
+          ^fhir:operation {^fhir:rest {a [fhir:CapabilityStatement]}} OR 
+          ^fhir:document {a [fhir:CapabilityStatement]} OR 
+          ^fhir:interaction {^fhir:rest {a [fhir:CapabilityStatement]}} OR 
+          ^fhir:searchInclude {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          ^fhir:searchRevInclude {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          ^fhir:operation {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          ^fhir:multipleOr {a [fhir:SearchParameter]} OR 
+          ^fhir:multipleAnd {a [fhir:SearchParameter]} OR 
+          ^fhir:comparator {a [fhir:SearchParameter]} OR 
+          ^fhir:modifer {a [fhir:SearchParameter]} OR 
+          ^fhir:chain {a [fhir:SearchParameter]}
+        }
 }  
 
 #---------------------- Value Sets ------------------------
 
 # Description Needed Here
 fhirvs:conformance-expectation ["SHALL" "SHOULD" "MAY" "SHOULD-NOT"]
+

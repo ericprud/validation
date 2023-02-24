@@ -4,6 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <DataType.shex>
+IMPORT <positiveInt.shex>
 
 # Details of a Technology mediated contact point (phone, fax, email, etc.)
 <ContactPoint> EXTENDS @<DataType> CLOSED {   
@@ -25,8 +30,9 @@ BASE <http://hl7.org/fhir/shape/>
 
 #---------------------- Value Sets ------------------------
 
+# Use of contact point.
+fhirvs:contact-point-use ["home" "work" "temp" "old" "mobile"]
+
 # Telecommunications form for contact point.
 fhirvs:contact-point-system ["phone" "fax" "email" "pager" "url" "sms" "other"]
 
-# Use of contact point.
-fhirvs:contact-point-use ["home" "work" "temp" "old" "mobile"]

@@ -4,9 +4,42 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Ratio.shex>
+IMPORT <Range.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <Quantity.shex>
+IMPORT <Location.shex>
+IMPORT <dateTime.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Coverage.shex>
+IMPORT <Specimen.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Provenance.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <BodyStructure.shex>
+IMPORT <ClaimResponse.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<ServiceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A request for a service to be performed
 <ServiceRequest> EXTENDS @<DomainResource> CLOSED {   
@@ -175,3 +208,4 @@ fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "r
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+

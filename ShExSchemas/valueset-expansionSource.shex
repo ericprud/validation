@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
 
 # ValueSet definition used to generate this expansion (logical URL)
 <valueset-expansionSource> EXTENDS @<Extension> CLOSED {   
@@ -13,6 +15,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-expansionSource"]}; 
     fhir:value (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:expansion {a [fhir:ValueSet]} )
-    		}
+    ^fhir:extension { ^fhir:expansion {a [fhir:ValueSet]}
+        }
 }  
+

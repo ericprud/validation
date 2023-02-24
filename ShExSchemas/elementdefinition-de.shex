@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Element.shex>
+IMPORT <Extension.shex>
+IMPORT <ElementDefinition.shex>
 
 # Definition of an element in a resource or extension
 <elementdefinition-de> EXTENDS @<ElementDefinition> CLOSED {   
@@ -15,24 +18,24 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:AllowedUnits @<Extension>?;        # Units to use for measured value
 }  
 
-# Map element to another set of definitions
-<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
-}  
-
-# Base definition information for tools
-<ElementDefinition.base> EXTENDS @<Element> CLOSED {   
-}  
-
-# Condition that must evaluate to true
-<ElementDefinition.constraint> EXTENDS @<Element> CLOSED {   
+# Element values that are used to distinguish the slices
+<ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
 }  
 
 # Example value (as defined for type)
 <ElementDefinition.example> EXTENDS @<Element> CLOSED {   
 }  
 
+# Base definition information for tools
+<ElementDefinition.base> EXTENDS @<Element> CLOSED {   
+}  
+
 # ValueSet details if this is coded
 <ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
+}  
+
+# Map element to another set of definitions
+<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
 }  
 
 # This element is sliced - slices follow
@@ -43,8 +46,8 @@ BASE <http://hl7.org/fhir/shape/>
 <ElementDefinition.type> EXTENDS @<Element> CLOSED {   
 }  
 
-# Element values that are used to distinguish the slices
-<ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
+# Condition that must evaluate to true
+<ElementDefinition.constraint> EXTENDS @<Element> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -53,3 +56,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Extension>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Extension> 
 }
+

@@ -4,9 +4,34 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Task.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Resource.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <DomainResource.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <ImmunizationRecommendation.shex>
+
 
 start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Who, What, When for a set of resources
 <Provenance> EXTENDS @<DomainResource> CLOSED {   
@@ -42,16 +67,6 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:signature @<OneOrMore_Signature>?;  # Signature on target
 }  
 
-# An entity used in this activity
-<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<code> AND
-    	{fhir:value @fhirvs:provenance-entity-role};  # revision | quotation | source | 
-                                            # instantiates | removal 
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> };  # Identity of entity
-    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
-}  
-
 # Actor involved
 <Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # How the agent participated
@@ -72,6 +87,16 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> }?;  # The agent that delegated
+}  
+
+# An entity used in this activity
+<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<code> AND
+    	{fhir:value @fhirvs:provenance-entity-role};  # revision | quotation | source | 
+                                            # instantiates | removal 
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> };  # Identity of entity
+    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -114,17 +139,18 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Signature> 
 }
 
-<OneOrMore_Provenance.agent> CLOSED {
-    rdf:first @<Provenance.agent>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Provenance.agent> 
-}
-
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
+<OneOrMore_Provenance.agent> CLOSED {
+    rdf:first @<Provenance.agent>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Provenance.agent> 
 }
 
 #---------------------- Value Sets ------------------------
 
 # How an entity was used in an activity.
 fhirvs:provenance-entity-role ["revision" "quotation" "source" "instantiates" "removal"]
+

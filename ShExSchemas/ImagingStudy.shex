@@ -4,9 +4,38 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <code.shex>
+IMPORT <Task.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Coding.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <CareTeam.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Specimen.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <unsignedInt.shex>
+IMPORT <Appointment.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <AppointmentResponse.shex>
+
 
 start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A set of images produced in single study (one or more series of references images)
 <ImagingStudy> EXTENDS @<DomainResource> CLOSED {   
@@ -149,3 +178,4 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The status of the ImagingStudy.
 fhirvs:imagingstudy-status ["registered" "available" "cancelled" "entered-in-error" "unknown"]
+

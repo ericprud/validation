@@ -4,9 +4,63 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <time.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Ratio.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <instant.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <Location.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <Specimen.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
+IMPORT <CareTeam.shex>
+IMPORT <canonical.shex>
+IMPORT <Reference.shex>
+IMPORT <Procedure.shex>
+IMPORT <Substance.shex>
+IMPORT <Encounter.shex>
+IMPORT <Medication.shex>
+IMPORT <Attachment.shex>
+IMPORT <SampledData.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DeviceMetric.shex>
+IMPORT <ImagingStudy.shex>
+IMPORT <Immunization.shex>
+IMPORT <BodyStructure.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MedicationUsage.shex>
+IMPORT <NutritionProduct.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <ImagingSelection.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <MolecularSequence.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <MedicationDispense.shex>
+IMPORT <QuestionnaireResponse.shex>
+IMPORT <MedicationAdministration.shex>
+IMPORT <BiologicallyDerivedProduct.shex>
+IMPORT <ImmunizationRecommendation.shex>
+
 
 start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Measurements and simple assertions
 <Observation> EXTENDS @<DomainResource> CLOSED {   
@@ -86,6 +140,16 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:component @<OneOrMore_BackboneElement>?;  # Component results
 }  
 
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:observation @<Reference> AND {fhir:link 
+    			@<Observation> };  # Triggering observation
+    fhir:type @<code> AND
+    	{fhir:value @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
+    fhir:reason @<string>?;                 # Reason that the observation was 
+                                            # triggered 
+}  
+
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
     fhir:low @<Quantity>?;                  # Low Range, if relevant
@@ -96,16 +160,6 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:age @<Range>?;                     # Applicable age range, if relevant
     fhir:text @<string>?;                   # Text based reference range in an 
                                             # observation 
-}  
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:observation @<Reference> AND {fhir:link 
-    			@<Observation> };  # Triggering observation
-    fhir:type @<code> AND
-    	{fhir:value @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
-    fhir:reason @<string>?;                 # Reason that the observation was 
-                                            # triggered 
 }  
 
 # Component results
@@ -217,8 +271,9 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Codes providing the status of an observation.
+fhirvs:observation-status ["registered" "preliminary" "final" "amended" "corrected" "cancelled" "entered-in-error" "unknown"]
+
 # Codes providing the type of triggeredBy observation.
 fhirvs:observation-triggeredbytype ["reflex" "repeat" "re-run"]
 
-# Codes providing the status of an observation.
-fhirvs:observation-status ["registered" "preliminary" "final" "amended" "corrected" "cancelled" "entered-in-error" "unknown"]

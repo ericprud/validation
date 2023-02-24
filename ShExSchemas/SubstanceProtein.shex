@@ -4,9 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <integer.shex>
+IMPORT <Attachment.shex>
+IMPORT <Identifier.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<SubstanceProtein> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A SubstanceProtein is defined as a single unit of a linear amino acid sequence, or a combination of subunits that are either covalently linked or have a defined invariant stoichiometric relationship. This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators
 <SubstanceProtein> EXTENDS @<DomainResource> CLOSED {   
@@ -132,3 +139,4 @@ start=@<SubstanceProtein> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<BackboneElement>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
+

@@ -4,9 +4,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Money.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Quantity.shex>
+IMPORT <Location.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+
 
 start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Details of a Health Insurance product/plan provided by an organization
 <InsurancePlan> EXTENDS @<DomainResource> CLOSED {   
@@ -34,25 +47,6 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:plan @<OneOrMore_BackboneElement>?;  # Plan details
 }  
 
-# Coverage details
-<InsurancePlan.coverage> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Type of coverage
-    fhir:network @<OneOrMore_Reference_Organization>?;  # What networks provide coverage
-    fhir:benefit @<OneOrMore_BackboneElement>;  # List of benefits
-}  
-
-# Specific costs
-<InsurancePlan.plan.specificCost> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>;       # General category of benefit
-    fhir:benefit @<OneOrMore_BackboneElement>?;  # Benefits list
-}  
-
-# Benefit limits
-<InsurancePlan.coverage.benefit.limit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<Quantity>?;                # Maximum value allowed
-    fhir:code @<CodeableConcept>?;          # Benefit limit details
-}  
-
 # Overall costs
 <InsurancePlan.plan.generalCost> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # Type of cost
@@ -61,14 +55,11 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:comment @<string>?;                # Additional cost information
 }  
 
-# Plan details
-<InsurancePlan.plan> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for Product
-    fhir:type @<CodeableConcept>?;          # Type of plan
-    fhir:coverageArea @<OneOrMore_Reference_Location>?;  # Where product applies
+# Coverage details
+<InsurancePlan.coverage> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Type of coverage
     fhir:network @<OneOrMore_Reference_Organization>?;  # What networks provide coverage
-    fhir:generalCost @<OneOrMore_BackboneElement>?;  # Overall costs
-    fhir:specificCost @<OneOrMore_BackboneElement>?;  # Specific costs
+    fhir:benefit @<OneOrMore_BackboneElement>;  # List of benefits
 }  
 
 # List of benefits
@@ -85,6 +76,28 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:qualifiers @<OneOrMore_CodeableConcept>?;  # Additional information about the 
                                             # cost 
     fhir:value @<Quantity>?;                # The actual cost value
+}  
+
+# Plan details
+<InsurancePlan.plan> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for Product
+    fhir:type @<CodeableConcept>?;          # Type of plan
+    fhir:coverageArea @<OneOrMore_Reference_Location>?;  # Where product applies
+    fhir:network @<OneOrMore_Reference_Organization>?;  # What networks provide coverage
+    fhir:generalCost @<OneOrMore_BackboneElement>?;  # Overall costs
+    fhir:specificCost @<OneOrMore_BackboneElement>?;  # Specific costs
+}  
+
+# Benefit limits
+<InsurancePlan.coverage.benefit.limit> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<Quantity>?;                # Maximum value allowed
+    fhir:code @<CodeableConcept>?;          # Benefit limit details
+}  
+
+# Specific costs
+<InsurancePlan.plan.specificCost> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>;       # General category of benefit
+    fhir:benefit @<OneOrMore_BackboneElement>?;  # Benefits list
 }  
 
 # Benefits list
@@ -142,3 +155,4 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+

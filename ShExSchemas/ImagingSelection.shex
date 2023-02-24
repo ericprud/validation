@@ -4,9 +4,39 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <id.shex>
+IMPORT <code.shex>
+IMPORT <Task.shex>
+IMPORT <Group.shex>
+IMPORT <Device.shex>
+IMPORT <Coding.shex>
+IMPORT <Patient.shex>
+IMPORT <instant.shex>
+IMPORT <Location.shex>
+IMPORT <Specimen.shex>
+IMPORT <CareTeam.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <Procedure.shex>
+IMPORT <Substance.shex>
+IMPORT <Medication.shex>
+IMPORT <Appointment.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <ImagingStudy.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
+IMPORT <AppointmentResponse.shex>
+
 
 start=@<ImagingSelection> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A selection of DICOM SOP instances and/or frames
 <ImagingSelection> EXTENDS @<DomainResource> CLOSED {   
@@ -146,11 +176,12 @@ start=@<ImagingSelection> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The type of 2D coordinates describing a 2D image region.
+fhirvs:imagingselection-2dgraphictype ["POINT" "POLYLINE" "INTERPOLATED" "CIRCLE" "ELLIPSE"]
+
 # The status of the ImagingSelection.
 fhirvs:imagingselection-status ["available" "entered-in-error" "unknown"]
 
 # The type of coordinates describing a 3D image region.
 fhirvs:imagingselection-3dgraphictype ["POINT" "MULTIPOINT" "POLYLINE" "POLYGON" "ELLIPSE" "ELLIPSOID"]
 
-# The type of 2D coordinates describing a 2D image region.
-fhirvs:imagingselection-2dgraphictype ["POINT" "POLYLINE" "INTERPOLATED" "CIRCLE" "ELLIPSE"]

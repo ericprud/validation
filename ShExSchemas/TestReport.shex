@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <decimal.shex>
+IMPORT <dateTime.shex>
+IMPORT <markdown.shex>
+IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <TestReport.setup.action.assert.shex>
+IMPORT <TestReport.setup.action.operation.shex>
+
 
 start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Describes the results of a TestScript execution
 <TestReport> EXTENDS @<DomainResource> CLOSED {   
@@ -45,14 +57,14 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # of required clean up steps 
 }  
 
-# The assertion to perform
-<TestReport.setup.action.assert> EXTENDS @<BackboneElement> CLOSED {   
+# The operation to perform
+<TestReport.setup.action.operation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:result @<code> AND
     	{fhir:value @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
                                             # error 
     fhir:message @<markdown>?;              # A message associated with the 
                                             # result 
-    fhir:detail @<string>?;                 # A link to further details on the 
+    fhir:detail @<uri>?;                    # A link to further details on the 
                                             # result 
 }  
 
@@ -65,21 +77,10 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # was performed 
 }  
 
-# The operation to perform
-<TestReport.setup.action.operation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:result @<code> AND
-    	{fhir:value @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
-                                            # error 
-    fhir:message @<markdown>?;              # A message associated with the 
-                                            # result 
-    fhir:detail @<uri>?;                    # A link to further details on the 
-                                            # result 
-}  
-
-# A test operation or assert that was performed
-<TestReport.test.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestReport.setup.action.operation>?;  # The operation performed
-    fhir:assert @<TestReport.setup.action.assert>?;  # The assertion performed
+# The results of running the series of required clean up steps
+<TestReport.teardown> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_BackboneElement>;  # One or more teardown operations 
+                                            # performed 
 }  
 
 # A participant in the test execution, either the execution engine, a client, or a server
@@ -97,6 +98,23 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:assert @<BackboneElement>?;        # The assertion to perform
 }  
 
+# The assertion to perform
+<TestReport.setup.action.assert> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:result @<code> AND
+    	{fhir:value @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
+                                            # error 
+    fhir:message @<markdown>?;              # A message associated with the 
+                                            # result 
+    fhir:detail @<string>?;                 # A link to further details on the 
+                                            # result 
+}  
+
+# A test operation or assert that was performed
+<TestReport.test.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestReport.setup.action.operation>?;  # The operation performed
+    fhir:assert @<TestReport.setup.action.assert>?;  # The assertion performed
+}  
+
 # One or more teardown operations performed
 <TestReport.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
     fhir:operation @<TestReport.setup.action.operation>;  # The teardown operation performed
@@ -108,12 +126,6 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # was executed 
 }  
 
-# The results of running the series of required clean up steps
-<TestReport.teardown> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_BackboneElement>;  # One or more teardown operations 
-                                            # performed 
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_BackboneElement> CLOSED {
@@ -123,14 +135,15 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The results of executing an action.
-fhirvs:report-action-result-codes ["pass" "skip" "fail" "warning" "error"]
+# The current status of the test report.
+fhirvs:report-status-codes ["completed" "in-progress" "waiting" "stopped" "entered-in-error"]
 
 # The type of participant.
 fhirvs:report-participant-type ["test-engine" "client" "server"]
 
+# The results of executing an action.
+fhirvs:report-action-result-codes ["pass" "skip" "fail" "warning" "error"]
+
 # The reported execution result.
 fhirvs:report-result-codes ["pass" "fail" "pending"]
 
-# The current status of the test report.
-fhirvs:report-status-codes ["completed" "in-progress" "waiting" "stopped" "entered-in-error"]

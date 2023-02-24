@@ -4,6 +4,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Range.shex>
+IMPORT <Ratio.shex>
+IMPORT <string.shex>
+IMPORT <Timing.shex>
+IMPORT <integer.shex>
+IMPORT <boolean.shex>
+IMPORT <Element.shex>
+IMPORT <Quantity.shex>
+IMPORT <BackboneType.shex>
+IMPORT <SimpleQuantity.shex>
+IMPORT <CodeableConcept.shex>
 
 # How the medication is/was taken or should be taken
 <Dosage> EXTENDS @<BackboneType> CLOSED {   
@@ -66,3 +77,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Ratio>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Ratio> 
 }
+

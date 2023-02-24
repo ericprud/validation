@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <integer.shex>
+IMPORT <Specimen.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <MolecularSequence.shex>
+
 
 start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Representation of a molecular sequence
 <MolecularSequence> EXTENDS @<DomainResource> CLOSED {   
@@ -95,8 +107,9 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
 # Type for strand.
 fhirvs:strand-type ["watson" "crick"]
 
+# Type if a sequence -- DNA, RNA, or amino acid sequence.
+fhirvs:sequence-type ["aa" "dna" "rna"]
+
 # Type for orientation.
 fhirvs:orientation-type ["sense" "antisense"]
 
-# Type if a sequence -- DNA, RNA, or amino acid sequence.
-fhirvs:sequence-type ["aa" "dna" "rna"]

@@ -4,6 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Measure.shex>
+IMPORT <Extension.shex>
+IMPORT <canonical.shex>
+IMPORT <Questionnaire.shex>
+IMPORT <PlanDefinition.shex>
+IMPORT <ActivityDefinition.shex>
+IMPORT <OperationDefinition.shex>
 
 # FHIR protocol or definition
 <workflow-instantiatesCanonical> EXTENDS @<Extension> CLOSED {   
@@ -18,11 +26,12 @@ BASE <http://hl7.org/fhir/shape/>
     			 @<PlanDefinition> OR 
     			 @<Questionnaire> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Observation] OR 
-    				a [fhir:DiagnosticReport] OR 
-    				a [fhir:DocumentReference] OR 
-    				a [fhir:Condition] OR 
-    				a [fhir:SupplyDelivery] OR 
-    				a [fhir:CommunicationRequest] OR 
-    				a [fhir:SupplyRequest]
-    		}
+          a [fhir:DiagnosticReport] OR 
+          a [fhir:DocumentReference] OR 
+          a [fhir:Condition] OR 
+          a [fhir:SupplyDelivery] OR 
+          a [fhir:CommunicationRequest] OR 
+          a [fhir:SupplyRequest]
+        }
 }  
+

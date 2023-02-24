@@ -4,9 +4,42 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Condition.shex>
+IMPORT <Procedure.shex>
+IMPORT <Substance.shex>
+IMPORT <Medication.shex>
+IMPORT <Observation.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Immunization.shex>
+IMPORT <Organization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <ResearchStudy.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MedicationUsage.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <DocumentReference.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <AllergyIntolerance.shex>
+IMPORT <FamilyMemberHistory.shex>
+IMPORT <MedicationAdministration.shex>
+IMPORT <BiologicallyDerivedProduct.shex>
+
 
 start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Medical care, research study or other healthcare event causing physical injury
 <AdverseEvent> EXTENDS @<DomainResource> CLOSED {   
@@ -74,32 +107,18 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # enrolled in 
 }  
 
-# The suspected agent causing the adverse event
-<AdverseEvent.suspectEntity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:instance (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Immunization> OR 
+# Contributing factors suspected to have increased the probability or severity of the adverse event
+<AdverseEvent.contributingFactor> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item ((@<Reference>  AND {fhir:link @<Condition> OR 
+    			 @<Observation> OR 
+    			 @<AllergyIntolerance> OR 
+    			 @<FamilyMemberHistory> OR 
+    			 @<Immunization> OR 
     			 @<Procedure> OR 
-    			 @<Substance> OR 
-    			 @<Medication> OR 
-    			 @<MedicationAdministration> OR 
-    			 @<MedicationUsage> OR 
-    			 @<Device> OR 
-    			 @<BiologicallyDerivedProduct> OR 
-    			 @<ResearchStudy> }) )  AND { rdf:type IRI } ;  # Refers to the specific entity that 
-                                            # caused the adverse event 
-    fhir:causality @<BackboneElement>?;     # Information on the possible cause 
-                                            # of the event 
-}  
-
-# Ameliorating actions taken after the adverse event occured in order to reduce the extent of harm
-<AdverseEvent.mitigatingAction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item ((@<Reference>  AND {fhir:link @<Procedure> OR 
-    			 @<DocumentReference> OR 
-    			 @<MedicationAdministration> OR 
-    			 @<MedicationRequest> })  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Ameliorating action taken after 
-                                            # the adverse event occured in order 
-                                            # to reduce the extent of harm 
+    			 @<DocumentReference> })  OR 
+    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Item suspected to have increased 
+                                            # the probability or severity of the 
+                                            # adverse event 
 }  
 
 # Supporting information relevant to the event
@@ -114,6 +133,17 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Subject medical history or 
                                             # document relevant to this adverse 
                                             # event 
+}  
+
+# Preventive actions that contributed to avoiding the adverse event
+<AdverseEvent.preventiveAction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item ((@<Reference>  AND {fhir:link @<Immunization> OR 
+    			 @<Procedure> OR 
+    			 @<DocumentReference> OR 
+    			 @<MedicationAdministration> OR 
+    			 @<MedicationRequest> })  OR 
+    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Action that contributed to 
+                                            # avoiding the adverse event 
 }  
 
 # Information on the possible cause of the event
@@ -132,15 +162,15 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # possible cause of the event 
 }  
 
-# Preventive actions that contributed to avoiding the adverse event
-<AdverseEvent.preventiveAction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item ((@<Reference>  AND {fhir:link @<Immunization> OR 
-    			 @<Procedure> OR 
+# Ameliorating actions taken after the adverse event occured in order to reduce the extent of harm
+<AdverseEvent.mitigatingAction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item ((@<Reference>  AND {fhir:link @<Procedure> OR 
     			 @<DocumentReference> OR 
     			 @<MedicationAdministration> OR 
     			 @<MedicationRequest> })  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Action that contributed to 
-                                            # avoiding the adverse event 
+    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Ameliorating action taken after 
+                                            # the adverse event occured in order 
+                                            # to reduce the extent of harm 
 }  
 
 # Who was involved in the adverse event or the potential adverse event and what they did
@@ -158,18 +188,21 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # event 
 }  
 
-# Contributing factors suspected to have increased the probability or severity of the adverse event
-<AdverseEvent.contributingFactor> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item ((@<Reference>  AND {fhir:link @<Condition> OR 
-    			 @<Observation> OR 
-    			 @<AllergyIntolerance> OR 
-    			 @<FamilyMemberHistory> OR 
-    			 @<Immunization> OR 
+# The suspected agent causing the adverse event
+<AdverseEvent.suspectEntity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:instance (@<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Immunization> OR 
     			 @<Procedure> OR 
-    			 @<DocumentReference> })  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Item suspected to have increased 
-                                            # the probability or severity of the 
-                                            # adverse event 
+    			 @<Substance> OR 
+    			 @<Medication> OR 
+    			 @<MedicationAdministration> OR 
+    			 @<MedicationUsage> OR 
+    			 @<Device> OR 
+    			 @<BiologicallyDerivedProduct> OR 
+    			 @<ResearchStudy> }) )  AND { rdf:type IRI } ;  # Refers to the specific entity that 
+                                            # caused the adverse event 
+    fhir:causality @<BackboneElement>?;     # Information on the possible cause 
+                                            # of the event 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -203,8 +236,9 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Overall nature of the adverse event, e.g. real or potential.
+fhirvs:adverse-event-actuality ["actual" "potential"]
+
 # Codes identifying the lifecycle stage of an adverse event.
 fhirvs:adverse-event-status ["in-progress" "completed" "entered-in-error" "unknown"]
 
-# Overall nature of the adverse event, e.g. real or potential.
-fhirvs:adverse-event-actuality ["actual" "potential"]

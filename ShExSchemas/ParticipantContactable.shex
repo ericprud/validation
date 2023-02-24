@@ -4,7 +4,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
-
 # Contactable Participant Pattern
 <ParticipantContactable> CLOSED {   
 
@@ -26,3 +25,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Address>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Address> 
 }
+

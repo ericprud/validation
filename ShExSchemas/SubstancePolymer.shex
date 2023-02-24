@@ -4,9 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <Quantity.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<SubstancePolymer> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Properties of a substance specific to it being a polymer
 <SubstancePolymer> EXTENDS @<DomainResource> CLOSED {   
@@ -34,19 +43,28 @@ start=@<SubstancePolymer> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # configuration 
 }  
 
-# A graphical structure for this SRU
-<SubstancePolymer.repeat.repeatUnit.structuralRepresentation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>?;          # The type of structure (e.g. Full, 
-                                            # Partial, Representative) 
-    fhir:representation @<string>?;         # The structural representation as 
-                                            # text string in a standard format 
-                                            # e.g. InChI, SMILES, MOLFILE, CDX, 
-                                            # SDF, PDB, mmCIF 
-    fhir:format @<CodeableConcept>?;        # The format of the representation 
-                                            # e.g. InChI, SMILES, MOLFILE, CDX, 
-                                            # SDF, PDB, mmCIF 
-    fhir:attachment @<Attachment>?;         # An attached file with the 
-                                            # structural representation 
+# The starting materials - monomer(s) used in the synthesis of the polymer
+<SubstancePolymer.monomerSet.startingMaterial> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # The type of substance for this 
+                                            # starting material 
+    fhir:category @<CodeableConcept>?;      # Substance high level category, 
+                                            # e.g. chemical substance 
+    fhir:isDefining @<boolean>?;            # Used to specify whether the 
+                                            # attribute described is a defining 
+                                            # element for the unique 
+                                            # identification of the polymer 
+    fhir:amount @<Quantity>?;               # A percentage
+}  
+
+# Todo
+<SubstancePolymer.monomerSet> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:ratioType @<CodeableConcept>?;     # Captures the type of ratio to the 
+                                            # entire polymer, e.g. 
+                                            # Monomer/Polymer ratio, SRU/Polymer 
+                                            # Ratio 
+    fhir:startingMaterial @<OneOrMore_BackboneElement>?;  # The starting materials - 
+                                            # monomer(s) used in the synthesis 
+                                            # of the polymer 
 }  
 
 # An SRU - Structural Repeat Unit
@@ -76,30 +94,6 @@ start=@<SubstancePolymer> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:repeatUnit @<OneOrMore_BackboneElement>?;  # An SRU - Structural Repeat Unit
 }  
 
-# Todo
-<SubstancePolymer.monomerSet> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:ratioType @<CodeableConcept>?;     # Captures the type of ratio to the 
-                                            # entire polymer, e.g. 
-                                            # Monomer/Polymer ratio, SRU/Polymer 
-                                            # Ratio 
-    fhir:startingMaterial @<OneOrMore_BackboneElement>?;  # The starting materials - 
-                                            # monomer(s) used in the synthesis 
-                                            # of the polymer 
-}  
-
-# The starting materials - monomer(s) used in the synthesis of the polymer
-<SubstancePolymer.monomerSet.startingMaterial> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # The type of substance for this 
-                                            # starting material 
-    fhir:category @<CodeableConcept>?;      # Substance high level category, 
-                                            # e.g. chemical substance 
-    fhir:isDefining @<boolean>?;            # Used to specify whether the 
-                                            # attribute described is a defining 
-                                            # element for the unique 
-                                            # identification of the polymer 
-    fhir:amount @<Quantity>?;               # A percentage
-}  
-
 # Applies to homopolymer and block co-polymers where the degree of polymerisation within a block can be described
 <SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # The type of the degree of 
@@ -108,6 +102,21 @@ start=@<SubstancePolymer> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:average @<integer>?;               # An average amount of polymerisation
     fhir:low @<integer>?;                   # A low expected limit of the amount
     fhir:high @<integer>?;                  # A high expected limit of the amount
+}  
+
+# A graphical structure for this SRU
+<SubstancePolymer.repeat.repeatUnit.structuralRepresentation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>?;          # The type of structure (e.g. Full, 
+                                            # Partial, Representative) 
+    fhir:representation @<string>?;         # The structural representation as 
+                                            # text string in a standard format 
+                                            # e.g. InChI, SMILES, MOLFILE, CDX, 
+                                            # SDF, PDB, mmCIF 
+    fhir:format @<CodeableConcept>?;        # The format of the representation 
+                                            # e.g. InChI, SMILES, MOLFILE, CDX, 
+                                            # SDF, PDB, mmCIF 
+    fhir:attachment @<Attachment>?;         # An attached file with the 
+                                            # structural representation 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -121,3 +130,4 @@ start=@<SubstancePolymer> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<BackboneElement>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
+

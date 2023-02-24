@@ -4,6 +4,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <Extension.shex>
 
 # What has happened over time
 <codesystem-history> EXTENDS @<Extension> CLOSED {   
@@ -15,7 +17,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-history"]}; 
     ^fhir:extension { a [fhir:CodeSystem]
-    		}
+        }
 }  
 
 # Version marker after the change was made
@@ -40,3 +42,4 @@ BASE <http://hl7.org/fhir/shape/>
     rdf:first @<Extension>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Extension> 
 }
+

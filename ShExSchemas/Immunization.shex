@@ -4,9 +4,32 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <Location.shex>
+IMPORT <Quantity.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <ImmunizationRecommendation.shex>
+
 
 start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Immunization event information
 <Immunization> EXTENDS @<DomainResource> CLOSED {   
@@ -61,6 +84,18 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:protocolApplied @<OneOrMore_BackboneElement>?;  # Protocol followed by the provider
 }  
 
+# Who performed event
+<Immunization.performer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:function @<CodeableConcept>?;      # What type of performance was done
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> };  # Individual or organization who was 
+                                            # performing 
+}  
+
 # Educational material presented to patient
 <Immunization.education> EXTENDS @<BackboneElement> CLOSED {   
     fhir:documentType @<string>?;           # Educational material document 
@@ -91,18 +126,6 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:date @<dateTime>?;                 # When reaction started
     fhir:manifestation @<CodeableReference>?;  # Additional information on reaction
     fhir:reported @<boolean>?;              # Indicates self-reported reaction
-}  
-
-# Who performed event
-<Immunization.performer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:function @<CodeableConcept>?;      # What type of performance was done
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Individual or organization who was 
-                                            # performing 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -155,3 +178,4 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the administered dose of vaccine.
 fhirvs:immunization-status ["completed" "entered-in-error" "not-done"]
+

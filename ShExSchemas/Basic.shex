@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <Resource.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<Basic> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Resource for non-supported content
 <Basic> EXTENDS @<DomainResource> CLOSED {   
@@ -35,3 +47,4 @@ start=@<Basic> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<Identifier>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
+

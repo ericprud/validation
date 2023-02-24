@@ -4,6 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <DataType.shex>
 
 # A reference to a code defined by a terminology system
 <Coding> EXTENDS @<DataType> CLOSED {   
@@ -20,3 +25,4 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:userSelected @<boolean>?;          # If this coding was chosen directly 
                                             # by the user 
 }  
+

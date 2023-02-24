@@ -4,9 +4,35 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Ratio.shex>
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <Provenance.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <SimpleQuantity.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <MedicationRequest.shex>
+IMPORT <MedicationAdministration.shex>
+
 
 start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Administration of medication to a patient
 <MedicationAdministration> EXTENDS @<DomainResource> CLOSED {   
@@ -155,3 +181,4 @@ start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # MedicationAdministration Status Codes
 fhirvs:medication-admin-status ["in-progress" "not-done" "on-hold" "completed" "entered-in-error" "stopped" "unknown"]
+

@@ -4,9 +4,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Range.shex>
+IMPORT <Ratio.shex>
+IMPORT <Coding.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <Practitioner.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <BiologicallyDerivedProduct.shex>
+
 
 start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # This resource reflects an instance of a biologically derived product
 <BiologicallyDerivedProduct> EXTENDS @<DomainResource> CLOSED {   
@@ -44,6 +65,19 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # instance 
 }  
 
+# How this product was collected
+<BiologicallyDerivedProduct.collection> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:collector @<Reference> AND {fhir:link 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> }?;  # Individual performing collection
+    fhir:source @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> }?;  # The patient or entity providing 
+                                            # the product 
+    fhir:collected (@<dateTime>  OR 
+    			@<Period> )  AND { rdf:type IRI } ?;  # Time of product collection
+}  
+
 # A property that is specific to this BiologicallyDerviedProduct instance
 <BiologicallyDerivedProduct.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<Coding>;                    # Code that specifies the property
@@ -56,19 +90,6 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Ratio>  OR 
     			@<string>  OR 
     			@<Attachment> )  AND { rdf:type IRI } ;  # Property values
-}  
-
-# How this product was collected
-<BiologicallyDerivedProduct.collection> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:collector @<Reference> AND {fhir:link 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Individual performing collection
-    fhir:source @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> }?;  # The patient or entity providing 
-                                            # the product 
-    fhir:collected (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Time of product collection
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -100,3 +121,4 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:first @<BackboneElement>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
 }
+

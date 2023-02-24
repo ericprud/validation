@@ -4,6 +4,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <boolean.shex>
+IMPORT <Extension.shex>
 
 # The concept should not be used
 <valueset-deprecated> EXTENDS @<Extension> CLOSED {   
@@ -13,6 +16,7 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-deprecated"]}; 
     fhir:value (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:concept {( ^fhir:include {( ^fhir:compose {a [fhir:ValueSet]} )} )} )
-    		}
+    ^fhir:extension { ^fhir:concept {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}
+        }
 }  
+

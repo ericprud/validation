@@ -4,19 +4,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Composition.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<clinicaldocument> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A set of resources composed into a single coherent clinical statement with clinical attestation
 <clinicaldocument> EXTENDS @<Composition> CLOSED {   
 
     a [fhir:clinicaldocument];
     fhir:nodeRole [fhir:treeRoot]?;
-}  
-
-# Attests to accuracy of composition
-<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Composition is broken into sections
@@ -26,3 +24,8 @@ start=@<clinicaldocument> AND {fhir:nodeRole [fhir:treeRoot]}
 # The clinical service(s) being documented
 <Composition.event> EXTENDS @<BackboneElement> CLOSED {   
 }  
+
+# Attests to accuracy of composition
+<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
+}  
+

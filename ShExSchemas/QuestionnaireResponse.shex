@@ -4,9 +4,37 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <time.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Coding.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <decimal.shex>
+IMPORT <integer.shex>
+IMPORT <Resource.shex>
+IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
+IMPORT <CarePlan.shex>
+IMPORT <canonical.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Procedure.shex>
+IMPORT <Attachment.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A structured set of questions and their answers
 <QuestionnaireResponse> EXTENDS @<DomainResource> CLOSED {   
@@ -63,6 +91,10 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:item @<OneOrMore_QuestionnaireResponse.item>?;  # Child items of question
 }  
 
+# Child items of group item
+<QuestionnaireResponse.item.item> CLOSED {   
+}  
+
 # Groups and questions
 <QuestionnaireResponse.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:linkId @<string>;                  # Pointer to specific item from 
@@ -72,10 +104,6 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:text @<string>?;                   # Name for group or question text
     fhir:answer @<OneOrMore_BackboneElement>?;  # The response(s) to the question
     fhir:item @<OneOrMore_QuestionnaireResponse.item>?;  # Child items of group item
-}  
-
-# Child items of group item
-<QuestionnaireResponse.item.item> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -113,3 +141,4 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Lifecycle status of the questionnaire response.
 fhirvs:questionnaire-answers-status ["in-progress" "completed" "amended" "entered-in-error" "stopped"]
+

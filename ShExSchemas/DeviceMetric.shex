@@ -4,9 +4,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Device.shex>
+IMPORT <Timing.shex>
+IMPORT <instant.shex>
+IMPORT <Reference.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<DeviceMetric> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Measurement, calculation or setting capability of a medical device
 <DeviceMetric> EXTENDS @<DomainResource> CLOSED {   
@@ -66,17 +74,18 @@ start=@<DeviceMetric> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# Describes the operational status of the DeviceMetric.
+fhirvs:metric-operational-status ["on" "off" "standby" "entered-in-error"]
+
 # Describes the category of the metric.
 fhirvs:metric-category ["measurement" "setting" "calculation" "unspecified"]
 
 # Describes the state of a metric calibration.
 fhirvs:metric-calibration-state ["not-calibrated" "calibration-required" "calibrated" "unspecified"]
 
-# Describes the type of a metric calibration.
-fhirvs:metric-calibration-type ["unspecified" "offset" "gain" "two-point"]
-
 # Describes the typical color of representation.
 fhirvs:metric-color ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "white"]
 
-# Describes the operational status of the DeviceMetric.
-fhirvs:metric-operational-status ["on" "off" "standby" "entered-in-error"]
+# Describes the type of a metric calibration.
+fhirvs:metric-calibration-type ["unspecified" "offset" "gain" "two-point"]
+

@@ -4,9 +4,39 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Device.shex>
+IMPORT <Period.shex>
+IMPORT <Timing.shex>
+IMPORT <boolean.shex>
+IMPORT <integer.shex>
+IMPORT <Patient.shex>
+IMPORT <Location.shex>
+IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Quantity.shex>
+IMPORT <Resource.shex>
+IMPORT <Coverage.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Provenance.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DeviceRequest.shex>
+IMPORT <ClaimResponse.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Medical device request
 <DeviceRequest> EXTENDS @<DomainResource> CLOSED {   
@@ -147,3 +177,4 @@ fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "r
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+

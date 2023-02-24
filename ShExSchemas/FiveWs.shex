@@ -4,6 +4,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <Resource.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <EpisodeOfCare.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <CodeableConcept.shex>
 
 # Who What When Where Why - Common pattern for all resources that deals with attribution
 <FiveWs> CLOSED {   
@@ -91,3 +105,4 @@ BASE <http://hl7.org/fhir/shape/>
 
 # The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes.
 fhirvs:resource-status ["error" "proposed" "planned" "draft" "requested" "received" "declined" "accepted" "arrived" "active" "suspended" "failed" "replaced" "complete" "inactive" "abandoned" "unknown" "unconfirmed" "confirmed" "resolved" "refuted" "differential" "partial" "busy-unavailable" "free" "on-target" "ahead-of-target" "behind-target" "not-ready" "transduc-discon" "hw-discon"]
+

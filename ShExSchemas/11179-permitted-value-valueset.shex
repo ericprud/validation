@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <ValueSet.shex>
+IMPORT <Extension.shex>
+IMPORT <canonical.shex>
 
 # Permitted values
 <11179-permitted-value-valueset> EXTENDS @<Extension> CLOSED {   
@@ -13,8 +17,9 @@ BASE <http://hl7.org/fhir/shape/>
     fhir:v @<uri> AND
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset"]}; 
     fhir:value ((@<canonical>  AND {fhir:link @<ValueSet> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:valueSet {( ^fhir:binding {( ^fhir:element {( ^fhir:snapshot {a [fhir:StructureDefinition]} )} )} )} ) OR 
-    				( ^fhir:valueSet {( ^fhir:binding {( ^fhir:element {( ^fhir:differential {a [fhir:StructureDefinition]} )} )} )} ) OR 
-    				( ^fhir:answerValueSet {( ^fhir:item {a [fhir:Questionnaire]} )} )
-    		}
+    ^fhir:extension { ^fhir:valueSet {^fhir:binding {^fhir:element {^fhir:snapshot {a [fhir:StructureDefinition]}}}} OR 
+          ^fhir:valueSet {^fhir:binding {^fhir:element {^fhir:differential {a [fhir:StructureDefinition]}}}} OR 
+          ^fhir:answerValueSet {^fhir:item {a [fhir:Questionnaire]}}
+        }
 }  
+

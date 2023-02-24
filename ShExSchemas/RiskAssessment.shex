@@ -4,9 +4,28 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <decimal.shex>
+IMPORT <Resource.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
+IMPORT <Condition.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<RiskAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Potential outcomes for a subject with likelihood
 <RiskAssessment> EXTENDS @<DomainResource> CLOSED {   
@@ -92,3 +111,4 @@ start=@<RiskAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Codes providing the status of an observation.
 fhirvs:observation-status ["registered" "preliminary" "final" "amended" "corrected" "cancelled" "entered-in-error" "unknown"]
+

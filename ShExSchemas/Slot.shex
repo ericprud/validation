@@ -4,9 +4,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <instant.shex>
+IMPORT <boolean.shex>
+IMPORT <Schedule.shex>
+IMPORT <Reference.shex>
+IMPORT <DomainResource.shex>
+
 
 start=@<Slot> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A slot of time on a schedule that may be available for booking appointments
 <Slot> EXTENDS @<DomainResource> CLOSED {   
@@ -72,3 +79,4 @@ start=@<Slot> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The free/busy status of the slot.
 fhirvs:slotstatus ["busy" "free" "busy-unavailable" "busy-tentative" "entered-in-error"]
+

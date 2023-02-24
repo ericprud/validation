@@ -4,9 +4,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <time.shex>
+IMPORT <Coding.shex>
+IMPORT <string.shex>
+IMPORT <Address.shex>
+IMPORT <boolean.shex>
+IMPORT <decimal.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<Location> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Details and position information for a physical place
 <Location> EXTENDS @<DomainResource> CLOSED {   
@@ -124,3 +137,4 @@ fhirvs:location-status ["active" "suspended" "inactive"]
 
 # The days of the week.
 fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
+

@@ -4,6 +4,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <uri.shex>
+IMPORT <boolean.shex>
+IMPORT <Extension.shex>
+IMPORT <CodeableConcept.shex>
 
 # Mark a warning invariant as 'best practice'
 <elementdefinition-bestpractice> EXTENDS @<Extension> CLOSED {   
@@ -14,6 +18,7 @@ BASE <http://hl7.org/fhir/shape/>
     	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice"]}; 
     fhir:value (@<boolean>  OR 
     			@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ( ^fhir:constraint {a [fhir:ElementDefinition]} )
-    		}
+    ^fhir:extension { ^fhir:constraint {a [fhir:ElementDefinition]}
+        }
 }  
+

@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Attachment.shex>
+IMPORT <shareablelibrary.shex>
+
 
 start=@<modelinfolibrary> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Represents a library of quality improvement components
 <modelinfolibrary> EXTENDS @<shareablelibrary> CLOSED {   
@@ -22,3 +24,4 @@ start=@<modelinfolibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # ModelInfo JSON Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
+

@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Ratio.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Quantity.shex>
+IMPORT <dateTime.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <CodeableReference.shex>
+
 
 start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Definition of a Medication
 <Medication> EXTENDS @<DomainResource> CLOSED {   
@@ -64,3 +76,4 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Medication Status Codes
 fhirvs:medication-status ["active" "inactive" "entered-in-error"]
+

@@ -4,23 +4,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <CodeSystem.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<shareablecodesystem> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Declares the existence of and describes a code system or code system supplement
 <shareablecodesystem> EXTENDS @<CodeSystem> CLOSED {   
 
     a [fhir:shareablecodesystem];
     fhir:nodeRole [fhir:treeRoot]?;
-}  
-
-# Filter that can be used in a value set
-<CodeSystem.filter> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Additional information supplied about each concept
-<CodeSystem.property> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Concepts in the code system
@@ -31,6 +25,15 @@ start=@<shareablecodesystem> AND {fhir:nodeRole [fhir:treeRoot]}
 <CodeSystem.concept.property> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Filter that can be used in a value set
+<CodeSystem.filter> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Additional information supplied about each concept
+<CodeSystem.property> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Additional representations for the concept
 <CodeSystem.concept.designation> EXTENDS @<BackboneElement> CLOSED {   
 }  
+

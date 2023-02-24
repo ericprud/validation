@@ -4,9 +4,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Money.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Contract.shex>
+IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Organization.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <SimpleQuantity.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<Coverage> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Insurance or medical plan or a payment agreement
 <Coverage> EXTENDS @<DomainResource> CLOSED {   
@@ -44,13 +60,6 @@ start=@<Coverage> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:contract @<OneOrMore_Reference_Contract>?;  # Contract details
 }  
 
-# Exceptions for patient payments
-<Coverage.costToBeneficiary.exception> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Exception category
-    fhir:period @<Period>?;                 # The effective period of the 
-                                            # exception 
-}  
-
 # Patient payments for services/products
 <Coverage.costToBeneficiary> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # Cost category
@@ -67,6 +76,13 @@ start=@<Coverage> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:value @<string>;                   # Value associated with the type
     fhir:name @<string>?;                   # Human readable description of the 
                                             # type and value 
+}  
+
+# Exceptions for patient payments
+<Coverage.costToBeneficiary.exception> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Exception category
+    fhir:period @<Period>?;                 # The effective period of the 
+                                            # exception 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -99,3 +115,4 @@ start=@<Coverage> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # This value set includes Status codes.
 fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
+

@@ -4,9 +4,36 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <date.shex>
+IMPORT <Group.shex>
+IMPORT <Range.shex>
+IMPORT <Ratio.shex>
+IMPORT <string.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <integer.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Quantity.shex>
+IMPORT <Duration.shex>
+IMPORT <Reference.shex>
+IMPORT <Condition.shex>
+IMPORT <Observation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <NutritionOrder.shex>
+IMPORT <RiskAssessment.shex>
+IMPORT <ServiceRequest.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <MedicationUsage.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <MedicationRequest.shex>
+
 
 start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Describes the intended objective(s) for a patient, group or organization
 <Goal> EXTENDS @<DomainResource> CLOSED {   
@@ -111,3 +138,4 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Codes that reflect the current state of a goal and whether the goal is still being targeted.
 fhirvs:goal-status ["proposed" "planned" "accepted" "active" "on-hold" "completed" "cancelled" "entered-in-error" "rejected"]
+

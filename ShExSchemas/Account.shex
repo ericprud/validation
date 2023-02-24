@@ -4,9 +4,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <string.shex>
+IMPORT <Period.shex>
+IMPORT <Device.shex>
+IMPORT <Patient.shex>
+IMPORT <boolean.shex>
+IMPORT <Coverage.shex>
+IMPORT <Location.shex>
+IMPORT <Reference.shex>
+IMPORT <positiveInt.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Tracks balance, charges, for patient or cost center
 <Account> EXTENDS @<DomainResource> CLOSED {   
@@ -86,3 +104,4 @@ start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Indicates whether the account is available to be used.
 fhirvs:account-status ["active" "inactive" "entered-in-error" "on-hold" "unknown"]
+

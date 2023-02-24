@@ -4,9 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Period.shex>
+IMPORT <string.shex>
+IMPORT <Device.shex>
+IMPORT <boolean.shex>
+IMPORT <Patient.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Location.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
+
 
 start=@<Schedule> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # A container for slots of time that may be available for booking appointments
 <Schedule> EXTENDS @<DomainResource> CLOSED {   
@@ -54,3 +66,4 @@ start=@<Schedule> AND {fhir:nodeRole [fhir:treeRoot]}
 			@<RelatedPerson> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_CareTeam_OR_Device_OR_HealthcareService_OR_Location_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> 
 }
+

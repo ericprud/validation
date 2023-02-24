@@ -4,9 +4,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <Group.shex>
+IMPORT <BackboneElement.shex>
+
 
 start=@<actualgroup> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Group of multiple entities
 <actualgroup> EXTENDS @<Group> CLOSED {   
@@ -22,3 +24,4 @@ start=@<actualgroup> AND {fhir:nodeRole [fhir:treeRoot]}
 # Who or what is in group
 <Group.member> EXTENDS @<BackboneElement> CLOSED {   
 }  
+

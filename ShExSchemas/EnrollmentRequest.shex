@@ -4,9 +4,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 BASE <http://hl7.org/fhir/shape/>
 
+IMPORT <code.shex>
+IMPORT <Patient.shex>
+IMPORT <dateTime.shex>
+IMPORT <Coverage.shex>
+IMPORT <Reference.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <DomainResource.shex>
+IMPORT <PractitionerRole.shex>
+
 
 start=@<EnrollmentRequest> AND {fhir:nodeRole [fhir:treeRoot]}
-
 
 # Enroll in coverage
 <EnrollmentRequest> EXTENDS @<DomainResource> CLOSED {   
@@ -41,3 +50,4 @@ start=@<EnrollmentRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # This value set includes Status codes.
 fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
+
