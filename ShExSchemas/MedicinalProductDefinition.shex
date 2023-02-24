@@ -22,7 +22,7 @@ IMPORT <PractitionerRole.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <DocumentReference.shex>
 IMPORT <ManufacturedItemDefinition.shex>
-
+IMPORT <MarketingStatus.shex>
 
 start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 

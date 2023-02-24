@@ -28,7 +28,6 @@ IMPORT <PractitionerRole.shex>
 IMPORT <DeviceDefinition.shex>
 IMPORT <SpecimenDefinition.shex>
 IMPORT <ObservationDefinition.shex>
-IMPORT <ObservationDefinition.quantitativeDetails.shex>
 
 
 start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}

@@ -18,6 +18,8 @@ IMPORT <BackboneElement.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <DocumentReference.shex>
 IMPORT <MedicinalProductDefinition.shex>
+IMPORT <MarketingStatus.shex>
+IMPORT <ProductShelfLife.shex>
 
 
 start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}

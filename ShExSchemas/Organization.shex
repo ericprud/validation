@@ -8,6 +8,7 @@ IMPORT <boolean.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Reference.shex>
 IMPORT <DomainResource.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 
 start=@<Organization> AND {fhir:nodeRole [fhir:treeRoot]}

@@ -24,7 +24,6 @@ IMPORT <DocumentReference.shex>
 IMPORT <SubstanceDefinition.shex>
 IMPORT <SubstanceNucleicAcid.shex>
 IMPORT <SubstanceReferenceInformation.shex>
-IMPORT <SubstanceDefinition.molecularWeight.shex>
 
 
 start=@<SubstanceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}

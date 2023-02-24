@@ -22,6 +22,7 @@ IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <DeviceDefinition.shex>
 IMPORT <CodeableReference.shex>
+IMPORT <ProductShelfLife.shex>
 
 
 start=@<DeviceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
