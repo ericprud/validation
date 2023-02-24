@@ -11,8 +11,7 @@ IMPORT <DataType.shex>
 # An address expressed using postal conventions (as opposed to GPS or other location definition formats)
 <Address> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Address];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Address]?;
     fhir:use @<code> AND
     	{fhir:v @fhirvs:address-use}?;  # home | work | temp | old | billing 
                                             # - purpose of this address 

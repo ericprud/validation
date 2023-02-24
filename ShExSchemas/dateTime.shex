@@ -8,8 +8,7 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type dateTime
 <dateTime> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:dateTime];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:dateTime]?;
     fhir:v xsd:gYear OR xsd:gYearMonth OR xsd:date OR xsd:dateTime?;  # Primitive value for dateTime
 }  
 

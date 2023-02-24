@@ -12,12 +12,12 @@ IMPORT <positiveInt.shex>
 # Details of a Technology mediated contact point (phone, fax, email, etc.)
 <ContactPoint> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:ContactPoint];
-    fhir:nodeRole [fhir:treeRoot]?;
+#     a [fhir:ContactPoint];
+#     fhir:nodeRole [fhir:treeRoot]?;
     fhir:system @<code> AND
     	{fhir:v @fhirvs:contact-point-system}?;  # phone | fax | email | pager | url 
                                             # | sms | other 
-    fhir:v @<string>?;                  # The actual contact point details
+    fhir:value @<string>?;                  # The actual contact point details
     fhir:use @<code> AND
     	{fhir:v @fhirvs:contact-point-use}?;  # home | work | temp | old | mobile 
                                             # - purpose of this contact point 

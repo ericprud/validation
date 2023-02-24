@@ -19,7 +19,7 @@ start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
 # A person that is related to a patient, but who is not a direct target of care
 <RelatedPerson> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:RelatedPerson];
+    a [fhir:RelatedPerson]?;
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # A human identifier for this person
     fhir:active @<boolean>?;                # Whether this related person's 

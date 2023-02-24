@@ -11,8 +11,7 @@ IMPORT <Identifier.shex>
 # A reference from one resource to another
 <Reference> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Reference];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Reference]?;
     fhir:link IRI?;
     fhir:reference @<string>?;              # Literal reference, Relative, 
                                             # internal or absolute URL 

@@ -8,7 +8,5 @@ IMPORT <DataType.shex>
 # Parent type for DataTypes with a simple value
 <PrimitiveType> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:PrimitiveType];
-    fhir:nodeRole [fhir:treeRoot]?;
 }  
 

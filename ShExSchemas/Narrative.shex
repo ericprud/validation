@@ -10,8 +10,7 @@ IMPORT <DataType.shex>
 # Human-readable summary of the resource (essential clinical and business information)
 <Narrative> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Narrative];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Narrative]?;
     fhir:status @<code> AND
     	{fhir:v @fhirvs:narrative-status};  # generated | extensions | 
                                             # additional | empty 

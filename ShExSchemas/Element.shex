@@ -5,13 +5,13 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <id.shex>
 IMPORT <Base.shex>
+IMPORT <Extension.shex>
 
 # Base for all elements
 <Element> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Element];
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<id>?;                          # Unique id for inter-element 
+    fhir:id @<id>?;                          # Unique id for inter-element 
                                             # referencing 
     fhir:extension @<OneOrMore_Extension>?;  # Additional content defined by 
                                             # implementations 

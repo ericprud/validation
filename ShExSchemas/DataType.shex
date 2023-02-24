@@ -8,7 +8,5 @@ IMPORT <Element.shex>
 # Reuseable Types
 <DataType> EXTENDS @<Element> CLOSED {   
 
-    a [fhir:DataType];
-    fhir:nodeRole [fhir:treeRoot]?;
 }  
 

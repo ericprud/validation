@@ -8,8 +8,7 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type boolean
 <boolean> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:boolean];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:boolean]?;
     fhir:v xsd:boolean?;                    # Primitive value for boolean
 }  
 

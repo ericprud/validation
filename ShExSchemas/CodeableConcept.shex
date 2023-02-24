@@ -9,8 +9,7 @@ IMPORT <DataType.shex>
 # Concept - reference to a terminology or just  text
 <CodeableConcept> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:CodeableConcept];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:CodeableConcept]?;
     a NONLITERAL*;
     fhir:coding @<OneOrMore_Coding>?;       # Code defined by a terminology 
                                             # system 

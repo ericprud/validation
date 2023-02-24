@@ -8,7 +8,6 @@ IMPORT <uri.shex>
 # Primitive Type url
 <url> EXTENDS @<uri> CLOSED {   
 
-    a [fhir:url];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:url]?;
 }  
 

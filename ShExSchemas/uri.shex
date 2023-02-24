@@ -8,8 +8,7 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type uri
 <uri> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:uri];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:uri]?;
     fhir:v xsd:anyURI?;                     # Primitive value for uri
 }  
 

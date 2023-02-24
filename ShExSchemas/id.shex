@@ -8,7 +8,6 @@ IMPORT <string.shex>
 # Primitive Type id
 <id> EXTENDS @<string> CLOSED {   
 
-    a [fhir:id];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:id]?;
 }  
 

@@ -61,10 +61,9 @@ IMPORT <ParameterDefinition.shex>
 # Optional Extensions Element
 <Extension> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Extension];
-    fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri>; 
-    fhir:v (@<base64Binary>  OR 
+    a [fhir:Extension]?;
+    fhir:url @<uri>;
+    fhir:value @<base64Binary>  OR
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -116,6 +115,6 @@ IMPORT <ParameterDefinition.shex>
     			@<TriggerDefinition>  OR 
     			@<UsageContext>  OR 
     			@<Dosage>  OR 
-    			@<Meta> )  AND { rdf:type IRI } ?; 
+    			@<Meta>?;
 }  
 

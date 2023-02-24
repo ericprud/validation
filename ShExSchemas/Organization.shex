@@ -16,7 +16,7 @@ start=@<Organization> AND {fhir:nodeRole [fhir:treeRoot]}
 # A grouping of people or organizations with a common purpose
 <Organization> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Organization];
+    a [fhir:Organization]?;
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifies this organization  
                                             # across multiple systems 
@@ -37,7 +37,7 @@ start=@<Organization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:telecom @<OneOrMore_ContactPoint>?;  # Deprecated - use contact.telecom
     fhir:address @<OneOrMore_Address>?;     # Deprecated - use contact.address
     fhir:partOf @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # The organization of which this 
+    			@<Organization>? }?;  # The organization of which this 
                                             # organization forms a part 
     fhir:endpoint @<OneOrMore_Reference_Endpoint>?;  # Technical endpoints providing 
                                             # access to services operated for 

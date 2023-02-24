@@ -8,8 +8,6 @@ IMPORT <Element.shex>
 # Base for elements defined inside a resource
 <BackboneElement> EXTENDS @<Element> CLOSED {   
 
-    a [fhir:BackboneElement];
-    fhir:nodeRole [fhir:treeRoot]?;
     fhir:modifierExtension @<OneOrMore_Extension>?;  # Extensions that cannot be ignored 
                                             # even if unrecognized 
 }  

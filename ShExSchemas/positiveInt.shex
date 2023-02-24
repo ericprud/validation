@@ -8,7 +8,6 @@ IMPORT <integer.shex>
 # Primitive Type positiveInt
 <positiveInt> EXTENDS @<integer> CLOSED {   
 
-    a [fhir:positiveInt];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:positiveInt]?;
 }  
 

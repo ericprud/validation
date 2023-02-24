@@ -9,7 +9,6 @@ IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <integer.shex>
 IMPORT <Address.shex>
-IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
 IMPORT <Reference.shex>
 IMPORT <HumanName.shex>
@@ -25,7 +24,7 @@ IMPORT <ContactPoint.shex>
 start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Information about an individual or animal receiving health care services
-<Patient> EXTENDS @<DomainResource> CLOSED {   
+<Patient> EXTENDS @<DomainResource> CLOSED {
 
     a [fhir:Patient];
     fhir:nodeRole [fhir:treeRoot]?;
@@ -39,7 +38,7 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:birthDate @<date>?;                # The date of birth for the 
                                             # individual 
     fhir:deceased (@<boolean>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # Indicates if the individual is 
+    			@<dateTime> )?;  # Indicates if the individual is
                                             # deceased or not 
     fhir:address @<OneOrMore_Address>?;     # An address for the individual
     fhir:maritalStatus @<CodeableConcept>?;  # Marital (civil) status of a patient
@@ -47,19 +46,19 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<integer> )  AND { rdf:type IRI } ?;  # Whether patient is part of a 
                                             # multiple birth 
     fhir:photo @<OneOrMore_Attachment>?;    # Image of the patient
-    fhir:contact @<OneOrMore_BackboneElement>?;  # A contact party (e.g. guardian, 
+    fhir:contact @<OneOrMore_Patient.contact>?;  # A contact party (e.g. guardian,
                                             # partner, friend) for the patient 
-    fhir:communication @<OneOrMore_BackboneElement>?;  # A language which may be used to 
+    fhir:communication @<OneOrMore_Patient.communication>?;  # A language which may be used to
                                             # communicate with the patient about 
                                             # his or her health 
     fhir:generalPractitioner @<OneOrMore_Reference_Organization_OR_Practitioner_OR_PractitionerRole>?;  # Patient's nominated primary care 
                                             # provider 
     fhir:managingOrganization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization that is the custodian 
+    			@<Organization>? }?;  # Organization that is the custodian
                                             # of the patient record 
-    fhir:link @<OneOrMore_BackboneElement>?;  # Link to a Patient or RelatedPerson 
+    fhir:link @<OneOrMore_Patient.link>?;  # Link to a Patient or RelatedPerson
                                             # resource that concerns the same 
-                                            # actual individual 
+                                            # actual individual
 }  
 
 # A contact party (e.g. guardian, partner, friend) for the patient
@@ -127,9 +126,19 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Attachment> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Patient.contact> CLOSED {
+    rdf:first @<Patient.contact>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Patient.contact>
+}
+
+<OneOrMore_Patient.communication> CLOSED {
+    rdf:first @<Patient.communication>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Patient.communication>
+}
+
+<OneOrMore_Patient.link> CLOSED {
+    rdf:first @<Patient.link>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Patient.link>
 }
 
 <OneOrMore_Reference_Organization_OR_Practitioner_OR_PractitionerRole> CLOSED {

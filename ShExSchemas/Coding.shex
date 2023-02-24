@@ -12,8 +12,7 @@ IMPORT <DataType.shex>
 # A reference to a code defined by a terminology system
 <Coding> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Coding];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Coding]?;
     a NONLITERAL?;
     fhir:system @<uri>?;                    # Identity of the terminology system
     fhir:version @<string>?;                # Version of the system - if relevant

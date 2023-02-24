@@ -23,7 +23,7 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
 # Roles/organizations the practitioner is associated with
 <PractitionerRole> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:PractitionerRole];
+    a [fhir:PractitionerRole]?;
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifiers that are 
                                             # specific to a role/location 

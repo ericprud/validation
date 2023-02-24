@@ -8,8 +8,7 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type string
 <string> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:string];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:string]?;
     fhir:v xsd:string MAXLENGTH 1048576?;   # Primitive value for string
 }  
 
