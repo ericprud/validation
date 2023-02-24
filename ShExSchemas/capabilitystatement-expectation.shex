@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:capabilitystatement-expectation];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:conformance-expectation} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:conformance-expectation} )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:interaction {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
           ^fhir:searchParam {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
           ^fhir:searchParam {^fhir:rest {a [fhir:CapabilityStatement]}} OR 

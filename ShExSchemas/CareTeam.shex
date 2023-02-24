@@ -29,7 +29,7 @@ start=@<CareTeam> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # External Ids for this team
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:care-team-status}?;  # proposed | active | suspended | 
+    	{fhir:v @fhirvs:care-team-status}?;  # proposed | active | suspended | 
                                             # inactive | entered-in-error 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Type of team
     fhir:name @<string>?;                   # Name of the team, such as crisis 

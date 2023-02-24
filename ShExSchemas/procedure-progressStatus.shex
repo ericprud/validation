@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:procedure-progressStatus];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/procedure-progressStatus"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/procedure-progressStatus"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Procedure]
         }
 }  

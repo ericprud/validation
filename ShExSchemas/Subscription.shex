@@ -28,7 +28,7 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>?;                   # Human readable name for this 
                                             # subscription 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:subscription-status};  # requested | active | error | off | 
+    	{fhir:v @fhirvs:subscription-status};  # requested | active | error | off | 
                                             # entered-in-error 
     fhir:topic @<canonical>;                # Reference to the subscription 
                                             # topic being subscribed to 
@@ -48,10 +48,10 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:timeout @<unsignedInt>?;           # Timeout in seconds to attempt 
                                             # notification delivery 
     fhir:contentType @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # MIME type to send, or omit for no 
+    	{fhir:v @fhirvs:mimetypes}?;  # MIME type to send, or omit for no 
                                             # payload 
     fhir:content @<code> AND
-    	{fhir:value @fhirvs:subscription-payload-content}?;  # empty | id-only | full-resource
+    	{fhir:v @fhirvs:subscription-payload-content}?;  # empty | id-only | full-resource
     fhir:maxCount @<positiveInt>?;          # Maximum number of triggering 
                                             # resources included in notification 
                                             # bundles 
@@ -65,10 +65,10 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:filterParameter @<string>;         # Filter label defined in 
                                             # SubscriptionTopic 
     fhir:modifier @<code> AND
-    	{fhir:value @fhirvs:subscription-search-modifier}?;  # = | eq | ne | gt | lt | ge | le | 
+    	{fhir:v @fhirvs:subscription-search-modifier}?;  # = | eq | ne | gt | lt | ge | le | 
                                             # sa | eb | ap | above | below | in 
                                             # | not-in | of-type 
-    fhir:value @<string>;                   # Literal value or resource path
+    fhir:v @<string>;                   # Literal value or resource path
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

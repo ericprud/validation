@@ -14,8 +14,8 @@ IMPORT <Reference.shex>
     a [fhir:familymemberhistory-patient-record];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/familymemberhistory-patient-record"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Patient> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/familymemberhistory-patient-record"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Patient> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:FamilyMemberHistory]
         }
 }  

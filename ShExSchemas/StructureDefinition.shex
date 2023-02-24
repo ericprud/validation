@@ -34,7 +34,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this structure definition 
                                             # (human friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -53,12 +53,12 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
     fhir:keyword @<OneOrMore_Coding>?;      # Assist with indexing and finding
     fhir:fhirVersion @<code> AND
-    	{fhir:value @fhirvs:FHIR-version}?;  # FHIR Version this 
+    	{fhir:v @fhirvs:FHIR-version}?;  # FHIR Version this 
                                             # StructureDefinition targets 
     fhir:mapping @<OneOrMore_BackboneElement>?;  # External specification that the 
                                             # content is mapped to 
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:structure-definition-kind};  # primitive-type | complex-type | 
+    	{fhir:v @fhirvs:structure-definition-kind};  # primitive-type | complex-type | 
                                             # resource | logical 
     fhir:abstract @<boolean>;               # Whether the structure is abstract
     fhir:context @<OneOrMore_BackboneElement>?;  # If an extension, where it can be 
@@ -70,7 +70,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:baseDefinition @<canonical>?;      # Definition that this type is 
                                             # constrained/specialized from 
     fhir:derivation @<code> AND
-    	{fhir:value @fhirvs:type-derivation-rule}?;  # specialization | constraint - How 
+    	{fhir:v @fhirvs:type-derivation-rule}?;  # specialization | constraint - How 
                                             # relates to base definition 
     fhir:snapshot @<BackboneElement>?;      # Snapshot view of the structure
     fhir:differential @<BackboneElement>?;  # Differential view of the structure
@@ -104,7 +104,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # If an extension, where it can be used in instances
 <StructureDefinition.context> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:extension-context-type};  # fhirpath | element | extension
+    	{fhir:v @fhirvs:extension-context-type};  # fhirpath | element | extension
     fhir:expression @<string>;              # Where the extension can be used in 
                                             # instances 
 }  

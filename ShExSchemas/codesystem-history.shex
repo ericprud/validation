@@ -14,7 +14,7 @@ IMPORT <Extension.shex>
     fhir:name @<Extension>?; 
     fhir:revision @<OneOrMore_Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-history"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-history"]}; 
     ^fhir:extension { a [fhir:CodeSystem]
         }
 }  

@@ -25,7 +25,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<Identifier>?;         # Persistent identifier for the 
                                             # bundle 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:bundle-type};  # document | message | transaction | 
+    	{fhir:v @fhirvs:bundle-type};  # document | message | transaction | 
                                             # transaction-response | batch | 
                                             # batch-response | history | 
                                             # searchset | collection | 
@@ -65,7 +65,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Additional execution information (transaction/batch/history)
 <Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
     fhir:method @<code> AND
-    	{fhir:value @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
+    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
                                             # PATCH 
     fhir:url @<uri>;                        # URL for HTTP equivalent of this 
                                             # entry 
@@ -78,7 +78,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Search related information
 <Bundle.entry.search> EXTENDS @<BackboneElement> CLOSED {   
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:search-entry-mode}?;  # match | include | outcome - why 
+    	{fhir:v @fhirvs:search-entry-mode}?;  # match | include | outcome - why 
                                             # this is in the result set 
     fhir:score @<decimal>?;                 # Search ranking (between 0 and 1)
 }  

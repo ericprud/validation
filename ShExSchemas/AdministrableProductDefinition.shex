@@ -30,7 +30,7 @@ start=@<AdministrableProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # An identifier for the 
                                             # administrable product 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:formOf @<OneOrMore_Reference_MedicinalProductDefinition>?;  # References a product from which 
                                             # one or more of the constituent 
                                             # parts of that product can be 
@@ -92,7 +92,7 @@ start=@<AdministrableProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:tissue @<CodeableConcept>;         # The type of tissue for which the 
                                             # withdrawal period applies, e.g. 
                                             # meat, milk 
-    fhir:value @<Quantity>;                 # A value for the time
+    fhir:v @<Quantity>;                 # A value for the time
     fhir:supportingInformation @<string>?;  # Extra information about the 
                                             # withdrawal period 
 }  
@@ -109,7 +109,7 @@ start=@<AdministrableProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <AdministrableProductDefinition.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # A code expressing the type of 
                                             # characteristic 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<date>  OR 
     			@<boolean>  OR 

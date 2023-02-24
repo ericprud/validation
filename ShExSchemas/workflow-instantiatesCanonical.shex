@@ -18,8 +18,8 @@ IMPORT <OperationDefinition.shex>
     a [fhir:workflow-instantiatesCanonical];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-instantiatesCanonical"]}; 
-    fhir:value ((@<canonical>  AND {fhir:link @<ActivityDefinition> OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-instantiatesCanonical"]}; 
+    fhir:v ((@<canonical>  AND {fhir:link @<ActivityDefinition> OR 
     			 @<Measure> OR 
     			 @<OperationDefinition> OR 
     			 @<PlanDefinition> OR 

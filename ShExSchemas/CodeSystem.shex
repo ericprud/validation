@@ -37,7 +37,7 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this code system (human 
                                             # friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -57,13 +57,13 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:valueSet @<canonical>?;            # Canonical reference to the value 
                                             # set with entire code system 
     fhir:hierarchyMeaning @<code> AND
-    	{fhir:value @fhirvs:codesystem-hierarchy-meaning}?;  # grouped-by | is-a | part-of | 
+    	{fhir:v @fhirvs:codesystem-hierarchy-meaning}?;  # grouped-by | is-a | part-of | 
                                             # classified-with 
     fhir:compositional @<boolean>?;         # If code system defines a 
                                             # compositional grammar 
     fhir:versionNeeded @<boolean>?;         # If definitions are not stable
     fhir:content @<code> AND
-    	{fhir:value @fhirvs:codesystem-content-mode};  # not-present | example | fragment | 
+    	{fhir:v @fhirvs:codesystem-content-mode};  # not-present | example | fragment | 
                                             # complete | supplement 
     fhir:supplements @<canonical>?;         # Canonical URL of Code System this 
                                             # adds designations and properties 
@@ -93,7 +93,7 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:language @<code>?;                 # Human language of the designation
     fhir:use @<Coding>?;                    # Details how this designation would 
                                             # be used 
-    fhir:value @<string>;                   # The text value for this designation
+    fhir:v @<string>;                   # The text value for this designation
 }  
 
 # Child Concepts (is-a/contains/categorizes)
@@ -109,7 +109,7 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<string>?;            # Why the property is defined, 
                                             # and/or what it conveys 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:concept-property-type};  # code | Coding | string | integer | 
+    	{fhir:v @fhirvs:concept-property-type};  # code | Coding | string | integer | 
                                             # boolean | dateTime | decimal 
 }  
 
@@ -118,18 +118,18 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<code>;                      # Code that identifies the filter
     fhir:description @<string>?;            # How or why the filter is used
     fhir:operator @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:filter-operator};  # = | is-a | descendent-of | 
+    	{fhir:v @fhirvs:filter-operator};  # = | is-a | descendent-of | 
                                             # is-not-a | regex | in | not-in | 
                                             # generalizes | child-of | 
                                             # descendent-leaf | exists 
-    fhir:value @<string>;                   # What to use for the value
+    fhir:v @<string>;                   # What to use for the value
 }  
 
 # Property value for the concept
 <CodeSystem.concept.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code>;                      # Reference to 
                                             # CodeSystem.property.code 
-    fhir:value (@<code>  OR 
+    fhir:v (@<code>  OR 
     			@<Coding>  OR 
     			@<string>  OR 
     			@<integer>  OR 

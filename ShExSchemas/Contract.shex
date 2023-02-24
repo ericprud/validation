@@ -54,7 +54,7 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:url @<uri>?;                       # Basal definition
     fhir:version @<string>?;                # Business edition
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:contract-status}?;  # amended | appended | cancelled | 
+    	{fhir:v @fhirvs:contract-status}?;  # amended | appended | cancelled | 
                                             # disputed | entered-in-error | 
                                             # executable + 
     fhir:legalState @<CodeableConcept>?;    # Negotiation status
@@ -283,7 +283,7 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<PractitionerRole> }?;  # Publisher Entity
     fhir:publicationDate @<dateTime>?;      # When published
     fhir:publicationStatus @<code> AND
-    	{fhir:value @fhirvs:contract-publicationstatus};  # amended | appended | cancelled | 
+    	{fhir:v @fhirvs:contract-publicationstatus};  # amended | appended | cancelled | 
                                             # disputed | entered-in-error | 
                                             # executable + 
     fhir:copyright @<markdown>?;            # Publication Ownership
@@ -312,7 +312,7 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Response to offer text
 <Contract.term.offer.answer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<boolean>  OR 
+    fhir:v (@<boolean>  OR 
     			@<decimal>  OR 
     			@<integer>  OR 
     			@<date>  OR 

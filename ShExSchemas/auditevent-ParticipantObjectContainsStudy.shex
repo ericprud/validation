@@ -13,8 +13,8 @@ IMPORT <Identifier.shex>
     a [fhir:auditevent-ParticipantObjectContainsStudy];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/auditevent-ParticipantObjectContainsStudy"]}; 
-    fhir:value (@<Identifier> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/auditevent-ParticipantObjectContainsStudy"]}; 
+    fhir:v (@<Identifier> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}
         }
 }  

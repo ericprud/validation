@@ -20,7 +20,7 @@ IMPORT <CodeableConcept.shex>
     a [fhir:Product];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:product-status};  # active | inactive | 
+    	{fhir:v @fhirvs:product-status};  # active | inactive | 
                                             # entered-in-error 
     fhir:category @<OneOrMore_CodeableConcept>?;  # A category or class of the product
     fhir:code @<CodeableConcept>?;          # A code designating a specific type 

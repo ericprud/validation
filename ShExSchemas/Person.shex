@@ -31,7 +31,7 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<OneOrMore_HumanName>?;      # A name associated with the person
     fhir:telecom @<OneOrMore_ContactPoint>?;  # A contact detail for the person
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:birthDate @<date>?;                # The date on which the person was 
                                             # born 
     fhir:deceased (@<boolean>  OR 
@@ -68,7 +68,7 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> };  # The resource to which this actual 
                                             # person is associated 
     fhir:assurance @<code> AND
-    	{fhir:value @fhirvs:identity-assuranceLevel}?;  # level1 | level2 | level3 | level4
+    	{fhir:v @fhirvs:identity-assuranceLevel}?;  # level1 | level2 | level3 | level4
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

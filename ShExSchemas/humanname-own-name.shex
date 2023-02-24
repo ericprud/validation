@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:humanname-own-name];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/humanname-own-name"]}; 
-    fhir:value (@<string> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/humanname-own-name"]}; 
+    fhir:v (@<string> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:family {a [fhir:HumanName]}
         }
 }  

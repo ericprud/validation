@@ -18,12 +18,12 @@ IMPORT <CodeableConcept.shex>
     a [fhir:Identifier];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:identifier-use}?;  # usual | official | temp | 
+    	{fhir:v @fhirvs:identifier-use}?;  # usual | official | temp | 
                                             # secondary | old (If known) 
     fhir:type @<CodeableConcept>?;          # Description of identifier
     fhir:system @<uri>?;                    # The namespace for the identifier 
                                             # value 
-    fhir:value @<string>?;                  # The value that is unique
+    fhir:v @<string>?;                  # The value that is unique
     fhir:period @<Period>?;                 # Time period when id is/was valid 
                                             # for use 
     fhir:assigner @<Reference> AND {fhir:link 

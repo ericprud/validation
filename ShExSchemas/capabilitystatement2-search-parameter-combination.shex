@@ -14,7 +14,7 @@ IMPORT <Extension.shex>
     fhir:required @<OneOrMore_Extension>; 
     fhir:optional @<OneOrMore_Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement2-search-parameter-combination"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/capabilitystatement2-search-parameter-combination"]}; 
     ^fhir:extension { ^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement2]}}
         }
 }  

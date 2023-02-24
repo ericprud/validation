@@ -36,7 +36,7 @@ start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:basedOn @<OneOrMore_Reference_SupplyRequest>?;  # Fulfills plan, proposal or order
     fhir:partOf @<OneOrMore_Reference_Contract_OR_SupplyDelivery>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:supplydelivery-status}?;  # in-progress | completed | 
+    	{fhir:v @fhirvs:supplydelivery-status}?;  # in-progress | completed | 
                                             # abandoned | entered-in-error 
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> }?;  # Patient for whom the item is 

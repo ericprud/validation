@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:structuredefinition-display-hint];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"]}; 
-    fhir:value (@<string> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"]}; 
+    fhir:v (@<string> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:ElementDefinition]
         }
 }  

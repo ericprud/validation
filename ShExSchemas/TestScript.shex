@@ -40,7 +40,7 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this test script (human 
                                             # friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -159,7 +159,7 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
 # Each operation can have one or more header elements
 <TestScript.setup.action.operation.requestHeader> EXTENDS @<BackboneElement> CLOSED {   
     fhir:field @<string>;                   # HTTP header field name
-    fhir:value @<string>;                   # HTTP headerfield value
+    fhir:v @<string>;                   # HTTP headerfield value
 }  
 
 # A setup operation or assert to perform
@@ -174,7 +174,7 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<string>?;            # Tracking/reporting assertion 
                                             # description 
     fhir:direction @<code> AND
-    	{fhir:value @fhirvs:assert-direction-codes}?;  # response | request
+    	{fhir:v @fhirvs:assert-direction-codes}?;  # response | request
     fhir:compareToSourceId @<string>?;      # Id of the source fixture to be 
                                             # evaluated 
     fhir:compareToSourceExpression @<string>?;  # The FHIRPath expression to 
@@ -184,7 +184,7 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # evaluate against the source 
                                             # fixture 
     fhir:contentType @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Mime type to compare against the 
+    	{fhir:v @fhirvs:mimetypes}?;  # Mime type to compare against the 
                                             # 'Content-Type' header 
     fhir:expression @<string>?;             # The FHIRPath expression to be 
                                             # evaluated 
@@ -194,19 +194,19 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:navigationLinks @<boolean>?;       # Perform validation on navigation 
                                             # links? 
     fhir:operator @<code> AND
-    	{fhir:value @fhirvs:assert-operator-codes}?;  # equals | notEquals | in | notIn | 
+    	{fhir:v @fhirvs:assert-operator-codes}?;  # equals | notEquals | in | notIn | 
                                             # greaterThan | lessThan | empty | 
                                             # notEmpty | contains | notContains 
                                             # | eval 
     fhir:path @<string>?;                   # XPath or JSONPath expression
     fhir:requestMethod @<code> AND
-    	{fhir:value @fhirvs:http-operations}?;  # delete | get | options | patch | 
+    	{fhir:v @fhirvs:http-operations}?;  # delete | get | options | patch | 
                                             # post | put | head 
     fhir:requestURL @<string>?;             # Request URL comparison value
     fhir:resource @<code> AND
-    	{fhir:value @fhirvs:defined-types}?;  # Resource type
+    	{fhir:v @fhirvs:defined-types}?;  # Resource type
     fhir:response @<code> AND
-    	{fhir:value @fhirvs:assert-response-code-types}?;  # okay | created | noContent | 
+    	{fhir:v @fhirvs:assert-response-code-types}?;  # okay | created | noContent | 
                                             # notModified | bad | forbidden | 
                                             # notFound | methodNotAllowed | 
                                             # conflict | gone | 
@@ -218,7 +218,7 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # current test execution stop? 
     fhir:validateProfileId @<id>?;          # Profile Id of validation profile 
                                             # reference 
-    fhir:value @<string>?;                  # The value to compare to
+    fhir:v @<string>?;                  # The value to compare to
     fhir:warningOnly @<boolean>;            # Will this assert produce a warning 
                                             # only on error? 
 }  
@@ -238,16 +238,16 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<string>?;            # Tracking/reporting operation 
                                             # description 
     fhir:accept @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Mime type to accept in the payload 
+    	{fhir:v @fhirvs:mimetypes}?;  # Mime type to accept in the payload 
                                             # of the response, with charset etc. 
     fhir:contentType @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Mime type of the request payload 
+    	{fhir:v @fhirvs:mimetypes}?;  # Mime type of the request payload 
                                             # contents, with charset etc. 
     fhir:destination @<integer>?;           # Server responding to the request
     fhir:encodeRequestUrl @<boolean>;       # Whether or not to send the request 
                                             # url in encoded format 
     fhir:method @<code> AND
-    	{fhir:value @fhirvs:http-operations}?;  # delete | get | options | patch | 
+    	{fhir:v @fhirvs:http-operations}?;  # delete | get | options | patch | 
                                             # post | put | head 
     fhir:origin @<integer>?;                # Server initiating the request
     fhir:params @<string>?;                 # Explicitly defined path parameters

@@ -37,13 +37,13 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for 
                                             # SupplyRequest 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:supplyrequest-status}?;  # draft | active | suspended +
+    	{fhir:v @fhirvs:supplyrequest-status}?;  # draft | active | suspended +
     fhir:basedOn @<OneOrMore_Reference_Resource>?;  # What other request is fulfilled by 
                                             # this supply request 
     fhir:category @<CodeableConcept>?;      # The kind of supply (central, 
                                             # non-stock, etc.) 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:item @<CodeableReference>;         # Medication, Substance, or Device 
                                             # requested to be supplied 
     fhir:quantity @<Quantity>;              # The requested amount of the item 
@@ -78,7 +78,7 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 # Ordered item details
 <SupplyRequest.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>?;          # Item detail
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
     			@<boolean> )  AND { rdf:type IRI } ?;  # Value of detail

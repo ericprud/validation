@@ -33,7 +33,7 @@ start=@<SearchParameter> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:derivedFrom @<canonical>?;         # Original definition for the search 
                                             # parameter 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -50,28 +50,28 @@ start=@<SearchParameter> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # defined 
     fhir:code @<code>;                      # Code used in URL
     fhir:base @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:resource-types};  # The resource type(s) this search 
+    	{fhir:v @fhirvs:resource-types};  # The resource type(s) this search 
                                             # parameter applies to 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:search-param-type};  # number | date | string | token | 
+    	{fhir:v @fhirvs:search-param-type};  # number | date | string | token | 
                                             # reference | composite | quantity | 
                                             # uri | special 
     fhir:expression @<string>?;             # FHIRPath expression that extracts 
                                             # the values 
     fhir:xpath @<string>?;                  # XPath that extracts the values
     fhir:xpathUsage @<code> AND
-    	{fhir:value @fhirvs:search-xpath-usage}?;  # normal | phonetic | other
+    	{fhir:v @fhirvs:search-xpath-usage}?;  # normal | phonetic | other
     fhir:target @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:resource-types}?;  # Types of resource (if a resource 
+    	{fhir:v @fhirvs:resource-types}?;  # Types of resource (if a resource 
                                             # reference) 
     fhir:multipleOr @<boolean>?;            # Allow multiple values per 
                                             # parameter (or) 
     fhir:multipleAnd @<boolean>?;           # Allow multiple parameters (and)
     fhir:comparator @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:search-comparator}?;  # eq | ne | gt | lt | ge | le | sa | 
+    	{fhir:v @fhirvs:search-comparator}?;  # eq | ne | gt | lt | ge | le | sa | 
                                             # eb | ap 
     fhir:modifier @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:search-modifier-code}?;  # missing | exact | contains | not | 
+    	{fhir:v @fhirvs:search-modifier-code}?;  # missing | exact | contains | not | 
                                             # text | in | not-in | below | above 
                                             # | type | identifier | ofType 
     fhir:chain @<OneOrMore_string>?;        # Chained names supported

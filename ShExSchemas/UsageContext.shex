@@ -23,7 +23,7 @@ IMPORT <HealthcareService.shex>
     a [fhir:UsageContext];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:code @<Coding>;                    # Type of context being specified
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
     			(@<Reference>  AND {fhir:link @<PlanDefinition> OR 

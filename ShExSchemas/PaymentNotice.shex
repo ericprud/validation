@@ -27,7 +27,7 @@ start=@<PaymentNotice> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for the 
                                             # payment noctice 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:request @<Reference> AND {fhir:link 
     			@<Resource> }?;  # Request reference

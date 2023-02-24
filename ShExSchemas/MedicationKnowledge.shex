@@ -42,7 +42,7 @@ start=@<MedicationKnowledge> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>?;          # Code that identifies this 
                                             # medication 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:medicationknowledge-status}?;  # active | entered-in-error | 
+    	{fhir:v @fhirvs:medicationknowledge-status}?;  # active | entered-in-error | 
                                             # inactive 
     fhir:author @<Reference> AND {fhir:link 
     			@<Organization> }?;  # Creator or owner of the knowledge 
@@ -94,7 +94,7 @@ start=@<MedicationKnowledge> AND {fhir:nodeRole [fhir:treeRoot]}
 # Setting or value of environment for adequate storage
 <MedicationKnowledge.storageGuideline.environmentalSetting> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Categorization of the setting
-    fhir:value (@<Quantity>  OR 
+    fhir:v (@<Quantity>  OR 
     			@<Range>  OR 
     			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Value of the setting
 }  
@@ -127,7 +127,7 @@ start=@<MedicationKnowledge> AND {fhir:nodeRole [fhir:treeRoot]}
 <MedicationKnowledge.definitional.drugCharacteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # Code specifying the type of 
                                             # characteristic of medication 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<SimpleQuantity>  OR 
     			@<base64Binary>  OR 
@@ -256,7 +256,7 @@ start=@<MedicationKnowledge> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>;           # Categorization of specific 
                                             # characteristic that is relevant to 
                                             # the administration guideline 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range> )  AND { rdf:type IRI } ?;  # The specific characteristic
 }  

@@ -35,7 +35,7 @@ start=@<MedicationUsage> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # External identifier
     fhir:partOf @<OneOrMore_Reference_Procedure>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:medication-usage-status};  # recorded | entered-in-error | draft
+    	{fhir:v @fhirvs:medication-usage-status};  # recorded | entered-in-error | draft
     fhir:category @<OneOrMore_CodeableConcept>?;  # Type of medication usage
     fhir:medication @<CodeableReference>;   # What medication was taken
     fhir:subject @<Reference> AND {fhir:link 

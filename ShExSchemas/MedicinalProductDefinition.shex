@@ -124,7 +124,7 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <MedicinalProductDefinition.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # A code expressing the type of 
                                             # characteristic 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<Quantity>  OR 
     			@<integer>  OR 

@@ -14,7 +14,7 @@ IMPORT <code.shex>
     fhir:birthDate @<date>?;                # The date of birth for the 
                                             # individual 
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:photo @<OneOrMore_Attachment>?;    # Image of the participant
     fhir:communication @<OneOrMore_CodeableConcept>?;  # The language which can be used to 
                                             # communicate with the participant 

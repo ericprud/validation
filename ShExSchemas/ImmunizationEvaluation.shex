@@ -23,7 +23,7 @@ start=@<ImmunizationEvaluation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:immunization-evaluation-status};  # completed | entered-in-error
+    	{fhir:v @fhirvs:immunization-evaluation-status};  # completed | entered-in-error
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> };  # Who this evaluation is for
     fhir:date @<dateTime>?;                 # Date evaluation was performed

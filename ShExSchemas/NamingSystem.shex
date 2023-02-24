@@ -32,9 +32,9 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Title for this naming system 
                                             # (human friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:namingsystem-type};  # codesystem | identifier | root
+    	{fhir:v @fhirvs:namingsystem-type};  # codesystem | identifier | root
     fhir:date @<dateTime>;                  # Date last changed
     fhir:publisher @<string>?;              # Name of the publisher 
                                             # (organization or individual) 
@@ -55,9 +55,9 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
 # Unique identifiers used for system
 <NamingSystem.uniqueId> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:namingsystem-identifier-type};  # oid | uuid | uri | v2csmnemonic | 
+    	{fhir:v @fhirvs:namingsystem-identifier-type};  # oid | uuid | uri | v2csmnemonic | 
                                             # other 
-    fhir:value @<string>;                   # The unique identifier
+    fhir:v @<string>;                   # The unique identifier
     fhir:preferred @<boolean>?;             # Is this the id that should be used 
                                             # for this type 
     fhir:comment @<string>?;                # Notes about identifier usage

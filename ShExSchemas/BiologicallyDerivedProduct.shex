@@ -80,7 +80,7 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
 # A property that is specific to this BiologicallyDerviedProduct instance
 <BiologicallyDerivedProduct.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<Coding>;                    # Code that specifies the property
-    fhir:value (@<boolean>  OR 
+    fhir:v (@<boolean>  OR 
     			@<integer>  OR 
     			@<CodeableConcept>  OR 
     			@<Period>  OR 

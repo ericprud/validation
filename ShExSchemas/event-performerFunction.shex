@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:event-performerFunction];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-performerFunction"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/event-performerFunction"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:performer {a [fhir:Observation]} OR 
           ^fhir:performer {a [fhir:DiagnosticReport]} OR 
           ^fhir:author {a [fhir:DocumentReference]} OR 

@@ -32,7 +32,7 @@ start=@<ClinicalImpression> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:event-status};  # preparation | in-progress | 
+    	{fhir:v @fhirvs:event-status};  # preparation | in-progress | 
                                             # not-done | on-hold | stopped | 
                                             # completed | entered-in-error | 
                                             # unknown 

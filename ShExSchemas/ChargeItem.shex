@@ -51,7 +51,7 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:definitionCanonical @<OneOrMore_canonical>?;  # Resource defining the code of this 
                                             # ChargeItem 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:chargeitem-status};  # planned | billable | not-billable 
+    	{fhir:v @fhirvs:chargeitem-status};  # planned | billable | not-billable 
                                             # | aborted | billed | 
                                             # entered-in-error | unknown 
     fhir:partOf @<OneOrMore_Reference_ChargeItem>?;  # Part of referenced ChargeItem

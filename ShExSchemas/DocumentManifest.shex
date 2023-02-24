@@ -33,7 +33,7 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # documents 
     fhir:identifier @<OneOrMore_Identifier>?;  # Other identifiers for the manifest
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:document-reference-status};  # current | superseded | 
+    	{fhir:v @fhirvs:document-reference-status};  # current | superseded | 
                                             # entered-in-error 
     fhir:type @<CodeableConcept>?;          # Kind of document set
     fhir:subject @<Reference> AND {fhir:link 

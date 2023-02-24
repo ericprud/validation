@@ -32,9 +32,9 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this operation definition 
                                             # (human friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:operation-kind};  # operation | query
+    	{fhir:v @fhirvs:operation-kind};  # operation | query
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -56,7 +56,7 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:comment @<markdown>?;              # Additional information about use
     fhir:base @<canonical>?;                # Marks this as a profile of the base
     fhir:resource @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:resource-types}?;  # Types this operation applies to
+    	{fhir:v @fhirvs:resource-types}?;  # Types this operation applies to
     fhir:system @<boolean>;                 # Invoke at the system level?
     fhir:type @<boolean>;                   # Invoke at the type level?
     fhir:instance @<boolean>;               # Invoke on an instance?
@@ -74,16 +74,16 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<code>;                      # Name in Parameters.parameter.name 
                                             # or in URL 
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:operation-parameter-use};  # in | out
+    	{fhir:v @fhirvs:operation-parameter-use};  # in | out
     fhir:min @<integer>;                    # Minimum Cardinality
     fhir:max @<string>;                     # Maximum Cardinality (a number or *)
     fhir:documentation @<string>?;          # Description of meaning/use
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:all-types}?;  # What type this parameter has
+    	{fhir:v @fhirvs:all-types}?;  # What type this parameter has
     fhir:targetProfile @<OneOrMore_canonical>?;  # If type is Reference | canonical, 
                                             # allowed targets 
     fhir:searchType @<code> AND
-    	{fhir:value @fhirvs:search-param-type}?;  # number | date | string | token | 
+    	{fhir:v @fhirvs:search-param-type}?;  # number | date | string | token | 
                                             # reference | composite | quantity | 
                                             # uri | special 
     fhir:binding @<BackboneElement>?;       # ValueSet details if this is coded
@@ -105,7 +105,7 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # ValueSet details if this is coded
 <OperationDefinition.parameter.binding> EXTENDS @<BackboneElement> CLOSED {   
     fhir:strength @<code> AND
-    	{fhir:value @fhirvs:binding-strength};  # required | extensible | preferred 
+    	{fhir:v @fhirvs:binding-strength};  # required | extensible | preferred 
                                             # | example 
     fhir:valueSet @<canonical>;             # Source of value set
 }  

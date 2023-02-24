@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:condition-assertedDate];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/condition-assertedDate"]}; 
-    fhir:value (@<dateTime> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/condition-assertedDate"]}; 
+    fhir:v (@<dateTime> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Condition]
         }
 }  

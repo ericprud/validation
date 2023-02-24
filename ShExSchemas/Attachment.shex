@@ -19,7 +19,7 @@ IMPORT <base64Binary.shex>
     a [fhir:Attachment];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:contentType @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Mime type of the content, with 
+    	{fhir:v @fhirvs:mimetypes}?;  # Mime type of the content, with 
                                             # charset etc. 
     fhir:language @<code>?;                 # Human language of the content 
                                             # (BCP-47) 

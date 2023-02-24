@@ -36,11 +36,11 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for coverage 
                                             # eligiblity request 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:priority @<CodeableConcept>?;      # Desired processing priority
     fhir:purpose @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:eligibilityrequest-purpose};  # auth-requirements | benefits | 
+    	{fhir:v @fhirvs:eligibilityrequest-purpose};  # auth-requirements | benefits | 
                                             # discovery | validation 
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> };  # Intended recipient of products and 

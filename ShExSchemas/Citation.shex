@@ -43,7 +43,7 @@ start=@<Citation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this citation (human 
                                             # friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -89,7 +89,7 @@ start=@<Citation> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The defined version of the cited artifact
 <Citation.citedArtifact.version> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<string>;                   # The version number or other 
+    fhir:v @<string>;                   # The version number or other 
                                             # version identifier 
     fhir:baseCitation @<Reference> AND {fhir:link 
     			@<Citation> }?;  # Citation for the main version of 
@@ -110,7 +110,7 @@ start=@<Citation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:style @<CodeableConcept>?;         # The format for the display string
     fhir:source @<CodeableConcept>?;        # Used to code the producer or rule 
                                             # for creating the display string 
-    fhir:value @<markdown>;                 # The display string for the author 
+    fhir:v @<markdown>;                 # The display string for the author 
                                             # list, contributor list, or 
                                             # contributorship statement 
 }  
@@ -175,7 +175,7 @@ start=@<Citation> AND {fhir:nodeRole [fhir:treeRoot]}
 # The artifact related to the cited artifact
 <Citation.citedArtifact.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:related-artifact-type-expanded};  # documentation | justification | 
+    	{fhir:v @fhirvs:related-artifact-type-expanded};  # documentation | justification | 
                                             # predecessor | successor | 
                                             # derived-from | depends-on | 
                                             # composed-of | part-of | amends | 
@@ -253,7 +253,7 @@ start=@<Citation> AND {fhir:nodeRole [fhir:treeRoot]}
 # The component of the article or artifact
 <Citation.citedArtifact.part> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # The kind of component
-    fhir:value @<string>?;                  # The specification of the component
+    fhir:v @<string>?;                  # The specification of the component
     fhir:baseCitation @<Reference> AND {fhir:link 
     			@<Citation> }?;  # The citation for the full article 
                                             # or artifact 

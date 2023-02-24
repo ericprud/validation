@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:ordinalValue];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/ordinalValue"]}; 
-    fhir:value (@<decimal> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/ordinalValue"]}; 
+    fhir:v (@<decimal> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Coding] OR 
           ^fhir:answerOption {^fhir:item {a [fhir:Questionnaire]}} OR 
           ^fhir:concept {a [fhir:CodeSystem]} OR 

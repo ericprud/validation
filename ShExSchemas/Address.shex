@@ -14,10 +14,10 @@ IMPORT <DataType.shex>
     a [fhir:Address];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:address-use}?;  # home | work | temp | old | billing 
+    	{fhir:v @fhirvs:address-use}?;  # home | work | temp | old | billing 
                                             # - purpose of this address 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:address-type}?;  # postal | physical | both
+    	{fhir:v @fhirvs:address-type}?;  # postal | physical | both
     fhir:text @<string>?;                   # Text representation of the address
     fhir:line @<OneOrMore_string>?;         # Street name, number, direction & 
                                             # P.O. Box etc. 

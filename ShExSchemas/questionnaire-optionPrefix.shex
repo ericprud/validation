@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:questionnaire-optionPrefix];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix"]}; 
-    fhir:value (@<string> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix"]}; 
+    fhir:v (@<string> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:answerOption {^fhir:item {a [fhir:Questionnaire]}}
         }
 }  

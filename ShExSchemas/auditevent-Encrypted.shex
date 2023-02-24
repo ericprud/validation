@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:auditevent-Encrypted];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/auditevent-Encrypted"]}; 
-    fhir:value (@<boolean> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/auditevent-Encrypted"]}; 
+    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}
         }
 }  

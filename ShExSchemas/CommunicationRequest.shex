@@ -40,18 +40,18 @@ start=@<CommunicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:replaces @<OneOrMore_Reference_CommunicationRequest>?;  # Request(s) replaced by this request
     fhir:groupIdentifier @<Identifier>?;    # Composite request this is part of
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:request-status};  # draft | active | on-hold | revoked 
+    	{fhir:v @fhirvs:request-status};  # draft | active | on-hold | revoked 
                                             # | completed | entered-in-error | 
                                             # unknown 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:request-intent};  # proposal | plan | directive | 
+    	{fhir:v @fhirvs:request-intent};  # proposal | plan | directive | 
                                             # order | original-order | 
                                             # reflex-order | filler-order | 
                                             # instance-order | option 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Message category
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:doNotPerform @<boolean>?;          # True if request is prohibiting 
                                             # action 
     fhir:medium @<OneOrMore_CodeableConcept>?;  # A channel of communication

@@ -27,7 +27,7 @@ start=@<Permission> AND {fhir:nodeRole [fhir:treeRoot]}
     a [fhir:Permission];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:permission-status};  # active | entered-in-error | draft 
+    	{fhir:v @fhirvs:permission-status};  # active | entered-in-error | draft 
                                             # | rejected 
     fhir:intent @<CodeableConcept>?;        # grant|refuse
     fhir:asserter @<Reference> AND {fhir:link 

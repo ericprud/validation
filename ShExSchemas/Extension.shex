@@ -64,7 +64,7 @@ IMPORT <ParameterDefinition.shex>
     a [fhir:Extension];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri>; 
-    fhir:value (@<base64Binary>  OR 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 

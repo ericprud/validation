@@ -19,7 +19,7 @@ IMPORT <Expression.shex>
     a [fhir:TriggerDefinition];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:trigger-type};  # named-event | periodic | 
+    	{fhir:v @fhirvs:trigger-type};  # named-event | periodic | 
                                             # data-changed | data-added | 
                                             # data-modified | data-removed | 
                                             # data-accessed | data-access-ended 

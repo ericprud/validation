@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:artifact-purpose];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-purpose"]}; 
-    fhir:value (@<markdown> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-purpose"]}; 
+    fhir:v (@<markdown> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

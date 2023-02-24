@@ -45,7 +45,7 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifier(s) by which this 
                                             # encounter is known 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:encounter-status};  # planned | in-progress | onhold | 
+    	{fhir:v @fhirvs:encounter-status};  # planned | in-progress | onhold | 
                                             # completed | cancelled | 
                                             # entered-in-error | unknown 
     fhir:statusHistory @<OneOrMore_BackboneElement>?;  # List of past encounter statuses
@@ -158,7 +158,7 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
 # List of past encounter statuses
 <Encounter.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:encounter-status};  # planned | in-progress | onhold | 
+    	{fhir:v @fhirvs:encounter-status};  # planned | in-progress | onhold | 
                                             # completed | cancelled | 
                                             # entered-in-error | unknown 
     fhir:period @<Period>;                  # The time that the episode was in 
@@ -170,7 +170,7 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:location @<Reference> AND {fhir:link 
     			@<Location> };  # Location the encounter takes place
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:encounter-location-status}?;  # planned | active | reserved | 
+    	{fhir:v @fhirvs:encounter-location-status}?;  # planned | active | reserved | 
                                             # completed 
     fhir:physicalType @<CodeableConcept>?;  # The physical type of the location 
                                             # (usually the level in the location 

@@ -19,7 +19,7 @@ IMPORT <markdown.shex>
                                             # (globally unique) 
     fhir:version @<string>;                 # Business version of the {{title}}
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:publisher @<string>;               # Name of the publisher (or steward) 

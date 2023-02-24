@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:messageheader-response-request];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/messageheader-response-request"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:messageheader-response-request} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/messageheader-response-request"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:messageheader-response-request} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:MessageHeader]
         }
 }  

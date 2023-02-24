@@ -11,11 +11,11 @@ IMPORT <Extension.shex>
 
     a [fhir:individual-pronouns];
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:value @<Extension>; 
+    fhir:v @<Extension>; 
     fhir:period @<Extension>?; 
     fhir:comment @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/individual-pronouns"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/individual-pronouns"]}; 
     ^fhir:extension { a [fhir:Patient] OR 
           a [fhir:RelatedPerson] OR 
           a [fhir:Person] OR 

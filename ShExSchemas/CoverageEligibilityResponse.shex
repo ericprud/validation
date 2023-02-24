@@ -34,10 +34,10 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for coverage 
                                             # eligiblity request 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:purpose @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:eligibilityresponse-purpose};  # auth-requirements | benefits | 
+    	{fhir:v @fhirvs:eligibilityresponse-purpose};  # auth-requirements | benefits | 
                                             # discovery | validation 
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> };  # Intended recipient of products and 
@@ -52,7 +52,7 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:request @<Reference> AND {fhir:link 
     			@<CoverageEligibilityRequest> };  # Eligibility request reference
     fhir:outcome @<code> AND
-    	{fhir:value @fhirvs:eligibility-outcome};  # queued | complete | error | partial
+    	{fhir:v @fhirvs:eligibility-outcome};  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition Message
     fhir:insurer @<Reference> AND {fhir:link 
     			@<Organization> };  # Coverage issuer

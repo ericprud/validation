@@ -66,8 +66,8 @@ IMPORT <ParameterDefinition.shex>
     fhir:option @<OneOrMore_Extension>; 
     fhir:expression @<Extension>; 
     fhir:url @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"]}; 
-    fhir:value (@<base64Binary>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"]}; 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 

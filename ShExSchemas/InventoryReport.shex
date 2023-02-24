@@ -30,10 +30,10 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifiers for the report
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:inventoryreport-status};  # draft | requested | active | 
+    	{fhir:v @fhirvs:inventoryreport-status};  # draft | requested | active | 
                                             # entered-in-error 
     fhir:countType @<code> AND
-    	{fhir:value @fhirvs:inventoryreport-counttype};  # snapshot | difference
+    	{fhir:v @fhirvs:inventoryreport-counttype};  # snapshot | difference
     fhir:operationType @<CodeableConcept>?;  # addition | subtraction
     fhir:operationTypeReason @<CodeableConcept>?;  # The reason for this count - 
                                             # regular count, ad-hoc count, new 

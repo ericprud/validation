@@ -14,8 +14,8 @@ IMPORT <Extension.shex>
     a [fhir:specimen-processingTime];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/specimen-processingTime"]}; 
-    fhir:value (@<Period>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/specimen-processingTime"]}; 
+    fhir:v (@<Period>  OR 
     			@<Duration> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:processing {a [fhir:Specimen]}
         }

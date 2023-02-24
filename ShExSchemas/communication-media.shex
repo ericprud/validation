@@ -13,8 +13,8 @@ IMPORT <Attachment.shex>
     a [fhir:communication-media];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/communication-media"]}; 
-    fhir:value (@<Attachment> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/communication-media"]}; 
+    fhir:v (@<Attachment> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Communication]
         }
 }  

@@ -29,7 +29,7 @@ start=@<CompartmentDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>;                    # Name for this compartment 
                                             # definition (computer friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -43,7 +43,7 @@ start=@<CompartmentDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:purpose @<markdown>?;              # Why this compartment definition is 
                                             # defined 
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:compartment-type};  # Patient | Encounter | 
+    	{fhir:v @fhirvs:compartment-type};  # Patient | Encounter | 
                                             # RelatedPerson | Practitioner | 
                                             # Device 
     fhir:search @<boolean>;                 # Whether the search syntax is 
@@ -55,7 +55,7 @@ start=@<CompartmentDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # How a resource is related to the compartment
 <CompartmentDefinition.resource> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:resource-types};  # Name of resource type
+    	{fhir:v @fhirvs:resource-types};  # Name of resource type
     fhir:param @<OneOrMore_string>?;        # Search Parameter Name, or chained 
                                             # parameters 
     fhir:documentation @<string>?;          # Additional documentation about the 

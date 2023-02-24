@@ -14,8 +14,8 @@ IMPORT <StructureDefinition.shex>
     a [fhir:questionnaire-referenceProfile];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-referenceProfile"]}; 
-    fhir:value ((@<canonical>  AND {fhir:link @<StructureDefinition> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-referenceProfile"]}; 
+    fhir:v ((@<canonical>  AND {fhir:link @<StructureDefinition> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}
         }
 }  

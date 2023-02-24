@@ -50,16 +50,16 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:replaces @<OneOrMore_Reference_Resource>?;  # Request(s) replaced by this request
     fhir:groupIdentifier @<Identifier>?;    # Composite request this is part of
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:request-status};  # draft | active | on-hold | revoked 
+    	{fhir:v @fhirvs:request-status};  # draft | active | on-hold | revoked 
                                             # | completed | entered-in-error | 
                                             # unknown 
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:request-intent};  # proposal | plan | directive | 
+    	{fhir:v @fhirvs:request-intent};  # proposal | plan | directive | 
                                             # order | original-order | 
                                             # reflex-order | filler-order | 
                                             # instance-order | option 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:code @<CodeableConcept>?;          # What's being requested/ordered
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
@@ -86,7 +86,7 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
 <RequestGroup.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
     fhir:targetId @<id>;                    # What action this is related to
     fhir:relationship @<code> AND
-    	{fhir:value @fhirvs:action-relationship-type};  # before-start | before | before-end 
+    	{fhir:v @fhirvs:action-relationship-type};  # before-start | before | before-end 
                                             # | concurrent-with-start | 
                                             # concurrent | concurrent-with-end | 
                                             # after-start | after | after-end 
@@ -107,7 +107,7 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # aspects cannot be interpreted by 
                                             # the receiving system 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:code @<OneOrMore_CodeableConcept>?;  # Code representing the meaning of 
                                             # the action or sub-actions 
     fhir:documentation @<OneOrMore_RelatedArtifact>?;  # Supporting documentation for the 
@@ -127,19 +127,19 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>?;          # create | update | remove | 
                                             # fire-event 
     fhir:groupingBehavior @<code> AND
-    	{fhir:value @fhirvs:action-grouping-behavior}?;  # visual-group | logical-group | 
+    	{fhir:v @fhirvs:action-grouping-behavior}?;  # visual-group | logical-group | 
                                             # sentence-group 
     fhir:selectionBehavior @<code> AND
-    	{fhir:value @fhirvs:action-selection-behavior}?;  # any | all | all-or-none | 
+    	{fhir:v @fhirvs:action-selection-behavior}?;  # any | all | all-or-none | 
                                             # exactly-one | at-most-one | 
                                             # one-or-more 
     fhir:requiredBehavior @<code> AND
-    	{fhir:value @fhirvs:action-required-behavior}?;  # must | could | 
+    	{fhir:v @fhirvs:action-required-behavior}?;  # must | could | 
                                             # must-unless-documented 
     fhir:precheckBehavior @<code> AND
-    	{fhir:value @fhirvs:action-precheck-behavior}?;  # yes | no
+    	{fhir:v @fhirvs:action-precheck-behavior}?;  # yes | no
     fhir:cardinalityBehavior @<code> AND
-    	{fhir:value @fhirvs:action-cardinality-behavior}?;  # single | multiple
+    	{fhir:v @fhirvs:action-cardinality-behavior}?;  # single | multiple
     fhir:resource @<Reference> AND {fhir:link 
     			@<Resource> }?;  # The target of the action
     fhir:action @<OneOrMore_RequestGroup.action>?;  # Sub action
@@ -148,7 +148,7 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
 # Who should perform the action
 <RequestGroup.action.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:action-participant-type}?;  # careteam | device | group | 
+    	{fhir:v @fhirvs:action-participant-type}?;  # careteam | device | group | 
                                             # healthcareservice | location | 
                                             # organization | patient | 
                                             # practitioner | practitionerrole | 
@@ -183,7 +183,7 @@ start=@<RequestGroup> AND {fhir:nodeRole [fhir:treeRoot]}
 # Whether or not the action is applicable
 <RequestGroup.action.condition> EXTENDS @<BackboneElement> CLOSED {   
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:action-condition-kind};  # applicability | start | stop
+    	{fhir:v @fhirvs:action-condition-kind};  # applicability | start | stop
     fhir:expression @<Expression>?;         # Boolean-valued expression
 }  
 

@@ -14,8 +14,8 @@ IMPORT <Reference.shex>
     a [fhir:event-partOf];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-partOf"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Resource> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/event-partOf"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Resource> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:DiagnosticReport] OR 
           a [fhir:Condition]
         }

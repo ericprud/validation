@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:valueset-systemTitle];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-systemTitle"]}; 
-    fhir:value (@<string> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-systemTitle"]}; 
+    fhir:v (@<string> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:include {^fhir:compose {a [fhir:ValueSet]}}
         }
 }  

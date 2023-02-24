@@ -13,8 +13,8 @@ IMPORT <UsageContext.shex>
     a [fhir:artifact-useContext];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-useContext"]}; 
-    fhir:value (@<UsageContext> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-useContext"]}; 
+    fhir:v (@<UsageContext> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

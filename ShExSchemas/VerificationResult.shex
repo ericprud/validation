@@ -31,7 +31,7 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the resource that was validated 
     fhir:need @<CodeableConcept>?;          # none | initial | periodic
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:verificationresult-status};  # attested | validated | in-process 
+    	{fhir:v @fhirvs:verificationresult-status};  # attested | validated | in-process 
                                             # | req-revalid | val-fail | 
                                             # reval-fail 
     fhir:statusDate @<dateTime>?;           # When the validation status was 

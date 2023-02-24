@@ -34,7 +34,7 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this capability 
                                             # statement2 (human friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>;                  # Date last changed
@@ -52,7 +52,7 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # defined 
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:capability-statement-kind};  # instance | capability | 
+    	{fhir:v @fhirvs:capability-statement-kind};  # instance | capability | 
                                             # requirements 
     fhir:instantiates @<OneOrMore_canonical>?;  # Canonical URL of another 
                                             # capability statement this 
@@ -64,12 +64,12 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:implementation @<BackboneElement>?;  # If this describes a specific 
                                             # instance 
     fhir:fhirVersion @<code> AND
-    	{fhir:value @fhirvs:FHIR-version};  # FHIR Version the system supports
+    	{fhir:v @fhirvs:FHIR-version};  # FHIR Version the system supports
     fhir:format @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:mimetypes};  # formats supported (xml | json | 
+    	{fhir:v @fhirvs:mimetypes};  # formats supported (xml | json | 
                                             # ttl | mime type) 
     fhir:patchFormat @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Patch formats supported
+    	{fhir:v @fhirvs:mimetypes}?;  # Patch formats supported
     fhir:implementationGuide @<OneOrMore_canonical>?;  # Implementation guides supported
     fhir:rest @<OneOrMore_BackboneElement>?;  # If the endpoint is a RESTful one
 }  
@@ -85,7 +85,7 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
 # If the endpoint is a RESTful one
 <CapabilityStatement2.rest> EXTENDS @<BackboneElement> CLOSED {   
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:restful-capability-mode};  # client | server
+    	{fhir:v @fhirvs:restful-capability-mode};  # client | server
     fhir:documentation @<markdown>?;        # General description of 
                                             # implementation 
     fhir:feature @<OneOrMore_BackboneElement>?;  # Statement of support for a feature
@@ -111,7 +111,7 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>;                    # Name of search parameter
     fhir:definition @<canonical>?;          # Source of definition for parameter
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:search-param-type};  # number | date | string | token | 
+    	{fhir:v @fhirvs:search-param-type};  # number | date | string | token | 
                                             # reference | composite | quantity | 
                                             # uri | special 
     fhir:documentation @<markdown>?;        # Server-specific usage
@@ -133,7 +133,7 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
 # What operations are supported?
 <CapabilityStatement2.rest.interaction> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:system-restful-interaction};  # transaction | batch | 
+    	{fhir:v @fhirvs:system-restful-interaction};  # transaction | batch | 
                                             # search-system | history-system 
     fhir:documentation @<markdown>?;        # Anything special about operation 
                                             # behavior 
@@ -144,16 +144,16 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
 # Statement of support for a feature
 <CapabilityStatement2.rest.feature> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:capability-feature};  # Feature that is being reported
-    fhir:value @<code> AND
-    	{fhir:value @fhirvs:capability-feature-value};  # Value of the feature (true, false, 
+    	{fhir:v @fhirvs:capability-feature};  # Feature that is being reported
+    fhir:v @<code> AND
+    	{fhir:v @fhirvs:capability-feature-value};  # Value of the feature (true, false, 
                                             # or a code) 
 }  
 
 # Resource served on the REST interface
 <CapabilityStatement2.rest.resource> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:resource-types};  # A resource type that is supported
+    	{fhir:v @fhirvs:resource-types};  # A resource type that is supported
     fhir:profile @<canonical>?;             # Base System profile for all uses 
                                             # of resource 
     fhir:supportedProfile @<OneOrMore_canonical>?;  # Profiles for use cases supported
@@ -170,7 +170,7 @@ start=@<CapabilityStatement2> AND {fhir:nodeRole [fhir:treeRoot]}
 # What operations are supported?
 <CapabilityStatement2.rest.resource.interaction> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:type-restful-interaction};  # read | vread | update | patch | 
+    	{fhir:v @fhirvs:type-restful-interaction};  # read | vread | update | patch | 
                                             # delete | history-instance | 
                                             # history-type | create | 
                                             # search-type 

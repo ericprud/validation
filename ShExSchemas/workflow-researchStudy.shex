@@ -14,8 +14,8 @@ IMPORT <ResearchStudy.shex>
     a [fhir:workflow-researchStudy];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-researchStudy"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<ResearchStudy> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-researchStudy"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<ResearchStudy> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Composition] OR 
           a [fhir:Consent] OR 
           a [fhir:DeviceUsage] OR 

@@ -29,7 +29,7 @@ start=@<Location> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique code or number identifying 
                                             # the location to its users 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:location-status}?;  # active | suspended | inactive
+    	{fhir:v @fhirvs:location-status}?;  # active | suspended | inactive
     fhir:operationalStatus @<Coding>?;      # The operational status of the 
                                             # location (typically only for a 
                                             # bed/room) 
@@ -43,7 +43,7 @@ start=@<Location> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # as further information to identify 
                                             # the location beyond its name 
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:location-mode}?;  # instance | kind
+    	{fhir:v @fhirvs:location-mode}?;  # instance | kind
     fhir:type @<OneOrMore_CodeableConcept>?;  # Type of function performed
     fhir:contact @<OneOrMore_ExtendedContactDetail>?;  # Official contact details for the 
                                             # location 
@@ -69,7 +69,7 @@ start=@<Location> AND {fhir:nodeRole [fhir:treeRoot]}
 # What days/times during a week is this location usually open
 <Location.hoursOfOperation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:daysOfWeek @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
+    	{fhir:v @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
                                             # | sun 
     fhir:allDay @<boolean>?;                # Always available? i.e. 24 hour 
                                             # service 

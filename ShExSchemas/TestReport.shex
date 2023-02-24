@@ -28,14 +28,14 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>?;                   # Informal name of the executed 
                                             # TestReport 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:report-status-codes};  # completed | in-progress | waiting 
+    	{fhir:v @fhirvs:report-status-codes};  # completed | in-progress | waiting 
                                             # | stopped | entered-in-error 
     fhir:testScript @<canonical>;           # Canonical URL to the  
                                             # version-specific TestScript that 
                                             # was executed to produce this 
                                             # TestReport 
     fhir:result @<code> AND
-    	{fhir:value @fhirvs:report-result-codes};  # pass | fail | pending
+    	{fhir:v @fhirvs:report-result-codes};  # pass | fail | pending
     fhir:score @<decimal>?;                 # The final score (percentage of 
                                             # tests passed) resulting from the 
                                             # execution of the TestScript 
@@ -59,7 +59,7 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # The operation to perform
 <TestReport.setup.action.operation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:result @<code> AND
-    	{fhir:value @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
+    	{fhir:v @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
                                             # error 
     fhir:message @<markdown>?;              # A message associated with the 
                                             # result 
@@ -85,7 +85,7 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # A participant in the test execution, either the execution engine, a client, or a server
 <TestReport.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:report-participant-type};  # test-engine | client | server
+    	{fhir:v @fhirvs:report-participant-type};  # test-engine | client | server
     fhir:uri @<uri>;                        # The uri of the participant. An 
                                             # absolute URL is preferred 
     fhir:display @<string>?;                # The display name of the participant
@@ -100,7 +100,7 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # The assertion to perform
 <TestReport.setup.action.assert> EXTENDS @<BackboneElement> CLOSED {   
     fhir:result @<code> AND
-    	{fhir:value @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
+    	{fhir:v @fhirvs:report-action-result-codes};  # pass | skip | fail | warning | 
                                             # error 
     fhir:message @<markdown>?;              # A message associated with the 
                                             # result 

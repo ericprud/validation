@@ -48,7 +48,7 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_NutritionOrder_OR_ServiceRequest>?;  # Fulfils plan, proposal or order
     fhir:partOf @<OneOrMore_Reference_NutritionIntake_OR_Observation_OR_Procedure>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:event-status};  # preparation | in-progress | 
+    	{fhir:v @fhirvs:event-status};  # preparation | in-progress | 
                                             # not-done | on-hold | stopped | 
                                             # completed | entered-in-error | 
                                             # unknown 

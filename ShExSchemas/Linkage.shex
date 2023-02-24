@@ -33,7 +33,7 @@ start=@<Linkage> AND {fhir:nodeRole [fhir:treeRoot]}
 # Item to be linked
 <Linkage.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:linkage-type};  # source | alternate | historical
+    	{fhir:v @fhirvs:linkage-type};  # source | alternate | historical
     fhir:resource @<Reference> AND {fhir:link 
     			@<Resource> };  # Resource being linked
 }  

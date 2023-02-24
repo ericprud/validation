@@ -15,8 +15,8 @@ IMPORT <DiagnosticReport.shex>
     a [fhir:openEHR-test];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-test"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Observation> OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-test"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Observation> OR 
     			 @<DiagnosticReport> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:AllergyIntolerance]
         }

@@ -14,8 +14,8 @@ IMPORT <ImagingStudy.shex>
     a [fhir:auditevent-SOPClass];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/auditevent-SOPClass"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<ImagingStudy> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/auditevent-SOPClass"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<ImagingStudy> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}
         }
 }  

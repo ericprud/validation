@@ -36,7 +36,7 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:active @<boolean>?;                # Whether this group's record is in 
                                             # active use 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:group-type};  # person | animal | practitioner | 
+    	{fhir:v @fhirvs:group-type};  # person | animal | practitioner | 
                                             # device | medication | substance 
     fhir:actual @<boolean>;                 # Descriptive or actual
     fhir:code @<CodeableConcept>?;          # Kind of Group members
@@ -58,7 +58,7 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
 # Include / Exclude group members by Trait
 <Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Kind of characteristic
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 

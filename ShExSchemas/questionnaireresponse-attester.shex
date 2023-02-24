@@ -15,7 +15,7 @@ IMPORT <Extension.shex>
     fhir:time @<Extension>?; 
     fhir:party @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-attester"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-attester"]}; 
     ^fhir:extension { a [fhir:QuestionnaireResponse]
         }
 }  

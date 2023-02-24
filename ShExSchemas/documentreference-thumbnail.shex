@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:documentreference-thumbnail];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/documentreference-thumbnail"]}; 
-    fhir:value (@<boolean> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/documentreference-thumbnail"]}; 
+    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:content {a [fhir:DocumentReference]}
         }
 }  

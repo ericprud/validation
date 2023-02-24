@@ -47,7 +47,7 @@ start=@<AppointmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> }?;  # Person(s), Location, 
                                             # HealthcareService, or Device 
     fhir:participantStatus @<code> AND
-    	{fhir:value @fhirvs:participationstatus};  # accepted | declined | tentative | 
+    	{fhir:v @fhirvs:participationstatus};  # accepted | declined | tentative | 
                                             # needs-action 
     fhir:comment @<string>?;                # Additional comments
 }  

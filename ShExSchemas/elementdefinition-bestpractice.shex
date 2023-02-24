@@ -14,8 +14,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:elementdefinition-bestpractice];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice"]}; 
-    fhir:value (@<boolean>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice"]}; 
+    fhir:v (@<boolean>  OR 
     			@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:constraint {a [fhir:ElementDefinition]}
         }

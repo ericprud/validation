@@ -38,7 +38,7 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # friendly) 
     fhir:subtitle @<string>?;               # Subordinate title of the measure
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:subject (@<CodeableConcept>  OR 
@@ -46,7 +46,7 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # RelatedPerson, Organization, 
                                             # Location, Device 
     fhir:basis @<code> AND
-    	{fhir:value @fhirvs:all-types}?;  # Population basis
+    	{fhir:v @fhirvs:all-types}?;  # Population basis
     fhir:date @<dateTime>?;                 # Date last changed
     fhir:publisher @<string>?;              # Name of the publisher 
                                             # (organization or individual) 
@@ -131,7 +131,7 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # patient-reported-outcome | 
                                             # composite 
     fhir:basis @<code> AND
-    	{fhir:value @fhirvs:all-types}?;  # Population basis
+    	{fhir:v @fhirvs:all-types}?;  # Population basis
     fhir:scoring @<CodeableConcept>?;       # proportion | ratio | 
                                             # continuous-variable | cohort 
     fhir:scoringUnit @<CodeableConcept>?;   # What units?

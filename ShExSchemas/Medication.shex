@@ -28,7 +28,7 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # medication 
     fhir:code @<CodeableConcept>?;          # Codes that identify this medication
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:medication-status}?;  # active | inactive | 
+    	{fhir:v @fhirvs:medication-status}?;  # active | inactive | 
                                             # entered-in-error 
     fhir:marketingAuthorizationHolder @<Reference> AND {fhir:link 
     			@<Organization> }?;  # Organization that has 

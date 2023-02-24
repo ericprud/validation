@@ -26,7 +26,7 @@ IMPORT <CodeableConcept.shex>
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier
     fhir:version @<string>?;                # Identifier for this version
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:resource-status}?;  # Status Field
+    	{fhir:v @fhirvs:resource-status}?;  # Status Field
     fhir:class @<OneOrMore_CodeableConcept>?;  # Classifier Field
     fhir:grade @<CodeableConcept>?;         # A field that indicates the 
                                             # potential impact of the content of 

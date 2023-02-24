@@ -19,8 +19,8 @@ IMPORT <MedicationAdministration.shex>
     a [fhir:condition-occurredFollowing];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing"]}; 
-    fhir:value (@<CodeableConcept>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing"]}; 
+    fhir:v (@<CodeableConcept>  OR 
     			(@<Reference>  AND {fhir:link @<Condition> OR 
     			 @<Procedure> OR 
     			 @<MedicationAdministration> OR 

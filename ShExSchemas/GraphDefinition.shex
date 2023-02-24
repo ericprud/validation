@@ -30,7 +30,7 @@ start=@<GraphDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>;                    # Name for this graph definition 
                                             # (computer friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -46,7 +46,7 @@ start=@<GraphDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:purpose @<markdown>?;              # Why this graph definition is 
                                             # defined 
     fhir:start @<code> AND
-    	{fhir:value @fhirvs:resource-types};  # Type of resource at which the 
+    	{fhir:v @fhirvs:resource-types};  # Type of resource at which the 
                                             # graph starts 
     fhir:profile @<canonical>?;             # Profile on base resource
     fhir:link @<OneOrMore_BackboneElement>?;  # Links this graph makes rules about
@@ -66,7 +66,7 @@ start=@<GraphDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Potential target for the link
 <GraphDefinition.link.target> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:resource-types};  # Type of resource this link refers 
+    	{fhir:v @fhirvs:resource-types};  # Type of resource this link refers 
                                             # to 
     fhir:params @<string>?;                 # Criteria for reverse lookup
     fhir:profile @<canonical>?;             # Profile for the target resource
@@ -78,13 +78,13 @@ start=@<GraphDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Compartment Consistency Rules
 <GraphDefinition.link.target.compartment> EXTENDS @<BackboneElement> CLOSED {   
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:graph-compartment-use};  # condition | requirement
+    	{fhir:v @fhirvs:graph-compartment-use};  # condition | requirement
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:compartment-type};  # Patient | Encounter | 
+    	{fhir:v @fhirvs:compartment-type};  # Patient | Encounter | 
                                             # RelatedPerson | Practitioner | 
                                             # Device 
     fhir:rule @<code> AND
-    	{fhir:value @fhirvs:graph-compartment-rule};  # identical | matching | different | 
+    	{fhir:v @fhirvs:graph-compartment-rule};  # identical | matching | different | 
                                             # custom 
     fhir:expression @<string>?;             # Custom rule, as a FHIRPath 
                                             # expression 

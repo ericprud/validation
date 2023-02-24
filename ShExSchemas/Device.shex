@@ -45,7 +45,7 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:udiCarrier @<OneOrMore_BackboneElement>?;  # Unique Device Identifier (UDI) 
                                             # Barcode string 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:device-status}?;  # active | inactive | 
+    	{fhir:v @fhirvs:device-status}?;  # active | inactive | 
                                             # entered-in-error | unknown 
     fhir:statusReason @<OneOrMore_CodeableConcept>?;  # discarded | obsolete | removed
     fhir:biologicalSourceEvent @<Identifier>?;  # An identifier that supports 
@@ -116,7 +116,7 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
 <Device.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Code that specifies the property 
                                             # being represented 
-    fhir:value (@<Quantity>  OR 
+    fhir:v (@<Quantity>  OR 
     			@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<boolean>  OR 
@@ -135,7 +135,7 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:carrierAIDC @<base64Binary>?;      # UDI Machine Readable Barcode String
     fhir:carrierHRF @<string>?;             # UDI Human Readable Barcode String
     fhir:entryType @<code> AND
-    	{fhir:value @fhirvs:udi-entry-type}?;  # barcode | rfid | manual | card | 
+    	{fhir:v @fhirvs:udi-entry-type}?;  # barcode | rfid | manual | card | 
                                             # self-reported | 
                                             # electronic-transmission | unknown 
 }  
@@ -144,7 +144,7 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
 <Device.deviceName> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>;                    # The name that identifies the device
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:device-nametype};  # registered-name | 
+    	{fhir:v @fhirvs:device-nametype};  # registered-name | 
                                             # user-friendly-name | 
                                             # patient-reported-name 
 }  
@@ -168,7 +168,7 @@ start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # applies 
     fhir:installDate @<dateTime>?;          # The date the version was installed 
                                             # on the device 
-    fhir:value @<string>;                   # The version text
+    fhir:v @<string>;                   # The version text
 }  
 
 # Current association of the device

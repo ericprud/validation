@@ -14,8 +14,8 @@ IMPORT <BodyStructure.shex>
     a [fhir:bodySite];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/bodySite"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<BodyStructure> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/bodySite"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<BodyStructure> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

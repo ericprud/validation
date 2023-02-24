@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:patient-disability];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-disability"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-disability"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Patient]
         }
 }  

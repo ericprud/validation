@@ -17,8 +17,8 @@ IMPORT <RelatedPerson.shex>
     a [fhir:consent-Witness];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/consent-Witness"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Organization> OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/consent-Witness"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Organization> OR 
     			 @<Patient> OR 
     			 @<Practitioner> OR 
     			 @<RelatedPerson> }) )  AND { rdf:type IRI } ; 

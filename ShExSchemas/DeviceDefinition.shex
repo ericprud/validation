@@ -84,7 +84,7 @@ start=@<DeviceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # material(s) of which the device is 
                                             # made 
     fhir:productionIdentifierInUDI @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:device-productidentifierinudi}?;  # lot-number | manufactured-date | 
+    	{fhir:v @fhirvs:device-productidentifierinudi}?;  # lot-number | manufactured-date | 
                                             # serial-number | expiration-date | 
                                             # biological-source | 
                                             # software-version 
@@ -180,7 +180,7 @@ start=@<DeviceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:component @<Identifier>?;          # The hardware or software module of 
                                             # the device to which the version 
                                             # applies 
-    fhir:value @<string>;                   # The version text
+    fhir:v @<string>;                   # The version text
 }  
 
 # Information aimed at providing directions for the usage of this model of device
@@ -210,7 +210,7 @@ start=@<DeviceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:recall @<boolean>;                 # Whether the corrective action was 
                                             # a recall 
     fhir:scope @<code> AND
-    	{fhir:value @fhirvs:device-correctiveactionscope}?;  # model | lot-numbers | 
+    	{fhir:v @fhirvs:device-correctiveactionscope}?;  # model | lot-numbers | 
                                             # serial-numbers 
     fhir:period @<Period>;                  # Start and end dates of the  
                                             # corrective action 
@@ -268,7 +268,7 @@ start=@<DeviceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>;                    # A name that is used to refer to 
                                             # the device 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:device-nametype};  # registered-name | 
+    	{fhir:v @fhirvs:device-nametype};  # registered-name | 
                                             # user-friendly-name | 
                                             # patient-reported-name 
 }  
@@ -276,7 +276,7 @@ start=@<DeviceDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # The potential, valid configuration settings of a device, e.g., regulation status, time properties
 <DeviceDefinition.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Code that specifies the property
-    fhir:value (@<Quantity>  OR 
+    fhir:v (@<Quantity>  OR 
     			@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<boolean>  OR 

@@ -14,8 +14,8 @@ IMPORT <StructureDefinition.shex>
     a [fhir:elementdefinition-pattern];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern"]}; 
-    fhir:value ((@<canonical>  AND {fhir:link @<StructureDefinition> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern"]}; 
+    fhir:v ((@<canonical>  AND {fhir:link @<StructureDefinition> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:type {a [fhir:ElementDefinition]}
         }
 }  

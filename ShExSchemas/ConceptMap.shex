@@ -37,7 +37,7 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this concept map (human 
                                             # friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -64,12 +64,12 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
 # What to do when there is no mapping target for the source concept
 <ConceptMap.group.unmapped> EXTENDS @<BackboneElement> CLOSED {   
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:conceptmap-unmapped-mode};  # use-source-code | fixed | other-map
+    	{fhir:v @fhirvs:conceptmap-unmapped-mode};  # use-source-code | fixed | other-map
     fhir:code @<code>?;                     # Fixed code when mode = fixed
     fhir:display @<string>?;                # Display for the code
     fhir:valueSet @<canonical>?;            # Fixed code set when mode = fixed
     fhir:relationship @<code> AND
-    	{fhir:value @fhirvs:concept-map-relationship}?;  # related-to | equivalent | 
+    	{fhir:v @fhirvs:concept-map-relationship}?;  # related-to | equivalent | 
                                             # source-is-narrower-than-target | 
                                             # source-is-broader-than-target | 
                                             # not-related-to 
@@ -94,7 +94,7 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
 <ConceptMap.group.element.target.dependsOn> EXTENDS @<BackboneElement> CLOSED {   
     fhir:property @<uri>;                   # A reference to a property that may 
                                             # be required to refine the mapping 
-    fhir:value (@<code>  OR 
+    fhir:v (@<code>  OR 
     			@<Coding>  OR 
     			@<string>  OR 
     			@<integer>  OR 
@@ -115,7 +115,7 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:valueSet @<canonical>?;            # Identifies the set of target 
                                             # elements 
     fhir:relationship @<code> AND
-    	{fhir:value @fhirvs:concept-map-relationship};  # related-to | equivalent | 
+    	{fhir:v @fhirvs:concept-map-relationship};  # related-to | equivalent | 
                                             # source-is-narrower-than-target | 
                                             # source-is-broader-than-target | 
                                             # not-related-to 

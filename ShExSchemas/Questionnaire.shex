@@ -44,11 +44,11 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # friendly) 
     fhir:derivedFrom @<OneOrMore_canonical>?;  # Instantiates protocol or definition
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:subjectType @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:resource-types}?;  # Resource that can be subject of 
+    	{fhir:v @fhirvs:resource-types}?;  # Resource that can be subject of 
                                             # QuestionnaireResponse 
     fhir:date @<dateTime>?;                 # Date last formally published
     fhir:publisher @<string>?;              # Name of the publisher 
@@ -76,7 +76,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Permitted answer
 <Questionnaire.item.answerOption> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<integer>  OR 
+    fhir:v (@<integer>  OR 
     			@<date>  OR 
     			@<time>  OR 
     			@<string>  OR 
@@ -88,7 +88,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Initial value(s) when item is first rendered
 <Questionnaire.item.initial> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<boolean>  OR 
+    fhir:v (@<boolean>  OR 
     			@<decimal>  OR 
     			@<integer>  OR 
     			@<date>  OR 
@@ -109,7 +109,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # determines whether item is 
                                             # enabled/disabled 
     fhir:operator @<code> AND
-    	{fhir:value @fhirvs:questionnaire-enable-operator};  # exists | = | != | > | < | >= | <=
+    	{fhir:v @fhirvs:questionnaire-enable-operator};  # exists | = | != | > | < | >= | <=
     fhir:answer (@<boolean>  OR 
     			@<decimal>  OR 
     			@<integer>  OR 
@@ -137,21 +137,21 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:prefix @<string>?;                 # E.g. "1(a)", "2.5.3"
     fhir:text @<markdown>?;                 # Primary text for the item
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:item-type};  # group | display | boolean | 
+    	{fhir:v @fhirvs:item-type};  # group | display | boolean | 
                                             # decimal | integer | date | 
                                             # dateTime + 
     fhir:enableWhen @<OneOrMore_BackboneElement>?;  # Only allow data when
     fhir:enableBehavior @<code> AND
-    	{fhir:value @fhirvs:questionnaire-enable-behavior}?;  # all | any
+    	{fhir:v @fhirvs:questionnaire-enable-behavior}?;  # all | any
     fhir:disabledDisplay @<code> AND
-    	{fhir:value @fhirvs:questionnaire-disabled-display}?;  # hidden | protected
+    	{fhir:v @fhirvs:questionnaire-disabled-display}?;  # hidden | protected
     fhir:required @<boolean>?;              # Whether the item must be included 
                                             # in data results 
     fhir:repeats @<boolean>?;               # Whether the item may repeat
     fhir:readOnly @<boolean>?;              # Don't allow human editing
     fhir:maxLength @<integer>?;             # No more than this many characters
     fhir:answerConstraint @<code> AND
-    	{fhir:value @fhirvs:questionnaire-answer-constraint}?;  # optionsOnly | optionsOrType | 
+    	{fhir:v @fhirvs:questionnaire-answer-constraint}?;  # optionsOnly | optionsOrType | 
                                             # optionsOrString 
     fhir:answerValueSet @<canonical>?;      # Valueset containing permitted 
                                             # answers 

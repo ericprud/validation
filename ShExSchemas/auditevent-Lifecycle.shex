@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:auditevent-Lifecycle];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/auditevent-Lifecycle"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/auditevent-Lifecycle"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}
         }
 }  

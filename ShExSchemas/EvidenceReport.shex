@@ -36,7 +36,7 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # EvidenceReport, represented as a 
                                             # globally unique URI 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:useContext @<OneOrMore_UsageContext>?;  # The context that the content is 
                                             # intended to support 
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique identifier for the evidence 
@@ -78,7 +78,7 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # Characteristic
 <EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Characteristic code
-    fhir:value ((@<Reference>  AND {fhir:link @<Resource> })  OR 
+    fhir:v ((@<Reference>  AND {fhir:link @<Resource> })  OR 
     			@<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
@@ -111,7 +111,7 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:text @<Narrative>?;                # Text summary of the section, for 
                                             # human interpretation 
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:list-mode}?;  # working | snapshot | changes
+    	{fhir:v @fhirvs:list-mode}?;  # working | snapshot | changes
     fhir:orderedBy @<CodeableConcept>?;     # Order of section entries
     fhir:entryClassifier @<OneOrMore_CodeableConcept>?;  # Extensible classifiers as content
     fhir:entryReference @<OneOrMore_Reference_Resource>?;  # Reference to resources as content
@@ -123,7 +123,7 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # Relationships to other compositions/documents
 <EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:report-relation-type};  # replaces | amends | appends | 
+    	{fhir:v @fhirvs:report-relation-type};  # replaces | amends | appends | 
                                             # transforms | replacedWith | 
                                             # amendedWith | appendedWith | 
                                             # transformedWith 

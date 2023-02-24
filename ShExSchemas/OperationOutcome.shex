@@ -24,10 +24,10 @@ start=@<OperationOutcome> AND {fhir:nodeRole [fhir:treeRoot]}
 # A single issue associated with the action
 <OperationOutcome.issue> EXTENDS @<BackboneElement> CLOSED {   
     fhir:severity @<code> AND
-    	{fhir:value @fhirvs:issue-severity};  # fatal | error | warning | 
+    	{fhir:v @fhirvs:issue-severity};  # fatal | error | warning | 
                                             # information 
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:issue-type};  # Error or warning code
+    	{fhir:v @fhirvs:issue-type};  # Error or warning code
     fhir:details @<CodeableConcept>?;       # Additional details about the error
     fhir:diagnostics @<string>?;            # Additional diagnostic information 
                                             # about the issue 

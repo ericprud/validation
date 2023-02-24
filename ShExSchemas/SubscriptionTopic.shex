@@ -36,7 +36,7 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:derivedFrom @<OneOrMore_canonical>?;  # Based on FHIR protocol or 
                                             # definition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # If for testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date status first applied
@@ -86,7 +86,7 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:filterDefinition @<uri>?;          # Canonical URL for a 
                                             # filterParameter definition 
     fhir:modifier @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:subscription-search-modifier}?;  # = | eq | ne | gt | lt | ge | le | 
+    	{fhir:v @fhirvs:subscription-search-modifier}?;  # = | eq | ne | gt | lt | ge | le | 
                                             # sa | eb | ap | above | below | in 
                                             # | not-in | of-type 
 }  
@@ -99,7 +99,7 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # to definition) for this trigger 
                                             # definition 
     fhir:supportedInteraction @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:interaction-trigger}?;  # create | update | delete
+    	{fhir:v @fhirvs:interaction-trigger}?;  # create | update | delete
     fhir:queryCriteria @<BackboneElement>?;  # Query based trigger rule
     fhir:fhirPathCriteria @<string>?;       # FHIRPath based trigger rule
 }  
@@ -109,11 +109,11 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:previous @<string>?;               # Rule applied to previous resource 
                                             # state 
     fhir:resultForCreate @<code> AND
-    	{fhir:value @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
+    	{fhir:v @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
     fhir:current @<string>?;                # Rule applied to current resource 
                                             # state 
     fhir:resultForDelete @<code> AND
-    	{fhir:value @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
+    	{fhir:v @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
     fhir:requireBoth @<boolean>?;           # Both must be true flag
 }  
 

@@ -38,7 +38,7 @@ start=@<EventDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:subtitle @<string>?;               # Subordinate title of the event 
                                             # definition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:subject (@<CodeableConcept>  OR 

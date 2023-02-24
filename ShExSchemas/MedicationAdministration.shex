@@ -46,7 +46,7 @@ start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # administration 
     fhir:partOf @<OneOrMore_Reference_MedicationAdministration_OR_Procedure>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:medication-admin-status};  # in-progress | not-done | on-hold | 
+    	{fhir:v @fhirvs:medication-admin-status};  # in-progress | not-done | on-hold | 
                                             # completed | entered-in-error | 
                                             # stopped | unknown 
     fhir:statusReason @<OneOrMore_CodeableConcept>?;  # Reason administration not performed

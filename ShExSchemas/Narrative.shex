@@ -13,7 +13,7 @@ IMPORT <DataType.shex>
     a [fhir:Narrative];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:narrative-status};  # generated | extensions | 
+    	{fhir:v @fhirvs:narrative-status};  # generated | extensions | 
                                             # additional | empty 
     fhir:div @<xhtml>;                      # Limited xhtml content
 }  

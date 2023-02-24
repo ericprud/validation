@@ -42,7 +42,7 @@ start=@<Appointment> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # External Ids for this item
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:appointmentstatus};  # proposed | pending | booked | 
+    	{fhir:v @fhirvs:appointmentstatus};  # proposed | pending | booked | 
                                             # arrived | fulfilled | cancelled | 
                                             # noshow | entered-in-error | 
                                             # checked-in | waitlist 
@@ -117,7 +117,7 @@ start=@<Appointment> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:required @<boolean>?;              # The participant is required to 
                                             # attend (optional when false) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:participationstatus};  # accepted | declined | tentative | 
+    	{fhir:v @fhirvs:participationstatus};  # accepted | declined | tentative | 
                                             # needs-action 
 }  
 

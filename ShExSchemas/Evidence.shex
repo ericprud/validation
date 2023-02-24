@@ -43,7 +43,7 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:citeAs ((@<Reference>  AND {fhir:link @<Citation> })  OR 
     			@<markdown> )  AND { rdf:type IRI } ?;  # Citation for this evidence
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -83,7 +83,7 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<EvidenceVariable> OR 
     			@<Group> };  # Description of the variable
     fhir:handling @<code> AND
-    	{fhir:value @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
+    	{fhir:v @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
                                             # | polychotomous 
     fhir:valueCategory @<OneOrMore_CodeableConcept>?;  # Description for grouping of 
                                             # ordinal or polychotomous variables 
@@ -160,7 +160,7 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
 # An aspect of the statistical model
 <Evidence.statistic.modelCharacteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Model specification
-    fhir:value @<Quantity>?;                # Numerical value to complete model 
+    fhir:v @<Quantity>?;                # Numerical value to complete model 
                                             # specification 
     fhir:variable @<OneOrMore_BackboneElement>?;  # A variable adjusted for in the 
                                             # adjusted analysis 

@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:iso21090-EN-use];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-EN-use"]}; 
-    fhir:value (@<code> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-EN-use"]}; 
+    fhir:v (@<code> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:HumanName]
         }
 }  

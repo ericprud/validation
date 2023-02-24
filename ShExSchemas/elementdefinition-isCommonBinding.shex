@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:elementdefinition-isCommonBinding];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding"]}; 
-    fhir:value (@<boolean> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding"]}; 
+    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}
         }
 }  

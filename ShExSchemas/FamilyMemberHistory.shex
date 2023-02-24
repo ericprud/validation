@@ -31,7 +31,7 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:instantiatesUri @<OneOrMore_uri>?;  # Instantiates external protocol or 
                                             # definition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:history-status};  # partial | completed | 
+    	{fhir:v @fhirvs:history-status};  # partial | completed | 
                                             # entered-in-error | health-unknown 
     fhir:dataAbsentReason @<CodeableConcept>?;  # subject-unknown | withheld | 
                                             # unable-to-obtain | deferred 

@@ -13,10 +13,10 @@ IMPORT <canonical.shex>
     a [fhir:structuredefinition-conformance-derivedFrom];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom"]}; 
-    fhir:value (@<canonical> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:value {^fhir:org/fhir/StructureDefinition/structuredefinition-fmm') {a [fhir:extension('http://hl7]}} OR 
-          ^fhir:value {^fhir:org/fhir/StructureDefinition/structuredefinition-standards-status') {a [fhir:extension('http://hl7]}}
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom"]}; 
+    fhir:v (@<canonical> )  AND { rdf:type IRI } ; 
+    ^fhir:extension { ^fhir:v {^fhir:org/fhir/StructureDefinition/structuredefinition-fmm') {a [fhir:extension('http://hl7]}} OR 
+          ^fhir:v {^fhir:org/fhir/StructureDefinition/structuredefinition-standards-status') {a [fhir:extension('http://hl7]}}
         }
 }  
 

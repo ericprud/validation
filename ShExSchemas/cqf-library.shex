@@ -14,8 +14,8 @@ IMPORT <canonical.shex>
     a [fhir:cqf-library];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-library"]}; 
-    fhir:value ((@<canonical>  AND {fhir:link @<Library> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-library"]}; 
+    fhir:v ((@<canonical>  AND {fhir:link @<Library> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

@@ -36,7 +36,7 @@ start=@<Library> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # friendly) 
     fhir:subtitle @<string>?;               # Subordinate title of the library
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:type @<CodeableConcept>;           # logic-library | model-definition | 

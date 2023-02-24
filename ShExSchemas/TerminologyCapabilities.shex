@@ -35,7 +35,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this terminology 
                                             # capabilities (human friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>;                  # Date last changed
@@ -53,7 +53,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # is defined 
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:capability-statement-kind};  # instance | capability | 
+    	{fhir:v @fhirvs:capability-statement-kind};  # instance | capability | 
                                             # requirements 
     fhir:software @<BackboneElement>?;      # Software that is covered by this 
                                             # terminology capability statement 
@@ -66,7 +66,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # [ValueSet/$expand](valueset-oper-
                                             # ation-expand.html) operation 
     fhir:codeSearch @<code> AND
-    	{fhir:value @fhirvs:code-search-support}?;  # explicit | all
+    	{fhir:v @fhirvs:code-search-support}?;  # explicit | all
     fhir:validateCode @<BackboneElement>?;  # Information about the 
                                             # [ValueSet/$validate-code](values-
                                             # et-operation-validate-code.html) 

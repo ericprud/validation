@@ -22,10 +22,10 @@ start=@<SubscriptionStatus> AND {fhir:nodeRole [fhir:treeRoot]}
     a [fhir:SubscriptionStatus];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:subscription-status}?;  # requested | active | error | off | 
+    	{fhir:v @fhirvs:subscription-status}?;  # requested | active | error | off | 
                                             # entered-in-error 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:subscription-notification-type};  # handshake | heartbeat | 
+    	{fhir:v @fhirvs:subscription-notification-type};  # handshake | heartbeat | 
                                             # event-notification | query-status 
                                             # | query-event 
     fhir:eventsSinceSubscriptionStart @<integer64>?;  # Events since the Subscription was 

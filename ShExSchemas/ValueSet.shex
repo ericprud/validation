@@ -35,7 +35,7 @@ start=@<ValueSet> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this value set (human 
                                             # friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -77,14 +77,14 @@ start=@<ValueSet> AND {fhir:nodeRole [fhir:treeRoot]}
 <ValueSet.compose.include.concept.designation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:language @<code>?;                 # Human language of the designation
     fhir:use @<Coding>?;                    # Types of uses of designations
-    fhir:value @<string>;                   # The text value for this designation
+    fhir:v @<string>;                   # The text value for this designation
 }  
 
 # Parameter that controlled the expansion process
 <ValueSet.expansion.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>;                    # Name as assigned by the client or 
                                             # server 
-    fhir:value (@<string>  OR 
+    fhir:v (@<string>  OR 
     			@<boolean>  OR 
     			@<integer>  OR 
     			@<decimal>  OR 
@@ -148,7 +148,7 @@ start=@<ValueSet> AND {fhir:nodeRole [fhir:treeRoot]}
 <ValueSet.expansion.contains.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code>;                      # Reference to 
                                             # ValueSet.expansion.property.code 
-    fhir:value (@<code>  OR 
+    fhir:v (@<code>  OR 
     			@<Coding>  OR 
     			@<string>  OR 
     			@<integer>  OR 
@@ -179,11 +179,11 @@ start=@<ValueSet> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:property @<code>;                  # A property/filter defined by the 
                                             # code system 
     fhir:op @<code> AND
-    	{fhir:value @fhirvs:filter-operator};  # = | is-a | descendent-of | 
+    	{fhir:v @fhirvs:filter-operator};  # = | is-a | descendent-of | 
                                             # is-not-a | regex | in | not-in | 
                                             # generalizes | child-of | 
                                             # descendent-leaf | exists 
-    fhir:value @<string>;                   # Code from the system, or regex 
+    fhir:v @<string>;                   # Code from the system, or regex 
                                             # criteria, or boolean value for 
                                             # exists 
 }  

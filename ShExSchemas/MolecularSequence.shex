@@ -27,7 +27,7 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique ID for this particular 
                                             # sequence 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:sequence-type}?;  # aa | dna | rna
+    	{fhir:v @fhirvs:sequence-type}?;  # aa | dna | rna
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> }?;  # Patient this sequence is 
                                             # associated too 
@@ -60,9 +60,9 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:windowEnd @<integer>?;             # End position of the window on the 
                                             # reference sequence 
     fhir:orientation @<code> AND
-    	{fhir:value @fhirvs:orientation-type}?;  # sense | antisense
+    	{fhir:v @fhirvs:orientation-type}?;  # sense | antisense
     fhir:strand @<code> AND
-    	{fhir:value @fhirvs:strand-type}?;  # watson | crick
+    	{fhir:v @fhirvs:strand-type}?;  # watson | crick
 }  
 
 # A sequence defined relative to another sequence

@@ -43,7 +43,7 @@ start=@<Slot> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # slot defines an interval of status 
                                             # information 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:slotstatus};  # busy | free | busy-unavailable | 
+    	{fhir:v @fhirvs:slotstatus};  # busy | free | busy-unavailable | 
                                             # busy-tentative | entered-in-error 
     fhir:start @<instant>;                  # Date/Time that the slot is to begin
     fhir:end @<instant>;                    # Date/Time that the slot is to 

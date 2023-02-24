@@ -14,8 +14,8 @@ IMPORT <MedicationAdministration.shex>
     a [fhir:openEHR-administration];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-administration"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<MedicationAdministration> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-administration"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<MedicationAdministration> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
         }
 }  

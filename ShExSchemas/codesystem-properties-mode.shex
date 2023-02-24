@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:codesystem-properties-mode];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-properties-mode"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:codesystem-properties-mode} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-properties-mode"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:codesystem-properties-mode} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:CodeSystem]
         }
 }  

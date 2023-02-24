@@ -14,8 +14,8 @@ IMPORT <Questionnaire.shex>
     a [fhir:servicerequest-questionnaireRequest];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/servicerequest-questionnaireRequest"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Questionnaire> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/servicerequest-questionnaireRequest"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Questionnaire> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:ServiceRequest]
         }
 }  

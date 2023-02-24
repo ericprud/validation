@@ -11,12 +11,12 @@ IMPORT <Extension.shex>
 
     a [fhir:patient-sexForClinicalUse];
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:value @<Extension>; 
+    fhir:v @<Extension>; 
     fhir:period @<Extension>?; 
     fhir:comment @<Extension>?; 
     fhir:supportingInfo @<OneOrMore_Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse"]}; 
     ^fhir:extension { a [fhir:Resource]
         }
 }  

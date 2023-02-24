@@ -50,7 +50,7 @@ start=@<ResearchStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:relatedArtifact @<OneOrMore_RelatedArtifact>?;  # References and dependencies
     fhir:date @<dateTime>?;                 # Date the resource last changed
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:primaryPurposeType @<CodeableConcept>?;  # treatment | prevention | 
                                             # diagnostic | supportive-care | 
                                             # screening | 
@@ -198,7 +198,7 @@ start=@<ResearchStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # earlier-title | language | 
                                             # auto-translated | human-use | 
                                             # machine-use | duplicate-uid 
-    fhir:value @<string>?;                  # The name
+    fhir:v @<string>?;                  # The name
 }  
 
 # Drugs, devices, etc. under study

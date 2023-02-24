@@ -18,7 +18,7 @@ IMPORT <Extension.shex>
     fhir:human @<Extension>; 
     fhir:location @<OneOrMore_Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-constraint"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-constraint"]}; 
     ^fhir:extension { a [fhir:Questionnaire] OR 
           ^fhir:item {a [fhir:Questionnaire]}
         }

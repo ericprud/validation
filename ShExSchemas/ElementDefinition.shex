@@ -67,7 +67,7 @@ IMPORT <ParameterDefinition.shex>
     fhir:path @<string>;                    # Path of the element in the 
                                             # hierarchy of elements 
     fhir:representation @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:property-representation}?;  # xmlAttr | xmlText | typeAttr | 
+    	{fhir:v @fhirvs:property-representation}?;  # xmlAttr | xmlText | typeAttr | 
                                             # cdaText | xhtml 
     fhir:sliceName @<string>?;              # Name for this particular element 
                                             # (in a set of slices) 
@@ -304,7 +304,7 @@ IMPORT <ParameterDefinition.shex>
 <ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
     fhir:identity @<id>;                    # Reference to mapping declaration
     fhir:language @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Computable language of mapping
+    	{fhir:v @fhirvs:mimetypes}?;  # Computable language of mapping
     fhir:map @<string>;                     # Details of the mapping
     fhir:comment @<string>?;                # Comments about the mapping or its 
                                             # use 
@@ -319,13 +319,13 @@ IMPORT <ParameterDefinition.shex>
     fhir:ordered @<boolean>?;               # If elements must be in same order 
                                             # as slices 
     fhir:rules @<code> AND
-    	{fhir:value @fhirvs:resource-slicing-rules};  # closed | open | openAtEnd
+    	{fhir:v @fhirvs:resource-slicing-rules};  # closed | open | openAtEnd
 }  
 
 # Element values that are used to distinguish the slices
 <ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:discriminator-type};  # value | exists | pattern | type | 
+    	{fhir:v @fhirvs:discriminator-type};  # value | exists | pattern | type | 
                                             # profile 
     fhir:path @<string>;                    # Path to element value
 }  
@@ -333,7 +333,7 @@ IMPORT <ParameterDefinition.shex>
 # ValueSet details if this is coded
 <ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
     fhir:strength @<code> AND
-    	{fhir:value @fhirvs:binding-strength};  # required | extensible | preferred 
+    	{fhir:v @fhirvs:binding-strength};  # required | extensible | preferred 
                                             # | example 
     fhir:description @<string>?;            # Human explanation of the value set
     fhir:valueSet @<canonical>?;            # Source of value set
@@ -349,17 +349,17 @@ IMPORT <ParameterDefinition.shex>
                                             # IG) on the Reference/canonical 
                                             # target - one must apply 
     fhir:aggregation @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:resource-aggregation-mode}?;  # contained | referenced | bundled - 
+    	{fhir:v @fhirvs:resource-aggregation-mode}?;  # contained | referenced | bundled - 
                                             # how aggregated 
     fhir:versioning @<code> AND
-    	{fhir:value @fhirvs:reference-version-rules}?;  # either | independent | specific
+    	{fhir:v @fhirvs:reference-version-rules}?;  # either | independent | specific
 }  
 
 # Example value (as defined for type)
 <ElementDefinition.example> EXTENDS @<Element> CLOSED {   
     fhir:label @<string>;                   # Describes the purpose of this 
                                             # example 
-    fhir:value (@<base64Binary>  OR 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -422,7 +422,7 @@ IMPORT <ParameterDefinition.shex>
     fhir:requirements @<string>?;           # Why this constraint is necessary 
                                             # or appropriate 
     fhir:severity @<code> AND
-    	{fhir:value @fhirvs:constraint-severity};  # error | warning
+    	{fhir:v @fhirvs:constraint-severity};  # error | warning
     fhir:human @<string>;                   # Human description of constraint
     fhir:expression @<string>?;             # FHIRPath expression of constraint
     fhir:xpath @<string>?;                  # XPath expression of constraint

@@ -12,8 +12,8 @@ IMPORT <Extension.shex>
     a [fhir:rendering-markdown];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/rendering-markdown"]}; 
-    fhir:value (@<markdown> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/rendering-markdown"]}; 
+    fhir:v (@<markdown> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:string]
         }
 }  

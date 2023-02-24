@@ -46,14 +46,14 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:content @<OneOrMore_BackboneElement>?;  # Comment, classifier, or rating 
                                             # content 
     fhir:workflowStatus @<code> AND
-    	{fhir:value @fhirvs:artifactassessment-workflow-status}?;  # submitted | triaged | 
+    	{fhir:v @fhirvs:artifactassessment-workflow-status}?;  # submitted | triaged | 
                                             # waiting-for-input | 
                                             # resolved-no-change | 
                                             # resolved-change-required | 
                                             # deferred | duplicate | applied | 
                                             # published 
     fhir:disposition @<code> AND
-    	{fhir:value @fhirvs:artifactassessment-disposition}?;  # unresolved | not-persuasive | 
+    	{fhir:v @fhirvs:artifactassessment-disposition}?;  # unresolved | not-persuasive | 
                                             # persuasive | 
                                             # persuasive-with-modification | 
                                             # not-persuasive-with-modification 
@@ -62,7 +62,7 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
 # Comment, classifier, or rating content
 <ArtifactAssessment.content> EXTENDS @<BackboneElement> CLOSED {   
     fhir:informationType @<code> AND
-    	{fhir:value @fhirvs:artifactassessment-information-type}?;  # comment | classifier | rating | 
+    	{fhir:v @fhirvs:artifactassessment-information-type}?;  # comment | classifier | rating | 
                                             # container | response | 
                                             # change-request 
     fhir:summary @<markdown>?;              # Brief summary of the content

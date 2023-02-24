@@ -46,7 +46,7 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:partOf @<OneOrMore_Reference_Observation_OR_Procedure>?;  # Part of this action
     fhir:questionnaire @<canonical>?;       # Form being answered
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:questionnaire-answers-status};  # in-progress | completed | amended 
+    	{fhir:v @fhirvs:questionnaire-answers-status};  # in-progress | completed | amended 
                                             # | entered-in-error | stopped 
     fhir:subject @<Reference> AND {fhir:link 
     			@<Resource> }?;  # The subject of the questions
@@ -74,7 +74,7 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The response(s) to the question
 <QuestionnaireResponse.item.answer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<boolean>  OR 
+    fhir:v (@<boolean>  OR 
     			@<decimal>  OR 
     			@<integer>  OR 
     			@<date>  OR 

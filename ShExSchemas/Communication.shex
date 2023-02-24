@@ -44,14 +44,14 @@ start=@<Communication> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # Communication, Procedure) 
     fhir:inResponseTo @<OneOrMore_Reference_Communication>?;  # Reply to
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:event-status};  # preparation | in-progress | 
+    	{fhir:v @fhirvs:event-status};  # preparation | in-progress | 
                                             # not-done | on-hold | stopped | 
                                             # completed | entered-in-error | 
                                             # unknown 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
     fhir:category @<OneOrMore_CodeableConcept>?;  # Message category
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:medium @<OneOrMore_CodeableConcept>?;  # A channel of communication
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 

@@ -50,7 +50,7 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:subtitle @<string>?;               # Subordinate title of the 
                                             # EvidenceVariable 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -79,7 +79,7 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:characteristic @<OneOrMore_BackboneElement>?;  # A defining factor of the 
                                             # EvidenceVariable 
     fhir:handling @<code> AND
-    	{fhir:value @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
+    	{fhir:v @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
                                             # | polychotomous 
     fhir:category @<OneOrMore_BackboneElement>?;  # A grouping for ordinal or 
                                             # polychotomous variables 
@@ -91,7 +91,7 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     			(@<Reference>  AND {fhir:link @<EvidenceVariable> })  OR 
     			@<id> )  AND { rdf:type IRI } ;  # Expresses the type of 
                                             # characteristic 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
@@ -105,7 +105,7 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
 # Used to specify how two or more characteristics are combined
 <EvidenceVariable.characteristic.definitionByCombination> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:characteristic-combination};  # all-of | any-of | at-least | 
+    	{fhir:v @fhirvs:characteristic-combination};  # all-of | any-of | at-least | 
                                             # at-most | statistical | net-effect 
                                             # | dataset 
     fhir:threshold @<positiveInt>?;         # Provides the value of "n" when 
@@ -155,7 +155,7 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:timeFromEvent @<OneOrMore_BackboneElement>?;  # Observation time from study 
                                             # specified event 
     fhir:groupMeasure @<code> AND
-    	{fhir:value @fhirvs:group-measure}?;  # mean | median | mean-of-mean | 
+    	{fhir:v @fhirvs:group-measure}?;  # mean | median | mean-of-mean | 
                                             # mean-of-median | median-of-mean | 
                                             # median-of-median 
 }  
@@ -181,7 +181,7 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
 # A grouping for ordinal or polychotomous variables
 <EvidenceVariable.category> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>?;                   # Description of the grouping
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range> )  AND { rdf:type IRI } ?;  # Definition of the grouping
 }  

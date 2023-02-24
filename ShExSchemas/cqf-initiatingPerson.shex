@@ -17,8 +17,8 @@ IMPORT <RelatedPerson.shex>
     a [fhir:cqf-initiatingPerson];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-initiatingPerson"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Person> OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-initiatingPerson"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Person> OR 
     			 @<Patient> OR 
     			 @<Practitioner> OR 
     			 @<RelatedPerson> }) )  AND { rdf:type IRI } ; 

@@ -30,7 +30,7 @@ start=@<Flag> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:flag-status};  # active | inactive | 
+    	{fhir:v @fhirvs:flag-status};  # active | inactive | 
                                             # entered-in-error 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Clinical, administrative, etc.
     fhir:code @<CodeableConcept>;           # Coded or textual message to 

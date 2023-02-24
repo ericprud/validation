@@ -14,8 +14,8 @@ IMPORT <BodyStructure.shex>
     a [fhir:procedure-approachBodyStructure];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<BodyStructure> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<BodyStructure> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Procedure] OR 
           a [fhir:ServiceRequest] OR 
           a [fhir:DeviceRequest] OR 

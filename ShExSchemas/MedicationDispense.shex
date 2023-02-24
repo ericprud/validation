@@ -43,7 +43,7 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # dispense 
     fhir:partOf @<OneOrMore_Reference_MedicationAdministration_OR_Procedure>?;  # Event that dispense is part of
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:medicationdispense-status};  # preparation | in-progress | 
+    	{fhir:v @fhirvs:medicationdispense-status};  # preparation | in-progress | 
                                             # cancelled | on-hold | completed | 
                                             # entered-in-error | stopped | 
                                             # declined | unknown 

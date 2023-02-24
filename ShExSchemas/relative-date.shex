@@ -15,7 +15,7 @@ IMPORT <Extension.shex>
     fhir:relationship @<Extension>; 
     fhir:offset @<Extension>; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/relative-date"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/relative-date"]}; 
     ^fhir:extension { a [fhir:date] OR 
           a [fhir:dateTime]
         }

@@ -23,7 +23,7 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:manufacturedDoseForm @<CodeableConcept>;  # Dose form as manufactured (before 
                                             # any necessary transformation) 
     fhir:unitOfPresentation @<CodeableConcept>?;  # The “real world” units in which 
@@ -46,7 +46,7 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <ManufacturedItemDefinition.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # A code expressing the type of 
                                             # characteristic 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<date>  OR 
     			@<boolean>  OR 

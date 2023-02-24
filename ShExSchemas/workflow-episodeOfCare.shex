@@ -14,8 +14,8 @@ IMPORT <EpisodeOfCare.shex>
     a [fhir:workflow-episodeOfCare];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-episodeOfCare"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<EpisodeOfCare> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-episodeOfCare"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<EpisodeOfCare> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:AdverseEvent] OR 
           a [fhir:Appointment] OR 
           a [fhir:Basic] OR 

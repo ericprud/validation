@@ -91,7 +91,7 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
 # An entity used in this activity
 <Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
     fhir:role @<code> AND
-    	{fhir:value @fhirvs:provenance-entity-role};  # revision | quotation | source | 
+    	{fhir:v @fhirvs:provenance-entity-role};  # revision | quotation | source | 
                                             # instantiates | removal 
     fhir:what @<Reference> AND {fhir:link 
     			@<Resource> };  # Identity of entity

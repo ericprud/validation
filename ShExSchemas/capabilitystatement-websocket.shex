@@ -12,8 +12,8 @@ IMPORT <Extension.shex>
     a [fhir:capabilitystatement-websocket];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket"]}; 
-    fhir:value (@<uri> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket"]}; 
+    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:rest {a [fhir:CapabilityStatement]}
         }
 }  

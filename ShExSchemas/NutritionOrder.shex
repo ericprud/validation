@@ -35,11 +35,11 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # definition 
     fhir:instantiates @<OneOrMore_uri>?;    # Instantiates protocol or definition
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:request-status};  # draft | active | on-hold | revoked 
+    	{fhir:v @fhirvs:request-status};  # draft | active | on-hold | revoked 
                                             # | completed | entered-in-error | 
                                             # unknown 
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:request-intent};  # proposal | plan | directive | 
+    	{fhir:v @fhirvs:request-intent};  # proposal | plan | directive | 
                                             # order | original-order | 
                                             # reflex-order | filler-order | 
                                             # instance-order | option 

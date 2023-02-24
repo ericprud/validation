@@ -31,7 +31,7 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>?;                   # Name for this example scenario 
                                             # (computer friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -66,7 +66,7 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:resourceId @<string>;              # The id of the resource for 
                                             # referencing 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:resource-types};  # The type of the resource
+    	{fhir:v @fhirvs:resource-types};  # The type of the resource
     fhir:name @<string>?;                   # A short name for the resource 
                                             # instance 
     fhir:description @<markdown>?;          # Human-friendly description of the 
@@ -100,7 +100,7 @@ start=@<ExampleScenario> AND {fhir:nodeRole [fhir:treeRoot]}
 <ExampleScenario.actor> EXTENDS @<BackboneElement> CLOSED {   
     fhir:actorId @<string>;                 # ID or acronym of the actor
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:examplescenario-actor-type};  # person | entity
+    	{fhir:v @fhirvs:examplescenario-actor-type};  # person | entity
     fhir:name @<string>?;                   # The name of the actor as shown in 
                                             # the page 
     fhir:description @<markdown>?;          # The description of the actor

@@ -64,7 +64,7 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
 # Times the Service Site is available
 <PractitionerRole.availableTime> EXTENDS @<BackboneElement> CLOSED {   
     fhir:daysOfWeek @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
+    	{fhir:v @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
                                             # | sun 
     fhir:allDay @<boolean>?;                # Always available? i.e. 24 hour 
                                             # service 

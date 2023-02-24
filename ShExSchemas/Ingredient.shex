@@ -31,7 +31,7 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<Identifier>?;         # An identifier or code by which the 
                                             # ingredient can be referenced 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:for @<OneOrMore_Reference_AdministrableProductDefinition_OR_ManufacturedItemDefinition_OR_MedicinalProductDefinition>?;  # The product which this ingredient 
                                             # is a constituent part of 
     fhir:role @<CodeableConcept>;           # Purpose of the ingredient within 
@@ -109,7 +109,7 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
 # An organization that manufactures this ingredient
 <Ingredient.manufacturer> EXTENDS @<BackboneElement> CLOSED {   
     fhir:role @<code> AND
-    	{fhir:value @fhirvs:ingredient-manufacturer-role}?;  # allowed | possible | actual
+    	{fhir:v @fhirvs:ingredient-manufacturer-role}?;  # allowed | possible | actual
     fhir:manufacturer @<Reference> AND {fhir:link 
     			@<Organization> };  # An organization that manufactures 
                                             # this ingredient 

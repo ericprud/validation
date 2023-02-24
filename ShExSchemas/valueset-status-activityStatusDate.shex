@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:valueset-status-activityStatusDate];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate"]}; 
-    fhir:value (@<date> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate"]}; 
+    fhir:v (@<date> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:ValueSet]
         }
 }  

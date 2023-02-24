@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:timezone];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/timezone"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:timezones} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/timezone"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:timezones} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:date] OR 
           a [fhir:dateTime] OR 
           a [fhir:instant]

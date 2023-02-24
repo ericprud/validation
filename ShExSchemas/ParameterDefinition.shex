@@ -17,13 +17,13 @@ IMPORT <canonical.shex>
     fhir:name @<code>?;                     # Name used to access the parameter 
                                             # value 
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:operation-parameter-use};  # in | out
+    	{fhir:v @fhirvs:operation-parameter-use};  # in | out
     fhir:min @<integer>?;                   # Minimum cardinality
     fhir:max @<string>?;                    # Maximum cardinality (a number of *)
     fhir:documentation @<string>?;          # A brief description of the 
                                             # parameter 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:all-types};  # What type of value
+    	{fhir:v @fhirvs:all-types};  # What type of value
     fhir:profile @<canonical>?;             # What profile the value is expected 
                                             # to be 
 }  

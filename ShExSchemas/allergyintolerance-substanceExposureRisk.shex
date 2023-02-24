@@ -14,7 +14,7 @@ IMPORT <Extension.shex>
     fhir:substance @<Extension>; 
     fhir:exposureRisk @<Extension>; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-substanceExposureRisk"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-substanceExposureRisk"]}; 
     ^fhir:extension { a [fhir:AllergyIntolerance]
         }
 }  

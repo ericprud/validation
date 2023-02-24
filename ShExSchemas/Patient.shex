@@ -35,7 +35,7 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<OneOrMore_HumanName>?;      # A name associated with the patient
     fhir:telecom @<OneOrMore_ContactPoint>?;  # A contact detail for the individual
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:birthDate @<date>?;                # The date of birth for the 
                                             # individual 
     fhir:deceased (@<boolean>  OR 
@@ -70,7 +70,7 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:telecom @<OneOrMore_ContactPoint>?;  # A contact detail for the person
     fhir:address @<Address>?;               # Address for the contact person
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:organization @<Reference> AND {fhir:link 
     			@<Organization> }?;  # Organization that is associated 
                                             # with the contact 
@@ -96,7 +96,7 @@ start=@<Patient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # person resource that the link 
                                             # refers to 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:link-type};  # replaced-by | replaces | refer | 
+    	{fhir:v @fhirvs:link-type};  # replaced-by | replaces | refer | 
                                             # seealso 
 }  
 

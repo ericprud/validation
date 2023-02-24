@@ -32,7 +32,7 @@ start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<OneOrMore_HumanName>?;      # A name associated with the person
     fhir:telecom @<OneOrMore_ContactPoint>?;  # A contact detail for the person
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:birthDate @<date>?;                # The date on which the related 
                                             # person was born 
     fhir:address @<OneOrMore_Address>?;     # Address where the related person 

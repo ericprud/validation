@@ -14,8 +14,8 @@ IMPORT <Reference.shex>
     a [fhir:observation-gatewayDevice];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-gatewayDevice"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Device> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-gatewayDevice"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Device> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Observation]
         }
 }  

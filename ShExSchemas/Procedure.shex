@@ -54,7 +54,7 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_ServiceRequest>?;  # A request for this procedure
     fhir:partOf @<OneOrMore_Reference_MedicationAdministration_OR_Observation_OR_Procedure>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:event-status};  # preparation | in-progress | 
+    	{fhir:v @fhirvs:event-status};  # preparation | in-progress | 
                                             # not-done | on-hold | stopped | 
                                             # completed | entered-in-error | 
                                             # unknown 

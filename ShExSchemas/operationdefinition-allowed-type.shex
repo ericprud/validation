@@ -12,8 +12,8 @@ IMPORT <Extension.shex>
     a [fhir:operationdefinition-allowed-type];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"]}; 
-    fhir:value (@<uri> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"]}; 
+    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:parameter {a [fhir:OperationDefinition]}
         }
 }  

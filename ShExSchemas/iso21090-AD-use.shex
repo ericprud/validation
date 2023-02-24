@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:iso21090-AD-use];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-AD-use"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:postal-address-use} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-AD-use"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:postal-address-use} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Address]
         }
 }  

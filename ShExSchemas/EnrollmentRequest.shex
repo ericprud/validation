@@ -23,7 +23,7 @@ start=@<EnrollmentRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status}?;  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status}?;  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:created @<dateTime>?;              # Creation date
     fhir:insurer @<Reference> AND {fhir:link 

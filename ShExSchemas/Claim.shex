@@ -49,12 +49,12 @@ start=@<Claim> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for claim
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:type @<CodeableConcept>;           # Category or discipline
     fhir:subType @<CodeableConcept>?;       # More granular claim type
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:claim-use};  # claim | preauthorization | 
+    	{fhir:v @fhirvs:claim-use};  # claim | preauthorization | 
                                             # predetermination 
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> };  # The recipient of the products and 
@@ -203,7 +203,7 @@ start=@<Claim> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>?;          # Type of information
     fhir:timing (@<date>  OR 
     			@<Period> )  AND { rdf:type IRI } ?;  # When it occurred
-    fhir:value (@<boolean>  OR 
+    fhir:v (@<boolean>  OR 
     			@<string>  OR 
     			@<Quantity>  OR 
     			@<Attachment>  OR 

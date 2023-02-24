@@ -17,8 +17,8 @@ IMPORT <DocumentReference.shex>
     a [fhir:workflow-reasonReference];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-reasonReference"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Condition> OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-reasonReference"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Condition> OR 
     			 @<DiagnosticReport> OR 
     			 @<DocumentReference> OR 
     			 @<Observation> }) )  AND { rdf:type IRI } ; 

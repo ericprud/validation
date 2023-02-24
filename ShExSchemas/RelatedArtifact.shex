@@ -18,7 +18,7 @@ IMPORT <Attachment.shex>
     a [fhir:RelatedArtifact];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:related-artifact-type};  # documentation | justification | 
+    	{fhir:v @fhirvs:related-artifact-type};  # documentation | justification | 
                                             # citation | predecessor | successor 
                                             # | derived-from | depends-on | 
                                             # composed-of | part-of | amends | 

@@ -16,8 +16,8 @@ https://ghr.nlm.nih.gov/primer/testing/secondaryfindings
     a [fhir:observation-secondaryFinding];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Observation]
         }
 }  

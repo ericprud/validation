@@ -13,8 +13,8 @@ IMPORT <Identifier.shex>
     a [fhir:artifact-identifier];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-identifier"]}; 
-    fhir:value (@<Identifier> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-identifier"]}; 
+    fhir:v (@<Identifier> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

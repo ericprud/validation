@@ -30,7 +30,7 @@ start=@<NutritionProduct> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # detailed nutrients and ingredients 
                                             # in a specific food product 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:nutritionproduct-status};  # active | inactive | 
+    	{fhir:v @fhirvs:nutritionproduct-status};  # active | inactive | 
                                             # entered-in-error 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Broad product groups or categories 
                                             # used to classify the product, such 
@@ -96,7 +96,7 @@ start=@<NutritionProduct> AND {fhir:nodeRole [fhir:treeRoot]}
 <NutritionProduct.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Code specifying the type of 
                                             # characteristic 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<SimpleQuantity>  OR 
     			@<base64Binary>  OR 

@@ -73,7 +73,7 @@ start=@<Parameters> AND {fhir:nodeRole [fhir:treeRoot]}
 # Operation Parameter
 <Parameters.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>;                    # Name from the definition
-    fhir:value (@<base64Binary>  OR 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 

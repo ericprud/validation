@@ -14,7 +14,7 @@ IMPORT <DataType.shex>
     a [fhir:HumanName];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:name-use}?;  # usual | official | temp | nickname 
+    	{fhir:v @fhirvs:name-use}?;  # usual | official | temp | nickname 
                                             # | anonymous | old | maiden 
     fhir:text @<string>?;                   # Text representation of the full 
                                             # name 

@@ -20,7 +20,7 @@ start=@<FormularyItem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>?;          # Codes that identify this formulary 
                                             # item 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:formularyitem-status}?;  # active | entered-in-error | 
+    	{fhir:v @fhirvs:formularyitem-status}?;  # active | entered-in-error | 
                                             # inactive 
 }  
 

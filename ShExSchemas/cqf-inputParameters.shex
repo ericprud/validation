@@ -14,8 +14,8 @@ IMPORT <Parameters.shex>
     a [fhir:cqf-inputParameters];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Parameters> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Parameters> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

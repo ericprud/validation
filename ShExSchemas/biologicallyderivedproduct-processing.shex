@@ -68,7 +68,7 @@ IMPORT <ParameterDefinition.shex>
     fhir:additive @<Extension>?; 
     fhir:time[x] @<Extension>?; 
     fhir:v @<uri>; 
-    fhir:value (@<base64Binary>  OR 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 

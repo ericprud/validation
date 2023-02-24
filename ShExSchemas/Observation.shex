@@ -74,7 +74,7 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:triggeredBy @<OneOrMore_BackboneElement>?;  # Triggering observation(s)
     fhir:partOf @<OneOrMore_Reference_ImagingStudy_OR_Immunization_OR_MedicationAdministration_OR_MedicationDispense_OR_MedicationUsage_OR_Procedure>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:observation-status};  # registered | preliminary | final | 
+    	{fhir:v @fhirvs:observation-status};  # registered | preliminary | final | 
                                             # amended + 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Classification of  type of 
                                             # observation 
@@ -107,7 +107,7 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # available 
     fhir:performer @<OneOrMore_Reference_CareTeam_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who is responsible for the 
                                             # observation 
-    fhir:value (@<Quantity>  OR 
+    fhir:v (@<Quantity>  OR 
     			@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<boolean>  OR 
@@ -144,7 +144,7 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:observation @<Reference> AND {fhir:link 
     			@<Observation> };  # Triggering observation
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
+    	{fhir:v @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
     fhir:reason @<string>?;                 # Reason that the observation was 
                                             # triggered 
 }  
@@ -165,7 +165,7 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Type of component observation 
                                             # (code / type) 
-    fhir:value (@<Quantity>  OR 
+    fhir:v (@<Quantity>  OR 
     			@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<boolean>  OR 

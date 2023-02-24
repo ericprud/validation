@@ -47,7 +47,7 @@ start=@<DiagnosticReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier for report
     fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_ServiceRequest>?;  # What was requested
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:diagnostic-report-status};  # registered | partial | preliminary 
+    	{fhir:v @fhirvs:diagnostic-report-status};  # registered | partial | preliminary 
                                             # | final + 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Service category
     fhir:code @<CodeableConcept>;           # Name/Code for this diagnostic 

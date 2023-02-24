@@ -36,7 +36,7 @@ IMPORT <CodeableConcept.shex>
     fhir:duration @<decimal>?;              # How long when it happens
     fhir:durationMax @<decimal>?;           # How long when it happens (Max)
     fhir:durationUnit @<code> AND
-    	{fhir:value @fhirvs:units-of-time}?;  # s | min | h | d | wk | mo | a - 
+    	{fhir:v @fhirvs:units-of-time}?;  # s | min | h | d | wk | mo | a - 
                                             # unit of time (UCUM) 
     fhir:frequency @<positiveInt>?;         # Indicates the number of 
                                             # repetitions that should occur 
@@ -49,14 +49,14 @@ IMPORT <CodeableConcept.shex>
                                             # occurs frequency times per period 
     fhir:periodMax @<decimal>?;             # Upper limit of period (3-4 hours)
     fhir:periodUnit @<code> AND
-    	{fhir:value @fhirvs:units-of-time}?;  # s | min | h | d | wk | mo | a - 
+    	{fhir:v @fhirvs:units-of-time}?;  # s | min | h | d | wk | mo | a - 
                                             # unit of time (UCUM) 
     fhir:dayOfWeek @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
+    	{fhir:v @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
                                             # | sun 
     fhir:timeOfDay @<OneOrMore_time>?;      # Time of day for action
     fhir:when @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:event-timing}?;  # Code for time period of occurrence
+    	{fhir:v @fhirvs:event-timing}?;  # Code for time period of occurrence
     fhir:offset @<unsignedInt>?;            # Minutes from event (before or 
                                             # after) 
 }  

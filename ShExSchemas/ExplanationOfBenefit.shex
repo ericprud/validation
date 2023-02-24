@@ -51,12 +51,12 @@ start=@<ExplanationOfBenefit> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for the 
                                             # resource 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:explanationofbenefit-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:explanationofbenefit-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:type @<CodeableConcept>;           # Category or discipline
     fhir:subType @<CodeableConcept>?;       # More granular claim type
     fhir:use @<code> AND
-    	{fhir:value @fhirvs:claim-use};  # claim | preauthorization | 
+    	{fhir:v @fhirvs:claim-use};  # claim | preauthorization | 
                                             # predetermination 
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> };  # The recipient of the products and 
@@ -93,7 +93,7 @@ start=@<ExplanationOfBenefit> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:claimResponse @<Reference> AND {fhir:link 
     			@<ClaimResponse> }?;  # Claim response reference
     fhir:outcome @<code> AND
-    	{fhir:value @fhirvs:claim-outcome};  # queued | complete | error | partial
+    	{fhir:v @fhirvs:claim-outcome};  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition Message
     fhir:preAuthRef @<OneOrMore_string>?;   # Preauthorization reference
     fhir:preAuthRefPeriod @<OneOrMore_Period>?;  # Preauthorization in-effect period
@@ -227,7 +227,7 @@ start=@<ExplanationOfBenefit> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>?;          # Type of information
     fhir:timing (@<date>  OR 
     			@<Period> )  AND { rdf:type IRI } ?;  # When it occurred
-    fhir:value (@<boolean>  OR 
+    fhir:v (@<boolean>  OR 
     			@<string>  OR 
     			@<Quantity>  OR 
     			@<Attachment>  OR 
@@ -239,7 +239,7 @@ start=@<ExplanationOfBenefit> AND {fhir:nodeRole [fhir:treeRoot]}
 <ExplanationOfBenefit.processNote> EXTENDS @<BackboneElement> CLOSED {   
     fhir:number @<positiveInt>?;            # Note instance identifier
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:note-type}?;  # display | print | printoper
+    	{fhir:v @fhirvs:note-type}?;  # display | print | printoper
     fhir:text @<string>?;                   # Note explanatory text
     fhir:language @<CodeableConcept>?;      # Language of the text
 }  
@@ -377,7 +377,7 @@ start=@<ExplanationOfBenefit> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:category @<CodeableConcept>;       # Type of adjudication information
     fhir:reason @<CodeableConcept>?;        # Explanation of adjudication outcome
     fhir:amount @<Money>?;                  # Monetary amount
-    fhir:value @<decimal>?;                 # Non-monitary value
+    fhir:v @<decimal>?;                 # Non-monitary value
 }  
 
 # Insurer added line items

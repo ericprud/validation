@@ -28,7 +28,7 @@ start=@<Substance> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:instance @<boolean>;               # Is this an instance of a substance 
                                             # or a kind of one 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:substance-status}?;  # active | inactive | 
+    	{fhir:v @fhirvs:substance-status}?;  # active | inactive | 
                                             # entered-in-error 
     fhir:category @<OneOrMore_CodeableConcept>?;  # What class/type of substance this 
                                             # is 

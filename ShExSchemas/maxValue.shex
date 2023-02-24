@@ -18,8 +18,8 @@ IMPORT <Extension.shex>
     a [fhir:maxValue];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/maxValue"]}; 
-    fhir:value (@<date>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/maxValue"]}; 
+    fhir:v (@<date>  OR 
     			@<dateTime>  OR 
     			@<time>  OR 
     			@<decimal>  OR 

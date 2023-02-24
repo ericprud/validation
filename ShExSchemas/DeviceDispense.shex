@@ -42,7 +42,7 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:partOf @<OneOrMore_Reference_Procedure>?;  # The bigger event that this 
                                             # dispense is a part of 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:devicedispense-status};  # preparation | in-progress | 
+    	{fhir:v @fhirvs:devicedispense-status};  # preparation | in-progress | 
                                             # cancelled | on-hold | completed | 
                                             # entered-in-error | stopped | 
                                             # declined | unknown 

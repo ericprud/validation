@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:allergyintolerance-reasonRefuted];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:AllergyIntolerance]
         }
 }  

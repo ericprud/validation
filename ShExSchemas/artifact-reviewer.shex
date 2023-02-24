@@ -13,8 +13,8 @@ IMPORT <ContactDetail.shex>
     a [fhir:artifact-reviewer];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]}; 
-    fhir:value (@<ContactDetail> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-reviewer"]}; 
+    fhir:v (@<ContactDetail> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

@@ -39,7 +39,7 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifier for this record 
                                             # (external references) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:consent-state-codes};  # draft | active | inactive | 
+    	{fhir:v @fhirvs:consent-state-codes};  # draft | active | inactive | 
                                             # not-done | entered-in-error | 
                                             # unknown 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Classification of the consent 
@@ -91,7 +91,7 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
 # Data controlled by this rule
 <Consent.provision.data> EXTENDS @<BackboneElement> CLOSED {   
     fhir:meaning @<code> AND
-    	{fhir:value @fhirvs:consent-data-meaning};  # instance | related | dependents | 
+    	{fhir:v @fhirvs:consent-data-meaning};  # instance | related | dependents | 
                                             # authoredby 
     fhir:reference @<Reference> AND {fhir:link 
     			@<Resource> };  # The actual data reference
@@ -122,7 +122,7 @@ start=@<Consent> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraints to the base Consent.policyRule/Consent.policy
 <Consent.provision> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:consent-provision-type}?;  # deny | permit
+    	{fhir:v @fhirvs:consent-provision-type}?;  # deny | permit
     fhir:period @<Period>?;                 # Timeframe for this rule
     fhir:actor @<OneOrMore_BackboneElement>?;  # Who|what controlled by this rule 
                                             # (or group, by role) 

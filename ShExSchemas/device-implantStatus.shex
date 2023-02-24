@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:device-implantStatus];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/device-implantStatus"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:implantStatus} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/device-implantStatus"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:implantStatus} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Device]
         }
 }  

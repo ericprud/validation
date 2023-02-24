@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:allergyintolerance-duration];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration"]}; 
-    fhir:value (@<Duration> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration"]}; 
+    fhir:v (@<Duration> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
         }
 }  

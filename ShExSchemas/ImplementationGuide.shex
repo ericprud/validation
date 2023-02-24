@@ -37,7 +37,7 @@ start=@<ImplementationGuide> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Name for this implementation guide 
                                             # (human friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -54,10 +54,10 @@ start=@<ImplementationGuide> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
     fhir:packageId @<id>;                   # NPM Package name for IG
     fhir:license @<code> AND
-    	{fhir:value @fhirvs:spdx-license}?;  # SPDX license code for this IG (or 
+    	{fhir:v @fhirvs:spdx-license}?;  # SPDX license code for this IG (or 
                                             # not-open-source) 
     fhir:fhirVersion @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:FHIR-version};  # FHIR Version(s) this 
+    	{fhir:v @fhirvs:FHIR-version};  # FHIR Version(s) this 
                                             # Implementation Guide targets 
     fhir:dependsOn @<OneOrMore_BackboneElement>?;  # Another Implementation guide this 
                                             # depends on 
@@ -69,7 +69,7 @@ start=@<ImplementationGuide> AND {fhir:nodeRole [fhir:treeRoot]}
 # Profiles that apply globally
 <ImplementationGuide.global> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:resource-types};  # Type this profile applies to
+    	{fhir:v @fhirvs:resource-types};  # Type this profile applies to
     fhir:profile @<canonical>;              # Profile that all resources must 
                                             # conform to 
 }  
@@ -81,7 +81,7 @@ start=@<ImplementationGuide> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>;                   # Short title shown for navigational 
                                             # assistance 
     fhir:generation @<code> AND
-    	{fhir:value @fhirvs:guide-page-generation};  # html | markdown | xml | generated
+    	{fhir:v @fhirvs:guide-page-generation};  # html | markdown | xml | generated
     fhir:page @<OneOrMore_ImplementationGuide.definition.page>?;  # Nested Pages / Sections
 }  
 
@@ -101,7 +101,7 @@ start=@<ImplementationGuide> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:reference @<Reference> AND {fhir:link 
     			@<Resource> };  # Location of the resource
     fhir:fhirVersion @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:FHIR-version}?;  # Versions this applies to (if 
+    	{fhir:v @fhirvs:FHIR-version}?;  # Versions this applies to (if 
                                             # different to IG) 
     fhir:name @<string>?;                   # Human readable name for the 
                                             # resource 
@@ -158,7 +158,7 @@ start=@<ImplementationGuide> AND {fhir:nodeRole [fhir:treeRoot]}
 # Defines how IG is built by tools
 <ImplementationGuide.definition.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<string>;                    # Code that identifies parameter
-    fhir:value @<string>;                   # Value for named type
+    fhir:v @<string>;                   # Value for named type
 }  
 
 # HTML page within the parent IG

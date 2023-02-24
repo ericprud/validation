@@ -33,10 +33,10 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:list-status};  # current | retired | 
+    	{fhir:v @fhirvs:list-status};  # current | retired | 
                                             # entered-in-error 
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:list-mode};  # working | snapshot | changes
+    	{fhir:v @fhirvs:list-mode};  # working | snapshot | changes
     fhir:title @<string>?;                  # Descriptive name for the list
     fhir:code @<CodeableConcept>?;          # What the purpose of this list is
     fhir:subject @<Reference> AND {fhir:link 

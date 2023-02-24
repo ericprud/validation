@@ -31,13 +31,13 @@ start=@<DeviceMetric> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Device> }?;  # Describes the link to the parent 
                                             # Device 
     fhir:operationalStatus @<code> AND
-    	{fhir:value @fhirvs:metric-operational-status}?;  # on | off | standby | 
+    	{fhir:v @fhirvs:metric-operational-status}?;  # on | off | standby | 
                                             # entered-in-error 
     fhir:color @<code> AND
-    	{fhir:value @fhirvs:metric-color}?;  # black | red | green | yellow | 
+    	{fhir:v @fhirvs:metric-color}?;  # black | red | green | yellow | 
                                             # blue | magenta | cyan | white 
     fhir:category @<code> AND
-    	{fhir:value @fhirvs:metric-category};  # measurement | setting | 
+    	{fhir:v @fhirvs:metric-category};  # measurement | setting | 
                                             # calculation | unspecified 
     fhir:measurementPeriod @<Timing>?;      # Describes the measurement 
                                             # repetition time 
@@ -49,10 +49,10 @@ start=@<DeviceMetric> AND {fhir:nodeRole [fhir:treeRoot]}
 # Describes the calibrations that have been performed or that are required to be performed
 <DeviceMetric.calibration> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:metric-calibration-type}?;  # unspecified | offset | gain | 
+    	{fhir:v @fhirvs:metric-calibration-type}?;  # unspecified | offset | gain | 
                                             # two-point 
     fhir:state @<code> AND
-    	{fhir:value @fhirvs:metric-calibration-state}?;  # not-calibrated | 
+    	{fhir:v @fhirvs:metric-calibration-state}?;  # not-calibrated | 
                                             # calibration-required | calibrated 
                                             # | unspecified 
     fhir:time @<instant>?;                  # Describes the time last 

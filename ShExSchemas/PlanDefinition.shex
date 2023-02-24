@@ -73,7 +73,7 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>?;          # order-set | clinical-protocol | 
                                             # eca-rule | workflow-definition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:subject (@<CodeableConcept>  OR 
@@ -123,7 +123,7 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <PlanDefinition.action.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:actorId @<string>?;                # What actor
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:action-participant-type}?;  # careteam | device | group | 
+    	{fhir:v @fhirvs:action-participant-type}?;  # careteam | device | group | 
                                             # healthcareservice | location | 
                                             # organization | patient | 
                                             # practitioner | practitionerrole | 
@@ -151,7 +151,7 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Who or what can be this actor
 <PlanDefinition.actor.option> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:action-participant-type}?;  # careteam | device | group | 
+    	{fhir:v @fhirvs:action-participant-type}?;  # careteam | device | group | 
                                             # healthcareservice | location | 
                                             # organization | patient | 
                                             # practitioner | practitionerrole | 
@@ -173,7 +173,7 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Whether or not the action is applicable
 <PlanDefinition.action.condition> EXTENDS @<BackboneElement> CLOSED {   
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:action-condition-kind};  # applicability | start | stop
+    	{fhir:v @fhirvs:action-condition-kind};  # applicability | start | stop
     fhir:expression @<Expression>?;         # Boolean-valued expression
 }  
 
@@ -188,7 +188,7 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <PlanDefinition.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
     fhir:targetId @<id>;                    # What action is this related to
     fhir:relationship @<code> AND
-    	{fhir:value @fhirvs:action-relationship-type};  # before-start | before | before-end 
+    	{fhir:v @fhirvs:action-relationship-type};  # before-start | before | before-end 
                                             # | concurrent-with-start | 
                                             # concurrent | concurrent-with-end | 
                                             # after-start | after | after-end 
@@ -209,7 +209,7 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # aspects cannot be interpreted by 
                                             # the receiving system 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:code @<CodeableConcept>?;          # Code representing the meaning of 
                                             # the action or sub-actions 
     fhir:reason @<OneOrMore_CodeableConcept>?;  # Why the action should be performed
@@ -236,19 +236,19 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>?;          # create | update | remove | 
                                             # fire-event 
     fhir:groupingBehavior @<code> AND
-    	{fhir:value @fhirvs:action-grouping-behavior}?;  # visual-group | logical-group | 
+    	{fhir:v @fhirvs:action-grouping-behavior}?;  # visual-group | logical-group | 
                                             # sentence-group 
     fhir:selectionBehavior @<code> AND
-    	{fhir:value @fhirvs:action-selection-behavior}?;  # any | all | all-or-none | 
+    	{fhir:v @fhirvs:action-selection-behavior}?;  # any | all | all-or-none | 
                                             # exactly-one | at-most-one | 
                                             # one-or-more 
     fhir:requiredBehavior @<code> AND
-    	{fhir:value @fhirvs:action-required-behavior}?;  # must | could | 
+    	{fhir:v @fhirvs:action-required-behavior}?;  # must | could | 
                                             # must-unless-documented 
     fhir:precheckBehavior @<code> AND
-    	{fhir:value @fhirvs:action-precheck-behavior}?;  # yes | no
+    	{fhir:v @fhirvs:action-precheck-behavior}?;  # yes | no
     fhir:cardinalityBehavior @<code> AND
-    	{fhir:value @fhirvs:action-cardinality-behavior}?;  # single | multiple
+    	{fhir:v @fhirvs:action-cardinality-behavior}?;  # single | multiple
     fhir:definition ((@<canonical>  AND {fhir:link @<ActivityDefinition> OR 
     			 @<ObservationDefinition> OR 
     			 @<PlanDefinition> OR 

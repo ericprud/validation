@@ -43,7 +43,7 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifiers for the whole study
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:imagingstudy-status};  # registered | available | cancelled 
+    	{fhir:v @fhirvs:imagingstudy-status};  # registered | available | cancelled 
                                             # | entered-in-error | unknown 
     fhir:modality @<OneOrMore_CodeableConcept>?;  # All of the distinct values for 
                                             # series' modalities 

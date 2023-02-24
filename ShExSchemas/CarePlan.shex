@@ -58,11 +58,11 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:replaces @<OneOrMore_Reference_CarePlan>?;  # CarePlan replaced by this CarePlan
     fhir:partOf @<OneOrMore_Reference_CarePlan>?;  # Part of referenced CarePlan
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:request-status};  # draft | active | on-hold | revoked 
+    	{fhir:v @fhirvs:request-status};  # draft | active | on-hold | revoked 
                                             # | completed | entered-in-error | 
                                             # unknown 
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:care-plan-intent};  # proposal | plan | order | option | 
+    	{fhir:v @fhirvs:care-plan-intent};  # proposal | plan | order | option | 
                                             # directive 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Type of plan
     fhir:title @<string>?;                  # Human-friendly name for the care 
@@ -122,7 +122,7 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 # In-line definition of activity
 <CarePlan.activity.plannedActivityDetail> EXTENDS @<BackboneElement> CLOSED {   
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:care-plan-activity-kind}?;  # Appointment | CommunicationRequest 
+    	{fhir:v @fhirvs:care-plan-activity-kind}?;  # Appointment | CommunicationRequest 
                                             # | DeviceRequest | 
                                             # MedicationRequest | NutritionOrder 
                                             # | Task | ServiceRequest | 
@@ -136,7 +136,7 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # activity was prohibited 
     fhir:goal @<OneOrMore_Reference_Goal>?;  # Goals this activity relates to
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:care-plan-activity-status};  # not-started | scheduled | 
+    	{fhir:v @fhirvs:care-plan-activity-status};  # not-started | scheduled | 
                                             # in-progress | on-hold | completed 
                                             # | cancelled | stopped | unknown | 
                                             # entered-in-error 

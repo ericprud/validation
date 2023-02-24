@@ -29,7 +29,7 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for vision 
                                             # prescription 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:created @<dateTime>;               # Response creation date
     fhir:patient @<Reference> AND {fhir:link 
@@ -49,7 +49,7 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
 <VisionPrescription.lensSpecification> EXTENDS @<BackboneElement> CLOSED {   
     fhir:product @<CodeableConcept>;        # Product to be supplied
     fhir:eye @<code> AND
-    	{fhir:value @fhirvs:vision-eye-codes};  # right | left
+    	{fhir:v @fhirvs:vision-eye-codes};  # right | left
     fhir:sphere @<decimal>?;                # Power of the lens
     fhir:cylinder @<decimal>?;              # Lens power for astigmatism
     fhir:axis @<integer>?;                  # Lens meridian which contain no 
@@ -69,7 +69,7 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
 <VisionPrescription.lensSpecification.prism> EXTENDS @<BackboneElement> CLOSED {   
     fhir:amount @<decimal>;                 # Amount of adjustment
     fhir:base @<code> AND
-    	{fhir:value @fhirvs:vision-base-codes};  # up | down | in | out
+    	{fhir:v @fhirvs:vision-base-codes};  # up | down | in | out
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

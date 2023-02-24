@@ -15,8 +15,8 @@ IMPORT <ClaimResponse.shex>
     a [fhir:request-insurance];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/request-insurance"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Coverage> OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/request-insurance"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Coverage> OR 
     			 @<ClaimResponse> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:NutritionOrder]
         }

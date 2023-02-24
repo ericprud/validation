@@ -30,7 +30,7 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier(s) relevant 
                                             # for this EpisodeOfCare 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
+    	{fhir:v @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
                                             # onhold | finished | cancelled | 
                                             # entered-in-error 
     fhir:statusHistory @<OneOrMore_BackboneElement>?;  # Past list of status codes (the 
@@ -63,7 +63,7 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
 # Past list of status codes (the current status may be included to cover the start date of the status)
 <EpisodeOfCare.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
+    	{fhir:v @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
                                             # onhold | finished | cancelled | 
                                             # entered-in-error 
     fhir:period @<Period>;                  # Duration the EpisodeOfCare was in 

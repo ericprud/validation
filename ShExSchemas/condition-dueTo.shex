@@ -19,8 +19,8 @@ IMPORT <MedicationAdministration.shex>
     a [fhir:condition-dueTo];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/condition-dueTo"]}; 
-    fhir:value (@<CodeableConcept>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/condition-dueTo"]}; 
+    fhir:v (@<CodeableConcept>  OR 
     			(@<Reference>  AND {fhir:link @<Condition> OR 
     			 @<Procedure> OR 
     			 @<MedicationAdministration> OR 

@@ -14,8 +14,8 @@ IMPORT <DiagnosticReport.shex>
     a [fhir:diagnosticReport-replaces];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/diagnosticReport-replaces"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<DiagnosticReport> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/diagnosticReport-replaces"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<DiagnosticReport> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:DiagnosticReport]
         }
 }  

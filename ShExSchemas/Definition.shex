@@ -37,7 +37,7 @@ IMPORT <PractitionerRole.shex>
     fhir:partOf @<OneOrMore_canonical>?;    # Part of referenced definition
     fhir:replaces @<OneOrMore_canonical>?;  # Request(s) replaced by this request
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # If for testing purposes, not real 
                                             # usage 
     fhir:subject (@<CodeableConcept>  OR 

@@ -54,15 +54,15 @@ start=@<ServiceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:replaces @<OneOrMore_Reference_ServiceRequest>?;  # What request replaces
     fhir:requisition @<Identifier>?;        # Composite Request ID
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:request-status};  # draft | active | on-hold | revoked 
+    	{fhir:v @fhirvs:request-status};  # draft | active | on-hold | revoked 
                                             # | completed | entered-in-error | 
                                             # unknown 
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:request-intent};  # proposal | plan | directive | 
+    	{fhir:v @fhirvs:request-intent};  # proposal | plan | directive | 
                                             # order + 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Classification of service
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:doNotPerform @<boolean>?;          # True if service/procedure should 
                                             # not be performed 
     fhir:code @<CodeableConcept>?;          # What is being requested/ordered

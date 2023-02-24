@@ -15,7 +15,7 @@ IMPORT <Extension.shex>
     fhir:actualNumber @<Extension>?; 
     fhir:eligibility @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-animal"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-animal"]}; 
     ^fhir:extension { a [fhir:ResearchStudy]
         }
 }  

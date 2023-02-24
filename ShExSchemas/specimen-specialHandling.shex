@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:specimen-specialHandling];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/specimen-specialHandling"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/specimen-specialHandling"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:collection {a [fhir:Specimen]}
         }
 }  

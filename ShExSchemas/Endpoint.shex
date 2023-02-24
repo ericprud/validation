@@ -22,7 +22,7 @@ start=@<Endpoint> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifies this endpoint across 
                                             # multiple systems 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:endpoint-status};  # active | suspended | error | off | 
+    	{fhir:v @fhirvs:endpoint-status};  # active | suspended | error | off | 
                                             # entered-in-error | test 
     fhir:connectionType @<OneOrMore_Coding>;  # Protocol/Profile/Standard to be 
                                             # used with this endpoint connection 
@@ -41,7 +41,7 @@ start=@<Endpoint> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # used at this endpoint (e.g. XDS 
                                             # Discharge summaries) 
     fhir:payloadMimeType @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # Mimetype to send. If not 
+    	{fhir:v @fhirvs:mimetypes}?;  # Mimetype to send. If not 
                                             # specified, the content could be 
                                             # anything (including no payload, if 
                                             # the connectionType defined this) 

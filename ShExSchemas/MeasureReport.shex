@@ -38,12 +38,12 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Additional identifier for the 
                                             # MeasureReport 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:measure-report-status};  # complete | pending | error
+    	{fhir:v @fhirvs:measure-report-status};  # complete | pending | error
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:measure-report-type};  # individual | subject-list | 
+    	{fhir:v @fhirvs:measure-report-type};  # individual | subject-list | 
                                             # summary | data-collection 
     fhir:dataUpdateType @<code> AND
-    	{fhir:value @fhirvs:submit-data-update-type}?;  # incremental | snapshot
+    	{fhir:v @fhirvs:submit-data-update-type}?;  # incremental | snapshot
     fhir:measure @<canonical>;              # What measure was calculated
     fhir:subject @<Reference> AND {fhir:link 
     			@<Device> OR 
@@ -127,7 +127,7 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Stratum results, one for each unique value, or set of values, in the stratifier, or stratifier components
 <MeasureReport.group.stratifier.stratum> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
@@ -146,7 +146,7 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
 <MeasureReport.group.stratifier.stratum.component> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # What stratifier component of the 
                                             # group 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 

@@ -13,7 +13,7 @@ IMPORT <Extension.shex>
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:day @<OneOrMore_Extension>; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle"]}; 
     ^fhir:extension { ^fhir:action {a [fhir:PlanDefinition]} OR 
           ^fhir:action {a [fhir:RequestGroup]}
         }

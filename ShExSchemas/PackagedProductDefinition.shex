@@ -85,7 +85,7 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <PackagedProductDefinition.packaging.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # A code expressing the type of 
                                             # characteristic 
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<date>  OR 
     			@<boolean>  OR 

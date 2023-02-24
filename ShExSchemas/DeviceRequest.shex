@@ -51,16 +51,16 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:replaces @<OneOrMore_Reference_DeviceRequest>?;  # What request replaces
     fhir:groupIdentifier @<Identifier>?;    # Identifier of composite request
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:request-status}?;  # draft | active | on-hold | revoked 
+    	{fhir:v @fhirvs:request-status}?;  # draft | active | on-hold | revoked 
                                             # | completed | entered-in-error | 
                                             # unknown 
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:request-intent};  # proposal | plan | directive | 
+    	{fhir:v @fhirvs:request-intent};  # proposal | plan | directive | 
                                             # order | original-order | 
                                             # reflex-order | filler-order | 
                                             # instance-order | option 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:doNotPerform @<boolean>?;          # True if the request is to stop or 
                                             # not to start using the device 
     fhir:code @<CodeableReference>;         # Device requested
@@ -103,7 +103,7 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 # Device details
 <DeviceRequest.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>?;          # Device detail
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
     			@<boolean> )  AND { rdf:type IRI } ?;  # Value of detail

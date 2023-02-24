@@ -17,7 +17,7 @@ IMPORT <Extension.shex>
     fhir:displayCategory @<Extension>?; 
     fhir:displaySequence @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"]}; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

@@ -39,7 +39,7 @@ start=@<RiskAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:parent @<Reference> AND {fhir:link 
     			@<Resource> }?;  # Part of this occurrence
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:observation-status};  # registered | preliminary | final | 
+    	{fhir:v @fhirvs:observation-status};  # registered | preliminary | final | 
                                             # amended + 
     fhir:method @<CodeableConcept>?;        # Evaluation mechanism
     fhir:code @<CodeableConcept>?;          # Type of assessment

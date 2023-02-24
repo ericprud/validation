@@ -40,7 +40,7 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # of a variation of the content in 
                                             # the Composition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:composition-status};  # preliminary | final | amended | 
+    	{fhir:v @fhirvs:composition-status};  # preliminary | final | amended | 
                                             # entered-in-error | deprecated 
     fhir:type @<CodeableConcept>;           # Kind of composition (LOINC if 
                                             # possible) 
@@ -60,7 +60,7 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>;                   # Human Readable name/title
     fhir:note @<OneOrMore_Annotation>?;     # For any additional notes
     fhir:confidentiality @<code> AND
-    	{fhir:value @<http://terminology.hl7.org/ValueSet/v3-Confidentiality>}?;  # As defined by affinity domain
+    	{fhir:v @<http://terminology.hl7.org/ValueSet/v3-Confidentiality>}?;  # As defined by affinity domain
     fhir:attester @<OneOrMore_BackboneElement>?;  # Attests to accuracy of composition
     fhir:custodian @<Reference> AND {fhir:link 
     			@<Organization> }?;  # Organization which maintains the 
@@ -99,7 +99,7 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:text @<Narrative>?;                # Text summary of the section, for 
                                             # human interpretation 
     fhir:mode @<code> AND
-    	{fhir:value @fhirvs:list-mode}?;  # working | snapshot | changes
+    	{fhir:v @fhirvs:list-mode}?;  # working | snapshot | changes
     fhir:orderedBy @<CodeableConcept>?;     # Order of section entries
     fhir:entry @<OneOrMore_Reference_Resource>?;  # A reference to data that supports 
                                             # this section 

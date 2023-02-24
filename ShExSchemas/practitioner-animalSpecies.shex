@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:practitioner-animalSpecies];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/practitioner-animalSpecies"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/practitioner-animalSpecies"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Practitioner] OR 
           a [fhir:RelatedPerson]
         }

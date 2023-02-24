@@ -13,8 +13,8 @@ IMPORT <CodeableConcept.shex>
     a [fhir:questionnaire-itemControl];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"]}; 
-    fhir:value (@<CodeableConcept> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"]}; 
+    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}
         }
 }  

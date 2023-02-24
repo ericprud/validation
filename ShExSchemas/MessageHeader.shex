@@ -70,7 +70,7 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
 <MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>;          # Id of original message
     fhir:code @<code> AND
-    	{fhir:value @fhirvs:response-code};  # ok | transient-error | fatal-error
+    	{fhir:v @fhirvs:response-code};  # ok | transient-error | fatal-error
     fhir:details @<Reference> AND {fhir:link 
     			@<OperationOutcome> }?;  # Specific list of 
                                             # hints/warnings/errors 

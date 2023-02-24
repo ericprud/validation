@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:rendered-value];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/rendered-value"]}; 
-    fhir:value (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:value {a [fhir:Identifier]} OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/rendered-value"]}; 
+    fhir:v (@<string> )  AND { rdf:type IRI } ; 
+    ^fhir:extension { ^fhir:v {a [fhir:Identifier]} OR 
           a [fhir:date] OR 
           a [fhir:dateTime] OR 
           a [fhir:time] OR 

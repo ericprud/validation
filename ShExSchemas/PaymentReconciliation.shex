@@ -31,7 +31,7 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for a payment 
                                             # reconciliation 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status};  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:period @<Period>?;                 # Period covered
     fhir:created @<dateTime>;               # Creation date
@@ -44,7 +44,7 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> }?;  # Responsible practitioner
     fhir:outcome @<code> AND
-    	{fhir:value @fhirvs:payment-outcome}?;  # queued | complete | error | partial
+    	{fhir:v @fhirvs:payment-outcome}?;  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition message
     fhir:paymentDate @<date>;               # When payment issued
     fhir:paymentAmount @<Money>;            # Total amount of Payment
@@ -82,7 +82,7 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Note concerning processing
 <PaymentReconciliation.processNote> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:note-type}?;  # display | print | printoper
+    	{fhir:v @fhirvs:note-type}?;  # display | print | printoper
     fhir:text @<string>?;                   # Note explanatory text
 }  
 

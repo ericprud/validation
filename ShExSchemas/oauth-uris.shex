@@ -16,7 +16,7 @@ IMPORT <Extension.shex>
     fhir:register @<Extension>?; 
     fhir:manage @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"]}; 
+    	{fhir:v ["http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"]}; 
     ^fhir:extension { ^fhir:security {^fhir:rest {a [fhir:CapabilityStatement]}}
         }
 }  

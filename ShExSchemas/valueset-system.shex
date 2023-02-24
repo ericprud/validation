@@ -14,8 +14,8 @@ IMPORT <CodeSystem.shex>
     a [fhir:valueset-system];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-system"]}; 
-    fhir:value ((@<canonical>  AND {fhir:link @<CodeSystem> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-system"]}; 
+    fhir:v ((@<canonical>  AND {fhir:link @<CodeSystem> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:system {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}
         }
 }  

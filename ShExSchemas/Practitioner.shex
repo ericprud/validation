@@ -38,7 +38,7 @@ start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # that are not role specific 
                                             # (typically home address) 
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:birthDate @<date>?;                # The date  on which the 
                                             # practitioner was born 
     fhir:photo @<OneOrMore_Attachment>?;    # Image of the person

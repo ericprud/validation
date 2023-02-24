@@ -46,7 +46,7 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # another SpecimenDefinition 
     fhir:derivedFromUri @<OneOrMore_uri>?;  # Based on external definition
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # If this SpecimenDefinition is not 
                                             # for real usage 
     fhir:subject (@<CodeableConcept>  OR 
@@ -122,7 +122,7 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:isDerived @<boolean>?;             # Primary or secondary specimen
     fhir:type @<CodeableConcept>?;          # Type of intended specimen
     fhir:preference @<code> AND
-    	{fhir:value @fhirvs:specimen-contained-preference};  # preferred | alternate
+    	{fhir:v @fhirvs:specimen-contained-preference};  # preferred | alternate
     fhir:container @<BackboneElement>?;     # The specimen's container
     fhir:requirement @<string>?;            # Requirements for specimen delivery 
                                             # and special handling 

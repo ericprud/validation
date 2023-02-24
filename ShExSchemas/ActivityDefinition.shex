@@ -61,7 +61,7 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:subtitle @<string>?;               # Subordinate title of the activity 
                                             # definition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:subject (@<CodeableConcept>  OR 
@@ -100,17 +100,17 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:library @<OneOrMore_canonical>?;   # Logic used by the activity 
                                             # definition 
     fhir:kind @<code> AND
-    	{fhir:value @fhirvs:request-resource-types}?;  # Kind of resource
+    	{fhir:v @fhirvs:request-resource-types}?;  # Kind of resource
     fhir:profile @<canonical>?;             # What profile the resource needs to 
                                             # conform to 
     fhir:code @<CodeableConcept>?;          # Detail type of activity
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:request-intent}?;  # proposal | plan | directive | 
+    	{fhir:v @fhirvs:request-intent}?;  # proposal | plan | directive | 
                                             # order | original-order | 
                                             # reflex-order | filler-order | 
                                             # instance-order | option 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:doNotPerform @<boolean>?;          # True if the activity should not be 
                                             # performed 
     fhir:timing (@<Timing>  OR 
@@ -150,7 +150,7 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Who should participate in the action
 <ActivityDefinition.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:action-participant-type}?;  # careteam | device | group | 
+    	{fhir:v @fhirvs:action-participant-type}?;  # careteam | device | group | 
                                             # healthcareservice | location | 
                                             # organization | patient | 
                                             # practitioner | practitionerrole | 

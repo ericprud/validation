@@ -14,8 +14,8 @@ IMPORT <ResearchStudy.shex>
     a [fhir:consent-ResearchStudyContext];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<ResearchStudy> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<ResearchStudy> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:provision {a [fhir:Consent]}
         }
 }  

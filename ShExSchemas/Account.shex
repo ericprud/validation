@@ -32,7 +32,7 @@ start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Account number
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:account-status};  # active | inactive | 
+    	{fhir:v @fhirvs:account-status};  # active | inactive | 
                                             # entered-in-error | on-hold | 
                                             # unknown 
     fhir:billingStatus @<CodeableConcept>?;  # Tracks the lifecycle of the 

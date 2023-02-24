@@ -45,7 +45,7 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_ServiceRequest>?;  # Authority that the immunization 
                                             # event is based on 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:immunization-status};  # completed | entered-in-error | 
+    	{fhir:v @fhirvs:immunization-status};  # completed | entered-in-error | 
                                             # not-done 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
     fhir:vaccineCode @<CodeableConcept>;    # Vaccine product administered

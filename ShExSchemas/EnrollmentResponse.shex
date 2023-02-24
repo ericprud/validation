@@ -23,12 +23,12 @@ start=@<EnrollmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:fm-status}?;  # active | cancelled | draft | 
+    	{fhir:v @fhirvs:fm-status}?;  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:request @<Reference> AND {fhir:link 
     			@<EnrollmentRequest> }?;  # Claim reference
     fhir:outcome @<code> AND
-    	{fhir:value @fhirvs:enrollment-outcome}?;  # queued | complete | error | partial
+    	{fhir:v @fhirvs:enrollment-outcome}?;  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition Message
     fhir:created @<dateTime>?;              # Creation date
     fhir:organization @<Reference> AND {fhir:link 

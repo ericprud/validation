@@ -12,8 +12,8 @@ IMPORT <Extension.shex>
     a [fhir:structuredefinition-ancestor];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-ancestor"]}; 
-    fhir:value (@<uri> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/structuredefinition-ancestor"]}; 
+    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:StructureDefinition]
         }
 }  

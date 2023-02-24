@@ -17,7 +17,7 @@ IMPORT <Extension.shex>
     fhir:reference @<OneOrMore_Extension>?; 
     fhir:user @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]}; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

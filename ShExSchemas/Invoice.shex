@@ -34,7 +34,7 @@ start=@<Invoice> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for item
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:invoice-status};  # draft | issued | balanced | 
+    	{fhir:v @fhirvs:invoice-status};  # draft | issued | balanced | 
                                             # cancelled | entered-in-error 
     fhir:cancelledReason @<string>?;        # Reason for cancellation of this 
                                             # Invoice 
@@ -87,7 +87,7 @@ start=@<Invoice> AND {fhir:nodeRole [fhir:treeRoot]}
 # Components of total line item price
 <Invoice.lineItem.priceComponent> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:invoice-priceComponentType};  # base | surcharge | deduction | 
+    	{fhir:v @fhirvs:invoice-priceComponentType};  # base | surcharge | deduction | 
                                             # discount | tax | informational 
     fhir:code @<CodeableConcept>?;          # Code identifying the specific 
                                             # component 

@@ -14,7 +14,7 @@ IMPORT <Extension.shex>
     fhir:title @<Extension>; 
     fhir:preferred @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"]}; 
     ^fhir:extension { a [fhir:ValueSet]
         }
 }  

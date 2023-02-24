@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:humanname-assembly-order];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:name-assembly-order} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:name-assembly-order} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:HumanName]
         }
 }  

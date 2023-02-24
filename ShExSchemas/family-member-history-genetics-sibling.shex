@@ -14,7 +14,7 @@ IMPORT <Extension.shex>
     fhir:type @<Extension>; 
     fhir:reference @<Extension>; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling"]}; 
     ^fhir:extension { a [fhir:FamilyMemberHistory]
         }
 }  

@@ -18,8 +18,8 @@ IMPORT <Extension.shex>
     a [fhir:minValue];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/minValue"]}; 
-    fhir:value (@<date>  OR 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/minValue"]}; 
+    fhir:v (@<date>  OR 
     			@<dateTime>  OR 
     			@<time>  OR 
     			@<decimal>  OR 

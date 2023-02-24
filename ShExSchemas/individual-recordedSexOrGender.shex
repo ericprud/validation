@@ -11,7 +11,7 @@ IMPORT <Extension.shex>
 
     a [fhir:individual-recordedSexOrGender];
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:value @<Extension>; 
+    fhir:v @<Extension>; 
     fhir:internationalEquivalent @<Extension>?; 
     fhir:type @<Extension>?; 
     fhir:acquisitionDate @<Extension>?; 
@@ -20,7 +20,7 @@ IMPORT <Extension.shex>
     fhir:jurisdiction @<Extension>?; 
     fhir:comment @<Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"]}; 
     ^fhir:extension { a [fhir:Patient] OR 
           a [fhir:RelatedPerson] OR 
           a [fhir:Person] OR 

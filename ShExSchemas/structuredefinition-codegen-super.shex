@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:structuredefinition-codegen-super];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super"]}; 
-    fhir:value (@<string> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super"]}; 
+    fhir:v (@<string> )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:baseDefinition {a [fhir:StructureDefinition]}
         }
 }  

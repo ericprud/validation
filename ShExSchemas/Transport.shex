@@ -91,17 +91,17 @@ start=@<Transport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:groupIdentifier @<Identifier>?;    # Requisition or grouper id
     fhir:partOf @<OneOrMore_Reference_Contract_OR_Transport>?;  # Part of referenced event
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:transport-status}?;  # in-progress | completed | 
+    	{fhir:v @fhirvs:transport-status}?;  # in-progress | completed | 
                                             # abandoned | cancelled | planned | 
                                             # entered-in-error 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
     fhir:intent @<code> AND
-    	{fhir:value @fhirvs:transport-intent};  # unknown | proposal | plan | order 
+    	{fhir:v @fhirvs:transport-intent};  # unknown | proposal | plan | order 
                                             # | original-order | reflex-order | 
                                             # filler-order | instance-order | 
                                             # option 
     fhir:priority @<code> AND
-    	{fhir:value @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:code @<CodeableConcept>?;          # Transport Type
     fhir:description @<string>?;            # Human-readable explanation of 
                                             # transport 
@@ -160,7 +160,7 @@ start=@<Transport> AND {fhir:nodeRole [fhir:treeRoot]}
 # Information used to perform transport
 <Transport.input> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Label for the input
-    fhir:value (@<base64Binary>  OR 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -226,7 +226,7 @@ start=@<Transport> AND {fhir:nodeRole [fhir:treeRoot]}
 # Information produced as part of transport
 <Transport.output> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Label for output
-    fhir:value (@<base64Binary>  OR 
+    fhir:v (@<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 

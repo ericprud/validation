@@ -51,10 +51,10 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:category @<OneOrMore_CodeableConcept>?;  # Type/identifier of event
     fhir:code @<CodeableConcept>;           # Specific type of event
     fhir:action @<code> AND
-    	{fhir:value @fhirvs:audit-event-action}?;  # Type of action performed during 
+    	{fhir:v @fhirvs:audit-event-action}?;  # Type of action performed during 
                                             # the event 
     fhir:severity @<code> AND
-    	{fhir:value @fhirvs:audit-event-severity}?;  # emergency | alert | critical | 
+    	{fhir:v @fhirvs:audit-event-severity}?;  # emergency | alert | critical | 
                                             # error | warning | notice | 
                                             # informational | debug 
     fhir:occurred (@<Period>  OR 
@@ -144,7 +144,7 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
 # Additional Information about the entity
 <AuditEvent.entity.detail> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Name of the property
-    fhir:value (@<Quantity>  OR 
+    fhir:v (@<Quantity>  OR 
     			@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<boolean>  OR 

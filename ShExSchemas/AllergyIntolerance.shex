@@ -35,13 +35,13 @@ start=@<AllergyIntolerance> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:verificationStatus @<CodeableConcept>?;  # unconfirmed | presumed | confirmed 
                                             # | refuted | entered-in-error 
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:allergy-intolerance-type}?;  # allergy | intolerance - Underlying 
+    	{fhir:v @fhirvs:allergy-intolerance-type}?;  # allergy | intolerance - Underlying 
                                             # mechanism (if known) 
     fhir:category @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:allergy-intolerance-category}?;  # food | medication | environment | 
+    	{fhir:v @fhirvs:allergy-intolerance-category}?;  # food | medication | environment | 
                                             # biologic 
     fhir:criticality @<code> AND
-    	{fhir:value @fhirvs:allergy-intolerance-criticality}?;  # low | high | unable-to-assess
+    	{fhir:v @fhirvs:allergy-intolerance-criticality}?;  # low | high | unable-to-assess
     fhir:code @<CodeableConcept>?;          # Code that identifies the allergy 
                                             # or intolerance 
     fhir:patient @<Reference> AND {fhir:link 
@@ -95,7 +95,7 @@ start=@<AllergyIntolerance> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:onset @<dateTime>?;                # Date(/time) when manifestations 
                                             # showed 
     fhir:severity @<code> AND
-    	{fhir:value @fhirvs:reaction-event-severity}?;  # mild | moderate | severe (of event 
+    	{fhir:v @fhirvs:reaction-event-severity}?;  # mild | moderate | severe (of event 
                                             # as a whole) 
     fhir:exposureRoute @<CodeableConcept>?;  # How the subject was exposed to the 
                                             # substance 

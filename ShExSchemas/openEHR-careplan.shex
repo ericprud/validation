@@ -14,8 +14,8 @@ IMPORT <Reference.shex>
     a [fhir:openEHR-careplan];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-careplan"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<CarePlan> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-careplan"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<CarePlan> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
         }
 }  

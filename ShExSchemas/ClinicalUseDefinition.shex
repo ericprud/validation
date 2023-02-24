@@ -33,7 +33,7 @@ start=@<ClinicalUseDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier for this issue
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:clinical-use-definition-type};  # indication | contraindication | 
+    	{fhir:v @fhirvs:clinical-use-definition-type};  # indication | contraindication | 
                                             # interaction | undesirable-effect | 
                                             # warning 
     fhir:category @<OneOrMore_CodeableConcept>?;  # A categorisation of the issue, 

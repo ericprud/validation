@@ -51,7 +51,7 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # ObservationDefinition (human 
                                             # friendly) 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # If for testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -88,7 +88,7 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:category @<OneOrMore_CodeableConcept>?;  # General type of observation
     fhir:code @<CodeableConcept>;           # Type of observation
     fhir:permittedDataType @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:permitted-data-type}?;  # Quantity | CodeableConcept | 
+    	{fhir:v @fhirvs:permitted-data-type}?;  # Quantity | CodeableConcept | 
                                             # string | boolean | integer | Range 
                                             # | Ratio | SampledData | time | 
                                             # dateTime | Period 
@@ -132,7 +132,7 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:appliesTo @<OneOrMore_CodeableConcept>?;  # Targetted population for the set 
                                             # of qualified values 
     fhir:gender @<code> AND
-    	{fhir:value @fhirvs:administrative-gender}?;  # male | female | other | unknown
+    	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:age @<Range>?;                     # Applicable age range for the set 
                                             # of qualified values 
     fhir:gestationalAge @<Range>?;          # Applicable gestational age range 
@@ -140,7 +140,7 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:condition @<string>?;              # Condition associated with the set 
                                             # of qualified values 
     fhir:rangeCategory @<code> AND
-    	{fhir:value @fhirvs:observation-range-category}?;  # reference | critical | absolute
+    	{fhir:v @fhirvs:observation-range-category}?;  # reference | critical | absolute
     fhir:range @<Range>?;                   # The range for continuous or 
                                             # ordinal observations 
     fhir:validCodedValueSet @<canonical>?;  # Value set of valid coded values as 
@@ -161,7 +161,7 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <ObservationDefinition.component> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Type of observation
     fhir:permittedDataType @<OneOrMore_code> AND
-    	{fhir:value @fhirvs:permitted-data-type}?;  # Quantity | CodeableConcept | 
+    	{fhir:v @fhirvs:permitted-data-type}?;  # Quantity | CodeableConcept | 
                                             # string | boolean | integer | Range 
                                             # | Ratio | SampledData | time | 
                                             # dateTime | Period 

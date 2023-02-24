@@ -57,10 +57,10 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:basedOn @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_EpisodeOfCare_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Procedure that caused this media 
                                             # to be created 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:document-reference-status};  # current | superseded | 
+    	{fhir:v @fhirvs:document-reference-status};  # current | superseded | 
                                             # entered-in-error 
     fhir:docStatus @<code> AND
-    	{fhir:value @fhirvs:composition-status}?;  # preliminary | final | amended | 
+    	{fhir:v @fhirvs:composition-status}?;  # preliminary | final | amended | 
                                             # entered-in-error | deprecated 
     fhir:type @<CodeableConcept>?;          # Kind of document (LOINC if 
                                             # possible) 
@@ -123,7 +123,7 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Content profile rules for the document
 <DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value (@<Coding>  OR 
+    fhir:v (@<Coding>  OR 
     			@<uri>  OR 
     			@<canonical> )  AND { rdf:type IRI } ;  # Code|uri|canonical
 }  

@@ -13,8 +13,8 @@ IMPORT <Expression.shex>
     a [fhir:cqf-calculatedValue];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-calculatedValue"]}; 
-    fhir:value (@<Expression> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-calculatedValue"]}; 
+    fhir:v (@<Expression> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

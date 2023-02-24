@@ -28,12 +28,12 @@ start=@<DetectedIssue> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique id for the detected issue
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:observation-status};  # registered | preliminary | final | 
+    	{fhir:v @fhirvs:observation-status};  # registered | preliminary | final | 
                                             # amended + 
     fhir:code @<CodeableConcept>?;          # Issue Category, e.g. drug-drug, 
                                             # duplicate therapy, etc. 
     fhir:severity @<code> AND
-    	{fhir:value @fhirvs:detectedissue-severity}?;  # high | moderate | low
+    	{fhir:v @fhirvs:detectedissue-severity}?;  # high | moderate | low
     fhir:patient @<Reference> AND {fhir:link 
     			@<Patient> }?;  # Associated patient
     fhir:identified (@<dateTime>  OR 

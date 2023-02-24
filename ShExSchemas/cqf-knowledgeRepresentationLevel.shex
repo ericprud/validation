@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:cqf-knowledgeRepresentationLevel];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:knowledge-representation-level} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:knowledge-representation-level} )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Element]
         }
 }  

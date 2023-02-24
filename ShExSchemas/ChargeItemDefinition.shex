@@ -51,7 +51,7 @@ start=@<ChargeItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # whose function is taken by this 
                                             # new request 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -92,7 +92,7 @@ start=@<ChargeItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Components of total line item price
 <ChargeItemDefinition.propertyGroup.priceComponent> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:invoice-priceComponentType};  # base | surcharge | deduction | 
+    	{fhir:v @fhirvs:invoice-priceComponentType};  # base | surcharge | deduction | 
                                             # discount | tax | informational 
     fhir:code @<CodeableConcept>?;          # Code identifying the specific 
                                             # component 

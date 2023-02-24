@@ -27,7 +27,7 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for Product
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status}?;  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status}?;  # draft | active | retired | unknown
     fhir:type @<OneOrMore_CodeableConcept>?;  # Kind of product
     fhir:name @<string>?;                   # Official name
     fhir:alias @<OneOrMore_string>?;        # Alternate names
@@ -74,7 +74,7 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:applicability @<CodeableConcept>?;  # in-network | out-of-network | other
     fhir:qualifiers @<OneOrMore_CodeableConcept>?;  # Additional information about the 
                                             # cost 
-    fhir:value @<Quantity>?;                # The actual cost value
+    fhir:v @<Quantity>?;                # The actual cost value
 }  
 
 # Plan details
@@ -89,7 +89,7 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Benefit limits
 <InsurancePlan.coverage.benefit.limit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<Quantity>?;                # Maximum value allowed
+    fhir:v @<Quantity>?;                # Maximum value allowed
     fhir:code @<CodeableConcept>?;          # Benefit limit details
 }  
 

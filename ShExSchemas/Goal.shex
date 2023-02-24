@@ -41,7 +41,7 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:identifier @<OneOrMore_Identifier>?;  # External Ids for this goal
     fhir:lifecycleStatus @<code> AND
-    	{fhir:value @fhirvs:goal-status};  # proposed | planned | accepted | 
+    	{fhir:v @fhirvs:goal-status};  # proposed | planned | accepted | 
                                             # active | on-hold | completed | 
                                             # cancelled | entered-in-error | 
                                             # rejected 

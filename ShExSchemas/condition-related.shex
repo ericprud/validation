@@ -14,8 +14,8 @@ IMPORT <Condition.shex>
     a [fhir:condition-related];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/condition-related"]}; 
-    fhir:value ((@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/condition-related"]}; 
+    fhir:v ((@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Condition]
         }
 }  

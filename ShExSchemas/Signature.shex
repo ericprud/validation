@@ -38,10 +38,10 @@ IMPORT <PractitionerRole.shex>
     			@<PractitionerRole> OR 
     			@<RelatedPerson> }?;  # The party represented
     fhir:targetFormat @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # The technical format of the signed 
+    	{fhir:v @fhirvs:mimetypes}?;  # The technical format of the signed 
                                             # resources 
     fhir:sigFormat @<code> AND
-    	{fhir:value @fhirvs:mimetypes}?;  # The technical format of the 
+    	{fhir:v @fhirvs:mimetypes}?;  # The technical format of the 
                                             # signature 
     fhir:data @<base64Binary>?;             # The actual signature content (XML 
                                             # DigSig. JWS, picture, etc.) 

@@ -32,7 +32,7 @@ start=@<ResearchSubject> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for research 
                                             # subject in a study 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:progress @<OneOrMore_BackboneElement>?;  # Subject status
     fhir:period @<Period>?;                 # Start and end of participation
     fhir:study @<Reference> AND {fhir:link 

@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:resource-effectivePeriod];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"]}; 
-    fhir:value (@<Period> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"]}; 
+    fhir:v (@<Period> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:StructureDefinition] OR 
           a [fhir:StructureMap] OR 
           a [fhir:CapabilityStatement] OR 

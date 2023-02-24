@@ -13,9 +13,9 @@ IMPORT <Extension.shex>
     a [fhir:valueset-parameterSource];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-parameterSource"]}; 
-    fhir:value (@<code> AND
-    	{fhir:value @fhirvs:expansion-parameter-source} )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-parameterSource"]}; 
+    fhir:v (@<code> AND
+    	{fhir:v @fhirvs:expansion-parameter-source} )  AND { rdf:type IRI } ; 
     ^fhir:extension { ^fhir:parameter {^fhir:expansion {a [fhir:ValueSet]}}
         }
 }  

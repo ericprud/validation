@@ -22,7 +22,7 @@ IMPORT <CodeableConcept.shex>
     a [fhir:DataRequirement];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:all-types};  # The type of the required data
+    	{fhir:v @fhirvs:all-types};  # The type of the required data
     fhir:profile @<OneOrMore_canonical>?;   # The profile of the required data
     fhir:subject (@<CodeableConcept>  OR 
     			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # E.g. Patient, Practitioner, 
@@ -53,7 +53,7 @@ IMPORT <CodeableConcept.shex>
                                             # on 
     fhir:searchParam @<string>?;            # A date valued parameter to search 
                                             # on 
-    fhir:value (@<dateTime>  OR 
+    fhir:v (@<dateTime>  OR 
     			@<Period>  OR 
     			@<Duration> )  AND { rdf:type IRI } ?;  # The value of the filter, as a 
                                             # Period, DateTime, or Duration 
@@ -65,7 +65,7 @@ IMPORT <CodeableConcept.shex>
     fhir:path @<string>;                    # The name of the attribute to 
                                             # perform the sort 
     fhir:direction @<code> AND
-    	{fhir:value @fhirvs:sort-direction};  # ascending | descending
+    	{fhir:v @fhirvs:sort-direction};  # ascending | descending
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

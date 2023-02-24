@@ -40,7 +40,7 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:subtitle @<string>?;               # Subordinate title of the event 
                                             # definition 
     fhir:status @<code> AND
-    	{fhir:value @fhirvs:publication-status};  # draft | active | retired | unknown
+    	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
@@ -97,7 +97,7 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Questionnaire for this condition
 <ConditionDefinition.questionnaire> EXTENDS @<BackboneElement> CLOSED {   
     fhir:purpose @<code> AND
-    	{fhir:value @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
+    	{fhir:v @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
     fhir:reference @<Reference> AND {fhir:link 
     			@<Questionnaire> };  # Specific Questionnaire
 }  
@@ -105,9 +105,9 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Observation that suggets this condition
 <ConditionDefinition.precondition> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
-    	{fhir:value @fhirvs:condition-precondition-type};  # sensitive | specific
+    	{fhir:v @fhirvs:condition-precondition-type};  # sensitive | specific
     fhir:code @<CodeableConcept>;           # Code for relevant Observation
-    fhir:value (@<CodeableConcept>  OR 
+    fhir:v (@<CodeableConcept>  OR 
     			@<Quantity> )  AND { rdf:type IRI } ?;  # Value of Observation
 }  
 

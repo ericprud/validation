@@ -15,7 +15,7 @@ IMPORT <Extension.shex>
     fhir:whenTrigger @<OneOrMore_Extension>?; 
     fhir:precondition @<OneOrMore_Extension>?; 
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/dosage-conditions"]}; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/dosage-conditions"]}; 
     ^fhir:extension { a [fhir:Dosage]
         }
 }  

@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:codesystem-use-markdown];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-use-markdown"]}; 
-    fhir:value (@<boolean> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-use-markdown"]}; 
+    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:CodeSystem]
         }
 }  

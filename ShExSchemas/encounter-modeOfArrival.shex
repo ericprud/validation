@@ -13,8 +13,8 @@ IMPORT <Extension.shex>
     a [fhir:encounter-modeOfArrival];
     fhir:nodeRole [fhir:treeRoot]?;
     fhir:v @<uri> AND
-    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/encounter-modeOfArrival"]}; 
-    fhir:value (@<Coding> )  AND { rdf:type IRI } ; 
+    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/encounter-modeOfArrival"]}; 
+    fhir:v (@<Coding> )  AND { rdf:type IRI } ; 
     ^fhir:extension { a [fhir:Encounter]
         }
 }  
