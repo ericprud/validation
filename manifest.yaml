@@ -1,0 +1,6 @@
+- schemaLabel: Patient
+  schemaURL: ShExSchemas/Patient.shex
+  dataLabel: patient-example
+  dataURL: examples/patient-example.ttl
+  queryMap: "{FOCUS a fhir:Patient}@<Patient>"
+  status: conformant
