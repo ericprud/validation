@@ -18,14 +18,6 @@ start=@<shareablevalueset> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description
-<ValueSet.scope> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# A concept defined in the system
-<ValueSet.compose.include.concept> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Used when the value set is "expanded"
 <ValueSet.expansion> EXTENDS @<BackboneElement> CLOSED {   
 }  
@@ -34,20 +26,8 @@ start=@<shareablevalueset> AND {fhir:nodeRole [fhir:treeRoot]}
 <ValueSet.expansion.contains.property> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Parameter that controlled the expansion process
-<ValueSet.expansion.parameter> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Codes in the value set
-<ValueSet.expansion.contains> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Additional information supplied about each concept
 <ValueSet.expansion.property> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Select codes/concepts by their properties (including relationships)
-<ValueSet.compose.include.filter> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # SubProperty value for the concept
@@ -62,7 +42,27 @@ start=@<shareablevalueset> AND {fhir:nodeRole [fhir:treeRoot]}
 <ValueSet.compose> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description
+<ValueSet.scope> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# A concept defined in the system
+<ValueSet.compose.include.concept> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Parameter that controlled the expansion process
+<ValueSet.expansion.parameter> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Include one or more codes from a code system or other value set(s)
 <ValueSet.compose.include> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Select codes/concepts by their properties (including relationships)
+<ValueSet.compose.include.filter> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Codes in the value set
+<ValueSet.expansion.contains> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

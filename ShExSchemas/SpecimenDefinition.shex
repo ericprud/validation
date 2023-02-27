@@ -14,8 +14,8 @@ IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <Quantity.shex>
 IMPORT <Duration.shex>
+IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
 IMPORT <Identifier.shex>
 IMPORT <DomainResource.shex>
@@ -79,6 +79,30 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # testing by lab 
 }  
 
+# Specimen in container intended for testing by lab
+<SpecimenDefinition.typeTested> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:isDerived @<boolean>?;             # Primary or secondary specimen
+    fhir:type @<CodeableConcept>?;          # Type of intended specimen
+    fhir:preference @<code> AND
+    	{fhir:v @fhirvs:specimen-contained-preference};  # preferred | alternate
+    fhir:container @<SpecimenDefinition.typeTested.container>?;  # The specimen's container
+    fhir:requirement @<string>?;            # Requirements for specimen delivery 
+                                            # and special handling 
+    fhir:retentionTime @<Duration>?;        # The usual time for retaining this 
+                                            # kind of specimen 
+    fhir:singleUse @<boolean>?;             # Specimen for single use only
+    fhir:rejectionCriterion @<OneOrMore_CodeableConcept>?;  # Criterion specified for specimen 
+                                            # rejection 
+    fhir:handling @<OneOrMore_SpecimenDefinition.typeTested.handling>?;  # Specimen handling before testing
+    fhir:testingDestination @<OneOrMore_CodeableConcept>?;  # Where the specimen will be tested
+}  
+
+# Additive associated with container
+<SpecimenDefinition.typeTested.container.additive> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:additive @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<SubstanceDefinition> })  ;  # Additive associated with container
+}  
+
 # The specimen's container
 <SpecimenDefinition.typeTested.container> EXTENDS @<BackboneElement> CLOSED {   
     fhir:material @<CodeableConcept>?;      # The material type used for the 
@@ -105,30 +129,6 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # handling instructions 
     fhir:maxDuration @<Duration>?;          # Maximum preservation time
     fhir:instruction @<string>?;            # Preservation instruction
-}  
-
-# Specimen in container intended for testing by lab
-<SpecimenDefinition.typeTested> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:isDerived @<boolean>?;             # Primary or secondary specimen
-    fhir:type @<CodeableConcept>?;          # Type of intended specimen
-    fhir:preference @<code> AND
-    	{fhir:v @fhirvs:specimen-contained-preference};  # preferred | alternate
-    fhir:container @<SpecimenDefinition.typeTested.container>?;  # The specimen's container
-    fhir:requirement @<string>?;            # Requirements for specimen delivery 
-                                            # and special handling 
-    fhir:retentionTime @<Duration>?;        # The usual time for retaining this 
-                                            # kind of specimen 
-    fhir:singleUse @<boolean>?;             # Specimen for single use only
-    fhir:rejectionCriterion @<OneOrMore_CodeableConcept>?;  # Criterion specified for specimen 
-                                            # rejection 
-    fhir:handling @<OneOrMore_SpecimenDefinition.typeTested.handling>?;  # Specimen handling before testing
-    fhir:testingDestination @<OneOrMore_CodeableConcept>?;  # Where the specimen will be tested
-}  
-
-# Additive associated with container
-<SpecimenDefinition.typeTested.container.additive> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:additive @<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<SubstanceDefinition> })  ;  # Additive associated with container
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -163,14 +163,14 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested> 
 }
 
-<OneOrMore_SpecimenDefinition.typeTested.container.additive> CLOSED {
-    rdf:first @<SpecimenDefinition.typeTested.container.additive>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested.container.additive> 
-}
-
 <OneOrMore_SpecimenDefinition.typeTested.handling> CLOSED {
     rdf:first @<SpecimenDefinition.typeTested.handling>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested.handling> 
+}
+
+<OneOrMore_SpecimenDefinition.typeTested.container.additive> CLOSED {
+    rdf:first @<SpecimenDefinition.typeTested.container.additive>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested.container.additive> 
 }
 
 #---------------------- Value Sets ------------------------

@@ -67,6 +67,17 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:endpoint @<url>?;                  # Actual message source address or id
 }  
 
+# If this is a reply to prior message
+<MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier @<Identifier>;          # Bundle.identifier of original 
+                                            # message 
+    fhir:code @<code> AND
+    	{fhir:v @fhirvs:response-code};  # ok | transient-error | fatal-error
+    fhir:details @<Reference> AND {fhir:link 
+    			@<OperationOutcome> ? }?;  # Specific list of 
+                                            # hints/warnings/errors 
+}  
+
 # Message destination application(s)
 <MessageHeader.destination> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>?;                   # Name of system
@@ -79,17 +90,6 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> ? }?;  # Intended "real-world" recipient 
                                             # for the data 
-}  
-
-# If this is a reply to prior message
-<MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier @<Identifier>;          # Bundle.identifier of original 
-                                            # message 
-    fhir:code @<code> AND
-    	{fhir:v @fhirvs:response-code};  # ok | transient-error | fatal-error
-    fhir:details @<Reference> AND {fhir:link 
-    			@<OperationOutcome> ? }?;  # Specific list of 
-                                            # hints/warnings/errors 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

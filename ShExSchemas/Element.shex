@@ -16,25 +16,7 @@ IMPORT <string.shex>
                                             # referencing 
     fhir:extension @<OneOrMore_Extension>?;  # Additional content defined by 
                                             # implementations 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: children
-# Unmapped construct found: Greater
-# Unmapped construct found: count
-# # Constraint UniqueKey:ele-1
-# Human readable:All FHIR elements must have a @value or children
-#
-# Constraint: hasValue() or (children().count() > id.count())
-# ShEx:
-#
-# . OR (   count  (    children  (  ) )  Greater     count  ( fhir:id ))
-{}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

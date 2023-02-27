@@ -105,12 +105,6 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # consumed 
 }  
 
-# Total nutrient for the whole meal, product, serving
-<NutritionIntake.ingredientLabel> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:nutrient @<CodeableReference>;     # Total nutrient consumed
-    fhir:amount @<Quantity>;                # Total amount of nutrient consumed
-}  
-
 # Who was performed in the intake
 <NutritionIntake.performer> EXTENDS @<BackboneElement> CLOSED {   
     fhir:function @<CodeableConcept>?;      # Type of performer
@@ -122,6 +116,12 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? };  # Who performed the intake
+}  
+
+# Total nutrient for the whole meal, product, serving
+<NutritionIntake.ingredientLabel> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:nutrient @<CodeableReference>;     # Total nutrient consumed
+    fhir:amount @<Quantity>;                # Total amount of nutrient consumed
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

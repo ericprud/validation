@@ -121,9 +121,9 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
 # Status of the supply request.
 fhirvs:supplyrequest-status ["draft" "active" "suspended" "cancelled" "completed" "entered-in-error" "unknown"]
+
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 

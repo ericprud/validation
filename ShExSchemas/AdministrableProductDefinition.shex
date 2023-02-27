@@ -67,25 +67,17 @@ start=@<AdministrableProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:routeOfAdministration @<OneOrMore_AdministrableProductDefinition.routeOfAdministration>;  # The path by which the product is 
                                             # taken into or makes contact with 
                                             # the body 
-} AND (
+}  
 
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:apd-1
-# Human readable:RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa)
-#
-# Constraint: (AdministrableProductDefinition.routeOfAdministration.code.count() + AdministrableProductDefinition.formOf.resolve().route.count())  < 2
-# ShEx:
-#
-#(   count  ( fhir:AdministrableProductDefinition.routeOfAdministration.code )  Plus     count  ( fhir:AdministrableProductDefinition.formOf. resolve  (  ).route )) { fhir:v MaxExclusive 2 } 
-{}
-
-)
- 
+# A species specific time during which consumption of animal product is not appropriate
+<AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:tissue @<CodeableConcept>;         # The type of tissue for which the 
+                                            # withdrawal period applies, e.g. 
+                                            # meat, milk 
+    fhir:value @<Quantity>;                 # A value for the time
+    fhir:supportingInformation @<string>?;  # Extra information about the 
+                                            # withdrawal period 
+}  
 
 # The path by which the product is taken into or makes contact with the body
 <AdministrableProductDefinition.routeOfAdministration> EXTENDS @<BackboneElement> CLOSED {   
@@ -126,16 +118,6 @@ start=@<AdministrableProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:withdrawalPeriod @<OneOrMore_AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod>?;  # A species specific time during 
                                             # which consumption of animal 
                                             # product is not appropriate 
-}  
-
-# A species specific time during which consumption of animal product is not appropriate
-<AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:tissue @<CodeableConcept>;         # The type of tissue for which the 
-                                            # withdrawal period applies, e.g. 
-                                            # meat, milk 
-    fhir:value @<Quantity>;                 # A value for the time
-    fhir:supportingInformation @<string>?;  # Extra information about the 
-                                            # withdrawal period 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

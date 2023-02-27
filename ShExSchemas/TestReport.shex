@@ -54,50 +54,11 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # script 
     fhir:teardown @<TestReport.teardown>?;  # The results of running the series 
                                             # of required clean up steps 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:inv-1
-# Human readable:Setup action SHALL contain either an operation or assert but not both.
-#
-# Constraint: operation.exists() xor assert.exists()
-# ShEx:
-#
-#{fhir:operation .  Xor  {fhir:assert .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:inv-2
-# Human readable:Test action SHALL contain either an operation or assert but not both.
-#
-# Constraint: operation.exists() xor assert.exists()
-# ShEx:
-#
-#{fhir:operation .  Xor  {fhir:assert .}}
-{}
-
-)
- 
-
-# A test executed from the test script
-<TestReport.test> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Tracking/logging name of this test
-    fhir:description @<string>?;            # Tracking/reporting short 
-                                            # description of the test 
-    fhir:action @<OneOrMore_TestReport.test.action>;  # A test operation or assert that 
-                                            # was performed 
 }  
 
-# The results of running the series of required clean up steps
-<TestReport.teardown> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_TestReport.teardown.action>;  # One or more teardown operations 
-                                            # performed 
+# One or more teardown operations performed
+<TestReport.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestReport.setup.action.operation>;  # The teardown operation performed
 }  
 
 # A participant in the test execution, either the execution engine, a client, or a server
@@ -109,9 +70,10 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:display @<string>?;                # The display name of the participant
 }  
 
-# One or more teardown operations performed
-<TestReport.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestReport.setup.action.operation>;  # The teardown operation performed
+# The results of the series of required setup operations before the tests were executed
+<TestReport.setup> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_TestReport.setup.action>;  # A setup operation or assert that 
+                                            # was executed 
 }  
 
 # The assertion to perform
@@ -125,10 +87,10 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # result 
 }  
 
-# A test operation or assert that was performed
-<TestReport.test.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestReport.setup.action.operation>?;  # The operation performed
-    fhir:assert @<TestReport.setup.action.assert>?;  # The assertion performed
+# A setup operation or assert that was executed
+<TestReport.setup.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestReport.setup.action.operation>?;  # The operation to perform
+    fhir:assert @<TestReport.setup.action.assert>?;  # The assertion to perform
 }  
 
 # The operation to perform
@@ -142,16 +104,25 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # result 
 }  
 
-# A setup operation or assert that was executed
-<TestReport.setup.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestReport.setup.action.operation>?;  # The operation to perform
-    fhir:assert @<TestReport.setup.action.assert>?;  # The assertion to perform
+# The results of running the series of required clean up steps
+<TestReport.teardown> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_TestReport.teardown.action>;  # One or more teardown operations 
+                                            # performed 
 }  
 
-# The results of the series of required setup operations before the tests were executed
-<TestReport.setup> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_TestReport.setup.action>;  # A setup operation or assert that 
-                                            # was executed 
+# A test operation or assert that was performed
+<TestReport.test.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestReport.setup.action.operation>?;  # The operation performed
+    fhir:assert @<TestReport.setup.action.assert>?;  # The assertion performed
+}  
+
+# A test executed from the test script
+<TestReport.test> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Tracking/logging name of this test
+    fhir:description @<string>?;            # Tracking/reporting short 
+                                            # description of the test 
+    fhir:action @<OneOrMore_TestReport.test.action>;  # A test operation or assert that 
+                                            # was performed 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -166,9 +137,9 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TestReport.test> 
 }
 
-<OneOrMore_TestReport.test.action> CLOSED {
-    rdf:first @<TestReport.test.action>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TestReport.test.action> 
+<OneOrMore_TestReport.setup.action> CLOSED {
+    rdf:first @<TestReport.setup.action>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TestReport.setup.action> 
 }
 
 <OneOrMore_TestReport.teardown.action> CLOSED {
@@ -176,9 +147,9 @@ start=@<TestReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TestReport.teardown.action> 
 }
 
-<OneOrMore_TestReport.setup.action> CLOSED {
-    rdf:first @<TestReport.setup.action>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TestReport.setup.action> 
+<OneOrMore_TestReport.test.action> CLOSED {
+    rdf:first @<TestReport.test.action>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TestReport.test.action> 
 }
 
 #---------------------- Value Sets ------------------------

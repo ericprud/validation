@@ -86,37 +86,30 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:supplement @<OneOrMore_NutritionOrder.supplement>?;  # Supplement components
     fhir:enteralFormula @<NutritionOrder.enteralFormula>?;  # Enteral formula components
     fhir:note @<OneOrMore_Annotation>?;     # Comments
-} AND (
+}  
 
-# Constraint UniqueKey:nor-1
-# Human readable:Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class
+# Components to add to the feeding
+<NutritionOrder.enteralFormula.additive> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableReference>?;        # Type of modular component to add 
+                                            # to the feeding 
+    fhir:productName @<string>?;            # Product or brand name of the 
+                                            # modular additive 
+    fhir:quantity @<Quantity>?;             # Amount of additive to be given or 
+                                            # mixed in 
+}  
 
-# Constraint: oralDiet.exists() or supplement.exists() or enteralFormula.exists()
-# ShEx:
-
-{fhir:oralDiet . OR {fhir:supplement . OR {fhir:enteralFormula .}}}
-
-)
- 
+# Formula feeding instruction as structured data
+<NutritionOrder.enteralFormula.administration> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:schedule @<NutritionOrder.enteralFormula.administration.schedule>?;  # Scheduling information for enteral 
+                                            # formula products 
+    fhir:quantity @<Quantity>?;             # The volume of formula to provide
+    fhir:rate @<SimpleQuantity>  OR 
+    			@<Ratio>  ?;  # Speed with which the formula is 
+                                            # provided per period of time 
+}  
 
 # Scheduling information for oral diets
 <NutritionOrder.oralDiet.schedule> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:timing @<OneOrMore_Timing>?;       # Scheduled frequency of diet
-    fhir:asNeeded @<boolean>?;              # Take 'as needed'
-    fhir:asNeededFor @<CodeableConcept>?;   # Take 'as needed' for x
-}  
-
-# Required  texture modifications
-<NutritionOrder.oralDiet.texture> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:modifier @<CodeableConcept>?;      # Code to indicate how to alter the 
-                                            # texture of the foods, e.g. pureed 
-    fhir:foodType @<CodeableConcept>?;      # Concepts that are used to identify 
-                                            # an entity that is ingested for 
-                                            # nutritional purposes 
-}  
-
-# Scheduling information for supplements
-<NutritionOrder.supplement.schedule> EXTENDS @<BackboneElement> CLOSED {   
     fhir:timing @<OneOrMore_Timing>?;       # Scheduled frequency of diet
     fhir:asNeeded @<boolean>?;              # Take 'as needed'
     fhir:asNeededFor @<CodeableConcept>?;   # Take 'as needed' for x
@@ -150,6 +143,29 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # expressed as text 
 }  
 
+# Required  nutrient modifications
+<NutritionOrder.oralDiet.nutrient> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:modifier @<CodeableConcept>?;      # Type of nutrient that is being 
+                                            # modified 
+    fhir:amount @<Quantity>?;               # Quantity of the specified nutrient
+}  
+
+# Scheduling information for supplements
+<NutritionOrder.supplement.schedule> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:timing @<OneOrMore_Timing>?;       # Scheduled frequency of diet
+    fhir:asNeeded @<boolean>?;              # Take 'as needed'
+    fhir:asNeededFor @<CodeableConcept>?;   # Take 'as needed' for x
+}  
+
+# Required  texture modifications
+<NutritionOrder.oralDiet.texture> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:modifier @<CodeableConcept>?;      # Code to indicate how to alter the 
+                                            # texture of the foods, e.g. pureed 
+    fhir:foodType @<CodeableConcept>?;      # Concepts that are used to identify 
+                                            # an entity that is ingested for 
+                                            # nutritional purposes 
+}  
+
 # Supplement components
 <NutritionOrder.supplement> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableReference>?;        # Type of supplement product 
@@ -163,16 +179,6 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:instruction @<string>?;            # Instructions or additional 
                                             # information about the oral 
                                             # supplement 
-}  
-
-# Components to add to the feeding
-<NutritionOrder.enteralFormula.additive> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableReference>?;        # Type of modular component to add 
-                                            # to the feeding 
-    fhir:productName @<string>?;            # Product or brand name of the 
-                                            # modular additive 
-    fhir:quantity @<Quantity>?;             # Amount of additive to be given or 
-                                            # mixed in 
 }  
 
 # Oral diet components
@@ -189,23 +195,6 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # patient 
     fhir:instruction @<string>?;            # Instructions or additional 
                                             # information about the oral diet 
-}  
-
-# Formula feeding instruction as structured data
-<NutritionOrder.enteralFormula.administration> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:schedule @<NutritionOrder.enteralFormula.administration.schedule>?;  # Scheduling information for enteral 
-                                            # formula products 
-    fhir:quantity @<Quantity>?;             # The volume of formula to provide
-    fhir:rate @<SimpleQuantity>  OR 
-    			@<Ratio>  ?;  # Speed with which the formula is 
-                                            # provided per period of time 
-}  
-
-# Required  nutrient modifications
-<NutritionOrder.oralDiet.nutrient> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:modifier @<CodeableConcept>?;      # Type of nutrient that is being 
-                                            # modified 
-    fhir:amount @<Quantity>?;               # Quantity of the specified nutrient
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -292,11 +281,11 @@ start=@<NutritionOrder> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
+
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]

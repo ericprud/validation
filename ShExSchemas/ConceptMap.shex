@@ -77,172 +77,19 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
     			(@<canonical>  AND {fhir:link @<ValueSet> })  ?;  # The target value set which 
                                             # provides context for the mappings 
     fhir:group @<OneOrMore_ConceptMap.group>?;  # Same source and target systems
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-# Constraint UniqueKey:cmd-5
-# Human readable:Either code or valueSet SHALL be present but not both.
-
-# Constraint: (code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())
-# ShEx:
-
-({fhir:code . AND  NOT { fhir:valueSet {fhir:v .} } }) OR ( NOT { fhir:code {fhir:v .} }  AND {fhir:valueSet .})
-
-) AND (
-
-# Constraint UniqueKey:cmd-4
-# Human readable:If noMap is present, target SHALL NOT be present
-
-# Constraint: (noMap.exists() and target.empty()) or noMap.empty()
-# ShEx:
-
-({fhir:noMap . AND  NOT { fhir:target {fhir:v .} } }) OR  NOT { fhir:noMap {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:cmd-7
-# Human readable:Either code or valueSet SHALL be present but not both.
-
-# Constraint: (code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())
-# ShEx:
-
-({fhir:code . AND  NOT { fhir:valueSet {fhir:v .} } }) OR ( NOT { fhir:code {fhir:v .} }  AND {fhir:valueSet .})
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Equals
-# # Constraint UniqueKey:cmd-1
-# Human readable:If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'
-#
-# Constraint: comment.exists() or (status = draft) or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))
-# ShEx:
-#
-#{fhir:comment . OR ({ fhir:status  Equals  { fhir:draft } }) OR  NOT { fhir:relationship {fhir:v .} }  OR (({ fhir:relationship [fhir:v  . -'source-is-broader-than-target']  }) AND ({ fhir:relationship [fhir:v  . -'not-related-to']  }))}
-{}
-
-) AND (
-
-# Constraint UniqueKey:cmd-6
-# Human readable:One of value[x] or valueSet must exist, but not both.
-
-# Constraint: (value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())
-# ShEx:
-
-({fhir:value . AND  NOT { fhir:valueSet {fhir:v .} } }) OR ( NOT { fhir:value {fhir:v .} }  AND {fhir:valueSet .})
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cmd-9
-# Human readable:If the mode is not 'other-map', relationship must be provided
-#
-# Constraint: (mode != 'other-map') implies relationship.exists()
-# ShEx:
-#
-#({ fhir:mode [fhir:v  . -'other-map']  })  Implies  {fhir:relationship .}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cmd-8
-# Human readable:If the mode is not 'fixed', code, display and valueSet are not allowed
-#
-# Constraint: (mode != 'fixed') implies (code.empty() and display.empty() and valueSet.empty())
-# ShEx:
-#
-#({ fhir:mode [fhir:v  . -'fixed']  })  Implies  ( NOT { fhir:code {fhir:v .} }  AND  NOT { fhir:display {fhir:v .} }  AND  NOT { fhir:valueSet {fhir:v .} } )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cmd-3
-# Human readable:If the mode is 'other-map', a url for the other map must be provided
-#
-# Constraint: (mode = 'other-map') implies otherMap.exists()
-# ShEx:
-#
-#({ fhir:mode { fhir:v ['other-map'] }  })  Implies  {fhir:otherMap .}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cmd-2
-# Human readable:If the mode is 'fixed', either a code or valueSet must be provided, but not both.
-#
-# Constraint: (mode = 'fixed') implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))
-# ShEx:
-#
-#({ fhir:mode { fhir:v ['fixed'] }  })  Implies  (({fhir:code . AND  NOT { fhir:valueSet {fhir:v .} } }) OR ( NOT { fhir:code {fhir:v .} }  AND {fhir:valueSet .}))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cmd-10
-# Human readable:If the mode is not 'other-map', otherMap is not allowed
-#
-# Constraint: (mode != 'other-map') implies otherMap.empty()
-# ShEx:
-#
-#({ fhir:mode [fhir:v  . -'other-map']  })  Implies   NOT { fhir:otherMap {fhir:v .} } 
-{}
-
-)
- 
-
-# Other properties required for this mapping
-<ConceptMap.group.element.target.dependsOn> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:property @<uri>;                   # A reference to a property that may 
-                                            # be required to refine the mapping 
-    fhir:value @<code>  OR 
-    			@<Coding>  OR 
-    			@<string>  OR 
-    			@<integer>  OR 
-    			@<boolean>  OR 
-    			@<dateTime>  OR 
-    			@<decimal>  OR 
-    			@<uri>  OR 
-    			@<id>  ?;  # Value of the referenced property
-    fhir:valueSet @<canonical>?;            # The mapping depends on a property 
-                                            # with a value from this value set 
+# Same source and target systems
+<ConceptMap.group> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:source @<canonical>?;              # Source system where concepts to be 
+                                            # mapped are defined 
+    fhir:target @<canonical>?;              # Target system that the concepts 
+                                            # are to be mapped to 
+    fhir:element @<OneOrMore_ConceptMap.group.element>;  # Mappings for a concept from the 
+                                            # source set 
+    fhir:unmapped @<ConceptMap.group.unmapped>?;  # What to do when there is no 
+                                            # mapping target for the source 
+                                            # concept 
 }  
 
 # Mappings for a concept from the source set
@@ -276,19 +123,6 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # also produces 
 }  
 
-# Same source and target systems
-<ConceptMap.group> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:source @<canonical>?;              # Source system where concepts to be 
-                                            # mapped are defined 
-    fhir:target @<canonical>?;              # Target system that the concepts 
-                                            # are to be mapped to 
-    fhir:element @<OneOrMore_ConceptMap.group.element>;  # Mappings for a concept from the 
-                                            # source set 
-    fhir:unmapped @<ConceptMap.group.unmapped>?;  # What to do when there is no 
-                                            # mapping target for the source 
-                                            # concept 
-}  
-
 # What to do when there is no mapping target for the source concept
 <ConceptMap.group.unmapped> EXTENDS @<BackboneElement> CLOSED {   
     fhir:mode @<code> AND
@@ -305,6 +139,23 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # additional ConceptMap to use for 
                                             # mapping if the source concept is 
                                             # unmapped 
+}  
+
+# Other properties required for this mapping
+<ConceptMap.group.element.target.dependsOn> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:property @<uri>;                   # A reference to a property that may 
+                                            # be required to refine the mapping 
+    fhir:value @<code>  OR 
+    			@<Coding>  OR 
+    			@<string>  OR 
+    			@<integer>  OR 
+    			@<boolean>  OR 
+    			@<dateTime>  OR 
+    			@<decimal>  OR 
+    			@<uri>  OR 
+    			@<id>  ?;  # Value of the referenced property
+    fhir:valueSet @<canonical>?;            # The mapping depends on a property 
+                                            # with a value from this value set 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -339,6 +190,11 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ConceptMap.group> 
 }
 
+<OneOrMore_ConceptMap.group.element> CLOSED {
+    rdf:first @<ConceptMap.group.element>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ConceptMap.group.element> 
+}
+
 <OneOrMore_ConceptMap.group.element.target> CLOSED {
     rdf:first @<ConceptMap.group.element.target>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ConceptMap.group.element.target> 
@@ -349,19 +205,14 @@ start=@<ConceptMap> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ConceptMap.group.element.target.dependsOn> 
 }
 
-<OneOrMore_ConceptMap.group.element> CLOSED {
-    rdf:first @<ConceptMap.group.element>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ConceptMap.group.element> 
-}
-
 #---------------------- Value Sets ------------------------
 
 # The relationship between concepts.
 fhirvs:concept-map-relationship ["related-to" "equivalent" "source-is-narrower-than-target" "source-is-broader-than-target" "not-related-to"]
 
-# Defines which action to take if there is no match in the group.
-fhirvs:conceptmap-unmapped-mode ["use-source-code" "fixed" "other-map"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Defines which action to take if there is no match in the group.
+fhirvs:conceptmap-unmapped-mode ["use-source-code" "fixed" "other-map"]
 

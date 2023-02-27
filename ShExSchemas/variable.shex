@@ -31,16 +31,5 @@ IMPORT <Expression.shex>
           {^fhir:group {a [fhir:Measure]}} OR 
           {^fhir:population {^fhir:group {a [fhir:Measure]}}}
 
-} AND (
-
-# Constraint UniqueKey:var-1
-# Human readable:Variable expressions must have a name
-
-# Constraint: value.name.exists()
-# ShEx:
-
-{fhir:value.name .}
-
-)
- 
+}  
 

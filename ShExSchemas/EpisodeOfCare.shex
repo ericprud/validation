@@ -64,16 +64,6 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # EpisodeOfCare 
 }  
 
-# Past list of status codes (the current status may be included to cover the start date of the status)
-<EpisodeOfCare.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:status @<code> AND
-    	{fhir:v @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
-                                            # onhold | finished | cancelled | 
-                                            # entered-in-error 
-    fhir:period @<Period>;                  # Duration the EpisodeOfCare was in 
-                                            # the specified status 
-}  
-
 # The list of diagnosis relevant to this episode of care
 <EpisodeOfCare.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
     fhir:condition @<CodeableReference>;    # Conditions/problems/diagnoses this 
@@ -83,6 +73,16 @@ start=@<EpisodeOfCare> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # admission, billing, discharge …) 
     fhir:rank @<positiveInt>?;              # Ranking of the diagnosis (for each 
                                             # role type) 
+}  
+
+# Past list of status codes (the current status may be included to cover the start date of the status)
+<EpisodeOfCare.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:status @<code> AND
+    	{fhir:v @fhirvs:episode-of-care-status};  # planned | waitlist | active | 
+                                            # onhold | finished | cancelled | 
+                                            # entered-in-error 
+    fhir:period @<Period>;                  # Duration the EpisodeOfCare was in 
+                                            # the specified status 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

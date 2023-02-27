@@ -73,38 +73,22 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # had 
     fhir:procedure @<OneOrMore_FamilyMemberHistory.procedure>?;  # Procedures that the related person 
                                             # had 
-} AND (
+}  
 
-# Constraint UniqueKey:fhs-2
-# Human readable:Can only have estimatedAge if age[x] is present
-
-# Constraint: age.exists() or estimatedAge.empty()
-# ShEx:
-
-{fhir:age . OR  NOT { fhir:estimatedAge {fhir:v .} } }
-
-) AND (
-
-# Constraint UniqueKey:fhs-3
-# Human readable:Can have age[x] or deceased[x], but not both
-
-# Constraint: age.empty() or deceased.empty()
-# ShEx:
-
- NOT { fhir:age {fhir:v .} }  OR  NOT { fhir:deceased {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:fhs-1
-# Human readable:Can have age[x] or born[x], but not both
-
-# Constraint: age.empty() or born.empty()
-# ShEx:
-
- NOT { fhir:age {fhir:v .} }  OR  NOT { fhir:born {fhir:v .} } 
-
-)
- 
+# Who or what participated in the activities related to the family member history and how they were involved
+<FamilyMemberHistory.participant> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:function @<CodeableConcept>?;      # Type of involvement
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? };  # Who or what participated in the 
+                                            # activities related to the family 
+                                            # member history 
+}  
 
 # Procedures that the related person had
 <FamilyMemberHistory.procedure> EXTENDS @<BackboneElement> CLOSED {   
@@ -121,21 +105,6 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<dateTime>  ?;  # When the procedure was performed
     fhir:note @<OneOrMore_Annotation>?;     # Extra information about the 
                                             # procedure 
-}  
-
-# Who or what participated in the activities related to the family member history and how they were involved
-<FamilyMemberHistory.participant> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:function @<CodeableConcept>?;      # Type of involvement
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> ? };  # Who or what participated in the 
-                                            # activities related to the family 
-                                            # member history 
 }  
 
 # Condition that the related person had

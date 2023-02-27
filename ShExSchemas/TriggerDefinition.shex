@@ -38,49 +38,7 @@ IMPORT <CodeableConcept.shex>
                                             # (multiple = 'and') 
     fhir:condition @<Expression>?;          # Whether the event triggers 
                                             # (boolean expression) 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: Implies
-# Unmapped construct found: startsWith
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:trd-3
-# Human readable:A named event requires a name, a periodic event requires timing, and a data event requires data
-#
-# Constraint: (type = 'named-event' implies name.exists()) and (type = 'periodic' implies timing.exists()) and (type.startsWith('data-') implies data.exists())
-# ShEx:
-#
-#(({ fhir:type { fhir:v ['named-event'] }  })  Implies  {fhir:name .}) AND (({ fhir:type { fhir:v ['periodic'] }  })  Implies  {fhir:timing .}) AND ({fhir:type.  startsWith  ('data-')  Implies  {fhir:data .}})
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:trd-2
-# Human readable:A condition only if there is a data requirement
-#
-# Constraint: condition.exists() implies data.exists()
-# ShEx:
-#
-#{fhir:condition .  Implies  {fhir:data .}}
-{}
-
-) AND (
-
-# Constraint UniqueKey:trd-1
-# Human readable:Either timing, or a data requirement, but not both
-
-# Constraint: data.empty() or timing.empty()
-# ShEx:
-
- NOT { fhir:data {fhir:v .} }  OR  NOT { fhir:timing {fhir:v .} } 
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

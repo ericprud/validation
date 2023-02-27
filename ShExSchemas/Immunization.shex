@@ -78,6 +78,14 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:protocolApplied @<OneOrMore_Immunization.protocolApplied>?;  # Protocol followed by the provider
 }  
 
+# Patient eligibility for a specific vaccination program
+<Immunization.programEligibility> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:program @<CodeableConcept>;        # The program that eligibility is 
+                                            # declared for 
+    fhir:programStatus @<CodeableConcept>;  # The patient's eligibility status 
+                                            # for the program 
+}  
+
 # Protocol followed by the provider
 <Immunization.protocolApplied> EXTENDS @<BackboneElement> CLOSED {   
     fhir:series @<string>?;                 # Name of vaccine series
@@ -91,21 +99,6 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # immunity 
 }  
 
-# Details of a reaction that follows immunization
-<Immunization.reaction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:date @<dateTime>?;                 # When reaction started
-    fhir:manifestation @<CodeableReference>?;  # Additional information on reaction
-    fhir:reported @<boolean>?;              # Indicates self-reported reaction
-}  
-
-# Patient eligibility for a specific vaccination program
-<Immunization.programEligibility> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:program @<CodeableConcept>;        # The program that eligibility is 
-                                            # declared for 
-    fhir:programStatus @<CodeableConcept>;  # The patient's eligibility status 
-                                            # for the program 
-}  
-
 # Who performed event
 <Immunization.performer> EXTENDS @<BackboneElement> CLOSED {   
     fhir:function @<CodeableConcept>?;      # What type of performance was done
@@ -116,6 +109,13 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? };  # Individual or organization who was 
                                             # performing 
+}  
+
+# Details of a reaction that follows immunization
+<Immunization.reaction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:date @<dateTime>?;                 # When reaction started
+    fhir:manifestation @<CodeableReference>?;  # Additional information on reaction
+    fhir:reported @<boolean>?;              # Indicates self-reported reaction
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

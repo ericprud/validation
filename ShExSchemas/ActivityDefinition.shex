@@ -151,32 +151,7 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # by this action 
     fhir:transform @<canonical>?;           # Transform to apply the template
     fhir:dynamicValue @<OneOrMore_ActivityDefinition.dynamicValue>?;  # Dynamic aspects of the definition
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-)
- 
+}  
 
 # Dynamic aspects of the definition
 <ActivityDefinition.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
@@ -263,18 +238,18 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
 # The type of participant for the action.
 fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
-
-# Codes indicating the degree of authority/intentionality associated with a request.
-fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # All Resource Types that represent request resources
 fhirvs:request-resource-types ["Appointment" "AppointmentResponse" "CarePlan" "Claim" "CommunicationRequest" "Contract" "CoverageEligibilityRequest" "DeviceRequest" "EnrollmentRequest" "ImmunizationRecommendation" "MedicationRequest" "NutritionOrder" "RequestOrchestration" "ServiceRequest" "SupplyRequest" "VisionPrescription"]
 
+# Codes indicating the degree of authority/intentionality associated with a request.
+fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
+
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 

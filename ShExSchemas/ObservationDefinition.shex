@@ -105,22 +105,7 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # belonging to this kind of 
                                             # observation group 
     fhir:component @<OneOrMore_ObservationDefinition.component>?;  # Component results
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-)
- 
+}  
 
 # Characteristics of quantitative results
 <ObservationDefinition.quantitativeDetails> EXTENDS @<BackboneElement> CLOSED {   
@@ -250,9 +235,9 @@ fhirvs:administrative-gender ["male" "female" "other" "unknown"]
 # Codes identifying the category of observation range.
 fhirvs:observation-range-category ["reference" "critical" "absolute"]
 
-# Permitted data type for observation value.
-fhirvs:permitted-data-type ["Quantity" "CodeableConcept" "string" "boolean" "integer" "Range" "Ratio" "SampledData" "time" "dateTime" "Period"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Permitted data type for observation value.
+fhirvs:permitted-data-type ["Quantity" "CodeableConcept" "string" "boolean" "integer" "Range" "Ratio" "SampledData" "time" "dateTime" "Period"]
 

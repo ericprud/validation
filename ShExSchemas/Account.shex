@@ -10,8 +10,8 @@ IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <Device.shex>
 IMPORT <instant.shex>
-IMPORT <Patient.shex>
 IMPORT <boolean.shex>
+IMPORT <Patient.shex>
 IMPORT <Coverage.shex>
 IMPORT <Location.shex>
 IMPORT <Reference.shex>
@@ -63,22 +63,21 @@ start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # calculated 
 }  
 
+# Calculated account balance(s)
+<Account.balance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:aggregate @<CodeableConcept>?;     # Who is expected to pay this part 
+                                            # of the balance 
+    fhir:term @<CodeableConcept>?;          # current | 30 | 60 | 90 | 120
+    fhir:estimate @<boolean>?;              # Estimated balance
+    fhir:amount @<Money>;                   # Calculated amount
+}  
+
 # Other associated accounts related to this account
 <Account.relatedAccount> EXTENDS @<BackboneElement> CLOSED {   
     fhir:relationship @<CodeableConcept>?;  # Relationship of the associated 
                                             # Account 
     fhir:account @<Reference> AND {fhir:link 
     			@<Account> ? };  # Reference to an associated Account
-}  
-
-# The parties ultimately responsible for balancing the Account
-<Account.guarantor> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:party @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<RelatedPerson> ? };  # Responsible entity
-    fhir:onHold @<boolean>?;                # Credit or other hold applied
-    fhir:period @<Period>?;                 # Guarantee account during
 }  
 
 # The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
@@ -91,13 +90,14 @@ start=@<Account> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the context of this account 
 }  
 
-# Calculated account balance(s)
-<Account.balance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:aggregate @<CodeableConcept>?;     # Who is expected to pay this part 
-                                            # of the balance 
-    fhir:term @<CodeableConcept>?;          # current | 30 | 60 | 90 | 120
-    fhir:estimate @<boolean>?;              # Estimated balance
-    fhir:amount @<Money>;                   # Calculated amount
+# The parties ultimately responsible for balancing the Account
+<Account.guarantor> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:party @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<RelatedPerson> ? };  # Responsible entity
+    fhir:onHold @<boolean>?;                # Credit or other hold applied
+    fhir:period @<Period>?;                 # Guarantee account during
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

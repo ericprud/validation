@@ -30,8 +30,8 @@ IMPORT <ServiceRequest.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <PractitionerRole.shex>
-IMPORT <HealthcareService.shex>
 IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
 IMPORT <AppointmentResponse.shex>
 
 
@@ -77,20 +77,6 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # of instances 
 }  
 
-# Who performed the series
-<ImagingStudy.series.performer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:function @<CodeableConcept>?;      # Type of performance
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<HealthcareService> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> ? };  # Who performed the series
-}  
-
 # A single SOP instance from the series
 <ImagingStudy.series.instance> EXTENDS @<BackboneElement> CLOSED {   
     fhir:uid @<id>;                         # DICOM SOP Instance UID
@@ -117,6 +103,20 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:performer @<OneOrMore_ImagingStudy.series.performer>?;  # Who performed the series
     fhir:instance @<OneOrMore_ImagingStudy.series.instance>?;  # A single SOP instance from the 
                                             # series 
+}  
+
+# Who performed the series
+<ImagingStudy.series.performer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:function @<CodeableConcept>?;      # Type of performance
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<HealthcareService> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? };  # Who performed the series
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

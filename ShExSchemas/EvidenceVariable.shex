@@ -84,58 +84,20 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # | polychotomous 
     fhir:category @<OneOrMore_EvidenceVariable.category>?;  # A grouping for ordinal or 
                                             # polychotomous variables 
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:evv-1
-# Human readable:In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination
-#
-# Constraint: (definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  < 2
-# ShEx:
-#
-#(   count  ( fhir:definitionReference )  Plus     count  ( fhir:definitionCanonical )  Plus     count  ( fhir:definitionCodeableConcept )  Plus     count  ( fhir:definitionExpression )  Plus     count  ( fhir:definitionId )  Plus     count  ( fhir:definitionByTypeAndValue )  Plus     count  ( fhir:definitionByCombination )) { fhir:v MaxExclusive 2 } 
-{}
-
-)
- 
+# Used to specify how two or more characteristics are combined
+<EvidenceVariable.characteristic.definitionByCombination> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code> AND
+    	{fhir:v @fhirvs:characteristic-combination};  # all-of | any-of | at-least | 
+                                            # at-most | statistical | net-effect 
+                                            # | dataset 
+    fhir:threshold @<positiveInt>?;         # Provides the value of "n" when 
+                                            # "at-least" or "at-most" codes are 
+                                            # used 
+    fhir:characteristic @<OneOrMore_EvidenceVariable.characteristic>;  # A defining factor of the 
+                                            # characteristic 
+}  
 
 # A grouping for ordinal or polychotomous variables
 <EvidenceVariable.category> EXTENDS @<BackboneElement> CLOSED {   
@@ -197,70 +159,6 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # characteristics are combined 
     fhir:timeFromEvent @<OneOrMore_EvidenceVariable.characteristic.timeFromEvent>?;  # Observation time from study 
                                             # specified event 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:evv-1
-# Human readable:In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination
-#
-# Constraint: (definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  < 2
-# ShEx:
-#
-#(   count  ( fhir:definitionReference )  Plus     count  ( fhir:definitionCanonical )  Plus     count  ( fhir:definitionCodeableConcept )  Plus     count  ( fhir:definitionExpression )  Plus     count  ( fhir:definitionId )  Plus     count  ( fhir:definitionByTypeAndValue )  Plus     count  ( fhir:definitionByCombination )) { fhir:v MaxExclusive 2 } 
-{}
-
-)
- 
-
-# Used to specify how two or more characteristics are combined
-<EvidenceVariable.characteristic.definitionByCombination> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code> AND
-    	{fhir:v @fhirvs:characteristic-combination};  # all-of | any-of | at-least | 
-                                            # at-most | statistical | net-effect 
-                                            # | dataset 
-    fhir:threshold @<positiveInt>?;         # Provides the value of "n" when 
-                                            # "at-least" or "at-most" codes are 
-                                            # used 
-    fhir:characteristic @<OneOrMore_EvidenceVariable.characteristic>;  # A defining factor of the 
-                                            # characteristic 
 }  
 
 # Defines the characteristic using type and value

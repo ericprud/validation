@@ -52,25 +52,7 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # this ingredient 
     fhir:substance @<Ingredient.substance>;  # The substance that comprises this 
                                             # ingredient 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: where
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:ing-1
-# Human readable:If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allegen information should be documented in that resource
-#
-# Constraint: (Ingredient.allergenicIndicator.where(value='true').count() + Ingredient.substance.code.reference.count())  < 2
-# ShEx:
-#
-#(   count  ( fhir:Ingredient.allergenicIndicator. where  (value { fhir:v ['true'] } ) )  Plus     count  ( fhir:Ingredient.substance.code.reference )) { fhir:v MaxExclusive 2 } 
-{}
-
-)
- 
+}  
 
 # The substance that comprises this ingredient
 <Ingredient.substance> EXTENDS @<BackboneElement> CLOSED {   
@@ -92,15 +74,6 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:measurementPoint @<string>?;       # When strength is measured at a 
                                             # particular point or distance 
     fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
-}  
-
-# An organization that manufactures this ingredient
-<Ingredient.manufacturer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<code> AND
-    	{fhir:v @fhirvs:ingredient-manufacturer-role}?;  # allowed | possible | actual
-    fhir:manufacturer @<Reference> AND {fhir:link 
-    			@<Organization> ? };  # An organization that manufactures 
-                                            # this ingredient 
 }  
 
 # The quantity of substance, per presentation, or per volume or mass, and type of quantity
@@ -133,6 +106,15 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
     fhir:referenceStrength @<OneOrMore_Ingredient.substance.strength.referenceStrength>?;  # Strength expressed in terms of a 
                                             # reference substance 
+}  
+
+# An organization that manufactures this ingredient
+<Ingredient.manufacturer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<code> AND
+    	{fhir:v @fhirvs:ingredient-manufacturer-role}?;  # allowed | possible | actual
+    fhir:manufacturer @<Reference> AND {fhir:link 
+    			@<Organization> ? };  # An organization that manufactures 
+                                            # this ingredient 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

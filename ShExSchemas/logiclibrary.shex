@@ -19,11 +19,11 @@ start=@<logiclibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Contents of the library, either embedded or referenced
-<Library.content> EXTENDS @<Attachment> CLOSED {   
-}  
-
 # Additional documentation, citations, etc.
 <Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
+}  
+
+# Contents of the library, either embedded or referenced
+<Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 

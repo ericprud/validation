@@ -16,10 +16,10 @@ IMPORT <integer.shex>
 IMPORT <decimal.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <Quantity.shex>
 IMPORT <Resource.shex>
-IMPORT <canonical.shex>
+IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
+IMPORT <canonical.shex>
 IMPORT <Attachment.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
@@ -77,236 +77,60 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # overall questionnaire 
     fhir:item @<OneOrMore_Questionnaire.item>?;  # Questions and sections within the 
                                             # Questionnaire 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: isDistinct
-# Unmapped construct found: descendants
-# # Constraint UniqueKey:que-2
-# Human readable:The link ids for groups and questions must be unique within the questionnaire
-#
-# Constraint: descendants().linkId.isDistinct()
-# ShEx:
-#
-#   isDistinct  (    descendants  (  ).linkId )
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-9
-# Human readable:Read-only can't be specified for "display" items
-
-# Constraint: type!='display' or readOnly.empty()
-# ShEx:
-
-({ fhir:type [fhir:v  . -'display']  }) OR  NOT { fhir:readOnly {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:que-8
-# Human readable:Initial values can't be specified for groups or display items
-
-# Constraint: (type!='group' and type!='display') or initial.empty()
-# ShEx:
-
-(({ fhir:type [fhir:v  . -'group']  }) AND ({ fhir:type [fhir:v  . -'display']  })) OR  NOT { fhir:initial {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:que-6
-# Human readable:Required and repeat aren't permitted for display items
-
-# Constraint: type!='display' or (required.empty() and repeats.empty())
-# ShEx:
-
-({ fhir:type [fhir:v  . -'display']  }) OR ( NOT { fhir:required {fhir:v .} }  AND  NOT { fhir:repeats {fhir:v .} } )
-
-) AND (
-
-# Constraint UniqueKey:que-5
-# Human readable:Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet
-
-# Constraint: (type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())
-# ShEx:
-
-(({ fhir:type { fhir:v ['coding'] }  }) OR ({ fhir:type { fhir:v ['decimal'] }  }) OR ({ fhir:type { fhir:v ['integer'] }  }) OR ({ fhir:type { fhir:v ['date'] }  }) OR ({ fhir:type { fhir:v ['dateTime'] }  }) OR ({ fhir:type { fhir:v ['time'] }  }) OR ({ fhir:type { fhir:v ['string'] }  }) OR ({ fhir:type { fhir:v ['quantity'] }  })) OR ( NOT { fhir:answerValueSet {fhir:v .} }  AND  NOT { fhir:answerOption {fhir:v .} } )
-
-) AND (
-
-# Constraint UniqueKey:que-4
-# Human readable:A question cannot have both answerOption and answerValueSet
-
-# Constraint: answerOption.empty() or answerValueSet.empty()
-# ShEx:
-
- NOT { fhir:answerOption {fhir:v .} }  OR  NOT { fhir:answerValueSet {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:que-3
-# Human readable:Display items cannot have a "code" asserted
-
-# Constraint: type!='display' or code.empty()
-# ShEx:
-
-({ fhir:type [fhir:v  . -'display']  }) OR  NOT { fhir:code {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-1c
-# Human readable:Display items cannot have child items
-#
-# Constraint: type='display' implies item.empty()
-# ShEx:
-#
-#({ fhir:type { fhir:v ['display'] }  })  Implies   NOT { fhir:item {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-1a
-# Human readable:Group items must have nested items when Questionanire is complete
-#
-# Constraint: (type='group' and %resource.status='complete') implies item.empty().not()
-# ShEx:
-#
-#(({ fhir:type { fhir:v ['group'] }  }) AND 'false'.status { fhir:v ['complete'] } )  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-1b
-# Human readable:Groups should have items
-#
-# Constraint: type='group' implies item.empty().not()
-# ShEx:
-#
-#({ fhir:type { fhir:v ['group'] }  })  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-10
-# Human readable:Maximum length can only be declared for simple question types
-
-# Constraint: (type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()
-# ShEx:
-
-({ fhir:type { fhir:v ['boolean' 'decimal' 'integer' 'string' 'text' 'url'] }  }) OR ({ fhir:answerConstraint { fhir:v ['optionOrString'] }  }) OR  NOT { fhir:maxLength {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# # Constraint UniqueKey:que-13
-# Human readable:Can only have multiple initial values for repeating items
-#
-# Constraint: repeats=true or initial.count() <= 1
-# ShEx:
-#
-#({ fhir:repeats { fhir:v [true] }  }) OR (   count  ( fhir:initial ) { fhir:v MaxInclusive 1 } )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-14
-# Human readable:Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)
-#
-# Constraint: answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()
-# ShEx:
-#
-#{fhir:answerConstraint .  Implies  ({fhir:answerOption . OR {fhir:answerValueset .}})}
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-11
-# Human readable:If one or more answerOption is present, initial cannot be present.  Use answerOption.initialSelected instead
-
-# Constraint: answerOption.empty() or initial.empty()
-# ShEx:
-
- NOT { fhir:answerOption {fhir:v .} }  OR  NOT { fhir:initial {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-12
-# Human readable:If there are more than one enableWhen, enableBehavior must be specified
-#
-# Constraint: enableWhen.count() > 1 implies enableBehavior.exists()
-# ShEx:
-#
-#(   count  ( fhir:enableWhen ) { fhir:v MinExclusive 1 } )  Implies  {fhir:enableBehavior .}
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-15
-# Human readable:Link ids should be 255 characters or less
-
-# Constraint: $this.length <= 255
-# ShEx:
-
-{fhir:$this.length { fhir:v MaxInclusive 255 } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-7
-# Human readable:If the operator is 'exists', the value must be a boolean
-#
-# Constraint: operator = 'exists' implies (answer is Boolean)
-# ShEx:
-#
-#({ fhir:operator { fhir:v ['exists'] }  })  Implies  ({ fhir:answer a { fhir:Boolean } })
-{}
-
-)
- 
+}  
+
+# Permitted answer
+<Questionnaire.item.answerOption> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<integer>  OR 
+    			@<date>  OR 
+    			@<time>  OR 
+    			@<string>  OR 
+    			@<Coding>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Answer value
+    fhir:initialSelected @<boolean>?;       # Whether option is selected by 
+                                            # default 
+}  
+
+# Nested questionnaire items
+<Questionnaire.item.itemnull> CLOSED {   
+}  
+
+# Only allow data when
+<Questionnaire.item.enableWhen> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:question @<string>;                # The linkId of question that 
+                                            # determines whether item is 
+                                            # enabled/disabled 
+    fhir:operator @<code> AND
+    	{fhir:v @fhirvs:questionnaire-enable-operator};  # exists | = | != | > | < | >= | <=
+    fhir:answer @<boolean>  OR 
+    			@<decimal>  OR 
+    			@<integer>  OR 
+    			@<date>  OR 
+    			@<dateTime>  OR 
+    			@<time>  OR 
+    			@<string>  OR 
+    			@<Coding>  OR 
+    			@<Quantity>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Value for question comparison 
+                                            # based on operator 
+}  
+
+# Initial value(s) when item is first rendered
+<Questionnaire.item.initial> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<boolean>  OR 
+    			@<decimal>  OR 
+    			@<integer>  OR 
+    			@<date>  OR 
+    			@<dateTime>  OR 
+    			@<time>  OR 
+    			@<string>  OR 
+    			@<uri>  OR 
+    			@<Attachment>  OR 
+    			@<Coding>  OR 
+    			@<Quantity>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Actual value for initializing the 
+                                            # question 
+}  
 
 # Questions and sections within the Questionnaire
 <Questionnaire.item> EXTENDS @<BackboneElement> CLOSED {   
@@ -340,288 +164,6 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:initial @<OneOrMore_Questionnaire.item.initial>?;  # Initial value(s) when item is 
                                             # first rendered 
     fhir:item @<OneOrMore_Questionnaire.item>?;  # Nested questionnaire items
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: isDistinct
-# Unmapped construct found: descendants
-# # Constraint UniqueKey:que-2
-# Human readable:The link ids for groups and questions must be unique within the questionnaire
-#
-# Constraint: descendants().linkId.isDistinct()
-# ShEx:
-#
-#   isDistinct  (    descendants  (  ).linkId )
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-9
-# Human readable:Read-only can't be specified for "display" items
-
-# Constraint: type!='display' or readOnly.empty()
-# ShEx:
-
-({ fhir:type [fhir:v  . -'display']  }) OR  NOT { fhir:readOnly {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:que-8
-# Human readable:Initial values can't be specified for groups or display items
-
-# Constraint: (type!='group' and type!='display') or initial.empty()
-# ShEx:
-
-(({ fhir:type [fhir:v  . -'group']  }) AND ({ fhir:type [fhir:v  . -'display']  })) OR  NOT { fhir:initial {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:que-6
-# Human readable:Required and repeat aren't permitted for display items
-
-# Constraint: type!='display' or (required.empty() and repeats.empty())
-# ShEx:
-
-({ fhir:type [fhir:v  . -'display']  }) OR ( NOT { fhir:required {fhir:v .} }  AND  NOT { fhir:repeats {fhir:v .} } )
-
-) AND (
-
-# Constraint UniqueKey:que-5
-# Human readable:Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet
-
-# Constraint: (type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())
-# ShEx:
-
-(({ fhir:type { fhir:v ['coding'] }  }) OR ({ fhir:type { fhir:v ['decimal'] }  }) OR ({ fhir:type { fhir:v ['integer'] }  }) OR ({ fhir:type { fhir:v ['date'] }  }) OR ({ fhir:type { fhir:v ['dateTime'] }  }) OR ({ fhir:type { fhir:v ['time'] }  }) OR ({ fhir:type { fhir:v ['string'] }  }) OR ({ fhir:type { fhir:v ['quantity'] }  })) OR ( NOT { fhir:answerValueSet {fhir:v .} }  AND  NOT { fhir:answerOption {fhir:v .} } )
-
-) AND (
-
-# Constraint UniqueKey:que-4
-# Human readable:A question cannot have both answerOption and answerValueSet
-
-# Constraint: answerOption.empty() or answerValueSet.empty()
-# ShEx:
-
- NOT { fhir:answerOption {fhir:v .} }  OR  NOT { fhir:answerValueSet {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:que-3
-# Human readable:Display items cannot have a "code" asserted
-
-# Constraint: type!='display' or code.empty()
-# ShEx:
-
-({ fhir:type [fhir:v  . -'display']  }) OR  NOT { fhir:code {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-1c
-# Human readable:Display items cannot have child items
-#
-# Constraint: type='display' implies item.empty()
-# ShEx:
-#
-#({ fhir:type { fhir:v ['display'] }  })  Implies   NOT { fhir:item {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-1a
-# Human readable:Group items must have nested items when Questionanire is complete
-#
-# Constraint: (type='group' and %resource.status='complete') implies item.empty().not()
-# ShEx:
-#
-#(({ fhir:type { fhir:v ['group'] }  }) AND 'false'.status { fhir:v ['complete'] } )  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-1b
-# Human readable:Groups should have items
-#
-# Constraint: type='group' implies item.empty().not()
-# ShEx:
-#
-#({ fhir:type { fhir:v ['group'] }  })  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-10
-# Human readable:Maximum length can only be declared for simple question types
-
-# Constraint: (type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()
-# ShEx:
-
-({ fhir:type { fhir:v ['boolean' 'decimal' 'integer' 'string' 'text' 'url'] }  }) OR ({ fhir:answerConstraint { fhir:v ['optionOrString'] }  }) OR  NOT { fhir:maxLength {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# # Constraint UniqueKey:que-13
-# Human readable:Can only have multiple initial values for repeating items
-#
-# Constraint: repeats=true or initial.count() <= 1
-# ShEx:
-#
-#({ fhir:repeats { fhir:v [true] }  }) OR (   count  ( fhir:initial ) { fhir:v MaxInclusive 1 } )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-14
-# Human readable:Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)
-#
-# Constraint: answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()
-# ShEx:
-#
-#{fhir:answerConstraint .  Implies  ({fhir:answerOption . OR {fhir:answerValueset .}})}
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-11
-# Human readable:If one or more answerOption is present, initial cannot be present.  Use answerOption.initialSelected instead
-
-# Constraint: answerOption.empty() or initial.empty()
-# ShEx:
-
- NOT { fhir:answerOption {fhir:v .} }  OR  NOT { fhir:initial {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-12
-# Human readable:If there are more than one enableWhen, enableBehavior must be specified
-#
-# Constraint: enableWhen.count() > 1 implies enableBehavior.exists()
-# ShEx:
-#
-#(   count  ( fhir:enableWhen ) { fhir:v MinExclusive 1 } )  Implies  {fhir:enableBehavior .}
-{}
-
-) AND (
-
-# Constraint UniqueKey:que-15
-# Human readable:Link ids should be 255 characters or less
-
-# Constraint: $this.length <= 255
-# ShEx:
-
-{fhir:$this.length { fhir:v MaxInclusive 255 } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:que-7
-# Human readable:If the operator is 'exists', the value must be a boolean
-#
-# Constraint: operator = 'exists' implies (answer is Boolean)
-# ShEx:
-#
-#({ fhir:operator { fhir:v ['exists'] }  })  Implies  ({ fhir:answer a { fhir:Boolean } })
-{}
-
-)
- 
-
-# Only allow data when
-<Questionnaire.item.enableWhen> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:question @<string>;                # The linkId of question that 
-                                            # determines whether item is 
-                                            # enabled/disabled 
-    fhir:operator @<code> AND
-    	{fhir:v @fhirvs:questionnaire-enable-operator};  # exists | = | != | > | < | >= | <=
-    fhir:answer @<boolean>  OR 
-    			@<decimal>  OR 
-    			@<integer>  OR 
-    			@<date>  OR 
-    			@<dateTime>  OR 
-    			@<time>  OR 
-    			@<string>  OR 
-    			@<Coding>  OR 
-    			@<Quantity>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Value for question comparison 
-                                            # based on operator 
-}  
-
-# Permitted answer
-<Questionnaire.item.answerOption> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<integer>  OR 
-    			@<date>  OR 
-    			@<time>  OR 
-    			@<string>  OR 
-    			@<Coding>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Answer value
-    fhir:initialSelected @<boolean>?;       # Whether option is selected by 
-                                            # default 
-}  
-
-# Nested questionnaire items
-<Questionnaire.item.itemnull> CLOSED {   
-}  
-
-# Initial value(s) when item is first rendered
-<Questionnaire.item.initial> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<boolean>  OR 
-    			@<decimal>  OR 
-    			@<integer>  OR 
-    			@<date>  OR 
-    			@<dateTime>  OR 
-    			@<time>  OR 
-    			@<string>  OR 
-    			@<uri>  OR 
-    			@<Attachment>  OR 
-    			@<Coding>  OR 
-    			@<Quantity>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Actual value for initializing the 
-                                            # question 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -683,24 +225,24 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes that guide the display of disabled questionnaire items
-fhirvs:questionnaire-disabled-display ["hidden" "protected"]
+# All fhir data types
+fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
 
 # The criteria by which a question is enabled.
 fhirvs:questionnaire-enable-operator ["exists" "=" "!=" ">" "<" ">=" "<="]
 
-# All fhir data types
-fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
-
-# Codes that describe the types of constraints possible on a question item that has a list of permitted answers
-fhirvs:questionnaire-answer-constraint ["optionsOnly" "optionsOrType" "optionsOrString"]
+# Distinguishes groups from questions and display text and indicates data type for questions.
+fhirvs:item-type ["group" "display" "question" "boolean" "decimal" "integer" "date" "dateTime" "time" "string" "text" "url" "coding" "attachment" "reference" "quantity"]
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
-# Distinguishes groups from questions and display text and indicates data type for questions.
-fhirvs:item-type ["group" "display" "question" "boolean" "decimal" "integer" "date" "dateTime" "time" "string" "text" "url" "coding" "attachment" "reference" "quantity"]
-
 # Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
 fhirvs:questionnaire-enable-behavior ["all" "any"]
+
+# Codes that guide the display of disabled questionnaire items
+fhirvs:questionnaire-disabled-display ["hidden" "protected"]
+
+# Codes that describe the types of constraints possible on a question item that has a list of permitted answers
+fhirvs:questionnaire-answer-constraint ["optionsOnly" "optionsOrType" "optionsOrString"]
 

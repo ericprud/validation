@@ -65,46 +65,40 @@ start=@<StructureMap> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # (canonical URLs) 
     fhir:group @<OneOrMore_StructureMap.group>;  # Named sections for reader 
                                             # convenience 
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+# Transform Rule from source to target
+<StructureMap.group.rule> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<id>?;                       # Name of the rule for internal 
+                                            # references 
+    fhir:source @<OneOrMore_StructureMap.group.rule.source>;  # Source inputs to the mapping
+    fhir:target @<OneOrMore_StructureMap.group.rule.target>?;  # Content to create because of this 
+                                            # mapping rule 
+    fhir:rule @<OneOrMore_StructureMap.group.rule>?;  # Rules contained in this rule
+    fhir:dependent @<OneOrMore_StructureMap.group.rule.dependent>?;  # Which other rules to apply in the 
+                                            # context of this rule 
+    fhir:documentation @<string>?;          # Documentation for this instance of 
+                                            # data 
+}  
 
-# Constraint: url.matches('([^|#])*')
-# ShEx:
+# Rules contained in this rule
+<StructureMap.group.rule.rulenull> CLOSED {   
+}  
 
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:smp-1
-# Human readable:Can only have an element if you have a context
-#
-# Constraint: element.exists() implies context.exists()
-# ShEx:
-#
-#{fhir:element .  Implies  {fhir:context .}}
-{}
-
-)
- 
+# Named sections for reader convenience
+<StructureMap.group> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<id>;                        # Human-readable label
+    fhir:extends @<id>?;                    # Another group that this group adds 
+                                            # rules to 
+    fhir:typeMode @<code> AND
+    	{fhir:v @fhirvs:map-group-type-mode}?;  # types | type-and-types
+    fhir:documentation @<string>?;          # Additional description/explanation 
+                                            # for group 
+    fhir:input @<OneOrMore_StructureMap.group.input>;  # Named instance provided when 
+                                            # invoking the map 
+    fhir:rule @<OneOrMore_StructureMap.group.rule>?;  # Transform Rule from source to 
+                                            # target 
+}  
 
 # Content to create because of this mapping rule
 <StructureMap.group.rule.target> EXTENDS @<BackboneElement> CLOSED {   
@@ -119,6 +113,47 @@ start=@<StructureMap> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:transform @<code> AND
     	{fhir:v @fhirvs:map-transform}?;  # create | copy +
     fhir:parameter @<OneOrMore_StructureMap.group.rule.target.parameter>?;  # Parameters to the transform
+}  
+
+# Named instance provided when invoking the map
+<StructureMap.group.input> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<id>;                        # Name for this instance of data
+    fhir:type @<string>?;                   # Type for this instance of data
+    fhir:mode @<code> AND
+    	{fhir:v @fhirvs:map-input-mode};  # source | target
+    fhir:documentation @<string>?;          # Documentation for this instance of 
+                                            # data 
+}  
+
+# Parameters to the transform
+<StructureMap.group.rule.target.parameter> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<id>  OR 
+    			@<string>  OR 
+    			@<boolean>  OR 
+    			@<integer>  OR 
+    			@<decimal>  OR 
+    			@<date>  OR 
+    			@<time>  OR 
+    			@<dateTime>  ;  # Parameter value - variable or 
+                                            # literal 
+}  
+
+# Which other rules to apply in the context of this rule
+<StructureMap.group.rule.dependent> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<id>;                        # Name of a rule or group to apply
+    fhir:parameter @<OneOrMore_StructureMap.group.rule.target.parameter>;  # Parameter to pass to the rule or 
+                                            # group 
+}  
+
+# Structure Definition used by this map
+<StructureMap.structure> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:url @<canonical>;                  # Canonical reference to structure 
+                                            # definition 
+    fhir:mode @<code> AND
+    	{fhir:v @fhirvs:map-model-mode};  # source | queried | target | 
+                                            # produced 
+    fhir:alias @<string>?;                  # Name for type in this map
+    fhir:documentation @<string>?;          # Documentation on use of structure
 }  
 
 # Source inputs to the mapping
@@ -144,80 +179,6 @@ start=@<StructureMap> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # an error instead of completing 
     fhir:logMessage @<string>?;             # Message to put in log if source 
                                             # exists (FHIRPath) 
-}  
-
-# Transform Rule from source to target
-<StructureMap.group.rule> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<id>?;                       # Name of the rule for internal 
-                                            # references 
-    fhir:source @<OneOrMore_StructureMap.group.rule.source>;  # Source inputs to the mapping
-    fhir:target @<OneOrMore_StructureMap.group.rule.target>?;  # Content to create because of this 
-                                            # mapping rule 
-    fhir:rule @<OneOrMore_StructureMap.group.rule>?;  # Rules contained in this rule
-    fhir:dependent @<OneOrMore_StructureMap.group.rule.dependent>?;  # Which other rules to apply in the 
-                                            # context of this rule 
-    fhir:documentation @<string>?;          # Documentation for this instance of 
-                                            # data 
-}  
-
-# Structure Definition used by this map
-<StructureMap.structure> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:url @<canonical>;                  # Canonical reference to structure 
-                                            # definition 
-    fhir:mode @<code> AND
-    	{fhir:v @fhirvs:map-model-mode};  # source | queried | target | 
-                                            # produced 
-    fhir:alias @<string>?;                  # Name for type in this map
-    fhir:documentation @<string>?;          # Documentation on use of structure
-}  
-
-# Named instance provided when invoking the map
-<StructureMap.group.input> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<id>;                        # Name for this instance of data
-    fhir:type @<string>?;                   # Type for this instance of data
-    fhir:mode @<code> AND
-    	{fhir:v @fhirvs:map-input-mode};  # source | target
-    fhir:documentation @<string>?;          # Documentation for this instance of 
-                                            # data 
-}  
-
-# Which other rules to apply in the context of this rule
-<StructureMap.group.rule.dependent> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<id>;                        # Name of a rule or group to apply
-    fhir:parameter @<OneOrMore_StructureMap.group.rule.target.parameter>;  # Parameter to pass to the rule or 
-                                            # group 
-}  
-
-# Parameters to the transform
-<StructureMap.group.rule.target.parameter> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<id>  OR 
-    			@<string>  OR 
-    			@<boolean>  OR 
-    			@<integer>  OR 
-    			@<decimal>  OR 
-    			@<date>  OR 
-    			@<time>  OR 
-    			@<dateTime>  ;  # Parameter value - variable or 
-                                            # literal 
-}  
-
-# Named sections for reader convenience
-<StructureMap.group> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<id>;                        # Human-readable label
-    fhir:extends @<id>?;                    # Another group that this group adds 
-                                            # rules to 
-    fhir:typeMode @<code> AND
-    	{fhir:v @fhirvs:map-group-type-mode}?;  # types | type-and-types
-    fhir:documentation @<string>?;          # Additional description/explanation 
-                                            # for group 
-    fhir:input @<OneOrMore_StructureMap.group.input>;  # Named instance provided when 
-                                            # invoking the map 
-    fhir:rule @<OneOrMore_StructureMap.group.rule>?;  # Transform Rule from source to 
-                                            # target 
-}  
-
-# Rules contained in this rule
-<StructureMap.group.rule.rulenull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -257,16 +218,6 @@ start=@<StructureMap> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_StructureMap.group> 
 }
 
-<OneOrMore_code> CLOSED {
-    rdf:first @<code>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_code> 
-}
-
-<OneOrMore_StructureMap.group.rule.target.parameter> CLOSED {
-    rdf:first @<StructureMap.group.rule.target.parameter>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_StructureMap.group.rule.target.parameter> 
-}
-
 <OneOrMore_StructureMap.group.rule.source> CLOSED {
     rdf:first @<StructureMap.group.rule.source>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_StructureMap.group.rule.source> 
@@ -292,26 +243,36 @@ start=@<StructureMap> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_StructureMap.group.input> 
 }
 
+<OneOrMore_code> CLOSED {
+    rdf:first @<code>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_code> 
+}
+
+<OneOrMore_StructureMap.group.rule.target.parameter> CLOSED {
+    rdf:first @<StructureMap.group.rule.target.parameter>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_StructureMap.group.rule.target.parameter> 
+}
+
 #---------------------- Value Sets ------------------------
-
-# How data is copied/created.
-fhirvs:map-transform ["create" "copy" "truncate" "escape" "cast" "append" "translate" "reference" "dateOp" "uuid" "pointer" "evaluate" "cc" "c" "qty" "id" "cp"]
-
-# How the referenced structure is used in this mapping.
-fhirvs:map-model-mode ["source" "queried" "target" "produced"]
 
 # If this is the default rule set to apply for the source type, or this combination of types.
 fhirvs:map-group-type-mode ["types" "type-and-types"]
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+# How data is copied/created.
+fhirvs:map-transform ["create" "copy" "truncate" "escape" "cast" "append" "translate" "reference" "dateOp" "uuid" "pointer" "evaluate" "cc" "c" "qty" "id" "cp"]
 
 # Mode for this instance of data.
 fhirvs:map-input-mode ["source" "target"]
 
-# If field is a list, how to manage the production.
-fhirvs:map-target-list-mode ["first" "share" "last" "collate"]
+# How the referenced structure is used in this mapping.
+fhirvs:map-model-mode ["source" "queried" "target" "produced"]
 
 # If field is a list, how to manage the source.
 fhirvs:map-source-list-mode ["first" "not_first" "last" "not_last" "only_one"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# If field is a list, how to manage the production.
+fhirvs:map-target-list-mode ["first" "share" "last" "collate"]
 

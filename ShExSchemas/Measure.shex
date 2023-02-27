@@ -103,89 +103,6 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:group @<OneOrMore_Measure.group>?;  # Population criteria group
     fhir:supplementalData @<OneOrMore_Measure.supplementalData>?;  # What other data should be reported 
                                             # with the measure 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:mea-1
-# Human readable:Stratifier SHALL be either a single criteria or a set of criteria components
-#
-# Constraint: group.stratifier.all((code | description | criteria).exists() xor component.exists())
-# ShEx:
-#
-#{fhir:group.stratifier.  all  (code description criteria .  Xor  component .)}
-{}
-
-)
- 
-
-# What other data should be reported with the measure
-<Measure.supplementalData> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # Meaning of the supplemental data
-    fhir:usage @<OneOrMore_CodeableConcept>?;  # supplemental-data | 
-                                            # risk-adjustment-factor 
-    fhir:description @<string>?;            # The human readable description of 
-                                            # this supplemental data 
-    fhir:criteria @<Expression>;            # Expression describing additional 
-                                            # data to be reported 
-}  
-
-# Defined terms used in the measure documentation
-<Measure.term> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # What term?
-    fhir:definition @<markdown>?;           # Meaning of the term
-}  
-
-# Stratifier criteria component for the measure
-<Measure.group.stratifier.component> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # Meaning of the stratifier component
-    fhir:description @<string>?;            # The human readable description of 
-                                            # this stratifier component 
-    fhir:criteria @<Expression>;            # Component of how the measure 
-                                            # should be stratified 
-}  
-
-# Population criteria group
-<Measure.group> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # Meaning of the group
-    fhir:description @<string>?;            # Summary description
-    fhir:type @<OneOrMore_CodeableConcept>?;  # process | outcome | structure | 
-                                            # patient-reported-outcome | 
-                                            # composite 
-    fhir:basis @<code> AND
-    	{fhir:v @fhirvs:fhir-types}?;  # Population basis
-    fhir:scoring @<CodeableConcept>?;       # proportion | ratio | 
-                                            # continuous-variable | cohort 
-    fhir:scoringUnit @<CodeableConcept>?;   # What units?
-    fhir:improvementNotation @<CodeableConcept>?;  # increase | decrease
-    fhir:population @<OneOrMore_Measure.group.population>?;  # Population criteria
-    fhir:stratifier @<OneOrMore_Measure.group.stratifier>?;  # Stratifier criteria for the measure
 }  
 
 # Population criteria
@@ -207,6 +124,15 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # minimum, maximum, count) 
 }  
 
+# Stratifier criteria component for the measure
+<Measure.group.stratifier.component> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # Meaning of the stratifier component
+    fhir:description @<string>?;            # The human readable description of 
+                                            # this stratifier component 
+    fhir:criteria @<Expression>;            # Component of how the measure 
+                                            # should be stratified 
+}  
+
 # Stratifier criteria for the measure
 <Measure.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>?;          # Meaning of the stratifier
@@ -216,6 +142,40 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # stratified 
     fhir:component @<OneOrMore_Measure.group.stratifier.component>?;  # Stratifier criteria component for 
                                             # the measure 
+}  
+
+# What other data should be reported with the measure
+<Measure.supplementalData> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # Meaning of the supplemental data
+    fhir:usage @<OneOrMore_CodeableConcept>?;  # supplemental-data | 
+                                            # risk-adjustment-factor 
+    fhir:description @<string>?;            # The human readable description of 
+                                            # this supplemental data 
+    fhir:criteria @<Expression>;            # Expression describing additional 
+                                            # data to be reported 
+}  
+
+# Population criteria group
+<Measure.group> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # Meaning of the group
+    fhir:description @<string>?;            # Summary description
+    fhir:type @<OneOrMore_CodeableConcept>?;  # process | outcome | structure | 
+                                            # patient-reported-outcome | 
+                                            # composite 
+    fhir:basis @<code> AND
+    	{fhir:v @fhirvs:fhir-types}?;  # Population basis
+    fhir:scoring @<CodeableConcept>?;       # proportion | ratio | 
+                                            # continuous-variable | cohort 
+    fhir:scoringUnit @<CodeableConcept>?;   # What units?
+    fhir:improvementNotation @<CodeableConcept>?;  # increase | decrease
+    fhir:population @<OneOrMore_Measure.group.population>?;  # Population criteria
+    fhir:stratifier @<OneOrMore_Measure.group.stratifier>?;  # Stratifier criteria for the measure
+}  
+
+# Defined terms used in the measure documentation
+<Measure.term> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # What term?
+    fhir:definition @<markdown>?;           # Meaning of the term
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -265,6 +225,11 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Measure.supplementalData> 
 }
 
+<OneOrMore_Measure.group.stratifier.component> CLOSED {
+    rdf:first @<Measure.group.stratifier.component>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Measure.group.stratifier.component> 
+}
+
 <OneOrMore_Measure.group.population> CLOSED {
     rdf:first @<Measure.group.population>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Measure.group.population> 
@@ -275,16 +240,11 @@ start=@<Measure> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Measure.group.stratifier> 
 }
 
-<OneOrMore_Measure.group.stratifier.component> CLOSED {
-    rdf:first @<Measure.group.stratifier.component>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Measure.group.stratifier.component> 
-}
-
 #---------------------- Value Sets ------------------------
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # All FHIR types
 fhirvs:fhir-types ["Base" "Element" "BackboneElement" "DataType" "Address" "Annotation" "Attachment" "Availability" "BackboneType" "Dosage" "ElementDefinition" "MarketingStatus" "Population" "ProductShelfLife" "Timing" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "DataRequirement" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "Meta" "MonetaryComponent" "Money" "Narrative" "ParameterDefinition" "Period" "PrimitiveType" "base64Binary" "boolean" "date" "dateTime" "decimal" "instant" "integer" "positiveInt" "unsignedInt" "integer64" "string" "code" "id" "markdown" "time" "uri" "canonical" "oid" "url" "uuid" "Quantity" "Age" "Count" "Distance" "Duration" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "TriggerDefinition" "UsageContext" "VirtualServiceDetail" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MetadataResource" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription" "Parameters"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

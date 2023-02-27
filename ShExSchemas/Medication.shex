@@ -8,8 +8,8 @@ IMPORT <code.shex>
 IMPORT <Ratio.shex>
 IMPORT <string.shex>
 IMPORT <boolean.shex>
-IMPORT <Quantity.shex>
 IMPORT <dateTime.shex>
+IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
@@ -44,6 +44,12 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:batch @<Medication.batch>?;        # Details about packaged medications
 }  
 
+# Details about packaged medications
+<Medication.batch> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:lotNumber @<string>?;              # Identifier assigned to batch
+    fhir:expirationDate @<dateTime>?;       # When batch will expire
+}  
+
 # Active or inactive ingredient
 <Medication.ingredient> EXTENDS @<BackboneElement> CLOSED {   
     fhir:item @<CodeableReference>;         # The ingredient (substance or 
@@ -53,12 +59,6 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:strength @<Ratio>  OR 
     			@<CodeableConcept>  OR 
     			@<Quantity>  ?;  # Quantity of ingredient present
-}  
-
-# Details about packaged medications
-<Medication.batch> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:lotNumber @<string>?;              # Identifier assigned to batch
-    fhir:expirationDate @<dateTime>?;       # When batch will expire
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

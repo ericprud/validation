@@ -12,16 +12,5 @@ IMPORT <Quantity.shex>
     a [fhir:SimpleQuantity]?;
     fhir:nodeRole [fhir:treeRoot]?;
 
-} AND (
-
-# Constraint UniqueKey:sqty-1
-# Human readable:The comparator is not used on a SimpleQuantity
-
-# Constraint: comparator.empty()
-# ShEx:
-
- NOT { fhir:comparator {fhir:v .} } 
-
-)
- 
+}  
 

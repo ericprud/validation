@@ -73,36 +73,7 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> ? }?;  # The individual or device that 
                                             # answered the questions 
     fhir:item @<OneOrMore_QuestionnaireResponse.item>?;  # Groups and questions
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: allTrue
-# Unmapped construct found: repeat
-# Unmapped construct found: select
-# Unmapped construct found: isDistinct
-# Unmapped construct found: where
-# # Constraint UniqueKey:qrs-2
-# Human readable:Repeated answers are combined in the answers array of a single item
-#
-# Constraint: repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()
-# ShEx:
-#
-#   allTrue  (   repeat  ({ fhir:answer { fhir:item } }). select  (   isDistinct  ( .item. where  (answer.value .).linkId )) )
-{}
-
-) AND (
-
-# Constraint UniqueKey:qrs-1
-# Human readable:Item cannot contain both item and answer
-
-# Constraint: (answer.exists() and item.exists()).not()
-# ShEx:
-
- NOT { {fhir:answer . AND {fhir:item .}} }
-
-)
- 
+}  
 
 # The response(s) to the question
 <QuestionnaireResponse.item.answer> EXTENDS @<BackboneElement> CLOSED {   
@@ -122,6 +93,10 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:item @<OneOrMore_QuestionnaireResponse.item>?;  # Child items of question
 }  
 
+# Child items of group item
+<QuestionnaireResponse.item.itemnull> CLOSED {   
+}  
+
 # Groups and questions
 <QuestionnaireResponse.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:linkId @<string>;                  # Pointer to specific item from 
@@ -131,39 +106,6 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:text @<string>?;                   # Name for group or question text
     fhir:answer @<OneOrMore_QuestionnaireResponse.item.answer>?;  # The response(s) to the question
     fhir:item @<OneOrMore_QuestionnaireResponse.item>?;  # Child items of group item
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: allTrue
-# Unmapped construct found: repeat
-# Unmapped construct found: select
-# Unmapped construct found: isDistinct
-# Unmapped construct found: where
-# # Constraint UniqueKey:qrs-2
-# Human readable:Repeated answers are combined in the answers array of a single item
-#
-# Constraint: repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()
-# ShEx:
-#
-#   allTrue  (   repeat  ({ fhir:answer { fhir:item } }). select  (   isDistinct  ( .item. where  (answer.value .).linkId )) )
-{}
-
-) AND (
-
-# Constraint UniqueKey:qrs-1
-# Human readable:Item cannot contain both item and answer
-
-# Constraint: (answer.exists() and item.exists()).not()
-# ShEx:
-
- NOT { {fhir:answer . AND {fhir:item .}} }
-
-)
- 
-
-# Child items of group item
-<QuestionnaireResponse.item.itemnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

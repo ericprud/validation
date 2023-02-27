@@ -69,46 +69,7 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:allowedResponse @<OneOrMore_MessageDefinition.allowedResponse>?;  # Responses to this message
     fhir:graph @<canonical>?;               # Canonical reference to a 
                                             # GraphDefinition 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: toInteger
-# # Constraint UniqueKey:md-1
-# Human readable:Max must be postive int or *
-#
-# Constraint: max='*' or (max.toInteger() > 0)
-# ShEx:
-#
-#({ fhir:max { fhir:v ['*'] }  }) OR (   toInteger  ( fhir:max ) { fhir:v MinExclusive 0 } )
-{}
-
-)
- 
+}  
 
 # Resource(s) that are the subject of the event
 <MessageDefinition.focus> EXTENDS @<BackboneElement> CLOSED {   
@@ -120,46 +81,7 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # type 
     fhir:max @<string>?;                    # Maximum number of focuses of this 
                                             # type 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: toInteger
-# # Constraint UniqueKey:md-1
-# Human readable:Max must be postive int or *
-#
-# Constraint: max='*' or (max.toInteger() > 0)
-# ShEx:
-#
-#({ fhir:max { fhir:v ['*'] }  }) OR (   toInteger  ( fhir:max ) { fhir:v MinExclusive 0 } )
-{}
-
-)
- 
+}  
 
 # Responses to this message
 <MessageDefinition.allowedResponse> EXTENDS @<BackboneElement> CLOSED {   
@@ -213,9 +135,9 @@ fhirvs:messageheader-response-request ["always" "on-error" "never" "on-success"]
 # All fhir data types
 fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
 
-# The impact of the content of a message.
-fhirvs:message-significance-category ["consequence" "currency" "notification"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# The impact of the content of a message.
+fhirvs:message-significance-category ["consequence" "currency" "notification"]
 

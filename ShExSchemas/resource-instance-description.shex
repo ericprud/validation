@@ -19,16 +19,5 @@ IMPORT <Extension.shex>
     fhir:value @<markdown>  ; 
     ^fhir:extension { a [fhir:Resource]}
 
-} AND (
-
-# Constraint UniqueKey:rid-1
-# Human readable:Cannot be used where description already exists or description is of type string or markdown.
-
-# Constraint: %resource.description.exists().not() or ((%resource.description is string).not() and (%resource.description is markdown).not())
-# ShEx:
-
- NOT { 'false'.description. } OR ( NOT { 'true'.description a { fhir:string } } AND  NOT { 'true'.description a { fhir:markdown } })
-
-)
- 
+}  
 

@@ -160,11 +160,11 @@ start=@<CommunicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
+
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]

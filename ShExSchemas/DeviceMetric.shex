@@ -78,14 +78,14 @@ start=@<DeviceMetric> AND {fhir:nodeRole [fhir:treeRoot]}
 # Describes the operational status of the DeviceMetric.
 fhirvs:metric-operational-status ["on" "off" "standby" "entered-in-error"]
 
-# Describes the state of a metric calibration.
-fhirvs:metric-calibration-state ["not-calibrated" "calibration-required" "calibrated" "unspecified"]
+# Describes the category of the metric.
+fhirvs:metric-category ["measurement" "setting" "calculation" "unspecified"]
 
 # Describes the typical color of representation.
 fhirvs:metric-color ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "white"]
 
-# Describes the category of the metric.
-fhirvs:metric-category ["measurement" "setting" "calculation" "unspecified"]
+# Describes the state of a metric calibration.
+fhirvs:metric-calibration-state ["not-calibrated" "calibration-required" "calibrated" "unspecified"]
 
 # Describes the type of a metric calibration.
 fhirvs:metric-calibration-type ["unspecified" "offset" "gain" "two-point"]

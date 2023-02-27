@@ -21,31 +21,35 @@ start=@<bp> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Systolic Blood Pressure
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Vital Sign Value recorded with UCUM
-<Observation.component.value[x]> EXTENDS @<Quantity> CLOSED {   
-}  
-
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Type of component observation (code / type)
+<Observation.component.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Systolic Blood Pressure
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Diastolic Blood Pressure
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
@@ -53,31 +57,27 @@ start=@<bp> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.component.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
-# Diastolic Blood Pressure
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+# Blood Pressure
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Classification of  type of observation
 <Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
 # Used when reporting systolic and diastolic blood pressure.
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Blood Pressure
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
 # Type of component observation (code / type)
 <Observation.component.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
-# Type of component observation (code / type)
-<Observation.component.code> EXTENDS @<CodeableConcept> CLOSED {   
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Vital Sign Value recorded with UCUM
+<Observation.component.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 

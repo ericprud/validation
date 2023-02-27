@@ -21,12 +21,16 @@ start=@<bodytemp> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Body Temperature
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Classification of  type of observation
@@ -37,8 +41,8 @@ start=@<bodytemp> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Body Temperature
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
 # Code defined by a terminology system
@@ -47,9 +51,5 @@ start=@<bodytemp> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

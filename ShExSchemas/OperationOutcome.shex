@@ -53,9 +53,9 @@ start=@<OperationOutcome> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# How the issue affects the success of the action.
-fhirvs:issue-severity ["fatal" "error" "warning" "information"]
-
 # A code that describes the type of issue.
 fhirvs:issue-type ["invalid" "structure" "required" "value" "invariant" "security" "login" "unknown" "expired" "forbidden" "suppressed" "processing" "not-supported" "duplicate" "multiple-matches" "not-found" "deleted" "too-long" "code-invalid" "extension" "too-costly" "business-rule" "conflict" "transient" "lock-error" "no-store" "exception" "timeout" "incomplete" "throttled" "informational"]
+
+# How the issue affects the success of the action.
+fhirvs:issue-severity ["fatal" "error" "warning" "information"]
 

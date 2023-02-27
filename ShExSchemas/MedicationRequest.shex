@@ -12,8 +12,8 @@ IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
-IMPORT <Quantity.shex>
 IMPORT <Duration.shex>
+IMPORT <Quantity.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Resource.shex>
 IMPORT <CareTeam.shex>
@@ -116,12 +116,6 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the lifecycle 
 }  
 
-# First fill details
-<MedicationRequest.dispenseRequest.initialFill> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:quantity @<Quantity>?;             # First fill quantity
-    fhir:duration @<Duration>?;             # First fill duration
-}  
-
 # Medication supply authorization
 <MedicationRequest.dispenseRequest> EXTENDS @<BackboneElement> CLOSED {   
     fhir:initialFill @<MedicationRequest.dispenseRequest.initialFill>?;  # First fill details
@@ -158,6 +152,12 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # is to be taken 
     fhir:dosageInstruction @<OneOrMore_Dosage>?;  # Specific instructions for how the 
                                             # medication should be taken 
+}  
+
+# First fill details
+<MedicationRequest.dispenseRequest.initialFill> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:quantity @<Quantity>?;             # First fill quantity
+    fhir:duration @<Duration>?;             # First fill duration
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -240,12 +240,12 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# MedicationRequest Status Codes
+fhirvs:medicationrequest-status ["active" "on-hold" "ended" "stopped" "completed" "cancelled" "entered-in-error" "draft" "unknown"]
+
 # MedicationRequest Intent Codes
 fhirvs:medicationrequest-intent ["proposal" "plan" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
-# MedicationRequest Status Codes
-fhirvs:medicationrequest-status ["active" "on-hold" "ended" "stopped" "completed" "cancelled" "entered-in-error" "draft" "unknown"]
 

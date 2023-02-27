@@ -110,14 +110,6 @@ start=@<GenomicStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:role @<CodeableConcept>?;          # Role of the actor for this analysis
 }  
 
-# Outputs for the analysis event
-<GenomicStudy.analysis.output> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:file @<Reference> AND {fhir:link 
-    			@<DocumentReference> ? }?;  # File containing output data
-    fhir:type @<CodeableConcept>?;          # Type of output data (e.g., VCF, 
-                                            # MAF, or BAM) 
-}  
-
 # Genomic Analysis Event
 <GenomicStudy.analysis> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifiers for the analysis event
@@ -175,6 +167,14 @@ start=@<GenomicStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Device> ? }?;  # Device used for the analysis
     fhir:function @<CodeableConcept>?;      # Specific function for the device 
                                             # used for the analysis 
+}  
+
+# Outputs for the analysis event
+<GenomicStudy.analysis.output> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:file @<Reference> AND {fhir:link 
+    			@<DocumentReference> ? }?;  # File containing output data
+    fhir:type @<CodeableConcept>?;          # Type of output data (e.g., VCF, 
+                                            # MAF, or BAM) 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

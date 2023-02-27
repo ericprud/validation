@@ -17,11 +17,11 @@ IMPORT <Period.shex>
 IMPORT <Timing.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
+IMPORT <Duration.shex>
+IMPORT <Resource.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Location.shex>
-IMPORT <Duration.shex>
-IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <canonical.shex>
@@ -29,8 +29,8 @@ IMPORT <Identifier.shex>
 IMPORT <Expression.shex>
 IMPORT <Practitioner.shex>
 IMPORT <Organization.shex>
-IMPORT <RelatedPerson.shex>
 IMPORT <Questionnaire.shex>
+IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
 IMPORT <PlanDefinition.shex>
 IMPORT <CodeableConcept.shex>
@@ -38,8 +38,8 @@ IMPORT <BackboneElement.shex>
 IMPORT <DataRequirement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <DeviceDefinition.shex>
-IMPORT <HealthcareService.shex>
 IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
 IMPORT <ActivityDefinition.shex>
 IMPORT <SpecimenDefinition.shex>
 IMPORT <CapabilityStatement.shex>
@@ -92,128 +92,6 @@ start=@<RequestOrchestration> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:goal @<OneOrMore_Reference_Goal>?;  # What goals
     fhir:note @<OneOrMore_Annotation>?;     # Additional notes about the response
     fhir:action @<OneOrMore_RequestOrchestration.action>?;  # Proposed actions, if any
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: NotEquals
-# # Constraint UniqueKey:rqg-1
-# Human readable:Must have resource or action but not both
-#
-# Constraint: resource.exists() != action.exists()
-# ShEx:
-#
-#{fhir:resource .  NotEquals  {fhir:action .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:pld-0
-# Human readable:Input data elements must have a requirement or a relatedData, but not both
-#
-# Constraint: requirement.exists() xor relatedData.exists()
-# ShEx:
-#
-#{fhir:requirement .  Xor  {fhir:relatedData .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:pld-1
-# Human readable:Output data element must have a requirement or a relatedData, but not both
-#
-# Constraint: requirement.exists() xor relatedData.exists()
-# ShEx:
-#
-#{fhir:requirement .  Xor  {fhir:relatedData .}}
-{}
-
-)
- 
-
-# Who should perform the action
-<RequestOrchestration.action.participant> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:action-participant-type}?;  # careteam | device | group | 
-                                            # healthcareservice | location | 
-                                            # organization | patient | 
-                                            # practitioner | practitionerrole | 
-                                            # relatedperson 
-    fhir:typeCanonical @<canonical>?;       # Who or what can participate
-    fhir:typeReference @<Reference> AND {fhir:link 
-    			@<CareTeam> OR 
-    			@<Device> OR 
-    			@<DeviceDefinition> OR 
-    			@<Endpoint> OR 
-    			@<Group> OR 
-    			@<HealthcareService> OR 
-    			@<Location> OR 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> ? }?;  # Who or what can participate
-    fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent, etc.
-    fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
-                                            # etc. 
-    fhir:actor (@<canonical>  AND {fhir:link @<CapabilityStatement> })  OR 
-    			(@<Reference>  AND {fhir:link @<CareTeam> OR 
-    			 @<Device> OR 
-    			 @<DeviceDefinition> OR 
-    			 @<Endpoint> OR 
-    			 @<Group> OR 
-    			 @<HealthcareService> OR 
-    			 @<Location> OR 
-    			 @<Organization> OR 
-    			 @<Patient> OR 
-    			 @<Practitioner> OR 
-    			 @<PractitionerRole> OR 
-    			 @<RelatedPerson> })  ?;  # Who/what is participating?
-}  
-
-# Sub action
-<RequestOrchestration.action.actionnull> CLOSED {   
-}  
-
-# Dynamic aspects of the definition
-<RequestOrchestration.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:path @<string>?;                   # The path to the element to be set 
-                                            # dynamically 
-    fhir:expression @<Expression>?;         # An expression that provides the 
-                                            # dynamic value for the 
-                                            # customization 
-}  
-
-# Input data requirements
-<RequestOrchestration.action.input> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:title @<string>?;                  # User-visible title
-    fhir:requirement @<DataRequirement>?;   # What data is provided
-    fhir:relatedData @<id>?;                # What data is provided
-}  
-
-# Whether or not the action is applicable
-<RequestOrchestration.action.condition> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:kind @<code> AND
-    	{fhir:v @fhirvs:action-condition-kind};  # applicability | start | stop
-    fhir:expression @<Expression>?;         # Boolean-valued expression
-}  
-
-# Relationship to another action
-<RequestOrchestration.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:targetId @<id>;                    # What action this is related to
-    fhir:relationship @<code> AND
-    	{fhir:v @fhirvs:action-relationship-type};  # before-start | before | before-end 
-                                            # | concurrent-with-start | 
-                                            # concurrent | concurrent-with-end | 
-                                            # after-start | after | after-end 
-    fhir:offset @<Duration>  OR 
-    			@<Range>  ?;  # Time offset for the relationship
 }  
 
 # Proposed actions, if any
@@ -276,50 +154,86 @@ start=@<RequestOrchestration> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:transform @<canonical>?;           # Transform to apply the template
     fhir:dynamicValue @<OneOrMore_RequestOrchestration.action.dynamicValue>?;  # Dynamic aspects of the definition
     fhir:action @<OneOrMore_RequestOrchestration.action>?;  # Sub action
-} AND (
+}  
 
+# Dynamic aspects of the definition
+<RequestOrchestration.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:path @<string>?;                   # The path to the element to be set 
+                                            # dynamically 
+    fhir:expression @<Expression>?;         # An expression that provides the 
+                                            # dynamic value for the 
+                                            # customization 
+}  
 
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: NotEquals
-# # Constraint UniqueKey:rqg-1
-# Human readable:Must have resource or action but not both
-#
-# Constraint: resource.exists() != action.exists()
-# ShEx:
-#
-#{fhir:resource .  NotEquals  {fhir:action .}}
-{}
+# Whether or not the action is applicable
+<RequestOrchestration.action.condition> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:kind @<code> AND
+    	{fhir:v @fhirvs:action-condition-kind};  # applicability | start | stop
+    fhir:expression @<Expression>?;         # Boolean-valued expression
+}  
 
-) AND (
+# Relationship to another action
+<RequestOrchestration.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:targetId @<id>;                    # What action this is related to
+    fhir:relationship @<code> AND
+    	{fhir:v @fhirvs:action-relationship-type};  # before-start | before | before-end 
+                                            # | concurrent-with-start | 
+                                            # concurrent | concurrent-with-end | 
+                                            # after-start | after | after-end 
+    fhir:offset @<Duration>  OR 
+    			@<Range>  ?;  # Time offset for the relationship
+}  
 
+# Who should perform the action
+<RequestOrchestration.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:action-participant-type}?;  # careteam | device | group | 
+                                            # healthcareservice | location | 
+                                            # organization | patient | 
+                                            # practitioner | practitionerrole | 
+                                            # relatedperson 
+    fhir:typeCanonical @<canonical>?;       # Who or what can participate
+    fhir:typeReference @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<DeviceDefinition> OR 
+    			@<Endpoint> OR 
+    			@<Group> OR 
+    			@<HealthcareService> OR 
+    			@<Location> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? }?;  # Who or what can participate
+    fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent, etc.
+    fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
+                                            # etc. 
+    fhir:actor (@<canonical>  AND {fhir:link @<CapabilityStatement> })  OR 
+    			(@<Reference>  AND {fhir:link @<CareTeam> OR 
+    			 @<Device> OR 
+    			 @<DeviceDefinition> OR 
+    			 @<Endpoint> OR 
+    			 @<Group> OR 
+    			 @<HealthcareService> OR 
+    			 @<Location> OR 
+    			 @<Organization> OR 
+    			 @<Patient> OR 
+    			 @<Practitioner> OR 
+    			 @<PractitionerRole> OR 
+    			 @<RelatedPerson> })  ?;  # Who/what is participating?
+}  
 
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:pld-0
-# Human readable:Input data elements must have a requirement or a relatedData, but not both
-#
-# Constraint: requirement.exists() xor relatedData.exists()
-# ShEx:
-#
-#{fhir:requirement .  Xor  {fhir:relatedData .}}
-{}
+# Sub action
+<RequestOrchestration.action.actionnull> CLOSED {   
+}  
 
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:pld-1
-# Human readable:Output data element must have a requirement or a relatedData, but not both
-#
-# Constraint: requirement.exists() xor relatedData.exists()
-# ShEx:
-#
-#{fhir:requirement .  Xor  {fhir:relatedData .}}
-{}
-
-)
- 
+# Input data requirements
+<RequestOrchestration.action.input> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:title @<string>?;                  # User-visible title
+    fhir:requirement @<DataRequirement>?;   # What data is provided
+    fhir:relatedData @<id>?;                # What data is provided
+}  
 
 # Output data definition
 <RequestOrchestration.action.output> EXTENDS @<BackboneElement> CLOSED {   
@@ -414,36 +328,36 @@ start=@<RequestOrchestration> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Defines behavior for an action or a group for how many times that item may be repeated.
-fhirvs:action-cardinality-behavior ["single" "multiple"]
-
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
-# Defines the kinds of conditions that can appear on actions.
-fhirvs:action-condition-kind ["applicability" "start" "stop"]
-
-# The type of participant for the action.
-fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
-
-# Defines the types of relationships between actions.
-fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
-
 # Defines organization behavior of a group.
 fhirvs:action-grouping-behavior ["visual-group" "logical-group" "sentence-group"]
 
 # Defines selection behavior of a group.
 fhirvs:action-selection-behavior ["any" "all" "all-or-none" "exactly-one" "at-most-one" "one-or-more"]
 
+# The type of participant for the action.
+fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
+
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
-# Codes identifying the lifecycle stage of a request.
-fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
+# Defines behavior for an action or a group for how many times that item may be repeated.
+fhirvs:action-cardinality-behavior ["single" "multiple"]
 
 # Defines expectations around whether an action or action group is required.
 fhirvs:action-required-behavior ["must" "could" "must-unless-documented"]
 
+# Defines the kinds of conditions that can appear on actions.
+fhirvs:action-condition-kind ["applicability" "start" "stop"]
+
 # Defines selection frequency behavior for an action or group.
 fhirvs:action-precheck-behavior ["yes" "no"]
+
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
+# Defines the types of relationships between actions.
+fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
+
+# Codes identifying the lifecycle stage of a request.
+fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
 

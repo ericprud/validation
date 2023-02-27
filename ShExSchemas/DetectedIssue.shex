@@ -121,9 +121,9 @@ start=@<DetectedIssue> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Indicates the potential degree of impact of the identified issue on the patient.
-fhirvs:detectedissue-severity ["high" "moderate" "low"]
-
 # Indicates the status of a detected issue
 fhirvs:detectedissue-status ["preliminary" "final" "entered-in-error" "mitigated"]
+
+# Indicates the potential degree of impact of the identified issue on the patient.
+fhirvs:detectedissue-severity ["high" "moderate" "low"]
 

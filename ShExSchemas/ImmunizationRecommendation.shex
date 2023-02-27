@@ -33,18 +33,13 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Organization> ? }?;  # Who is responsible for protocol
     fhir:recommendation @<OneOrMore_ImmunizationRecommendation.recommendation>;  # Vaccine administration 
                                             # recommendations 
-} AND (
+}  
 
-# Constraint UniqueKey:imr-1
-# Human readable:One of vaccineCode or targetDisease SHALL be present
-
-# Constraint: vaccineCode.exists() or targetDisease.exists()
-# ShEx:
-
-{fhir:vaccineCode . OR {fhir:targetDisease .}}
-
-)
- 
+# Dates governing proposed immunization
+<ImmunizationRecommendation.recommendation.dateCriterion> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Type of date
+    fhir:value @<dateTime>;                 # Recommended date
+}  
 
 # Vaccine administration recommendations
 <ImmunizationRecommendation.recommendation> EXTENDS @<BackboneElement> CLOSED {   
@@ -68,23 +63,6 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # recommendation 
     fhir:supportingPatientInformation @<OneOrMore_Reference_Resource>?;  # Patient observations supporting 
                                             # recommendation 
-} AND (
-
-# Constraint UniqueKey:imr-1
-# Human readable:One of vaccineCode or targetDisease SHALL be present
-
-# Constraint: vaccineCode.exists() or targetDisease.exists()
-# ShEx:
-
-{fhir:vaccineCode . OR {fhir:targetDisease .}}
-
-)
- 
-
-# Dates governing proposed immunization
-<ImmunizationRecommendation.recommendation.dateCriterion> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Type of date
-    fhir:value @<dateTime>;                 # Recommended date
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

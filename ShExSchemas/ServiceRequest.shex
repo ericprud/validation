@@ -113,28 +113,7 @@ start=@<ServiceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:patientInstruction @<string>?;     # Patient or consumer-oriented 
                                             # instructions 
     fhir:relevantHistory @<OneOrMore_Reference_Provenance>?;  # Request provenance
-} AND (
-
-# Constraint UniqueKey:bdystr-1
-# Human readable:bodyStructure SHALL only be present if bodySite is not present
-
-# Constraint: bodySite.exists() or bodyStructure.exists()
-# ShEx:
-
-{fhir:bodySite . OR {fhir:bodyStructure .}}
-
-) AND (
-
-# Constraint UniqueKey:prr-1
-# Human readable:orderDetail SHALL only be present if code is present
-
-# Constraint: orderDetail.empty() or code.exists()
-# ShEx:
-
- NOT { fhir:orderDetail {fhir:v .} }  OR {fhir:code .}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -222,11 +201,11 @@ start=@<ServiceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
+
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]

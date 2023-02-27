@@ -18,15 +18,15 @@ start=@<familymemberhistory-genetic> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Who or what participated in the activities related to the family member history and how they were involved
-<FamilyMemberHistory.participant> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Procedures that the related person had
 <FamilyMemberHistory.procedure> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Condition that the related person had
 <FamilyMemberHistory.condition> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Who or what participated in the activities related to the family member history and how they were involved
+<FamilyMemberHistory.participant> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

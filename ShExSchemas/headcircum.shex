@@ -7,8 +7,8 @@ BASE <http://hl7.org/fhir/shape/>
 IMPORT <Coding.shex>
 IMPORT <Quantity.shex>
 IMPORT <vitalsigns.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 
 
 start=@<headcircum> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -19,18 +19,6 @@ start=@<headcircum> AND {fhir:nodeRole [fhir:treeRoot]}
     a [fhir:headcircum]?;
     fhir:nodeRole [fhir:treeRoot]?;
 
-}  
-
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
 # Classification of  type of observation
@@ -45,8 +33,20 @@ start=@<headcircum> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+}  
+
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Code defined by a terminology system

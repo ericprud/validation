@@ -71,22 +71,7 @@ start=@<Parameters> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nodeRole [fhir:treeRoot]?;
 
     fhir:parameter @<OneOrMore_Parameters.parameter>?;  # Operation Parameter
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:inv-1
-# Human readable:A parameter must have one and only one of (value, resource, part)
-#
-# Constraint: (part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))
-# ShEx:
-#
-#({fhir:part . AND  NOT { fhir:value {fhir:v .} }  AND  NOT { fhir:resource {fhir:v .} } }) OR ( NOT { fhir:part {fhir:v .} }  AND ({fhir:value .  Xor  {fhir:resource .}}))
-{}
-
-)
- 
+}  
 
 # Named part of a multi-part parameter
 <Parameters.parameter.partnull> CLOSED {   
@@ -152,22 +137,7 @@ start=@<Parameters> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:resource @<Resource>?;             # If parameter is a whole resource
     fhir:part @<OneOrMore_Parameters.parameter>?;  # Named part of a multi-part 
                                             # parameter 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:inv-1
-# Human readable:A parameter must have one and only one of (value, resource, part)
-#
-# Constraint: (part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))
-# ShEx:
-#
-#({fhir:part . AND  NOT { fhir:value {fhir:v .} }  AND  NOT { fhir:resource {fhir:v .} } }) OR ( NOT { fhir:part {fhir:v .} }  AND ({fhir:value .  Xor  {fhir:resource .}}))
-{}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

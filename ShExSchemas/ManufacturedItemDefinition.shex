@@ -65,25 +65,6 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Attachment>  ?;  # A value for the characteristic
 }  
 
-# A component that this component contains or is made from
-<ManufacturedItemDefinition.component.componentnull> CLOSED {   
-}  
-
-# A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)
-<ManufacturedItemDefinition.component.constituent> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:amount @<OneOrMore_Quantity>?;     # The measurable amount of the 
-                                            # substance, expressable in 
-                                            # different ways (e.g. by mass or 
-                                            # volume) 
-    fhir:location @<OneOrMore_CodeableConcept>?;  # The physical location of the 
-                                            # constituent/ingredient within the 
-                                            # component 
-    fhir:function @<OneOrMore_CodeableConcept>?;  # The function of this constituent 
-                                            # within the component e.g. binder 
-    fhir:hasIngredient @<OneOrMore_CodeableReference>?;  # The ingredient that is the 
-                                            # constituent of the given component 
-}  
-
 # Physical parts of the manufactured item, that it is intrisically made from. This is distinct from the ingredients that are part of its chemical makeup
 <ManufacturedItemDefinition.component> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # Defining type of the component 
@@ -110,6 +91,25 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # component 
     fhir:component @<OneOrMore_ManufacturedItemDefinition.component>?;  # A component that this component 
                                             # contains or is made from 
+}  
+
+# A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)
+<ManufacturedItemDefinition.component.constituent> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:amount @<OneOrMore_Quantity>?;     # The measurable amount of the 
+                                            # substance, expressable in 
+                                            # different ways (e.g. by mass or 
+                                            # volume) 
+    fhir:location @<OneOrMore_CodeableConcept>?;  # The physical location of the 
+                                            # constituent/ingredient within the 
+                                            # component 
+    fhir:function @<OneOrMore_CodeableConcept>?;  # The function of this constituent 
+                                            # within the component e.g. binder 
+    fhir:hasIngredient @<OneOrMore_CodeableReference>?;  # The ingredient that is the 
+                                            # constituent of the given component 
+}  
+
+# A component that this component contains or is made from
+<ManufacturedItemDefinition.component.componentnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -150,14 +150,14 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Quantity> 
 }
 
-<OneOrMore_CodeableReference> CLOSED {
-    rdf:first @<CodeableReference>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
-}
-
 <OneOrMore_ManufacturedItemDefinition.component.constituent> CLOSED {
     rdf:first @<ManufacturedItemDefinition.component.constituent>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ManufacturedItemDefinition.component.constituent> 
+}
+
+<OneOrMore_CodeableReference> CLOSED {
+    rdf:first @<CodeableReference>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
 }
 
 #---------------------- Value Sets ------------------------

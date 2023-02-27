@@ -16,20 +16,5 @@ IMPORT <dateTime.shex>
                                             # boundary 
     fhir:end @<dateTime>?;                  # End time with inclusive boundary, 
                                             # if not ongoing 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: LessOrEqual
-# # Constraint UniqueKey:per-1
-# Human readable:If present, start SHALL have a lower or equal value than end
-#
-# Constraint: start.hasValue().not() or end.hasValue().not() or (start <= end)
-# ShEx:
-#
-# NOT { fhir:start. } OR  NOT { fhir:end. } OR ({ fhir:start  LessOrEqual  { fhir:end } })
-{}
-
-)
- 
+}  
 

@@ -19,16 +19,5 @@ IMPORT <Extension.shex>
     fhir:value @<string>  ; 
     ^fhir:extension { a [fhir:Resource]}
 
-} AND (
-
-# Constraint UniqueKey:rin-1
-# Human readable:Cannot be used where title already exists.
-
-# Constraint: %resource.title.exists().not()
-# ShEx:
-
- NOT { 'false'.title. }
-
-)
- 
+}  
 

@@ -21,11 +21,11 @@ IMPORT <Extension.shex>
 
 }  
 
-# Information about the change
+# Date the change was made
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
-# Date the change was made
+# Who made the change
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
@@ -33,7 +33,7 @@ IMPORT <Extension.shex>
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
-# Who made the change
+# Information about the change
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 

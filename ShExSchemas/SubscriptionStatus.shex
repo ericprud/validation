@@ -41,23 +41,7 @@ start=@<SubscriptionStatus> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:topic @<canonical>?;               # Reference to the SubscriptionTopic 
                                             # this notification relates to 
     fhir:error @<OneOrMore_CodeableConcept>?;  # List of errors on the subscription
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: first
-# # Constraint UniqueKey:sst-1
-# Human readable:events listed in event notifications
-#
-# Constraint: type = 'event-notification' implies (notificationEvent.exists() and notificationEvent.first().exists())
-# ShEx:
-#
-#({ fhir:type { fhir:v ['event-notification'] }  })  Implies  ({fhir:notificationEvent . AND    first  ( fhir:notificationEvent ) .})
-{}
-
-)
- 
+}  
 
 # Detailed information about any events relevant to this notification
 <SubscriptionStatus.notificationEvent> EXTENDS @<BackboneElement> CLOSED {   
@@ -88,9 +72,9 @@ start=@<SubscriptionStatus> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The type of notification represented by the status message.
-fhirvs:subscription-notification-type ["handshake" "heartbeat" "event-notification" "query-status" "query-event"]
-
 # State values for FHIR Subscriptions.
 fhirvs:subscription-status ["requested" "active" "error" "off" "entered-in-error"]
+
+# The type of notification represented by the status message.
+fhirvs:subscription-notification-type ["handshake" "heartbeat" "event-notification" "query-status" "query-event"]
 

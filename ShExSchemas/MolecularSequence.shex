@@ -64,55 +64,6 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # represent the sequence 
     fhir:relative @<OneOrMore_MolecularSequence.relative>?;  # A sequence defined relative to 
                                             # another sequence 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:msq-6
-# Human readable:Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence
-#
-# Constraint: (genomeAssembly.count()+sequenceCodeableConcept.count()+ sequenceReference.count()+ sequenceString.count()) = 1
-# ShEx:
-#
-#(   count  ( fhir:genomeAssembly )  Plus     count  ( fhir:sequenceCodeableConcept )  Plus     count  ( fhir:sequenceReference )  Plus     count  ( fhir:sequenceString )) { fhir:v [1] } 
-{}
-
-) AND (
-
-# Constraint UniqueKey:msq-5
-# Human readable:Both genomeAssembly and chromosome must be both contained if either one of them is contained
-
-# Constraint: (chromosome.empty() and genomeAssembly.empty()) or (chromosome.exists() and genomeAssembly.exists())
-# ShEx:
-
-( NOT { fhir:chromosome {fhir:v .} }  AND  NOT { fhir:genomeAssembly {fhir:v .} } ) OR ({fhir:chromosome . AND {fhir:genomeAssembly .}})
-
-)
- 
-
-# A sequence defined relative to another sequence
-<MolecularSequence.relative> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:coordinateSystem @<CodeableConcept>;  # Ways of identifying nucleotides or 
-                                            # amino acids within a sequence 
-    fhir:ordinalPosition @<integer>?;       # Indicates the order in which the 
-                                            # sequence should be considered when 
-                                            # putting multiple 'relative' 
-                                            # elements together 
-    fhir:sequenceRange @<Range>?;           # Indicates the nucleotide range in 
-                                            # the composed sequence when 
-                                            # multiple 'relative' elements are 
-                                            # used together 
-    fhir:startingSequence @<MolecularSequence.relative.startingSequence>?;  # A sequence used as starting 
-                                            # sequence 
-    fhir:edit @<OneOrMore_MolecularSequence.relative.edit>?;  # Changes in sequence from the 
-                                            # starting sequence 
 }  
 
 # Changes in sequence from the starting sequence
@@ -144,6 +95,24 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:strand-type}?;  # watson | crick
 }  
 
+# A sequence defined relative to another sequence
+<MolecularSequence.relative> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:coordinateSystem @<CodeableConcept>;  # Ways of identifying nucleotides or 
+                                            # amino acids within a sequence 
+    fhir:ordinalPosition @<integer>?;       # Indicates the order in which the 
+                                            # sequence should be considered when 
+                                            # putting multiple 'relative' 
+                                            # elements together 
+    fhir:sequenceRange @<Range>?;           # Indicates the nucleotide range in 
+                                            # the composed sequence when 
+                                            # multiple 'relative' elements are 
+                                            # used together 
+    fhir:startingSequence @<MolecularSequence.relative.startingSequence>?;  # A sequence used as starting 
+                                            # sequence 
+    fhir:edit @<OneOrMore_MolecularSequence.relative.edit>?;  # Changes in sequence from the 
+                                            # starting sequence 
+}  
+
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
@@ -168,12 +137,12 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Type if a sequence -- DNA, RNA, or amino acid sequence.
-fhirvs:sequence-type ["aa" "dna" "rna"]
+# Type for orientation.
+fhirvs:orientation-type ["sense" "antisense"]
 
 # Type for strand.
 fhirvs:strand-type ["watson" "crick"]
 
-# Type for orientation.
-fhirvs:orientation-type ["sense" "antisense"]
+# Type if a sequence -- DNA, RNA, or amino acid sequence.
+fhirvs:sequence-type ["aa" "dna" "rna"]
 

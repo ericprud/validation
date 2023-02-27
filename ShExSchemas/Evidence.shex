@@ -7,8 +7,8 @@ BASE <http://hl7.org/fhir/shape/>
 IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <date.shex>
-IMPORT <Group.shex>
 IMPORT <Range.shex>
+IMPORT <Group.shex>
 IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <decimal.shex>
@@ -76,32 +76,92 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # statistic 
     fhir:certainty @<OneOrMore_Evidence.certainty>?;  # Certainty or quality of the 
                                             # evidence 
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+# Certainty or quality of the evidence
+<Evidence.certainty> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Textual description of certainty
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
+    fhir:type @<CodeableConcept>?;          # Aspect of certainty being rated
+    fhir:rating @<CodeableConcept>?;        # Assessment or judgement of the 
+                                            # aspect 
+    fhir:rater @<string>?;                  # Individual or group who did the 
+                                            # rating 
+    fhir:subcomponent @<OneOrMore_Evidence.certainty>?;  # A domain or subdomain of certainty
+}  
 
-# Constraint: url.matches('([^|#])*')
-# ShEx:
+# A nested attribute estimate; which is the attribute estimate of an attribute estimate
+<Evidence.statistic.attributeEstimate.attributeEstimatenull> CLOSED {   
+}  
 
-{fhir:url { fhir:v /'([^|#])*'/ } }
+# An attribute of the Statistic
+<Evidence.statistic.attributeEstimate> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Textual description of the 
+                                            # attribute estimate 
+    fhir:note @<OneOrMore_Annotation>?;     # Footnote or explanatory note about 
+                                            # the estimate 
+    fhir:type @<CodeableConcept>?;          # The type of attribute estimate, 
+                                            # e.g., confidence interval or p 
+                                            # value 
+    fhir:quantity @<Quantity>?;             # The singular quantity of the 
+                                            # attribute estimate, for attribute 
+                                            # estimates represented as single 
+                                            # values; also used to report unit 
+                                            # of measure 
+    fhir:level @<decimal>?;                 # Level of confidence interval, 
+                                            # e.g., 0.95 for 95% confidence 
+                                            # interval 
+    fhir:range @<Range>?;                   # Lower and upper bound values of 
+                                            # the attribute estimate 
+    fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # A nested attribute estimate; which 
+                                            # is the attribute estimate of an 
+                                            # attribute estimate 
+}  
 
-) AND (
+# Values and parameters for a single statistic
+<Evidence.statistic> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Description of content
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
+    fhir:statisticType @<CodeableConcept>?;  # Type of statistic, e.g., relative 
+                                            # risk 
+    fhir:category @<CodeableConcept>?;      # Associated category for 
+                                            # categorical variable 
+    fhir:quantity @<Quantity>?;             # Statistic value
+    fhir:numberOfEvents @<unsignedInt>?;    # The number of events associated 
+                                            # with the statistic 
+    fhir:numberAffected @<unsignedInt>?;    # The number of participants affected
+    fhir:sampleSize @<Evidence.statistic.sampleSize>?;  # Number of samples in the statistic
+    fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # An attribute of the Statistic
+    fhir:modelCharacteristic @<OneOrMore_Evidence.statistic.modelCharacteristic>?;  # An aspect of the statistical model
+}  
 
+# A variable adjusted for in the adjusted analysis
+<Evidence.statistic.modelCharacteristic.variable> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:variableDefinition @<Reference> AND {fhir:link 
+    			@<EvidenceVariable> OR 
+    			@<Group> ? };  # Description of the variable
+    fhir:handling @<code> AND
+    	{fhir:v @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
+                                            # | polychotomous 
+    fhir:valueCategory @<OneOrMore_CodeableConcept>?;  # Description for grouping of 
+                                            # ordinal or polychotomous variables 
+    fhir:valueQuantity @<OneOrMore_Quantity>?;  # Discrete value for grouping of 
+                                            # ordinal or polychotomous variables 
+    fhir:valueRange @<OneOrMore_Range>?;    # Range of values for grouping of 
+                                            # ordinal or polychotomous variables 
+}  
 
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-)
- 
+# Number of samples in the statistic
+<Evidence.statistic.sampleSize> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Textual description of sample size 
+                                            # for statistic 
+    fhir:note @<OneOrMore_Annotation>?;     # Footnote or explanatory note about 
+                                            # the sample size 
+    fhir:numberOfStudies @<unsignedInt>?;   # Number of contributing studies
+    fhir:numberOfParticipants @<unsignedInt>?;  # Cumulative number of participants
+    fhir:knownDataCount @<unsignedInt>?;    # Number of participants with known 
+                                            # results for measured variables 
+}  
 
 # Evidence variable such as population, exposure, or outcome
 <Evidence.variableDefinition> EXTENDS @<BackboneElement> CLOSED {   
@@ -135,91 +195,6 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # adjusted analysis 
     fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # An attribute of the statistic used 
                                             # as a model characteristic 
-}  
-
-# A nested attribute estimate; which is the attribute estimate of an attribute estimate
-<Evidence.statistic.attributeEstimate.attributeEstimatenull> CLOSED {   
-}  
-
-# Values and parameters for a single statistic
-<Evidence.statistic> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Description of content
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-    fhir:statisticType @<CodeableConcept>?;  # Type of statistic, e.g., relative 
-                                            # risk 
-    fhir:category @<CodeableConcept>?;      # Associated category for 
-                                            # categorical variable 
-    fhir:quantity @<Quantity>?;             # Statistic value
-    fhir:numberOfEvents @<unsignedInt>?;    # The number of events associated 
-                                            # with the statistic 
-    fhir:numberAffected @<unsignedInt>?;    # The number of participants affected
-    fhir:sampleSize @<Evidence.statistic.sampleSize>?;  # Number of samples in the statistic
-    fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # An attribute of the Statistic
-    fhir:modelCharacteristic @<OneOrMore_Evidence.statistic.modelCharacteristic>?;  # An aspect of the statistical model
-}  
-
-# Number of samples in the statistic
-<Evidence.statistic.sampleSize> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Textual description of sample size 
-                                            # for statistic 
-    fhir:note @<OneOrMore_Annotation>?;     # Footnote or explanatory note about 
-                                            # the sample size 
-    fhir:numberOfStudies @<unsignedInt>?;   # Number of contributing studies
-    fhir:numberOfParticipants @<unsignedInt>?;  # Cumulative number of participants
-    fhir:knownDataCount @<unsignedInt>?;    # Number of participants with known 
-                                            # results for measured variables 
-}  
-
-# A variable adjusted for in the adjusted analysis
-<Evidence.statistic.modelCharacteristic.variable> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:variableDefinition @<Reference> AND {fhir:link 
-    			@<EvidenceVariable> OR 
-    			@<Group> ? };  # Description of the variable
-    fhir:handling @<code> AND
-    	{fhir:v @fhirvs:variable-handling}?;  # continuous | dichotomous | ordinal 
-                                            # | polychotomous 
-    fhir:valueCategory @<OneOrMore_CodeableConcept>?;  # Description for grouping of 
-                                            # ordinal or polychotomous variables 
-    fhir:valueQuantity @<OneOrMore_Quantity>?;  # Discrete value for grouping of 
-                                            # ordinal or polychotomous variables 
-    fhir:valueRange @<OneOrMore_Range>?;    # Range of values for grouping of 
-                                            # ordinal or polychotomous variables 
-}  
-
-# Certainty or quality of the evidence
-<Evidence.certainty> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Textual description of certainty
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-    fhir:type @<CodeableConcept>?;          # Aspect of certainty being rated
-    fhir:rating @<CodeableConcept>?;        # Assessment or judgement of the 
-                                            # aspect 
-    fhir:rater @<string>?;                  # Individual or group who did the 
-                                            # rating 
-    fhir:subcomponent @<OneOrMore_Evidence.certainty>?;  # A domain or subdomain of certainty
-}  
-
-# An attribute of the Statistic
-<Evidence.statistic.attributeEstimate> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Textual description of the 
-                                            # attribute estimate 
-    fhir:note @<OneOrMore_Annotation>?;     # Footnote or explanatory note about 
-                                            # the estimate 
-    fhir:type @<CodeableConcept>?;          # The type of attribute estimate, 
-                                            # e.g., confidence interval or p 
-                                            # value 
-    fhir:quantity @<Quantity>?;             # The singular quantity of the 
-                                            # attribute estimate, for attribute 
-                                            # estimates represented as single 
-                                            # values; also used to report unit 
-                                            # of measure 
-    fhir:level @<decimal>?;                 # Level of confidence interval, 
-                                            # e.g., 0.95 for 95% confidence 
-                                            # interval 
-    fhir:range @<Range>?;                   # Lower and upper bound values of 
-                                            # the attribute estimate 
-    fhir:attributeEstimate @<OneOrMore_Evidence.statistic.attributeEstimate>?;  # A nested attribute estimate; which 
-                                            # is the attribute estimate of an 
-                                            # attribute estimate 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -269,11 +244,6 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.certainty> 
 }
 
-<OneOrMore_Evidence.statistic.modelCharacteristic.variable> CLOSED {
-    rdf:first @<Evidence.statistic.modelCharacteristic.variable>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.statistic.modelCharacteristic.variable> 
-}
-
 <OneOrMore_Evidence.statistic.attributeEstimate> CLOSED {
     rdf:first @<Evidence.statistic.attributeEstimate>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.statistic.attributeEstimate> 
@@ -292,6 +262,11 @@ start=@<Evidence> AND {fhir:nodeRole [fhir:treeRoot]}
 <OneOrMore_Range> CLOSED {
     rdf:first @<Range>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Range> 
+}
+
+<OneOrMore_Evidence.statistic.modelCharacteristic.variable> CLOSED {
+    rdf:first @<Evidence.statistic.modelCharacteristic.variable>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Evidence.statistic.modelCharacteristic.variable> 
 }
 
 #---------------------- Value Sets ------------------------

@@ -22,34 +22,6 @@ start=@<computableplandefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <PlanDefinition.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# What the plan is trying to accomplish
-<PlanDefinition.goal> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Target outcome for the goal
-<PlanDefinition.goal.target> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Who or what can be this actor
-<PlanDefinition.actor.option> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Who should participate in the action
-<PlanDefinition.action.participant> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Output data definition
-<PlanDefinition.action.output> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Whether or not the action is applicable
-<PlanDefinition.action.condition> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Action defined by the plan
-<PlanDefinition.action> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Dynamic aspects of the definition
 <PlanDefinition.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
 }  
@@ -60,5 +32,33 @@ start=@<computableplandefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Actors within the plan
 <PlanDefinition.actor> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Who should participate in the action
+<PlanDefinition.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Output data definition
+<PlanDefinition.action.output> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Target outcome for the goal
+<PlanDefinition.goal.target> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Action defined by the plan
+<PlanDefinition.action> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# What the plan is trying to accomplish
+<PlanDefinition.goal> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Who or what can be this actor
+<PlanDefinition.actor.option> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Whether or not the action is applicable
+<PlanDefinition.action.condition> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

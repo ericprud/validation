@@ -11,13 +11,13 @@ IMPORT <Money.shex>
 IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <Patient.shex>
+IMPORT <Address.shex>
 IMPORT <decimal.shex>
 IMPORT <boolean.shex>
-IMPORT <Address.shex>
 IMPORT <dateTime.shex>
+IMPORT <Location.shex>
 IMPORT <Quantity.shex>
 IMPORT <Coverage.shex>
-IMPORT <Location.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Attachment.shex>
@@ -89,13 +89,28 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:error @<OneOrMore_ClaimResponse.error>?;  # Processing errors
 }  
 
-# Adjudication for claim details
-<ClaimResponse.item.detail> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:detailSequence @<positiveInt>;     # Claim detail instance identifier
-    fhir:noteNumber @<OneOrMore_positiveInt>?;  # Applicable note numbers
-    fhir:decision @<CodeableConcept>?;      # Result of the adjudication
-    fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Detail level adjudication details
-    fhir:subDetail @<OneOrMore_ClaimResponse.item.detail.subDetail>?;  # Adjudication for claim sub-details
+# Note concerning adjudication
+<ClaimResponse.processNote> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:number @<positiveInt>?;            # Note instance identifier
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:note-type}?;  # display | print | printoper
+    fhir:text @<string>;                    # Note explanatory text
+    fhir:language @<CodeableConcept>?;      # Language of the text
+}  
+
+# Adjudication totals
+<ClaimResponse.total> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>;       # Type of adjudication information
+    fhir:amount @<Money>;                   # Financial total for the category
+}  
+
+# Processing errors
+<ClaimResponse.error> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:itemSequence @<positiveInt>?;      # Item sequence number
+    fhir:detailSequence @<positiveInt>?;    # Detail sequence number
+    fhir:subDetailSequence @<positiveInt>?;  # Subdetail sequence number
+    fhir:code @<CodeableConcept>;           # Error code detailing processing 
+                                            # issues 
 }  
 
 # Payment Details
@@ -109,42 +124,6 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<Identifier>?;         # Business identifier for the payment
 }  
 
-# Insurer added line details
-<ClaimResponse.addItem.detail> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:revenue @<CodeableConcept>?;       # Revenue or cost center code
-    fhir:productOrService @<CodeableConcept>?;  # Billing, service, product, or drug 
-                                            # code 
-    fhir:productOrServiceEnd @<CodeableConcept>?;  # End of a range of codes
-    fhir:modifier @<OneOrMore_CodeableConcept>?;  # Service/Product billing modifiers
-    fhir:quantity @<Quantity>?;             # Count of products or services
-    fhir:unitPrice @<Money>?;               # Fee, charge or cost per item
-    fhir:factor @<decimal>?;                # Price scaling factor
-    fhir:tax @<Money>?;                     # Total tax
-    fhir:net @<Money>?;                     # Total item cost
-    fhir:noteNumber @<OneOrMore_positiveInt>?;  # Applicable note numbers
-    fhir:decision @<CodeableConcept>?;      # Result of the adjudication
-    fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Added items detail adjudication
-    fhir:subDetail @<OneOrMore_ClaimResponse.addItem.detail.subDetail>?;  # Insurer added line items
-}  
-
-# Adjudication totals
-<ClaimResponse.total> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>;       # Type of adjudication information
-    fhir:amount @<Money>;                   # Financial total for the category
-}  
-
-# Patient insurance information
-<ClaimResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:sequence @<positiveInt>;           # Insurance instance identifier
-    fhir:focal @<boolean>;                  # Coverage to be used for 
-                                            # adjudication 
-    fhir:coverage @<Reference> AND {fhir:link 
-    			@<Coverage> ? };  # Insurance information
-    fhir:businessArrangement @<string>?;    # Additional provider contract number
-    fhir:claimResponse @<Reference> AND {fhir:link 
-    			@<ClaimResponse> ? }?;  # Adjudication results
-}  
-
 # Adjudication for claim line items
 <ClaimResponse.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:itemSequence @<positiveInt>;       # Claim item instance identifier
@@ -152,15 +131,6 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:decision @<CodeableConcept>?;      # Result of the adjudication
     fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Adjudication details
     fhir:detail @<OneOrMore_ClaimResponse.item.detail>?;  # Adjudication for claim details
-}  
-
-# Processing errors
-<ClaimResponse.error> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:itemSequence @<positiveInt>?;      # Item sequence number
-    fhir:detailSequence @<positiveInt>?;    # Detail sequence number
-    fhir:subDetailSequence @<positiveInt>?;  # Subdetail sequence number
-    fhir:code @<CodeableConcept>;           # Error code detailing processing 
-                                            # issues 
 }  
 
 # Insurer added line items
@@ -195,6 +165,34 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:detail @<OneOrMore_ClaimResponse.addItem.detail>?;  # Insurer added line details
 }  
 
+# Insurer added line details
+<ClaimResponse.addItem.detail> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:revenue @<CodeableConcept>?;       # Revenue or cost center code
+    fhir:productOrService @<CodeableConcept>?;  # Billing, service, product, or drug 
+                                            # code 
+    fhir:productOrServiceEnd @<CodeableConcept>?;  # End of a range of codes
+    fhir:modifier @<OneOrMore_CodeableConcept>?;  # Service/Product billing modifiers
+    fhir:quantity @<Quantity>?;             # Count of products or services
+    fhir:unitPrice @<Money>?;               # Fee, charge or cost per item
+    fhir:factor @<decimal>?;                # Price scaling factor
+    fhir:tax @<Money>?;                     # Total tax
+    fhir:net @<Money>?;                     # Total item cost
+    fhir:noteNumber @<OneOrMore_positiveInt>?;  # Applicable note numbers
+    fhir:decision @<CodeableConcept>?;      # Result of the adjudication
+    fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Added items detail adjudication
+    fhir:subDetail @<OneOrMore_ClaimResponse.addItem.detail.subDetail>?;  # Insurer added line items
+}  
+
+# Adjudication for claim sub-details
+<ClaimResponse.item.detail.subDetail> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:subDetailSequence @<positiveInt>;  # Claim sub-detail instance 
+                                            # identifier 
+    fhir:noteNumber @<OneOrMore_positiveInt>?;  # Applicable note numbers
+    fhir:decision @<CodeableConcept>?;      # Result of the adjudication
+    fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Subdetail level adjudication 
+                                            # details 
+}  
+
 # Adjudication details
 <ClaimResponse.item.adjudication> EXTENDS @<BackboneElement> CLOSED {   
     fhir:category @<CodeableConcept>;       # Type of adjudication information
@@ -207,6 +205,18 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 <ClaimResponse.addItem.bodySite> EXTENDS @<BackboneElement> CLOSED {   
     fhir:site @<OneOrMore_CodeableReference>;  # Location
     fhir:subSite @<OneOrMore_CodeableConcept>?;  # Sub-location
+}  
+
+# Patient insurance information
+<ClaimResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:sequence @<positiveInt>;           # Insurance instance identifier
+    fhir:focal @<boolean>;                  # Coverage to be used for 
+                                            # adjudication 
+    fhir:coverage @<Reference> AND {fhir:link 
+    			@<Coverage> ? };  # Insurance information
+    fhir:businessArrangement @<string>?;    # Additional provider contract number
+    fhir:claimResponse @<Reference> AND {fhir:link 
+    			@<ClaimResponse> ? }?;  # Adjudication results
 }  
 
 # Insurer added line items
@@ -226,23 +236,13 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Added items detail adjudication
 }  
 
-# Note concerning adjudication
-<ClaimResponse.processNote> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:number @<positiveInt>?;            # Note instance identifier
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:note-type}?;  # display | print | printoper
-    fhir:text @<string>;                    # Note explanatory text
-    fhir:language @<CodeableConcept>?;      # Language of the text
-}  
-
-# Adjudication for claim sub-details
-<ClaimResponse.item.detail.subDetail> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:subDetailSequence @<positiveInt>;  # Claim sub-detail instance 
-                                            # identifier 
+# Adjudication for claim details
+<ClaimResponse.item.detail> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:detailSequence @<positiveInt>;     # Claim detail instance identifier
     fhir:noteNumber @<OneOrMore_positiveInt>?;  # Applicable note numbers
     fhir:decision @<CodeableConcept>?;      # Result of the adjudication
-    fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Subdetail level adjudication 
-                                            # details 
+    fhir:adjudication @<OneOrMore_ClaimResponse.item.adjudication>?;  # Detail level adjudication details
+    fhir:subDetail @<OneOrMore_ClaimResponse.item.detail.subDetail>?;  # Adjudication for claim sub-details
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -304,21 +304,6 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_positiveInt> 
 }
 
-<OneOrMore_ClaimResponse.item.detail.subDetail> CLOSED {
-    rdf:first @<ClaimResponse.item.detail.subDetail>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.item.detail.subDetail> 
-}
-
-<OneOrMore_CodeableConcept> CLOSED {
-    rdf:first @<CodeableConcept>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
-}
-
-<OneOrMore_ClaimResponse.addItem.detail.subDetail> CLOSED {
-    rdf:first @<ClaimResponse.addItem.detail.subDetail>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.addItem.detail.subDetail> 
-}
-
 <OneOrMore_ClaimResponse.item.detail> CLOSED {
     rdf:first @<ClaimResponse.item.detail>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.item.detail> 
@@ -332,6 +317,11 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Organization_OR_Practitioner_OR_PractitionerRole> 
 }
 
+<OneOrMore_CodeableConcept> CLOSED {
+    rdf:first @<CodeableConcept>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
 <OneOrMore_ClaimResponse.addItem.bodySite> CLOSED {
     rdf:first @<ClaimResponse.addItem.bodySite>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.addItem.bodySite> 
@@ -342,9 +332,19 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.addItem.detail> 
 }
 
+<OneOrMore_ClaimResponse.addItem.detail.subDetail> CLOSED {
+    rdf:first @<ClaimResponse.addItem.detail.subDetail>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.addItem.detail.subDetail> 
+}
+
 <OneOrMore_CodeableReference> CLOSED {
     rdf:first @<CodeableReference>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
+}
+
+<OneOrMore_ClaimResponse.item.detail.subDetail> CLOSED {
+    rdf:first @<ClaimResponse.item.detail.subDetail>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ClaimResponse.item.detail.subDetail> 
 }
 
 #---------------------- Value Sets ------------------------
@@ -352,11 +352,11 @@ start=@<ClaimResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 # This value set includes Status codes.
 fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
 
-# The purpose of the Claim: predetermination, preauthorization, claim.
-fhirvs:claim-use ["claim" "preauthorization" "predetermination"]
-
 # This value set includes Claim Processing Outcome codes.
 fhirvs:claim-outcome ["queued" "complete" "error" "partial"]
+
+# The purpose of the Claim: predetermination, preauthorization, claim.
+fhirvs:claim-use ["claim" "preauthorization" "predetermination"]
 
 # The presentation types of notes.
 fhirvs:note-type ["display" "print" "printoper"]

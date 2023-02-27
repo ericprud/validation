@@ -15,8 +15,8 @@ IMPORT <Person.shex>
 IMPORT <boolean.shex>
 IMPORT <markdown.shex>
 IMPORT <Citation.shex>
-IMPORT <Resource.shex>
 IMPORT <Quantity.shex>
+IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Narrative.shex>
 IMPORT <Identifier.shex>
@@ -64,32 +64,26 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:relatesTo @<OneOrMore_EvidenceReport.relatesTo>?;  # Relationships to other 
                                             # compositions/documents 
     fhir:section @<OneOrMore_EvidenceReport.section>?;  # Composition is broken into sections
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+# Focus of the report
+<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:characteristic @<OneOrMore_EvidenceReport.subject.characteristic>?;  # Characteristic
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
+}  
 
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-)
- 
+# Characteristic
+<EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Characteristic code
+    fhir:value (@<Reference>  AND {fhir:link @<Resource> })  OR 
+    			@<CodeableConcept>  OR 
+    			@<boolean>  OR 
+    			@<Quantity>  OR 
+    			@<Range>  ;  # Characteristic value
+    fhir:exclude @<boolean>?;               # Is used to express not the 
+                                            # characteristic 
+    fhir:period @<Period>?;                 # Timeframe for the characteristic
+}  
 
 # Target of the relationship
 <EvidenceReport.relatesTo.target> EXTENDS @<BackboneElement> CLOSED {   
@@ -100,6 +94,20 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:resource @<Reference> AND {fhir:link 
     			@<Resource> ? }?;  # Target of the relationship 
                                             # Resource reference 
+}  
+
+# Nested Section
+<EvidenceReport.section.sectionnull> CLOSED {   
+}  
+
+# Relationships to other compositions/documents
+<EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code> AND
+    	{fhir:v @fhirvs:report-relation-type};  # replaces | amends | appends | 
+                                            # transforms | replacedWith | 
+                                            # amendedWith | appendedWith | 
+                                            # transformedWith 
+    fhir:target @<EvidenceReport.relatesTo.target>;  # Target of the relationship
 }  
 
 # Composition is broken into sections
@@ -122,39 +130,6 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:entryQuantity @<OneOrMore_Quantity>?;  # Quantity as content
     fhir:emptyReason @<CodeableConcept>?;   # Why the section is empty
     fhir:section @<OneOrMore_EvidenceReport.section>?;  # Nested Section
-}  
-
-# Relationships to other compositions/documents
-<EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code> AND
-    	{fhir:v @fhirvs:report-relation-type};  # replaces | amends | appends | 
-                                            # transforms | replacedWith | 
-                                            # amendedWith | appendedWith | 
-                                            # transformedWith 
-    fhir:target @<EvidenceReport.relatesTo.target>;  # Target of the relationship
-}  
-
-# Characteristic
-<EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Characteristic code
-    fhir:value (@<Reference>  AND {fhir:link @<Resource> })  OR 
-    			@<CodeableConcept>  OR 
-    			@<boolean>  OR 
-    			@<Quantity>  OR 
-    			@<Range>  ;  # Characteristic value
-    fhir:exclude @<boolean>?;               # Is used to express not the 
-                                            # characteristic 
-    fhir:period @<Period>?;                 # Timeframe for the characteristic
-}  
-
-# Focus of the report
-<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:characteristic @<OneOrMore_EvidenceReport.subject.characteristic>?;  # Characteristic
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-}  
-
-# Nested Section
-<EvidenceReport.section.sectionnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -194,6 +169,11 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.section> 
 }
 
+<OneOrMore_EvidenceReport.subject.characteristic> CLOSED {
+    rdf:first @<EvidenceReport.subject.characteristic>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.subject.characteristic> 
+}
+
 <OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Person> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<Device> OR 
@@ -219,19 +199,14 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Quantity> 
 }
 
-<OneOrMore_EvidenceReport.subject.characteristic> CLOSED {
-    rdf:first @<EvidenceReport.subject.characteristic>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.subject.characteristic> 
-}
-
 #---------------------- Value Sets ------------------------
-
-# The processing mode that applies to this list.
-fhirvs:list-mode ["working" "snapshot" "changes"]
 
 # The type of relationship between reports.
 fhirvs:report-relation-type ["replaces" "amends" "appends" "transforms" "replacedWith" "amendedWith" "appendedWith" "transformedWith"]
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# The processing mode that applies to this list.
+fhirvs:list-mode ["working" "snapshot" "changes"]
 

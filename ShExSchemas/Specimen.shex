@@ -91,18 +91,6 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # container 
 }  
 
-# Processing and processing step details
-<Specimen.processing> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Textual description of procedure
-    fhir:method @<CodeableConcept>?;        # Indicates the treatment step  
-                                            # applied to the specimen 
-    fhir:additive @<OneOrMore_Reference_Substance>?;  # Material used in the processing 
-                                            # step 
-    fhir:time @<dateTime>  OR 
-    			@<Period>  ?;  # Date and time of specimen 
-                                            # processing 
-}  
-
 # Collection details
 <Specimen.collection> EXTENDS @<BackboneElement> CLOSED {   
     fhir:collector @<Reference> AND {fhir:link 
@@ -125,6 +113,18 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:fastingStatus @<CodeableConcept>  OR 
     			@<Duration>  ?;  # Whether or how long patient 
                                             # abstained from food and/or drink 
+}  
+
+# Processing and processing step details
+<Specimen.processing> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Textual description of procedure
+    fhir:method @<CodeableConcept>?;        # Indicates the treatment step  
+                                            # applied to the specimen 
+    fhir:additive @<OneOrMore_Reference_Substance>?;  # Material used in the processing 
+                                            # step 
+    fhir:time @<dateTime>  OR 
+    			@<Period>  ?;  # Date and time of specimen 
+                                            # processing 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

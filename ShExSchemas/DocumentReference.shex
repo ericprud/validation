@@ -93,38 +93,14 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<markdown>?;          # Human-readable description
     fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Document security-tags
     fhir:content @<OneOrMore_DocumentReference.content>;  # Document referenced
-} AND (
+}  
 
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:docRef-1
-# Human readable:facilityType SHALL only be present if context is not an encounter
-#
-# Constraint: facilityType.empty() or context.where(resolve() is Encounter).empty()
-# ShEx:
-#
-# NOT { fhir:facilityType {fhir:v .} }  OR  NOT { fhir:context. where  (   resolve  (  ) a Encounter) {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:docRef-2
-# Human readable:practiceSetting SHALL only be present if context is not present
-#
-# Constraint: practiceSetting.empty() or context.where(resolve() is Encounter).empty()
-# ShEx:
-#
-# NOT { fhir:practiceSetting {fhir:v .} }  OR  NOT { fhir:context. where  (   resolve  (  ) a Encounter) {fhir:v .} } 
-{}
-
-)
- 
+# Content profile rules for the document
+<DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<Coding>  OR 
+    			@<uri>  OR 
+    			@<canonical>  ;  # Code|uri|canonical
+}  
 
 # Document referenced
 <DocumentReference.content> EXTENDS @<BackboneElement> CLOSED {   
@@ -144,13 +120,6 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? }?;  # Who attested the document
-}  
-
-# Content profile rules for the document
-<DocumentReference.content.profile> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<Coding>  OR 
-    			@<uri>  OR 
-    			@<canonical>  ;  # Code|uri|canonical
 }  
 
 # Relationships to other documents
@@ -242,9 +211,9 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The status of the document reference.
-fhirvs:document-reference-status ["current" "superseded" "entered-in-error"]
-
 # The workflow/clinical status of the composition.
 fhirvs:composition-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "deprecated" "unknown"]
+
+# The status of the document reference.
+fhirvs:document-reference-status ["current" "superseded" "entered-in-error"]
 

@@ -75,114 +75,19 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:parameter @<OneOrMore_OperationDefinition.parameter>?;  # Parameters for the operation/query
     fhir:overload @<OneOrMore_OperationDefinition.overload>?;  # Define overloaded variants for 
                                             # when  generating code 
-} AND (
+}  
 
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+# ValueSet details if this is coded
+<OperationDefinition.parameter.binding> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:strength @<code> AND
+    	{fhir:v @fhirvs:binding-strength};  # required | extensible | preferred 
+                                            # | example 
+    fhir:valueSet @<canonical>;             # Source of value set
+}  
 
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:opd-5
-# Human readable:A query operation cannot be defined at the instance level
-#
-# Constraint: (kind = 'query') implies (instance = false)
-# ShEx:
-#
-#({ fhir:kind { fhir:v ['query'] }  })  Implies  ({ fhir:instance { fhir:v [false] }  })
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: all
-# # Constraint UniqueKey:opd-6
-# Human readable:A query operation requires input parameters to have a search type
-#
-# Constraint: (kind = 'query') implies (parameter.all((use = 'in' and searchType.exists()) or (use != 'in')))
-# ShEx:
-#
-#({ fhir:kind { fhir:v ['query'] }  })  Implies  ({fhir:parameter.  all  (use { fhir:v ['in'] }  AND searchType . OR use [fhir:v  . -'in'] )})
-{}
-
-) AND (
-
-# Constraint UniqueKey:opd-1
-# Human readable:Either a type must be provided, or parts
-
-# Constraint: type.exists() or part.exists()
-# ShEx:
-
-{fhir:type . OR {fhir:part .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:opd-2
-# Human readable:A search type can only be specified for parameters of type string
-#
-# Constraint: searchType.exists() implies type = 'string'
-# ShEx:
-#
-#{fhir:searchType .  Implies  ({ fhir:type { fhir:v ['string'] }  })}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: memberOf
-# # Constraint UniqueKey:opd-3
-# Human readable:A targetProfile can only be specified for parameters of type Reference, Canonical, or a Resource
-#
-# Constraint: targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/resource-types'))
-# ShEx:
-#
-#{fhir:targetProfile .  Implies  (({ fhir:type { fhir:v ['Reference'] }  }) OR ({ fhir:type { fhir:v ['canonical'] }  }) OR {fhir:type.  memberOf  ('http://hl7.org/fhir/ValueSet/resource-types')})}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:opd-4
-# Human readable:SearchParamType can only be specified on in parameters
-#
-# Constraint: (use = 'out') implies searchType.empty()
-# ShEx:
-#
-#({ fhir:use { fhir:v ['out'] }  })  Implies   NOT { fhir:searchType {fhir:v .} } 
-{}
-
-)
- 
+# Parts of a nested Parameter
+<OperationDefinition.parameter.partnull> CLOSED {   
+}  
 
 # Parameters for the operation/query
 <OperationDefinition.parameter> EXTENDS @<BackboneElement> CLOSED {   
@@ -211,138 +116,19 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:binding @<OperationDefinition.parameter.binding>?;  # ValueSet details if this is coded
     fhir:referencedFrom @<OneOrMore_OperationDefinition.parameter.referencedFrom>?;  # References to this parameter
     fhir:part @<OneOrMore_OperationDefinition.parameter>?;  # Parts of a nested Parameter
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:opd-5
-# Human readable:A query operation cannot be defined at the instance level
-#
-# Constraint: (kind = 'query') implies (instance = false)
-# ShEx:
-#
-#({ fhir:kind { fhir:v ['query'] }  })  Implies  ({ fhir:instance { fhir:v [false] }  })
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: all
-# # Constraint UniqueKey:opd-6
-# Human readable:A query operation requires input parameters to have a search type
-#
-# Constraint: (kind = 'query') implies (parameter.all((use = 'in' and searchType.exists()) or (use != 'in')))
-# ShEx:
-#
-#({ fhir:kind { fhir:v ['query'] }  })  Implies  ({fhir:parameter.  all  (use { fhir:v ['in'] }  AND searchType . OR use [fhir:v  . -'in'] )})
-{}
-
-) AND (
-
-# Constraint UniqueKey:opd-1
-# Human readable:Either a type must be provided, or parts
-
-# Constraint: type.exists() or part.exists()
-# ShEx:
-
-{fhir:type . OR {fhir:part .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:opd-2
-# Human readable:A search type can only be specified for parameters of type string
-#
-# Constraint: searchType.exists() implies type = 'string'
-# ShEx:
-#
-#{fhir:searchType .  Implies  ({ fhir:type { fhir:v ['string'] }  })}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: memberOf
-# # Constraint UniqueKey:opd-3
-# Human readable:A targetProfile can only be specified for parameters of type Reference, Canonical, or a Resource
-#
-# Constraint: targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/resource-types'))
-# ShEx:
-#
-#{fhir:targetProfile .  Implies  (({ fhir:type { fhir:v ['Reference'] }  }) OR ({ fhir:type { fhir:v ['canonical'] }  }) OR {fhir:type.  memberOf  ('http://hl7.org/fhir/ValueSet/resource-types')})}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:opd-4
-# Human readable:SearchParamType can only be specified on in parameters
-#
-# Constraint: (use = 'out') implies searchType.empty()
-# ShEx:
-#
-#({ fhir:use { fhir:v ['out'] }  })  Implies   NOT { fhir:searchType {fhir:v .} } 
-{}
-
-)
- 
-
-# Define overloaded variants for when  generating code
-<OperationDefinition.overload> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:parameterName @<OneOrMore_string>?;  # Name of parameter to include in 
-                                            # overload 
-    fhir:comment @<string>?;                # Comments to go on overload
-}  
-
-# Parts of a nested Parameter
-<OperationDefinition.parameter.partnull> CLOSED {   
-}  
-
-# ValueSet details if this is coded
-<OperationDefinition.parameter.binding> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:strength @<code> AND
-    	{fhir:v @fhirvs:binding-strength};  # required | extensible | preferred 
-                                            # | example 
-    fhir:valueSet @<canonical>;             # Source of value set
 }  
 
 # References to this parameter
 <OperationDefinition.parameter.referencedFrom> EXTENDS @<BackboneElement> CLOSED {   
     fhir:source @<string>;                  # Referencing parameter
     fhir:sourceId @<string>?;               # Element id of reference
+}  
+
+# Define overloaded variants for when  generating code
+<OperationDefinition.overload> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:parameterName @<OneOrMore_string>?;  # Name of parameter to include in 
+                                            # overload 
+    fhir:comment @<string>?;                # Comments to go on overload
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -394,27 +180,27 @@ start=@<OperationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Indication of the degree of conformance expectations associated with a binding.
-fhirvs:binding-strength ["required" "extensible" "preferred" "example"]
+# Data types allowed to be used for search parameters.
+fhirvs:search-param-type ["number" "date" "string" "token" "reference" "composite" "quantity" "uri" "special"]
 
 # Whether an operation parameter is an input or an output parameter.
 fhirvs:operation-parameter-use ["in" "out"]
 
+# Whether an operation is a normal operation or a query.
+fhirvs:operation-kind ["operation" "query"]
+
 # All fhir data types
 fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
 
-# Indicates that a parameter applies when the operation is being invoked at the specified level
-fhirvs:operation-parameter-scope ["instance" "type" "system"]
+# All FHIR types
+fhirvs:fhir-types ["Base" "Element" "BackboneElement" "DataType" "Address" "Annotation" "Attachment" "Availability" "BackboneType" "Dosage" "ElementDefinition" "MarketingStatus" "Population" "ProductShelfLife" "Timing" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "DataRequirement" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "Meta" "MonetaryComponent" "Money" "Narrative" "ParameterDefinition" "Period" "PrimitiveType" "base64Binary" "boolean" "date" "dateTime" "decimal" "instant" "integer" "positiveInt" "unsignedInt" "integer64" "string" "code" "id" "markdown" "time" "uri" "canonical" "oid" "url" "uuid" "Quantity" "Age" "Count" "Distance" "Duration" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "TriggerDefinition" "UsageContext" "VirtualServiceDetail" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MetadataResource" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription" "Parameters"]
+
+# Indication of the degree of conformance expectations associated with a binding.
+fhirvs:binding-strength ["required" "extensible" "preferred" "example"]
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
-# Whether an operation is a normal operation or a query.
-fhirvs:operation-kind ["operation" "query"]
-
-# Data types allowed to be used for search parameters.
-fhirvs:search-param-type ["number" "date" "string" "token" "reference" "composite" "quantity" "uri" "special"]
-
-# All FHIR types
-fhirvs:fhir-types ["Base" "Element" "BackboneElement" "DataType" "Address" "Annotation" "Attachment" "Availability" "BackboneType" "Dosage" "ElementDefinition" "MarketingStatus" "Population" "ProductShelfLife" "Timing" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "DataRequirement" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "Meta" "MonetaryComponent" "Money" "Narrative" "ParameterDefinition" "Period" "PrimitiveType" "base64Binary" "boolean" "date" "dateTime" "decimal" "instant" "integer" "positiveInt" "unsignedInt" "integer64" "string" "code" "id" "markdown" "time" "uri" "canonical" "oid" "url" "uuid" "Quantity" "Age" "Count" "Distance" "Duration" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "TriggerDefinition" "UsageContext" "VirtualServiceDetail" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MetadataResource" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription" "Parameters"]
+# Indicates that a parameter applies when the operation is being invoked at the specified level
+fhirvs:operation-parameter-scope ["instance" "type" "system"]
 

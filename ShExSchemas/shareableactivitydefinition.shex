@@ -18,11 +18,11 @@ start=@<shareableactivitydefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Who should participate in the action
-<ActivityDefinition.participant> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Dynamic aspects of the definition
 <ActivityDefinition.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Who should participate in the action
+<ActivityDefinition.participant> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

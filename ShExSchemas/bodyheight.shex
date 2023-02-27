@@ -7,8 +7,8 @@ BASE <http://hl7.org/fhir/shape/>
 IMPORT <Coding.shex>
 IMPORT <Quantity.shex>
 IMPORT <vitalsigns.shex>
-IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
 
 
 start=@<bodyheight> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -25,10 +25,6 @@ start=@<bodyheight> AND {fhir:nodeRole [fhir:treeRoot]}
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
-# Body Height
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
@@ -41,15 +37,19 @@ start=@<bodyheight> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Body Height
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 

@@ -88,13 +88,6 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:processNote @<OneOrMore_PaymentReconciliation.processNote>?;  # Note concerning processing
 }  
 
-# Note concerning processing
-<PaymentReconciliation.processNote> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:note-type}?;  # display | print | printoper
-    fhir:text @<string>?;                   # Note explanatory text
-}  
-
 # Settlement particulars
 <PaymentReconciliation.allocation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>?;         # Business identifier of the payment 
@@ -130,6 +123,13 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> ? }?;  # Recipient of the payment
     fhir:amount @<Money>?;                  # Amount allocated to this payable
+}  
+
+# Note concerning processing
+<PaymentReconciliation.processNote> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:note-type}?;  # display | print | printoper
+    fhir:text @<string>?;                   # Note explanatory text
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

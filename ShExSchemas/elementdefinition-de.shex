@@ -19,8 +19,16 @@ IMPORT <ElementDefinition.shex>
     fhir:AllowedUnits @<Extension>?;        # Units to use for measured value
 }  
 
-# Data type and Profile for this element
-<ElementDefinition.type> EXTENDS @<Element> CLOSED {   
+# Example value (as defined for type)
+<ElementDefinition.example> EXTENDS @<Element> CLOSED {   
+}  
+
+# Condition that must evaluate to true
+<ElementDefinition.constraint> EXTENDS @<Element> CLOSED {   
+}  
+
+# Map element to another set of definitions
+<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
 }  
 
 # Element values that are used to distinguish the slices
@@ -31,32 +39,24 @@ IMPORT <ElementDefinition.shex>
 <ElementDefinition.obligation> EXTENDS @<Element> CLOSED {   
 }  
 
-# Map element to another set of definitions
-<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
-}  
-
-# Base definition information for tools
-<ElementDefinition.base> EXTENDS @<Element> CLOSED {   
-}  
-
-# Condition that must evaluate to true
-<ElementDefinition.constraint> EXTENDS @<Element> CLOSED {   
+# Data type and Profile for this element
+<ElementDefinition.type> EXTENDS @<Element> CLOSED {   
 }  
 
 # This element is sliced - slices follow
 <ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
 }  
 
-# Additional Bindings - more rules about the binding
-<ElementDefinition.binding.additional> EXTENDS @<Element> CLOSED {   
-}  
-
 # ValueSet details if this is coded
 <ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
 }  
 
-# Example value (as defined for type)
-<ElementDefinition.example> EXTENDS @<Element> CLOSED {   
+# Base definition information for tools
+<ElementDefinition.base> EXTENDS @<Element> CLOSED {   
+}  
+
+# Additional Bindings - more rules about the binding
+<ElementDefinition.binding.additional> EXTENDS @<Element> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

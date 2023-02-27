@@ -48,52 +48,7 @@ start=@<Organization> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # accreditations, licenses, 
                                             # training, etc pertaining to the 
                                             # provision of care 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# # Constraint UniqueKey:org-3
-# Human readable:The telecom of an organization can never be of use 'home'
-#
-# Constraint: telecom.where(use = 'home').empty()
-# ShEx:
-#
-# NOT { fhir:telecom. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# # Constraint UniqueKey:org-4
-# Human readable:The address of an organization can never be of use 'home'
-#
-# Constraint: address.where(use = 'home').empty()
-# ShEx:
-#
-# NOT { fhir:address. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:org-1
-# Human readable:The organization SHALL at least have a name or an identifier, and possibly more than one
-#
-# Constraint: (identifier.count() + name.count()) > 0
-# ShEx:
-#
-#(   count  ( fhir:identifier )  Plus     count  ( fhir:name )) { fhir:v MinExclusive 0 } 
-{}
-
-)
- 
+}  
 
 # Qualifications, certifications, accreditations, licenses, training, etc pertaining to the provision of care
 <Organization.qualification> EXTENDS @<BackboneElement> CLOSED {   

@@ -77,32 +77,7 @@ start=@<EventDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # citations, etc. 
     fhir:trigger @<OneOrMore_TriggerDefinition>;  # "when" the event occurs (multiple 
                                             # = 'or') 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

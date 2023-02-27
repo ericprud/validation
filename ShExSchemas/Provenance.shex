@@ -12,8 +12,8 @@ IMPORT <instant.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
 IMPORT <Location.shex>
-IMPORT <Resource.shex>
 IMPORT <CareTeam.shex>
+IMPORT <Resource.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
@@ -66,82 +66,6 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:agent @<OneOrMore_Provenance.agent>;  # Actor involved
     fhir:entity @<OneOrMore_Provenance.entity>?;  # An entity used in this activity
     fhir:signature @<OneOrMore_Signature>?;  # Signature on target
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: Implies
-# Unmapped construct found: resolve
-# Unmapped construct found: NotEquals
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:prov-1
-# Human readable:Who and onBehalfOf cannot be the same
-#
-# Constraint: who.resolve().exists() and onBehalfOf.resolve().exists() implies who.resolve() != onBehalfOf.resolve()
-# ShEx:
-#
-#(   resolve  ( fhir:who ) . AND    resolve  ( fhir:onBehalfOf ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf ))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: Implies
-# Unmapped construct found: resolve
-# Unmapped construct found: NotEquals
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:prov-3
-# Human readable:If who is an organization, onBehalfOf can't be a PractitionerRole within that organization
-#
-# Constraint: who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()
-# ShEx:
-#
-#(   resolve  ( fhir:who ).  ofType  (Organization) . AND    resolve  ( fhir:onBehalfOf. resolve  (  ). ofType  (PractitionerRole).organization ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf. resolve  (  ).organization ))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: Implies
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: NotEquals
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:prov-2
-# Human readable:If who is a PractitionerRole, onBehalfOf can't reference the same Practitioner
-#
-# Constraint: who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()
-# ShEx:
-#
-#(   resolve  ( fhir:who. resolve  (  ). ofType  (PractitionerRole).practitioner ) . AND    resolve  ( fhir:onBehalfOf ).  ofType  (Practitioner) .)  Implies  (   resolve  ( fhir:who. resolve  (  ).practitioner )  NotEquals     resolve  ( fhir:onBehalfOf ))
-{}
-
-)
- 
-
-# An entity used in this activity
-<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<code> AND
-    	{fhir:v @fhirvs:provenance-entity-role};  # revision | quotation | source | 
-                                            # instantiates | removal 
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> ? };  # Identity of entity
-    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
 }  
 
 # Actor involved
@@ -163,73 +87,17 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> ? }?;  # The agent that delegated
-} AND (
+}  
 
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: Implies
-# Unmapped construct found: resolve
-# Unmapped construct found: NotEquals
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:prov-1
-# Human readable:Who and onBehalfOf cannot be the same
-#
-# Constraint: who.resolve().exists() and onBehalfOf.resolve().exists() implies who.resolve() != onBehalfOf.resolve()
-# ShEx:
-#
-#(   resolve  ( fhir:who ) . AND    resolve  ( fhir:onBehalfOf ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf ))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: Implies
-# Unmapped construct found: resolve
-# Unmapped construct found: NotEquals
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:prov-3
-# Human readable:If who is an organization, onBehalfOf can't be a PractitionerRole within that organization
-#
-# Constraint: who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()
-# ShEx:
-#
-#(   resolve  ( fhir:who ).  ofType  (Organization) . AND    resolve  ( fhir:onBehalfOf. resolve  (  ). ofType  (PractitionerRole).organization ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf. resolve  (  ).organization ))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: resolve
-# Unmapped construct found: ofType
-# Unmapped construct found: Implies
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: NotEquals
-# Unmapped construct found: resolve
-# # Constraint UniqueKey:prov-2
-# Human readable:If who is a PractitionerRole, onBehalfOf can't reference the same Practitioner
-#
-# Constraint: who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()
-# ShEx:
-#
-#(   resolve  ( fhir:who. resolve  (  ). ofType  (PractitionerRole).practitioner ) . AND    resolve  ( fhir:onBehalfOf ).  ofType  (Practitioner) .)  Implies  (   resolve  ( fhir:who. resolve  (  ).practitioner )  NotEquals     resolve  ( fhir:onBehalfOf ))
-{}
-
-)
- 
+# An entity used in this activity
+<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<code> AND
+    	{fhir:v @fhirvs:provenance-entity-role};  # revision | quotation | source | 
+                                            # instantiates | removal 
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> ? };  # Identity of entity
+    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

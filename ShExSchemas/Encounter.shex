@@ -107,34 +107,35 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # healthcare service 
     fhir:location @<OneOrMore_Encounter.location>?;  # List of locations where the 
                                             # patient has been 
-} AND (
+}  
 
-# Constraint UniqueKey:enc-1
-# Human readable:A type must be provided when no explicit actor is specified
-
-# Constraint: actor.exists() or type.exists()
-# ShEx:
-
-{fhir:actor . OR {fhir:type .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:enc-2
-# Human readable:A type cannot be provided for a patient or group participant
-#
-# Constraint: actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()
-# ShEx:
-#
-#   resolve  ( fhir:actor ) a Patient OR    resolve  (  ) a Group  Implies   NOT { fhir:type. }
-{}
-
-)
- 
+# Details about the admission to a healthcare service
+<Encounter.admission> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:preAdmissionIdentifier @<Identifier>?;  # Pre-admission identifier
+    fhir:origin @<Reference> AND {fhir:link 
+    			@<Location> OR 
+    			@<Organization> ? }?;  # The location/organization from 
+                                            # which the patient came before 
+                                            # admission 
+    fhir:admitSource @<CodeableConcept>?;   # From where patient was admitted 
+                                            # (physician referral, transfer) 
+    fhir:reAdmission @<CodeableConcept>?;   # The type of re-admission that has 
+                                            # occurred (if any). If the value is 
+                                            # absent, then this is not 
+                                            # identified as a readmission 
+    fhir:dietPreference @<OneOrMore_CodeableConcept>?;  # Diet preferences reported by the 
+                                            # patient 
+    fhir:specialCourtesy @<OneOrMore_CodeableConcept>?;  # Special courtesies (VIP, board 
+                                            # member) 
+    fhir:specialArrangement @<OneOrMore_CodeableConcept>?;  # Wheelchair, translator, stretcher, 
+                                            # etc. 
+    fhir:destination @<Reference> AND {fhir:link 
+    			@<Location> OR 
+    			@<Organization> ? }?;  # Location/organization to which the 
+                                            # patient is discharged 
+    fhir:dischargeDisposition @<CodeableConcept>?;  # Category or kind of location after 
+                                            # discharge 
+}  
 
 # List of locations where the patient has been
 <Encounter.location> EXTENDS @<BackboneElement> CLOSED {   
@@ -150,17 +151,6 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:period @<Period>?;                 # Time period during which the 
                                             # patient was present at the 
                                             # location 
-}  
-
-# List of past encounter statuses
-<Encounter.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:status @<code> AND
-    	{fhir:v @fhirvs:encounter-status};  # planned | in-progress | on-hold | 
-                                            # discharged | completed | cancelled 
-                                            # | discontinued | entered-in-error 
-                                            # | unknown 
-    fhir:period @<Period>;                  # The time that the episode was in 
-                                            # the specified status 
 }  
 
 # The list of diagnosis relevant to this encounter
@@ -191,61 +181,17 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? }?;  # The individual, device, or service 
                                             # participating in the encounter 
-} AND (
+}  
 
-# Constraint UniqueKey:enc-1
-# Human readable:A type must be provided when no explicit actor is specified
-
-# Constraint: actor.exists() or type.exists()
-# ShEx:
-
-{fhir:actor . OR {fhir:type .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: resolve
-# Unmapped construct found: resolve
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:enc-2
-# Human readable:A type cannot be provided for a patient or group participant
-#
-# Constraint: actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()
-# ShEx:
-#
-#   resolve  ( fhir:actor ) a Patient OR    resolve  (  ) a Group  Implies   NOT { fhir:type. }
-{}
-
-)
- 
-
-# Details about the admission to a healthcare service
-<Encounter.admission> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:preAdmissionIdentifier @<Identifier>?;  # Pre-admission identifier
-    fhir:origin @<Reference> AND {fhir:link 
-    			@<Location> OR 
-    			@<Organization> ? }?;  # The location/organization from 
-                                            # which the patient came before 
-                                            # admission 
-    fhir:admitSource @<CodeableConcept>?;   # From where patient was admitted 
-                                            # (physician referral, transfer) 
-    fhir:reAdmission @<CodeableConcept>?;   # The type of re-admission that has 
-                                            # occurred (if any). If the value is 
-                                            # absent, then this is not 
-                                            # identified as a readmission 
-    fhir:dietPreference @<OneOrMore_CodeableConcept>?;  # Diet preferences reported by the 
-                                            # patient 
-    fhir:specialCourtesy @<OneOrMore_CodeableConcept>?;  # Special courtesies (VIP, board 
-                                            # member) 
-    fhir:specialArrangement @<OneOrMore_CodeableConcept>?;  # Wheelchair, translator, stretcher, 
-                                            # etc. 
-    fhir:destination @<Reference> AND {fhir:link 
-    			@<Location> OR 
-    			@<Organization> ? }?;  # Location/organization to which the 
-                                            # patient is discharged 
-    fhir:dischargeDisposition @<CodeableConcept>?;  # Category or kind of location after 
-                                            # discharge 
+# List of past encounter statuses
+<Encounter.statusHistory> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:status @<code> AND
+    	{fhir:v @fhirvs:encounter-status};  # planned | in-progress | on-hold | 
+                                            # discharged | completed | cancelled 
+                                            # | discontinued | entered-in-error 
+                                            # | unknown 
+    fhir:period @<Period>;                  # The time that the episode was in 
+                                            # the specified status 
 }  
 
 # List of past encounter classes
@@ -338,9 +284,9 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The status of the location.
-fhirvs:encounter-location-status ["planned" "active" "reserved" "completed"]
-
 # Current state of the encounter.
 fhirvs:encounter-status ["planned" "in-progress" "on-hold" "discharged" "completed" "cancelled" "discontinued" "entered-in-error" "unknown"]
+
+# The status of the location.
+fhirvs:encounter-location-status ["planned" "active" "reserved" "completed"]
 

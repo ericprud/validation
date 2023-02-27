@@ -12,16 +12,5 @@ IMPORT <Quantity.shex>
     a [fhir:MoneyQuantity]?;
     fhir:nodeRole [fhir:treeRoot]?;
 
-} AND (
-
-# Constraint UniqueKey:mtqy-1
-# Human readable:There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = "urn:iso:std:iso:4217" - currency).
-
-# Constraint: (code.exists() or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')
-# ShEx:
-
-({fhir:code . OR  NOT { fhir:value {fhir:v .} } }) AND ( NOT { fhir:system {fhir:v .} }  OR ({ fhir:system { fhir:v ['urn:iso:std:iso:4217'] }  }))
-
-)
- 
+}  
 

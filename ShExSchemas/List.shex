@@ -58,18 +58,7 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:note @<OneOrMore_Annotation>?;     # Comments about the list
     fhir:entry @<OneOrMore_List.entry>?;    # Entries in the list
     fhir:emptyReason @<CodeableConcept>?;   # Why list is empty
-} AND (
-
-# Constraint UniqueKey:lst-1
-# Human readable:A list can only have an emptyReason if it is empty
-
-# Constraint: emptyReason.empty() or entry.empty()
-# ShEx:
-
- NOT { fhir:emptyReason {fhir:v .} }  OR  NOT { fhir:entry {fhir:v .} } 
-
-)
- 
+}  
 
 # Entries in the list
 <List.entry> EXTENDS @<BackboneElement> CLOSED {   

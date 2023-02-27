@@ -8,8 +8,8 @@ IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Ratio.shex>
 IMPORT <Period.shex>
-IMPORT <string.shex>
 IMPORT <Device.shex>
+IMPORT <string.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
@@ -81,41 +81,7 @@ start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:dosage @<MedicationAdministration.dosage>?;  # Details of how medication was taken
     fhir:eventHistory @<OneOrMore_Reference_Provenance>?;  # A list of events of interest in 
                                             # the lifecycle 
-} AND (
-
-# Constraint UniqueKey:mad-1
-# Human readable:If dosage attribute is present then SHALL have at least one of dosage.text or dosage.dose or dosage.rate[x]
-
-# Constraint: (dose.exists() or rate.exists() or text.exists())
-# ShEx:
-
-({fhir:dose . OR {fhir:rate . OR {fhir:text .}}})
-
-)
- 
-
-# Details of how medication was taken
-<MedicationAdministration.dosage> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:text @<string>?;                   # Free text dosage instructions e.g. 
-                                            # SIG 
-    fhir:site @<CodeableConcept>?;          # Body site administered to
-    fhir:route @<CodeableConcept>?;         # Path of substance into body
-    fhir:method @<CodeableConcept>?;        # How drug was administered
-    fhir:dose @<Quantity>?;                 # Amount of medication per dose
-    fhir:rate @<Ratio>  OR 
-    			@<SimpleQuantity>  ?;  # Dose quantity per unit of time
-} AND (
-
-# Constraint UniqueKey:mad-1
-# Human readable:If dosage attribute is present then SHALL have at least one of dosage.text or dosage.dose or dosage.rate[x]
-
-# Constraint: (dose.exists() or rate.exists() or text.exists())
-# ShEx:
-
-({fhir:dose . OR {fhir:rate . OR {fhir:text .}}})
-
-)
- 
+}  
 
 # Who or what performed the medication administration and what type of performance they did
 <MedicationAdministration.performer> EXTENDS @<BackboneElement> CLOSED {   
@@ -127,6 +93,18 @@ start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? };  # Who performed the medication 
                                             # administration 
+}  
+
+# Details of how medication was taken
+<MedicationAdministration.dosage> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:text @<string>?;                   # Free text dosage instructions e.g. 
+                                            # SIG 
+    fhir:site @<CodeableConcept>?;          # Body site administered to
+    fhir:route @<CodeableConcept>?;         # Path of substance into body
+    fhir:method @<CodeableConcept>?;        # How drug was administered
+    fhir:dose @<Quantity>?;                 # Amount of medication per dose
+    fhir:rate @<Ratio>  OR 
+    			@<SimpleQuantity>  ?;  # Dose quantity per unit of time
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

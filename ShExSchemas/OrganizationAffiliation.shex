@@ -59,36 +59,7 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:endpoint @<OneOrMore_Reference_Endpoint>?;  # Technical endpoints providing 
                                             # access to services operated for 
                                             # this role 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# # Constraint UniqueKey:org-3
-# Human readable:The telecom of an organization can never be of use 'home'
-#
-# Constraint: telecom.where(use = 'home').empty()
-# ShEx:
-#
-# NOT { fhir:telecom. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# # Constraint UniqueKey:org-4
-# Human readable:The address of an organization can never be of use 'home'
-#
-# Constraint: address.where(use = 'home').empty()
-# ShEx:
-#
-# NOT { fhir:address. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
-{}
-
-)
- 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

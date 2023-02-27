@@ -46,29 +46,6 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:network @<OneOrMore_Reference_Organization>?;  # What networks are Included
     fhir:coverage @<OneOrMore_InsurancePlan.coverage>?;  # Coverage details
     fhir:plan @<OneOrMore_InsurancePlan.plan>?;  # Plan details
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:ipn-1
-# Human readable:The organization SHALL at least have a name or an identifier, and possibly more than one
-#
-# Constraint: (identifier.count() + name.count()) > 0
-# ShEx:
-#
-#(   count  ( fhir:identifier )  Plus     count  ( fhir:name )) { fhir:v MinExclusive 0 } 
-{}
-
-)
- 
-
-# Benefits list
-<InsurancePlan.plan.specificCost.benefit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Type of specific benefit
-    fhir:cost @<OneOrMore_InsurancePlan.plan.specificCost.benefit.cost>?;  # List of the costs
 }  
 
 # List of the costs
@@ -80,12 +57,6 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:value @<Quantity>?;                # The actual cost value
 }  
 
-# Specific costs
-<InsurancePlan.plan.specificCost> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>;       # General category of benefit
-    fhir:benefit @<OneOrMore_InsurancePlan.plan.specificCost.benefit>?;  # Benefits list
-}  
-
 # Plan details
 <InsurancePlan.plan> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for Product
@@ -94,6 +65,25 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:network @<OneOrMore_Reference_Organization>?;  # What networks provide coverage
     fhir:generalCost @<OneOrMore_InsurancePlan.plan.generalCost>?;  # Overall costs
     fhir:specificCost @<OneOrMore_InsurancePlan.plan.specificCost>?;  # Specific costs
+}  
+
+# Benefits list
+<InsurancePlan.plan.specificCost.benefit> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Type of specific benefit
+    fhir:cost @<OneOrMore_InsurancePlan.plan.specificCost.benefit.cost>?;  # List of the costs
+}  
+
+# Specific costs
+<InsurancePlan.plan.specificCost> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>;       # General category of benefit
+    fhir:benefit @<OneOrMore_InsurancePlan.plan.specificCost.benefit>?;  # Benefits list
+}  
+
+# List of benefits
+<InsurancePlan.coverage.benefit> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Type of benefit
+    fhir:requirement @<string>?;            # Referral requirements
+    fhir:limit @<OneOrMore_InsurancePlan.coverage.benefit.limit>?;  # Benefit limits
 }  
 
 # Benefit limits
@@ -115,13 +105,6 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>;           # Type of coverage
     fhir:network @<OneOrMore_Reference_Organization>?;  # What networks provide coverage
     fhir:benefit @<OneOrMore_InsurancePlan.coverage.benefit>;  # List of benefits
-}  
-
-# List of benefits
-<InsurancePlan.coverage.benefit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Type of benefit
-    fhir:requirement @<string>?;            # Referral requirements
-    fhir:limit @<OneOrMore_InsurancePlan.coverage.benefit.limit>?;  # Benefit limits
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -174,16 +157,6 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan> 
 }
 
-<OneOrMore_InsurancePlan.plan.specificCost.benefit.cost> CLOSED {
-    rdf:first @<InsurancePlan.plan.specificCost.benefit.cost>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan.specificCost.benefit.cost> 
-}
-
-<OneOrMore_InsurancePlan.plan.specificCost.benefit> CLOSED {
-    rdf:first @<InsurancePlan.plan.specificCost.benefit>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan.specificCost.benefit> 
-}
-
 <OneOrMore_InsurancePlan.plan.generalCost> CLOSED {
     rdf:first @<InsurancePlan.plan.generalCost>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan.generalCost> 
@@ -194,14 +167,24 @@ start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan.specificCost> 
 }
 
-<OneOrMore_InsurancePlan.coverage.benefit> CLOSED {
-    rdf:first @<InsurancePlan.coverage.benefit>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.coverage.benefit> 
+<OneOrMore_InsurancePlan.plan.specificCost.benefit.cost> CLOSED {
+    rdf:first @<InsurancePlan.plan.specificCost.benefit.cost>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan.specificCost.benefit.cost> 
+}
+
+<OneOrMore_InsurancePlan.plan.specificCost.benefit> CLOSED {
+    rdf:first @<InsurancePlan.plan.specificCost.benefit>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.plan.specificCost.benefit> 
 }
 
 <OneOrMore_InsurancePlan.coverage.benefit.limit> CLOSED {
     rdf:first @<InsurancePlan.coverage.benefit.limit>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.coverage.benefit.limit> 
+}
+
+<OneOrMore_InsurancePlan.coverage.benefit> CLOSED {
+    rdf:first @<InsurancePlan.coverage.benefit>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_InsurancePlan.coverage.benefit> 
 }
 
 #---------------------- Value Sets ------------------------

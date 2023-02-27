@@ -75,38 +75,6 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:team @<OneOrMore_Reference_CareTeam>?;  # Appropriate team for this condition
     fhir:questionnaire @<OneOrMore_ConditionDefinition.questionnaire>?;  # Questionnaire for this condition
     fhir:plan @<OneOrMore_ConditionDefinition.plan>?;  # Plan that is appropriate
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-)
- 
-
-# Plan that is appropriate
-<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<CodeableConcept>?;          # Use for the plan
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<PlanDefinition> ? };  # The actual plan
 }  
 
 # Observations particularly relevant to this condition
@@ -115,18 +83,25 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>?;          # Code for relevant Observation
 }  
 
-# Medications particularly relevant for this condition
-<ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>?;      # Category that is relevant
-    fhir:code @<CodeableConcept>?;          # Code for relevant Medication
-}  
-
 # Questionnaire for this condition
 <ConditionDefinition.questionnaire> EXTENDS @<BackboneElement> CLOSED {   
     fhir:purpose @<code> AND
     	{fhir:v @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
     fhir:reference @<Reference> AND {fhir:link 
     			@<Questionnaire> ? };  # Specific Questionnaire
+}  
+
+# Medications particularly relevant for this condition
+<ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>?;      # Category that is relevant
+    fhir:code @<CodeableConcept>?;          # Code for relevant Medication
+}  
+
+# Plan that is appropriate
+<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<CodeableConcept>?;          # Use for the plan
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<PlanDefinition> ? };  # The actual plan
 }  
 
 # Observation that suggets this condition
