@@ -12,6 +12,7 @@ IMPORT <Practitioner.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <HealthcareService.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 
 start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}

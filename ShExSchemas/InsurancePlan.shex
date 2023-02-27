@@ -16,6 +16,7 @@ IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 
 start=@<InsurancePlan> AND {fhir:nodeRole [fhir:treeRoot]}

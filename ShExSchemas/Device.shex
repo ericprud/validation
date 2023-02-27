@@ -28,6 +28,7 @@ IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableReference.shex>
+IMPORT <ContactPoint.shex>
 
 
 start=@<Device> AND {fhir:nodeRole [fhir:treeRoot]}

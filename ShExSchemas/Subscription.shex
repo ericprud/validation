@@ -22,6 +22,7 @@ IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <HealthcareService.shex>
+IMPORT <ContactPoint.shex>
 
 
 start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}

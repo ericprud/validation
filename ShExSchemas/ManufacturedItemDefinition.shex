@@ -13,6 +13,7 @@ IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <MarketingStatus.shex>
 
 
 start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}

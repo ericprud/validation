@@ -32,6 +32,7 @@ IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <HealthcareService.shex>
 IMPORT <MedicationRequest.shex>
+IMPORT <VirtualServiceDetail.shex>
 
 
 start=@<Appointment> AND {fhir:nodeRole [fhir:treeRoot]}

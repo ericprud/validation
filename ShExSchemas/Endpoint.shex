@@ -10,6 +10,7 @@ IMPORT <Period.shex>
 IMPORT <Reference.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
+IMPORT <ContactPoint.shex>
 
 
 start=@<Endpoint> AND {fhir:nodeRole [fhir:treeRoot]}

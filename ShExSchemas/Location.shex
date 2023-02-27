@@ -14,6 +14,8 @@ IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <ExtendedContactDetail.shex>
+IMPORT <VirtualServiceDetail.shex>
 
 
 start=@<Location> AND {fhir:nodeRole [fhir:treeRoot]}

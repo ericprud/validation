@@ -5,6 +5,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <string.shex>
 IMPORT <DataType.shex>
+IMPORT <ContactPoint.shex>
 
 # Contact information
 <ContactDetail> EXTENDS @<DataType> CLOSED {   

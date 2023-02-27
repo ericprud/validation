@@ -13,6 +13,7 @@ IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <ContactPoint.shex>
 
 
 start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}

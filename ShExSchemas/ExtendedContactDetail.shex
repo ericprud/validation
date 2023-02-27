@@ -9,6 +9,7 @@ IMPORT <DataType.shex>
 IMPORT <Reference.shex>
 IMPORT <Organization.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <ContactPoint.shex>
 
 # Contact information
 <ExtendedContactDetail> EXTENDS @<DataType> CLOSED {   

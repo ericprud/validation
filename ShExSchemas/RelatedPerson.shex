@@ -12,6 +12,7 @@ IMPORT <Reference.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <ContactPoint.shex>
 
 
 start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}

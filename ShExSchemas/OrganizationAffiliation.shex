@@ -11,6 +11,7 @@ IMPORT <Reference.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <HealthcareService.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 
 start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}

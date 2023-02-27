@@ -5,6 +5,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <Base.shex>
 IMPORT <string.shex>
+IMPORT <Extension.shex>
 
 # Base for all elements
 <Element> EXTENDS @<Base> CLOSED {   
