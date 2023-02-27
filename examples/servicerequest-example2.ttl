@@ -23,7 +23,7 @@
      fhir:agent ( [
        fhir:role ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AUT" ]
          ] )
        ] ) ;
@@ -34,7 +34,7 @@
      ] ) ;
      fhir:signature ( [
        fhir:type ( [
-         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1.2.840.10065.1.12.1.1" ] ;
          fhir:display [ fhir:v "Author's Signature" ]
        ] ) ;
@@ -52,19 +52,19 @@
      fhir:id [ fhir:v "cystic-fibrosis" ] ;
      fhir:clinicalStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "active" ]
        ] )
      ] ;
      fhir:verificationStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "confirmed" ]
        ] )
      ] ;
      fhir:category ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "problem-list-item" ] ;
          fhir:display [ fhir:v "Problem List Item" ]
        ] )
@@ -72,14 +72,14 @@
      fhir:severity [
        fhir:coding ( [
          a sct:255604002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "255604002" ] ;
          fhir:display [ fhir:v "Mild" ]
        ] )
      ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/sid/icd-10-cm" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/sid/icd-10-cm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "E84.0" ] ;
          fhir:display [ fhir:v "Cystic fibrosis with pulmonary manifestations" ]
        ] ) ;
@@ -93,13 +93,13 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PLAC" ] ;
          fhir:display [ fhir:v "Placer Identifier" ]
        ] ) ;
        fhir:text [ fhir:v "Placer" ]
      ] ;
-     fhir:system [ fhir:v "http://goodhealth.org/placer-ids" ] ;
+     fhir:system [ fhir:v "http://goodhealth.org/placer-ids"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20170201-0001" ]
   ] ) ; # 
   fhir:basedOn ( [
@@ -111,7 +111,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:34431008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "34431008" ] ;
          fhir:display [ fhir:v "Physiotherapy of chest (regime/therapy)" ]
        ] )

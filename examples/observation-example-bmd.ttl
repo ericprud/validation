@@ -18,7 +18,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:24701-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "24701-5" ] ;
        fhir:display [ fhir:v "Femur DXA Bone density" ]
      ] ) ;
@@ -35,12 +35,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.887"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "g/cm²" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "g/cm-2" ]
   ] ; # 
   fhir:bodySite [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "71341001:272741003=7771000" ]
      ] ) ; #   example of a post coordinated term  
      fhir:text [ fhir:v "Left Femur" ]

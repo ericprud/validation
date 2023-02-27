@@ -17,14 +17,14 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "laboratory" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:13980-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "13980-8" ] ;
        fhir:display [ fhir:v "Albumin/Protein.total in Serum or Plasma by Electrophoresis" ]
      ] )
@@ -34,7 +34,7 @@
   fhir:method [
      fhir:coding ( [
        a sct:115341008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "115341008" ] ;
        fhir:display [ fhir:v "Total measurement" ]
      ] )
@@ -43,7 +43,7 @@
   fhir:quantitativeDetails [
      fhir:unit [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "%" ] ;
          fhir:display [ fhir:v "%" ]
        ] )
@@ -53,7 +53,7 @@
   fhir:qualifiedValue ( [
      fhir:context [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/referencerange-meaning" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/referencerange-meaning"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "normal" ] ;
          fhir:display [ fhir:v "Normal Range" ]
        ] )
@@ -67,7 +67,7 @@
   ] [
      fhir:context [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/referencerange-meaning" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/referencerange-meaning"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "normal" ] ;
          fhir:display [ fhir:v "Normal Range" ]
        ] )

@@ -27,7 +27,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/reports" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/reports"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "nr1239044" ]
   ] ) ; # 
   fhir:basedOn ( [
@@ -37,18 +37,18 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:252275004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "252275004" ] ;
        fhir:display [ fhir:v "Haematology test" ]
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HM" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:58410-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "58410-2" ] ;
        fhir:display [ fhir:v "Complete blood count (hemogram) panel - Blood by Automated count" ]
      ] )
@@ -82,19 +82,19 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: ServiceRequest</b><a name=\"req\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource ServiceRequest &quot;req&quot; </p></div><p><b>identifier</b>: id: L2381</p><p><b>status</b>: active</p><p><b>intent</b>: original-order</p><h3>Codes</h3><table class=\"grid\"><tr><td>-</td><td><b>Concept</b></td></tr><tr><td>*</td><td>Complete blood count (hemogram) panel - Blood by Automated count <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://loinc.org/\">LOINC</a>#58410-2)</span></td></tr></table><p><b>subject</b>: <a href=\"patient-example-f001-pieter.html\">Patient/f001: P. van den Heuvel</a> &quot;Pieter VAN DE HEUVEL&quot;</p><p><b>encounter</b>: <a href=\"encounter-example-f001-heart.html\">Encounter/f001</a></p><p><b>requester</b>: <a href=\"practitioner-example-f001-evdb.html\">Practitioner/f001: E.van den Broek</a> &quot;Eric VAN DEN BROEK&quot;</p><p><b>note</b>: patient almost fainted during procedure</p></div>"
   ] ; # 
   fhir:extension ( [
-     fhir:url [ fhir:v "http://example.org/bodysitecode" ] ;
+     fhir:url [ fhir:v "http://example.org/bodysitecode"^^xsd:anyURI ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:14975008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "14975008" ] ;
          fhir:display [ fhir:v "Forearm structure" ]
        ] )
      ]
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/labresults" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/labresults"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "L2381" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -103,7 +103,7 @@
      fhir:concept [
        fhir:coding ( [
          a loinc:58410-2 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "58410-2" ] ;
          fhir:display [ fhir:v "Complete blood count (hemogram) panel - Blood by Automated count" ]
        ] )

@@ -15,13 +15,13 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "problem-list-item" ] ;
        fhir:display [ fhir:v "Problem List Item" ]
      ] )
@@ -29,7 +29,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:312824007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "312824007" ] ;
        fhir:display [ fhir:v "Family history of cancer of colon" ]
      ] )

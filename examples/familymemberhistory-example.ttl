@@ -26,7 +26,7 @@
   fhir:participant ( [
      fhir:function [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "verifier" ] ;
          fhir:display [ fhir:v "Verifier" ]
        ] )
@@ -37,14 +37,14 @@
   ] ) ; # 
   fhir:relationship [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "FTH" ] ;
        fhir:display [ fhir:v "father" ]
      ] )
   ] ; # 
   fhir:sex [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/administrative-gender" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/administrative-gender"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "male" ] ;
        fhir:display [ fhir:v "Male" ]
      ] )
@@ -53,7 +53,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:315619001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "315619001" ] ;
          fhir:display [ fhir:v "Myocardial Infarction" ]
        ] ) ;
@@ -64,7 +64,7 @@
        a fhir:Age ;
        fhir:value [ fhir:v "74"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "yr" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "a" ]
      ] ;
      fhir:note ( [

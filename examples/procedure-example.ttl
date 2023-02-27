@@ -20,7 +20,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:80146002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "80146002" ] ;
        fhir:display [ fhir:v "Appendectomy (Procedure)" ]
      ] ) ;

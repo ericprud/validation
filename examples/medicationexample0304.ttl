@@ -20,7 +20,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "76388-713-25" ] ;
        fhir:display [ fhir:v "Myleran 2mg tablet, film coated" ]
      ] )
@@ -31,7 +31,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385057009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385057009" ] ;
        fhir:display [ fhir:v "Film-coated tablet (qualifier value)" ]
      ] )
@@ -41,7 +41,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:387138002 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "387138002" ] ;
            fhir:display [ fhir:v "Busulfan (substance)" ]
          ] )
@@ -51,12 +51,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "2"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TAB" ]
        ]
      ]

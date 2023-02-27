@@ -14,7 +14,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n			<p>\n				Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar\n				2012\n			</p>\n		</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.acme.org/practitioners" ] ;
+     fhir:system [ fhir:v "http://www.acme.org/practitioners"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "23" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -31,14 +31,14 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0286" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0286"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "RP" ]
      ] )
   ] ) ; #   Referring Practitioner for the first 3 months of 2012  
   fhir:specialty ( [
      fhir:coding ( [
        a sct:408443003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "408443003" ] ;
        fhir:display [ fhir:v "General medical practice" ]
      ] )

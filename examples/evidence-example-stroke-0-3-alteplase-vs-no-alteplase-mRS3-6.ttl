@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/Evidence/example-stroke-0-3-alteplase-vs-no-alteplase-mRS3-6"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.10.5" ]
   ] ) ; # 
   fhir:name [ fhir:v "EffectOfAlteplaseVsNoAlteplaseOnMRS36At90DaysInStroke03HoursPrior"] ; # 
@@ -26,14 +26,14 @@
      fhir:display [ fhir:v "Analysis 1.16 from Wardlaw 2014" ] ;
      fhir:citation [ fhir:v "Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://doi.org/10.1002/14651858.CD000213.pub3" ]
+       fhir:url [ fhir:v "https://doi.org/10.1002/14651858.CD000213.pub3"^^xsd:anyURI ]
      ]
   ] ) ; # 
   fhir:description [ fhir:v "mRS 3-6 at 90 days Odds Ratio 0.65 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 0-3 hours prior"] ; # 
   fhir:variableDefinition ( [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "population" ] ;
          fhir:display [ fhir:v "population" ]
        ] )
@@ -51,7 +51,7 @@
   ] [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "measuredVariable" ] ;
          fhir:display [ fhir:v "measured variable" ]
        ] )
@@ -69,7 +69,7 @@
   ] [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "exposure" ] ;
          fhir:display [ fhir:v "exposure" ]
        ] )
@@ -87,7 +87,7 @@
   ] [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "referenceExposure" ] ;
          fhir:display [ fhir:v "reference exposure" ]
        ] )
@@ -105,14 +105,14 @@
   ] ) ; # 
   fhir:synthesisType [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/synthesis-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/synthesis-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "std-MA" ] ;
        fhir:display [ fhir:v "summary data meta-analysis" ]
      ] )
   ] ; # 
   fhir:studyDesign ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/research-study-classifiers" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/research-study-classifiers"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SEVCO:01003" ] ;
        fhir:display [ fhir:v "randomized assignment" ]
      ] )
@@ -120,7 +120,7 @@
   fhir:statistic ( [
      fhir:statisticType [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/statistic-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/statistic-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "C16932" ] ;
          fhir:display [ fhir:v "Odds Ratio" ]
        ] )
@@ -137,7 +137,7 @@
        fhir:description [ fhir:v "95% CI 0.54 to 0.80" ] ;
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/attribute-estimate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/attribute-estimate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "C53324" ] ;
            fhir:display [ fhir:v "Confidence interval" ]
          ] )
@@ -155,7 +155,7 @@
        fhir:description [ fhir:v "P-value = 0.000023" ] ;
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/attribute-estimate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/attribute-estimate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "C44185" ] ;
            fhir:display [ fhir:v "P-value" ]
          ] )
@@ -167,7 +167,7 @@
        fhir:description [ fhir:v "Heterogeneity I-sq = 0.0%" ] ;
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/attribute-estimate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/attribute-estimate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "0000420" ] ;
            fhir:display [ fhir:v "I-squared" ]
          ] )
@@ -175,7 +175,7 @@
        fhir:quantity [
          fhir:value [ fhir:v "0"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "%" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "%" ]
        ]
      ] )
@@ -184,14 +184,14 @@
      fhir:description [ fhir:v "Moderate certainty due to risk of bias" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "Overall" ] ;
          fhir:display [ fhir:v "Overall quality" ]
        ] )
      ] ;
      fhir:rating [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "moderate" ] ;
          fhir:display [ fhir:v "Moderate" ]
        ] )
@@ -199,14 +199,14 @@
      fhir:subcomponent ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PublicationBias" ] ;
            fhir:display [ fhir:v "Publication bias" ]
          ] )
        ] ;
        fhir:rating [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "no-concern" ] ;
            fhir:display [ fhir:v "no serious concern" ]
          ] )
@@ -214,14 +214,14 @@
      ] [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Inconsistency" ] ;
            fhir:display [ fhir:v "Inconsistency" ]
          ] )
        ] ;
        fhir:rating [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "no-concern" ] ;
            fhir:display [ fhir:v "no serious concern" ]
          ] )
@@ -229,14 +229,14 @@
      ] [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Imprecision" ] ;
            fhir:display [ fhir:v "Imprecision" ]
          ] )
        ] ;
        fhir:rating [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "no-concern" ] ;
            fhir:display [ fhir:v "no serious concern" ]
          ] )
@@ -244,14 +244,14 @@
      ] [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Indirectness" ] ;
            fhir:display [ fhir:v "Indirectness" ]
          ] )
        ] ;
        fhir:rating [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "no-concern" ] ;
            fhir:display [ fhir:v "no serious concern" ]
          ] )
@@ -262,14 +262,14 @@
        ] ) ;
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/certainty-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "RiskOfBias" ] ;
            fhir:display [ fhir:v "Risk of bias" ]
          ] )
        ] ;
        fhir:rating [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/certainty-rating"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "serious-concern" ] ;
            fhir:display [ fhir:v "serious concern" ]
          ] )

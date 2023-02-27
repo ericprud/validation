@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n			<p>OD -2.00 SPH         +2.00 add    0.5 p.d. BD</p>\n			<p>OS -1.00 -0.50 x 180 +2.00 add    0.5 p.d. BU</p>\n		</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.happysight.com/prescription" ] ;
+     fhir:system [ fhir:v "http://www.happysight.com/prescription"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "15013" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -28,7 +28,7 @@
   fhir:lensSpecification ( [
      fhir:product [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "lens" ]
        ] )
      ] ;
@@ -42,7 +42,7 @@
   ] [
      fhir:product [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "lens" ]
        ] )
      ] ;

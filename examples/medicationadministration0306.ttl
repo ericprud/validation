@@ -19,7 +19,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:324252006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "324252006" ] ;
          fhir:display [ fhir:v "Azithromycin 250mg capsule (product)" ]
        ] )
@@ -47,7 +47,7 @@
   fhir:performer ( [
      fhir:function [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/med-admin-perform-function" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/med-admin-perform-function"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "performer" ] ;
          fhir:display [ fhir:v "Performer" ]
        ] )
@@ -67,7 +67,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:26643006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "26643006" ] ;
          fhir:display [ fhir:v "Oral Route" ]
        ] )
@@ -75,7 +75,7 @@
      fhir:method [
        fhir:coding ( [
          a sct:421521009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "421521009" ] ;
          fhir:display [ fhir:v "Swallow - dosing instruction imperative (qualifier value)" ]
        ] )
@@ -83,7 +83,7 @@
      fhir:dose [
        fhir:value [ fhir:v "2"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "TAB" ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "TAB" ]
      ]
   ]] . # 

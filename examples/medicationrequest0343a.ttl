@@ -19,7 +19,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:1179448000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1179448000" ] ;
          fhir:display [ fhir:v "Product containing precisely ondansetron 4 milligram/1 each conventional release oral lyophilisate (clinical drug)" ]
        ] )
@@ -27,12 +27,12 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "98765" ]
   ] ) ; # 
   fhir:groupIdentifier [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "9898" ]
   ] ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -65,7 +65,7 @@
      fhir:asNeededFor ( [
        fhir:coding ( [
          a sct:16932000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "16932000" ] ;
          fhir:display [ fhir:v "Nausea and Vomiting" ]
        ] )
@@ -73,7 +73,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:78421000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "78421000" ] ;
          fhir:display [ fhir:v "Intramuscular Route" ]
        ] )
@@ -83,7 +83,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "4"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ]
      ] )

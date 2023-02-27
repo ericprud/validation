@@ -19,12 +19,12 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acmelabs.org" ] ;
+       fhir:system [ fhir:v "http://acmelabs.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "104177" ] ;
        fhir:display [ fhir:v "Blood culture" ]
      ] [
        a loinc:600-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "600-7" ] ;
        fhir:display [ fhir:v "Bacteria identified in Blood by Culture" ]
      ] ) #    Kind of observation = Blood culture   
@@ -42,21 +42,21 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:3092008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "3092008" ] ;
        fhir:display [ fhir:v "Staphylococcus aureus" ]
      ] )
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "POS" ]
      ] )
   ] ) ; # 
   fhir:method [
      fhir:coding ( [
        a sct:104177005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "104177005" ] ;
        fhir:display [ fhir:v "Blood culture for bacteria, including anaerobic screen" ]
      ] )

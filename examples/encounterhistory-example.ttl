@@ -15,7 +15,7 @@
   fhir:status [ fhir:v "in-progress"] ; # 
   fhir:class [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "IMP" ] ;
        fhir:display [ fhir:v "inpatient encounter" ]
      ] )

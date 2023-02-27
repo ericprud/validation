@@ -19,7 +19,7 @@
      fhir:doseForm [
        fhir:coding ( [
          a sct:385219001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "385219001" ] ;
          fhir:display [ fhir:v "Injection Solution (qualifier value)" ]
        ] ) ;
@@ -29,7 +29,7 @@
        fhir:item [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+             fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "204520" ] ;
              fhir:display [ fhir:v "Potassium Chloride" ]
            ] )
@@ -39,12 +39,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "2"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "meq" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ]
        ]
@@ -52,7 +52,7 @@
        fhir:item [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+             fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "313002" ] ;
              fhir:display [ fhir:v "Sodium Chloride 0.9% injectable solution" ]
            ] )
@@ -62,12 +62,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ]
        ]
@@ -94,20 +94,20 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "FF" ] ;
        fhir:display [ fhir:v "First Fill" ]
      ] )
   ] ; # 
   fhir:quantity [
      fhir:value [ fhir:v "1000"^^xsd:decimal ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "ml" ]
   ] ; # 
   fhir:daysSupply [
      fhir:value [ fhir:v "1"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "Day" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "d" ]
   ] ; # 
   fhir:whenPrepared [ fhir:v "2016-04-28T07:13:00+05:00"^^xsd:dateTime] ; # 
@@ -125,7 +125,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:47625008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "47625008" ] ;
          fhir:display [ fhir:v "Intravenous route (qualifier value)" ]
        ] )
@@ -133,7 +133,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -142,19 +142,19 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "20"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mEq" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "meq" ]
        ] ;
        fhir:rate [
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "h" ]
          ]
        ]

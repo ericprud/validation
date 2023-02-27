@@ -28,7 +28,7 @@
   fhir:category ( [
      fhir:coding ( [
        a loinc:LA27976-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "LA27976-2" ] ;
        fhir:display [ fhir:v "Encounter-focused care team" ]
      ] )

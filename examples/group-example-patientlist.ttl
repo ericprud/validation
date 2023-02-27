@@ -17,7 +17,7 @@
   fhir:characteristic ( [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org" ] ;
+         fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "attributed-to" ]
        ] ) ;
        fhir:text [ fhir:v "Patients primarily attributed to" ]

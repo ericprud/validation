@@ -18,7 +18,7 @@
      fhir:id [ fhir:v "med0304" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "308047" ] ;
          fhir:display [ fhir:v "Alprazolam 0.25mg Oral Tablet" ]
        ] )
@@ -51,7 +51,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:266599000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "266599000" ] ;
          fhir:display [ fhir:v "Dysmenorrhea" ]
        ] )
@@ -65,7 +65,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:26643006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "26643006" ] ;
          fhir:display [ fhir:v "Oral Route" ]
        ] )
@@ -73,7 +73,7 @@
      fhir:dose [
        fhir:value [ fhir:v "1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "TAB" ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "TAB" ]
      ]
   ]] . # 

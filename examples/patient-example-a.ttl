@@ -16,11 +16,11 @@
      fhir:use [ fhir:v "usual" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "MR" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "urn:oid:0.1.2.3.4.5.6.7" ] ;
+     fhir:system [ fhir:v "urn:oid:0.1.2.3.4.5.6.7"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "654321" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -37,7 +37,7 @@
   fhir:contact ( [
      fhir:relationship ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "E" ]
        ] )
      ] ) ;

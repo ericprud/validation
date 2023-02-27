@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -24,7 +24,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:333919005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "333919005" ] ;
          fhir:display [ fhir:v "Fentanyl 25micrograms/hour patch (product)" ]
        ] )
@@ -52,7 +52,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -61,7 +61,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "patch" ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PATCH" ]
        ]
      ] )
@@ -74,13 +74,13 @@
      fhir:quantity [
        fhir:value [ fhir:v "6"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "patch" ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "PATCH" ]
      ] ;
      fhir:expectedSupplyDuration [
        fhir:value [ fhir:v "14"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "days" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "d" ]
      ]
   ]] . # 

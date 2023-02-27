@@ -17,13 +17,13 @@
      fhir:id [ fhir:v "p1" ] ;
      fhir:clinicalStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "active" ]
        ] )
      ] ;
      fhir:verificationStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "confirmed" ]
        ] )
      ] ;
@@ -54,7 +54,7 @@
      fhir:participant ( [
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/mysys" ] ;
+           fhir:system [ fhir:v "http://example.org/mysys"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "lmc" ]
          ] ) ;
          fhir:text [ fhir:v "Midwife" ]
@@ -66,7 +66,7 @@
      ] [
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/mysys" ] ;
+           fhir:system [ fhir:v "http://example.org/mysys"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "obs" ]
          ] ) ;
          fhir:text [ fhir:v "Obstretitian" ]
@@ -89,7 +89,7 @@
      ]
   ] ) ; # 
   fhir:extension ( [
-     fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/careplan#lmp" ] ;
+     fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/careplan#lmp"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "2013-01-01"^^xsd:date ]
   ] ) ; #   an extension to record the LMP, which is required at the plan level...  
   fhir:status [ fhir:v "active"] ; # 
@@ -120,14 +120,14 @@
      ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/careplan#andetails" ] ;
+       fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/careplan#andetails"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://orionhealth.com/fhir/careplan/1andetails" ]
      ] ) ; #   This will be the first antenatal encounter  ,   a link to further details about the first antenatal details  
      fhir:plannedActivityDetail [
        fhir:kind [ fhir:v "Appointment" ] ;
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/mySystem" ] ;
+           fhir:system [ fhir:v "http://example.org/mySystem"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "1an" ]
          ] ) ;
          fhir:text [ fhir:v "First Antenatal encounter" ]
@@ -155,7 +155,7 @@
        fhir:kind [ fhir:v "Appointment" ] ; #   This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled.  
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/mySystem" ] ;
+           fhir:system [ fhir:v "http://example.org/mySystem"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "an" ]
          ] ) ; #   The code is just for an antenatal encounter. There are many of these, the first is special...  
          fhir:text [ fhir:v "Follow-up Antenatal encounter" ]
@@ -183,7 +183,7 @@
        fhir:kind [ fhir:v "Appointment" ] ; #   This will be the delivery. It is not yet scheduled.  
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/mySystem" ] ;
+           fhir:system [ fhir:v "http://example.org/mySystem"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "del" ]
          ] ) ;
          fhir:text [ fhir:v "Delivery" ]

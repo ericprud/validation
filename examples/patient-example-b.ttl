@@ -16,11 +16,11 @@
      fhir:use [ fhir:v "usual" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "MR" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "urn:oid:0.1.2.3.4.5.6.7" ] ;
+     fhir:system [ fhir:v "urn:oid:0.1.2.3.4.5.6.7"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123456" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -32,11 +32,11 @@
   fhir:gender [
      fhir:v "other" ;
      fhir:extension ( [
-       fhir:url [ fhir:v "http://example.org/Profile/administrative-status" ] ;
+       fhir:url [ fhir:v "http://example.org/Profile/administrative-status"^^xsd:anyURI ] ;
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0001" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0001"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "A" ] ;
            fhir:display [ fhir:v "Ambiguous" ]
          ] )

@@ -20,7 +20,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:73761001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "73761001" ] ;
        fhir:display [ fhir:v "Colonoscopy (procedure)" ]
      ] ) ;

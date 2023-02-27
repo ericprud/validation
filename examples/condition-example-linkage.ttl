@@ -15,24 +15,24 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "encounter-diagnosis" ] ;
        fhir:display [ fhir:v "Encounter Diagnosis" ]
      ] [
        a sct:439401001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "439401001" ] ;
        fhir:display [ fhir:v "Diagnosis" ]
      ] )
@@ -40,7 +40,7 @@
   fhir:severity [
      fhir:coding ( [
        a sct:24484000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "24484000" ] ;
        fhir:display [ fhir:v "Severe" ]
      ] )
@@ -48,7 +48,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:39065001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "39065001" ] ;
        fhir:display [ fhir:v "Burn of ear" ]
      ] ) ;
@@ -57,7 +57,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:49521004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "49521004" ] ;
        fhir:display [ fhir:v "Left external ear structure" ]
      ] ) ;

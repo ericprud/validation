@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/TerminologyCapabilities/terminology-server"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.6.1" ]
   ] ) ; # 
   fhir:name [ fhir:v "ACMETerminologyServiceTerminologyCapabilities"] ; # 

@@ -15,14 +15,14 @@
   ] ; #      urn:oid:2.16.840.1.113883.4.642.1.7     
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/observations" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/observations"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "6326" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:789-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "789-8" ] ;
        fhir:display [ fhir:v "Erythrocytes [#/volume] in Blood by Automated count" ]
      ] )
@@ -41,12 +41,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "4.12"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "10^12/L" ] ; #     Actually, 4.12E+12    
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*12/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "L" ] ;
        fhir:display [ fhir:v "Low" ]
      ] )

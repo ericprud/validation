@@ -21,11 +21,11 @@
        ] )
      ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier" ] ;
+       fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A9999E0398A999921123456000001" ]
      ] ) ;
      fhir:biologicalSourceEvent [
-       fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber" ] ;
+       fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A999921123456" ]
      ] ;
      fhir:processingFacility ( [
@@ -45,7 +45,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD" ] ;
+           fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "62" ] ;
            fhir:display [ fhir:v "A RhD Positive" ]
          ] )
@@ -59,7 +59,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType" ] ;
+           fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "V" ] ;
            fhir:display [ fhir:v "Volunteer" ]
          ] )
@@ -74,11 +74,11 @@
        ] )
      ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier" ] ;
+       fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A9999E0398A999921123457000001" ]
      ] ) ;
      fhir:biologicalSourceEvent [
-       fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber" ] ;
+       fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A999921123457" ]
      ] ;
      fhir:processingFacility ( [
@@ -98,7 +98,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD" ] ;
+           fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "51" ] ;
            fhir:display [ fhir:v "O RhD Positive" ]
          ] )
@@ -112,7 +112,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType" ] ;
+           fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "V" ] ;
            fhir:display [ fhir:v "Volunteer" ]
          ] )
@@ -127,11 +127,11 @@
        ] )
      ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier" ] ;
+       fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A9999E0398A999921123458000001" ]
      ] ) ;
      fhir:biologicalSourceEvent [
-       fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber" ] ;
+       fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A999921123458" ]
      ] ;
      fhir:processingFacility ( [
@@ -151,7 +151,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD" ] ;
+           fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "51" ] ;
            fhir:display [ fhir:v "O RhD Positive" ]
          ] )
@@ -165,7 +165,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType" ] ;
+           fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "V" ] ;
            fhir:display [ fhir:v "Volunteer" ]
          ] )
@@ -173,12 +173,12 @@
      ] )
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "https://www.isbt128.org/uri/ProductConsignment" ] ;
+     fhir:system [ fhir:v "https://www.isbt128.org/uri/ProductConsignment"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "A999922123450101" ]
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/supplydelivery-supplyitemtype" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/supplydelivery-supplyitemtype"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "biologicallyderivedproduct" ]
      ] ) ;
      fhir:text [ fhir:v "Blood Dispatch" ]

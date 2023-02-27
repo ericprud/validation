@@ -19,7 +19,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:400621001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "400621001" ] ;
          fhir:display [ fhir:v "Lorazepam 2mg/ml injection solution 1ml vial (product)" ]
        ] )
@@ -27,7 +27,7 @@
      fhir:doseForm [
        fhir:coding ( [
          a sct:385219001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "385219001" ] ;
          fhir:display [ fhir:v "Injection solution (qualifier value)" ]
        ] )
@@ -37,7 +37,7 @@
          fhir:concept [
            fhir:coding ( [
              a sct:387106007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "387106007" ] ;
              fhir:display [ fhir:v "Lorazepam (substance)" ]
            ] )
@@ -47,12 +47,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "2"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mg" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ]
        ]
@@ -60,7 +60,7 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -87,7 +87,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:84757009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "84757009" ] ;
          fhir:display [ fhir:v "Epilepsy (disorder)" ]
        ] )
@@ -107,7 +107,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:255560000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "255560000" ] ;
          fhir:display [ fhir:v "Intravenous" ]
        ] )
@@ -115,7 +115,7 @@
      fhir:method [
        fhir:coding ( [
          a sct:420620005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "420620005" ] ;
          fhir:display [ fhir:v "Push - dosing instruction imperative (qualifier value)" ]
        ] )
@@ -123,7 +123,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -133,13 +133,13 @@
          fhir:low [
            fhir:value [ fhir:v "0.05"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "mg/kg" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mg/kg" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "0.1"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "mg/kg" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mg/kg" ]
          ]
        ] ;
@@ -148,13 +148,13 @@
          fhir:low [
            fhir:value [ fhir:v "2"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "min" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "min" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "5"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "min" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "min" ]
          ]
        ]

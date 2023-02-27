@@ -34,7 +34,7 @@
   ] ) ; # 
   fhir:appointmentType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0276" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0276"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "WALKIN" ] ;
        fhir:display [ fhir:v "A previously unscheduled walk-in visit" ]
      ] )

@@ -15,7 +15,7 @@
   fhir:status [ fhir:v "current"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/media-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/media-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "image" ] ;
        fhir:display [ fhir:v "Image" ]
      ] )

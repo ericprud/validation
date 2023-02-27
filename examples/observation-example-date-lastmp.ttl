@@ -16,7 +16,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "survey" ] ;
        fhir:display [ fhir:v "Survey" ]
      ] ) ;
@@ -25,7 +25,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:8665-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "8665-2" ] ;
        fhir:display [ fhir:v "Date last menstrual period" ]
      ] ) ;

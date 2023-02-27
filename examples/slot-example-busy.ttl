@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n			25 Dec 2013 9:00am - 9:15am: <b>Busy</b> Physiotherapy\n		</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org/identifiers/slots" ] ;
+     fhir:system [ fhir:v "http://example.org/identifiers/slots"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123132" ]
   ] ) ; # 
   fhir:serviceCategory ( [

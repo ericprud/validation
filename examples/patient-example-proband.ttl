@@ -27,7 +27,7 @@
      fhir:type [
        fhir:text [ fhir:v "Computer-Stored Abulatory Records (COSTAR)" ]
      ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.6.117" ] ; #     This OID has been used below for illustration purposes only    
+     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.6.117"^^xsd:anyURI ] ; #     This OID has been used below for illustration purposes only    
      fhir:value [ fhir:v "999999999" ] ;
      fhir:assigner [
        fhir:display [ fhir:v "Boston Massachesetts General Hospital" ]

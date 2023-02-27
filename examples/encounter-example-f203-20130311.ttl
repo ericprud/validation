@@ -20,7 +20,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ; #   Inpatient encounter for straphylococcus infection  
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ; #   Inpatient encounter for straphylococcus infection  
        fhir:code [ fhir:v "IMP" ] ;
        fhir:display [ fhir:v "inpatient encounter" ]
      ] )
@@ -28,7 +28,7 @@
   fhir:priority [
      fhir:coding ( [
        a sct:394849002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "394849002" ] ;
        fhir:display [ fhir:v "High priority" ]
      ] ) #   High priority  
@@ -36,7 +36,7 @@
   fhir:type ( [
      fhir:coding ( [
        a sct:183807002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "183807002" ] ;
        fhir:display [ fhir:v "Inpatient stay for nine days" ]
      ] )
@@ -60,7 +60,7 @@
   fhir:participant ( [
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PART" ]
        ] )
      ] ) ;
@@ -86,7 +86,7 @@
      ] ;
      fhir:use [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnosis-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnosis-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "AD" ] ;
          fhir:display [ fhir:v "Admission diagnosis" ]
        ] )
@@ -98,7 +98,7 @@
      ] ;
      fhir:use [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnosis-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnosis-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "DD" ] ;
          fhir:display [ fhir:v "Discharge diagnosis" ]
        ] )
@@ -110,21 +110,21 @@
   fhir:dietPreference ( [
      fhir:coding ( [
        a sct:276026009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "276026009" ] ;
        fhir:display [ fhir:v "Fluid balance regulation" ]
      ] )
   ] ) ; #   No indication, because no referral took place  
   fhir:specialArrangement ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "wheel" ] ;
        fhir:display [ fhir:v "Wheelchair" ]
      ] )
   ] ) ; # 
   fhir:specialCourtesy ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "NRM" ] ;
        fhir:display [ fhir:v "normal courtesy" ]
      ] )
@@ -136,7 +136,7 @@
      fhir:admitSource [
        fhir:coding ( [
          a sct:309902002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "309902002" ] ;
          fhir:display [ fhir:v "Clinical Oncology Department" ]
        ] )

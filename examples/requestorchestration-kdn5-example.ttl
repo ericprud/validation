@@ -20,7 +20,7 @@
      fhir:medication [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "12574" ] ;
            fhir:display [ fhir:v "gemcitabine" ]
          ] ) ;
@@ -44,7 +44,7 @@
        fhir:doseAndRate ( [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "ordered" ] ;
              fhir:display [ fhir:v "Ordered" ]
            ] )
@@ -64,7 +64,7 @@
      fhir:medication [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "40048" ] ;
            fhir:display [ fhir:v "Carboplatin" ]
          ] ) ;
@@ -88,7 +88,7 @@
        fhir:doseAndRate ( [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "ordered" ] ;
              fhir:display [ fhir:v "Ordered" ]
            ] )
@@ -96,7 +96,7 @@
          fhir:dose [
            a fhir:Quantity ;
            fhir:extension ( [
-             fhir:url [ fhir:v "http://example.org/fhir/AUC-dose" ] ;
+             fhir:url [ fhir:v "http://example.org/fhir/AUC-dose"^^xsd:anyURI ] ;
              fhir:value [ fhir:v "5"^^xsd:integer ]
            ] ) #   AUC as dose unit or as an extension?  
          ] #   <value value=\"5\" \/>\n          <unit value=\"AUC\" \/>\n          <system value=\"http:\/\/snomed.info\/sct\" \/>\n          <code value=\"413573002\" \/>  
@@ -144,12 +144,12 @@
            fhir:action ( [
              fhir:id [ fhir:v "action-1" ] ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle"^^xsd:anyURI ] ;
                fhir:extension ( [
-                 fhir:url [ fhir:v "day" ] ;
+                 fhir:url [ fhir:v "day"^^xsd:anyURI ] ;
                  fhir:value [ fhir:v "1"^^xsd:integer ]
                ] [
-                 fhir:url [ fhir:v "day" ] ;
+                 fhir:url [ fhir:v "day"^^xsd:anyURI ] ;
                  fhir:value [ fhir:v "8"^^xsd:integer ]
                ] )
              ] ) ;
@@ -160,9 +160,9 @@
            ] [
              fhir:id [ fhir:v "action-2" ] ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle"^^xsd:anyURI ] ;
                fhir:extension ( [
-                 fhir:url [ fhir:v "day" ] ;
+                 fhir:url [ fhir:v "day"^^xsd:anyURI ] ;
                  fhir:value [ fhir:v "1"^^xsd:integer ]
                ] )
              ] ) ;

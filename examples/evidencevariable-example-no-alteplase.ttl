@@ -22,7 +22,7 @@
      fhir:exclude [ fhir:v "true"^^xsd:boolean ] ;
      fhir:definitionCodeableConcept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "8410" ] ;
          fhir:display [ fhir:v "alteplase" ]
        ] )

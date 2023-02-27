@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityRequest</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://happyvalley.com/coverageelegibilityrequest" ] ;
+     fhir:system [ fhir:v "http://happyvalley.com/coverageelegibilityrequest"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "52346" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -30,7 +30,7 @@
   fhir:created [ fhir:v "2014-08-16"^^xsd:date] ; #   Anticipated service date  
   fhir:enterer [
      fhir:identifier [
-       fhir:system [ fhir:v "http://happyvalleyclinic.com/staff" ] ;
+       fhir:system [ fhir:v "http://happyvalleyclinic.com/staff"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "14" ]
      ]
   ] ; # 
@@ -42,7 +42,7 @@
   ] ; # 
   fhir:facility [
      fhir:identifier [
-       fhir:system [ fhir:v "http://statecliniclicensor.com/clinicid" ] ;
+       fhir:system [ fhir:v "http://statecliniclicensor.com/clinicid"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "G35B9" ]
      ]
   ] ; # 
@@ -55,7 +55,7 @@
   fhir:item ( [
      fhir:category [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "69" ] ;
          fhir:display [ fhir:v "Maternity" ]
        ] )

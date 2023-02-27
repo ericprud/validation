@@ -17,27 +17,27 @@
   fhir:description [ fhir:v "Heart valve replacement"] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "age" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "https://meshb.nlm.nih.gov" ] ;
+         fhir:system [ fhir:v "https://meshb.nlm.nih.gov"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "D000328" ] ;
          fhir:display [ fhir:v "Adult" ]
        ] )
      ]
   ] [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "user" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:309343006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "309343006" ] ;
          fhir:display [ fhir:v "Physician" ]
        ] )
@@ -48,7 +48,7 @@
   fhir:topic ( [
      fhir:coding ( [
        a sct:34068001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "34068001" ] ;
        fhir:display [ fhir:v "Heart valve replacement" ]
      ] )
@@ -57,7 +57,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:34068001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "34068001" ] ;
        fhir:display [ fhir:v "Heart valve replacement" ]
      ] )
@@ -66,7 +66,7 @@
      a fhir:Timing ;
      fhir:event ( [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-expression" ] ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-expression"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:Expression ;
            fhir:language [ fhir:v "text/cql" ] ;
@@ -84,7 +84,7 @@
      fhir:type [ fhir:v "practitioner" ] ;
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://nucc.org/provider-taxonomy" ] ;
+         fhir:system [ fhir:v "http://nucc.org/provider-taxonomy"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "207RI0011X" ] ;
          fhir:display [ fhir:v "Interventional Cardiology" ]
        ] ) ;
@@ -94,7 +94,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:17401000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "17401000" ] ;
        fhir:display [ fhir:v "Heart valve structure" ]
      ] )

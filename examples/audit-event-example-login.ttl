@@ -14,14 +14,14 @@
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110114" ] ;
        fhir:display [ fhir:v "User Authentication" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110122" ] ;
        fhir:display [ fhir:v "Login" ]
      ] )
@@ -30,7 +30,7 @@
   fhir:recorded [ fhir:v "2013-06-20T23:41:23Z"^^xsd:dateTime] ; # 
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ]
@@ -38,7 +38,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/extra-security-role-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/extra-security-role-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "humanuser" ] ;
          fhir:display [ fhir:v "human user" ]
        ] )
@@ -52,7 +52,7 @@
      fhir:requestor [ fhir:v "true"^^xsd:boolean ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID"^^xsd:anyURI ] ;
        fhir:value [
          a fhir:Identifier ;
          fhir:type [
@@ -63,14 +63,14 @@
      ] ) ; #    Source active participant, the software making the . AlternativeUserId - Process ID   
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110153" ] ;
          fhir:display [ fhir:v "Source Role ID" ]
        ] )
      ] ;
      fhir:who [
        fhir:identifier [
-         fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.4.2" ] ;
+         fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.4.2"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2.16.840.1.113883.4.2" ]
        ]
      ] ;
@@ -86,7 +86,7 @@
      ] ;
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "3" ] ;
          fhir:display [ fhir:v "Web Server" ]
        ] )

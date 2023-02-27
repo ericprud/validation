@@ -32,7 +32,7 @@
   ] ) ; # 
   fhir:content ( [
      fhir:contentType [ fhir:v "application/xml" ] ;
-     fhir:url [ fhir:v "http://cqlrepository.org/quick-modelinfo.xml" ]
+     fhir:url [ fhir:v "http://cqlrepository.org/quick-modelinfo.xml"^^xsd:anyURI ]
   ] )] . # 
 
 # -------------------------------------------------------------------------------------

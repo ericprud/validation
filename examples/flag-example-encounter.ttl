@@ -15,14 +15,14 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://example.org/local" ] ;
+       fhir:system [ fhir:v "http://example.org/local"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "infection" ] ;
        fhir:display [ fhir:v "Infection Control Level" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://example.org/local/if1" ] ;
+       fhir:system [ fhir:v "http://example.org/local/if1"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "l3" ] ;
        fhir:display [ fhir:v "Follow Level 3 Protocol" ]
      ] )

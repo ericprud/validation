@@ -24,7 +24,7 @@
 #    reporting usage
 #   
   fhir:extension ( [
-     fhir:url [ fhir:v "http://nema.org/fhir/extensions#0002-0010" ] ;
+     fhir:url [ fhir:v "http://nema.org/fhir/extensions#0002-0010"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:1.2.840.10008.1.2.1" ]
   ] ) ; #  
 #    this is added to demonstrate the use of DICOM extensions.
@@ -34,32 +34,32 @@
      fhir:type [
        fhir:text [ fhir:v "accessionNo" ]
      ] ;
-     fhir:system [ fhir:v "http://acme-imaging.com/accession/2012" ] ; #   the imaging department accession number. (they recycle numbers each year)  
+     fhir:system [ fhir:v "http://acme-imaging.com/accession/2012"^^xsd:anyURI ] ; #   the imaging department accession number. (they recycle numbers each year)  
      fhir:value [ fhir:v "1234567" ]
   ] [
      fhir:type [
        fhir:text [ fhir:v "studyId" ]
      ] ;
-     fhir:system [ fhir:v "urn:dicom:uid" ] ;
+     fhir:system [ fhir:v "urn:dicom:uid"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3" ]
   ] [
      fhir:type [
        fhir:text [ fhir:v "seriesId" ]
      ] ;
-     fhir:system [ fhir:v "urn:dicom:uid" ] ;
+     fhir:system [ fhir:v "urn:dicom:uid"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0" ]
   ] [
      fhir:use [ fhir:v "official" ] ;
      fhir:type [
        fhir:text [ fhir:v "InstanceUID" ]
      ] ;
-     fhir:system [ fhir:v "urn:dicom:uid" ] ;
+     fhir:system [ fhir:v "urn:dicom:uid"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:1.2.840.11361907579238403408700.3.1.04.19970327150033" ]
   ] ) ; # 
   fhir:status [ fhir:v "current"] ; # 
   fhir:modality ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ]
      ] ) #   modality  
   ] ) ; # 
@@ -70,7 +70,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:399067008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "399067008" ] ;
          fhir:display [ fhir:v "Lateral projection" ]
        ] ) #   view  
@@ -80,7 +80,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:67734004 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ; #   Added body site to support duplicate checking example  
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ; #   Added body site to support duplicate checking example  
          fhir:code [ fhir:v "67734004" ] ;
          fhir:display [ fhir:v "Upper Trunk Structure" ]
        ] )
@@ -92,7 +92,7 @@
   fhir:content ( [
      fhir:attachment [
        fhir:contentType [ fhir:v "application/dicom" ] ;
-       fhir:url [ fhir:v "http://imaging.acme.com/wado/server?requestType=WADO&contentType=application%2Fdicom&studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&objectUid=1.2.840.11361907579238403408700.3.1.04.19970327150033" ] ; #   The actual image could be anywhere. This is a WADO example  
+       fhir:url [ fhir:v "http://imaging.acme.com/wado/server?requestType=WADO&contentType=application%2Fdicom&studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&objectUid=1.2.840.11361907579238403408700.3.1.04.19970327150033"^^xsd:anyURI ] ; #   The actual image could be anywhere. This is a WADO example  
        fhir:height [ fhir:v "480"^^xsd:positiveInteger ] ;
        fhir:width [ fhir:v "640"^^xsd:positiveInteger ]
      ]

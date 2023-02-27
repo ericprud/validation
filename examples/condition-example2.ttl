@@ -15,19 +15,19 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "problem-list-item" ] ;
        fhir:display [ fhir:v "Problem List Item" ]
      ] )
@@ -35,7 +35,7 @@
   fhir:severity [
      fhir:coding ( [
        a sct:255604002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "255604002" ] ;
        fhir:display [ fhir:v "Mild" ]
      ] )

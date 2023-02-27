@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Herd of 25 horses</p>\n      <p>Gender: mixed</p>\n      <p>Owner: John Smith</p>\n    </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://someveterinarianclinic.org/fhir/NamingSystem/herds" ] ;
+     fhir:system [ fhir:v "http://someveterinarianclinic.org/fhir/NamingSystem/herds"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; # 
   fhir:type [ fhir:v "animal"] ; # 

@@ -14,10 +14,10 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ConceptMap/101"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.14.1" ]
   ] [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -30,14 +30,14 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team (example)" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "A mapping between the FHIR and HL7 v3 AddressUse Code systems"] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "venue" ]
      ] ;
      fhir:value [
@@ -47,7 +47,7 @@
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ]
      ] )
   ] ) ; # 

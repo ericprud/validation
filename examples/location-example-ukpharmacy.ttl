@@ -18,14 +18,14 @@
   fhir:mode [ fhir:v "kind"] ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "PHARM" ] ;
        fhir:display [ fhir:v "Pharmacy" ]
      ] )
   ] ) ; # 
   fhir:form [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/location-physical-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/location-physical-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "jdn" ] ;
        fhir:display [ fhir:v "Jurisdiction" ]
      ] )

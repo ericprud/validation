@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Gastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: \n        <a href=\"mailto:gastro@acme.org\">gastro@acme.org</a>\n      </p>\n    \n    </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.acme.org.au/units" ] ;
+     fhir:system [ fhir:v "http://www.acme.org.au/units"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "Gastro" ]
   ] ) ; #    Clinical Team "Gastroenterology" at Acme Hospital   
   fhir:name [ fhir:v "Gastroenterology"] ; # 

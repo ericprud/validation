@@ -16,12 +16,12 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LACSN" ]
        ] ) ;
        fhir:text [ fhir:v "Laboratory Accession ID" ]
      ] ;
-     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/serviceRequests" ] ;
+     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/serviceRequests"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "111111114" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -30,7 +30,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:3981005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "3981005" ] ;
          fhir:display [ fhir:v "Carrier detection, molecular genetics (procedure)" ]
        ] )

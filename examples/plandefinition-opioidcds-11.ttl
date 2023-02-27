@@ -15,7 +15,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-11"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.11.2" ]
   ] [
      fhir:use [ fhir:v "official" ] ;
@@ -26,7 +26,7 @@
   fhir:title [ fhir:v "CDC Opioid Prescribing Guideline Recommendation #11"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/plan-definition-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/plan-definition-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "eca-rule" ] ;
        fhir:display [ fhir:v "ECA Rule" ]
      ] )
@@ -37,7 +37,7 @@
   fhir:description [ fhir:v "Concurrently prescribing opioid medications with benzodiazepines increases the risk of harm for the patient."] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ] ;
        fhir:display [ fhir:v "Clinical Focus" ]
      ] ;
@@ -45,14 +45,14 @@
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:182888003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "182888003" ] ;
          fhir:display [ fhir:v "Medication requested (situation)" ]
        ] )
      ]
   ] [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ] ;
        fhir:display [ fhir:v "Clinical Focus" ]
      ] ;
@@ -60,7 +60,7 @@
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:82423001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "82423001" ] ;
          fhir:display [ fhir:v "Chronic pain (finding)" ]
        ] )
@@ -68,7 +68,7 @@
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ] ;
        fhir:display [ fhir:v "United States of America" ]
      ] )
@@ -92,13 +92,13 @@
      fhir:type [ fhir:v "documentation" ] ;
      fhir:display [ fhir:v "CDC guideline for prescribing opioids for chronic pain" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420" ]
+       fhir:url [ fhir:v "https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"^^xsd:anyURI ]
      ]
   ] [
      fhir:type [ fhir:v "documentation" ] ;
      fhir:display [ fhir:v "MME Conversion Tables" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf" ]
+       fhir:url [ fhir:v "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"^^xsd:anyURI ]
      ]
   ] ) ; # 
   fhir:library ( [
@@ -112,21 +112,21 @@
        fhir:type [ fhir:v "documentation" ] ;
        fhir:document [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation"^^xsd:anyURI ] ;
            fhir:value [
              a fhir:CodeableConcept ;
              fhir:coding ( [
-               fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/recommendation-strength" ] ;
+               fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/recommendation-strength"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "strong" ] ;
                fhir:display [ fhir:v "Strong" ]
              ] )
            ]
          ] [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence"^^xsd:anyURI ] ;
            fhir:value [
              a fhir:CodeableConcept ;
              fhir:coding ( [
-               fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/evidence-quality" ] ;
+               fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/evidence-quality"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "low" ] ;
                fhir:display [ fhir:v "Low quality" ]
              ] )

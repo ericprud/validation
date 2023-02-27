@@ -17,7 +17,7 @@
   ] ; # 
   fhir:relationship ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "C" ]
      ] )
   ] ) ; # 
@@ -41,7 +41,7 @@
   ] ) ; # 
   fhir:photo ( [
      fhir:contentType [ fhir:v "image/jpeg" ] ;
-     fhir:url [ fhir:v "Binary/f012" ]
+     fhir:url [ fhir:v "Binary/f012"^^xsd:anyURI ]
   ] ) ; # 
   fhir:period [
      fhir:start [ fhir:v "2012-03-11"^^xsd:date ]

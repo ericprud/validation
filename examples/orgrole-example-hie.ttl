@@ -17,7 +17,7 @@
      fhir:type [
        fhir:text [ fhir:v "member hospital" ]
      ] ;
-     fhir:system [ fhir:v "http://example.org/www.monumentHIE.com" ] ;
+     fhir:system [ fhir:v "http://example.org/www.monumentHIE.com"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "hosp32" ] ;
      fhir:assigner [
        fhir:link <http://hl7.org/fhir/ig/vhdir/Organization/monumentHIE> ;
@@ -38,7 +38,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/organization-role" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/organization-role"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "member" ] ;
        fhir:display [ fhir:v "Member" ]
      ] ) ; #    Founding Fathers is a member of the HIE   

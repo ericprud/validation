@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar\n        2012</p>\n    </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.acme.org/practitioners" ] ;
+     fhir:system [ fhir:v "http://www.acme.org/practitioners"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "23" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -31,12 +31,12 @@
   ] ) ; # 
   fhir:qualification ( [
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://example.org/UniversityIdentifier" ] ;
+       fhir:system [ fhir:v "http://example.org/UniversityIdentifier"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "12345" ]
      ] ) ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0360/2.7" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0360/2.7"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "BS" ] ;
          fhir:display [ fhir:v "Bachelor of Science" ]
        ] ) ;

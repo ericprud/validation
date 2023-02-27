@@ -26,14 +26,14 @@
   fhir:authorization ( [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TREAT" ]
        ] )
      ]
   ] ) ; # 
   fhir:activity [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "originate" ]
      ] )
   ] ; # 
@@ -49,7 +49,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110153" ] ;
          fhir:display [ fhir:v "Source Role ID" ]
        ] )
@@ -60,7 +60,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110152" ] ;
          fhir:display [ fhir:v "Destination Role ID" ]
        ] )
@@ -71,7 +71,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "INF" ] ;
          fhir:display [ fhir:v "Informant" ]
        ] )
@@ -82,7 +82,7 @@
   ] ) ; # 
   fhir:signature ( [
      fhir:type ( [
-       fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+       fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1.2.840.10065.1.12.1.5" ] ;
        fhir:display [ fhir:v "Verification Signature" ]
      ] ) ; #    verification signature   

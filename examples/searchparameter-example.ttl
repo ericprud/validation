@@ -27,27 +27,27 @@
   fhir:contact ( [
      fhir:name [ fhir:v "[string]" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "Search by resource identifier - e.g. same as the read interaction, but can return included resources"] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variant-state" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variant-state"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "positive" ]
        ] )
      ]
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ] ;
        fhir:display [ fhir:v "United States of America (the)" ]
      ] )

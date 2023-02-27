@@ -100,7 +100,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2><span title=\"Codes: {http://loinc.org 632-0}\">Culture, MRSA</span> (<span title=\"Codes: {http://terminology.hl7.org/CodeSystem/v2-0074 MB}\">Microbiology</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td><b>Jim </b> male, DoB: 1974-12-25 ( Medical record number: 12345 (use: USUAL, period: 2001-05-06 --&gt; (ongoing)))</td></tr><tr><td>Reported</td><td>2009-08-10T08:25:44+10:00</td></tr><tr><td>Identifier:</td><td> id: 290741144</td></tr></table><p><b>Report Details</b></p><table class=\"grid\"><tr><td><b>Code</b></td><td><b>Value</b></td></tr><tr><td colspan=\"2\"><i>Observation</i></td></tr></table></div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://hnam.org/identifiers/orders" ] ;
+     fhir:system [ fhir:v "http://hnam.org/identifiers/orders"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "290741144" ] #      seems like a likely choice     
   ] ) ; # 
   fhir:basedOn ( [
@@ -109,14 +109,14 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MB" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:632-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "632-0" ] ;
        fhir:display [ fhir:v "Culture, MRSA" ]
      ] )
@@ -141,7 +141,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ORGANISM" ]
      ] )
   ] ; # 
@@ -154,7 +154,7 @@
   fhir:value [
      a fhir:CodeableConcept ;
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/organisms" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/organisms"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Staaur" ]
      ] ) ; #      CE     
      fhir:text [ fhir:v "Staphylococcus aureus" ]
@@ -169,7 +169,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "CULTPOSNEG" ]
      ] )
   ] ; # 
@@ -182,7 +182,7 @@
   fhir:value [
      a fhir:CodeableConcept ;
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/flags" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/flags"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "POS" ]
      ] )
   ] . # 
@@ -196,7 +196,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60504" ] ;
        fhir:display [ fhir:v "Ampicillin" ]
      ] )
@@ -209,7 +209,7 @@
   ] ) ; #      of course, in practive, this would be a real reference     
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "R" ]
      ] )
   ] ) . # 
@@ -223,7 +223,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60512" ] ;
        fhir:display [ fhir:v "Cefazolin" ]
      ] )
@@ -241,7 +241,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -255,7 +255,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60516" ] ;
        fhir:display [ fhir:v "Cefoxitin" ]
      ] )
@@ -273,7 +273,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -287,7 +287,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60527" ] ;
        fhir:display [ fhir:v "Clindamycin" ]
      ] )
@@ -305,7 +305,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -319,7 +319,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "61203" ] ;
        fhir:display [ fhir:v "Daptomycin" ]
      ] )
@@ -337,7 +337,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -351,7 +351,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60532" ] ;
        fhir:display [ fhir:v "Doxycycline" ]
      ] )
@@ -369,7 +369,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -383,7 +383,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60533" ] ;
        fhir:display [ fhir:v "Erythromycin" ]
      ] )
@@ -401,7 +401,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "R" ]
      ] )
   ] ) . # 
@@ -415,7 +415,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60536" ] ;
        fhir:display [ fhir:v "Gentamicin" ]
      ] )
@@ -433,7 +433,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -447,7 +447,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "61007" ] ;
        fhir:display [ fhir:v "Levofloxacin" ]
      ] )
@@ -465,7 +465,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -479,7 +479,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60699" ] ;
        fhir:display [ fhir:v "Linezolid" ]
      ] )
@@ -496,7 +496,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -510,7 +510,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "61204" ] ;
        fhir:display [ fhir:v "Moxifloxacin" ]
      ] )
@@ -528,7 +528,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -542,7 +542,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60551" ] ;
        fhir:display [ fhir:v "Oxacillin" ]
      ] )
@@ -559,7 +559,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -573,7 +573,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60552" ] ;
        fhir:display [ fhir:v "Penicillin" ]
      ] )
@@ -591,7 +591,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "R" ]
      ] )
   ] ) . # 
@@ -605,7 +605,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60697" ] ;
        fhir:display [ fhir:v "Quinupristin/Dalfopristin" ]
      ] )
@@ -622,7 +622,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -636,7 +636,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60555" ] ;
        fhir:display [ fhir:v "Rifampin" ]
      ] )
@@ -654,7 +654,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -668,7 +668,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60558" ] ;
        fhir:display [ fhir:v "Tetracycline" ]
      ] )
@@ -686,7 +686,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -700,7 +700,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60561" ] ;
        fhir:display [ fhir:v "Trimethoprim/Sulfamethoxazole" ]
      ] )
@@ -718,7 +718,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -732,7 +732,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60563" ] ;
        fhir:display [ fhir:v "Vancomycin" ]
      ] )
@@ -749,7 +749,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -763,7 +763,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2099930" ] ;
        fhir:display [ fhir:v "D-Test" ]
      ] )
@@ -785,7 +785,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/tests" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/tests"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60036" ] ;
        fhir:display [ fhir:v "Oxacillin" ]
      ] )
@@ -798,7 +798,7 @@
   ] ) ; #      of course, in practive, this would be a real reference     
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "S" ]
      ] )
   ] ) . # 
@@ -812,7 +812,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/panels" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/panels"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60790" ] ;
        fhir:display [ fhir:v "Susceptibility - Automated broth dilution (Billed)" ]
      ] )
@@ -872,7 +872,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/panels" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/panels"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "60418" ] ;
        fhir:display [ fhir:v "Susceptibility - Disk diffusion (Billed)" ]
      ] )
@@ -893,7 +893,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/lab/codes/organisms" ] ;
+       fhir:system [ fhir:v "http://acme.org/lab/codes/organisms"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Staaur" ]
      ] ) ;
      fhir:text [ fhir:v "Staphylococcus aureus Panel" ]
@@ -926,7 +926,7 @@
      fhir:concept [
        fhir:coding ( [
          a loinc:632-0 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "632-0" ]
        ] ) ;
        fhir:text [ fhir:v "Culture, MRSA" ]

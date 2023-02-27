@@ -19,7 +19,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:430127000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "430127000" ] ;
          fhir:display [ fhir:v "Oral Form Oxycodone (product)" ]
        ] )
@@ -34,7 +34,7 @@
      fhir:agent ( [
        fhir:role ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AUT" ]
          ] )
        ] ) ;
@@ -45,7 +45,7 @@
      ] ) ;
      fhir:signature ( [
        fhir:type ( [
-         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1.2.840.10065.1.12.1.1" ] ;
          fhir:display [ fhir:v "Author's Signature" ]
        ] ) ;
@@ -61,13 +61,13 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
   fhir:statusReason [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "altchoice" ] ;
        fhir:display [ fhir:v "Try another treatment first" ]
      ] )
@@ -75,7 +75,7 @@
   fhir:intent [ fhir:v "order"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/medicationrequest-admin-location"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "inpatient" ] ;
        fhir:display [ fhir:v "Inpatient" ]
      ] )
@@ -104,7 +104,7 @@
   fhir:performerType [
      fhir:coding ( [
        a sct:26369006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "26369006" ] ;
        fhir:display [ fhir:v "Public Health Nurse" ]
      ] )
@@ -117,7 +117,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:297217002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "297217002" ] ;
          fhir:display [ fhir:v "Rib Pain (finding)" ]
        ] )
@@ -135,7 +135,7 @@
      fhir:additionalInstruction ( [
        fhir:coding ( [
          a sct:418914006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "418914006" ] ;
          fhir:display [ fhir:v "Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)" ]
        ] )
@@ -152,7 +152,7 @@
      fhir:asNeededFor ( [
        fhir:coding ( [
          a sct:297217002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "297217002" ] ;
          fhir:display [ fhir:v "Rib Pain (finding)" ]
        ] )
@@ -160,7 +160,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:26643006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "26643006" ] ;
          fhir:display [ fhir:v "Oral Route" ]
        ] )
@@ -168,7 +168,7 @@
      fhir:method [
        fhir:coding ( [
          a sct:421521009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "421521009" ] ;
          fhir:display [ fhir:v "Swallow - dosing instruction imperative (qualifier value)" ]
        ] )
@@ -176,7 +176,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -186,13 +186,13 @@
          fhir:low [
            fhir:value [ fhir:v "1"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "TAB" ] ;
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "TAB" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "2"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "TAB" ] ;
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "TAB" ]
          ]
        ]
@@ -207,13 +207,13 @@
      fhir:quantity [
        fhir:value [ fhir:v "30"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "TAB" ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "TAB" ]
      ] ;
      fhir:expectedSupplyDuration [
        fhir:value [ fhir:v "10"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "days" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "d" ]
      ] ;
      fhir:dispenser [
@@ -224,7 +224,7 @@
      fhir:allowed [ fhir:v "true"^^xsd:boolean ] ;
      fhir:reason [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "FP" ] ;
          fhir:display [ fhir:v "formulary policy" ]
        ] )

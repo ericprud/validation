@@ -22,10 +22,10 @@
 #	  for this example, we use a real URI, since this example does have a canonical address
 #		at which it's posted. Alternatively, We could have used an OID, or a UUID    
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.3.3145" ]
   ] [
-     fhir:system [ fhir:v "http://acme.com/identifiers/valuesets" ] ;
+     fhir:system [ fhir:v "http://acme.com/identifiers/valuesets"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "loinc-cholesterol-ext" ]
   ] ) ; #     an imaginary identifier. This is a non FHIR identifier - might be used in a 
 #	  v2 context (though you always need to translate namespaces for v2)    
@@ -41,7 +41,7 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
@@ -49,7 +49,7 @@
   fhir:copyright [ fhir:v "This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:filter ( [
          fhir:property [ fhir:v "parent" ] ;
          fhir:op [ fhir:v "=" ] ;
@@ -57,7 +57,7 @@
        ] ) #    \n                Instead of listing the codes (see the extensional example)\n                we do something else: all codes in LOINC part LP43571-6\n\n                Doing it like this means we can't change the displays (per the \n                extensional example). \n             
      ] ) ;
      fhir:exclude ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "5932-9" ] ;
          fhir:display [ fhir:v "Cholesterol [Presence] in Blood by Test strip" ]

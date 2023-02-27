@@ -20,7 +20,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "51144-050-01" ] ;
        fhir:display [ fhir:v "Adcetris" ]
      ] )
@@ -31,7 +31,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:421637006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "421637006" ] ;
        fhir:display [ fhir:v "Lyophilized powder for injectable solution (qualifier value) " ]
      ] )

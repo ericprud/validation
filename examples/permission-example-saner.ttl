@@ -32,20 +32,20 @@
        ] ) ;
        fhir:action ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/consentaction" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/consentaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "access" ]
          ] )
        ] ) ;
        fhir:purpose ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "HCOMPL" ]
          ] )
        ] )
      ] ) ;
      fhir:limit ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "AUDIT" ]
        ] )
      ] )

@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://example.org/ActivityDefinition/provide-mosquito-prevention-advice"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.19.1" ]
   ] ) ; # 
   fhir:status [ fhir:v "draft"] ; # 
@@ -23,13 +23,13 @@
      fhir:type [ fhir:v "documentation" ] ;
      fhir:display [ fhir:v "Advice for patients about how to avoid Mosquito bites." ] ;
      fhir:document [
-       fhir:url [ fhir:v "http://www.cdc.gov/zika/prevention/index.html" ]
+       fhir:url [ fhir:v "http://www.cdc.gov/zika/prevention/index.html"^^xsd:anyURI ]
      ]
   ] [
      fhir:type [ fhir:v "documentation" ] ;
      fhir:display [ fhir:v "Advice for patients about which mosquito repellents are effective and safe to use in pregnancy. [DEET, IF3535 and Picardin are safe during]" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://www.epa.gov/insect-repellents/find-insect-repellent-right-you" ]
+       fhir:url [ fhir:v "https://www.epa.gov/insect-repellents/find-insect-repellent-right-you"^^xsd:anyURI ]
      ]
   ] ) ; # 
   fhir:library ( [
@@ -44,7 +44,7 @@
      a fhir:Timing ;
      fhir:event ( [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-expression" ] ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-expression"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:Expression ;
            fhir:language [ fhir:v "text/cql" ] ;

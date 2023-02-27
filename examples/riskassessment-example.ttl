@@ -35,7 +35,7 @@
        fhir:high [
          fhir:value [ fhir:v "53"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -49,13 +49,13 @@
        fhir:low [
          fhir:value [ fhir:v "54"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "57"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -69,13 +69,13 @@
        fhir:low [
          fhir:value [ fhir:v "58"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "62"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -89,13 +89,13 @@
        fhir:low [
          fhir:value [ fhir:v "63"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "67"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -109,13 +109,13 @@
        fhir:low [
          fhir:value [ fhir:v "68"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "72"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -129,13 +129,13 @@
        fhir:low [
          fhir:value [ fhir:v "73"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "77"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -149,13 +149,13 @@
        fhir:low [
          fhir:value [ fhir:v "78"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "82"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
@@ -169,13 +169,13 @@
        fhir:low [
          fhir:value [ fhir:v "83"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "88"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]

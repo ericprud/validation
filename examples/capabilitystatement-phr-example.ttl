@@ -19,7 +19,7 @@
   fhir:publisher [ fhir:v "FHIR Project"] ; # 
   fhir:contact ( [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 

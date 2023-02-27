@@ -15,7 +15,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dicom-wado-rs" ]
      ] )
   ] ) ; # 

@@ -94,7 +94,7 @@
   fhir:clinicalRecommendationStatement [ fhir:v "Exclusive breast milk feeding for the first 6 months of neonatal life can result in numerous long-term health benefits for both mother and newborn and is recommended by a number of national and international organizations. Evidence suggests that the prenatal and intrapartum period is critical for the success of exclusive (or any) breast feeding. Therefore, it is recommended that newborns are fed breast milk only from birth to discharge."] ; # 
   fhir:improvementNotation [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-improvement-notation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-improvement-notation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "increase" ]
      ] )
   ] ; # 

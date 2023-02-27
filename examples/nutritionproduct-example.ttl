@@ -16,7 +16,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:227507002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "227507002" ]
      ] )
   ] ; # 
@@ -24,13 +24,13 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:227313005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "227313005" ]
      ] )
   ] ) ; # 
   fhir:instance ( [
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://example.org/foodserials" ] ;
+       fhir:system [ fhir:v "http://example.org/foodserials"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "77239487" ]
      ] )
   ] )] . # 

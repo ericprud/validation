@@ -17,13 +17,13 @@
      fhir:id [ fhir:v "p1" ] ;
      fhir:clinicalStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "active" ]
        ] )
      ] ;
      fhir:verificationStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "confirmed" ]
        ] )
      ] ;
@@ -41,7 +41,7 @@
        fhir:id [ fhir:v "part1" ] ;
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/local" ] ;
+           fhir:system [ fhir:v "http://example.org/local"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "nur" ]
          ] ) ;
          fhir:text [ fhir:v "nurse" ]
@@ -54,7 +54,7 @@
        fhir:id [ fhir:v "part2" ] ;
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/local" ] ;
+           fhir:system [ fhir:v "http://example.org/local"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "doc" ]
          ] ) ;
          fhir:text [ fhir:v "doctor" ]
@@ -107,7 +107,7 @@
        fhir:kind [ fhir:v "Appointment" ] ; #   This activity is for the initial nurse encounter where vitals are taken. It has been completed. 
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/local" ] ;
+           fhir:system [ fhir:v "http://example.org/local"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "nursecon" ]
          ] ) ;
          fhir:text [ fhir:v "Nurse Consultation" ]
@@ -129,7 +129,7 @@
        fhir:kind [ fhir:v "Appointment" ] ; #   This activity is for the encounter with the doctor. It is scheduled, but not yet started,\n              so there is no timing[x]  or actionTaken element yet  
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/local" ] ;
+           fhir:system [ fhir:v "http://example.org/local"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "doccon" ]
          ] ) ;
          fhir:text [ fhir:v "Doctor Consultation" ]

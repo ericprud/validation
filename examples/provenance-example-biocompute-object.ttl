@@ -22,7 +22,7 @@
   fhir:recorded [ fhir:v "2016-06-09T08:12:14+10:00"^^xsd:dateTime] ; # 
   fhir:activity [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-DataOperation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-DataOperation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "CREATE" ] ;
        fhir:display [ fhir:v "create" ]
      ] ) ;
@@ -31,7 +31,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "AUT" ]
        ] )
      ] ;
@@ -45,7 +45,7 @@
        fhir:identifier [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "https://hive.biochemistry.gwu.edu" ] ;
+             fhir:system [ fhir:v "https://hive.biochemistry.gwu.edu"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "biocompute" ] ;
              fhir:display [ fhir:v "obj.1001" ]
            ] )

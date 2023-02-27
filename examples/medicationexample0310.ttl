@@ -21,7 +21,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:55452001 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "55452001" ] ;
            fhir:display [ fhir:v "Oxycodone (substance)" ]
          ] )
@@ -31,7 +31,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:430127000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "430127000" ] ;
        fhir:display [ fhir:v "Oral Form Oxycodone (product)" ]
      ] )
@@ -39,7 +39,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385055001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385055001" ] ;
        fhir:display [ fhir:v "Tablet dose form (qualifier value)" ]
      ] )
@@ -54,12 +54,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "5"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TAB" ]
        ]
      ]

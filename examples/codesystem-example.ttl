@@ -29,10 +29,10 @@
 #			This is not an absolute requirement, but it may be enforced by some 
 #			servers - for instance, the HL7 valueset registry will.    
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.4.1827" ]
   ] [
-     fhir:system [ fhir:v "http://acme.com/identifiers/codesystems" ] ;
+     fhir:system [ fhir:v "http://acme.com/identifiers/codesystems"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "internal-cholesterol-inl" ]
   ] ) ; #     an imaginary identifier. This is a non FHIR identifier - might be used in a 
 #	  v2 context (though you always need to translate namespaces for v2)    
@@ -49,7 +49,7 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
@@ -76,7 +76,7 @@
      fhir:definition [ fhir:v "Serum Cholesterol, in mmol/L" ] ;
      fhir:designation ( [
        fhir:use [
-         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal" ] ;
+         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "internal-label" ]
        ] ;
        fhir:value [ fhir:v "From ACME POC Testing" ]
@@ -87,7 +87,7 @@
      fhir:definition [ fhir:v "Serum Cholesterol, in mg/L" ] ;
      fhir:designation ( [
        fhir:use [
-         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal" ] ;
+         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "internal-label" ]
        ] ;
        fhir:value [ fhir:v "From Paragon Labs" ]
@@ -98,7 +98,7 @@
      fhir:definition [ fhir:v "Serum Cholesterol" ] ;
      fhir:designation ( [
        fhir:use [
-         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal" ] ;
+         fhir:system [ fhir:v "http://acme.com/config/fhir/codesystems/internal"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "internal-label" ]
        ] ;
        fhir:value [ fhir:v "Obdurate Labs uses this with both kinds of units..." ]

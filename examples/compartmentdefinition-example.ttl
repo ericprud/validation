@@ -22,20 +22,20 @@
   fhir:contact ( [
      fhir:name [ fhir:v "[string]" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only)."] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "Device" ]
        ] )
      ]

@@ -19,7 +19,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:324689003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "324689003" ] ;
          fhir:display [ fhir:v "Nystatin 100,000 units/ml oral suspension (product)" ]
        ] )
@@ -46,7 +46,7 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "FF" ] ;
        fhir:display [ fhir:v "First Fill" ]
      ] )
@@ -54,13 +54,13 @@
   fhir:quantity [
      fhir:value [ fhir:v "10"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "ml" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "ml" ]
   ] ; # 
   fhir:daysSupply [
      fhir:value [ fhir:v "10"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "Day" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "d" ]
   ] ; # 
   fhir:whenPrepared [ fhir:v "2015-01-15"^^xsd:date] ; # 
@@ -78,7 +78,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -87,7 +87,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "10"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "drop" ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "DROP" ]
        ]
      ] )

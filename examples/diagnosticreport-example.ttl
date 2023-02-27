@@ -70,7 +70,7 @@
   fhir:id [ fhir:v "101"] ; # 
   fhir:meta [
      fhir:tag ( [
-       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/workflow-codes" ] ;
+       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/workflow-codes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01" ] ;
        fhir:display [ fhir:v "Needs Review" ]
      ] )
@@ -80,20 +80,20 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n						<h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>\n						<pre>\nTest                  Units       Value       Reference Range\nHaemoglobin           g/L         176         135 - 180\nRed Cell Count        x10*12/L    5.9         4.2 - 6.0\nHaematocrit                       0.55+       0.38 - 0.52\nMean Cell Volume      fL          99+         80 - 98\nMean Cell Haemoglobin pg          36+         27 - 35\nPlatelet Count        x10*9/L     444         150 - 450\nWhite Cell Count      x10*9/L     4.6         4.0 - 11.0\nNeutrophils           %           20\nNeutrophils           x10*9/L     0.9---      2.0 - 7.5\nLymphocytes           %           20\nLymphocytes           x10*9/L     0.9-        1.1 - 4.0\nMonocytes             %           20\nMonocytes             x10*9/L     0.9         0.2 - 1.0\nEosinophils           %           20\nEosinophils           x10*9/L     0.92++      0.04 - 0.40\nBasophils             %           20\nBasophils             x10*9/L     0.92+++     &lt;0.21\n      </pre>\n						<p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>\n					</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://acme.com/lab/reports" ] ;
+     fhir:system [ fhir:v "http://acme.com/lab/reports"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "5234342" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HM" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:58410-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "58410-2" ] ;
        fhir:display [ fhir:v "Complete blood count (hemogram) panel - Blood by Automated count" ]
      ] [
@@ -175,7 +175,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:718-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "718-7" ] ;
        fhir:display [ fhir:v "Hemoglobin [Mass/volume] in Blood" ]
      ] ) ;
@@ -192,20 +192,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "176"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "g/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "g/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "135"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "180"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g/L" ]
      ]
   ] ) . # 
@@ -220,7 +220,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:789-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "789-8" ] ;
        fhir:display [ fhir:v "Erythrocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -237,20 +237,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "5.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*12/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*12/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "4.2"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*12/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*12/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "6.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*12/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*12/L" ]
      ]
   ] ) . # 
@@ -265,7 +265,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:4544-3 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "4544-3" ] ;
        fhir:display [ fhir:v "Hematocrit [Volume Fraction] of Blood by Automated count" ]
      ] ) ;
@@ -285,7 +285,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -310,7 +310,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:787-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "787-2" ] ;
        fhir:display [ fhir:v "Erythrocyte mean corpuscular volume [Entitic volume] by Automated count" ]
      ] ) ;
@@ -327,12 +327,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "99"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "fL" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "fL" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -340,13 +340,13 @@
      fhir:low [
        fhir:value [ fhir:v "80"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "fL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "fL" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "98"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "fL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "fL" ]
      ]
   ] ) . # 
@@ -361,7 +361,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:785-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "785-6" ] ;
        fhir:display [ fhir:v "Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count" ]
      ] ) ;
@@ -378,12 +378,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "36"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "pg" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "pg" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -391,13 +391,13 @@
      fhir:low [
        fhir:value [ fhir:v "27"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "pg" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "pg" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "35"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "pg" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "pg" ]
      ]
   ] ) . # 
@@ -412,7 +412,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:777-3 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "777-3" ] ;
        fhir:display [ fhir:v "Platelets [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -429,20 +429,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "444"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "150"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "450"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -457,7 +457,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:6690-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "6690-2" ] ;
        fhir:display [ fhir:v "Leukocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -474,20 +474,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "4.6"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "4.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "11.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -502,7 +502,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:770-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "770-8" ] ;
        fhir:display [ fhir:v "Neutrophils/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -519,7 +519,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -533,7 +533,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:751-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "751-8" ] ;
        fhir:display [ fhir:v "Neutrophils [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -550,12 +550,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "LL" ]
      ] )
   ] ) ; # 
@@ -563,13 +563,13 @@
      fhir:low [
        fhir:value [ fhir:v "2.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "7.5"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -584,7 +584,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:736-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "736-9" ] ;
        fhir:display [ fhir:v "Lymphocytes/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -601,7 +601,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -615,7 +615,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:731-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "731-0" ] ;
        fhir:display [ fhir:v "Lymphocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -632,12 +632,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "L" ]
      ] )
   ] ) ; # 
@@ -645,13 +645,13 @@
      fhir:low [
        fhir:value [ fhir:v "1.1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "4.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -666,7 +666,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:5905-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "5905-5" ] ;
        fhir:display [ fhir:v "Monocytes/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -683,7 +683,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -697,7 +697,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:742-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "742-7" ] ;
        fhir:display [ fhir:v "Monocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -714,20 +714,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "0.2"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "1.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -742,7 +742,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:713-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "713-8" ] ;
        fhir:display [ fhir:v "Eosinophils/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -759,7 +759,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -773,7 +773,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:711-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "711-2" ] ;
        fhir:display [ fhir:v "Eosinophils [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -790,12 +790,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.92"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HH" ]
      ] )
   ] ) ; # 
@@ -803,13 +803,13 @@
      fhir:low [
        fhir:value [ fhir:v "0.04"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "0.40"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -824,7 +824,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:706-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "706-2" ] ;
        fhir:display [ fhir:v "Basophils/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -841,7 +841,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -855,7 +855,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:704-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "704-7" ] ;
        fhir:display [ fhir:v "Basophils [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -872,14 +872,14 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.92"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:high [
        fhir:value [ fhir:v "0.21"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 

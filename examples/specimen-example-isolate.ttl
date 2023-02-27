@@ -20,14 +20,14 @@
      a fhir:Specimen ;
      fhir:id [ fhir:v "stool" ] ;
      fhir:accessionIdentifier [
-       fhir:system [ fhir:v "http://lab.acme.org/specimens/2015" ] ; #    accession identifier - e.g. assigned by the labaratory when it is received.\n     This is common, unlike specimen identifier   
+       fhir:system [ fhir:v "http://lab.acme.org/specimens/2015"^^xsd:anyURI ] ; #    accession identifier - e.g. assigned by the labaratory when it is received.\n     This is common, unlike specimen identifier   
        fhir:value [ fhir:v "X352356" ]
      ] ;
      fhir:status [ fhir:v "unavailable" ] ;
      fhir:type [
        fhir:coding ( [
          a sct:119339001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "119339001" ] ;
          fhir:display [ fhir:v "Stool specimen" ]
        ] ) #   \n   Type is a loosely defined field because there is such a lot of variation in how it is used.\n   The principal variation is how much information that could be represented elsewhere is also\n   represented here. For instance, here's some possible types:\n     lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)\n     transfusion bag of blood (+ container.type)\n     Peritoneal lavage        (+ collection.bodySite)\n   If the type includes other fields, it would be normal not to populate the other fields\n\n   Note that this practice is so widespread that it's pointless to try and stop it \n  
@@ -43,21 +43,21 @@
        fhir:collected [ fhir:v "2011-08-16T06:15:00Z"^^xsd:dateTime ] ; #      the time of collection is usually required. Usually a point in time, but can be a period \n      (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine)     
        fhir:method [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0488" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0488"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "LNV" ]
          ] )
        ] #      method is usually implied by type     
      ]
   ] ) ; # 
   fhir:accessionIdentifier [
-     fhir:system [ fhir:v "http://lab.acme.org/specimens/2011" ] ;
+     fhir:system [ fhir:v "http://lab.acme.org/specimens/2011"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "X352356-ISO1" ]
   ] ; # 
   fhir:status [ fhir:v "available"] ; # 
   fhir:type [
      fhir:coding ( [
        a sct:429951000124103 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "429951000124103" ] ;
        fhir:display [ fhir:v "Bacterial isolate specimen" ]
      ] )
@@ -82,7 +82,7 @@
      fhir:collected [ fhir:v "2015-08-16T07:03:00Z"^^xsd:dateTime ] ; #      the time of collection is usually required. Usually a point in time, but can be a period \n      (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine)     
      fhir:method [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0488" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0488"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "BAP" ]
        ] )
      ] #      method is usually implied by type     

@@ -14,14 +14,14 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/Questionnaire/f201"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.20.6" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:subjectType ( [ fhir:v "Patient"] ) ; # 
   fhir:date [ fhir:v "2010"^^xsd:gYear] ; # 
   fhir:code ( [
-     fhir:system [ fhir:v "http://example.org/system/code/lifelines/nl" ] ;
+     fhir:system [ fhir:v "http://example.org/system/code/lifelines/nl"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "VL 1-1, 18-65_1.2.2" ] ;
      fhir:display [ fhir:v "Lifelines Questionnaire 1 part 1" ]
   ] ) ; # 

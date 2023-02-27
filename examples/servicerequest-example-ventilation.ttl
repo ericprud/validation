@@ -19,7 +19,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:40617009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "40617009" ] ;
          fhir:display [ fhir:v "Artificial respiration (procedure)" ]
        ] ) ;
@@ -29,7 +29,7 @@
   fhir:orderDetail ( [
      fhir:coding ( [
        a sct:243144002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "243144002" ] ;
        fhir:display [ fhir:v "Patient triggered inspiratory assistance (procedure)" ]
      ] ) ;

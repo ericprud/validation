@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityRequest</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://happyvalley.com/coverageelegibilityrequest" ] ;
+     fhir:system [ fhir:v "http://happyvalley.com/coverageelegibilityrequest"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "52345" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 

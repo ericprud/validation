@@ -17,7 +17,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "social-history" ] ;
        fhir:display [ fhir:v "Social History" ]
      ] )
@@ -25,7 +25,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:76691-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "76691-5" ] ; #    0..1 Identity of the terminology system   
        fhir:display [ fhir:v "Gender identity" ] #    0..1 Symbol in syntax defined by the system   
      ] ) ; #    0..1 Representation defined by the system   
@@ -45,7 +45,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:191788006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "191788006" ] ; #    0..1 Identity of the terminology system   
        fhir:display [ fhir:v "Feminism in boy (finding)" ] #    0..1 Symbol in syntax defined by the system   
      ] ) ; #    0..1 Representation defined by the system   

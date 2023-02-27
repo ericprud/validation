@@ -18,7 +18,7 @@
      fhir:coordinateSystem [
        fhir:coding ( [
          a loinc:LA30102-0 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LA30102-0" ] ;
          fhir:display [ fhir:v "1-based character counting" ]
        ] )

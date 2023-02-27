@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -25,7 +25,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:376988009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "376988009" ] ;
          fhir:display [ fhir:v "Levothyroxine Sodium 75micrograms tablet (product)" ]
        ] )
@@ -44,7 +44,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:40930008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "40930008" ] ;
          fhir:display [ fhir:v "Hypothyroidism (disorder)" ]
        ] )
@@ -63,7 +63,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:26643006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "26643006" ] ;
          fhir:display [ fhir:v "Oral Route (qualifier value)" ]
        ] )
@@ -71,7 +71,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -80,7 +80,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "75"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mcg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "ug" ]
        ]
      ] )
@@ -93,13 +93,13 @@
      fhir:quantity [
        fhir:value [ fhir:v "100"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "Tab" ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "TAB" ]
      ] ;
      fhir:expectedSupplyDuration [
        fhir:value [ fhir:v "30"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "days" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "d" ]
      ]
   ]] . # 

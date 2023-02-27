@@ -21,12 +21,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:45708-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "45708-5" ] ;
        fhir:display [ fhir:v "Vomiting [Minimum Data Set]" ]
      ] [
        a sct:249497008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "249497008" ] ;
        fhir:display [ fhir:v "Vomiting symptom (finding)" ]
      ] )
@@ -39,7 +39,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:2667000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2667000" ] ;
        fhir:display [ fhir:v "Absent (qualifier value)" ]
      ] )

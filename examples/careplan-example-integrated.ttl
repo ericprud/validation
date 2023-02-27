@@ -17,13 +17,13 @@
      fhir:id [ fhir:v "p1" ] ;
      fhir:clinicalStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "active" ]
        ] )
      ] ;
      fhir:verificationStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "confirmed" ]
        ] )
      ] ;
@@ -39,13 +39,13 @@
      fhir:id [ fhir:v "p2" ] ;
      fhir:clinicalStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "active" ]
        ] )
      ] ;
      fhir:verificationStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "confirmed" ]
        ] )
      ] ;
@@ -61,13 +61,13 @@
      fhir:id [ fhir:v "p3" ] ;
      fhir:clinicalStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "active" ]
        ] )
      ] ;
      fhir:verificationStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "confirmed" ]
        ] )
      ] ;
@@ -177,7 +177,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-09-10"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -198,7 +198,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-09-10"^^xsd:date ]
        ] ) ;
        fhir:kind [ fhir:v "CommunicationRequest" ] ;
@@ -216,7 +216,7 @@
   ] [
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-09-10"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -240,7 +240,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-09-10"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -264,7 +264,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-09-10"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -281,7 +281,7 @@
   ] [
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-08-13"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -305,7 +305,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-08-27"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -326,7 +326,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-09-10"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -350,7 +350,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-08-23"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -367,7 +367,7 @@
   ] [
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-07-23"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -388,7 +388,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-07-16"^^xsd:date ]
        ] ) ;
        fhir:goal ( [
@@ -412,7 +412,7 @@
      ] ) ;
      fhir:plannedActivityDetail [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/RevisionDate"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2012-08-13"^^xsd:date ]
        ] ) ;
        fhir:goal ( [

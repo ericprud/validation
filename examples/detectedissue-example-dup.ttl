@@ -14,13 +14,13 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://example.org" ] ;
+     fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "DUPTHPY" ] ;
        fhir:display [ fhir:v "Duplicate Therapy Alert" ]
      ] )

@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/TestScript/testscript-example-multisystem"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.12.6" ]
   ] ) ; # 
   fhir:version [ fhir:v "1.0"] ; # 
@@ -35,7 +35,7 @@
   fhir:description [ fhir:v "TestScript example resource showing use of origin and destination for multisystem support. The single origin will execute a Patient read against the two destination systems using user defined dynamic variables. The test engine will wait at each operation action with a defined origin and destination for the origin test system to send the expected FHIR operation to the destination test system. Once the expected request and response is observed, the test engine will continue with the test execution."] ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ] ;
        fhir:display [ fhir:v "United States of America (the)" ]
      ] )
@@ -53,7 +53,7 @@
      fhir:profile [
        fhir:code [ fhir:v "FHIR-Server" ]
      ] ;
-     fhir:url [ fhir:v "http://acme.com/fhir/test" ]
+     fhir:url [ fhir:v "http://acme.com/fhir/test"^^xsd:anyURI ]
   ] [
      fhir:index [ fhir:v "2"^^xsd:integer ] ;
      fhir:profile [
@@ -62,7 +62,7 @@
   ] ) ; # 
   fhir:metadata [
      fhir:link ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/patient.html" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/patient.html"^^xsd:anyURI ] ;
        fhir:description [ fhir:v "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ]
      ] ) ;
      fhir:capability ( [
@@ -103,7 +103,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "read" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -165,7 +165,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "read" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;

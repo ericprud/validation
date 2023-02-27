@@ -14,14 +14,14 @@
   ] ; # 
   fhir:url [ fhir:v "http://example.org/ActivityDefinition/administer-zika-virus-exposure-assessment"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.19.4" ]
   ] ) ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:description [ fhir:v "Administer Zika Virus Exposure Assessment"] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "age" ]
      ] ;
      fhir:value [
@@ -35,7 +35,7 @@
   fhir:relatedArtifact ( [
      fhir:type [ fhir:v "derived-from" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://www.cdc.gov/zika/hc-providers/pregnant-woman.html" ]
+       fhir:url [ fhir:v "https://www.cdc.gov/zika/hc-providers/pregnant-woman.html"^^xsd:anyURI ]
      ]
   ] [
      fhir:type [ fhir:v "depends-on" ] ;
@@ -51,7 +51,7 @@
   fhir:kind [ fhir:v "ServiceRequest"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://example.org/questionnaires" ] ;
+       fhir:system [ fhir:v "http://example.org/questionnaires"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "zika-virus-exposure-assessment" ]
      ] )
   ] ; # 
@@ -59,7 +59,7 @@
      a fhir:Timing ;
      fhir:event ( [
        fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-expression" ] ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-expression"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:Expression ;
            fhir:language [ fhir:v "text/cql" ] ;

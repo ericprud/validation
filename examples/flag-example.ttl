@@ -18,7 +18,7 @@
   fhir:status [ fhir:v "inactive"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/flag-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/flag-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "safety" ] ;
        fhir:display [ fhir:v "Safety" ]
      ] ) ;
@@ -26,7 +26,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://example.org/local" ] ;
+       fhir:system [ fhir:v "http://example.org/local"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "bigdog" ] ;
        fhir:display [ fhir:v "Big dog" ]
      ] ) ;

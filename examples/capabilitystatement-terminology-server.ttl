@@ -35,13 +35,13 @@
        ] ;
        fhir:interaction ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:code [ fhir:v "read" ]
        ] [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:code [ fhir:v "search-type" ]
@@ -84,7 +84,7 @@
        ] ) ;
        fhir:operation ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:name [ fhir:v "expand" ] ;
@@ -94,7 +94,7 @@
          ]
        ] [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:name [ fhir:v "expand" ] ;
@@ -104,7 +104,7 @@
          ]
        ] [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:name [ fhir:v "expand" ] ;
@@ -121,13 +121,13 @@
        ] ;
        fhir:interaction ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:code [ fhir:v "read" ]
        ] [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:code [ fhir:v "search-type" ]
@@ -170,7 +170,7 @@
        ] ) ;
        fhir:operation ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:name [ fhir:v "expand" ] ;
@@ -180,7 +180,7 @@
          ]
        ] [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:name [ fhir:v "expand" ] ;
@@ -197,13 +197,13 @@
        ] ;
        fhir:interaction ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:code [ fhir:v "read" ]
        ] [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:code [ fhir:v "search-type" ]
@@ -246,7 +246,7 @@
        ] ) ;
        fhir:operation ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "SHALL" ]
          ] ) ;
          fhir:name [ fhir:v "expand" ] ;

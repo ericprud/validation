@@ -25,11 +25,11 @@
          fhir:use [ fhir:v "usual" ] ;
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "MR" ]
            ] )
          ] ;
-         fhir:system [ fhir:v "urn:oid:1.2.36.146.595.217.0.1" ] ;
+         fhir:system [ fhir:v "urn:oid:1.2.36.146.595.217.0.1"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "12345" ] ;
          fhir:period [
            fhir:start [ fhir:v "2001-05-06"^^xsd:date ]
@@ -78,7 +78,7 @@
        fhir:birthDate [
          fhir:v "1974-12-25"^^xsd:date ;
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/patient-birthTime" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/patient-birthTime"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "1974-12-25T14:35:45-05:00"^^xsd:dateTime ]
          ] )
        ] ;
@@ -99,7 +99,7 @@
        fhir:contact ( [
          fhir:relationship ( [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "N" ]
            ] )
          ] ) ;
@@ -107,7 +107,7 @@
            fhir:family [
              fhir:v "du Marché" ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"^^xsd:anyURI ] ;
                fhir:value [ fhir:v "VV" ]
              ] )
            ] ;
@@ -154,7 +154,7 @@
        fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/MedicationStatement?_format=application/fhir+xml&search-id=804eee4a-0a54-4414-9c07-169952f929&&patient=example&_list=%24current%2Dmedications&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/MedicationStatement?_format=application/fhir+xml&search-id=804eee4a-0a54-4414-9c07-169952f929&&patient=example&_list=%24current%2Dmedications&_sort=_id"^^xsd:anyURI ]
        ] )
      ] ) ;
      fhir:response [
@@ -173,7 +173,7 @@
        fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/AllergyIntolerance?_format=application/fhir+xml&search-id=b1981f8a-4139-4db6-923d-77d764c990&&patient=example&_list=%24current%2Dallergies&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/AllergyIntolerance?_format=application/fhir+xml&search-id=b1981f8a-4139-4db6-923d-77d764c990&&patient=example&_list=%24current%2Dallergies&_sort=_id"^^xsd:anyURI ]
        ] )
      ] ) ;
      fhir:response [
@@ -192,7 +192,7 @@
        fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/Condition?_format=application/fhir+xml&search-id=4d097c43-54aa-4157-b500-be22208dd0&&patient=example&_list=%24current%2Dproblems&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/Condition?_format=application/fhir+xml&search-id=4d097c43-54aa-4157-b500-be22208dd0&&patient=example&_list=%24current%2Dproblems&_sort=_id"^^xsd:anyURI ]
        ] )
      ] ) ;
      fhir:response [
@@ -211,7 +211,7 @@
        fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/MedicationStatement?_format=application/fhir+xml&search-id=31d4af75-cdcf-4f85-9666-4bafadebb5&&patient=example&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/MedicationStatement?_format=application/fhir+xml&search-id=31d4af75-cdcf-4f85-9666-4bafadebb5&&patient=example&_sort=_id"^^xsd:anyURI ]
        ] )
      ] ) ;
      fhir:response [

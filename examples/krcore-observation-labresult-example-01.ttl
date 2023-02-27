@@ -21,14 +21,14 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "laboratory" ] ;
        fhir:display [ fhir:v "Laboratory" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "https://hira.or.kr/CodeSystem/lab-result-code" ] ;
+       fhir:system [ fhir:v "https://hira.or.kr/CodeSystem/lab-result-code"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "FZ811" ] ;
        fhir:display [ fhir:v "연속혈당측정검사" ]
      ] ) ;
@@ -42,19 +42,19 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "76.0"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mg/dL" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ]
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "40.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mg/dL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mg/dL" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "109.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mg/dL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mg/dL" ]
      ]
   ] )] . # 

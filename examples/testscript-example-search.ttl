@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/TestScript/testscript-example-search"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.12.3" ]
   ] ) ; # 
   fhir:version [ fhir:v "1.0"] ; # 
@@ -35,7 +35,7 @@
   fhir:description [ fhir:v "TestScript example resource with simple Patient search test. The read tests will utilize user defined dynamic variables that will hold the Patient search parameter values."] ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ] ;
        fhir:display [ fhir:v "United States of America (the)" ]
      ] )
@@ -44,7 +44,7 @@
   fhir:copyright [ fhir:v "© HL7.org 2011+"] ; # 
   fhir:metadata [
      fhir:link ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/patient.html" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/patient.html"^^xsd:anyURI ] ;
        fhir:description [ fhir:v "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ]
      ] ) ;
      fhir:capability ( [
@@ -93,7 +93,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "search" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -142,7 +142,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "create" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -172,13 +172,13 @@
      ] [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "read" ]
          ] ;
          fhir:description [ fhir:v "Read the created Patient using the captured Location URL value." ] ;
          fhir:accept [ fhir:v "xml" ] ;
          fhir:encodeRequestUrl [ fhir:v "true"^^xsd:boolean ] ;
-         fhir:url [ fhir:v "${PatientCreateLocation}" ]
+         fhir:url [ fhir:v "${PatientCreateLocation}"^^xsd:anyURI ]
        ]
      ] [
        fhir:assert [
@@ -202,7 +202,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "search" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;

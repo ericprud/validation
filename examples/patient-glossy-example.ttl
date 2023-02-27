@@ -16,18 +16,18 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Henry Levin the 7th</p>\n      <p>MRN: 123456. Male, 24-Sept 1932</p>\n    </div>"
   ] ; # 
   fhir:extension ( [
-     fhir:url [ fhir:v "http://example.org/StructureDefinition/trials" ] ;
+     fhir:url [ fhir:v "http://example.org/StructureDefinition/trials"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "renal" ]
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "usual" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "MR" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://www.goodhealth.org/identifiers/mrn" ] ;
+     fhir:system [ fhir:v "http://www.goodhealth.org/identifiers/mrn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123456" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 

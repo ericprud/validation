@@ -15,7 +15,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ConceptMap/102"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.14.3" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -27,12 +27,12 @@
   fhir:publisher [ fhir:v "FHIR project team (original source: LabMCoP)"] ; # 
   fhir:contact ( [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://www.phconnect.org/group/laboratorymessagingcommunityofpractice/forum/attachment/download?id=3649725%3AUploadedFile%3A145786" ]
      ] )
   ] ) ; # 
@@ -70,7 +70,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:47002008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "47002008" ]
            ]
          ] )
@@ -90,7 +90,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:7970006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "7970006" ]
            ]
          ] )
@@ -104,7 +104,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:81723002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "81723002" ]
            ]
          ] )
@@ -135,7 +135,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] )
@@ -170,7 +170,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:339008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "339008" ]
            ]
          ] )
@@ -184,7 +184,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:339008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "339008" ]
            ]
          ] )
@@ -198,14 +198,14 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:59843005 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "59843005" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] )
@@ -240,7 +240,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:439336003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "439336003" ]
            ]
          ] )
@@ -260,7 +260,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:80657008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "80657008" ]
            ]
          ] )
@@ -274,14 +274,14 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:11585000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "11585000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] )
@@ -295,7 +295,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:339008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "339008" ]
            ]
          ] )
@@ -309,7 +309,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:86273004 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "86273004" ]
            ]
          ] )
@@ -329,7 +329,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:41570003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "41570003" ]
            ]
          ] )
@@ -383,14 +383,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:54535009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "54535009" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:71252005 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "71252005" ]
            ]
          ] )
@@ -411,14 +411,14 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:386144009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "386144009" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:285570007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "285570007" ]
            ]
          ] )
@@ -461,7 +461,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:445085009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "445085009" ]
            ]
          ] )
@@ -475,7 +475,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:27925004 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "27925004" ]
            ]
          ] )
@@ -525,7 +525,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:31113003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "31113003" ]
            ]
          ] )
@@ -546,7 +546,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] )
@@ -561,7 +561,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] )
@@ -581,14 +581,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:36213007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "36213007" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:32849002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "32849002" ]
            ]
          ] )
@@ -647,14 +647,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:321667001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "321667001" ]
            ]
          ] )
@@ -675,14 +675,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:321667001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "321667001" ]
            ]
          ] )
@@ -717,7 +717,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:303112003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "303112003" ]
            ]
          ] )
@@ -731,7 +731,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:83670000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "83670000" ]
            ]
          ] )
@@ -780,7 +780,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:272626006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "272626006" ]
            ]
          ] )
@@ -794,7 +794,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:41695006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "41695006" ]
            ]
          ] )
@@ -809,7 +809,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:59843005 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "59843005" ]
            ]
          ] )
@@ -829,14 +829,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -850,7 +850,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:66051006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "66051006" ]
            ]
          ] )
@@ -864,14 +864,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:235157009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "235157009" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -886,14 +886,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -925,7 +925,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:45647009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "45647009" ]
            ]
          ] )
@@ -949,14 +949,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:79121003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "79121003" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -974,21 +974,21 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:127490009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "127490009" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -1005,7 +1005,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:303113008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "303113008" ]
            ]
          ] )
@@ -1046,7 +1046,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:445085009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "445085009" ]
            ]
          ] )
@@ -1060,7 +1060,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:55434001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "55434001" ]
            ]
          ] )
@@ -1097,7 +1097,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:419954003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "419954003" ]
            ]
          ] )
@@ -1152,7 +1152,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:255560000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "255560000" ]
            ]
          ] )
@@ -1179,14 +1179,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:21306003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "21306003" ]
            ]
          ] )
@@ -1207,7 +1207,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] )
@@ -1221,7 +1221,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:67889009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "67889009" ]
            ]
          ] )
@@ -1235,7 +1235,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:64033007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "64033007" ]
            ]
          ] )
@@ -1249,7 +1249,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:397394009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "397394009" ]
            ]
          ] )
@@ -1263,14 +1263,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:173830003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "173830003" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -1290,14 +1290,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:67889009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "67889009" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:44567001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "44567001" ]
            ]
          ] )
@@ -1337,7 +1337,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:303949008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "303949008" ]
            ]
          ] )
@@ -1358,7 +1358,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:4147007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "4147007" ]
            ]
          ] )
@@ -1378,7 +1378,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:414781009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "414781009" ]
            ]
          ] )
@@ -1399,14 +1399,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:2095001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "2095001" ]
            ]
          ] )
@@ -1429,14 +1429,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:6853008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "6853008" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -1451,21 +1451,21 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:127492001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "127492001" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:69695003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "69695003" ]
            ]
          ] )
@@ -1527,7 +1527,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:12921003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "12921003" ]
            ]
          ] )
@@ -1544,7 +1544,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:397158004 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "397158004" ]
            ]
          ] )
@@ -1594,7 +1594,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:255587001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "255587001" ]
            ]
          ] )
@@ -1609,14 +1609,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:13648007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "13648007" ]
            ]
          ] )
@@ -1630,7 +1630,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:41329004 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "41329004" ]
            ]
          ] )
@@ -1644,7 +1644,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:6902008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "6902008" ]
            ]
          ] )
@@ -1658,7 +1658,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:6902008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "6902008" ]
            ]
          ] )
@@ -1706,7 +1706,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:129300006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "129300006" ]
            ]
          ] )
@@ -1726,7 +1726,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:47002008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "47002008" ]
            ]
          ] )
@@ -1740,7 +1740,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:47002008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "47002008" ]
            ]
          ] )
@@ -1767,14 +1767,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:34402009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "34402009" ]
            ]
          ] )
@@ -1788,7 +1788,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:34402009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "34402009" ]
            ]
          ] )
@@ -1802,7 +1802,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:64033007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "64033007" ]
            ]
          ] )
@@ -1816,7 +1816,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:64033007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "64033007" ]
            ]
          ] )
@@ -1849,7 +1849,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:9454009 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "9454009" ]
            ]
          ] )
@@ -1863,7 +1863,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:20233005 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "20233005" ]
            ]
          ] )
@@ -1890,14 +1890,14 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:257351008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "257351008" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:14766002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "14766002" ]
            ]
          ] )
@@ -1911,14 +1911,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:446860008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "446860008" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:279107003 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "279107003" ]
            ]
          ] )
@@ -1938,7 +1938,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:240977001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "240977001" ]
            ]
          ] )
@@ -1958,7 +1958,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:4147007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "4147007" ]
            ]
          ] )
@@ -2043,7 +2043,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:64033007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "64033007" ]
            ]
          ] )
@@ -2057,7 +2057,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:5713008 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "5713008" ]
            ]
          ] )
@@ -2071,7 +2071,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:4335006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "4335006" ]
            ]
          ] )
@@ -2086,7 +2086,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] )
@@ -2100,7 +2100,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:58088002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "58088002" ]
            ]
          ] )
@@ -2124,14 +2124,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:129112001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "129112001" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:44567001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "44567001" ]
            ]
          ] )
@@ -2176,7 +2176,7 @@
            fhir:property [ fhir:v "TypeModifier" ] ;
            fhir:value [
              a fhir:Coding, sct:255588006 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "255588006" ]
            ]
          ] )
@@ -2190,7 +2190,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:279572002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "279572002" ]
            ]
          ] )
@@ -2204,7 +2204,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:129112001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "129112001" ]
            ]
          ] )
@@ -2251,7 +2251,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:78533007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "78533007" ]
            ]
          ] )
@@ -2271,14 +2271,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:225271002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "225271002" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:431938005 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "431938005" ]
            ]
          ] )
@@ -2292,14 +2292,14 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:225109005 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "225109005" ]
            ]
          ] [
            fhir:property [ fhir:v "http://snomed.info/id/3006873018" ] ;
            fhir:value [
              a fhir:Coding, sct:25990002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "25990002" ]
            ]
          ] )
@@ -2399,7 +2399,7 @@
            fhir:property [ fhir:v "http://snomed.info/id/246380002" ] ;
            fhir:value [
              a fhir:Coding, sct:122462000 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "122462000" ]
            ]
          ] )

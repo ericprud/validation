@@ -25,13 +25,13 @@
      ]
   ] ) ; #   rest of the resource ommitted for brevity  
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://happyvalley.com/claim" ] ;
+     fhir:system [ fhir:v "http://happyvalley.com/claim"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123466" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "oral" ]
      ] )
   ] ; # 
@@ -57,7 +57,7 @@
      ] ;
      fhir:relationship [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "associated" ]
        ] )
      ] ;
@@ -68,7 +68,7 @@
   fhir:payee [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payeetype" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payeetype"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "other" ]
        ] )
      ] ;
@@ -89,13 +89,13 @@
      fhir:sequence [ fhir:v "1"^^xsd:positiveInteger ] ;
      fhir:category [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claiminformationcategory" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claiminformationcategory"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "prosthesis" ]
        ] )
      ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/ex-oralprostho" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/ex-oralprostho"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "2" ] ;
          fhir:display [ fhir:v "Maryland Bridge" ]
        ] )
@@ -123,7 +123,7 @@
      fhir:informationSequence ( [ fhir:v "1"^^xsd:positiveInteger ] ) ;
      fhir:productOrService [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes" ] ;
+         fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "67221" ] ;
          fhir:display [ fhir:v "Maryland Bridge" ]
        ] )
@@ -132,7 +132,7 @@
      fhir:location [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-serviceplace" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-serviceplace"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "11" ]
        ] )
      ] ;
@@ -152,7 +152,7 @@
        fhir:site ( [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://fdi.org/fhir/oraltoothcodes" ] ;
+             fhir:system [ fhir:v "http://fdi.org/fhir/oraltoothcodes"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "01" ]
            ] )
          ]
@@ -163,7 +163,7 @@
      fhir:careTeamSequence ( [ fhir:v "1"^^xsd:positiveInteger ] ) ;
      fhir:productOrService [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes" ] ;
+         fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "21211" ]
        ] )
      ] ;
@@ -171,7 +171,7 @@
      fhir:location [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-serviceplace" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-serviceplace"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "11" ]
        ] )
      ] ;
@@ -187,14 +187,14 @@
        fhir:site ( [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://fdi.org/fhir/oraltoothcodes" ] ;
+             fhir:system [ fhir:v "http://fdi.org/fhir/oraltoothcodes"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "21" ]
            ] )
          ]
        ] ) ;
        fhir:subSite ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://fdi.org/fhir/oralsurfacecodes" ] ;
+           fhir:system [ fhir:v "http://fdi.org/fhir/oralsurfacecodes"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "L" ]
          ] )
        ] )
@@ -205,7 +205,7 @@
      fhir:procedureSequence ( [ fhir:v "1"^^xsd:positiveInteger ] ) ;
      fhir:productOrService [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes" ] ;
+         fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "27211" ]
        ] )
      ] ;
@@ -213,7 +213,7 @@
      fhir:location [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-serviceplace" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-serviceplace"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "11" ]
        ] )
      ] ;
@@ -229,7 +229,7 @@
        fhir:site ( [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://fdi.org/fhir/oraltoothcodes" ] ;
+             fhir:system [ fhir:v "http://fdi.org/fhir/oraltoothcodes"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "24" ]
            ] )
          ]
@@ -239,7 +239,7 @@
        fhir:sequence [ fhir:v "1"^^xsd:positiveInteger ] ;
        fhir:productOrService [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes" ] ;
+           fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "27211" ]
          ] )
        ] ;
@@ -256,7 +256,7 @@
        fhir:sequence [ fhir:v "2"^^xsd:positiveInteger ] ;
        fhir:productOrService [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes" ] ;
+           fhir:system [ fhir:v "http://example.org/fhir/oralservicecodes"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "lab" ]
          ] )
        ] ;

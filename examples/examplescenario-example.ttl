@@ -38,7 +38,7 @@
   fhir:instance ( [
      fhir:key [ fhir:v "iherx001" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Initial Prescription" ] ;
@@ -46,7 +46,7 @@
   ] [
      fhir:key [ fhir:v "iherx001.001" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for day 1, morning" ] ;
@@ -54,7 +54,7 @@
   ] [
      fhir:key [ fhir:v "iherx001.002" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for day 1, lunch" ] ;
@@ -62,7 +62,7 @@
   ] [
      fhir:key [ fhir:v "iherx001.003" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for day 1, evening" ] ;
@@ -70,7 +70,7 @@
   ] [
      fhir:key [ fhir:v "iherx001.004" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for day 2, morning" ] ;
@@ -78,7 +78,7 @@
   ] [
      fhir:key [ fhir:v "iherx001.005" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for day 2, lunch" ] ;
@@ -86,7 +86,7 @@
   ] [
      fhir:key [ fhir:v "iherx001.006" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for day 2, evening" ] ;
@@ -94,7 +94,7 @@
   ] [
      fhir:key [ fhir:v "iheadm001a" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationAdministration" ]
      ] ;
      fhir:title [ fhir:v "Morning meds - taken" ] ;
@@ -102,7 +102,7 @@
   ] [
      fhir:key [ fhir:v "iheadm001b" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationAdministration" ]
      ] ;
      fhir:title [ fhir:v "Morning meds - not taken" ] ;
@@ -110,7 +110,7 @@
   ] [
      fhir:key [ fhir:v "iherx001bundle" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationRequest" ]
      ] ;
      fhir:title [ fhir:v "Bundle of Medication Requests" ] ;
@@ -131,7 +131,7 @@
   ] [
      fhir:key [ fhir:v "iheadm002" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "MedicationAdministration" ]
      ] ;
      fhir:title [ fhir:v "Lunch meds - taken" ] ;
@@ -148,7 +148,7 @@
   ] [
      fhir:key [ fhir:v "iherxqry" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SearchParameter" ]
      ] ;
      fhir:title [ fhir:v "Search query1" ] ;

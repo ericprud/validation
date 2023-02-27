@@ -14,14 +14,14 @@
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110100" ] ;
        fhir:display [ fhir:v "Application Activity" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110120" ] ;
        fhir:display [ fhir:v "Application Start" ]
      ] )
@@ -30,7 +30,7 @@
   fhir:recorded [ fhir:v "2012-10-25T22:04:27+11:00"^^xsd:dateTime] ; # 
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ]
@@ -47,7 +47,7 @@
      fhir:requestor [ fhir:v "false"^^xsd:boolean ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID"^^xsd:anyURI ] ;
        fhir:value [
          a fhir:Identifier ;
          fhir:type [
@@ -58,7 +58,7 @@
      ] ) ; #   Source active participant, the software making the . AlternativeUserId - Process ID  
      fhir:who [
        fhir:identifier [
-         fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.4.2" ] ;
+         fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.4.2"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "2.16.840.1.113883.4.2" ]
        ]
      ] ;
@@ -71,7 +71,7 @@
      ] ;
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110122" ] ;
          fhir:display [ fhir:v "Login" ]
        ] )
@@ -82,7 +82,7 @@
        fhir:identifier [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "SNO" ]
            ] ) ;
            fhir:text [ fhir:v "Dell Serial Number" ]
@@ -92,7 +92,7 @@
      ] ;
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Domain Resource" ]
        ] )

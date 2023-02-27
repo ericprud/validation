@@ -13,14 +13,14 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the coverage</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://xyz.com/codes/identifier" ] ;
+     fhir:system [ fhir:v "http://xyz.com/codes/identifier"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "AB98761" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:kind [ fhir:v "insurance"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "EHCPOL" ] ;
        fhir:display [ fhir:v "extended healthcare" ]
      ] )
@@ -50,7 +50,7 @@
   fhir:class ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "group" ]
        ] )
      ] ;
@@ -61,7 +61,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "plan" ]
        ] )
      ] ;
@@ -72,7 +72,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "subplan" ]
        ] )
      ] ;
@@ -86,7 +86,7 @@
   fhir:costToBeneficiary ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-copay-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-copay-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "gpvisit" ]
        ] ) #   normally $40.00  
      ] ;
@@ -98,7 +98,7 @@
      fhir:exception ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "retired" ]
          ] )
        ] ;

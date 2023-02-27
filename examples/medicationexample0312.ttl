@@ -21,7 +21,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:387048002 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "387048002" ] ;
            fhir:display [ fhir:v "Nystatin (substance)" ]
          ] )
@@ -31,7 +31,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:324689003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "324689003" ] ;
        fhir:display [ fhir:v "Nystatin 100,000 units/ml oral suspension (product)" ]
      ] )
@@ -39,7 +39,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:387048002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "387048002" ] ;
        fhir:display [ fhir:v "Oral suspension (qualifier value)" ]
      ] )
@@ -54,12 +54,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "100000"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "[IU]" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ]

@@ -21,7 +21,7 @@
      fhir:type ( [
        fhir:coding ( [
          a sct:14106009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "14106009" ] ;
          fhir:display [ fhir:v "Cardiac pacemaker implant" ]
        ] )
@@ -41,7 +41,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:25267002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "25267002" ] ;
        fhir:display [ fhir:v "Insertion of intracardiac pacemaker (procedure)" ]
      ] ) ;
@@ -71,7 +71,7 @@
   fhir:focalDevice ( [
      fhir:action [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/device-action" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/device-action"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "implanted" ]
        ] )
      ] ;

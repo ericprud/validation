@@ -26,7 +26,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/supplydelivery-supplyitemtype" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/supplydelivery-supplyitemtype"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "device" ]
      ] ) ;
      fhir:text [ fhir:v "Blood collect tubes blue cap" ]

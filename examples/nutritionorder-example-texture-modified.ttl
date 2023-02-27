@@ -14,7 +14,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: NutritionOrder</b><a name=\"texturemodified\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource NutritionOrder &quot;texturemodified&quot; </p></div><p><b>identifier</b>: id: 123</p><p><b>status</b>: active</p><p><b>intent</b>: order</p><p><b>subject</b>: <a href=\"patient-example.html\">Patient/example: Peter Chalmers</a> &quot;Peter CHALMERS&quot;</p><p><b>dateTime</b>: 2014-09-17</p><p><b>orderer</b>: <a href=\"practitioner-example.html\">Practitioner/example: Dr Adam Careful</a> &quot;Adam CAREFUL&quot;</p><blockquote><p><b>oralDiet</b></p><p><b>type</b>: <span title=\"  EH:  list type of diet showing standard code and local codes  \">Texture modified diet <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#435801000124108; diet-type-codes#1010)</span></span></p><h3>Schedules</h3><table class=\"grid\"><tr><td>-</td><td><b>Timing</b></td></tr><tr><td>*</td><td>Starting 2015-02-10, 3 per 1 days</td></tr></table><h3>Textures</h3><table class=\"grid\"><tr><td>-</td><td><b>Modifier</b></td><td><b>FoodType</b></td></tr><tr><td>*</td><td>Regular, Chopped Meat <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#228049004 &quot;Chopped food&quot;)</span></td><td>Regular, Chopped Meat <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#28647000 &quot;Meat&quot;)</span></td></tr></table></blockquote></div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://goodhealthhospital.org/nutrition-requests" ] ;
+     fhir:system [ fhir:v "http://goodhealthhospital.org/nutrition-requests"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -32,11 +32,11 @@
      fhir:type ( [
        fhir:coding ( [
          a sct:435801000124108 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "435801000124108" ] ;
          fhir:display [ fhir:v "Texture modified diet" ]
        ] [
-         fhir:system [ fhir:v "http://goodhealthhospital.org/diet-type-codes" ] ;
+         fhir:system [ fhir:v "http://goodhealthhospital.org/diet-type-codes"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1010" ] ;
          fhir:display [ fhir:v "Texture modified diet" ]
        ] ) ;
@@ -59,7 +59,7 @@
        fhir:modifier [
          fhir:coding ( [
            a sct:228049004 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "228049004" ] ;
            fhir:display [ fhir:v "Chopped food" ]
          ] ) ;
@@ -68,7 +68,7 @@
        fhir:foodType [
          fhir:coding ( [
            a sct:28647000 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "28647000" ] ;
            fhir:display [ fhir:v "Meat" ]
          ] ) ;

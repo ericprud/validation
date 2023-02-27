@@ -15,7 +15,7 @@
   fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger] ; # 
   fhir:link ( [
      fhir:relation [ fhir:v "self" ] ;
-     fhir:url [ fhir:v "https://example.org/fhir/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456" ]
+     fhir:url [ fhir:v "https://example.org/fhir/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456"^^xsd:anyURI ]
   ] ) ; # 
   fhir:entry ( [
      fhir:fullUrl [ fhir:v "urn:uuid:2866af9c-137d-4458-a8a9-eeeec0ce5583" ] ;

@@ -30,14 +30,14 @@
   ] ; # 
   fhir:implementation [
      fhir:description [ fhir:v "Acme Message endpoint" ] ;
-     fhir:url [ fhir:v "http://acem.com/fhir/message-drop" ]
+     fhir:url [ fhir:v "http://acem.com/fhir/message-drop"^^xsd:anyURI ]
   ] ; # 
   fhir:fhirVersion [ fhir:v "5.0.0-snapshot3"] ; # 
   fhir:format ( [ fhir:v "xml"] [ fhir:v "json"] ) ; # 
   fhir:messaging ( [
      fhir:endpoint ( [
        fhir:protocol [
-         fhir:system [ fhir:v "http://hl7.org/fhir/message-transport" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/message-transport"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mllp" ]
        ] ;
        fhir:address [ fhir:v "mllp:10.1.1.10:9234" ]

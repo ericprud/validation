@@ -18,14 +18,14 @@
 #  </text>
 #  
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://acme.org/identifiers/substances" ] ;
+     fhir:system [ fhir:v "http://acme.org/identifiers/substances"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "1463" ]
   ] ) ; # 
   fhir:instance [ fhir:v "false"^^xsd:boolean] ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/substance-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/substance-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "allergen" ] ;
        fhir:display [ fhir:v "Allergen" ]
      ] )

@@ -18,7 +18,7 @@
      fhir:id [ fhir:v "med0322" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "0067-2091-03" ] ;
          fhir:display [ fhir:v "Vagistat-3" ]
        ] )
@@ -26,7 +26,7 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:basedOn ( [
@@ -34,7 +34,7 @@
   ] ) ; # 
   fhir:groupIdentifier [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "983939393" ]
   ] ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -75,7 +75,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:16857009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "16857009" ] ;
          fhir:display [ fhir:v "Vaginal Route" ]
        ] )
@@ -83,7 +83,7 @@
      fhir:method [
        fhir:coding ( [
          a sct:421257003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "421257003" ] ;
          fhir:display [ fhir:v "Insert" ]
        ] )
@@ -91,7 +91,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -100,7 +100,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "VAGTAB" ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "VAGTAB" ]
        ]
      ] )
@@ -122,7 +122,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:6064005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "6064005" ] ;
          fhir:display [ fhir:v "Topical Route" ]
        ] )
@@ -130,7 +130,7 @@
      fhir:method [
        fhir:coding ( [
          a sct:417924000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "417924000" ] ;
          fhir:display [ fhir:v "Apply - dosing instruction imperative (qualifier value)" ]
        ] )
@@ -138,7 +138,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -157,7 +157,7 @@
      fhir:expectedSupplyDuration [
        fhir:value [ fhir:v "3"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "days" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "d" ]
      ] ;
      fhir:dispenser [
@@ -168,7 +168,7 @@
      fhir:allowed [ fhir:v "true"^^xsd:boolean ] ;
      fhir:reason [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "FP" ] ;
          fhir:display [ fhir:v "formulary policy" ]
        ] )

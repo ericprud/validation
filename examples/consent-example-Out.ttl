@@ -17,7 +17,7 @@
   fhir:category ( [
      fhir:coding ( [
        a loinc:59284-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "59284-0" ]
      ] )
   ] ) ; # 
@@ -34,7 +34,7 @@
   ] ) ; #   likely use url pointer to common text  
   fhir:regulatoryBasis ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "INFA" ]
      ] )
   ] ) ; #   this is opt-IN - e.g. everything approved unless otherwise stated  
@@ -43,7 +43,7 @@
      fhir:actor ( [
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "CST" ]
          ] )
        ] ;

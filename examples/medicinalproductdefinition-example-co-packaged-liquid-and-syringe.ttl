@@ -28,7 +28,7 @@
          fhir:amount [
            fhir:value [ fhir:v "20"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "ml" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ]
        ] [
@@ -53,13 +53,13 @@
      fhir:status [ fhir:v "active" ] ;
      fhir:manufacturedDoseForm [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org.uk/fhir/doseform" ] ;
+         fhir:system [ fhir:v "http://example.org.uk/fhir/doseform"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "solution for injection" ]
        ] )
      ]
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org.uk/fhir/product" ] ;
+     fhir:system [ fhir:v "http://example.org.uk/fhir/product"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "Wonderdrug+" ]
   ] ) ; #  contained>
 #		<Ingredient>
@@ -89,7 +89,7 @@
 #	</contained 
   fhir:combinedPharmaceuticalDoseForm [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://example.org.uk/fhir/doseform" ] ;
+       fhir:system [ fhir:v "http://example.org.uk/fhir/doseform"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "solution for injection" ]
      ] )
   ] ; # 

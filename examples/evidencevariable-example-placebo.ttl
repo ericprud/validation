@@ -23,7 +23,7 @@
      fhir:definitionCodeableConcept [
        fhir:coding ( [
          a sct:182886004 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "182886004" ] ;
          fhir:display [ fhir:v "Placebo given (situation)" ]
        ] )

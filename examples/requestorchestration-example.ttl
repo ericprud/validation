@@ -43,7 +43,7 @@
      fhir:value [ fhir:v "requestorchestration-1" ]
   ] ) ; # 
   fhir:groupIdentifier [
-     fhir:system [ fhir:v "http://example.org/treatment-group" ] ;
+     fhir:system [ fhir:v "http://example.org/treatment-group"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "00001" ]
   ] ; # 
   fhir:status [ fhir:v "draft"] ; # 

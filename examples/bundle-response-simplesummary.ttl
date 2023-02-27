@@ -26,11 +26,11 @@
          fhir:use [ fhir:v "usual" ] ;
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "MR" ]
            ] )
          ] ;
-         fhir:system [ fhir:v "urn:oid:1.2.36.146.595.217.0.1" ] ;
+         fhir:system [ fhir:v "urn:oid:1.2.36.146.595.217.0.1"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "12345" ] ;
          fhir:period [
            fhir:start [ fhir:v "2001-05-06"^^xsd:date ]
@@ -79,7 +79,7 @@
        fhir:birthDate [
          fhir:v "1974-12-25"^^xsd:date ;
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/patient-birthTime" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/patient-birthTime"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "1974-12-25T14:35:45-05:00"^^xsd:dateTime ]
          ] )
        ] ;
@@ -100,7 +100,7 @@
        fhir:contact ( [
          fhir:relationship ( [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "N" ]
            ] )
          ] ) ;
@@ -108,7 +108,7 @@
            fhir:family [
              fhir:v "du Marché" ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"^^xsd:anyURI ] ;
                fhir:value [ fhir:v "VV" ]
              ] )
            ] ;
@@ -155,7 +155,7 @@
        fhir:total [ fhir:v "4"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/Condition?_format=application/fhir+xml&search-id=36aac5c3-a9f6-4c3a-bf94-24d32ed604&&patient=example&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/Condition?_format=application/fhir+xml&search-id=36aac5c3-a9f6-4c3a-bf94-24d32ed604&&patient=example&_sort=_id"^^xsd:anyURI ]
        ] ) ;
        fhir:entry ( [
          fhir:fullUrl [ fhir:v "http://test.fhir.org/r5/Condition/example" ] ;
@@ -199,7 +199,7 @@
        fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/MedicationStatement?_format=application/fhir+xml&search-id=0f08b401-5120-4444-9a83-3fd21d33df&&patient=example&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/MedicationStatement?_format=application/fhir+xml&search-id=0f08b401-5120-4444-9a83-3fd21d33df&&patient=example&_sort=_id"^^xsd:anyURI ]
        ] )
      ] ) ;
      fhir:response [
@@ -218,7 +218,7 @@
        fhir:total [ fhir:v "0"^^xsd:nonNegativeInteger ] ;
        fhir:link ( [
          fhir:relation [ fhir:v "self" ] ;
-         fhir:url [ fhir:v "http://test.fhir.org/r5/Observation?_format=application/fhir+xml&search-id=50df0414-1375-48a4-ba1e-66f580360a&&patient=example&code=http%3A//loinc.org%7C55284%2D4&date=ge2015%2D01%2D01&_sort=_id" ]
+         fhir:url [ fhir:v "http://test.fhir.org/r5/Observation?_format=application/fhir+xml&search-id=50df0414-1375-48a4-ba1e-66f580360a&&patient=example&code=http%3A//loinc.org%7C55284%2D4&date=ge2015%2D01%2D01&_sort=_id"^^xsd:anyURI ]
        ] )
      ] ) ;
      fhir:response [
@@ -240,24 +240,24 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "encounter-diagnosis" ] ;
        fhir:display [ fhir:v "Encounter Diagnosis" ]
      ] [
        a sct:439401001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "439401001" ] ;
        fhir:display [ fhir:v "Diagnosis" ]
      ] )
@@ -265,7 +265,7 @@
   fhir:severity [
      fhir:coding ( [
        a sct:24484000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "24484000" ] ;
        fhir:display [ fhir:v "Severe" ]
      ] )
@@ -273,7 +273,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:39065001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "39065001" ] ;
        fhir:display [ fhir:v "Burn of ear" ]
      ] ) ;
@@ -282,7 +282,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:49521004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "49521004" ] ;
        fhir:display [ fhir:v "Left external ear structure" ]
      ] ) ;
@@ -305,19 +305,19 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "problem-list-item" ] ;
        fhir:display [ fhir:v "Problem List Item" ]
      ] )
@@ -325,7 +325,7 @@
   fhir:severity [
      fhir:coding ( [
        a sct:255604002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "255604002" ] ;
        fhir:display [ fhir:v "Mild" ]
      ] )
@@ -350,13 +350,13 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "problem-list-item" ] ;
        fhir:display [ fhir:v "Problem List Item" ]
      ] )
@@ -364,7 +364,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:312824007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "312824007" ] ;
        fhir:display [ fhir:v "Family history of cancer of colon" ]
      ] )
@@ -385,19 +385,19 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "encounter-diagnosis" ] ;
        fhir:display [ fhir:v "Encounter Diagnosis" ]
      ] )
@@ -405,7 +405,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:422504002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "422504002" ] ;
        fhir:display [ fhir:v "Ischemic stroke (disorder)" ]
      ] ) ;

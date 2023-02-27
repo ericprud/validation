@@ -12,13 +12,13 @@
   fhir:id [ fhir:v "father"] ; # 
   fhir:meta [
      fhir:security ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-Confidentiality" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-Confidentiality"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "N" ] ;
        fhir:display [ fhir:v "normal" ]
      ] )
   ] ; # 
   fhir:identifier [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0" ]
   ] ; # 
   fhir:type [ fhir:v "document"] ; # 
@@ -50,7 +50,7 @@
   ] ) ; #      The Composition resource     
   fhir:signature [
      fhir:type ( [
-       fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+       fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1.2.840.10065.1.12.1.1" ] ;
        fhir:display [ fhir:v "Author's Signature" ]
      ] ) ;
@@ -78,7 +78,7 @@
   fhir:type [
      fhir:coding ( [
        a loinc:28655-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "28655-9" ]
      ] ) ;
      fhir:text [ fhir:v "Discharge Summary from Responsible Clinician" ]
@@ -103,7 +103,7 @@
      fhir:code [
        fhir:coding ( [
          a loinc:29299-5 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "29299-5" ] ;
          fhir:display [ fhir:v "Reason for visit Narrative" ]
        ] )
@@ -120,7 +120,7 @@
      fhir:code [
        fhir:coding ( [
          a loinc:10183-2 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "10183-2" ] ;
          fhir:display [ fhir:v "Hospital discharge medications Narrative" ]
        ] )
@@ -140,7 +140,7 @@
      fhir:code [
        fhir:coding ( [
          a loinc:48765-2 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "48765-2" ] ;
          fhir:display [ fhir:v "Allergies and adverse reactions Document" ]
        ] )
@@ -164,7 +164,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n            <p>Dr Adam Careful</p>\n\n          </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.acme.org/practitioners" ] ;
+     fhir:system [ fhir:v "http://www.acme.org/practitioners"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "23" ]
   ] ) ; # 
   fhir:name ( [
@@ -212,7 +212,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "IMP" ] ;
        fhir:display [ fhir:v "inpatient encounter" ]
      ] )
@@ -245,7 +245,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:46241-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "46241-6" ]
      ] ) ;
      fhir:text [ fhir:v "Reason for admission" ]
@@ -276,7 +276,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:66493003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "66493003" ]
        ] ) ;
        fhir:text [ fhir:v "Theophylline 200mg" ]
@@ -310,7 +310,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:394899003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "394899003" ] ;
          fhir:display [ fhir:v "oral administration of treatment" ]
        ] )
@@ -318,7 +318,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -327,7 +327,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "tablet" ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TAB" ]
        ]
      ] )
@@ -369,21 +369,21 @@
   ] ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "active" ] ;
        fhir:display [ fhir:v "Active" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ] ;
        fhir:display [ fhir:v "Confirmed" ]
      ] )
   ] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/allergy-intolerance-type" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/allergy-intolerance-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "allergy" ] ;
        fhir:display [ fhir:v "Allergy" ]
      ] )
@@ -402,7 +402,7 @@
      fhir:manifestation ( [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/system" ] ;
+           fhir:system [ fhir:v "http://example.org/system"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "xxx" ] ;
            fhir:display [ fhir:v "Hives" ]
          ] ) ;

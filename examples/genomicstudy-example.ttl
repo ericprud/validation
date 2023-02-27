@@ -15,19 +15,19 @@
   ] ; #   from DomainResource: text, contained, extension, and modifierExtension  
   fhir:identifier ( [
      fhir:use [ fhir:v "temp" ] ;
-     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicstudies" ] ;
+     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicstudies"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:uuid:1111-1111-1111-1111" ]
   ] ) ; # 
   fhir:status [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/genomicstudy-status" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/genomicstudy-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "unknown" ] ;
        fhir:display [ fhir:v "Unknown" ]
      ] )
   ] ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/genomicstudy-type" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/genomicstudy-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "fam-var-segr" ] ;
        fhir:display [ fhir:v "Familial variant segregation" ]
      ] )
@@ -52,7 +52,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:267431006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "267431006" ] ;
          fhir:display [ fhir:v "Disorder of lipid metabolism (disorder)" ]
        ] )
@@ -65,7 +65,7 @@
   fhir:analysis ( [
      fhir:identifier ( [
        fhir:use [ fhir:v "temp" ] ;
-       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses" ] ;
+       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "urn:uuid:1111-1111-1111-1111" ]
      ] ) ; #   0..* Genomic Analysis Event of proband  
      fhir:instantiatesUri [ fhir:v "https://pubmed.ncbi.nlm.nih.gov/33927380/" ] ; #   <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis<\/instantiatesCanonical>  
@@ -97,7 +97,7 @@
        ] ; #   0..* Performer for the analysis event  
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PRF" ] ;
            fhir:display [ fhir:v "Performer" ]
          ] )
@@ -116,7 +116,7 @@
   ] [
      fhir:identifier ( [
        fhir:use [ fhir:v "temp" ] ;
-       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses" ] ;
+       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "urn:uuid:1111-1111-1111-1112" ]
      ] ) ; #   0..* Genomic Analysis Event of mother  
      fhir:instantiatesUri [ fhir:v "https://pubmed.ncbi.nlm.nih.gov/33927380/" ] ; #   <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis<\/instantiatesCanonical>  
@@ -148,7 +148,7 @@
        ] ; #   0..* Performer for the analysis event  
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PRF" ] ;
            fhir:display [ fhir:v "Performer" ]
          ] )
@@ -162,7 +162,7 @@
   ] [
      fhir:identifier ( [
        fhir:use [ fhir:v "temp" ] ;
-       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses" ] ;
+       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "urn:uuid:1111-1111-1111-1113" ]
      ] ) ; #   0..* Genomic Analysis Event of father  
      fhir:instantiatesUri [ fhir:v "https://pubmed.ncbi.nlm.nih.gov/33927380/" ] ; #   <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis<\/instantiatesCanonical>  
@@ -194,7 +194,7 @@
        ] ; #   0..* Performer for the analysis event  
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PRF" ] ;
            fhir:display [ fhir:v "Performer" ]
          ] )
@@ -208,7 +208,7 @@
   ] [
      fhir:identifier ( [
        fhir:use [ fhir:v "temp" ] ;
-       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses" ] ;
+       fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/genomicAnalyses"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "urn:uuid:1111-1111-1111-1114" ]
      ] ) ; #   0..* De Novo Mutation Analysis  
      fhir:instantiatesUri [ fhir:v "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/" ] ; #   <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis<\/instantiatesCanonical>  
@@ -257,7 +257,7 @@
        ] ; #   0..* Performer for the analysis event  
        fhir:role [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PRF" ] ;
            fhir:display [ fhir:v "Performer" ]
          ] )

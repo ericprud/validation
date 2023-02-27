@@ -28,7 +28,7 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/NamingSystem/iccbba-din" ]
+         fhir:system [ fhir:v "http://hl7.org/fhir/NamingSystem/iccbba-din"^^xsd:anyURI ]
        ] )
      ] ;
      fhir:value [ fhir:v "A99971312345600" ]

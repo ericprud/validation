@@ -43,18 +43,18 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory" ] ;
+     fhir:system [ fhir:v "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20171014-1234" ]
   ] ) ; # 
   fhir:status [ fhir:v "preliminary"] ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:41857-4 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "41857-4" ] ;
        fhir:display [ fhir:v "Vibrio parahaemolyticus DNA [Presence] in Unspecified specimen by Probe and target amplification method" ]
      ] [
-       fhir:system [ fhir:v "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes" ] ;
+       fhir:system [ fhir:v "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "VP MULTI PCR" ] ;
        fhir:display [ fhir:v "VP MULTI PCR" ]
      ] ) ; #    Should use a  proper LOINC code    
@@ -79,11 +79,11 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:10828004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10828004" ] ;
        fhir:display [ fhir:v "Positive (qualifier value)" ]
      ] [
-       fhir:system [ fhir:v "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes" ] ;
+       fhir:system [ fhir:v "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "POSITIVE" ] ;
        fhir:display [ fhir:v "POSITIVE" ]
      ] ) ; #    SNOMED CT codes   
@@ -91,7 +91,7 @@
   ] ; #    results of this Qualtiattive PCR is a choice of Positive/Negative and Inconclusive   
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "A" ] ;
        fhir:display [ fhir:v "Abnormal" ]
      ] )

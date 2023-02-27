@@ -16,12 +16,12 @@
      fhir:use [ fhir:v "official" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "DL" ]
        ] ) ;
        fhir:text [ fhir:v "Ohio driver license" ]
      ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.4.3.39" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.4.3.39"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "TL545786" ] ;
      fhir:period [
        fhir:start [ fhir:v "2041-09-23"^^xsd:date ]

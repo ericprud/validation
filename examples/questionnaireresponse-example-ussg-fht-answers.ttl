@@ -53,7 +53,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA3-6 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA3-6" ] ;
              fhir:display [ fhir:v "Female" ]
            ]
@@ -72,7 +72,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA32-8 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA32-8" ] ;
              fhir:display [ fhir:v "No" ]
            ]
@@ -84,7 +84,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA32-8 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA32-8" ] ;
              fhir:display [ fhir:v "No" ]
            ]
@@ -96,7 +96,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA32-8 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA32-8" ] ;
              fhir:display [ fhir:v "No" ]
            ]
@@ -115,7 +115,7 @@
                fhir:answer ( [
                  fhir:value [
                    a fhir:Coding ;
-                   fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+                   fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
                    fhir:code [ fhir:v "[in_i]" ] ;
                    fhir:display [ fhir:v "inches" ]
                  ]
@@ -137,7 +137,7 @@
                fhir:answer ( [
                  fhir:value [
                    a fhir:Coding ;
-                   fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+                   fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
                    fhir:code [ fhir:v "[lb_av]" ] ;
                    fhir:display [ fhir:v "pounds" ]
                  ]
@@ -159,7 +159,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA4457-3 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA4457-3" ] ;
              fhir:display [ fhir:v "White" ]
            ]
@@ -171,14 +171,14 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA10602-3 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA10602-3" ] ;
              fhir:display [ fhir:v "-- Mexican" ]
            ]
          ] [
            fhir:value [
              a fhir:Coding, loinc:LA10606-4 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA10606-4" ] ;
              fhir:display [ fhir:v "-- South American" ]
            ]
@@ -198,7 +198,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA10405-1 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA10405-1" ] ;
              fhir:display [ fhir:v "Daughter" ]
            ]
@@ -217,7 +217,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA3-6 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA3-6" ] ;
              fhir:display [ fhir:v "Female" ]
            ]
@@ -229,7 +229,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA33-6 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA33-6" ] ;
              fhir:display [ fhir:v "Yes" ]
            ] ;
@@ -252,7 +252,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA32-8 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA32-8" ] ;
              fhir:display [ fhir:v "No" ]
            ]
@@ -264,7 +264,7 @@
          fhir:answer ( [
            fhir:value [
              a fhir:Coding, loinc:LA32-8 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA32-8" ] ;
              fhir:display [ fhir:v "No" ]
            ]
@@ -281,7 +281,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10415-0 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10415-0" ] ;
                fhir:display [ fhir:v "Brother" ]
              ]
@@ -300,7 +300,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -312,7 +312,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -335,7 +335,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -347,7 +347,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -362,7 +362,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10550-4 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10550-4" ] ;
                fhir:display [ fhir:v "-- Other Cancer" ]
              ]
@@ -373,7 +373,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10397-0 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10397-0" ] ;
                fhir:display [ fhir:v "30-39" ]
              ]
@@ -391,7 +391,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10418-4 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10418-4" ] ;
                fhir:display [ fhir:v "Sister" ]
              ]
@@ -410,7 +410,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -422,7 +422,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -445,7 +445,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -457,7 +457,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -472,7 +472,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10536-3 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10536-3" ] ;
                fhir:display [ fhir:v "-- Breast Cancer" ]
              ]
@@ -483,7 +483,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10397-0 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10397-0" ] ;
                fhir:display [ fhir:v "30-39" ]
              ]
@@ -501,7 +501,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10419-2 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10419-2" ] ;
                fhir:display [ fhir:v "Nephew" ]
              ]
@@ -520,7 +520,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -532,7 +532,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -555,7 +555,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -567,7 +567,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -585,7 +585,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10420-0 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10420-0" ] ;
                fhir:display [ fhir:v "Niece" ]
              ]
@@ -604,7 +604,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -616,7 +616,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -639,7 +639,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -651,7 +651,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -669,7 +669,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10416-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10416-8" ] ;
                fhir:display [ fhir:v "Father" ]
              ]
@@ -688,7 +688,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -700,7 +700,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -723,7 +723,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -735,7 +735,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -753,7 +753,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10425-9 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10425-9" ] ;
                fhir:display [ fhir:v "Paternal Uncle" ]
              ]
@@ -772,7 +772,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -784,7 +784,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -807,7 +807,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -819,7 +819,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -837,7 +837,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10421-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10421-8" ] ;
                fhir:display [ fhir:v "Paternal Aunt" ]
              ]
@@ -856,7 +856,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -868,7 +868,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -891,7 +891,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -903,7 +903,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -918,7 +918,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10543-9 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10543-9" ] ;
                fhir:display [ fhir:v "-- Skin Cancer" ]
              ]
@@ -936,7 +936,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10423-4 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10423-4" ] ;
                fhir:display [ fhir:v "Paternal Grandfather" ]
              ]
@@ -955,7 +955,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -967,7 +967,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ] ;
@@ -980,7 +980,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10537-1 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10537-1" ] ;
                      fhir:display [ fhir:v "-- Colon Cancer" ]
                    ]
@@ -992,7 +992,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10400-2 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10400-2" ] ;
                      fhir:display [ fhir:v "OVER 60" ]
                    ]
@@ -1007,7 +1007,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1019,7 +1019,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1034,7 +1034,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10537-1 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10537-1" ] ;
                fhir:display [ fhir:v "-- Colon Cancer" ]
              ]
@@ -1045,7 +1045,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10400-2 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10400-2" ] ;
                fhir:display [ fhir:v "OVER 60" ]
              ]
@@ -1063,7 +1063,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10424-2 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10424-2" ] ;
                fhir:display [ fhir:v "Paternal Grandmother" ]
              ]
@@ -1082,7 +1082,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -1094,7 +1094,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ] ;
@@ -1107,7 +1107,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10589-2 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10589-2" ] ;
                      fhir:display [ fhir:v "-- Other/Unexpected" ]
                    ] ;
@@ -1126,7 +1126,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10400-2 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10400-2" ] ;
                      fhir:display [ fhir:v "OVER 60" ]
                    ]
@@ -1141,7 +1141,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1153,7 +1153,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1171,7 +1171,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10417-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10417-6" ] ;
                fhir:display [ fhir:v "Mother" ]
              ]
@@ -1190,7 +1190,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -1202,7 +1202,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ] ;
@@ -1215,7 +1215,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10539-7 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10539-7" ] ;
                      fhir:display [ fhir:v "-- Ovarian Cancer" ]
                    ]
@@ -1227,7 +1227,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10399-6 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10399-6" ] ;
                      fhir:display [ fhir:v "50-59" ]
                    ]
@@ -1242,7 +1242,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1254,7 +1254,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1269,7 +1269,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10539-7 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10539-7" ] ;
                fhir:display [ fhir:v "-- Ovarian Cancer" ]
              ]
@@ -1280,7 +1280,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10398-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10398-8" ] ;
                fhir:display [ fhir:v "40-49" ]
              ]
@@ -1298,7 +1298,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10414-3 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10414-3" ] ;
                fhir:display [ fhir:v "Maternal Uncle" ]
              ]
@@ -1317,7 +1317,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -1329,7 +1329,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -1352,7 +1352,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1364,7 +1364,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1382,7 +1382,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10410-1 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10410-1" ] ;
                fhir:display [ fhir:v "Maternal Aunt" ]
              ]
@@ -1401,7 +1401,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -1413,7 +1413,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -1436,7 +1436,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1448,7 +1448,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1466,7 +1466,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10412-7 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10412-7" ] ;
                fhir:display [ fhir:v "Maternal Grandfather" ]
              ]
@@ -1485,7 +1485,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA2-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA2-8" ] ;
                fhir:display [ fhir:v "Male" ]
              ]
@@ -1497,7 +1497,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ] ;
@@ -1510,7 +1510,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10558-7 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10558-7" ] ;
                      fhir:display [ fhir:v "-- Heart Attack" ]
                    ]
@@ -1522,7 +1522,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10400-2 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10400-2" ] ;
                      fhir:display [ fhir:v "OVER 60" ]
                    ]
@@ -1537,7 +1537,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1549,7 +1549,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1567,7 +1567,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10413-5 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10413-5" ] ;
                fhir:display [ fhir:v "Maternal Grandmother" ]
              ]
@@ -1586,7 +1586,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -1598,7 +1598,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ] ;
@@ -1611,7 +1611,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10571-0 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10571-0" ] ;
                      fhir:display [ fhir:v "-- Other/Unknown" ]
                    ]
@@ -1623,7 +1623,7 @@
                  fhir:answer ( [
                    fhir:value [
                      a fhir:Coding, loinc:LA10400-2 ;
-                     fhir:system [ fhir:v "http://loinc.org" ] ;
+                     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                      fhir:code [ fhir:v "LA10400-2" ] ;
                      fhir:display [ fhir:v "OVER 60" ]
                    ]
@@ -1638,7 +1638,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1650,7 +1650,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1665,7 +1665,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10536-3 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10536-3" ] ;
                fhir:display [ fhir:v "-- Breast Cancer" ]
              ]
@@ -1676,7 +1676,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10399-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10399-6" ] ;
                fhir:display [ fhir:v "50-59" ]
              ]
@@ -1691,7 +1691,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10564-5 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10564-5" ] ;
                fhir:display [ fhir:v "-- Asthma" ]
              ]
@@ -1702,7 +1702,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10395-4 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10395-4" ] ;
                fhir:display [ fhir:v "Childhood" ]
              ]
@@ -1720,7 +1720,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10411-9 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10411-9" ] ;
                fhir:display [ fhir:v "Maternal Cousin" ]
              ]
@@ -1739,7 +1739,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -1751,7 +1751,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -1774,7 +1774,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1786,7 +1786,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1801,7 +1801,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10536-3 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10536-3" ] ;
                fhir:display [ fhir:v "-- Breast Cancer" ]
              ]
@@ -1812,7 +1812,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10397-0 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10397-0" ] ;
                fhir:display [ fhir:v "30-39" ]
              ]
@@ -1830,7 +1830,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA10411-9 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA10411-9" ] ;
                fhir:display [ fhir:v "Maternal Cousin" ]
              ]
@@ -1849,7 +1849,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA3-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA3-6" ] ;
                fhir:display [ fhir:v "Female" ]
              ]
@@ -1861,7 +1861,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA33-6 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA33-6" ] ;
                fhir:display [ fhir:v "Yes" ]
              ] ;
@@ -1884,7 +1884,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]
@@ -1896,7 +1896,7 @@
            fhir:answer ( [
              fhir:value [
                a fhir:Coding, loinc:LA32-8 ;
-               fhir:system [ fhir:v "http://loinc.org" ] ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
                fhir:code [ fhir:v "LA32-8" ] ;
                fhir:display [ fhir:v "No" ]
              ]

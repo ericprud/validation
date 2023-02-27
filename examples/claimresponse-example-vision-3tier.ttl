@@ -13,13 +13,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the ClaimResponse</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://thebenefitcompany.com/claimresponse" ] ;
+     fhir:system [ fhir:v "http://thebenefitcompany.com/claimresponse"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "CR6532875367" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "vision" ]
      ] )
   ] ; # 
@@ -36,7 +36,7 @@
   ] ; # 
   fhir:request [
      fhir:identifier [
-       fhir:system [ fhir:v "http://happysight.com/claim" ] ;
+       fhir:system [ fhir:v "http://happysight.com/claim"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "6612346" ]
      ]
   ] ; # 
@@ -44,7 +44,7 @@
   fhir:disposition [ fhir:v "Claim settled as per contract."] ; # 
   fhir:payeeType [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payeetype" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payeetype"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "provider" ]
      ] )
   ] ; # 
@@ -310,7 +310,7 @@
   fhir:payment [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-paymenttype" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-paymenttype"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "complete" ]
        ] )
      ] ;
@@ -320,7 +320,7 @@
      ] ;
      fhir:adjustmentReason [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-adjustment-reason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-adjustment-reason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a002" ] ;
          fhir:display [ fhir:v "Prior Overpayment" ]
        ] )
@@ -331,7 +331,7 @@
        fhir:currency [ fhir:v "USD" ]
      ] ;
      fhir:identifier [
-       fhir:system [ fhir:v "http://thebenefitcompany.com/paymentidentifier" ] ;
+       fhir:system [ fhir:v "http://thebenefitcompany.com/paymentidentifier"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "201416-123456" ]
      ]
   ] ; #   Payment details  
@@ -341,7 +341,7 @@
      fhir:text [ fhir:v "After hours surcharge declined" ] ;
      fhir:language [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:ietf:bcp:47" ] ;
+         fhir:system [ fhir:v "urn:ietf:bcp:47"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "en-CA" ]
        ] )
      ]

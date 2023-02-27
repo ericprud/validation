@@ -18,7 +18,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:3092008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "3092008" ] ;
          fhir:display [ fhir:v "Staphylococcus Aureus" ]
        ] )

@@ -16,7 +16,7 @@
      fhir:type [
        fhir:text [ fhir:v "Paging System" ]
      ] ;
-     fhir:system [ fhir:v "urn:oid:1.3.4.5.6.7" ] ;
+     fhir:system [ fhir:v "urn:oid:1.3.4.5.6.7"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "2345678901" ]
   ] ) ; # 
   fhir:instantiatesUri ( [ fhir:v "http://example.org/hyperkalemia"] ) ; # 
@@ -26,14 +26,14 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/messagetypes" ] ;
+       fhir:system [ fhir:v "http://acme.org/messagetypes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Alert" ]
      ] ) ;
      fhir:text [ fhir:v "Alert" ]
   ] ) ; # 
   fhir:medium ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "WRITTEN" ] ;
        fhir:display [ fhir:v "written" ]
      ] ) ;

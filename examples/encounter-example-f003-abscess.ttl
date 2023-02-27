@@ -15,13 +15,13 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/encounters" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/encounters"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "v6751" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "AMB" ] ;
        fhir:display [ fhir:v "ambulatory" ] #    outpatient   
      ] )
@@ -29,7 +29,7 @@
   fhir:priority [
      fhir:coding ( [
        a sct:103391001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "103391001" ] ;
        fhir:display [ fhir:v "Non-urgent ear, nose and throat admission" ]
      ] )
@@ -37,7 +37,7 @@
   fhir:type ( [
      fhir:coding ( [
        a sct:270427003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "270427003" ] ;
        fhir:display [ fhir:v "Patient-initiated encounter" ]
      ] )
@@ -58,14 +58,14 @@
   fhir:length [
      fhir:value [ fhir:v "90"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "min" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "min" ]
   ] ; # 
   fhir:reason ( [
      fhir:concept [
        fhir:coding ( [
          a sct:18099001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "18099001" ] ;
          fhir:display [ fhir:v "Retropharyngeal abscess" ]
        ] )
@@ -74,13 +74,13 @@
   fhir:admission [
      fhir:preAdmissionIdentifier [
        fhir:use [ fhir:v "official" ] ;
-       fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/pre-admissions" ] ;
+       fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/pre-admissions"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "93042" ]
      ] ;
      fhir:admitSource [
        fhir:coding ( [
          a sct:305956004 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "305956004" ] ;
          fhir:display [ fhir:v "Referral by physician" ]
        ] )
@@ -88,7 +88,7 @@
      fhir:dischargeDisposition [
        fhir:coding ( [
          a sct:306689006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "306689006" ] ;
          fhir:display [ fhir:v "Discharge to home" ]
        ] )

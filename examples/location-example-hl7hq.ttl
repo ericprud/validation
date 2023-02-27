@@ -18,7 +18,7 @@
   fhir:mode [ fhir:v "instance"] ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SLEEP" ] ;
        fhir:display [ fhir:v "Sleep disorders unit" ]
      ] )
@@ -28,7 +28,7 @@
        fhir:system [ fhir:v "phone" ] ;
        fhir:value [ fhir:v "(+1) 734-677-7777" ]
      ] [
-       fhir:system [ fhir:v "fax" ] ;
+       fhir:system [ fhir:v "fax"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "(+1) 734-677-6622" ]
      ] [
        fhir:system [ fhir:v "email" ] ;
@@ -44,7 +44,7 @@
   ] ) ; # 
   fhir:form [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/location-physical-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/location-physical-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "bu" ] ;
        fhir:display [ fhir:v "Building" ]
      ] )

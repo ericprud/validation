@@ -13,33 +13,33 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">This example assumes a national health care scheme where patients, providers and organizations have known business identifiers.</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://happyvalley.com/claim" ] ;
+     fhir:system [ fhir:v "http://happyvalley.com/claim"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12347" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "oral" ]
      ] )
   ] ; # 
   fhir:use [ fhir:v "claim"] ; # 
   fhir:patient [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/nationalId" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/nationalId"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "123AB345" ]
      ]
   ] ; # 
   fhir:created [ fhir:v "2014-08-16"^^xsd:date] ; # 
   fhir:insurer [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/insurers" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/insurers"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "123456" ]
      ]
   ] ; # 
   fhir:provider [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/careorganizations" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/careorganizations"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "HOSP12345" ]
      ]
   ] ; # 
@@ -59,7 +59,7 @@
      fhir:sequence [ fhir:v "1"^^xsd:positiveInteger ] ;
      fhir:provider [
        fhir:identifier [
-         fhir:system [ fhir:v "http://www.jurisdiction.com/providerId" ] ;
+         fhir:system [ fhir:v "http://www.jurisdiction.com/providerId"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "MD98765" ]
        ]
      ]
@@ -78,7 +78,7 @@
      fhir:focal [ fhir:v "true"^^xsd:boolean ] ;
      fhir:coverage [
        fhir:identifier [
-         fhir:system [ fhir:v "http://www.jurisdiction.com/nationalplan" ] ;
+         fhir:system [ fhir:v "http://www.jurisdiction.com/nationalplan"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "123AB345" ]
        ]
      ]

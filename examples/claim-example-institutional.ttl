@@ -13,19 +13,19 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Claim</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://happyhospital.com/claim" ] ;
+     fhir:system [ fhir:v "http://happyhospital.com/claim"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "9612345" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "institutional" ]
      ] )
   ] ; # 
   fhir:subType [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-claimsubtype" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-claimsubtype"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "emergency" ]
      ] )
   ] ; # 
@@ -36,7 +36,7 @@
   fhir:created [ fhir:v "2014-08-16"^^xsd:date] ; # 
   fhir:enterer [
      fhir:identifier [
-       fhir:system [ fhir:v "http://jurisdiction.org/facilities/HOSP1234/users" ] ;
+       fhir:system [ fhir:v "http://jurisdiction.org/facilities/HOSP1234/users"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "UC1234" ]
      ]
   ] ; # 
@@ -60,7 +60,7 @@
   ] ; # 
   fhir:facility [
      fhir:identifier [
-       fhir:system [ fhir:v "http://jurisdiction.org/facilities" ] ;
+       fhir:system [ fhir:v "http://jurisdiction.org/facilities"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "HOSP1234" ]
      ]
   ] ; # 
@@ -110,7 +110,7 @@
      fhir:careTeamSequence ( [ fhir:v "1"^^xsd:positiveInteger ] ) ;
      fhir:productOrService [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/ex-serviceproduct" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/ex-serviceproduct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "exam" ]
        ] )
      ] ;

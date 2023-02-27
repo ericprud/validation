@@ -16,12 +16,12 @@
      fhir:use [ fhir:v "temp" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PRN" ] ;
          fhir:display [ fhir:v "Provider number" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/persons" ] ;
+     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/persons"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "11116" ] ;
      fhir:period [
        fhir:start [ fhir:v "2021-01-01"^^xsd:date ]

@@ -14,7 +14,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>List prepared for Dr Adam Careful</p>\n      <p>Patient Peter Chalmers, DOB = Dec 25, 1974, MRN = 12345 (Acme Healthcare) has the following allergies</p>\n      <ul>\n        <li>cashew nut allergenic extract Injectable Product (<b>High</b>)</li>\n        <li>Allergenic extract, penicillin (high)</li>\n      </ul>\n    </div>"
   ] ; # 
   fhir:extension ( [
-     fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/list-for" ] ;
+     fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/list-for"^^xsd:anyURI ] ;
      fhir:value [
        a fhir:Reference ;
        fhir:reference [ fhir:v "Patient/example" ] ;
@@ -27,7 +27,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:52472-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "52472-8" ] ;
        fhir:display [ fhir:v "Allergies and Adverse Drug Reactions" ]
      ] ) ;
@@ -39,7 +39,7 @@
   ] ; # 
   fhir:orderedBy [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/list-order" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/list-order"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "entry-date" ]
      ] )
   ] ; # 

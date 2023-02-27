@@ -14,7 +14,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http:/happyvalley.com/task" ] ;
+     fhir:system [ fhir:v "http:/happyvalley.com/task"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20181012-001" ]
   ] ) ; # 
   fhir:status [ fhir:v "requested"] ; # 
@@ -22,13 +22,13 @@
   fhir:priority [ fhir:v "stat"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/financialtaskcode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/financialtaskcode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "status" ]
      ] )
   ] ; #   real time request and response required  ,     fictive code and description elements populated for this example     
   fhir:focus [
      fhir:identifier [
-       fhir:system [ fhir:v "http://happyvalley.com/claim" ] ;
+       fhir:system [ fhir:v "http://happyvalley.com/claim"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "1500" ]
      ]
   ] ; # 
@@ -40,7 +40,7 @@
   ] ; # 
   fhir:owner [
      fhir:identifier [
-       fhir:system [ fhir:v "http://nationalinsurers.com/identifiers" ] ;
+       fhir:system [ fhir:v "http://nationalinsurers.com/identifiers"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "12345" ]
      ]
   ]] . # 

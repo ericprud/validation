@@ -73,7 +73,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -81,7 +81,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.011" ] ;
        fhir:display [ fhir:v "Cardiothoracal surgery" ]
      ] ) ;
@@ -95,7 +95,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <span style=\"color: gray;\">practitioner:</span> Adam Careful<br/><span style=\"color: gray;\">location:</span> South Wing, second floor<br/><span style=\"color: gray;\">role:</span> RP<br/><span style=\"color: gray;\">Email:</span> dr.adam.careful@example.org<br/><span style=\"color: gray;\">identifier:</span> 52\n          </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org/role-identifier" ] ;
+     fhir:system [ fhir:v "http://example.org/role-identifier"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "52" ]
   ] ) ; # 
   fhir:period [
@@ -111,7 +111,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0286" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0286"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "RP" ]
      ] )
   ] ) ; # 
@@ -204,7 +204,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -212,7 +212,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.015" ] ;
        fhir:display [ fhir:v "Physician" ]
      ] ) ;
@@ -235,7 +235,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -243,7 +243,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.018" ] ;
        fhir:display [ fhir:v "Ear-, Nose and Throat" ]
      ] ) ;
@@ -287,7 +287,7 @@
   fhir:code ( [
      fhir:coding ( [
        a sct:33526004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "33526004" ] ;
        fhir:display [ fhir:v "Electronic laboratory reporting" ]
      ] )
@@ -295,7 +295,7 @@
   fhir:specialty ( [
      fhir:coding ( [
        a sct:159285000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "159285000" ] ;
        fhir:display [ fhir:v "Medical laboratory technician" ]
      ] )
@@ -318,7 +318,7 @@
   fhir:code ( [
      fhir:coding ( [
        a sct:225304007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "225304007" ] ;
        fhir:display [ fhir:v "Implementation of planned interventions" ]
      ] )
@@ -326,7 +326,7 @@
   fhir:specialty ( [
      fhir:coding ( [
        a sct:310512001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "310512001" ] ;
        fhir:display [ fhir:v "Medical oncologist" ]
      ] )
@@ -349,7 +349,7 @@
   fhir:code ( [
      fhir:coding ( [
        a sct:36682004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "36682004" ] ;
        fhir:display [ fhir:v "Physical therapist" ]
      ] )
@@ -357,7 +357,7 @@
   fhir:specialty ( [
      fhir:coding ( [
        a sct:410158009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "410158009" ] ;
        fhir:display [ fhir:v "Assess physical therapist service" ]
      ] )
@@ -379,7 +379,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -387,7 +387,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.018" ] ;
        fhir:display [ fhir:v "Keel- neus- en oorarts" ]
      ] ) ;
@@ -410,7 +410,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -418,7 +418,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "17.000" ] ;
        fhir:display [ fhir:v "Pharmacist" ]
      ] ) ;
@@ -441,7 +441,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -449,7 +449,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.018" ] ;
        fhir:display [ fhir:v "Ear-, Nose and Throat" ]
      ] ) ;
@@ -472,7 +472,7 @@
   ] ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.000" ] ;
        fhir:display [ fhir:v "Arts" ]
      ] ) ;
@@ -480,7 +480,7 @@
   ] ) ; # 
   fhir:specialty ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "01.011" ] ;
        fhir:display [ fhir:v "Cardiothoracal surgery" ]
      ] ) ;
@@ -504,7 +504,7 @@
   fhir:code ( [
      fhir:coding ( [
        a sct:224565004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "224565004" ] ;
        fhir:display [ fhir:v "Renal nurse" ]
      ] )
@@ -512,7 +512,7 @@
   fhir:specialty ( [
      fhir:coding ( [
        a sct:9632001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "9632001" ] ;
        fhir:display [ fhir:v "Nursing procedure" ]
      ] )

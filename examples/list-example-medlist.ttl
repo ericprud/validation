@@ -18,7 +18,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:182836005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "182836005" ] ;
        fhir:display [ fhir:v "Review of medication" ]
      ] ) ;
@@ -31,7 +31,7 @@
   fhir:entry ( [
      fhir:flag [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://nehta.gov.au/codes/medications/changetype" ] ;
+         fhir:system [ fhir:v "http://nehta.gov.au/codes/medications/changetype"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "01" ] ;
          fhir:display [ fhir:v "Prescribed" ]
        ] )
@@ -42,7 +42,7 @@
   ] [
      fhir:flag [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://nehta.gov.au/codes/medications/changetype" ] ;
+         fhir:system [ fhir:v "http://nehta.gov.au/codes/medications/changetype"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "02" ] ;
          fhir:display [ fhir:v "Cancelled" ]
        ] )

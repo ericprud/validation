@@ -19,7 +19,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:229115003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "229115003" ] ;
          fhir:display [ fhir:v "Bench Press (regime/therapy) " ]
        ] )

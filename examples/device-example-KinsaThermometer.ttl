@@ -15,22 +15,22 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SYSID" ] ;
          fhir:display [ fhir:v "System Identifier" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680" ] ;
+     fhir:system [ fhir:v "urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "00-00-52-49-20-45-4C-42" ]
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "BTMAC" ] ;
          fhir:display [ fhir:v "Bluetooth Address" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/eui-48" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/eui-48"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "10-CE-A9-80-14-66" ]
   ] ) ; # 
   fhir:udiCarrier ( [
@@ -49,7 +49,7 @@
   fhir:modelNumber [ fhir:v "KS_1i9JfKh"] ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "65573" ] ;
        fhir:display [ fhir:v "MDC_MOC_VMS_MDS_SIMP" ]
      ] ) ;
@@ -58,7 +58,7 @@
   fhir:version ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "531976" ]
        ] ) ;
        fhir:text [ fhir:v "MDC_ID_PROD_SPEC_FW: Firmware revision" ]
@@ -67,7 +67,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "531975" ]
        ] ) ;
        fhir:text [ fhir:v "MDC_ID_PROD_SPEC_SW: Software revision" ]
@@ -76,7 +76,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "531974" ]
        ] ) ;
        fhir:text [ fhir:v "MDC_ID_PROD_SPEC_SW: Hardware revision" ]
@@ -86,7 +86,7 @@
   fhir:conformsTo ( [
      fhir:specification [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "528392" ]
        ] ) ;
        fhir:text [ fhir:v "MDC_DEV_SPEC_PROFILE_TEMP: Thermometer" ]
@@ -96,7 +96,7 @@
   fhir:property ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "68220" ]
        ] ) ;
        fhir:text [ fhir:v "MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol" ]
@@ -104,7 +104,7 @@
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101" ] ;
+         fhir:system [ fhir:v "urn:iso:std:iso:11073:10101"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "532224" ]
        ] ) ;
        fhir:text [ fhir:v "MDC_TIME_SYNC_NONE: No time synchronization" ]

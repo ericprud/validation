@@ -16,7 +16,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "exam" ] ;
        fhir:display [ fhir:v "Exam" ]
      ] )
@@ -24,7 +24,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:43478001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "43478001" ] ;
        fhir:display [ fhir:v "Abdominal tenderness (finding)" ]
      ] ) ;
@@ -44,7 +44,7 @@
   fhir:value [ fhir:v "true"^^xsd:boolean] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "A" ] ;
        fhir:display [ fhir:v "Abnormal" ]
      ] ) ;

@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -24,7 +24,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:80582002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "80582002" ] ;
          fhir:display [ fhir:v "Glycerin 1800 mg" ]
        ] )
@@ -45,7 +45,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "calculated" ] ;
            fhir:display [ fhir:v "Calculated" ]
          ] )
@@ -54,13 +54,13 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1000"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg/m2" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg/m2" ]
        ]
      ] [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "ordered" ]
          ] )
@@ -69,7 +69,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1800"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ]
      ] )

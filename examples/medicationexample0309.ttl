@@ -20,7 +20,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "50580-608-02" ] ;
        fhir:display [ fhir:v "Tylenol PM" ]
      ] )
@@ -31,7 +31,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385057009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385057009" ] ;
        fhir:display [ fhir:v "Film-coated tablet (qualifier value)" ]
      ] )
@@ -40,7 +40,7 @@
      fhir:item [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "315266" ] ;
            fhir:display [ fhir:v "Acetaminophen 500 MG" ]
          ] )
@@ -50,12 +50,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "500"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TAB" ]
        ]
      ]
@@ -63,7 +63,7 @@
      fhir:item [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "901813" ] ;
            fhir:display [ fhir:v "Diphenhydramine Hydrochloride 25 mg" ]
          ] )
@@ -73,12 +73,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "25"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TAB" ]
        ]
      ]

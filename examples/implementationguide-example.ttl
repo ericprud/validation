@@ -23,20 +23,20 @@
   fhir:contact ( [
      fhir:name [ fhir:v "ONC" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://www.healthit.gov" ]
      ] )
   ] [
      fhir:name [ fhir:v "HL7" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"] ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ]
      ] )
   ] ) ; # 
@@ -85,7 +85,7 @@
      ] ;
      fhir:parameter ( [
        fhir:code [
-         fhir:system [ fhir:v "http://hl7.org/fhir/guide-parameter-code" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/guide-parameter-code"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "apply" ]
        ] ;
        fhir:value [ fhir:v "version" ]

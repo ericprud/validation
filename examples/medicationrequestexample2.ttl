@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -43,7 +43,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:59621000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "59621000" ] ;
          fhir:display [ fhir:v "Essential hypertension (disorder)" ]
        ] )

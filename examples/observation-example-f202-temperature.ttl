@@ -17,29 +17,29 @@
   fhir:status [ fhir:v "entered-in-error"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "vital-signs" ] ;
        fhir:display [ fhir:v "Vital Signs" ]
      ] )
   ] ) ; #    category code is A code that classifies the general type of observation being made. This is used for searching, sorting and display purposes.  
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.lab" ] ;
+       fhir:system [ fhir:v "http://acme.lab"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "BT" ] ;
        fhir:display [ fhir:v "Body temperature" ]
      ] [
        a loinc:8310-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "8310-5" ] ;
        fhir:display [ fhir:v "Body temperature" ]
      ] [
        a loinc:8331-1 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "8331-1" ] ;
        fhir:display [ fhir:v "Oral temperature" ]
      ] [
        a sct:56342008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "56342008" ] ;
        fhir:display [ fhir:v "Temperature taking" ]
      ] ) ; #    Kind of observation = Temperature   ,    local code here   
@@ -57,19 +57,19 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "39"^^xsd:decimal ] ; #    Temperature=39 degrees Celsius   
      fhir:unit [ fhir:v "degrees C" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "Cel" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
   fhir:bodySite [
      fhir:coding ( [
        a sct:74262004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "74262004" ] ;
        fhir:display [ fhir:v "Oral cavity" ]
      ] )
@@ -77,7 +77,7 @@
   fhir:method [
      fhir:coding ( [
        a sct:89003005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "89003005" ] ;
        fhir:display [ fhir:v "Oral temperature taking" ]
      ] )

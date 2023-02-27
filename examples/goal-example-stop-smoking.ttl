@@ -19,7 +19,7 @@
   fhir:lifecycleStatus [ fhir:v "completed"] ; # 
   fhir:achievementStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "achieved" ] ;
        fhir:display [ fhir:v "Achieved" ]
      ] ) ;
@@ -37,7 +37,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:8517006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "8517006" ] ;
          fhir:display [ fhir:v "Ex-smoker (finding)" ]
        ] ) ;

@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/uv/v2mappings/message-adt-a04-to-bundle"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.14.2" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -27,7 +27,7 @@
   fhir:contact ( [
      fhir:name [ fhir:v "HL7 Orders and Observations Workgroup" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/Special/committees/orders/index.cfm" ]
      ] )
   ] [
@@ -40,7 +40,7 @@
   fhir:description [ fhir:v "This ConceptMap represents a mapping from the HL7 V2 Message ADT_A04 to the FHIR Message Bundle."] ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm" ] ;
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "001" ]
      ] )
   ] ) ; # 

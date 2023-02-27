@@ -14,7 +14,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://example.org" ] ;
+     fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "risk-assessment-cardiac" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
@@ -45,13 +45,13 @@
        fhir:low [
          fhir:value [ fhir:v "39"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ] ;
        fhir:high [
          fhir:value [ fhir:v "49"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "years" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]

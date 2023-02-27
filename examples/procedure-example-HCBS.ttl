@@ -18,7 +18,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets/Alpha-Numeric-HCPCS.html" ] ;
+       fhir:system [ fhir:v "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets/Alpha-Numeric-HCPCS.html"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "T1019" ] ;
        fhir:display [ fhir:v "Personal care services, per 15 minutes, not for an inpatient or resident of a hospital, nursing facility, icf/mr or imd, part of the individualized plan of treatment." ]
      ] ) ;

@@ -18,31 +18,31 @@
   ] ) ; # 
   fhir:clinicalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "resolved" ]
      ] )
   ] ; # 
   fhir:verificationStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "confirmed" ]
      ] )
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
        a sct:55607006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "55607006" ] ;
        fhir:display [ fhir:v "Problem" ]
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "problem-list-item" ]
      ] ) #   The fever is a mild problem  
   ] ) ; # 
   fhir:severity [
      fhir:coding ( [
        a sct:255604002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "255604002" ] ;
        fhir:display [ fhir:v "Mild" ]
      ] ) #   The fever is mild   
@@ -50,7 +50,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:386661006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "386661006" ] ;
        fhir:display [ fhir:v "Fever" ]
      ] ) #   The problem is a fever  
@@ -58,7 +58,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:38266002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "38266002" ] ;
        fhir:display [ fhir:v "Entire body as a whole" ]
      ] ) #   Fever applies to whole body  
@@ -76,7 +76,7 @@
   fhir:participant ( [
      fhir:function [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "enterer" ] ;
          fhir:display [ fhir:v "Enterer" ]
        ] )
@@ -87,7 +87,7 @@
   ] [
      fhir:function [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "verifier" ] ;
          fhir:display [ fhir:v "Verifier" ]
        ] )
@@ -100,7 +100,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:258710007 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "258710007" ] ;
          fhir:display [ fhir:v "degrees C" ]
        ] )

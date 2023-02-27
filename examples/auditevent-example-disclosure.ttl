@@ -14,7 +14,7 @@
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110106" ] ;
        fhir:display [ fhir:v "Export" ]
      ] )
@@ -30,7 +30,7 @@
   fhir:recorded [ fhir:v "2013-09-22T00:08:00Z"^^xsd:dateTime] ; # 
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ] ;
@@ -40,7 +40,7 @@
   ] ; # 
   fhir:authorization ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HMARKT" ] ;
        fhir:display [ fhir:v "healthcare marketing" ]
      ] )
@@ -51,7 +51,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110153" ] ;
          fhir:display [ fhir:v "Source Role ID" ]
        ] )
@@ -71,7 +71,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110152" ] ;
          fhir:display [ fhir:v "Destination Role ID" ]
        ] )
@@ -84,7 +84,7 @@
      fhir:network [ fhir:v "marketing.land" ] ;
      fhir:authorization ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "HMARKT" ] ;
          fhir:display [ fhir:v "healthcare marketing" ]
        ] )
@@ -96,7 +96,7 @@
      ] ; #    what system detected this disclosure   
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Application Server" ]
        ] )
@@ -112,26 +112,26 @@
      ] ; #    data that got disclosed   
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Domain Resource" ]
        ] )
      ] ;
      fhir:securityLabel ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-Confidentiality" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-Confidentiality"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "V" ] ;
          fhir:display [ fhir:v "very restricted" ]
        ] )
      ] [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "STD" ] ;
          fhir:display [ fhir:v "sexually transmitted disease information sensitivity" ]
        ] )
      ] [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "DELAU" ] ;
          fhir:display [ fhir:v "delete after use" ]
        ] )

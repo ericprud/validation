@@ -14,11 +14,11 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.528.1.1007.3.1" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.528.1.1007.3.1"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "938273695" ] #    Identificatiesysteem Zorgverlener UZI   
   ] [
      fhir:use [ fhir:v "usual" ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.3" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.3"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "129IDH4OP733" ] #    BSN identification system   
   ] ) ; # 
   fhir:name ( [
@@ -36,7 +36,7 @@
      fhir:value [ fhir:v "E.M.vandenbroek@bmc.nl" ] ;
      fhir:use [ fhir:v "work" ]
   ] [
-     fhir:system [ fhir:v "fax" ] ;
+     fhir:system [ fhir:v "fax"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "0205664440" ] ;
      fhir:use [ fhir:v "work" ]
   ] ) ; # 

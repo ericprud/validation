@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "secondary" ] ; #    Internal business ID for the relationship created by Founding Fathers Memorial Hospital   
-     fhir:system [ fhir:v "http://example.org/www.foundingfathersmemorial.com" ] ;
+     fhir:system [ fhir:v "http://example.org/www.foundingfathersmemorial.com"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "service002" ] ;
      fhir:assigner [
        fhir:link <http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers> ;
@@ -45,7 +45,7 @@
   ] ) ; # 
   fhir:code ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/organization-role" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/organization-role"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "provider" ] ;
        fhir:display [ fhir:v "Provider" ] ;
        fhir:userSelected [ fhir:v "true"^^xsd:boolean ]
@@ -55,7 +55,7 @@
   fhir:specialty ( [
      fhir:coding ( [
        a sct:394602003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "394602003" ] ;
        fhir:display [ fhir:v "Rehabilitation - specialty" ]
      ] ) ; #    Provider specialty associated with this role, rehabilitation   

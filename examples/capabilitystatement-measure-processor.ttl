@@ -21,7 +21,7 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR Project" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "other" ] ;
+       fhir:system [ fhir:v "other"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
@@ -39,7 +39,7 @@
        fhir:cors [ fhir:v "true"^^xsd:boolean ] ;
        fhir:service ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-security-service" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-security-service"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Certificates" ]
          ] )
        ] )

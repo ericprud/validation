@@ -18,7 +18,7 @@
      fhir:id [ fhir:v "med0301" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "0409-6531-02" ] ;
          fhir:display [ fhir:v "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" ]
        ] )
@@ -33,7 +33,7 @@
      fhir:agent ( [
        fhir:role ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AUT" ]
          ] )
        ] ) ;
@@ -44,7 +44,7 @@
      ] ) ;
      fhir:signature ( [
        fhir:type ( [
-         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1.2.840.10065.1.12.1.1" ] ;
          fhir:display [ fhir:v "Author's Signature" ]
        ] ) ;
@@ -87,7 +87,7 @@
   fhir:reason ( [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/reason-medication-given" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/reason-medication-given"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "b" ] ;
          fhir:display [ fhir:v "Given as Ordered" ]
        ] )
@@ -101,7 +101,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:47625008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "47625008" ] ;
          fhir:display [ fhir:v "Intravenous route (qualifier value)" ]
        ] )
@@ -112,7 +112,7 @@
      fhir:dose [
        fhir:value [ fhir:v "500"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mg" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mg" ]
      ]
   ] ; # 

@@ -16,14 +16,14 @@
      a fhir:Coverage ;
      fhir:id [ fhir:v "coverage-1" ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://benefitsinc.com/certificate" ] ;
+       fhir:system [ fhir:v "http://benefitsinc.com/certificate"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "12345" ]
      ] ) ;
      fhir:status [ fhir:v "active" ] ;
      fhir:kind [ fhir:v "insurance" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "EHCPOL" ]
        ] )
      ] ;
@@ -41,14 +41,14 @@
      ] ;
      fhir:insurer [
        fhir:identifier [
-         fhir:system [ fhir:v "http://www.bindb.com/bin" ] ;
+         fhir:system [ fhir:v "http://www.bindb.com/bin"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "123456" ]
        ]
      ] ;
      fhir:class ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "EHCPOL" ]
          ] )
        ] ;
@@ -59,7 +59,7 @@
      ] [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "subplan" ]
          ] )
        ] ;
@@ -70,7 +70,7 @@
      ] [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-class"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "sequence" ]
          ] )
        ] ;
@@ -80,7 +80,7 @@
      ] )
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse" ] ;
+     fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "8812342" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -91,7 +91,7 @@
   fhir:created [ fhir:v "2014-09-16"^^xsd:date] ; # 
   fhir:requestor [
      fhir:identifier [
-       fhir:system [ fhir:v "http://national.org/clinic" ] ;
+       fhir:system [ fhir:v "http://national.org/clinic"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "OR1234" ]
      ]
   ] ; # 
@@ -112,26 +112,26 @@
      fhir:item ( [
        fhir:category [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "30" ] ;
            fhir:display [ fhir:v "Health Benefit Plan Coverage" ]
          ] )
        ] ;
        fhir:network [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-network" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-network"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "in" ]
          ] )
        ] ;
        fhir:unit [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-unit" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-unit"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "individual" ]
          ] )
        ] ;
        fhir:term [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-term" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-term"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "annual" ]
          ] )
        ] ;
@@ -173,26 +173,26 @@
      ] [
        fhir:category [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "69" ] ;
            fhir:display [ fhir:v "Maternity" ]
          ] )
        ] ;
        fhir:network [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-network" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-network"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "in" ]
          ] )
        ] ;
        fhir:unit [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-unit" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-unit"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "individual" ]
          ] )
        ] ;
        fhir:term [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-term" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-term"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "annual" ]
          ] )
        ] ;
@@ -211,26 +211,26 @@
      ] [
        fhir:category [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "F3" ] ;
            fhir:display [ fhir:v "Dental Coverage" ]
          ] )
        ] ;
        fhir:network [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-network" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-network"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "in" ]
          ] )
        ] ;
        fhir:unit [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-unit" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-unit"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "individual" ]
          ] )
        ] ;
        fhir:term [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-term" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/benefit-term"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "annual" ]
          ] )
        ] ;
@@ -249,7 +249,7 @@
      ] [
        fhir:category [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/ex-benefitcategory"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "F6" ] ;
            fhir:display [ fhir:v "Vision Coverage" ]
          ] )
@@ -261,7 +261,7 @@
   ] ) ; # 
   fhir:form [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://national.org/form" ] ;
+       fhir:system [ fhir:v "http://national.org/form"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ELRSP/2017/01" ]
      ] )
   ]] . # 

@@ -17,7 +17,7 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:386637004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "386637004" ] ;
        fhir:display [ fhir:v "Obstetric procedure (procedure)" ]
      ] ) ;
@@ -26,7 +26,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:22633006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "22633006" ] ;
        fhir:display [ fhir:v "Vaginal delivery, medical personnel present (procedure)" ]
      ] ) ;

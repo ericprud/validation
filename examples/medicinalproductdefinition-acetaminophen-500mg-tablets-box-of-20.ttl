@@ -46,7 +46,7 @@
      ]
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.nation.org/drugs" ] ;
+     fhir:system [ fhir:v "http://example.nation.org/drugs"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; #   contained>
 #		<Ingredient>

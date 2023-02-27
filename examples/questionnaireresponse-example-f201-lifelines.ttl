@@ -14,7 +14,7 @@
   ] ; # 
   fhir:questionnaire [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/display" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/display"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "Lifelines" ]
      ] )
   ] ; # 

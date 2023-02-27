@@ -16,7 +16,7 @@
      fhir:type [
        fhir:text [ fhir:v "Subject id" ]
      ] ;
-     fhir:system [ fhir:v "http://example.org/studysubjectids" ] ;
+     fhir:system [ fhir:v "http://example.org/studysubjectids"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -28,7 +28,7 @@
      ] ;
      fhir:subjectState [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/research-subject-state" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/research-subject-state"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "on-study" ]
        ] )
      ] ;

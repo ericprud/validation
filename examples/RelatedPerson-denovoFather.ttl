@@ -16,12 +16,12 @@
      fhir:use [ fhir:v "temp" ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "MR" ] ;
          fhir:display [ fhir:v "Medical record number" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/persons" ] ;
+     fhir:system [ fhir:v "http://www.somesystemabc.net/identifiers/persons"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "11113" ] ;
      fhir:period [
        fhir:start [ fhir:v "2021-01-01"^^xsd:date ]
@@ -36,7 +36,7 @@
   ] ; #    0..1 Whether this related person's record is in active use   
   fhir:relationship ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "NFTH" ] ;
        fhir:display [ fhir:v "natural Father" ]
      ] )

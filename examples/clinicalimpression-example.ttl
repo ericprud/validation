@@ -58,7 +58,7 @@
      fhir:item [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/sid/icd-9" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/sid/icd-9"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "850.0" ]
          ] )
        ]

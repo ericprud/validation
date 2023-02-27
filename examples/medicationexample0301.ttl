@@ -23,7 +23,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0409-6531-02" ] ;
        fhir:display [ fhir:v "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" ]
      ] )
@@ -35,7 +35,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385219001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385219001" ] ;
        fhir:display [ fhir:v "Injection Solution (qualifier value)" ]
      ] )
@@ -44,7 +44,7 @@
      fhir:item [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "66955" ] ;
            fhir:display [ fhir:v "Vancomycin Hydrochloride" ]
          ] )
@@ -55,12 +55,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "500"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "10"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ]

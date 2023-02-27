@@ -18,7 +18,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:182836005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "182836005" ] ;
        fhir:display [ fhir:v "Review of medication" ]
      ] ) ;
@@ -30,7 +30,7 @@
   ] ; # 
   fhir:emptyReason [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/list-empty-reason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/list-empty-reason"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "nilknown" ] ;
        fhir:display [ fhir:v "Nil Known" ]
      ] ) ;

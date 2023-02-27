@@ -14,7 +14,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: BodyStructure</b><a name=\"skin-patch\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource BodyStructure &quot;skin-patch&quot; </p></div><p><b>identifier</b>: id: 12345</p><p><b>active</b>: <span title=\" 	bodystructure marked as no longer active - entered in error\n \">false</span></p><p><b>morphology</b>: Skin patch <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> ()</span></p><h3>IncludedStructures</h3><table class=\"grid\"><tr><td>-</td><td><b>Structure</b></td><td><b>Laterality</b></td><td><b>Qualifier</b></td></tr><tr><td>*</td><td>Forearm <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#14975008)</span></td><td>Left <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#419161000 &quot;Unilateral left&quot;)</span></td><td>Volar <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#263929005)</span></td></tr></table><p><b>description</b>: inner surface (volar) of the left forearm</p><p><b>patient</b>: <a href=\"patient-example.html\">Patient/example</a> &quot;Peter CHALMERS&quot;</p></div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://goodhealth.org/bodystructure/identifiers" ] ;
+     fhir:system [ fhir:v "http://goodhealth.org/bodystructure/identifiers"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; # 
   fhir:active [ fhir:v "false"^^xsd:boolean] ; #   	bodystructure marked as no longer active - entered in error
@@ -26,7 +26,7 @@
      fhir:structure [
        fhir:coding ( [
          a sct:14975008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "14975008" ] ;
          fhir:display [ fhir:v "Forearm" ]
        ] ) ;
@@ -35,7 +35,7 @@
      fhir:laterality [
        fhir:coding ( [
          a sct:419161000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "419161000" ] ;
          fhir:display [ fhir:v "Unilateral left" ]
        ] ) ;
@@ -44,7 +44,7 @@
      fhir:qualifier ( [
        fhir:coding ( [
          a sct:263929005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "263929005" ] ;
          fhir:display [ fhir:v "Volar" ]
        ] ) ;

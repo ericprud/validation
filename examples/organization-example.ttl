@@ -16,7 +16,7 @@
   fhir:alias ( [ fhir:v "HL7 International"] ) ; # 
   fhir:contact ( [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/extended-contact-availability" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/extended-contact-availability"^^xsd:anyURI ] ;
        fhir:value [
          a fhir:Availability ;
          fhir:availableTime ( [
@@ -24,14 +24,14 @@
            fhir:availableStartTime [
              fhir:v "09:00:00"^^xsd:time ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timezone" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timezone"^^xsd:anyURI ] ;
                fhir:value [ fhir:v "America/New_York" ]
              ] )
            ] ;
            fhir:availableEndTime [
              fhir:v "07:00:00"^^xsd:time ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timezone" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timezone"^^xsd:anyURI ] ;
                fhir:value [ fhir:v "America/New_York" ]
              ] )
            ]
@@ -45,7 +45,7 @@
        fhir:system [ fhir:v "phone" ] ;
        fhir:value [ fhir:v "(+1) 734-677-7777" ]
      ] [
-       fhir:system [ fhir:v "fax" ] ;
+       fhir:system [ fhir:v "fax"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "(+1) 734-677-6622" ]
      ] [
        fhir:system [ fhir:v "email" ] ;

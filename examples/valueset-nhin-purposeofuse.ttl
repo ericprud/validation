@@ -152,12 +152,12 @@
      ] )
   ] ) ; # 
   fhir:extension ( [
-     fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/valueset-map" ] ;
+     fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/valueset-map"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "#map" ]
   ] ) ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ValueSet/nhin-purposeofuse"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.3.3142" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -169,14 +169,14 @@
   fhir:publisher [ fhir:v "Nationwide Health Information Network (NHIN)"] ; # 
   fhir:contact ( [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "https://www.healthit.gov/sites/default/files/nhin-authorization-framework-production-specification-v2.0-1.pdf" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system."] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://healthit.gov/nhin/purposeofuse" ]
+       fhir:system [ fhir:v "http://healthit.gov/nhin/purposeofuse"^^xsd:anyURI ]
      ] )
   ]] . # 
 

@@ -16,7 +16,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "exam" ] ;
        fhir:display [ fhir:v "Exam" ]
      ] ) ;
@@ -25,7 +25,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:410211008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "410211008" ] ;
        fhir:display [ fhir:v "Tracheostomy care assessment (procedure)" ]
      ] )

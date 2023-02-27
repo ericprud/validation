@@ -17,7 +17,7 @@
   fhir:type [
      fhir:coding ( [
        a loinc:78418-1 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "78418-1" ] ;
        fhir:display [ fhir:v "Neonatal perinatal medicine Discharge summary" ]
      ] )
@@ -25,7 +25,7 @@
   fhir:category ( [
      fhir:coding ( [
        a loinc:LP173421-1 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "LP173421-1" ] ;
        fhir:display [ fhir:v "Report" ]
      ] )
@@ -43,7 +43,7 @@
   fhir:attester ( [
      fhir:mode [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/composition-attestation-mode" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/composition-attestation-mode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "legal" ] ;
          fhir:display [ fhir:v "Legal" ]
        ] )
@@ -62,7 +62,7 @@
      fhir:title [ fhir:v "Child's Details" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://acme.org/codes/SectionType" ] ;
+         fhir:system [ fhir:v "http://acme.org/codes/SectionType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "newborn" ] ;
          fhir:display [ fhir:v "New Born Details" ]
        ] )
@@ -75,7 +75,7 @@
      fhir:title [ fhir:v "Mpther's Details" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://acme.org/codes/SectionType" ] ;
+         fhir:system [ fhir:v "http://acme.org/codes/SectionType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mother" ] ;
          fhir:display [ fhir:v "Mother's Details" ]
        ] )

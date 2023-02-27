@@ -17,7 +17,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "social-history" ] ;
        fhir:display [ fhir:v "Social History" ]
      ] ) ;
@@ -26,12 +26,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:39243-1 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "39243-1" ] ;
        fhir:display [ fhir:v "Second hand smoke exposure CPHS" ]
      ] [
        a sct:102409004 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "102409004" ] ;
        fhir:display [ fhir:v "Second hand cigarette smoke (substance)" ]
      ] ) ;
@@ -45,7 +45,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:373066001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "373066001" ] ;
        fhir:display [ fhir:v "Yes (qualifier value)" ]
      ] ) ;

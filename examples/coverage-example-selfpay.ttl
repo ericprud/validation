@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of a Self Pay Agreement.</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://hospitalx.com/selfpayagreement" ] ;
+     fhir:system [ fhir:v "http://hospitalx.com/selfpayagreement"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "SP12345678" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -25,7 +25,7 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-selfpay" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/coverage-selfpay"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "pay" ] ;
        fhir:display [ fhir:v "PAY" ]
      ] )

@@ -16,7 +16,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ; #   Inpatient encounter for colonoscopy   
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ; #   Inpatient encounter for colonoscopy   
        fhir:code [ fhir:v "IMP" ] ;
        fhir:display [ fhir:v "inpatient encounter" ]
      ] )
@@ -24,7 +24,7 @@
   fhir:type ( [
      fhir:coding ( [
        a sct:73761001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "73761001" ] ;
        fhir:display [ fhir:v "Colonoscopy (procedure)" ]
      ] ) ;
@@ -45,7 +45,7 @@
   fhir:participant ( [
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PART" ]
        ] )
      ] ) ;

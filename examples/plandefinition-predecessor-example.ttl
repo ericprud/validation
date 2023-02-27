@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://example.org/PlanDefinition/plandefinition-predecessor-example"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.11.9" ]
   ] [
      fhir:use [ fhir:v "official" ] ;
@@ -32,7 +32,7 @@
   fhir:relatedArtifact ( [
      fhir:type [ fhir:v "derived-from" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w" ]
+       fhir:url [ fhir:v "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"^^xsd:anyURI ]
      ]
   ] [
      fhir:type [ fhir:v "successor" ] ;

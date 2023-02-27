@@ -62,11 +62,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444222222" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -102,11 +102,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444333333" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -141,11 +141,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444555555" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -180,11 +180,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444114567" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -219,11 +219,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444111234" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -258,11 +258,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444113456" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -297,11 +297,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444112345" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -336,11 +336,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444666666" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -375,11 +375,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444777777" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -396,11 +396,11 @@
   fhir:gender [
      fhir:v "other" ;
      fhir:extension ( [
-       fhir:url [ fhir:v "http://example.org/Profile/administrative-status" ] ;
+       fhir:url [ fhir:v "http://example.org/Profile/administrative-status"^^xsd:anyURI ] ;
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/fhir/v2/administrative-status" ] ;
+           fhir:system [ fhir:v "http://example.org/fhir/v2/administrative-status"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "FTM" ] ;
            fhir:display [ fhir:v "female-to-male" ]
          ] )
@@ -428,11 +428,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444888888" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -467,11 +467,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "444999999" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
@@ -506,11 +506,11 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SS" ]
        ] )
      ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/sid/us-ssn"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "555222222" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 

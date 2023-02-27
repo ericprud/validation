@@ -16,14 +16,14 @@
      a fhir:Organization ;
      fhir:id [ fhir:v "provider" ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/provideroffices" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/provideroffices"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "3456" ]
      ] )
   ] [
      a fhir:Organization ;
      fhir:id [ fhir:v "payor" ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/insurer" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/insurer"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "123456" ]
      ] )
   ] [
@@ -34,7 +34,7 @@
      ] )
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.jurisdiction.com/insurer/123456" ] ;
+     fhir:system [ fhir:v "http://www.jurisdiction.com/insurer/123456"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "ABC123" ]
   ] ) ; #   body of the resource  ,   this is the value to which the response will refer  
   fhir:basedOn ( [
@@ -50,14 +50,14 @@
   fhir:intent [ fhir:v "proposal"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/messagetypes" ] ;
+       fhir:system [ fhir:v "http://acme.org/messagetypes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SolicitedAttachmentRequest" ]
      ] )
   ] ) ; # 
   fhir:priority [ fhir:v "routine"] ; # 
   fhir:medium ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "WRITTEN" ] ;
        fhir:display [ fhir:v "written" ]
      ] ) ;

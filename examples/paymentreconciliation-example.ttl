@@ -13,12 +13,12 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the PaymentReconciliation</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/enrollmentresponse" ] ;
+     fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/enrollmentresponse"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "781234" ]
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "payment" ]
      ] )
   ] ; # 
@@ -46,23 +46,23 @@
      fhir:currency [ fhir:v "USD" ]
   ] ; # 
   fhir:paymentIdentifier [
-     fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018" ] ;
+     fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "10-12345" ]
   ] ; # 
   fhir:allocation ( [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018/detail" ] ;
+       fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018/detail"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "10-12345-001" ]
      ] ;
      fhir:target [
        fhir:identifier [
-         fhir:system [ fhir:v "http://happyvalleyclinic.com/claim" ] ;
+         fhir:system [ fhir:v "http://happyvalleyclinic.com/claim"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "AB12345" ]
        ]
      ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "payment" ]
        ] )
      ] ;
@@ -71,7 +71,7 @@
      ] ;
      fhir:response [
        fhir:identifier [
-         fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/claimresponse" ] ;
+         fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/claimresponse"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "CR20140815-AB12345" ]
        ]
      ] ;
@@ -85,7 +85,7 @@
      ]
   ] [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018/detail" ] ;
+       fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018/detail"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "10-12345-002" ]
      ] ;
      fhir:target [
@@ -94,7 +94,7 @@
      ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "payment" ]
        ] )
      ] ;
@@ -105,12 +105,12 @@
      ]
   ] [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018/detail" ] ;
+       fhir:system [ fhir:v "http://www.BenefitsInc.com/payment/2018/detail"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "10-12345-003" ]
      ] ;
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/payment-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "advance" ]
        ] )
      ] ;
@@ -122,7 +122,7 @@
   ] ) ; # 
   fhir:formCode [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://ncforms.org/formid" ] ;
+       fhir:system [ fhir:v "http://ncforms.org/formid"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "PAYREC/2016/01B" ]
      ] )
   ] ; # 

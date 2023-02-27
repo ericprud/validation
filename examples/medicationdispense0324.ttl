@@ -16,7 +16,7 @@
   fhir:medication [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "884375" ] ;
          fhir:display [ fhir:v "Nystex 100,000 UNT/GM Topical Ointment" ]
        ] )
@@ -36,20 +36,20 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "RFP" ] ;
        fhir:display [ fhir:v "Refill - Part Fill" ]
      ] )
   ] ; # 
   fhir:quantity [
      fhir:value [ fhir:v "30"^^xsd:decimal ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "g" ]
   ] ; # 
   fhir:daysSupply [
      fhir:value [ fhir:v "10"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "Day" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "d" ]
   ] ; # 
   fhir:whenPrepared [ fhir:v "2015-01-15T10:20:00Z"^^xsd:dateTime] ; # 
@@ -67,7 +67,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -76,7 +76,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "ea" ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "OINT" ]
        ]
      ] )

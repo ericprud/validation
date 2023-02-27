@@ -13,13 +13,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the Oral Health Claim</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://happyvalley.com/claim" ] ;
+     fhir:system [ fhir:v "http://happyvalley.com/claim"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/claim-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "oral" ]
      ] )
   ] ; # 
@@ -65,7 +65,7 @@
      fhir:sequence [ fhir:v "1"^^xsd:positiveInteger ] ;
      fhir:focal [ fhir:v "true"^^xsd:boolean ] ;
      fhir:identifier [
-       fhir:system [ fhir:v "http://happyvalley.com/claim" ] ;
+       fhir:system [ fhir:v "http://happyvalley.com/claim"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "12345" ]
      ] ;
      fhir:coverage [

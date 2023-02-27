@@ -28,7 +28,7 @@
        fhir:event [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "http://hl7.org/fhir/evidence-variable-event" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/evidence-variable-event"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "study-start" ] ;
            fhir:display [ fhir:v "Study Start" ]
          ] )
@@ -36,7 +36,7 @@
        fhir:quantity [
          fhir:value [ fhir:v "90"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "day" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "d" ]
        ]
      ] )

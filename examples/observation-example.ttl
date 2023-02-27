@@ -17,7 +17,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "vital-signs" ] ;
        fhir:display [ fhir:v "Vital Signs" ]
      ] )
@@ -25,21 +25,21 @@
   fhir:code [
      fhir:coding ( [
        a loinc:29463-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "29463-7" ] ;
        fhir:display [ fhir:v "Body Weight" ] #   more generic methodless LOINC  
      ] [
        a loinc:3141-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "3141-9" ] ;
        fhir:display [ fhir:v "Body weight Measured" ] #   translation is more specific method = measured LOINC  
      ] [
        a sct:27113001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "27113001" ] ;
        fhir:display [ fhir:v "Body weight" ]
      ] [
-       fhir:system [ fhir:v "http://acme.org/devices/clinical-codes" ] ;
+       fhir:system [ fhir:v "http://acme.org/devices/clinical-codes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "body-weight" ] ;
        fhir:display [ fhir:v "Body Weight" ]
      ] ) #     LOINC - always recommended to have a LOINC code    
@@ -60,7 +60,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "185"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "lbs" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "[lb_av]" ]
   ]] . #     In FHIR, units may be represented twice. Once in the
 #    agreed human representation, and once in a coded form.

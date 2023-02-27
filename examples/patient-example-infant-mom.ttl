@@ -25,7 +25,7 @@
   fhir:birthDate [ fhir:v "1995-10-12"^^xsd:date] ; # 
   fhir:maritalStatus [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "M" ] ;
        fhir:display [ fhir:v "Married" ]
      ] )

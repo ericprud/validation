@@ -20,7 +20,7 @@
        fhir:role [
          fhir:coding ( [
            a sct:425268008 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "425268008" ] ;
            fhir:display [ fhir:v "Review of care plan" ]
          ] )
@@ -33,7 +33,7 @@
        fhir:role [
          fhir:coding ( [
            a sct:278110001 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "278110001" ] ;
            fhir:display [ fhir:v "Radiographic imaging" ]
          ] )
@@ -83,7 +83,7 @@
        fhir:code [
          fhir:coding ( [
            a sct:241541005 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "241541005" ] ;
            fhir:display [ fhir:v "High resolution computed tomography of lungs" ]
          ] )

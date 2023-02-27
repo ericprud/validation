@@ -18,7 +18,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:27658006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "27658006" ] ;
          fhir:display [ fhir:v "Amoxicillin (product)" ]
        ] )

@@ -17,7 +17,7 @@
   fhir:medication [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "226827" ] ;
          fhir:display [ fhir:v "Azithromycin 500mg oral tablet (Zithromax)" ]
        ] )
@@ -37,20 +37,20 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "TF" ] ;
        fhir:display [ fhir:v "trial Fill" ]
      ] )
   ] ; # 
   fhir:quantity [
      fhir:value [ fhir:v "5"^^xsd:decimal ] ;
-     fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+     fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "TAB" ]
   ] ; # 
   fhir:daysSupply [
      fhir:value [ fhir:v "5"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "Day" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "d" ]
   ] ; # 
   fhir:whenPrepared [ fhir:v "2015-01-15T10:20:00Z"^^xsd:dateTime] ; # 
@@ -60,7 +60,7 @@
      fhir:additionalInstruction ( [
        fhir:coding ( [
          a sct:421984009 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "421984009" ] ;
          fhir:display [ fhir:v "Until finished - dosing instruction fragment (qualifier value)" ]
        ] )
@@ -75,7 +75,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:26643006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "26643006" ] ;
          fhir:display [ fhir:v "Oral Route (qualifier value)" ]
        ] )
@@ -83,7 +83,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -92,7 +92,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "500"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ]
      ] )

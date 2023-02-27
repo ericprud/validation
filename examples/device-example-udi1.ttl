@@ -16,14 +16,14 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://acme.com/devices/pacemakers/octane/serial" ]
+         fhir:system [ fhir:v "http://acme.com/devices/pacemakers/octane/serial"^^xsd:anyURI ]
        ] )
      ] ;
      fhir:value [ fhir:v "1234-5678-90AB-CDEF" ]
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SNO" ]
        ] )
      ] ;
@@ -48,7 +48,7 @@
   fhir:type ( [
      fhir:coding ( [
        a sct:468063009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "468063009" ] ;
        fhir:display [ fhir:v "Coated femoral stem prosthesis, modular" ]
      ] ) ;
@@ -56,7 +56,7 @@
   ] ) ; #    note: optional text value added here for a prettier generated narrative   
   fhir:safety ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.3.26.1.1" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.3.26.1.1"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mr-unsafe" ] ;
        fhir:display [ fhir:v "MR Unsafe" ]
      ] ) ;

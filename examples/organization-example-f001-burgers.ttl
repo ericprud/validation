@@ -14,20 +14,20 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.528.1" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.528.1"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "91654" ]
   ] [
      fhir:use [ fhir:v "usual" ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.1" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.1"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "17-0112278" ] #     Dutch VEKTIS AGB-Z    
   ] ) ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.1060" ] ;
+       fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.1060"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "V6" ] ; #     RoleCodeNLUZIRoleCodeOrganisaties    
        fhir:display [ fhir:v "University Medical Hospital" ]
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/organization-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/organization-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "prov" ] ;
        fhir:display [ fhir:v "Healthcare Provider" ]
      ] )
@@ -58,7 +58,7 @@
   ] [
      fhir:purpose [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contactentity-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contactentity-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PRESS" ]
        ] )
      ] ;
@@ -69,7 +69,7 @@
   ] [
      fhir:purpose [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contactentity-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contactentity-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PATINF" ]
        ] )
      ] ;

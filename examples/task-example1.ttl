@@ -26,7 +26,7 @@
      fhir:agent ( [
        fhir:role ( [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AUT" ]
          ] )
        ] ) ;
@@ -37,7 +37,7 @@
      ] ) ;
      fhir:signature ( [
        fhir:type ( [
-         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1.2.840.10065.1.12.1.1" ] ;
          fhir:display [ fhir:v "Author's Signature" ]
        ] ) ;
@@ -53,7 +53,7 @@
   ] ) ; #    using contained resource for the purpose of this example only typically this would be a separate independent resource   
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http:/goodhealth.org/identifiers" ] ;
+     fhir:system [ fhir:v "http:/goodhealth.org/identifiers"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20170201-001" ]
   ] ) ; # 
   fhir:basedOn ( [
@@ -61,7 +61,7 @@
   ] ) ; # 
   fhir:groupIdentifier [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http:/goodhealth.org/accession/identifiers" ] ;
+     fhir:system [ fhir:v "http:/goodhealth.org/accession/identifiers"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "G20170201-001" ]
   ] ; # 
   fhir:status [ fhir:v "in-progress"] ; # 
@@ -72,7 +72,7 @@
   fhir:priority [ fhir:v "routine"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/CodeSystem/task-code" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/CodeSystem/task-code"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "fulfill" ]
      ] ) ;
      fhir:text [ fhir:v "Lipid Panel" ]
@@ -104,7 +104,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:18850004 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "18850004" ] ;
          fhir:display [ fhir:v "Laboratory hematologist" ]
        ] ) ;

@@ -14,10 +14,10 @@
   ] ; # 
   fhir:url [ fhir:v "http://ohie.org/Measure/hiv-indicators"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.28.2" ]
   ] [
-     fhir:system [ fhir:v "http://ohie.org/Measure/" ] ;
+     fhir:system [ fhir:v "http://ohie.org/Measure/"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "hiv-indicators" ]
   ] ) ; # 
   fhir:version [ fhir:v "0.0.0"] ; # 
@@ -31,7 +31,7 @@
   fhir:relatedArtifact ( [
      fhir:type [ fhir:v "derived-from" ] ;
      fhir:document [
-       fhir:url [ fhir:v "http://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV" ]
+       fhir:url [ fhir:v "http://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV"^^xsd:anyURI ]
      ]
   ] ) ; # 
   fhir:library ( [
@@ -46,7 +46,7 @@
   fhir:group ( [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_ART1_N" ]
        ] )
      ] ;
@@ -63,7 +63,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AGE_GROUP:SEX" ]
          ] )
        ] ;
@@ -75,7 +75,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_ART1_N_PREG_BF" ]
        ] )
      ] ;
@@ -92,7 +92,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PREG_BF" ]
          ] )
        ] ;
@@ -104,7 +104,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_ART3_N" ]
        ] )
      ] ;
@@ -121,7 +121,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_ART5_N" ]
        ] )
      ] ;
@@ -139,7 +139,7 @@
        fhir:component ( [
          fhir:code [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+             fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "AGE_GROUP" ]
            ] )
          ] ;
@@ -150,7 +150,7 @@
        ] [
          fhir:code [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+             fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "SEX" ]
            ] )
          ] ;
@@ -163,7 +163,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_ART5_N_PREG_BF" ]
        ] )
      ] ;
@@ -180,7 +180,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PREG_BF" ]
          ] )
        ] ;
@@ -192,7 +192,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_ART5_D" ]
        ] )
      ] ;
@@ -209,7 +209,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AGE_GROUP:SEX" ]
          ] )
        ] ;
@@ -221,7 +221,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_MTCT1_D" ]
        ] )
      ] ;
@@ -238,7 +238,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PMTCT_HIV_STATUS" ]
          ] )
        ] ;
@@ -250,7 +250,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_MTCT2_D" ]
        ] )
      ] ;
@@ -267,7 +267,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_MTCT2_N" ]
        ] )
      ] ;
@@ -284,7 +284,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PMTCT_ART_STATUS" ]
          ] )
        ] ;
@@ -296,7 +296,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_VLS3_N" ]
        ] )
      ] ;
@@ -313,7 +313,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AGE_GROUP:SEX" ]
          ] )
        ] ;
@@ -325,7 +325,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_HTS2_N" ]
        ] )
      ] ;
@@ -342,7 +342,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AGE_GROUP:SEX:HIV_TEST_RESULTS" ]
          ] )
        ] ;
@@ -354,7 +354,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_MTCT1_N" ]
        ] )
      ] ;
@@ -371,7 +371,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "PMTCT_HIV_STATUS" ]
          ] )
        ] ;
@@ -383,7 +383,7 @@
   ] [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+         fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "QRPH_ADX_VLS3_D" ]
        ] )
      ] ;
@@ -400,7 +400,7 @@
      fhir:stratifier ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://ihe.net/qrph/adx/" ] ;
+           fhir:system [ fhir:v "http://ihe.net/qrph/adx/"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "AGE_GROUP:SEX" ]
          ] )
        ] ;

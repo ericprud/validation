@@ -17,7 +17,7 @@
      fhir:fullUrl [ fhir:v "http://example.org/FHIR/R5/Encounter/2" ] ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "Encounter/2" ]
+       fhir:url [ fhir:v "Encounter/2"^^xsd:anyURI ]
      ] ;
      fhir:response [
        fhir:status [ fhir:v "201" ]

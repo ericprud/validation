@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/bundle-type-de"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.4.1822" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -36,7 +36,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Dokument" ]
@@ -46,7 +46,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Nachricht" ]
@@ -56,7 +56,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Transaktion" ]
@@ -66,7 +66,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Transaktionsantwort" ]
@@ -76,7 +76,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Stapel" ]
@@ -86,7 +86,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Batch-Antwort" ]
@@ -96,7 +96,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Verlaufsliste" ]
@@ -106,7 +106,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Suchergebnisse" ]
@@ -116,7 +116,7 @@
      fhir:designation ( [
        fhir:language [ fhir:v "de" ] ;
        fhir:use [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "preferredForLanguage" ]
        ] ;
        fhir:value [ fhir:v "Sammlung" ]

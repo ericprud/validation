@@ -15,7 +15,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">Authored by Joginder Madra</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235" ]
   ] ) ; # 
   fhir:patient [
@@ -29,7 +29,7 @@
      fhir:targetDisease ( [
        fhir:coding ( [
          a sct:40468003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "40468003" ]
        ] )
      ] ) ;
@@ -40,7 +40,7 @@
        fhir:code [
          fhir:coding ( [
            a loinc:30981-5 ;
-           fhir:system [ fhir:v "http://loinc.org" ] ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "30981-5" ] ;
            fhir:display [ fhir:v "Earliest date to give" ]
          ] )
@@ -49,7 +49,7 @@
      ] [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion" ] ;
+           fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "recommended" ] ;
            fhir:display [ fhir:v "Recommended" ]
          ] )
@@ -58,7 +58,7 @@
      ] [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion" ] ;
+           fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "overdue" ] ;
            fhir:display [ fhir:v "Past Due Date" ]
          ] )

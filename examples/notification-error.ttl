@@ -38,7 +38,7 @@
   ] ; # 
   fhir:error ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/subscription-error" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/subscription-error"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "no-response" ]
      ] )
   ] ) . # 

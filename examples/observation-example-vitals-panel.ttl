@@ -22,7 +22,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "vital-signs" ] ;
        fhir:display [ fhir:v "Vital Signs" ]
      ] ) ;
@@ -31,7 +31,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:85353-1 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "85353-1" ] ;
        fhir:display [ fhir:v "Vital signs, weight, height, head circumference, oxygen saturation and BMI panel" ]
      ] ) ; #    Deprecated LOINC -replaced  by 85353-1 for this profile\n		<coding>\n			<system value=\"http:\/\/loinc.org\"\/>\n			<code value=\"8716-3\"\/>\n			<display value=\"Vital signs\"\/>\n		<\/coding>\n  

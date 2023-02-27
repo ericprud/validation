@@ -16,7 +16,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "laboratory" ] ;
        fhir:display [ fhir:v "Laboratory" ]
      ] ) ;
@@ -25,11 +25,11 @@
   fhir:code [
      fhir:coding ( [
        a loinc:80219-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "80219-9" ] ;
        fhir:display [ fhir:v "Mycoplasma hyopneumoniae Ab sample/Positive control in Serum by Immunoassay" ] #   more generic methodless LOINC  
      ] [
-       fhir:system [ fhir:v "http://acme.org/devices/clinical-codes" ] ;
+       fhir:system [ fhir:v "http://acme.org/devices/clinical-codes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Mycoplasma" ] ;
        fhir:display [ fhir:v "Mycoplasma" ]
      ] ) ; #     LOINC - always recommended to have a LOINC code    
@@ -51,7 +51,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.2"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "% (sample/positive control)" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] ; #     In FHIR, units may be represented twice. Once in the
 #    agreed human representation, and once in a coded form.
@@ -64,7 +64,7 @@
 #      
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "NEG" ] ;
        fhir:display [ fhir:v "Negative" ]
      ] ) ;

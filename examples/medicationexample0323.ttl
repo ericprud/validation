@@ -21,7 +21,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:419442005 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "419442005" ] ;
            fhir:display [ fhir:v "Ethanol (substance)" ]
          ] )
@@ -35,7 +35,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:387171003 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "387171003" ] ;
            fhir:display [ fhir:v "Hydrogen peroxide (substance)" ]
          ] )
@@ -49,7 +49,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:80582002 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "80582002" ] ;
            fhir:display [ fhir:v "Glycerol (substance)" ]
          ] )
@@ -63,7 +63,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:444883009 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "444883009" ] ;
            fhir:display [ fhir:v "Distilled Water (substance)" ]
          ] )
@@ -76,7 +76,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:739006009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "739006009" ] ;
        fhir:display [ fhir:v "Solution (basic dose form) (qualifier value)" ]
      ] )
@@ -90,7 +90,7 @@
      fhir:strength [
        a fhir:Quantity ;
        fhir:value [ fhir:v "8333"^^xsd:decimal ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mL" ]
      ]
   ] [
@@ -102,7 +102,7 @@
      fhir:strength [
        a fhir:Quantity ;
        fhir:value [ fhir:v "417"^^xsd:decimal ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mL" ]
      ]
   ] [
@@ -114,7 +114,7 @@
      fhir:strength [
        a fhir:Quantity ;
        fhir:value [ fhir:v "145"^^xsd:decimal ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mL" ]
      ]
   ] [
@@ -126,7 +126,7 @@
      fhir:strength [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/CodeSystem/medication-ingredientstrength" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/CodeSystem/medication-ingredientstrength"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "qs" ] ;
          fhir:display [ fhir:v "QS" ]
        ] )

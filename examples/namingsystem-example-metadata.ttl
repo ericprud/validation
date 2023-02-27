@@ -20,7 +20,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/NamingSystem/example-metadata"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.22.5" ]
   ] ) ; # 
   fhir:version [ fhir:v "20210721"] ; # 
@@ -34,7 +34,7 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
@@ -47,7 +47,7 @@
   ] ; # 
   fhir:topic ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/definition-topic" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/definition-topic"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "treatment" ] ;
        fhir:display [ fhir:v "Treatment" ]
      ] )
@@ -55,28 +55,28 @@
   fhir:author ( [
      fhir:name [ fhir:v "ACME NamingSystem Development" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://acme.org/development" ]
      ] )
   ] ) ; # 
   fhir:editor ( [
      fhir:name [ fhir:v "ACME NamingSystem Management" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://acme.org/management" ]
      ] )
   ] ) ; # 
   fhir:reviewer ( [
      fhir:name [ fhir:v "Society for Creative NamingSystem Review" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://example.org/scnr" ]
      ] )
   ] ) ; # 
   fhir:endorser ( [
      fhir:name [ fhir:v "National Foundation for NamingSystem Quality" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://example.org/nfnq" ]
      ] )
   ] ) ; # 

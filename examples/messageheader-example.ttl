@@ -14,7 +14,7 @@
   ] ; # 
   fhir:event [
      a fhir:Coding ;
-     fhir:system [ fhir:v "http://example.org/fhir/message-events" ] ;
+     fhir:system [ fhir:v "http://example.org/fhir/message-events"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "admin-notify" ]
   ] ; # 
   fhir:destination ( [
@@ -46,7 +46,7 @@
   ] ; # 
   fhir:reason [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/message-reasons-encounter" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/message-reasons-encounter"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "admit" ]
      ] )
   ] ; # 

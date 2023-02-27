@@ -17,7 +17,7 @@
      fhir:value [ fhir:v "12345" ]
   ] ) ; # 
   fhir:requisition [
-     fhir:system [ fhir:v "http://bumc.org/requisitions" ] ;
+     fhir:system [ fhir:v "http://bumc.org/requisitions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "req12345" ]
   ] ; #    Example of biopsy service request that is part of a colonoscopy  
   fhir:status [ fhir:v "completed"] ; # 
@@ -26,7 +26,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:76164006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "76164006" ] ;
          fhir:display [ fhir:v "Biopsy of colon (procedure)" ]
        ] ) ;

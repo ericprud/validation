@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">Attachment which is unsolicited</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.providerco.com/communication" ] ;
+     fhir:system [ fhir:v "http://www.providerco.com/communication"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345" ]
   ] ) ; #   insert contents here  ,  
 #   <contained>
@@ -68,7 +68,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.org/messagetypes" ] ;
+       fhir:system [ fhir:v "http://acme.org/messagetypes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SolicitedAttachment" ]
      ] )
   ] ) ; # 
@@ -77,25 +77,25 @@
   ] ; # 
   fhir:about ( [
      fhir:identifier [
-       fhir:system [ fhir:v "http://happyvalley.com/claim" ] ;
+       fhir:system [ fhir:v "http://happyvalley.com/claim"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "12345" ]
      ] #   reference value=\"#claim\"\/  
   ] [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/claimresponse" ] ;
+       fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/claimresponse"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "R3500" ]
      ] #   reference value=\"#claimresponse\"\/  
   ] ) ; #   Example using about 0..* Resource(Any) to provide focal resources  
   fhir:sent [ fhir:v "2016-06-12T18:01:10-08:00"^^xsd:dateTime] ; # 
   fhir:recipient ( [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/insurer" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/insurer"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "123456" ]
      ] #   reference value=\"#payor\"\/  
   ] ) ; # 
   fhir:sender [
      fhir:identifier [
-       fhir:system [ fhir:v "http://www.jurisdiction.com/provideroffices" ] ;
+       fhir:system [ fhir:v "http://www.jurisdiction.com/provideroffices"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "3456" ]
      ] #   reference value=\"#provider\"\/  
   ] ; # 
@@ -111,7 +111,7 @@
      fhir:content [
        a fhir:Attachment ;
        fhir:contentType [ fhir:v "application/pdf" ] ;
-       fhir:url [ fhir:v "http://example.org/docs/AB12345" ] ;
+       fhir:url [ fhir:v "http://example.org/docs/AB12345"^^xsd:anyURI ] ;
        fhir:size [ fhir:v "104274"^^xsd:long ] ;
        fhir:hash [ fhir:v "SGVsbG8gdGhlcmU="^^xsd:base64Binary ] ;
        fhir:creation [ fhir:v "2010-02-01T10:57:34+01:00"^^xsd:dateTime ]

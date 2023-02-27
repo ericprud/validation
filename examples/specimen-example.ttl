@@ -17,18 +17,18 @@
 #    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
 #  </text>  
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://ehr.acme.org/identifiers/collections" ] ; #    a specimen identifier - e.g. assigned when the specimen was taken this is often not done   
+     fhir:system [ fhir:v "http://ehr.acme.org/identifiers/collections"^^xsd:anyURI ] ; #    a specimen identifier - e.g. assigned when the specimen was taken this is often not done   
      fhir:value [ fhir:v "23234352356" ]
   ] ) ; # 
   fhir:accessionIdentifier [
-     fhir:system [ fhir:v "http://lab.acme.org/specimens/2011" ] ;
+     fhir:system [ fhir:v "http://lab.acme.org/specimens/2011"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "X352356" ]
   ] ; # 
   fhir:status [ fhir:v "available"] ; # 
   fhir:type [
      fhir:coding ( [
        a sct:122555007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "122555007" ] ;
        fhir:display [ fhir:v "Venous blood specimen" ]
      ] ) #   \n   Type is a loosely defined field because there is such a lot of variation in how it is used.\n   The principal variation is how much information that could be represented elsewhere is also\n   represented here. For instance, here's some possible types:\n     lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)\n     transfusion bag of blood (+ container.type)\n     Peritoneal lavage        (+ collection.bodySite)\n   If the type includes other fields, it would be normal not to populate the other fields\n\n   Note that this practice is so widespread that it's pointless to try and stop it   
@@ -52,7 +52,7 @@
      ] ; #    e.g. full   
      fhir:method [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0488" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0488"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LNV" ]
        ] )
      ] ; #    method is usually implied by type   
@@ -60,7 +60,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:49852007 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "49852007" ] ;
            fhir:display [ fhir:v "Structure of median cubital vein (body structure)" ]
          ] )

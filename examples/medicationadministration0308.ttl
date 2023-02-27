@@ -17,7 +17,7 @@
   fhir:medication [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "285018" ] ;
          fhir:display [ fhir:v "Lantus 100 unit/ml injectable solution" ]
        ] )
@@ -48,7 +48,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:263887005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "263887005" ] ;
          fhir:display [ fhir:v "Subcutaneous (qualifier value)" ]
        ] )
@@ -56,7 +56,7 @@
      fhir:dose [
        fhir:value [ fhir:v "20"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "U" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "U" ]
      ]
   ]] . # 

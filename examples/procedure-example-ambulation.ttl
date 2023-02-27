@@ -25,7 +25,7 @@
   fhir:statusReason [
      fhir:coding ( [
        a sct:398254007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "398254007" ] ;
        fhir:display [ fhir:v "  Pre-eclampsia (disorder)" ]
      ] ) ;
@@ -34,7 +34,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:62013009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "62013009" ] ;
        fhir:display [ fhir:v "Ambulating patient (procedure)" ]
      ] ) ;

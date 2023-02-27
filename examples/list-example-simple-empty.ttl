@@ -19,7 +19,7 @@
   fhir:mode [ fhir:v "snapshot"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.com/list-codes" ] ;
+       fhir:system [ fhir:v "http://acme.com/list-codes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "346638" ] ;
        fhir:display [ fhir:v "Patient Admission List" ]
      ] )

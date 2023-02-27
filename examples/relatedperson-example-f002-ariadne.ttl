@@ -17,7 +17,7 @@
   ] ; # 
   fhir:relationship ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SIGOTHR" ]
      ] )
   ] ) ; # 

@@ -15,7 +15,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://example.org/PlanDefinition/zika-virus-intervention"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.11.5" ]
   ] [
      fhir:use [ fhir:v "official" ] ;
@@ -29,7 +29,7 @@
   fhir:description [ fhir:v "Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management."] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "age" ]
      ] ;
      fhir:value [
@@ -41,14 +41,14 @@
      ]
   ] [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "user" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:309343006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "309343006" ] ;
          fhir:display [ fhir:v "Physician" ]
        ] )
@@ -60,7 +60,7 @@
   fhir:relatedArtifact ( [
      fhir:type [ fhir:v "derived-from" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w" ]
+       fhir:url [ fhir:v "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"^^xsd:anyURI ]
      ]
   ] [
      fhir:type [ fhir:v "predecessor" ] ;

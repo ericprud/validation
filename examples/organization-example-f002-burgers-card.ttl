@@ -15,7 +15,7 @@
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/organization-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/organization-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dept" ] ;
        fhir:display [ fhir:v "Hospital Department" ]
      ] )
@@ -24,7 +24,7 @@
   fhir:contact ( [
      fhir:purpose [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contactentity-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contactentity-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "ADMIN" ]
        ] )
      ] ;
@@ -38,7 +38,7 @@
        fhir:system [ fhir:v "email" ] ;
        fhir:value [ fhir:v "cardio@burgersumc.nl" ]
      ] [
-       fhir:system [ fhir:v "fax" ] ;
+       fhir:system [ fhir:v "fax"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "022-655 2322" ]
      ] ) ;
      fhir:address [

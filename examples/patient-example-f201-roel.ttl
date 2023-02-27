@@ -18,14 +18,14 @@
      fhir:type [
        fhir:text [ fhir:v "BSN" ]
      ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.3" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.3"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123456789" ]
   ] [
      fhir:use [ fhir:v "official" ] ; #    The identifier for this individual   
      fhir:type [
        fhir:text [ fhir:v "BSN" ]
      ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.3" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.6.3"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123456789" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; #    Indicates that the patient is not part of a multiple birth    
@@ -59,31 +59,31 @@
   fhir:maritalStatus [
      fhir:coding ( [
        a sct:36629006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "36629006" ] ;
        fhir:display [ fhir:v "Legally married" ]
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "M" ]
      ] ) #    Marital status of the person   
   ] ; # 
   fhir:multipleBirth [ fhir:v "false"^^xsd:boolean] ; # 
   fhir:photo ( [
      fhir:contentType [ fhir:v "image/jpeg" ] ;
-     fhir:url [ fhir:v "Binary/f006" ]
+     fhir:url [ fhir:v "Binary/f006"^^xsd:anyURI ]
   ] ) ; # 
   fhir:contact ( [
      fhir:relationship ( [
        fhir:coding ( [
          a sct:127850001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "127850001" ] ;
          fhir:display [ fhir:v "Wife" ]
        ] [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0131"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "N" ]
        ] [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "WIFE" ]
        ] ) #    Indicates that the contact is the patient's wife   
      ] ) ; #    Contact of the patient   
@@ -100,7 +100,7 @@
   fhir:communication ( [
      fhir:language [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:ietf:bcp:47" ] ;
+         fhir:system [ fhir:v "urn:ietf:bcp:47"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "nl-NL" ] ;
          fhir:display [ fhir:v "Dutch" ]
        ] )

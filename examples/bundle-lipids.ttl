@@ -34,20 +34,20 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n						<h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>\n						<pre>\nTest                  Units       Value       Reference Range\nCholesterol           mmol/L      6.3         &lt;4.5\nTriglyceride          mmol/L      1.3         &lt;2.0\nHDL Cholesterol       mmol/L      1.3         &gt;1.5\nLDL Chol. (calc)      mmol/L      4.2         &lt;3.0\n      </pre>\n						<p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>\n					</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://acme.com/lab/reports" ] ;
+     fhir:system [ fhir:v "http://acme.com/lab/reports"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "5234342" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HM" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:57698-3 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "57698-3" ] ;
        fhir:display [ fhir:v "Lipid panel with direct LDL - Serum or Plasma" ]
      ] ) ;
@@ -92,7 +92,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:35200-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "35200-5" ] ;
        fhir:display [ fhir:v "Cholesterol [Moles/​volume] in Serum or Plasma" ]
      ] ) ;
@@ -109,14 +109,14 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "6.3"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mmol/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "mmol/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:high [
        fhir:value [ fhir:v "4.5"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mmol/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mmol/L" ]
      ]
   ] ) . # 
@@ -131,7 +131,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:35217-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "35217-9" ] ;
        fhir:display [ fhir:v "Triglyceride [Moles/​volume] in Serum or Plasma" ]
      ] ) ;
@@ -148,14 +148,14 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "1.3"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mmol/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "mmol/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:high [
        fhir:value [ fhir:v "2.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mmol/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mmol/L" ]
      ]
   ] ) . # 
@@ -170,7 +170,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2085-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2085-9" ] ;
        fhir:display [ fhir:v "HDL Cholesterol" ]
      ] ) ;
@@ -187,14 +187,14 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "1.3"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mmol/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "mmol/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "1.5"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mmol/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mmol/L" ]
      ]
   ] ) . # 
@@ -209,7 +209,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:13457-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "13457-7" ] ;
        fhir:display [ fhir:v "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation" ]
      ] ) ;
@@ -226,14 +226,14 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "4.6"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mmol/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "mmol/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:high [
        fhir:value [ fhir:v "3.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mmol/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mmol/L" ]
      ]
   ] ) . # 

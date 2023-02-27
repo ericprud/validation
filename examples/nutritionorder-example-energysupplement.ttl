@@ -16,7 +16,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: NutritionOrder</b><a name=\"energysupplement\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource NutritionOrder &quot;energysupplement&quot; </p></div><p><b>identifier</b>: id: 123</p><p><b>status</b>: active</p><p><b>intent</b>: order</p><p><b>subject</b>: <a href=\"patient-example.html\">Patient/example: Peter Chalmers</a> &quot;Peter CHALMERS&quot;</p><p><b>encounter</b>: <a href=\"encounter-example.html\">Encounter/example: Inpatient</a></p><p><b>dateTime</b>: 2014-09-17</p><p><b>orderer</b>: <a href=\"practitioner-example.html\">Practitioner/example: Dr Adam Careful</a> &quot;Adam CAREFUL&quot;</p><p><b>allergyIntolerance</b>: <a href=\"allergyintolerance-example.html\">AllergyIntolerance/example: Cashew Nuts</a></p><p><b>foodPreferenceModifier</b>: Kosher <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/4.0.0/CodeSystem-diet.html\">Diet</a>#kosher)</span></p><p><b>excludeFoodModifier</b>: Cashew Nut <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT[20140730]</a>#227493005)</span></p><blockquote><p><b>supplement</b></p><h3>Types</h3><table class=\"grid\"><tr><td>-</td><td><b>Concept</b></td></tr><tr><td>*</td><td>Adult high energy drink <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#442971000124100 &quot;Adult high energy formula&quot;; supplement-type-codes#1010)</span></td></tr></table><p><b>productName</b>: Ensure</p><h3>Schedules</h3><table class=\"grid\"><tr><td>-</td><td><b>Timing</b></td></tr><tr><td>*</td><td>Starting 2015-02-10, 3 per 1 days</td></tr></table><p><b>quantity</b>: 1 8 oz can</p></blockquote></div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://goodhealthhospital.org/nutrition-requests" ] ;
+     fhir:system [ fhir:v "http://goodhealthhospital.org/nutrition-requests"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -40,14 +40,14 @@
   ] ) ; # 
   fhir:foodPreferenceModifier ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diet" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diet"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "kosher" ]
      ] )
   ] ) ; # 
   fhir:excludeFoodModifier ( [
      fhir:coding ( [
        a sct:227493005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:version [ fhir:v "20140730" ] ;
        fhir:code [ fhir:v "227493005" ] ;
        fhir:display [ fhir:v "Cashew Nut" ]
@@ -58,11 +58,11 @@
        fhir:concept [
          fhir:coding ( [
            a sct:442971000124100 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "442971000124100" ] ;
            fhir:display [ fhir:v "Adult high energy formula" ]
          ] [
-           fhir:system [ fhir:v "http://goodhealthhospital.org/supplement-type-codes" ] ;
+           fhir:system [ fhir:v "http://goodhealthhospital.org/supplement-type-codes"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "1010" ] ;
            fhir:display [ fhir:v "Adult high energy drink" ]
          ] ) ;

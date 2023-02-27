@@ -17,7 +17,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:359615001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "359615001" ] ;
        fhir:display [ fhir:v "Partial lobectomy of lung" ]
      ] )
@@ -37,7 +37,7 @@
   fhir:performer ( [
      fhir:function [
        fhir:coding ( [
-         fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111" ] ;
+         fhir:system [ fhir:v "urn:oid:2.16.840.1.113883.2.4.15.111"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "01.000" ] ; #    \"AssignedRoleType\" coding system   
          fhir:display [ fhir:v "Arts" ]
        ] ) ;
@@ -60,7 +60,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:39607008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "39607008" ] ;
        fhir:display [ fhir:v "Lung structure" ]
      ] )

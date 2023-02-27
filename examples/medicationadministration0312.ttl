@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/administrations" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/administrations"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -23,7 +23,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:333919005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "333919005" ] ;
          fhir:display [ fhir:v "Fentanyl 25micrograms/hour patch (product)" ]
        ] )
@@ -54,7 +54,7 @@
      fhir:dose [
        fhir:value [ fhir:v "1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "patch" ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "PATCH" ]
      ]
   ]] . # 

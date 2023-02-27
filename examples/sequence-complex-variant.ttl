@@ -32,7 +32,7 @@
      fhir:coordinateSystem [
        fhir:coding ( [
          a loinc:LA30100-4 ;
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LA30100-4" ] ;
          fhir:display [ fhir:v "0-based interval counting" ]
        ] )
@@ -41,7 +41,7 @@
        fhir:sequence [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.ncbi.nlm.nih.gov/nuccore" ] ;
+           fhir:system [ fhir:v "http://www.ncbi.nlm.nih.gov/nuccore"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "NC_000002.12" ]
          ] )
        ] ;

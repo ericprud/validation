@@ -32,10 +32,10 @@
        fhir:value [
          a fhir:Coding, loinc:LA6560-2 ;
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/itemWeight" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/itemWeight"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "4"^^xsd:decimal ] #     from Element: extension    
          ] ) ; #      This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource    ,     0..1 Value of extension    
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LA6560-2" ] ; #    technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention   
          fhir:display [ fhir:v "Confused" ]
        ]
@@ -46,10 +46,10 @@
        fhir:value [
          a fhir:Coding, loinc:LA6566-9 ;
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/itemWeight" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/itemWeight"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "5"^^xsd:decimal ] #     from Element: extension    
          ] ) ; #      This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource    ,     0..1 Value of extension    
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LA6566-9" ] ;
          fhir:display [ fhir:v "Localizing pain" ]
        ]
@@ -60,10 +60,10 @@
        fhir:value [
          a fhir:Coding, loinc:LA6556-0 ;
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/itemWeight" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/itemWeight"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "4"^^xsd:decimal ] #     from Element: extension    
          ] ) ; #      This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource    ,     0..1 Value of extension    
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "LA6556-0" ] ; #    technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention   
          fhir:display [ fhir:v "Eyes open spontaneously" ]
        ]

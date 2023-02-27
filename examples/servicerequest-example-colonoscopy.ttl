@@ -17,7 +17,7 @@
      fhir:value [ fhir:v "45678" ]
   ] ) ; # 
   fhir:requisition [
-     fhir:system [ fhir:v "http://bumc.org/requisitions" ] ;
+     fhir:system [ fhir:v "http://bumc.org/requisitions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "req12345" ]
   ] ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -26,7 +26,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:73761001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "73761001" ] ;
          fhir:display [ fhir:v "Colonoscopy (procedure)" ]
        ] ) ;

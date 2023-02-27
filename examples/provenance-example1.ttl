@@ -16,7 +16,7 @@
 #    
   fhir:target ( [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/targetElement" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/targetElement"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "n1" ]
      ] ) ;
      fhir:reference [ fhir:v "Patient/pat3/_history/1" ]
@@ -25,7 +25,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "INF" ]
        ] )
      ] ;

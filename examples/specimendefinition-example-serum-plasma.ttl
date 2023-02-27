@@ -17,7 +17,7 @@
   fhir:typeCollected [
      fhir:coding ( [
        a sct:122555007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "122555007" ] ;
        fhir:display [ fhir:v "Venous blood specimen" ]
      ] )
@@ -27,7 +27,7 @@
   ] [
      fhir:coding ( [
        a sct:263678003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "263678003" ] ;
        fhir:display [ fhir:v "At rest" ]
      ] )
@@ -37,7 +37,7 @@
      fhir:type [
        fhir:coding ( [
          a sct:119364003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "119364003" ] ;
          fhir:display [ fhir:v "Serum specimen" ]
        ] )
@@ -47,7 +47,7 @@
        fhir:material [
          fhir:coding ( [
            a sct:61088005 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "61088005" ] ;
            fhir:display [ fhir:v "plastic" ]
          ] )
@@ -55,14 +55,14 @@
        fhir:type [
          fhir:coding ( [
            a sct:702281005 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "702281005" ] ;
            fhir:display [ fhir:v "Evacuated blood collection tube, thrombin/clot activator/gel separator" ]
          ] )
        ] ;
        fhir:cap [
          fhir:coding ( [
-           fhir:system [ fhir:v "urn:iso:std:iso:6710:2017" ] ;
+           fhir:system [ fhir:v "urn:iso:std:iso:6710:2017"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "yellow" ] ;
            fhir:display [ fhir:v "yellow cap" ]
          ] )
@@ -71,7 +71,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "2"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "ml" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ] ;
@@ -83,20 +83,20 @@
          fhir:low [
            fhir:value [ fhir:v "15"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "25"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ]
        ] ;
        fhir:maxDuration [
          fhir:value [ fhir:v "60"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "minute" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "min" ]
        ]
      ] [
@@ -107,20 +107,20 @@
          fhir:low [
            fhir:value [ fhir:v "2"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "8"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ]
        ] ;
        fhir:maxDuration [
          fhir:value [ fhir:v "8"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "hour" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "h" ]
        ]
      ] )
@@ -128,7 +128,7 @@
      fhir:type [
        fhir:coding ( [
          a sct:119361006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "119361006" ] ;
          fhir:display [ fhir:v "Plasma specimen" ]
        ] )
@@ -138,7 +138,7 @@
        fhir:material [
          fhir:coding ( [
            a sct:32039001 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "32039001" ] ;
            fhir:display [ fhir:v "glass" ]
          ] )
@@ -146,14 +146,14 @@
        fhir:type [
          fhir:coding ( [
            a sct:702281005 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "702281005" ] ;
            fhir:display [ fhir:v "Evacuated blood collection tube, thrombin/clot activator/gel separator" ]
          ] )
        ] ;
        fhir:cap [
          fhir:coding ( [
-           fhir:system [ fhir:v "urn:iso:std:iso:6710:2017" ] ;
+           fhir:system [ fhir:v "urn:iso:std:iso:6710:2017"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "green" ] ;
            fhir:display [ fhir:v "green cap" ]
          ] )
@@ -162,19 +162,19 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "2"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "ml" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ] ;
      fhir:rejectionCriterion ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/rejection-criteria" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/rejection-criteria"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "insufficient" ] ;
          fhir:display [ fhir:v "insufficient specimen volume" ]
        ] )
      ] [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/rejection-criteria" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/rejection-criteria"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "hemolized" ] ;
          fhir:display [ fhir:v "hemolized specimen" ]
        ] )
@@ -187,20 +187,20 @@
          fhir:low [
            fhir:value [ fhir:v "15"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "25"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ]
        ] ;
        fhir:maxDuration [
          fhir:value [ fhir:v "60"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "minute" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "min" ]
        ]
      ] [
@@ -211,20 +211,20 @@
          fhir:low [
            fhir:value [ fhir:v "2"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ] ;
          fhir:high [
            fhir:value [ fhir:v "8"^^xsd:decimal ] ;
            fhir:unit [ fhir:v "°C" ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "Cel" ]
          ]
        ] ;
        fhir:maxDuration [
          fhir:value [ fhir:v "8"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "hour" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "h" ]
        ]
      ] )

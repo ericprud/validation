@@ -22,7 +22,7 @@
      fhir:code [ fhir:v "suppressed" ] ;
      fhir:details [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "BTG" ] ;
          fhir:display [ fhir:v "Break the glass" ]
        ] ) ; #   this is not really the right code; it's being used at cross -purposes to its definition.\n        todo: get a more correct concept defined  

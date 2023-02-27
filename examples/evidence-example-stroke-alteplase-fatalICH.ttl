@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/Evidence/example-stroke-alteplase-fatalICH"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.10.1" ]
   ] ) ; # 
   fhir:name [ fhir:v "RiskOfFatalICHWithAlteplaseForStroke"] ; # 
@@ -26,14 +26,14 @@
      fhir:display [ fhir:v "Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials." ] ;
      fhir:citation [ fhir:v "Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists' Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://doi.org/10.1016/S0140-6736(14)60584-5" ]
+       fhir:url [ fhir:v "https://doi.org/10.1016/S0140-6736(14)60584-5"^^xsd:anyURI ]
      ]
   ] ) ; # 
   fhir:description [ fhir:v "2.7% incidence of fatal intracranial hemorrhage within 7 days with alteplase in patients with acute ischemic stroke"] ; # 
   fhir:variableDefinition ( [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "population" ] ;
          fhir:display [ fhir:v "population" ]
        ] )
@@ -51,7 +51,7 @@
   ] [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "population" ] ;
          fhir:display [ fhir:v "population" ]
        ] )
@@ -69,7 +69,7 @@
   ] [
      fhir:variableRole [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variable-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "measuredVariable" ] ;
          fhir:display [ fhir:v "measured variable" ]
        ] )
@@ -87,14 +87,14 @@
   ] ) ; # 
   fhir:synthesisType [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/synthesis-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/synthesis-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "IPD-MA" ] ;
        fhir:display [ fhir:v "individual patient data meta-analysis" ]
      ] )
   ] ; # 
   fhir:studyDesign ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/research-study-classifiers" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/research-study-classifiers"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SEVCO:01003" ] ;
        fhir:display [ fhir:v "randomized assignment" ]
      ] )
@@ -102,7 +102,7 @@
   fhir:statistic ( [
      fhir:statisticType [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/statistic-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/statistic-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "C44256" ] ;
          fhir:display [ fhir:v "Proportion" ]
        ] )

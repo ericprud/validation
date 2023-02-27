@@ -23,7 +23,7 @@
        fhir:value [
          a fhir:CodeableConcept ;
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.ama-assn.org/go/cpt" ] ;
+           fhir:system [ fhir:v "http://www.ama-assn.org/go/cpt"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "70450" ] ;
            fhir:display [ fhir:v "CT, head, wo iv contrast" ]
          ] )
@@ -40,11 +40,11 @@
      ] )
   ] ) ; # 
   fhir:requestIdentifier [
-     fhir:system [ fhir:v "http://example.org" ] ;
+     fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "guidanceRequest1" ]
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org" ] ;
+     fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "guidanceResponse1" ]
   ] ) ; # 
   fhir:module [ fhir:v "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html"] ; # 

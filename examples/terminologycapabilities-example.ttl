@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.6.2" ]
   ] ) ; # 
   fhir:version [ fhir:v "20130510"] ; # 
@@ -39,7 +39,7 @@
   ] ; # 
   fhir:implementation [
      fhir:description [ fhir:v "Acme Terminology Server" ] ;
-     fhir:url [ fhir:v "http://example.org/tx" ]
+     fhir:url [ fhir:v "http://example.org/tx"^^xsd:anyURI ]
   ] ; # 
   fhir:codeSearch [ fhir:v "in-compose-or-expansion"]] . # 
 

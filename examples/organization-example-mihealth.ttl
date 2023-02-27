@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      \n      <p>Michigan Helth</p>\n    \n    </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://michigan.gov/state-dept-ids" ] ;
+     fhir:system [ fhir:v "http://michigan.gov/state-dept-ids"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "25" ]
   ] ) ; # 
   fhir:name [ fhir:v "Michigan Health"] ; # 

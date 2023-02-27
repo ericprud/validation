@@ -14,7 +14,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example of Invoice</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://myHospital.org/Invoices" ] ;
+     fhir:system [ fhir:v "http://myHospital.org/Invoices"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "654321" ]
   ] ) ; # 
   fhir:status [ fhir:v "issued"] ; # 
@@ -27,7 +27,7 @@
      fhir:role [
        fhir:coding ( [
          a sct:17561000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "17561000" ] ;
          fhir:display [ fhir:v "Cardiologist" ]
        ] )
@@ -38,7 +38,7 @@
   ] ) ; # 
   fhir:issuer [
      fhir:identifier [
-       fhir:system [ fhir:v "http://myhospital/NamingSystem/departments" ] ;
+       fhir:system [ fhir:v "http://myhospital/NamingSystem/departments"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "CARD_INTERMEDIATE_CARE" ]
      ]
   ] ; # 

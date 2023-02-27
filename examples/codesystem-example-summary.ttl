@@ -15,7 +15,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/CodeSystem/summary"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.4.1821" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -27,21 +27,21 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "This is an example code system summary for the ACME codes for body site."] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://example.org/CodeSystem/contexttype" ] ;
+       fhir:system [ fhir:v "http://example.org/CodeSystem/contexttype"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "species" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:337915000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "337915000" ] ;
          fhir:display [ fhir:v "Homo sapiens (organism)" ]
        ] )
@@ -49,7 +49,7 @@
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "CA" ]
      ] )
   ] ) ; # 

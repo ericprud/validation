@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ValueSet/yesnodontknow"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.3.3149" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -30,7 +30,7 @@
          fhir:link <http://terminology.hl7.org/ValueSet/v2-0136>
        ] )
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/data-absent-reason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/data-absent-reason"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "asked-unknown" ] ;
          fhir:display [ fhir:v "Don't know" ]
@@ -41,15 +41,15 @@
      fhir:identifier [ fhir:v "urn:uuid:bf99fe50-2c2b-41ad-bd63-bee6919810b4" ] ;
      fhir:timestamp [ fhir:v "2015-07-14T10:00:00Z"^^xsd:dateTime ] ;
      fhir:contains ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0532" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0532"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Y" ] ;
        fhir:display [ fhir:v "Yes" ]
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0532" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0532"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "N" ] ;
        fhir:display [ fhir:v "No" ]
      ] [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/data-absent-reason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/data-absent-reason"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "asked-unknown" ] ;
        fhir:display [ fhir:v "Don't know" ]
      ] )

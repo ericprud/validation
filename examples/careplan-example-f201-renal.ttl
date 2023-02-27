@@ -20,7 +20,7 @@
        fhir:role [
          fhir:coding ( [
            a sct:425268008 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "425268008" ] ;
            fhir:display [ fhir:v "Review of care plan" ]
          ] )
@@ -33,7 +33,7 @@
        fhir:role [
          fhir:coding ( [
            a sct:229774002 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "229774002" ] ;
            fhir:display [ fhir:v "Carer" ]
          ] )
@@ -49,7 +49,7 @@
      fhir:lifecycleStatus [ fhir:v "completed" ] ;
      fhir:achievementStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "achieved" ] ;
          fhir:display [ fhir:v "Achieved" ]
        ] ) ;
@@ -91,7 +91,7 @@
        fhir:code [
          fhir:coding ( [
            a sct:284093001 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "284093001" ] ;
            fhir:display [ fhir:v "Potassium supplementation" ]
          ] )
@@ -107,7 +107,7 @@
        fhir:dailyAmount [
          fhir:value [ fhir:v "80"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mmol" ] ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "258718000" ]
        ]
      ] #   Potassium supplement  
@@ -117,7 +117,7 @@
        fhir:code [
          fhir:coding ( [
            a sct:306005 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "306005" ] ;
            fhir:display [ fhir:v "Echography of kidney" ]
          ] )

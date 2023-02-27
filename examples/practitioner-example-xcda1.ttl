@@ -14,7 +14,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://healthcare.example.org/identifiers/staff" ] ;
+     fhir:system [ fhir:v "http://healthcare.example.org/identifiers/staff"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "D234123" ]
   ] ) ; # 
   fhir:name ( [

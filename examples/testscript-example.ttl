@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/TestScript/testscript-example"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.12.4" ]
   ] ) ; # 
   fhir:version [ fhir:v "1.0"] ; # 
@@ -35,19 +35,19 @@
   fhir:description [ fhir:v "TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts."] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variant-state" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/variant-state"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "positive" ]
        ] )
      ]
   ] [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "program" ]
      ] ;
      fhir:value [
@@ -55,14 +55,14 @@
        fhir:low [
          fhir:value [ fhir:v "2018"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "year" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a" ]
        ]
      ]
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ] ;
        fhir:display [ fhir:v "United States of America (the)" ]
      ] )
@@ -71,7 +71,7 @@
   fhir:copyright [ fhir:v "© HL7.org 2011+"] ; # 
   fhir:metadata [
      fhir:link ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/patient.html" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/patient.html"^^xsd:anyURI ] ;
        fhir:description [ fhir:v "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ]
      ] ) ;
      fhir:capability ( [
@@ -116,7 +116,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "delete" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -138,7 +138,7 @@
      ] [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "update" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -161,7 +161,7 @@
      ] [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "read" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -195,7 +195,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "read" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;
@@ -289,7 +289,7 @@
      fhir:action ( [
        fhir:operation [
          fhir:type [
-           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+           fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "delete" ]
          ] ;
          fhir:resource [ fhir:v "Patient" ] ;

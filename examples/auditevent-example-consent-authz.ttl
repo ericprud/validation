@@ -14,7 +14,7 @@
   ] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110112" ] ;
        fhir:display [ fhir:v "Query" ]
      ] )
@@ -23,7 +23,7 @@
   fhir:recorded [ fhir:v "2021-09-08T21:51:59.932Z"^^xsd:dateTime] ; # 
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ] ;
@@ -37,21 +37,21 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110152" ] ;
          fhir:display [ fhir:v "Destination Role ID" ]
        ] )
      ] ;
      fhir:who [
        fhir:identifier [
-         fhir:system [ fhir:v "https://github.com/synthetichealth/synthea" ] ;
+         fhir:system [ fhir:v "https://github.com/synthetichealth/synthea"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "Org1" ]
        ]
      ] ;
      fhir:requestor [ fhir:v "true"^^xsd:boolean ] ;
      fhir:authorization ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "TREAT" ]
        ] )
      ] )
@@ -62,7 +62,7 @@
      ] ;
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Application Server" ]
        ] )
@@ -74,7 +74,7 @@
      ] ;
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Domain Resource" ]
        ] )

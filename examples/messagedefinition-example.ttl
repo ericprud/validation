@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/MessageDefinition/example"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.15.3" ]
   ] ) ; # 
   fhir:name [ fhir:v "EXAMPLE"] ; # 
@@ -25,7 +25,7 @@
   fhir:publisher [ fhir:v "Health Level Seven, Int'l"] ; # 
   fhir:contact ( [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org" ]
      ] )
   ] ) ; # 
@@ -33,7 +33,7 @@
   fhir:purpose [ fhir:v "Defines a base example for other MessageDefinition instances."] ; # 
   fhir:event [
      a fhir:Coding ;
-     fhir:system [ fhir:v "http://example.org/fhir/message-events" ] ;
+     fhir:system [ fhir:v "http://example.org/fhir/message-events"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "admin-notify" ]
   ] ; # 
   fhir:category [ fhir:v "notification"]] . # 

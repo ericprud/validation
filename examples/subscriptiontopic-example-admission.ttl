@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://example.org/FHIR/R5/SubscriptionTopic/admission"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.24.1" ]
   ] ) ; # 
   fhir:title [ fhir:v "admission"] ; # 
@@ -37,7 +37,7 @@
      fhir:description [ fhir:v "Patient admission is covered by HL7v2 ADT^A01" ] ;
      fhir:event [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0003" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0003"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "A01" ] ;
          fhir:display [ fhir:v "ADT/ACK - Admit/visit notification" ]
        ] )

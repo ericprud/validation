@@ -19,7 +19,7 @@
      fhir:doseForm [
        fhir:coding ( [
          a sct:385219001 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "385219001" ] ;
          fhir:display [ fhir:v "Injection Solution (qualifier value)" ]
        ] ) ;
@@ -29,7 +29,7 @@
        fhir:item [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+             fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "1114879" ] ;
              fhir:display [ fhir:v "Dopamine" ]
            ] )
@@ -39,12 +39,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "400"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mg" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "500"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ]
        ]
@@ -52,7 +52,7 @@
        fhir:item [
          fhir:concept [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+             fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "0264-7510-10" ] ;
              fhir:display [ fhir:v "Dextrose 5% injection USP" ]
            ] )
@@ -62,12 +62,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "5"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "mL" ]
          ]
        ]
@@ -75,7 +75,7 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -107,7 +107,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:47625008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "47625008" ] ;
          fhir:display [ fhir:v "Intravenous route (qualifier value)" ]
        ] )
@@ -115,7 +115,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -124,7 +124,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "200"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "ug/min" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ]
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ]
        ]
      ] )
   ] )] . # 

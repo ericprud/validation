@@ -14,14 +14,14 @@
   ] ; #    to include elements not typically populated, but for which there are query parameters   ,    derived off of example in IHE.BALP IG   
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/restful-interaction"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "create" ] ;
        fhir:display [ fhir:v "create" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "rest" ] ;
        fhir:display [ fhir:v "Restful Operation" ]
      ] )
@@ -32,14 +32,14 @@
   fhir:recorded [ fhir:v "2020-04-29T09:49:00.000Z"^^xsd:dateTime] ; # 
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ]
   ] ; # 
   fhir:authorization ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "TREAT" ]
      ] )
   ] ) ; # 
@@ -55,7 +55,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110153" ] ;
          fhir:display [ fhir:v "Source Role ID" ]
        ] )
@@ -68,7 +68,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110152" ] ;
          fhir:display [ fhir:v "Destination Role ID" ]
        ] )
@@ -81,7 +81,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "INF" ] ;
          fhir:display [ fhir:v "Informant" ]
        ] )
@@ -102,7 +102,7 @@
      ] ;
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Application Server" ]
        ] )
@@ -114,7 +114,7 @@
      ] ;
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Domain Resource" ]
        ] )

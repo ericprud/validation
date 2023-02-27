@@ -24,14 +24,14 @@
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110106" ] ;
        fhir:display [ fhir:v "Export" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:ihe:event-type-code" ] ;
+       fhir:system [ fhir:v "urn:ihe:event-type-code"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ITI-32" ] ;
        fhir:display [ fhir:v "Distribute Document Set on Media" ]
      ] )
@@ -40,7 +40,7 @@
   fhir:recorded [ fhir:v "2015-08-27T23:42:24Z"^^xsd:dateTime] ; # 
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ]
@@ -48,7 +48,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110153" ] ;
          fhir:display [ fhir:v "Source Role ID" ]
        ] )
@@ -60,7 +60,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/extra-security-role-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/extra-security-role-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "humanuser" ] ;
          fhir:display [ fhir:v "human user" ]
        ] )
@@ -75,7 +75,7 @@
   ] [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "110154" ] ;
          fhir:display [ fhir:v "Destination Media" ]
        ] )
@@ -101,7 +101,7 @@
      ] ; #   \n  The Patient\n    
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1" ] ;
          fhir:display [ fhir:v "Patient" ]
        ] )
@@ -111,7 +111,7 @@
        fhir:identifier [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" ] ;
+             fhir:system [ fhir:v "urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "IHE XDS Metadata" ] ;
              fhir:display [ fhir:v "submission set classificationNode" ]
            ] )
@@ -121,7 +121,7 @@
      ] ; #    The SubmissionSet identifier   
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "20" ] ;
          fhir:display [ fhir:v "Job" ]
        ] )

@@ -15,15 +15,15 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/Measure/measure-cms146-example"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.28.1" ]
   ] [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "146" ]
   ] [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf" ] ;
+     fhir:system [ fhir:v "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "0002" ]
   ] ) ; # 
   fhir:version [ fhir:v "1.0.0"] ; # 
@@ -35,14 +35,14 @@
   fhir:publisher [ fhir:v "National Committee for Quality Assurance"] ; # 
   fhir:contact ( [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://www.ncqa.org/" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "program" ]
      ] ;
      fhir:value [
@@ -51,7 +51,7 @@
      ]
   ] [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "age" ]
      ] ;
      fhir:value [
@@ -68,7 +68,7 @@
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ]
      ] )
   ] ) ; # 
@@ -83,7 +83,7 @@
   fhir:topic ( [
      fhir:coding ( [
        a loinc:57024-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "57024-2" ]
      ] )
   ] ) ; # 
@@ -107,13 +107,13 @@
   fhir:disclaimer [ fhir:v "These performance Measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."] ; # 
   fhir:scoring [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-scoring" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-scoring"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "proportion" ]
      ] )
   ] ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "process" ]
      ] )
   ] ) ; # 
@@ -121,7 +121,7 @@
   fhir:clinicalRecommendationStatement [ fhir:v "The Infectious Diseases Society of America (IDSA) \"recommends swabbing the throat and testing for GAS pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present\""] ; # 
   fhir:improvementNotation [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-improvement-notation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-improvement-notation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "increase" ]
      ] )
   ] ; # 
@@ -131,7 +131,7 @@
      fhir:population ( [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "initial-population" ]
          ] )
        ] ;
@@ -142,7 +142,7 @@
      ] [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "numerator" ]
          ] )
        ] ;
@@ -153,7 +153,7 @@
      ] [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "denominator" ]
          ] )
        ] ;
@@ -164,7 +164,7 @@
      ] [
        fhir:code [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/measure-population"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "denominator-exclusion" ]
          ] )
        ] ;

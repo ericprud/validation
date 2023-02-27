@@ -13,13 +13,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n			Health Intersections CarePlan Hub<br/>\n			CarePlans can be uploaded to/from this loccation\n		</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org/enpoint-identifier" ] ;
+     fhir:system [ fhir:v "http://example.org/enpoint-identifier"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "epcp12" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7-fhir-rest" ]
      ] )
   ] ) ; # 
@@ -27,12 +27,12 @@
   fhir:description [ fhir:v "The CarePlan hub provides a test/dev environment for testing submissions"] ; # 
   fhir:environmentType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/endpoint-environment" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/endpoint-environment"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "test" ]
      ] )
   ] [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/endpoint-environment" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/endpoint-environment"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dev" ]
      ] )
   ] ) ; # 
@@ -50,7 +50,7 @@
   fhir:payload ( [
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "CarePlan" ]
        ] )
      ] ) ;

@@ -20,7 +20,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0169-7501-11" ] ;
        fhir:display [ fhir:v "Novolog 100u/ml" ]
      ] )
@@ -31,7 +31,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385219001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385219001" ] ;
        fhir:display [ fhir:v "Injection solution (qualifier value)" ]
      ] )
@@ -41,7 +41,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:325072002 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "325072002" ] ;
            fhir:display [ fhir:v "Insulin Aspart (substance)" ]
          ] )
@@ -51,12 +51,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "U" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ]

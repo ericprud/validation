@@ -20,7 +20,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ConceptMap/example-metadata"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.14.5" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -33,7 +33,7 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
@@ -46,7 +46,7 @@
   ] ; # 
   fhir:topic ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/definition-topic" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/definition-topic"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "treatment" ] ;
        fhir:display [ fhir:v "Treatment" ]
      ] )
@@ -54,28 +54,28 @@
   fhir:author ( [
      fhir:name [ fhir:v "ACME ConceptMap Development" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://acme.org/development" ]
      ] )
   ] ) ; # 
   fhir:editor ( [
      fhir:name [ fhir:v "ACME ConceptMap Management" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://acme.org/management" ]
      ] )
   ] ) ; # 
   fhir:reviewer ( [
      fhir:name [ fhir:v "Society for Creative ConceptMap Review" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://example.org/sccr" ]
      ] )
   ] ) ; # 
   fhir:endorser ( [
      fhir:name [ fhir:v "National Foundation for ConceptMap Quality" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://example.org/nfcq" ]
      ] )
   ] ) ; # 

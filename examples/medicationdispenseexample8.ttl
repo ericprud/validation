@@ -18,7 +18,7 @@
      fhir:id [ fhir:v "medexample015" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "213293" ] ;
          fhir:display [ fhir:v "Capecitabine 500mg oral tablet (Xeloda)" ]
        ] )
@@ -54,7 +54,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:394899003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "394899003" ] ;
          fhir:display [ fhir:v "oral administration of treatment" ]
        ] )
@@ -62,7 +62,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -71,7 +71,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "500"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ]
      ] )

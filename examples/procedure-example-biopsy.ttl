@@ -17,7 +17,7 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:103693007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "103693007" ] ;
        fhir:display [ fhir:v "Diagnostic procedure (procedure)" ]
      ] ) ;
@@ -26,7 +26,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:90105005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "90105005" ] ;
        fhir:display [ fhir:v "Biopsy of soft tissue of forearm (Procedure)" ]
      ] ) ;
@@ -51,7 +51,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:368225008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "368225008" ] ;
        fhir:display [ fhir:v "Entire Left Forearm" ]
      ] ) ;
@@ -61,7 +61,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:67750007 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "67750007" ] ;
          fhir:display [ fhir:v "Ineffective airway clearance (finding)" ]
        ] ) ;
@@ -78,7 +78,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:79068005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "79068005" ] ;
          fhir:display [ fhir:v "Needle, device (physical object)" ]
        ] ) ;

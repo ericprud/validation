@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/NamingSystem/example-id"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.22.3" ]
   ] ) ; # 
   fhir:name [ fhir:v "AustalianHealthcareIdentifierIndividual"] ; # 
@@ -26,14 +26,14 @@
   fhir:contact ( [
      fhir:name [ fhir:v "HL7 Australia FHIR Team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7-australia.wikispaces.com/FHIR+Australia" ]
      ] )
   ] ) ; # 
   fhir:responsible [ fhir:v "HI Service Operator / NEHTA"] ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "NI" ] ;
        fhir:display [ fhir:v "National unique individual identifier" ]
      ] ) ;
@@ -42,7 +42,7 @@
   fhir:description [ fhir:v "Australian HI Identifier as established by relevant regulations etc."] ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "AU" ]
      ] )
   ] ) ; # 

@@ -21,7 +21,7 @@
   fhir:status [ fhir:v "completed"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HH" ] ; #   Note that this value implies that the practitioner was at the patients home, \n			if it was a tele-service, then the virtual code should be used.  
        fhir:display [ fhir:v "home health" ]
      ] )
@@ -32,7 +32,7 @@
   fhir:participant ( [
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "PPRF" ]
        ] )
      ] ) ;

@@ -15,7 +15,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://example.org/fhir/ActivityDefinition/example-alteplase-dosing"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.19.3" ]
   ] ) ; # 
   fhir:name [ fhir:v "AlteplaseDosingForStroke"] ; # 
@@ -25,7 +25,7 @@
   fhir:kind [ fhir:v "MedicationRequest"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+       fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1155608" ] ;
        fhir:display [ fhir:v "alteplase injectable product" ]
      ] )
@@ -37,7 +37,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:47625008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "47625008" ] ;
          fhir:display [ fhir:v "Intravenous use" ]
        ] )
@@ -45,7 +45,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "calculated" ] ;
            fhir:display [ fhir:v "Calculated" ]
          ] )
@@ -53,13 +53,13 @@
        fhir:dose [
          a fhir:Quantity ;
          fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg/kg" ]
        ]
      ] ) ;
      fhir:maxDosePerAdministration [
        fhir:value [ fhir:v "90"^^xsd:decimal ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mg" ]
      ]
   ] [
@@ -68,7 +68,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:47625008 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "47625008" ] ;
          fhir:display [ fhir:v "Intravenous use" ]
        ] )
@@ -76,7 +76,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "calculated" ] ;
            fhir:display [ fhir:v "Calculated" ]
          ] )
@@ -84,13 +84,13 @@
        fhir:dose [
          a fhir:Quantity ;
          fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg/kg" ]
        ]
      ] ) ;
      fhir:maxDosePerAdministration [
        fhir:value [ fhir:v "90"^^xsd:decimal ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mg" ]
      ]
   ] )] . # 

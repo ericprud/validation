@@ -14,13 +14,13 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://example.org" ] ;
+     fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "risk-assessment-breastcancer1" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://browser.ihtsdotools.org/" ] ;
+       fhir:system [ fhir:v "http://browser.ihtsdotools.org/"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "709510001" ] ;
        fhir:display [ fhir:v "Assessment of risk for disease (procedure)" ]
      ] )

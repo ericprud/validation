@@ -21,11 +21,11 @@
      ] )
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier" ] ;
+     fhir:system [ fhir:v "https://www.isbt128.org/uri/MPHOUniqueIdentifier"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "A9999E0398A999921123456A00000" ]
   ] ) ; # 
   fhir:biologicalSourceEvent [
-     fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber" ] ;
+     fhir:system [ fhir:v "https://www.isbt128.org/uri/DonationIdentificationNumber"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "A999921123456" ]
   ] ; # 
   fhir:processingFacility ( [
@@ -40,12 +40,12 @@
      fhir:low [
        fhir:value [ fhir:v "1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "degrees C" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ]
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "6"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "degrees C" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ]
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ]
      ]
   ] ; # 
   fhir:property ( [
@@ -57,7 +57,7 @@
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD" ] ;
+         fhir:system [ fhir:v "https://www.isbt128.org/uri/ABORhD"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "62" ] ;
          fhir:display [ fhir:v "A RhD Positive" ]
        ] )
@@ -71,7 +71,7 @@
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType" ] ;
+         fhir:system [ fhir:v "https://www.isbt128.org/uri/CollectionType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "V" ] ;
          fhir:display [ fhir:v "Volunteer" ]
        ] )

@@ -26,7 +26,7 @@
   ] ; # 
   fhir:event [
      a fhir:Coding ;
-     fhir:system [ fhir:v "http://example.org/fhir/message-events" ] ;
+     fhir:system [ fhir:v "http://example.org/fhir/message-events"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "subscription-notification" ]
   ] ; # 
   fhir:source [
@@ -48,7 +48,7 @@
      fhir:resource ( <https://example.org/FHIR/R5/Encounter/2> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "Encounter/2" ]
+       fhir:url [ fhir:v "Encounter/2"^^xsd:anyURI ]
      ] ;
      fhir:response [
        fhir:status [ fhir:v "201" ]
@@ -85,7 +85,7 @@
   fhir:status [ fhir:v "in-progress"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "VR" ] ;
        fhir:display [ fhir:v "virtual" ]
      ] )

@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      HACC Program for Peter James Chalmers at HL7 Healthcare 15 Sept 2014 - current<br/>\n			was on leave from 22 Sept - 24 Sept while in respite care\n    </div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org/sampleepisodeofcare-identifier" ] ;
+     fhir:system [ fhir:v "http://example.org/sampleepisodeofcare-identifier"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "123" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -43,7 +43,7 @@
   ] ) ; # 
   fhir:type ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/episodeofcare-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/episodeofcare-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hacc" ] ;
        fhir:display [ fhir:v "Home and Community Care" ]
      ] )
@@ -56,7 +56,7 @@
      ] ;
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnosis-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnosis-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "CC" ] ;
          fhir:display [ fhir:v "Chief complaint" ]
        ] )

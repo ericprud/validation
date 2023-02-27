@@ -15,7 +15,7 @@
   ] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+       fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "308047" ] ;
        fhir:display [ fhir:v "Alprazolam 0.25mg Oral Tablet" ]
      ] )
@@ -23,7 +23,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385055001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385055001" ] ;
        fhir:display [ fhir:v "Tablet dose form (qualifier value)" ]
      ] )
@@ -33,7 +33,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:386983007 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "386983007" ] ;
            fhir:display [ fhir:v "Alprazolam (substance)" ]
          ] )
@@ -43,13 +43,13 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "0.25"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "Tablet" ] ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "385055001" ]
        ]
      ]

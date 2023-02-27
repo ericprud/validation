@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/example-composition"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.5.1040" ]
   ] ) ; # 
   fhir:name [ fhir:v "DocumentStructure"] ; # 
@@ -58,7 +58,7 @@
            fhir:v "http://hl7.org/fhir/StructureDefinition/example-section-library" ;
            fhir:link <http://hl7.org/fhir/StructureDefinition/example-section-library> ;
            fhir:extension ( [
-             fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element" ] ;
+             fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element"^^xsd:anyURI ] ;
              fhir:value [ fhir:v "Composition.section:procedure" ]
            ] )
          ] )
@@ -74,7 +74,7 @@
            fhir:v "http://hl7.org/fhir/StructureDefinition/example-section-library" ;
            fhir:link <http://hl7.org/fhir/StructureDefinition/example-section-library> ;
            fhir:extension ( [
-             fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element" ] ;
+             fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element"^^xsd:anyURI ] ;
              fhir:value [ fhir:v "Composition.section:medications" ]
            ] )
          ] )
@@ -90,7 +90,7 @@
            fhir:v "http://hl7.org/fhir/StructureDefinition/example-section-library" ;
            fhir:link <http://hl7.org/fhir/StructureDefinition/example-section-library> ;
            fhir:extension ( [
-             fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element" ] ;
+             fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element"^^xsd:anyURI ] ;
              fhir:value [ fhir:v "Composition.section:plan" ]
            ] )
          ] )

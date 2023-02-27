@@ -22,14 +22,14 @@
      fhir:type [
        fhir:text [ fhir:v "UZI-nummer" ]
      ] ;
-     fhir:system [ fhir:v "urn:oid:2.16.528.1.1007.3.1" ] ;
+     fhir:system [ fhir:v "urn:oid:2.16.528.1.1007.3.1"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345678902" ]
   ] [
      fhir:use [ fhir:v "official" ] ; #   The identifier for this individual  
      fhir:type [
        fhir:text [ fhir:v "BIG-nummer" ]
      ] ;
-     fhir:system [ fhir:v "https://www.bigregister.nl/" ] ;
+     fhir:system [ fhir:v "https://www.bigregister.nl/"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345678902" ]
   ] ) ; # 
   fhir:active [ fhir:v "true"^^xsd:boolean] ; # 

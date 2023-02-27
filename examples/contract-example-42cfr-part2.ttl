@@ -19,7 +19,7 @@
   fhir:status [ fhir:v "executed"] ; # 
   fhir:contentDerivative [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contract-content-derivative" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contract-content-derivative"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "registration" ]
      ] )
   ] ; # 
@@ -32,14 +32,14 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://mdhhs.org/fhir/consentdirective-type" ] ;
+       fhir:system [ fhir:v "http://mdhhs.org/fhir/consentdirective-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "OPTIN" ]
      ] ) ;
      fhir:text [ fhir:v "Opt-in consent directive" ]
   ] ; # 
   fhir:subType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/consentcategorycodes" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/consentcategorycodes"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hcd" ]
      ] ) #         <code value=\"MDHHS-5515\"\/>\n      <display\n        value=\"Michigan MDHHS-5515 Consent to Share Behavioral Health Information for Care Coordination Purposes\"\n      \/>   
   ] ) ; # 
@@ -47,13 +47,13 @@
      fhir:offer [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contracttermtypecodes" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contracttermtypecodes"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "statutory" ]
          ] )
        ] ;
        fhir:decision [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "OPTIN" ]
          ] )
        ] ;
@@ -68,7 +68,7 @@
      fhir:action ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contractaction" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/contractaction"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "action-a" ]
          ] )
        ] ;
@@ -79,7 +79,7 @@
          ] ) ;
          fhir:role [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://mdhhs.org/fhir/consent-actor-type" ] ;
+             fhir:system [ fhir:v "http://mdhhs.org/fhir/consent-actor-type"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "IR" ] ;
              fhir:display [ fhir:v "Recipient" ]
            ] ) ;
@@ -92,7 +92,7 @@
          ] ) ;
          fhir:role [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://mdhhs.org/fhir/consent-actor-type" ] ;
+             fhir:system [ fhir:v "http://mdhhs.org/fhir/consent-actor-type"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "IS" ] ;
              fhir:display [ fhir:v "Sender" ]
            ] ) ;
@@ -101,7 +101,7 @@
        ] ) ;
        fhir:intent [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "HPRGRP" ]
          ] )
        ] ;
@@ -112,7 +112,7 @@
   ] ) ; # 
   fhir:signer ( [
      fhir:type [
-       fhir:system [ fhir:v "http://mdhhs.org/fhir/consent-signer-type" ] ;
+       fhir:system [ fhir:v "http://mdhhs.org/fhir/consent-signer-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "SELF" ]
      ] ;
      fhir:party [
@@ -121,7 +121,7 @@
      ] ;
      fhir:signature ( [
        fhir:type ( [
-         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013" ] ;
+         fhir:system [ fhir:v "urn:iso-astm:E1762-95:2013"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1.2.840.10065.1.12.1.1" ]
        ] ) ;
        fhir:when [ fhir:v "2017-02-08T10:57:34+01:00"^^xsd:dateTime ] ;
@@ -135,7 +135,7 @@
        a fhir:Attachment ;
        fhir:contentType [ fhir:v "application/pdf" ] ;
        fhir:language [ fhir:v "en-US" ] ;
-       fhir:url [ fhir:v "http://org.mihin.ecms/ConsentDirective-2121" ] ;
+       fhir:url [ fhir:v "http://org.mihin.ecms/ConsentDirective-2121"^^xsd:anyURI ] ;
        fhir:title [ fhir:v "MDHHS-5515 Consent To Share Your Health Information" ]
      ]
   ] )] . # 

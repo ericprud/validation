@@ -26,7 +26,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:39714003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "39714003" ] ;
          fhir:display [ fhir:v "Skeletal X-ray of wrist and hand" ]
        ] )
@@ -35,7 +35,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:85151006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "85151006" ] ;
          fhir:display [ fhir:v "Structure of left hand (body structure)" ]
        ] )
@@ -45,7 +45,7 @@
      fhir:id [ fhir:v "a1" ] ;
      fhir:attachment [
        fhir:contentType [ fhir:v "image/jpeg" ] ;
-       fhir:url [ fhir:v "http://someimagingcenter.org/fhir/Binary/A12345" ] ;
+       fhir:url [ fhir:v "http://someimagingcenter.org/fhir/Binary/A12345"^^xsd:anyURI ] ;
        fhir:creation [ fhir:v "2016-03-15"^^xsd:date ] ; #   the date this image was created  
        fhir:height [ fhir:v "432"^^xsd:positiveInteger ] ;
        fhir:width [ fhir:v "640"^^xsd:positiveInteger ]

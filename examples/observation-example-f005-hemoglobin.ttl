@@ -15,14 +15,14 @@
   ] ; #     urn:oid:2.16.840.1.113883.4.642.1.7    
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/observations" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/observations"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "6327" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:718-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "718-7" ] ;
        fhir:display [ fhir:v "Hemoglobin [Mass/volume] in Blood" ]
      ] )
@@ -41,12 +41,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "7.2"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "g/dl" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "g/dL" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "L" ] ;
        fhir:display [ fhir:v "Low" ]
      ] )
@@ -55,13 +55,13 @@
      fhir:low [
        fhir:value [ fhir:v "7.5"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g/dl" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g/dL" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "10"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g/dl" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g/dL" ]
      ]
   ] )] . # 

@@ -27,7 +27,7 @@
   fhir:identifier ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "SNO" ]
        ] )
      ] ; #   The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI. The identifier.type code should be set to “SNO”(Serial Number) and the system left empty.   

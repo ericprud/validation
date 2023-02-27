@@ -19,7 +19,7 @@
      fhir:doseForm [
        fhir:coding ( [
          a sct:385101003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "385101003" ] ;
          fhir:display [ fhir:v "Ointment" ]
        ] ) ;
@@ -30,7 +30,7 @@
          fhir:concept [
            fhir:coding ( [
              a sct:387253001 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "387253001" ] ;
              fhir:display [ fhir:v "Salicyclic Acid (substance)" ]
            ] )
@@ -40,12 +40,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "5"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ]
        ]
@@ -54,7 +54,7 @@
          fhir:concept [
            fhir:coding ( [
              a sct:396458002 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "396458002" ] ;
              fhir:display [ fhir:v "Salicyclic Acid (substance)" ]
            ] )
@@ -64,12 +64,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ]
        ]
@@ -78,7 +78,7 @@
          fhir:concept [
            fhir:coding ( [
              a sct:126066007 ;
-             fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "126066007" ] ;
              fhir:display [ fhir:v "White Petrolatum (substance)" ]
            ] )
@@ -88,12 +88,12 @@
          a fhir:Ratio ;
          fhir:numerator [
            fhir:value [ fhir:v "94"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ] ;
          fhir:denominator [
            fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-           fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "g" ]
          ]
        ]
@@ -101,7 +101,7 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "on-hold"] ; # 
@@ -136,7 +136,7 @@
      fhir:site [
        fhir:coding ( [
          a sct:72098002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "72098002" ] ;
          fhir:display [ fhir:v "Entire left upper arm (body structure)" ]
        ] )
@@ -144,7 +144,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:359540000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "359540000" ] ;
          fhir:display [ fhir:v "Topical (qualifier value)" ]
        ] )
@@ -152,7 +152,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -161,7 +161,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "ea" ] ;
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "OINT" ]
        ]
      ] )
@@ -175,13 +175,13 @@
      fhir:quantity [
        fhir:value [ fhir:v "30"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g" ]
      ] ;
      fhir:expectedSupplyDuration [
        fhir:value [ fhir:v "10"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "days" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "d" ]
      ]
   ]] . # 

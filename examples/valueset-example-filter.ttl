@@ -14,7 +14,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/ValueSet/example-filter"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.3.3148" ]
   ] ) ; # 
   fhir:version [ fhir:v "5.0.0-snapshot3"] ; # 
@@ -27,14 +27,14 @@
   fhir:contact ( [
      fhir:name [ fhir:v "FHIR project team" ] ;
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://hl7.org/fhir" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "ACME Codes for Cholesterol: Plasma only - demonstrating the use of a filter defined in a CodeSystem"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/CodeSystem/example" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/CodeSystem/example"^^xsd:anyURI ] ;
        fhir:filter ( [
          fhir:property [ fhir:v "acme-plasma" ] ;
          fhir:op [ fhir:v "=" ] ;

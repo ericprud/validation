@@ -17,7 +17,7 @@
   fhir:medication [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "0713-0118" ] ;
          fhir:display [ fhir:v "Acetaminophen 120mg Suppository" ]
        ] )
@@ -37,20 +37,20 @@
   ] ) ; # 
   fhir:type [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "RFP" ] ;
        fhir:display [ fhir:v "Refill - Part Fill" ]
      ] )
   ] ; # 
   fhir:quantity [
      fhir:value [ fhir:v "60"^^xsd:decimal ] ;
-     fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm" ] ;
+     fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "RECSUPP" ]
   ] ; # 
   fhir:daysSupply [
      fhir:value [ fhir:v "10"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "Day" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "d" ]
   ] ; # 
   fhir:whenPrepared [ fhir:v "2015-01-15T10:20:00Z"^^xsd:dateTime] ; # 
@@ -61,7 +61,7 @@
      fhir:additionalInstruction ( [
        fhir:coding ( [
          a sct:418637003 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "418637003" ] ;
          fhir:display [ fhir:v "Do not take with any other paracetamol products (qualifier value)" ]
        ] )
@@ -76,7 +76,7 @@
      fhir:asNeededFor ( [
        fhir:coding ( [
          a sct:386661006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "386661006" ] ;
          fhir:display [ fhir:v "Fever (finding)" ]
        ] )
@@ -84,7 +84,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -93,19 +93,19 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "240"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ]
      ] ) ;
      fhir:maxDosePerPeriod ( [
        fhir:numerator [
          fhir:value [ fhir:v "720"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "d" ]
        ]
      ] )

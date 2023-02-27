@@ -12,27 +12,27 @@
   fhir:entry ( [
      fhir:request [
        fhir:method [ fhir:v "GET" ] ;
-       fhir:url [ fhir:v "/Patient/example" ]
+       fhir:url [ fhir:v "/Patient/example"^^xsd:anyURI ]
      ]
   ] [
      fhir:request [
        fhir:method [ fhir:v "GET" ] ;
-       fhir:url [ fhir:v "/MedicationStatement?patient=example&_list=$current-medications" ]
+       fhir:url [ fhir:v "/MedicationStatement?patient=example&_list=$current-medications"^^xsd:anyURI ]
      ]
   ] [
      fhir:request [
        fhir:method [ fhir:v "GET" ] ;
-       fhir:url [ fhir:v "/AllergyIntolerance?patient=example&_list=$current-allergies" ]
+       fhir:url [ fhir:v "/AllergyIntolerance?patient=example&_list=$current-allergies"^^xsd:anyURI ]
      ]
   ] [
      fhir:request [
        fhir:method [ fhir:v "GET" ] ;
-       fhir:url [ fhir:v "/Condition?patient=example&_list=$current-problems" ]
+       fhir:url [ fhir:v "/Condition?patient=example&_list=$current-problems"^^xsd:anyURI ]
      ]
   ] [
      fhir:request [
        fhir:method [ fhir:v "GET" ] ;
-       fhir:url [ fhir:v "/MedicationStatement?patient=example&notgiven:not=true" ]
+       fhir:url [ fhir:v "/MedicationStatement?patient=example&notgiven:not=true"^^xsd:anyURI ]
      ]
   ] )] . #   Each entry is used to represent a RESTful API request
 #       This request retrieves a single Patient resource  

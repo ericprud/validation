@@ -16,7 +16,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:400621001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "400621001" ] ;
        fhir:display [ fhir:v "Lorazepam 2mg/ml injection solution 1ml vial (product)" ]
      ] )
@@ -24,7 +24,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385219001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385219001" ] ;
        fhir:display [ fhir:v "Injection solution (qualifier value)" ]
      ] )
@@ -33,12 +33,12 @@
      fhir:numerator [
        fhir:value [ fhir:v "1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "ml" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ml" ]
      ] ;
      fhir:denominator [
        fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "vial" ]
      ]
   ] ; # 
@@ -47,7 +47,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:387106007 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "387106007" ] ;
            fhir:display [ fhir:v "Lorazepam (substance)" ]
          ] )
@@ -57,12 +57,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "2"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ]

@@ -18,7 +18,7 @@
   fhir:device [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "https://www.gs1.org/gtin" ] ;
+         fhir:system [ fhir:v "https://www.gs1.org/gtin"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "00613994223838" ] ;
          fhir:display [ fhir:v "ADAPTA (TM) Pacemaker" ]
        ] )

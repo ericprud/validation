@@ -16,7 +16,7 @@
   fhir:code [
      fhir:coding ( [
        a sct:716186003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "716186003" ] ;
        fhir:display [ fhir:v "No Known Allergy (situation)" ]
      ] ) ;
@@ -29,7 +29,7 @@
   fhir:participant ( [
      fhir:function [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/provenance-participant-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "author" ] ;
          fhir:display [ fhir:v "Author" ]
        ] )

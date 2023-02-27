@@ -14,14 +14,14 @@
   ] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110113" ] ;
        fhir:display [ fhir:v "Security Alert" ]
      ] )
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+       fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "110127" ] ;
        fhir:display [ fhir:v "Emergency Override Started" ]
      ] )
@@ -30,7 +30,7 @@
   fhir:recorded [ fhir:v "2013-09-22T00:08:00Z"^^xsd:dateTime] ; #   when was the break-glass started  
   fhir:outcome [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/audit-event-outcome"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "0" ] ;
        fhir:display [ fhir:v "Success" ]
      ] ;
@@ -40,7 +40,7 @@
   ] ; # 
   fhir:authorization ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActReason"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ETREAT" ] ;
        fhir:display [ fhir:v "Emergency Treatment" ]
      ] ) #   why was the break-glass declared  
@@ -61,7 +61,7 @@
      ] ; #   what system detected this break-glass  
      fhir:type ( [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/security-source-type"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "4" ] ;
          fhir:display [ fhir:v "Application Server" ]
        ] )
@@ -73,7 +73,7 @@
      ] ; #   patient whos data is being accessed  
      fhir:role [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/object-role"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "1" ] ;
          fhir:display [ fhir:v "Patient" ]
        ] )

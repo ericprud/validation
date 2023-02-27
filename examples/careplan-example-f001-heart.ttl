@@ -28,7 +28,7 @@
      fhir:lifecycleStatus [ fhir:v "completed" ] ;
      fhir:achievementStatus [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/goal-achievement"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "achieved" ] ;
          fhir:display [ fhir:v "Achieved" ]
        ] ) ;
@@ -47,7 +47,7 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/careplans" ] ; #    urn:oid:2.16.840.1.113883.4.642.1.36   
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/careplans"^^xsd:anyURI ] ; #    urn:oid:2.16.840.1.113883.4.642.1.36   
      fhir:value [ fhir:v "CP2903" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -78,7 +78,7 @@
        fhir:code [
          fhir:coding ( [
            a sct:64915003 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "64915003" ] ;
            fhir:display [ fhir:v "Operation on heart" ]
          ] )

@@ -47,7 +47,7 @@
   ] ) ; # 
   fhir:content ( [
      fhir:contentType [ fhir:v "text/cql" ] ;
-     fhir:url [ fhir:v "http://cqlrepository.org/CMS9v4_CQM.cql" ]
+     fhir:url [ fhir:v "http://cqlrepository.org/CMS9v4_CQM.cql"^^xsd:anyURI ]
   ] )] . # 
 
 # -------------------------------------------------------------------------------------

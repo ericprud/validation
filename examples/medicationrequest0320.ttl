@@ -15,7 +15,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "completed"] ; # 
@@ -23,7 +23,7 @@
   fhir:medication [
      fhir:concept [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "285018" ] ;
          fhir:display [ fhir:v "Lantus 100 unit/ml injectable solution" ]
        ] )
@@ -42,7 +42,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:473189005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "473189005" ] ;
          fhir:display [ fhir:v "On subcutaneous insulin for diabetes mellitus (finding)" ]
        ] )
@@ -61,7 +61,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:263887005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "263887005" ] ;
          fhir:display [ fhir:v "Subcutaneous (qualifier value)" ]
        ] )
@@ -69,7 +69,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -78,7 +78,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "20"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "U" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "U" ]
        ]
      ] )
@@ -92,13 +92,13 @@
      fhir:quantity [
        fhir:value [ fhir:v "10"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mL" ]
      ] ;
      fhir:expectedSupplyDuration [
        fhir:value [ fhir:v "30"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "days" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "d" ]
      ]
   ]] . # 

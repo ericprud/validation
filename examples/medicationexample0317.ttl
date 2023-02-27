@@ -16,7 +16,7 @@
   fhir:doseForm [
      fhir:coding ( [
        a sct:385219001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "385219001" ] ;
        fhir:display [ fhir:v "Injection Solution (qualifier value)" ]
      ] ) ;
@@ -26,7 +26,7 @@
      fhir:item [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "8591" ] ;
            fhir:display [ fhir:v "Potassium Chloride" ]
          ] )
@@ -36,12 +36,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "20"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "meq" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1000"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ]
@@ -49,7 +49,7 @@
      fhir:item [
        fhir:concept [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+           fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "313002" ] ;
            fhir:display [ fhir:v "1000 ml glucost 50mg/ml Injection" ]
          ] )
@@ -59,12 +59,12 @@
        a fhir:Ratio ;
        fhir:numerator [
          fhir:value [ fhir:v "5"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "g" ]
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "100"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ]

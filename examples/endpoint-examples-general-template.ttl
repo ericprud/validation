@@ -59,7 +59,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7-fhir-rest" ]
      ] )
   ] ) ; # 
@@ -89,7 +89,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7-fhir-rest" ]
      ] )
   ] ) ; # 
@@ -119,7 +119,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7-fhir-rest" ]
      ] )
   ] ) ; # 
@@ -149,7 +149,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7-fhir-rest" ]
      ] )
   ] ) ; # 
@@ -179,7 +179,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "secure-email" ]
      ] )
   ] ) ; # 
@@ -209,7 +209,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7-fhir-msg" ]
      ] )
   ] ) ; # 
@@ -239,7 +239,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "hl7v2-mllp" ]
      ] )
   ] ) ; # 
@@ -269,7 +269,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dicom-wado-rs" ]
      ] )
   ] ) ; # 
@@ -299,7 +299,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dicom-qido-rs" ]
      ] )
   ] ) ; # 
@@ -329,7 +329,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dicom-stow-rs" ]
      ] )
   ] ) ; # 
@@ -359,7 +359,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dicom-stow-rs" ]
      ] )
   ] ) ; # 
@@ -389,7 +389,7 @@
   fhir:status [ fhir:v "active"] ; # 
   fhir:connectionType ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "dicom-wado-uri" ]
      ] )
   ] ) ; # 

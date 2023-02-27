@@ -13,13 +13,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2><span title=\"Codes: {https://www.acmeonline.com 4503}\">Biopsy without Microscopic Description (1 Site/Lesion)-Standard</span> (<span title=\"Codes: {http://terminology.hl7.org/CodeSystem/v2-0074 PAT}\">Pathology</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>Unable to get Patient Details</td></tr><tr><td>When For</td><td>2017-03-02</td></tr><tr><td>Reported</td><td>2017-03-15T08:13:08Z</td></tr><tr><td>Identifier:</td><td> id: P73456090</td></tr></table><p><b>Report Details</b></p></div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "https://www.acmeonline.com" ] ;
+     fhir:system [ fhir:v "https://www.acmeonline.com"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "P73456090" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "PAT" ] ;
        fhir:display [ fhir:v "Pathology (gross & histopath, not surgical)" ]
      ] ) ;
@@ -27,7 +27,7 @@
   ] ) ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "https://www.acmeonline.com" ] ;
+       fhir:system [ fhir:v "https://www.acmeonline.com"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "4503" ] ;
        fhir:display [ fhir:v "Biopsy without Microscopic Description (1 Site/Lesion)-Standard" ]
      ] ) ;

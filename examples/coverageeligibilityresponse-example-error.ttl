@@ -13,7 +13,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the CoverageEligibilityResponse.</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse" ] ;
+     fhir:system [ fhir:v "http://www.BenefitsInc.com/fhir/coverageeligibilityresponse"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "8812343" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -24,7 +24,7 @@
   fhir:created [ fhir:v "2014-09-16"^^xsd:date] ; # 
   fhir:requestor [
      fhir:identifier [
-       fhir:system [ fhir:v "http://national.org/clinic" ] ;
+       fhir:system [ fhir:v "http://national.org/clinic"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "OR1234" ]
      ]
   ] ; # 
@@ -39,14 +39,14 @@
   ] ; # 
   fhir:form [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://national.org/form" ] ;
+       fhir:system [ fhir:v "http://national.org/form"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ELRSP/2017/01" ]
      ] )
   ] ; # 
   fhir:error ( [
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/adjudication-error" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/adjudication-error"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "a001" ]
        ] )
      ]

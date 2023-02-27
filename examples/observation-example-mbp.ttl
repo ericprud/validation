@@ -16,7 +16,7 @@
   fhir:status [ fhir:v "final"] ; # 
   fhir:category ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "vital-signs" ] ;
        fhir:display [ fhir:v "Vital Signs" ]
      ] ) ;
@@ -25,7 +25,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:8478-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "8478-0" ] ;
        fhir:display [ fhir:v "Mean blood pressure" ]
      ] ) ;
@@ -39,7 +39,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "80"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mm[Hg]" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "mm[Hg]" ]
   ]] . # 
 

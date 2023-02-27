@@ -15,7 +15,7 @@
   ] ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/example-section-library"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.5.1041" ]
   ] ) ; # 
   fhir:name [ fhir:v "DocumentSectionLibrary"] ; # 
@@ -65,7 +65,7 @@
          a fhir:CodeableConcept ;
          fhir:coding ( [
            a loinc:29554-3 ;
-           fhir:system [ fhir:v "http://loinc.org" ] ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "29554-3" ] ;
            fhir:display [ fhir:v "Procedure Narrative" ]
          ] )
@@ -87,7 +87,7 @@
          a fhir:CodeableConcept ;
          fhir:coding ( [
            a loinc:29549-3 ;
-           fhir:system [ fhir:v "http://loinc.org" ] ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "29549-3" ] ;
            fhir:display [ fhir:v "Medication administered Narrative" ]
          ] )
@@ -109,7 +109,7 @@
          a fhir:CodeableConcept ;
          fhir:coding ( [
            a loinc:18776-5 ;
-           fhir:system [ fhir:v "http://loinc.org" ] ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "18776-5" ] ;
            fhir:display [ fhir:v "Plan of treatment (narrative)" ]
          ] )

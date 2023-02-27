@@ -26,7 +26,7 @@
        fhir:value [ fhir:v "2328" ] ;
        fhir:use [ fhir:v "work" ]
      ] [
-       fhir:system [ fhir:v "fax" ] ;
+       fhir:system [ fhir:v "fax"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "2329" ] ;
        fhir:use [ fhir:v "work" ]
      ] [
@@ -35,7 +35,7 @@
      ] )
   ] [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://sampleorg.com/southwing" ] ;
        fhir:use [ fhir:v "work" ]
      ] )
@@ -50,7 +50,7 @@
   ] ) ; # 
   fhir:form [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/location-physical-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/location-physical-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "wi" ] ;
        fhir:display [ fhir:v "Wing" ]
      ] )

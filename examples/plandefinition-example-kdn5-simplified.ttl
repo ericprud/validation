@@ -19,7 +19,7 @@
      fhir:product [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "12574" ] ;
          fhir:display [ fhir:v "gemcitabine" ]
        ] ) ;
@@ -39,7 +39,7 @@
        fhir:doseAndRate ( [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "ordered" ] ;
              fhir:display [ fhir:v "Ordered" ]
            ] )
@@ -58,7 +58,7 @@
      fhir:product [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm" ] ;
+         fhir:system [ fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "40048" ] ;
          fhir:display [ fhir:v "Carboplatin" ]
        ] ) ;
@@ -78,7 +78,7 @@
        fhir:doseAndRate ( [
          fhir:type [
            fhir:coding ( [
-             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+             fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "ordered" ] ;
              fhir:display [ fhir:v "Ordered" ]
            ] )
@@ -86,7 +86,7 @@
          fhir:dose [
            a fhir:Quantity ;
            fhir:extension ( [
-             fhir:url [ fhir:v "http://example.org/fhir/AUC-dose" ] ;
+             fhir:url [ fhir:v "http://example.org/fhir/AUC-dose"^^xsd:anyURI ] ;
              fhir:value [ fhir:v "5"^^xsd:integer ]
            ] )
          ]
@@ -94,7 +94,7 @@
      ] )
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org/ordertemplates" ] ;
+     fhir:system [ fhir:v "http://example.org/ordertemplates"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "KDN5" ]
   ] ) ; # 
   fhir:version [ fhir:v "1"] ; # 
@@ -109,11 +109,11 @@
   fhir:description [ fhir:v "Gemcitabine/CARBOplatin"] ; # 
   fhir:useContext ( [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A" ]
      ] ) ;
      fhir:code [
-       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications" ] ;
+       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "treamentSetting-or-diseaseStatus" ]
      ] ;
      fhir:value [
@@ -122,11 +122,11 @@
      ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A" ]
      ] ) ;
      fhir:code [
-       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications" ] ;
+       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "disease-or-histology" ]
      ] ;
      fhir:value [
@@ -135,11 +135,11 @@
      ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "A" ]
      ] ) ;
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ]
      ] ;
      fhir:value [
@@ -148,11 +148,11 @@
      ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "B" ]
      ] ) ;
      fhir:code [
-       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications" ] ;
+       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "treatmentSetting-or-diseaseStatus" ]
      ] ;
      fhir:value [
@@ -161,11 +161,11 @@
      ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "B" ]
      ] ) ;
      fhir:code [
-       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications" ] ;
+       fhir:system [ fhir:v "http://example.org/fhir/CodeSystem/indications"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "disease-or-histology" ]
      ] ;
      fhir:value [
@@ -174,11 +174,11 @@
      ]
   ] [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/usagecontext-group"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "B" ]
      ] ) ;
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "focus" ]
      ] ;
      fhir:value [
@@ -196,19 +196,19 @@
      fhir:type [ fhir:v "derived-from" ] ;
      fhir:display [ fhir:v "NCCN Guidelines for Kidney Cancer. V.2.2016" ] ;
      fhir:document [
-       fhir:url [ fhir:v "http://www.example.org/professionals/physician_gls/PDF/kidney.pdf" ]
+       fhir:url [ fhir:v "http://www.example.org/professionals/physician_gls/PDF/kidney.pdf"^^xsd:anyURI ]
      ]
   ] [
      fhir:type [
        fhir:v "citation" ;
        fhir:extension ( [
-         fhir:url [ fhir:v "http://example.org/fhir/regimenReferenceType" ] ;
+         fhir:url [ fhir:v "http://example.org/fhir/regimenReferenceType"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "a" ]
        ] )
      ] ;
      fhir:citation [ fhir:v "Oudard S, et al. J Urol. 2007;177(5):1698-702" ] ;
      fhir:document [
-       fhir:url [ fhir:v "http://www.ncbi.nlm.nih.gov/pubmed/17437788" ]
+       fhir:url [ fhir:v "http://www.ncbi.nlm.nih.gov/pubmed/17437788"^^xsd:anyURI ]
      ]
   ] ) ; # 
   fhir:action ( [
@@ -232,12 +232,12 @@
            fhir:action ( [
              fhir:id [ fhir:v "action-1" ] ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle"^^xsd:anyURI ] ;
                fhir:extension ( [
-                 fhir:url [ fhir:v "day" ] ;
+                 fhir:url [ fhir:v "day"^^xsd:anyURI ] ;
                  fhir:value [ fhir:v "1"^^xsd:integer ]
                ] [
-                 fhir:url [ fhir:v "day" ] ;
+                 fhir:url [ fhir:v "day"^^xsd:anyURI ] ;
                  fhir:value [ fhir:v "8"^^xsd:integer ]
                ] )
              ] ) ;
@@ -246,9 +246,9 @@
            ] [
              fhir:id [ fhir:v "action-2" ] ;
              fhir:extension ( [
-               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle" ] ;
+               fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle"^^xsd:anyURI ] ;
                fhir:extension ( [
-                 fhir:url [ fhir:v "day" ] ;
+                 fhir:url [ fhir:v "day"^^xsd:anyURI ] ;
                  fhir:value [ fhir:v "1"^^xsd:integer ]
                ] )
              ] ) ;

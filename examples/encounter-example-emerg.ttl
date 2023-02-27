@@ -15,7 +15,7 @@
   fhir:status [ fhir:v "in-progress"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "IMP" ] ;
        fhir:display [ fhir:v "inpatient encounter" ]
      ] )
@@ -29,7 +29,7 @@
   fhir:admission [
      fhir:admitSource [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/admit-source" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/admit-source"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "emd" ] ;
          fhir:display [ fhir:v "From accident/emergency department" ]
        ] )

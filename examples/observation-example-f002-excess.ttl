@@ -15,14 +15,14 @@
   ] ; #     urn:oid:2.16.840.1.113883.4.642.1.7    ,     2.16.840.1.113883.4.642.1.118    
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/observations" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/zorgportal/identifiers/observations"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "6324" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
        a loinc:11555-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "11555-0" ] ;
        fhir:display [ fhir:v "Base excess in Blood by calculation" ]
      ] )
@@ -41,12 +41,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "12.6"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "mmol/l" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "mmol/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ] ;
        fhir:display [ fhir:v "High" ]
      ] )
@@ -55,13 +55,13 @@
      fhir:low [
        fhir:value [ fhir:v "7.1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mmol/l" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mmol/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "11.2"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "mmol/l" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "mmol/L" ]
      ]
   ] )] . # 

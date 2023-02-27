@@ -19,7 +19,7 @@
   ] ; # 
   fhir:status [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://hl7.org/fhir/deviceassociation-status" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/deviceassociation-status"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "implanted" ]
      ] )
   ] ; # 

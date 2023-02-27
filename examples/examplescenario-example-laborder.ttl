@@ -46,7 +46,7 @@
   fhir:instance ( [
      fhir:key [ fhir:v "req1" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ServiceRequest" ]
      ] ;
      fhir:title [ fhir:v "Request for a lab procedure" ] ;
@@ -67,7 +67,7 @@
   ] [
      fhir:key [ fhir:v "task1" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Task" ]
      ] ;
      fhir:title [ fhir:v "Task" ] ;
@@ -92,7 +92,7 @@
   ] [
      fhir:key [ fhir:v "req.lab1" ] ;
      fhir:structureType [
-       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types" ] ;
+       fhir:system [ fhir:v "http://hl7.org/fhir/fhir-types"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "ServiceRequest" ]
      ] ;
      fhir:title [ fhir:v "Internal lab request" ] ;

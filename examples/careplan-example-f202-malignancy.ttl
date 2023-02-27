@@ -19,7 +19,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:108806006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "108806006" ] ;
          fhir:display [ fhir:v "Docetaxel" ]
        ] )
@@ -30,7 +30,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:57066004 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "57066004" ] ;
          fhir:display [ fhir:v "Cisplatin" ]
        ] )
@@ -41,7 +41,7 @@
      fhir:code [
        fhir:coding ( [
          a sct:3127006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "3127006" ] ;
          fhir:display [ fhir:v "Fluorouracil" ]
        ] )
@@ -78,7 +78,7 @@
        fhir:role [
          fhir:coding ( [
            a sct:28995006 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "28995006" ] ;
            fhir:display [ fhir:v "Treated with" ]
          ] )
@@ -130,7 +130,7 @@
        fhir:code [
          fhir:coding ( [
            a sct:367336001 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "367336001" ] ;
            fhir:display [ fhir:v "Chemotherapy" ]
          ] )

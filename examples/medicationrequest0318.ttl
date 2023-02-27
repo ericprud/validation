@@ -18,7 +18,7 @@
      fhir:id [ fhir:v "med0301" ] ;
      fhir:code [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc" ] ;
+         fhir:system [ fhir:v "http://hl7.org/fhir/sid/ndc"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "0409-6531-02" ] ;
          fhir:display [ fhir:v "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)" ]
        ] )
@@ -26,7 +26,7 @@
   ] ) ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions" ] ;
+     fhir:system [ fhir:v "http://www.bmc.nl/portal/prescriptions"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "12345689" ]
   ] ) ; # 
   fhir:status [ fhir:v "active"] ; # 
@@ -53,7 +53,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:11840006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "11840006" ] ;
          fhir:display [ fhir:v "Traveller's Diarrhea (disorder)" ]
        ] )
@@ -81,7 +81,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:255560000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "255560000" ] ;
          fhir:display [ fhir:v "Intravenous" ]
        ] )
@@ -89,7 +89,7 @@
      fhir:method [
        fhir:coding ( [
          a sct:420620005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "420620005" ] ;
          fhir:display [ fhir:v "Push - dosing instruction imperative (qualifier value)" ]
        ] )
@@ -97,7 +97,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -106,7 +106,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "500"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mg" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mg" ]
        ]
      ] )

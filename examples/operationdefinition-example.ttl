@@ -30,14 +30,14 @@
   fhir:description [ fhir:v "Limited implementation of the Populate Questionnaire implementation"] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "venue" ] ;
        fhir:display [ fhir:v "Clinical Venue" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "IMP" ] ;
          fhir:display [ fhir:v "inpatient encounter" ]
        ] )
@@ -45,7 +45,7 @@
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "GB" ] ;
        fhir:display [ fhir:v "United Kingdom of Great Britain and Northern Ireland (the)" ]
      ] )

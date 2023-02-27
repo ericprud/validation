@@ -55,7 +55,7 @@
            fhir:amount [
              fhir:value [ fhir:v "20"^^xsd:decimal ] ;
              fhir:unit [ fhir:v "g" ] ;
-             fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+             fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "g" ]
            ]
          ] ) ;
@@ -74,7 +74,7 @@
      fhir:status [ fhir:v "active" ] ;
      fhir:manufacturedDoseForm [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org.uk/fhir/doseform" ] ;
+         fhir:system [ fhir:v "http://example.org.uk/fhir/doseform"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "tablet" ]
        ] )
      ]
@@ -84,18 +84,18 @@
      fhir:status [ fhir:v "active" ] ;
      fhir:manufacturedDoseForm [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://example.org.uk/fhir/doseform" ] ;
+         fhir:system [ fhir:v "http://example.org.uk/fhir/doseform"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "Cream for topical application" ]
        ] )
      ]
   ] ) ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org.uk/fhir/product" ] ;
+     fhir:system [ fhir:v "http://example.org.uk/fhir/product"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "ThrushTreatCombo" ]
   ] ) ; # 
   fhir:combinedPharmaceuticalDoseForm [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://example.org.uk/fhir/doseform" ] ;
+       fhir:system [ fhir:v "http://example.org.uk/fhir/doseform"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "Tablet and Cream for topical application" ]
      ] )
   ] ; # 

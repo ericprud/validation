@@ -18,7 +18,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:27658006 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "27658006" ] ;
          fhir:display [ fhir:v "Amoxicillin (product)" ]
        ] )
@@ -44,7 +44,7 @@
      fhir:route [
        fhir:coding ( [
          a sct:260548002 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "260548002" ] ;
          fhir:display [ fhir:v "Oral" ]
        ] )
@@ -52,7 +52,7 @@
      fhir:doseAndRate ( [
        fhir:type [
          fhir:coding ( [
-           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type" ] ;
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/dose-rate-type"^^xsd:anyURI ] ;
            fhir:code [ fhir:v "ordered" ] ;
            fhir:display [ fhir:v "Ordered" ]
          ] )
@@ -61,7 +61,7 @@
          a fhir:Quantity ;
          fhir:value [ fhir:v "5"^^xsd:decimal ] ;
          fhir:unit [ fhir:v "mL" ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "mL" ]
        ]
      ] ) ;
@@ -71,7 +71,7 @@
        ] ;
        fhir:denominator [
          fhir:value [ fhir:v "1"^^xsd:decimal ] ;
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "d" ]
        ]
      ] )

@@ -16,77 +16,77 @@
      fhir:resource ( <http://hl7.org/fhir/us/sdc/Questionnaire/54127-6> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/Questionnaire/54127-6" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/Questionnaire/54127-6"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL1-9" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL1-9> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL1-9" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL1-9"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL623-0" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL623-0> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL623-0" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL361-7" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL361-7> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL361-7" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL629-7" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL629-7> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL629-7" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL629-7"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL628-9" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL628-9> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL628-9" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL628-9"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL626-3" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL626-3> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL626-3" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL626-3"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL619-8" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL619-8> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL619-8" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL621-4" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL621-4> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL621-4" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL621-4"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL624-8" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL624-8> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL624-8" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL624-8"^^xsd:anyURI ]
      ]
   ] [
      fhir:fullUrl [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL627-1" ] ;
      fhir:resource ( <http://hl7.org/fhir/us/sdc/ValueSet/LL627-1> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL627-1" ]
+       fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/ValueSet/LL627-1"^^xsd:anyURI ]
      ]
   ] )] . # 
 
@@ -117,7 +117,7 @@
      fhir:immutable [ fhir:v "true"^^xsd:boolean ] ;
      fhir:compose [
        fhir:include ( [
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:concept ( [
            fhir:code [ fhir:v "[in_i]" ] ;
            fhir:display [ fhir:v "inches" ]
@@ -142,7 +142,7 @@
      fhir:immutable [ fhir:v "true"^^xsd:boolean ] ;
      fhir:compose [
        fhir:include ( [
-         fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
          fhir:concept ( [
            fhir:code [ fhir:v "[lb_i]" ] ;
            fhir:display [ fhir:v "pounds" ]
@@ -155,7 +155,7 @@
   ] ) ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/us/sdc/Questionnaire/54127-6"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://example.org/panel-id" ] ;
+     fhir:system [ fhir:v "http://example.org/panel-id"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "54127-6" ]
   ] ) ; # 
   fhir:title [ fhir:v "US Surgeon General - Family Health Portrait"] ; # 
@@ -166,21 +166,21 @@
   fhir:publisher [ fhir:v "Regenstrief Institute, Inc and the LOINC Committee"] ; # 
   fhir:contact ( [
      fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
+       fhir:system [ fhir:v "url"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://loinc.org" ]
      ] )
   ] ) ; # 
   fhir:description [ fhir:v "This represents an implementation of the \"US Surgeon General family health portrait\" form found at https://lforms-demo.nlm.nih.gov"] ; # 
   fhir:useContext ( [
      fhir:code [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/usage-context-type"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "species" ]
      ] ;
      fhir:value [
        a fhir:CodeableConcept ;
        fhir:coding ( [
          a sct:337915000 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "337915000" ] ;
          fhir:display [ fhir:v "Homo sapiens" ]
        ] )
@@ -188,7 +188,7 @@
   ] ) ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "urn:iso:std:iso:3166" ] ;
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "US" ]
      ] )
   ] ) ; # 
@@ -198,7 +198,7 @@
   fhir:lastReviewDate [ fhir:v "2017-03-15"^^xsd:date] ; # 
   fhir:code ( [
      a loinc:54127-6 ;
-     fhir:system [ fhir:v "http://loinc.org" ] ;
+     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "54127-6" ] ;
      fhir:display [ fhir:v "US Surgeon General family health portrait [USSG-FHT]" ]
   ] ) ; # 
@@ -270,7 +270,7 @@
          fhir:initial ( [
            fhir:value [
              a fhir:Coding, loinc:LA32-8 ;
-             fhir:system [ fhir:v "http://loinc.org" ] ;
+             fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
              fhir:code [ fhir:v "LA32-8" ] ;
              fhir:display [ fhir:v "No" ]
            ]
@@ -380,7 +380,7 @@
        fhir:repeats [ fhir:v "true"^^xsd:boolean ] ;
        fhir:item ( [
          fhir:extension ( [
-           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource" ] ;
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource"^^xsd:anyURI ] ;
            fhir:value [ fhir:v "Patient" ]
          ] ) ;
          fhir:linkId [ fhir:v "2.1.1.0" ] ;
@@ -567,7 +567,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA2-8" ] ;
          fhir:display [ fhir:v "Male" ]
@@ -602,7 +602,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA10427-5" ] ;
          fhir:display [ fhir:v "Yes - Identical (Same)" ]
@@ -637,7 +637,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA33-6" ] ;
          fhir:display [ fhir:v "Yes" ]
@@ -669,7 +669,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA10608-0" ] ;
          fhir:display [ fhir:v "American  Indian or Alaska Native" ]
@@ -749,7 +749,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA6214-6" ] ;
          fhir:display [ fhir:v "Hispanic or Latino" ]
@@ -811,7 +811,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA10533-0" ] ;
          fhir:display [ fhir:v "Blood Clots" ]
@@ -1035,7 +1035,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA10402-8" ] ;
          fhir:display [ fhir:v "Pre-Birth" ]
@@ -1094,7 +1094,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA10405-1" ] ;
          fhir:display [ fhir:v "Daughter" ]
@@ -1186,7 +1186,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA33-6" ] ;
          fhir:display [ fhir:v "Yes" ]
@@ -1221,7 +1221,7 @@
   fhir:copyright [ fhir:v "Refer to https://loinc.org/terms-of-use"] ; # 
   fhir:compose [
      fhir:include ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:concept ( [
          fhir:code [ fhir:v "LA10533-0" ] ;
          fhir:display [ fhir:v "Blood Clots" ]

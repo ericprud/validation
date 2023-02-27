@@ -14,7 +14,7 @@
   ] ; # 
   fhir:identifier ( [
      fhir:use [ fhir:v "official" ] ;
-     fhir:system [ fhir:v "http://example.org" ] ;
+     fhir:system [ fhir:v "http://example.org"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "Zika Artifacts" ]
   ] ) ; # 
   fhir:version [ fhir:v "1.0.0"] ; # 
@@ -70,7 +70,7 @@
   ] [
      fhir:type [ fhir:v "derived-from" ] ;
      fhir:document [
-       fhir:url [ fhir:v "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w" ]
+       fhir:url [ fhir:v "https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"^^xsd:anyURI ]
      ]
   ] )] . # 
 

@@ -188,13 +188,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2><span title=\"Codes: {http://acme.com/labs/reports GHP}\">General Health Profile</span> </h2><table class=\"grid\"><tr><td>Subject</td><td><b>Duck D Donald (OFFICIAL)</b> other, DoB Unknown ( Medical record number: 123456 (use: USUAL))</td></tr><tr><td>When For</td><td>2015-08-16T06:40:17Z</td></tr><tr><td>Reported</td><td>2015-08-17T06:40:17Z</td></tr><tr><td>Identifier:</td><td> id: ghp-example</td></tr></table><p><b>Report Details</b></p><table class=\"grid\"><tr><td><b>Code</b></td><td><b>Value</b></td></tr><tr><td colspan=\"2\"><i>Observation</i></td></tr><tr><td colspan=\"2\"><i>Observation</i></td></tr><tr><td colspan=\"2\"><i>Observation</i></td></tr></table></div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "http://acme.com/lab/reports" ] ;
+     fhir:system [ fhir:v "http://acme.com/lab/reports"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "ghp-example" ]
   ] ) ; # 
   fhir:status [ fhir:v "final"] ; # 
   fhir:code [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://acme.com/labs/reports" ] ;
+       fhir:system [ fhir:v "http://acme.com/labs/reports"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "GHP" ] ;
        fhir:display [ fhir:v "General Health Profile" ]
      ] )
@@ -236,13 +236,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Specimen</b><a name=\"rtt\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Specimen &quot;rtt&quot; </p></div><p><b>accessionIdentifier</b>: id: 20150816-00124</p><p><b>type</b>: Serum sample <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#119364003)</span></p><p><b>subject</b>: <a href=\"patient-example-b.html\">Patient/pat2</a> &quot;Duck DONALD&quot;</p><h3>Collections</h3><table class=\"grid\"><tr><td>-</td><td><b>Collector</b></td><td><b>Collected[x]</b></td></tr><tr><td>*</td><td><a href=\"practitioner-example-f202-lm.html\">Practitioner/f202</a> &quot;Luigi Maas&quot;</td><td>2015-08-16T06:40:17Z</td></tr></table><h3>Containers</h3><table class=\"grid\"><tr><td>-</td><td><b>Device</b></td></tr><tr><td>*</td><td><a href=\"broken-link.html\">Specimen/specimen-device-container-example-sst-vacutainer</a></td></tr></table></div>"
   ] ; # 
   fhir:accessionIdentifier [
-     fhir:system [ fhir:v "http://acme.com/labs/accession-ids" ] ;
+     fhir:system [ fhir:v "http://acme.com/labs/accession-ids"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20150816-00124" ]
   ] ; # 
   fhir:type [
      fhir:coding ( [
        a sct:119364003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "119364003" ] ;
        fhir:display [ fhir:v "Serum sample" ]
      ] )
@@ -269,13 +269,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Specimen</b><a name=\"ltt\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Specimen &quot;ltt&quot; </p></div><p><b>accessionIdentifier</b>: id: 20150816-00124</p><p><b>type</b>: Blood specimen with EDTA <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#445295009)</span></p><p><b>subject</b>: <a href=\"patient-example-b.html\">Patient/pat2</a> &quot;Duck DONALD&quot;</p><h3>Collections</h3><table class=\"grid\"><tr><td>-</td><td><b>Collector</b></td><td><b>Collected[x]</b></td></tr><tr><td>*</td><td><a href=\"practitioner-example-f202-lm.html\">Practitioner/f202</a> &quot;Luigi Maas&quot;</td><td>2015-08-16T06:40:17Z</td></tr></table><h3>Containers</h3><table class=\"grid\"><tr><td>-</td><td><b>Device</b></td></tr><tr><td>*</td><td><a href=\"broken-link.html\">Specimen/specimen-device-container-example-lavender-vacutainer</a></td></tr></table></div>"
   ] ; # 
   fhir:accessionIdentifier [
-     fhir:system [ fhir:v "http://acme.com/labs/accession-ids" ] ;
+     fhir:system [ fhir:v "http://acme.com/labs/accession-ids"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20150816-00124" ]
   ] ; # 
   fhir:type [
      fhir:coding ( [
        a sct:445295009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "445295009" ] ;
        fhir:display [ fhir:v "Blood specimen with EDTA" ]
      ] )
@@ -302,13 +302,13 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Specimen</b><a name=\"urine\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Specimen &quot;urine&quot; </p></div><p><b>accessionIdentifier</b>: id: 20150816-00124</p><p><b>type</b>: Urine specimen <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#122575003)</span></p><p><b>subject</b>: <a href=\"patient-example-b.html\">Patient/pat2</a> &quot;Duck DONALD&quot;</p><h3>Collections</h3><table class=\"grid\"><tr><td>-</td><td><b>Collector</b></td><td><b>Collected[x]</b></td></tr><tr><td>*</td><td><a href=\"practitioner-example-f202-lm.html\">Practitioner/f202</a> &quot;Luigi Maas&quot;</td><td>2015-08-16T06:40:17Z</td></tr></table><h3>Containers</h3><table class=\"grid\"><tr><td>-</td><td><b>Device</b></td></tr><tr><td>*</td><td><a href=\"broken-link.html\">Specimen/specimen-device-container-example-polycup</a></td></tr></table></div>"
   ] ; # 
   fhir:accessionIdentifier [
-     fhir:system [ fhir:v "http://acme.com/labs/accession-ids" ] ;
+     fhir:system [ fhir:v "http://acme.com/labs/accession-ids"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "20150816-00124" ]
   ] ; # 
   fhir:type [
      fhir:coding ( [
        a sct:122575003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "122575003" ] ;
        fhir:display [ fhir:v "Urine specimen" ]
      ] )
@@ -338,7 +338,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:58410-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "58410-2" ] ;
        fhir:display [ fhir:v "Complete blood count (hemogram) panel - Blood by Automated count" ]
      ] )
@@ -399,7 +399,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:718-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "718-7" ] ;
        fhir:display [ fhir:v "Hemoglobin [Mass/volume] in Blood" ]
      ] ) ;
@@ -416,20 +416,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "176"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "g/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "g/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "135"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "180"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "g/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "g/L" ]
      ]
   ] ) . # 
@@ -444,7 +444,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:789-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "789-8" ] ;
        fhir:display [ fhir:v "Erythrocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -461,20 +461,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "5.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*12/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*12/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "4.2"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*12/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*12/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "6.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*12/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*12/L" ]
      ]
   ] ) . # 
@@ -489,7 +489,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:4544-3 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "4544-3" ] ;
        fhir:display [ fhir:v "Hematocrit [Volume Fraction] of Blood by Automated count" ]
      ] ) ;
@@ -509,7 +509,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -534,7 +534,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:787-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "787-2" ] ;
        fhir:display [ fhir:v "Erythrocyte mean corpuscular volume [Entitic volume] by Automated count" ]
      ] ) ;
@@ -551,12 +551,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "99"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "fL" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "fL" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -564,13 +564,13 @@
      fhir:low [
        fhir:value [ fhir:v "80"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "fL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "fL" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "98"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "fL" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "fL" ]
      ]
   ] ) . # 
@@ -585,7 +585,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:785-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "785-6" ] ;
        fhir:display [ fhir:v "Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count" ]
      ] ) ;
@@ -602,12 +602,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "36"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "pg" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "pg" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -615,13 +615,13 @@
      fhir:low [
        fhir:value [ fhir:v "27"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "pg" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "pg" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "35"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "pg" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "pg" ]
      ]
   ] ) . # 
@@ -636,7 +636,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:777-3 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "777-3" ] ;
        fhir:display [ fhir:v "Platelets [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -653,20 +653,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "444"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "150"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "450"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -681,7 +681,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:6690-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "6690-2" ] ;
        fhir:display [ fhir:v "Leukocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -698,20 +698,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "4.6"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "4.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "11.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -726,7 +726,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:770-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "770-8" ] ;
        fhir:display [ fhir:v "Neutrophils/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -743,7 +743,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -757,7 +757,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:751-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "751-8" ] ;
        fhir:display [ fhir:v "Neutrophils [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -774,12 +774,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "LL" ]
      ] )
   ] ) ; # 
@@ -787,13 +787,13 @@
      fhir:low [
        fhir:value [ fhir:v "2.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "7.5"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -808,7 +808,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:736-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "736-9" ] ;
        fhir:display [ fhir:v "Lymphocytes/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -825,7 +825,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -839,7 +839,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:731-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "731-0" ] ;
        fhir:display [ fhir:v "Lymphocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -856,12 +856,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "L" ]
      ] )
   ] ) ; # 
@@ -869,13 +869,13 @@
      fhir:low [
        fhir:value [ fhir:v "1.1"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "4.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -890,7 +890,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:5905-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "5905-5" ] ;
        fhir:display [ fhir:v "Monocytes/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -907,7 +907,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -921,7 +921,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:742-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "742-7" ] ;
        fhir:display [ fhir:v "Monocytes [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -938,20 +938,20 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.9"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:low [
        fhir:value [ fhir:v "0.2"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "1.0"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -966,7 +966,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:713-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "713-8" ] ;
        fhir:display [ fhir:v "Eosinophils/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -983,7 +983,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -997,7 +997,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:711-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "711-2" ] ;
        fhir:display [ fhir:v "Eosinophils [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -1014,12 +1014,12 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.92"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "HH" ]
      ] )
   ] ) ; # 
@@ -1027,13 +1027,13 @@
      fhir:low [
        fhir:value [ fhir:v "0.04"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ] ;
      fhir:high [
        fhir:value [ fhir:v "0.40"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -1048,7 +1048,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:706-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "706-2" ] ;
        fhir:display [ fhir:v "Basophils/100 leukocytes in Blood by Automated count" ]
      ] ) ;
@@ -1065,7 +1065,7 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "20"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "%" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "%" ]
   ] . # 
 
@@ -1079,7 +1079,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:704-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "704-7" ] ;
        fhir:display [ fhir:v "Basophils [#/volume] in Blood by Automated count" ]
      ] ) ;
@@ -1096,14 +1096,14 @@
      a fhir:Quantity ;
      fhir:value [ fhir:v "0.92"^^xsd:decimal ] ;
      fhir:unit [ fhir:v "x10*9/L" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "10*9/L" ]
   ] ; # 
   fhir:referenceRange ( [
      fhir:high [
        fhir:value [ fhir:v "0.21"^^xsd:decimal ] ;
        fhir:unit [ fhir:v "x10*9/L" ] ;
-       fhir:system [ fhir:v "http://unitsofmeasure.org" ] ;
+       fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10*9/L" ]
      ]
   ] ) . # 
@@ -1118,7 +1118,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:24323-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "24323-8" ] ;
        fhir:display [ fhir:v "Comprehensive metabolic 2000 panel - Serum or Plasma" ]
      ] )
@@ -1189,12 +1189,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2951-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2951-2" ] ;
        fhir:display [ fhir:v "Sodium [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:104934005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "104934005" ]
      ] )
   ] ; # 
@@ -1231,12 +1231,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2823-3 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2823-3" ] ;
        fhir:display [ fhir:v "Potassium [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:59573005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "59573005" ]
      ] )
   ] ; # 
@@ -1273,12 +1273,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2075-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2075-0" ] ;
        fhir:display [ fhir:v "Chloride [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:46511006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "46511006" ]
      ] )
   ] ; # 
@@ -1315,12 +1315,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:1963-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1963-8" ] ;
        fhir:display [ fhir:v "Bicarbonate [Moles/volume] in Serum" ]
      ] [
        a sct:88645003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "88645003" ]
      ] )
   ] ; # 
@@ -1357,12 +1357,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:1863-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1863-0" ] ;
        fhir:display [ fhir:v "Anion gap 4 in Serum or Plasma" ]
      ] [
        a sct:271057005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "271057005" ]
      ] )
   ] ; # 
@@ -1399,12 +1399,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14749-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14749-6" ] ;
        fhir:display [ fhir:v "Glucose [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:36048009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "36048009" ]
      ] )
   ] ; # 
@@ -1441,12 +1441,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14937-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14937-7" ] ;
        fhir:display [ fhir:v "Urea nitrogen [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:273967009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "273967009" ]
      ] )
   ] ; # 
@@ -1483,12 +1483,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14682-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14682-9" ] ;
        fhir:display [ fhir:v "Creatinine [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:70901006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "70901006" ]
      ] )
   ] ; # 
@@ -1525,12 +1525,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14933-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14933-6" ] ;
        fhir:display [ fhir:v "Urate [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:86228006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "86228006" ]
      ] )
   ] ; # 
@@ -1548,7 +1548,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -1573,12 +1573,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14631-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14631-6" ] ;
        fhir:display [ fhir:v "Bilirubin.total [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:27171005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "27171005" ]
      ] )
   ] ; # 
@@ -1615,12 +1615,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14629-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14629-0" ] ;
        fhir:display [ fhir:v "Bilirubin.direct [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:39748002 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "39748002" ]
      ] )
   ] ; # 
@@ -1657,12 +1657,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:6768-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "6768-6" ] ;
        fhir:display [ fhir:v "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma" ]
      ] [
        a sct:88810008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "88810008" ]
      ] )
   ] ; # 
@@ -1699,12 +1699,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2324-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2324-2" ] ;
        fhir:display [ fhir:v "Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma" ]
      ] [
        a sct:69480007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "69480007" ]
      ] )
   ] ; # 
@@ -1741,12 +1741,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:1742-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1742-6" ] ;
        fhir:display [ fhir:v "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma" ]
      ] [
        a sct:34608000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "34608000" ]
      ] )
   ] ; # 
@@ -1764,7 +1764,7 @@
   ] ; # 
   fhir:interpretation ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "H" ]
      ] )
   ] ) ; # 
@@ -1789,12 +1789,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:1920-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1920-8" ] ;
        fhir:display [ fhir:v "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma" ]
      ] [
        a sct:45896001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "45896001" ]
      ] )
   ] ; # 
@@ -1831,12 +1831,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2532-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2532-0" ] ;
        fhir:display [ fhir:v "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma" ]
      ] [
        a sct:11274001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "11274001" ]
      ] )
   ] ; # 
@@ -1873,12 +1873,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2000-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2000-8" ] ;
        fhir:display [ fhir:v "Calcium [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:71878006 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "71878006" ]
      ] )
   ] ; # 
@@ -1915,12 +1915,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:13959-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "13959-2" ] ;
        fhir:display [ fhir:v "Calcium.ionized [Moles/volume] in Serum or Plasma by calculation" ]
      ] [
        a sct:166708003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "166708003" ]
      ] )
   ] ; # 
@@ -1957,12 +1957,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:14879-1 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "14879-1" ] ;
        fhir:display [ fhir:v "Phosphate [Moles/volume] in Serum or Plasma" ]
      ] [
        a sct:104866001 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "104866001" ]
      ] )
   ] ; # 
@@ -1999,12 +1999,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2885-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2885-2" ] ;
        fhir:display [ fhir:v "Protein [Mass/volume] in Serum or Plasma" ]
      ] [
        a sct:74040009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "74040009" ]
      ] )
   ] ; # 
@@ -2041,12 +2041,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:1751-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "1751-7" ] ;
        fhir:display [ fhir:v "Albumin [Mass/volume] in Serum or Plasma" ]
      ] [
        a sct:104485008 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "104485008" ]
      ] )
   ] ; # 
@@ -2083,12 +2083,12 @@
   fhir:code [
      fhir:coding ( [
        a loinc:10834-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "10834-0" ] ;
        fhir:display [ fhir:v "Globulin [Mass/volume] in Serum by calculation" ]
      ] [
        a sct:104979009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "104979009" ]
      ] )
   ] ; # 
@@ -2125,7 +2125,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:24357-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "24357-6" ] ;
        fhir:display [ fhir:v "Urinalysis macro (dipstick) panel - Urine" ]
      ] )
@@ -2170,7 +2170,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2756-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2756-5" ] ;
        fhir:display [ fhir:v "pH of Urine" ]
      ] )
@@ -2204,7 +2204,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2887-8 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2887-8" ] ;
        fhir:display [ fhir:v "Protein [Presence] in Urine" ]
      ] )
@@ -2222,7 +2222,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:260385009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "260385009" ] ;
        fhir:display [ fhir:v "Negative" ]
      ] )
@@ -2242,7 +2242,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2965-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2965-2" ] ;
        fhir:display [ fhir:v "Specific gravity of Urine" ]
      ] )
@@ -2275,7 +2275,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:33051-4 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "33051-4" ] ;
        fhir:display [ fhir:v "Erythrocytes [Presence] in Urine" ]
      ] )
@@ -2293,7 +2293,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:260385009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "260385009" ] ;
        fhir:display [ fhir:v "Negative" ]
      ] )
@@ -2313,7 +2313,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:2349-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "2349-9" ] ;
        fhir:display [ fhir:v "Glucose [Presence] in Urine" ]
      ] )
@@ -2331,7 +2331,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:260385009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "260385009" ] ;
        fhir:display [ fhir:v "Negative" ]
      ] )
@@ -2351,7 +2351,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:33052-2 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "33052-2" ] ;
        fhir:display [ fhir:v "Leukocytes [Presence] in Urine" ]
      ] )
@@ -2369,7 +2369,7 @@
      a fhir:CodeableConcept ;
      fhir:coding ( [
        a sct:260385009 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "260385009" ] ;
        fhir:display [ fhir:v "Negative" ]
      ] )
@@ -2389,7 +2389,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:30405-5 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "30405-5" ] ;
        fhir:display [ fhir:v "Leukocytes [#/volume] in Urine" ]
      ] )
@@ -2423,7 +2423,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:30391-7 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "30391-7" ] ;
        fhir:display [ fhir:v "Erythocytes [#/volume] in Urine" ]
      ] )
@@ -2458,7 +2458,7 @@
   fhir:code [
      fhir:coding ( [
        a loinc:13654-9 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "13654-9" ] ;
        fhir:display [ fhir:v "Epithelial cells.squamous [#/volume] in Urine sediment" ]
      ] )

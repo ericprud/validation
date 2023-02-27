@@ -18,7 +18,7 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:386053000 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "386053000" ] ;
        fhir:display [ fhir:v "Evaluation procedure (procedure)" ]
      ] ) ;
@@ -28,7 +28,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:710830005 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "710830005" ] ;
          fhir:display [ fhir:v "Assessment of passive range of motion (procedure)" ]
        ] ) ;
@@ -54,7 +54,7 @@
   fhir:bodySite ( [
      fhir:coding ( [
        a sct:36701003 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "36701003" ] ;
        fhir:display [ fhir:v "Both knees (body structure)" ]
      ] ) ;

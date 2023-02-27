@@ -17,7 +17,7 @@
      a fhir:ValueSet ;
      fhir:id [ fhir:v "motor" ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://loinc.org/ValueSet/LL357-5" ]
      ] ) ;
      fhir:name [ fhir:v "GCS Motor Value Set" ] ;
@@ -25,7 +25,7 @@
      fhir:description [ fhir:v "LOINC ANSWER LIST    (LL357-5)" ] ;
      fhir:compose [
        fhir:include ( [
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:concept ( [
            fhir:code [ fhir:v "LA6562-8" ] ;
            fhir:display [ fhir:v "No motor response" ]
@@ -51,7 +51,7 @@
      a fhir:ValueSet ;
      fhir:id [ fhir:v "verbal" ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://loinc.org/ValueSet/LL356-7" ]
      ] ) ;
      fhir:name [ fhir:v "GCS Verbal Value Set" ] ;
@@ -59,7 +59,7 @@
      fhir:description [ fhir:v "LOINC ANSWER LIST    (LL356-7)" ] ;
      fhir:compose [
        fhir:include ( [
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:concept ( [
            fhir:code [ fhir:v "LA6557-8" ] ;
            fhir:display [ fhir:v "No verbal response (>2yrs); no vocal response (<=2yrs)" ]
@@ -82,7 +82,7 @@
      a fhir:ValueSet ;
      fhir:id [ fhir:v "eye" ] ;
      fhir:identifier ( [
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "http://loinc.org/ValueSet/LL355-9" ]
      ] ) ;
      fhir:name [ fhir:v "GCS Eye Value Set" ] ;
@@ -90,7 +90,7 @@
      fhir:description [ fhir:v "LOINC ANSWER LIST    (LL355-9)" ] ;
      fhir:compose [
        fhir:include ( [
-         fhir:system [ fhir:v "http://loinc.org" ] ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
          fhir:concept ( [
            fhir:code [ fhir:v "LA6553-7" ] ;
            fhir:display [ fhir:v "No eye opening" ]
@@ -109,7 +109,7 @@
   ] ) ; # 
   fhir:url [ fhir:v "http://hl7.org/fhir/Questionnaire/gcs"] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+     fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.840.1.113883.4.642.20.5" ]
   ] ) ; # 
   fhir:name [ fhir:v "GlasgowComaScore"] ; # 
@@ -121,14 +121,14 @@
   fhir:description [ fhir:v "Glasgow Coma Score"] ; # 
   fhir:code ( [
      a loinc:9269-2 ;
-     fhir:system [ fhir:v "http://loinc.org" ] ;
+     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "9269-2" ]
   ] ) ; # 
   fhir:item ( [
      fhir:linkId [ fhir:v "1.1" ] ;
      fhir:code ( [
        a loinc:9270-0 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "9270-0" ]
      ] ) ;
      fhir:type [ fhir:v "coding" ] ;
@@ -137,7 +137,7 @@
      fhir:linkId [ fhir:v "1.2" ] ;
      fhir:code ( [
        a loinc:9268-4 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "9268-4" ]
      ] ) ;
      fhir:type [ fhir:v "coding" ] ;
@@ -146,7 +146,7 @@
      fhir:linkId [ fhir:v "1.3" ] ;
      fhir:code ( [
        a loinc:9267-6 ;
-       fhir:system [ fhir:v "http://loinc.org" ] ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "9267-6" ]
      ] ) ;
      fhir:type [ fhir:v "coding" ] ;

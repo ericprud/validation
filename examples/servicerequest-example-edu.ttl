@@ -18,7 +18,7 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:311401005 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "311401005" ] ;
        fhir:display [ fhir:v "Patient education (procedure)" ]
      ] ) ;
@@ -28,7 +28,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:48023004 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "48023004" ] ;
          fhir:display [ fhir:v "Breast self-examination technique education (procedure)" ]
        ] ) ;

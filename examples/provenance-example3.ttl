@@ -21,7 +21,7 @@
 #    
   fhir:target ( [
      fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/targetPath" ] ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/targetPath"^^xsd:anyURI ] ;
        fhir:value [ fhir:v "Procedure.followUp.text" ]
      ] ) ;
      fhir:reference [ fhir:v "Procedure/example/_history/1" ]
@@ -30,7 +30,7 @@
   fhir:agent ( [
      fhir:type [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType" ] ;
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "AUT" ]
        ] )
      ] ;

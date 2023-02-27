@@ -14,7 +14,7 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>"
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:dicom:uid" ] ;
+     fhir:system [ fhir:v "urn:dicom:uid"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045" ]
   ] ) ; # 
   fhir:status [ fhir:v "available"] ; # 
@@ -29,7 +29,7 @@
      fhir:number [ fhir:v "3"^^xsd:nonNegativeInteger ] ;
      fhir:modality [
        fhir:coding ( [
-         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM" ] ;
+         fhir:system [ fhir:v "http://dicom.nema.org/resources/ontology/DCM"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "CT" ]
        ] )
      ] ;
@@ -39,7 +39,7 @@
        fhir:concept [
          fhir:coding ( [
            a sct:67734004 ;
-           fhir:system [ fhir:v "http://snomed.info/sct" ] ; #   Added body site to support duplicate checking example  
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ; #   Added body site to support duplicate checking example  
            fhir:code [ fhir:v "67734004" ] ;
            fhir:display [ fhir:v "Upper Trunk Structure" ]
          ] )
@@ -48,7 +48,7 @@
      fhir:instance ( [
        fhir:uid [ fhir:v "2.16.124.113543.6003.189642796.63084.16748.2599092903" ] ;
        fhir:sopClass [
-         fhir:system [ fhir:v "urn:ietf:rfc:3986" ] ;
+         fhir:system [ fhir:v "urn:ietf:rfc:3986"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "urn:oid:1.2.840.10008.5.1.4.1.1.2" ]
        ] ;
        fhir:number [ fhir:v "1"^^xsd:nonNegativeInteger ]

@@ -18,7 +18,7 @@
      fhir:resource ( <https://example.org/FHIR/R5/Encounter/307> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "Encounter/307" ]
+       fhir:url [ fhir:v "Encounter/307"^^xsd:anyURI ]
      ] ;
      fhir:response [
        fhir:status [ fhir:v "201" ]
@@ -31,7 +31,7 @@
      fhir:resource ( <https://example.org/FHIR/R5/Encounter/308> ) ;
      fhir:request [
        fhir:method [ fhir:v "PUT" ] ;
-       fhir:url [ fhir:v "Encounter/308" ]
+       fhir:url [ fhir:v "Encounter/308"^^xsd:anyURI ]
      ] ;
      fhir:response [
        fhir:status [ fhir:v "201" ]
@@ -90,7 +90,7 @@
   fhir:status [ fhir:v "in-progress"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "VR" ] ;
        fhir:display [ fhir:v "virtual" ]
      ] )
@@ -128,7 +128,7 @@
   fhir:status [ fhir:v "in-progress"] ; # 
   fhir:class ( [
      fhir:coding ( [
-       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "VR" ] ;
        fhir:display [ fhir:v "virtual" ]
      ] )

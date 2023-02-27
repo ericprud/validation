@@ -18,7 +18,7 @@
   fhir:category ( [
      fhir:coding ( [
        a sct:103693007 ;
-       fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
        fhir:code [ fhir:v "103693007" ] ;
        fhir:display [ fhir:v "Diagnostic procedure (procedure)" ]
      ] ) ;
@@ -28,7 +28,7 @@
      fhir:concept [
        fhir:coding ( [
          a sct:303653007 ;
-         fhir:system [ fhir:v "http://snomed.info/sct" ] ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
          fhir:code [ fhir:v "303653007" ] ;
          fhir:display [ fhir:v "Computed tomography of head" ]
        ] )
