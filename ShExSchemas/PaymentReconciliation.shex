@@ -154,9 +154,9 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
 # This value set includes Status codes.
 fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
 
-# The presentation types of notes.
-fhirvs:note-type ["display" "print" "printoper"]
-
 # The outcome of the processing.
 fhirvs:payment-outcome ["queued" "complete" "error" "partial"]
+
+# The presentation types of notes.
+fhirvs:note-type ["display" "print" "printoper"]
 

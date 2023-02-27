@@ -92,6 +92,10 @@ start=@<RegulatedAuthorization> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # page) 
 }  
 
+# Applications submitted to obtain a regulated authorization. Steps within the longer running case or procedure
+<RegulatedAuthorization.case.applicationnull> CLOSED {   
+}  
+
 # The case or regulatory procedure for granting or amending a regulated authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)
 <RegulatedAuthorization.case> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>?;         # Identifier by which this case can 
@@ -104,10 +108,6 @@ start=@<RegulatedAuthorization> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # regulated authorization. Steps 
                                             # within the longer running case or 
                                             # procedure 
-}  
-
-# Applications submitted to obtain a regulated authorization. Steps within the longer running case or procedure
-<RegulatedAuthorization.case.applicationnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

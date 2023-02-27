@@ -105,7 +105,7 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: facilityType.empty() or context.where(resolve() is Encounter).empty()
 # ShEx:
 #
-# NOT { fhir:facilityType {fhir:v .} }  OR  NOT { fhir:context.  where  (   resolve  (  ) a Encounter) {fhir:v .} } 
+# NOT { fhir:facilityType {fhir:v .} }  OR  NOT { fhir:context. where  (   resolve  (  ) a Encounter) {fhir:v .} } 
 {}
 
 ) AND (
@@ -120,19 +120,11 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: practiceSetting.empty() or context.where(resolve() is Encounter).empty()
 # ShEx:
 #
-# NOT { fhir:practiceSetting {fhir:v .} }  OR  NOT { fhir:context.  where  (   resolve  (  ) a Encounter) {fhir:v .} } 
+# NOT { fhir:practiceSetting {fhir:v .} }  OR  NOT { fhir:context. where  (   resolve  (  ) a Encounter) {fhir:v .} } 
 {}
 
 )
  
-
-# Relationships to other documents
-<DocumentReference.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # The relationship type with another 
-                                            # document 
-    fhir:target @<Reference> AND {fhir:link 
-    			@<DocumentReference> ? };  # Target of the relationship
-}  
 
 # Document referenced
 <DocumentReference.content> EXTENDS @<BackboneElement> CLOSED {   
@@ -159,6 +151,14 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:value @<Coding>  OR 
     			@<uri>  OR 
     			@<canonical>  ;  # Code|uri|canonical
+}  
+
+# Relationships to other documents
+<DocumentReference.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # The relationship type with another 
+                                            # document 
+    fhir:target @<Reference> AND {fhir:link 
+    			@<DocumentReference> ? };  # Target of the relationship
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -242,9 +242,9 @@ start=@<DocumentReference> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "deprecated" "unknown"]
-
 # The status of the document reference.
 fhirvs:document-reference-status ["current" "superseded" "entered-in-error"]
+
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "deprecated" "unknown"]
 

@@ -112,23 +112,6 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:note @<OneOrMore_Annotation>?;     # Comment on adverse event
 }  
 
-# Information on the possible cause of the event
-<AdverseEvent.suspectEntity.causality> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:assessmentMethod @<CodeableConcept>?;  # Method of evaluating the 
-                                            # relatedness of the suspected 
-                                            # entity to the event 
-    fhir:entityRelatedness @<CodeableConcept>?;  # Result of the assessment regarding 
-                                            # the relatedness of the suspected 
-                                            # entity to the event 
-    fhir:author @<Reference> AND {fhir:link 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> OR 
-    			@<ResearchSubject> ? }?;  # Author of the information on the 
-                                            # possible cause of the event 
-}  
-
 # Contributing factors suspected to have increased the probability or severity of the adverse event
 <AdverseEvent.contributingFactor> EXTENDS @<BackboneElement> CLOSED {   
     fhir:item (@<Reference>  AND {fhir:link @<Condition> OR 
@@ -144,6 +127,17 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<CodeableConcept>  ;  # Item suspected to have increased 
                                             # the probability or severity of the 
                                             # adverse event 
+}  
+
+# Preventive actions that contributed to avoiding the adverse event
+<AdverseEvent.preventiveAction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item (@<Reference>  AND {fhir:link @<Immunization> OR 
+    			 @<Procedure> OR 
+    			 @<DocumentReference> OR 
+    			 @<MedicationAdministration> OR 
+    			 @<MedicationRequest> })  OR 
+    			@<CodeableConcept>  ;  # Action that contributed to 
+                                            # avoiding the adverse event 
 }  
 
 # Who was involved in the adverse event or the potential adverse event and what they did
@@ -162,32 +156,21 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # event 
 }  
 
-# The suspected agent causing the adverse event
-<AdverseEvent.suspectEntity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:instance @<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Immunization> OR 
-    			 @<Procedure> OR 
-    			 @<Substance> OR 
-    			 @<Medication> OR 
-    			 @<MedicationAdministration> OR 
-    			 @<MedicationUsage> OR 
-    			 @<Device> OR 
-    			 @<BiologicallyDerivedProduct> OR 
-    			 @<ResearchStudy> })  ;  # Refers to the specific entity that 
-                                            # caused the adverse event 
-    fhir:causality @<AdverseEvent.suspectEntity.causality>?;  # Information on the possible cause 
-                                            # of the event 
-}  
-
-# Preventive actions that contributed to avoiding the adverse event
-<AdverseEvent.preventiveAction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item (@<Reference>  AND {fhir:link @<Immunization> OR 
-    			 @<Procedure> OR 
-    			 @<DocumentReference> OR 
-    			 @<MedicationAdministration> OR 
-    			 @<MedicationRequest> })  OR 
-    			@<CodeableConcept>  ;  # Action that contributed to 
-                                            # avoiding the adverse event 
+# Information on the possible cause of the event
+<AdverseEvent.suspectEntity.causality> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:assessmentMethod @<CodeableConcept>?;  # Method of evaluating the 
+                                            # relatedness of the suspected 
+                                            # entity to the event 
+    fhir:entityRelatedness @<CodeableConcept>?;  # Result of the assessment regarding 
+                                            # the relatedness of the suspected 
+                                            # entity to the event 
+    fhir:author @<Reference> AND {fhir:link 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> OR 
+    			@<ResearchSubject> ? }?;  # Author of the information on the 
+                                            # possible cause of the event 
 }  
 
 # Ameliorating actions taken after the adverse event occured in order to reduce the extent of harm
@@ -215,6 +198,23 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<CodeableConcept>  ;  # Subject medical history or 
                                             # document relevant to this adverse 
                                             # event 
+}  
+
+# The suspected agent causing the adverse event
+<AdverseEvent.suspectEntity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:instance @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Immunization> OR 
+    			 @<Procedure> OR 
+    			 @<Substance> OR 
+    			 @<Medication> OR 
+    			 @<MedicationAdministration> OR 
+    			 @<MedicationUsage> OR 
+    			 @<Device> OR 
+    			 @<BiologicallyDerivedProduct> OR 
+    			 @<ResearchStudy> })  ;  # Refers to the specific entity that 
+                                            # caused the adverse event 
+    fhir:causality @<AdverseEvent.suspectEntity.causality>?;  # Information on the possible cause 
+                                            # of the event 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -279,9 +279,9 @@ start=@<AdverseEvent> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Overall nature of the adverse event, e.g. real or potential.
-fhirvs:adverse-event-actuality ["actual" "potential"]
-
 # Codes identifying the lifecycle stage of an adverse event.
 fhirvs:adverse-event-status ["in-progress" "completed" "entered-in-error" "unknown"]
+
+# Overall nature of the adverse event, e.g. real or potential.
+fhirvs:adverse-event-actuality ["actual" "potential"]
 

@@ -79,6 +79,21 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# Processing errors
+<CoverageEligibilityResponse.error> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Error code detailing processing 
+                                            # issues 
+}  
+
+# Patient insurance information
+<CoverageEligibilityResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:coverage @<Reference> AND {fhir:link 
+    			@<Coverage> ? };  # Insurance information
+    fhir:inforce @<boolean>?;               # Coverage inforce indicator
+    fhir:benefitPeriod @<Period>?;          # When the benefits are applicable
+    fhir:item @<OneOrMore_CoverageEligibilityResponse.insurance.item>?;  # Benefits and authorization details
+}  
+
 # Benefits and authorization details
 <CoverageEligibilityResponse.insurance.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:category @<CodeableConcept>?;      # Benefit classification
@@ -102,21 +117,6 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # materials 
     fhir:authorizationUrl @<uri>?;          # Preauthorization requirements 
                                             # endpoint 
-}  
-
-# Processing errors
-<CoverageEligibilityResponse.error> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Error code detailing processing 
-                                            # issues 
-}  
-
-# Patient insurance information
-<CoverageEligibilityResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:coverage @<Reference> AND {fhir:link 
-    			@<Coverage> ? };  # Insurance information
-    fhir:inforce @<boolean>?;               # Coverage inforce indicator
-    fhir:benefitPeriod @<Period>?;          # When the benefits are applicable
-    fhir:item @<OneOrMore_CoverageEligibilityResponse.insurance.item>?;  # Benefits and authorization details
 }  
 
 # Benefit Summary
@@ -152,6 +152,11 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.error> 
 }
 
+<OneOrMore_CoverageEligibilityResponse.insurance.item> CLOSED {
+    rdf:first @<CoverageEligibilityResponse.insurance.item>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.insurance.item> 
+}
+
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
@@ -160,11 +165,6 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 <OneOrMore_CoverageEligibilityResponse.insurance.item.benefit> CLOSED {
     rdf:first @<CoverageEligibilityResponse.insurance.item.benefit>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.insurance.item.benefit> 
-}
-
-<OneOrMore_CoverageEligibilityResponse.insurance.item> CLOSED {
-    rdf:first @<CoverageEligibilityResponse.insurance.item>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.insurance.item> 
 }
 
 #---------------------- Value Sets ------------------------

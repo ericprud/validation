@@ -18,11 +18,11 @@ start=@<lipidprofile> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Key images or data associated with this report
-<DiagnosticReport.media> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Additional information supporting the diagnostic report
 <DiagnosticReport.supportingInfo> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Key images or data associated with this report
+<DiagnosticReport.media> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

@@ -177,7 +177,7 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()
 # ShEx:
 #
-# NOT { fhir:value {fhir:v .} }  OR  NOT { fhir:component.code.  where  (coding.  intersect  ('%resource'.code.coding) .) {fhir:v .} } 
+# NOT { fhir:value {fhir:v .} }  OR  NOT { fhir:component.code. where  (coding.  intersect  ('%resource'.code.coding) .) {fhir:v .} } 
 {}
 
 ) AND (
@@ -223,16 +223,6 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:interpretation @<OneOrMore_CodeableConcept>?;  # High, low, normal, etc.
     fhir:referenceRange @<OneOrMore_Observation.referenceRange>?;  # Provides guide for interpretation 
                                             # of component result 
-}  
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:observation @<Reference> AND {fhir:link 
-    			@<Observation> ? };  # Triggering observation
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
-    fhir:reason @<string>?;                 # Reason that the observation was 
-                                            # triggered 
 }  
 
 # Provides guide for interpretation
@@ -282,7 +272,7 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()
 # ShEx:
 #
-# NOT { fhir:value {fhir:v .} }  OR  NOT { fhir:component.code.  where  (coding.  intersect  ('%resource'.code.coding) .) {fhir:v .} } 
+# NOT { fhir:value {fhir:v .} }  OR  NOT { fhir:component.code. where  (coding.  intersect  ('%resource'.code.coding) .) {fhir:v .} } 
 {}
 
 ) AND (
@@ -307,6 +297,16 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
 
 )
  
+
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:observation @<Reference> AND {fhir:link 
+    			@<Observation> ? };  # Triggering observation
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:observation-triggeredbytype};  # reflex | repeat | re-run
+    fhir:reason @<string>?;                 # Reason that the observation was 
+                                            # triggered 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -402,9 +402,9 @@ start=@<Observation> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes providing the type of triggeredBy observation.
-fhirvs:observation-triggeredbytype ["reflex" "repeat" "re-run"]
-
 # Codes providing the status of an observation.
 fhirvs:observation-status ["registered" "preliminary" "final" "amended" "corrected" "cancelled" "entered-in-error" "unknown"]
+
+# Codes providing the type of triggeredBy observation.
+fhirvs:observation-triggeredbytype ["reflex" "repeat" "re-run"]
 

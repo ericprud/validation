@@ -16,15 +16,15 @@ IMPORT <Coding.shex>
 IMPORT <Timing.shex>
 IMPORT <Device.shex>
 IMPORT <Patient.shex>
-IMPORT <decimal.shex>
 IMPORT <boolean.shex>
+IMPORT <decimal.shex>
 IMPORT <integer.shex>
 IMPORT <dateTime.shex>
 IMPORT <Resource.shex>
-IMPORT <markdown.shex>
 IMPORT <Quantity.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Location.shex>
+IMPORT <markdown.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Substance.shex>
@@ -104,45 +104,20 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     			 @<Contract> })  ?;  # Binding Contract
 }  
 
-# Contract Term Asset List
-<Contract.term.asset> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:scope @<CodeableConcept>?;         # Range of asset
-    fhir:type @<OneOrMore_CodeableConcept>?;  # Asset category
-    fhir:typeReference @<OneOrMore_Reference_Resource>?;  # Associated entities
-    fhir:subtype @<OneOrMore_CodeableConcept>?;  # Asset sub-category
-    fhir:relationship @<Coding>?;           # Kinship of the asset
-    fhir:context @<OneOrMore_Contract.term.asset.context>?;  # Circumstance of the asset
-    fhir:condition @<string>?;              # Quality desctiption of asset
-    fhir:periodType @<OneOrMore_CodeableConcept>?;  # Asset availability types
-    fhir:period @<OneOrMore_Period>?;       # Time period of the asset
-    fhir:usePeriod @<OneOrMore_Period>?;    # Time period
-    fhir:text @<string>?;                   # Asset clause or question text
-    fhir:linkId @<OneOrMore_string>?;       # Pointer to asset text
-    fhir:answer @<OneOrMore_Contract.term.offer.answer>?;  # Response to assets
-    fhir:securityLabelNumber @<OneOrMore_unsignedInt>?;  # Asset restriction numbers
-    fhir:valuedItem @<OneOrMore_Contract.term.asset.valuedItem>?;  # Contract Valued Item List
-}  
-
-# Computable Contract Language
-<Contract.rule> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:content @<Attachment>  OR 
-    			(@<Reference>  AND {fhir:link @<DocumentReference> })  ;  # Computable Contract Rules
-}  
-
-# Contract precursor content
-<Contract.contentDefinition> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Content structure and use
-    fhir:subType @<CodeableConcept>?;       # Detailed Content Type Definition
-    fhir:publisher @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> ? }?;  # Publisher Entity
-    fhir:publicationDate @<dateTime>?;      # When published
-    fhir:publicationStatus @<code> AND
-    	{fhir:v @fhirvs:contract-publicationstatus};  # amended | appended | cancelled | 
-                                            # disputed | entered-in-error | 
-                                            # executable + 
-    fhir:copyright @<markdown>?;            # Publication Ownership
+# Response to offer text
+<Contract.term.offer.answer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<boolean>  OR 
+    			@<decimal>  OR 
+    			@<integer>  OR 
+    			@<date>  OR 
+    			@<dateTime>  OR 
+    			@<time>  OR 
+    			@<string>  OR 
+    			@<uri>  OR 
+    			@<Attachment>  OR 
+    			@<Coding>  OR 
+    			@<Quantity>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # The actual answer response
 }  
 
 # Contract Valued Item List
@@ -178,6 +153,63 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # affected terms 
 }  
 
+# Contract Term Asset List
+<Contract.term.asset> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:scope @<CodeableConcept>?;         # Range of asset
+    fhir:type @<OneOrMore_CodeableConcept>?;  # Asset category
+    fhir:typeReference @<OneOrMore_Reference_Resource>?;  # Associated entities
+    fhir:subtype @<OneOrMore_CodeableConcept>?;  # Asset sub-category
+    fhir:relationship @<Coding>?;           # Kinship of the asset
+    fhir:context @<OneOrMore_Contract.term.asset.context>?;  # Circumstance of the asset
+    fhir:condition @<string>?;              # Quality desctiption of asset
+    fhir:periodType @<OneOrMore_CodeableConcept>?;  # Asset availability types
+    fhir:period @<OneOrMore_Period>?;       # Time period of the asset
+    fhir:usePeriod @<OneOrMore_Period>?;    # Time period
+    fhir:text @<string>?;                   # Asset clause or question text
+    fhir:linkId @<OneOrMore_string>?;       # Pointer to asset text
+    fhir:answer @<OneOrMore_Contract.term.offer.answer>?;  # Response to assets
+    fhir:securityLabelNumber @<OneOrMore_unsignedInt>?;  # Asset restriction numbers
+    fhir:valuedItem @<OneOrMore_Contract.term.asset.valuedItem>?;  # Contract Valued Item List
+}  
+
+# Circumstance of the asset
+<Contract.term.asset.context> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Creator,custodian or owner
+    fhir:code @<OneOrMore_CodeableConcept>?;  # Codeable asset context
+    fhir:text @<string>?;                   # Context description
+}  
+
+# Entity of the action
+<Contract.term.action.subject> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:reference @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>;  # Entity of the action
+    fhir:role @<CodeableConcept>?;          # Role type of the agent
+}  
+
+# Computable Contract Language
+<Contract.rule> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:content @<Attachment>  OR 
+    			(@<Reference>  AND {fhir:link @<DocumentReference> })  ;  # Computable Contract Rules
+}  
+
+# Contract Signatory
+<Contract.signer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<Coding>;                    # Contract Signatory Role
+    fhir:party @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? };  # Contract Signatory Party
+    fhir:signature @<OneOrMore_Signature>;  # Contract Documentation Signature
+}  
+
+# Offer Recipient
+<Contract.term.offer.party> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:reference @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>;  # Referenced entity
+    fhir:role @<CodeableConcept>;           # Participant engagement type
+}  
+
 # Contract Term List
 <Contract.term> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>?;         # Contract Term Number
@@ -195,6 +227,25 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:action @<OneOrMore_Contract.term.action>?;  # Entity being ascribed 
                                             # responsibility 
     fhir:group @<OneOrMore_Contract.term>?;  # Nested Contract Term Group
+}  
+
+# Nested Contract Term Group
+<Contract.term.groupnull> CLOSED {   
+}  
+
+# Context of the Contract term
+<Contract.term.offer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier @<OneOrMore_Identifier>?;  # Offer business ID
+    fhir:party @<OneOrMore_Contract.term.offer.party>?;  # Offer Recipient
+    fhir:topic @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Negotiable offer asset
+    fhir:type @<CodeableConcept>?;          # Contract Offer Type or Form
+    fhir:decision @<CodeableConcept>?;      # Accepting party choice
+    fhir:decisionMode @<OneOrMore_CodeableConcept>?;  # How decision is conveyed
+    fhir:answer @<OneOrMore_Contract.term.offer.answer>?;  # Response to offer text
+    fhir:text @<string>?;                   # Human readable offer text
+    fhir:linkId @<OneOrMore_string>?;       # Pointer to text
+    fhir:securityLabelNumber @<OneOrMore_unsignedInt>?;  # Offer restriction numbers
 }  
 
 # Entity being ascribed responsibility
@@ -236,24 +287,6 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:securityLabelNumber @<OneOrMore_unsignedInt>?;  # Action restriction numbers
 }  
 
-# Contract Legal Language
-<Contract.legal> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:content @<Attachment>  OR 
-    			(@<Reference>  AND {fhir:link @<Composition> OR 
-    			 @<DocumentReference> OR 
-    			 @<QuestionnaireResponse> })  ;  # Contract Legal Text
-}  
-
-# Entity of the action
-<Contract.term.action.subject> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:reference @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>;  # Entity of the action
-    fhir:role @<CodeableConcept>?;          # Role type of the agent
-}  
-
-# Nested Contract Term Group
-<Contract.term.groupnull> CLOSED {   
-}  
-
 # Protection for the Term
 <Contract.term.securityLabel> EXTENDS @<BackboneElement> CLOSED {   
     fhir:number @<OneOrMore_unsignedInt>?;  # Link to Security Labels
@@ -262,20 +295,12 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:control @<OneOrMore_Coding>?;      # Handling Instructions
 }  
 
-# Response to offer text
-<Contract.term.offer.answer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<boolean>  OR 
-    			@<decimal>  OR 
-    			@<integer>  OR 
-    			@<date>  OR 
-    			@<dateTime>  OR 
-    			@<time>  OR 
-    			@<string>  OR 
-    			@<uri>  OR 
-    			@<Attachment>  OR 
-    			@<Coding>  OR 
-    			@<Quantity>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # The actual answer response
+# Contract Legal Language
+<Contract.legal> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:content @<Attachment>  OR 
+    			(@<Reference>  AND {fhir:link @<Composition> OR 
+    			 @<DocumentReference> OR 
+    			 @<QuestionnaireResponse> })  ;  # Contract Legal Text
 }  
 
 # Contract Friendly Language
@@ -287,45 +312,20 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # of this Contract 
 }  
 
-# Contract Signatory
-<Contract.signer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<Coding>;                    # Contract Signatory Role
-    fhir:party @<Reference> AND {fhir:link 
+# Contract precursor content
+<Contract.contentDefinition> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Content structure and use
+    fhir:subType @<CodeableConcept>?;       # Detailed Content Type Definition
+    fhir:publisher @<Reference> AND {fhir:link 
     			@<Organization> OR 
-    			@<Patient> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> ? };  # Contract Signatory Party
-    fhir:signature @<OneOrMore_Signature>;  # Contract Documentation Signature
-}  
-
-# Context of the Contract term
-<Contract.term.offer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier @<OneOrMore_Identifier>?;  # Offer business ID
-    fhir:party @<OneOrMore_Contract.term.offer.party>?;  # Offer Recipient
-    fhir:topic @<Reference> AND {fhir:link 
-    			@<Resource> ? }?;  # Negotiable offer asset
-    fhir:type @<CodeableConcept>?;          # Contract Offer Type or Form
-    fhir:decision @<CodeableConcept>?;      # Accepting party choice
-    fhir:decisionMode @<OneOrMore_CodeableConcept>?;  # How decision is conveyed
-    fhir:answer @<OneOrMore_Contract.term.offer.answer>?;  # Response to offer text
-    fhir:text @<string>?;                   # Human readable offer text
-    fhir:linkId @<OneOrMore_string>?;       # Pointer to text
-    fhir:securityLabelNumber @<OneOrMore_unsignedInt>?;  # Offer restriction numbers
-}  
-
-# Offer Recipient
-<Contract.term.offer.party> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:reference @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>;  # Referenced entity
-    fhir:role @<CodeableConcept>;           # Participant engagement type
-}  
-
-# Circumstance of the asset
-<Contract.term.asset.context> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<Resource> ? }?;  # Creator,custodian or owner
-    fhir:code @<OneOrMore_CodeableConcept>?;  # Codeable asset context
-    fhir:text @<string>?;                   # Context description
+    			@<PractitionerRole> ? }?;  # Publisher Entity
+    fhir:publicationDate @<dateTime>?;      # When published
+    fhir:publicationStatus @<code> AND
+    	{fhir:v @fhirvs:contract-publicationstatus};  # amended | appended | cancelled | 
+                                            # disputed | entered-in-error | 
+                                            # executable + 
+    fhir:copyright @<markdown>?;            # Publication Ownership
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -394,6 +394,11 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Contract.rule> 
 }
 
+<OneOrMore_unsignedInt> CLOSED {
+    rdf:first @<unsignedInt>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_unsignedInt> 
+}
+
 <OneOrMore_Contract.term.asset.context> CLOSED {
     rdf:first @<Contract.term.asset.context>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.asset.context> 
@@ -409,14 +414,26 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.offer.answer> 
 }
 
-<OneOrMore_unsignedInt> CLOSED {
-    rdf:first @<unsignedInt>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_unsignedInt> 
-}
-
 <OneOrMore_Contract.term.asset.valuedItem> CLOSED {
     rdf:first @<Contract.term.asset.valuedItem>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.asset.valuedItem> 
+}
+
+<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<Device> OR 
+			@<Group> OR 
+			@<Organization> OR 
+			@<Patient> OR 
+			@<Practitioner> OR 
+			@<PractitionerRole> OR 
+			@<RelatedPerson> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> 
+}
+
+<OneOrMore_Signature> CLOSED {
+    rdf:first @<Signature>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Signature> 
 }
 
 <OneOrMore_Contract.term.securityLabel> CLOSED {
@@ -434,21 +451,14 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.action> 
 }
 
+<OneOrMore_Contract.term.offer.party> CLOSED {
+    rdf:first @<Contract.term.offer.party>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.offer.party> 
+}
+
 <OneOrMore_Contract.term.action.subject> CLOSED {
     rdf:first @<Contract.term.action.subject>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.action.subject> 
-}
-
-<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<Device> OR 
-			@<Group> OR 
-			@<Organization> OR 
-			@<Patient> OR 
-			@<Practitioner> OR 
-			@<PractitionerRole> OR 
-			@<RelatedPerson> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {
@@ -466,21 +476,11 @@ start=@<Contract> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Coding> 
 }
 
-<OneOrMore_Signature> CLOSED {
-    rdf:first @<Signature>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Signature> 
-}
-
-<OneOrMore_Contract.term.offer.party> CLOSED {
-    rdf:first @<Contract.term.offer.party>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Contract.term.offer.party> 
-}
-
 #---------------------- Value Sets ------------------------
 
 # This value set contract specific codes for status.
-fhirvs:contract-publicationstatus ["amended" "appended" "cancelled" "disputed" "entered-in-error" "executable" "executed" "negotiable" "offered" "policy" "rejected" "renewed" "revoked" "resolved" "terminated"]
+fhirvs:contract-status ["amended" "appended" "cancelled" "disputed" "entered-in-error" "executable" "executed" "negotiable" "offered" "policy" "rejected" "renewed" "revoked" "resolved" "terminated"]
 
 # This value set contract specific codes for status.
-fhirvs:contract-status ["amended" "appended" "cancelled" "disputed" "entered-in-error" "executable" "executed" "negotiable" "offered" "policy" "rejected" "renewed" "revoked" "resolved" "terminated"]
+fhirvs:contract-publicationstatus ["amended" "appended" "cancelled" "disputed" "entered-in-error" "executable" "executed" "negotiable" "offered" "policy" "rejected" "renewed" "revoked" "resolved" "terminated"]
 

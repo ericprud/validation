@@ -68,6 +68,14 @@ IMPORT <CodeableConcept.shex>
 )
  
 
+# Order of the results
+<DataRequirement.sort> EXTENDS @<Element> CLOSED {   
+    fhir:path @<string>;                    # The name of the attribute to 
+                                            # perform the sort 
+    fhir:direction @<code> AND
+    	{fhir:v @fhirvs:sort-direction};  # ascending | descending
+}  
+
 # What dates/date ranges are expected
 <DataRequirement.dateFilter> EXTENDS @<Element> CLOSED {   
     fhir:path @<string>?;                   # A date-valued attribute to filter 
@@ -110,27 +118,6 @@ IMPORT <CodeableConcept.shex>
 )
  
 
-# Order of the results
-<DataRequirement.sort> EXTENDS @<Element> CLOSED {   
-    fhir:path @<string>;                    # The name of the attribute to 
-                                            # perform the sort 
-    fhir:direction @<code> AND
-    	{fhir:v @fhirvs:sort-direction};  # ascending | descending
-}  
-
-# What values are expected
-<DataRequirement.valueFilter> EXTENDS @<Element> CLOSED {   
-    fhir:path @<string>?;                   # An attribute to filter on
-    fhir:searchParam @<string>?;            # A parameter to search on
-    fhir:comparator @<code> AND
-    	{fhir:v @fhirvs:value-filter-comparator}?;  # eq | gt | lt | ge | le | sa | eb
-    fhir:value @<dateTime>  OR 
-    			@<Period>  OR 
-    			@<Duration>  ?;  # The value of the filter, as a 
-                                            # Period, DateTime, or Duration 
-                                            # value 
-}  
-
 # What codes are expected
 <DataRequirement.codeFilter> EXTENDS @<Element> CLOSED {   
     fhir:path @<string>?;                   # A code-valued attribute to filter 
@@ -170,6 +157,19 @@ IMPORT <CodeableConcept.shex>
 )
  
 
+# What values are expected
+<DataRequirement.valueFilter> EXTENDS @<Element> CLOSED {   
+    fhir:path @<string>?;                   # An attribute to filter on
+    fhir:searchParam @<string>?;            # A parameter to search on
+    fhir:comparator @<code> AND
+    	{fhir:v @fhirvs:value-filter-comparator}?;  # eq | gt | lt | ge | le | sa | eb
+    fhir:value @<dateTime>  OR 
+    			@<Period>  OR 
+    			@<Duration>  ?;  # The value of the filter, as a 
+                                            # Period, DateTime, or Duration 
+                                            # value 
+}  
+
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_canonical> CLOSED {
@@ -194,12 +194,12 @@ IMPORT <CodeableConcept.shex>
 
 #---------------------- Value Sets ------------------------
 
-# All FHIR types
-fhirvs:fhir-types ["Base" "Element" "BackboneElement" "DataType" "Address" "Annotation" "Attachment" "Availability" "BackboneType" "Dosage" "ElementDefinition" "MarketingStatus" "Population" "ProductShelfLife" "Timing" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "DataRequirement" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "Meta" "MonetaryComponent" "Money" "Narrative" "ParameterDefinition" "Period" "PrimitiveType" "base64Binary" "boolean" "date" "dateTime" "decimal" "instant" "integer" "positiveInt" "unsignedInt" "integer64" "string" "code" "id" "markdown" "time" "uri" "canonical" "oid" "url" "uuid" "Quantity" "Age" "Count" "Distance" "Duration" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "TriggerDefinition" "UsageContext" "VirtualServiceDetail" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MetadataResource" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription" "Parameters"]
-
 # The type of comparator operator to use
 fhirvs:value-filter-comparator ["eq" "gt" "lt" "ge" "le" "sa" "eb"]
 
 # The possible sort directions, ascending or descending.
 fhirvs:sort-direction ["ascending" "descending"]
+
+# All FHIR types
+fhirvs:fhir-types ["Base" "Element" "BackboneElement" "DataType" "Address" "Annotation" "Attachment" "Availability" "BackboneType" "Dosage" "ElementDefinition" "MarketingStatus" "Population" "ProductShelfLife" "Timing" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "DataRequirement" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "Meta" "MonetaryComponent" "Money" "Narrative" "ParameterDefinition" "Period" "PrimitiveType" "base64Binary" "boolean" "date" "dateTime" "decimal" "instant" "integer" "positiveInt" "unsignedInt" "integer64" "string" "code" "id" "markdown" "time" "uri" "canonical" "oid" "url" "uuid" "Quantity" "Age" "Count" "Distance" "Duration" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "TriggerDefinition" "UsageContext" "VirtualServiceDetail" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MetadataResource" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription" "Parameters"]
 

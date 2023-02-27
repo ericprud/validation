@@ -14,8 +14,8 @@ IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <Duration.shex>
 IMPORT <Quantity.shex>
+IMPORT <Duration.shex>
 IMPORT <Reference.shex>
 IMPORT <Identifier.shex>
 IMPORT <DomainResource.shex>
@@ -79,22 +79,6 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # testing by lab 
 }  
 
-# Additive associated with container
-<SpecimenDefinition.typeTested.container.additive> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:additive @<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<SubstanceDefinition> })  ;  # Additive associated with container
-}  
-
-# Specimen handling before testing
-<SpecimenDefinition.typeTested.handling> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:temperatureQualifier @<CodeableConcept>?;  # Qualifies the interval of 
-                                            # temperature 
-    fhir:temperatureRange @<Range>?;        # Temperature range for these 
-                                            # handling instructions 
-    fhir:maxDuration @<Duration>?;          # Maximum preservation time
-    fhir:instruction @<string>?;            # Preservation instruction
-}  
-
 # The specimen's container
 <SpecimenDefinition.typeTested.container> EXTENDS @<BackboneElement> CLOSED {   
     fhir:material @<CodeableConcept>?;      # The material type used for the 
@@ -113,6 +97,16 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # container for this specimen type 
 }  
 
+# Specimen handling before testing
+<SpecimenDefinition.typeTested.handling> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:temperatureQualifier @<CodeableConcept>?;  # Qualifies the interval of 
+                                            # temperature 
+    fhir:temperatureRange @<Range>?;        # Temperature range for these 
+                                            # handling instructions 
+    fhir:maxDuration @<Duration>?;          # Maximum preservation time
+    fhir:instruction @<string>?;            # Preservation instruction
+}  
+
 # Specimen in container intended for testing by lab
 <SpecimenDefinition.typeTested> EXTENDS @<BackboneElement> CLOSED {   
     fhir:isDerived @<boolean>?;             # Primary or secondary specimen
@@ -129,6 +123,12 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # rejection 
     fhir:handling @<OneOrMore_SpecimenDefinition.typeTested.handling>?;  # Specimen handling before testing
     fhir:testingDestination @<OneOrMore_CodeableConcept>?;  # Where the specimen will be tested
+}  
+
+# Additive associated with container
+<SpecimenDefinition.typeTested.container.additive> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:additive @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<SubstanceDefinition> })  ;  # Additive associated with container
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -175,9 +175,9 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # Degree of preference of a type of conditioned specimen.
 fhirvs:specimen-contained-preference ["preferred" "alternate"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

@@ -18,15 +18,15 @@ start=@<hdlcholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Component results
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Component results
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

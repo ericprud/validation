@@ -58,6 +58,15 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # message 
 }  
 
+# Message source application
+<MessageHeader.source> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Name of system
+    fhir:software @<string>?;               # Name of software running the system
+    fhir:version @<string>?;                # Version of software running
+    fhir:contact @<ContactPoint>?;          # Human contact for problems
+    fhir:endpoint @<url>?;                  # Actual message source address or id
+}  
+
 # Message destination application(s)
 <MessageHeader.destination> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>?;                   # Name of system
@@ -81,15 +90,6 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:details @<Reference> AND {fhir:link 
     			@<OperationOutcome> ? }?;  # Specific list of 
                                             # hints/warnings/errors 
-}  
-
-# Message source application
-<MessageHeader.source> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Name of system
-    fhir:software @<string>?;               # Name of software running the system
-    fhir:version @<string>?;                # Version of software running
-    fhir:contact @<ContactPoint>?;          # Human contact for problems
-    fhir:endpoint @<url>?;                  # Actual message source address or id
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

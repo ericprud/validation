@@ -13,9 +13,9 @@ IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <Location.shex>
-IMPORT <Coverage.shex>
 IMPORT <Resource.shex>
 IMPORT <Quantity.shex>
+IMPORT <Coverage.shex>
 IMPORT <Reference.shex>
 IMPORT <Condition.shex>
 IMPORT <positiveInt.shex>
@@ -66,26 +66,18 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:item @<OneOrMore_CoverageEligibilityRequest.item>?;  # Item to be evaluated for eligibiity
 }  
 
-# Patient insurance information
-<CoverageEligibilityRequest.insurance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:focal @<boolean>?;                 # Applicable coverage
-    fhir:coverage @<Reference> AND {fhir:link 
-    			@<Coverage> ? };  # Insurance information
-    fhir:businessArrangement @<string>?;    # Additional provider contract number
-}  
-
-# Applicable diagnosis
-<CoverageEligibilityRequest.item.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:diagnosis @<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Condition> })  ?;  # Nature of illness or problem
-}  
-
 # Supporting information
 <CoverageEligibilityRequest.supportingInfo> EXTENDS @<BackboneElement> CLOSED {   
     fhir:sequence @<positiveInt>;           # Information instance identifier
     fhir:information @<Reference> AND {fhir:link 
     			@<Resource> ? };  # Data to be provided
     fhir:appliesToAll @<boolean>?;          # Applies to all items
+}  
+
+# Applicable diagnosis
+<CoverageEligibilityRequest.item.diagnosis> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:diagnosis @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Condition> })  ?;  # Nature of illness or problem
 }  
 
 # Item to be evaluated for eligibiity
@@ -107,6 +99,14 @@ start=@<CoverageEligibilityRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Organization> ? }?;  # Servicing facility
     fhir:diagnosis @<OneOrMore_CoverageEligibilityRequest.item.diagnosis>?;  # Applicable diagnosis
     fhir:detail @<OneOrMore_Reference_Resource>?;  # Product or service details
+}  
+
+# Patient insurance information
+<CoverageEligibilityRequest.insurance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:focal @<boolean>?;                 # Applicable coverage
+    fhir:coverage @<Reference> AND {fhir:link 
+    			@<Coverage> ? };  # Insurance information
+    fhir:businessArrangement @<string>?;    # Additional provider contract number
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

@@ -6,8 +6,8 @@ BASE <http://hl7.org/fhir/shape/>
 
 IMPORT <Coding.shex>
 IMPORT <Observation.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 
 
 start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -45,20 +45,20 @@ start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
 # Classification of  type of observation
 <Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Used when reporting systolic and diastolic blood pressure.

@@ -113,9 +113,9 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Basis for membership in a group
-fhirvs:group-membership-basis ["definitional" "enumerated"]
-
 # Types of resources that are part of group.
 fhirvs:group-type ["person" "animal" "practitioner" "device" "careteam" "healthcareservice" "location" "organization" "relatedperson" "specimen"]
+
+# Basis for membership in a group
+fhirvs:group-membership-basis ["definitional" "enumerated"]
 

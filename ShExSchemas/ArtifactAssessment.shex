@@ -117,12 +117,12 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.
-fhirvs:artifactassessment-disposition ["unresolved" "not-persuasive" "persuasive" "persuasive-with-modification" "not-persuasive-with-modification"]
+# Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.
+fhirvs:artifactassessment-workflow-status ["submitted" "triaged" "waiting-for-input" "resolved-no-change" "resolved-change-required" "deferred" "duplicate" "applied" "published"]
 
 # The type of information contained in a component of an artifact assessment.
 fhirvs:artifactassessment-information-type ["comment" "classifier" "rating" "container" "response" "change-request"]
 
-# Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.
-fhirvs:artifactassessment-workflow-status ["submitted" "triaged" "waiting-for-input" "resolved-no-change" "resolved-change-required" "deferred" "duplicate" "applied" "published"]
+# Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.
+fhirvs:artifactassessment-disposition ["unresolved" "not-persuasive" "persuasive" "persuasive-with-modification" "not-persuasive-with-modification"]
 

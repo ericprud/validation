@@ -16,10 +16,10 @@ IMPORT <integer.shex>
 IMPORT <decimal.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <Resource.shex>
 IMPORT <Quantity.shex>
-IMPORT <Reference.shex>
+IMPORT <Resource.shex>
 IMPORT <canonical.shex>
+IMPORT <Reference.shex>
 IMPORT <Attachment.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
@@ -201,7 +201,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type='group' and %resource.status='complete') implies item.empty().not()
 # ShEx:
 #
-#(({ fhir:type { fhir:v ['group'] }  }) AND 'false'.status { fhir:v ['complete'] } )  Implies   NOT { fhir:item. NOT {  {fhir:v .} }  }
+#(({ fhir:type { fhir:v ['group'] }  }) AND 'false'.status { fhir:v ['complete'] } )  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
 {}
 
 ) AND (
@@ -215,7 +215,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: type='group' implies item.empty().not()
 # ShEx:
 #
-#({ fhir:type { fhir:v ['group'] }  })  Implies   NOT { fhir:item. NOT {  {fhir:v .} }  }
+#({ fhir:type { fhir:v ['group'] }  })  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
 {}
 
 ) AND (
@@ -307,35 +307,6 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 )
  
-
-# Permitted answer
-<Questionnaire.item.answerOption> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<integer>  OR 
-    			@<date>  OR 
-    			@<time>  OR 
-    			@<string>  OR 
-    			@<Coding>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Answer value
-    fhir:initialSelected @<boolean>?;       # Whether option is selected by 
-                                            # default 
-}  
-
-# Initial value(s) when item is first rendered
-<Questionnaire.item.initial> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<boolean>  OR 
-    			@<decimal>  OR 
-    			@<integer>  OR 
-    			@<date>  OR 
-    			@<dateTime>  OR 
-    			@<time>  OR 
-    			@<string>  OR 
-    			@<uri>  OR 
-    			@<Attachment>  OR 
-    			@<Coding>  OR 
-    			@<Quantity>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Actual value for initializing the 
-                                            # question 
-}  
 
 # Questions and sections within the Questionnaire
 <Questionnaire.item> EXTENDS @<BackboneElement> CLOSED {   
@@ -493,7 +464,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type='group' and %resource.status='complete') implies item.empty().not()
 # ShEx:
 #
-#(({ fhir:type { fhir:v ['group'] }  }) AND 'false'.status { fhir:v ['complete'] } )  Implies   NOT { fhir:item. NOT {  {fhir:v .} }  }
+#(({ fhir:type { fhir:v ['group'] }  }) AND 'false'.status { fhir:v ['complete'] } )  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
 {}
 
 ) AND (
@@ -507,7 +478,7 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: type='group' implies item.empty().not()
 # ShEx:
 #
-#({ fhir:type { fhir:v ['group'] }  })  Implies   NOT { fhir:item. NOT {  {fhir:v .} }  }
+#({ fhir:type { fhir:v ['group'] }  })  Implies   NOT { fhir:item.NOT {  {fhir:v .} } }
 {}
 
 ) AND (
@@ -620,8 +591,37 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # based on operator 
 }  
 
+# Permitted answer
+<Questionnaire.item.answerOption> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<integer>  OR 
+    			@<date>  OR 
+    			@<time>  OR 
+    			@<string>  OR 
+    			@<Coding>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Answer value
+    fhir:initialSelected @<boolean>?;       # Whether option is selected by 
+                                            # default 
+}  
+
 # Nested questionnaire items
 <Questionnaire.item.itemnull> CLOSED {   
+}  
+
+# Initial value(s) when item is first rendered
+<Questionnaire.item.initial> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:value @<boolean>  OR 
+    			@<decimal>  OR 
+    			@<integer>  OR 
+    			@<date>  OR 
+    			@<dateTime>  OR 
+    			@<time>  OR 
+    			@<string>  OR 
+    			@<uri>  OR 
+    			@<Attachment>  OR 
+    			@<Coding>  OR 
+    			@<Quantity>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ;  # Actual value for initializing the 
+                                            # question 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -683,24 +683,24 @@ start=@<Questionnaire> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
-fhirvs:questionnaire-enable-behavior ["all" "any"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # Codes that guide the display of disabled questionnaire items
 fhirvs:questionnaire-disabled-display ["hidden" "protected"]
-
-# Distinguishes groups from questions and display text and indicates data type for questions.
-fhirvs:item-type ["group" "display" "question" "boolean" "decimal" "integer" "date" "dateTime" "time" "string" "text" "url" "coding" "attachment" "reference" "quantity"]
-
-# All fhir data types
-fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
 
 # The criteria by which a question is enabled.
 fhirvs:questionnaire-enable-operator ["exists" "=" "!=" ">" "<" ">=" "<="]
 
+# All fhir data types
+fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
+
 # Codes that describe the types of constraints possible on a question item that has a list of permitted answers
 fhirvs:questionnaire-answer-constraint ["optionsOnly" "optionsOrType" "optionsOrString"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Distinguishes groups from questions and display text and indicates data type for questions.
+fhirvs:item-type ["group" "display" "question" "boolean" "decimal" "integer" "date" "dateTime" "time" "string" "text" "url" "coding" "attachment" "reference" "quantity"]
+
+# Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
+fhirvs:questionnaire-enable-behavior ["all" "any"]
 

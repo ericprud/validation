@@ -161,9 +161,9 @@ start=@<Requirements> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # Description Needed Here
 fhirvs:conformance-expectation ["SHALL" "SHOULD" "MAY" "SHOULD-NOT"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

@@ -441,7 +441,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: orderMeaning.empty() implies slicing.where(rules='openAtEnd' or ordered).exists().not()
 # ShEx:
 #
-# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing.  where  (rules { fhir:v ['openAtEnd'] }  OR ordered) . }
+# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing. where  (rules { fhir:v ['openAtEnd'] }  OR ordered). }
 {}
 
 ) AND (
@@ -456,7 +456,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: constraint.select(key).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:constraint.  select  (key) )
+#   isDistinct  ( fhir:constraint. select  (key) )
 {}
 
 ) AND (
@@ -467,7 +467,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: fixed.exists().not()
 # ShEx:
 
- NOT { fhir:fixed . }
+ NOT { fhir:fixed. }
 
 ) AND (
 
@@ -481,7 +481,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: type.select(code).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:type.  select  (code) )
+#   isDistinct  ( fhir:type. select  (code) )
 {}
 
 ) AND (
@@ -496,7 +496,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: mapping.select(identity).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:mapping.  select  (identity) )
+#   isDistinct  ( fhir:mapping. select  (identity) )
 {}
 
 ) AND (
@@ -632,346 +632,108 @@ IMPORT <ExtendedContactDetail.shex>
 )
  
 
-# Base definition information for tools
-<ElementDefinition.base> EXTENDS @<Element> CLOSED {   
-    fhir:path @<string>;                    # Path that identifies the base 
-                                            # element 
-    fhir:min @<unsignedInt>;                # Min cardinality of the base element
-    fhir:max @<string>;                     # Max cardinality of the base element
+# This element is sliced - slices follow
+<ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
+    fhir:discriminator @<OneOrMore_Element>?;  # Element values that are used to 
+                                            # distinguish the slices 
+    fhir:description @<string>?;            # Text description of how slicing 
+                                            # works (or not) 
+    fhir:ordered @<boolean>?;               # If elements must be in same order 
+                                            # as slices 
+    fhir:rules @<code> AND
+    	{fhir:v @fhirvs:resource-slicing-rules};  # closed | open | openAtEnd
 }  
 
-# Data type and Profile for this element
-<ElementDefinition.type> EXTENDS @<Element> CLOSED {   
-    fhir:code @<uri>;                       # Data type or Resource (reference 
-                                            # to definition) 
-    fhir:profile @<OneOrMore_canonical>?;   # Profiles (StructureDefinition or 
-                                            # IG) - one must apply 
-    fhir:targetProfile @<OneOrMore_canonical>?;  # Profile (StructureDefinition or 
-                                            # IG) on the Reference/canonical 
-                                            # target - one must apply 
-    fhir:aggregation @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:resource-aggregation-mode}?;  # contained | referenced | bundled - 
-                                            # how aggregated 
-    fhir:versioning @<code> AND
-    	{fhir:v @fhirvs:reference-version-rules}?;  # either | independent | specific
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: toInteger
-# # Constraint UniqueKey:eld-3
-# Human readable:Max SHALL be a number or "*"
-#
-# Constraint: empty() or ($this = '*') or (toInteger() >= 0)
-# ShEx:
-#
-# NOT {  {fhir:v .} }  OR ({ fhir:$this { fhir:v ['*'] }  }) OR (   toInteger  (  ) { fhir:v MinInclusive 0 } )
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-19
-# Human readable:Element names cannot include some special characters with a max of 64 characters,
-
-# Constraint: path.matches('^[^\\s\\.,:;\\\'"\\/|?!@#$%&*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*$')
-# ShEx:
-
-{fhir:path { fhir:v /'^[^\s\.,:;\'"\/|?!@#$%&*()\[\]{}]{1,64}(\.[^\s\.,:;\'"\/|?!@#$%&*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*$'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: iif
-# Unmapped construct found: LessOrEqual
-# Unmapped construct found: toInteger
-# # Constraint UniqueKey:eld-2
-# Human readable:Min <= Max
-#
-# Constraint: min.empty() or max.empty() or (max = '*') or iif(max != '*', min <= max.toInteger())
-# ShEx:
-#
-# NOT { fhir:min {fhir:v .} }  OR  NOT { fhir:max {fhir:v .} }  OR ({ fhir:max { fhir:v ['*'] }  }) OR   iif  ({ fhir:max [fhir:v  . -'*']  }, { fhir:min  LessOrEqual     toInteger  ( fhir:max ) })
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-5
-# Human readable:if the element definition has a contentReference, it cannot have type, defaultValue, fixed, pattern, example, minValue, maxValue, maxLength, or binding
-
-# Constraint: contentReference.empty() or (type.empty() and defaultValue.empty() and fixed.empty() and pattern.empty() and example.empty() and minValue.empty() and maxValue.empty() and maxLength.empty() and binding.empty())
-# ShEx:
-
- NOT { fhir:contentReference {fhir:v .} }  OR ( NOT { fhir:type {fhir:v .} }  AND  NOT { fhir:defaultValue {fhir:v .} }  AND  NOT { fhir:fixed {fhir:v .} }  AND  NOT { fhir:pattern {fhir:v .} }  AND  NOT { fhir:example {fhir:v .} }  AND  NOT { fhir:minValue {fhir:v .} }  AND  NOT { fhir:maxValue {fhir:v .} }  AND  NOT { fhir:maxLength {fhir:v .} }  AND  NOT { fhir:binding {fhir:v .} } )
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# # Constraint UniqueKey:eld-7
-# Human readable:Pattern may only be specified if there is one type
-#
-# Constraint: pattern.empty() or (type.count() <= 1)
-# ShEx:
-#
-# NOT { fhir:pattern {fhir:v .} }  OR (   count  ( fhir:type ) { fhir:v MaxInclusive 1 } )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# # Constraint UniqueKey:eld-6
-# Human readable:Fixed value may only be specified if there is one type
-#
-# Constraint: fixed.empty() or (type.count()  <= 1)
-# ShEx:
-#
-# NOT { fhir:fixed {fhir:v .} }  OR (   count  ( fhir:type ) { fhir:v MaxInclusive 1 } )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:eld-22
-# Human readable:sliceIsConstraining can only appear if slicename is present
-#
-# Constraint: sliceIsConstraining.exists() implies sliceName.exists()
-# ShEx:
-#
-#{fhir:sliceIsConstraining .  Implies  {fhir:sliceName .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: select
-# # Constraint UniqueKey:eld-11
-# Human readable:Binding can only be present for coded elements, string, and uri if using FHIR-defined types
-#
-# Constraint: binding.empty() or type.code.empty() or type.code.contains(":") or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri') or (code = 'Duration')).exists()
-# ShEx:
-#
-# NOT { fhir:binding {fhir:v .} }  OR  NOT { fhir:type.code {fhir:v .} }  OR {fhir:type.code { fhir:v [':'] }  OR {fhir:type.  select  (code { fhir:v ['code'] }  OR code { fhir:v ['Coding'] }  OR code { fhir:v ['CodeableConcept'] }  OR code { fhir:v ['Quantity'] }  OR code { fhir:v ['string'] }  OR code { fhir:v ['uri'] }  OR code { fhir:v ['Duration'] } ) .}}
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-8
-# Human readable:Pattern and fixed are mutually exclusive
-
-# Constraint: pattern.empty() or fixed.empty()
-# ShEx:
-
- NOT { fhir:pattern {fhir:v .} }  OR  NOT { fhir:fixed {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: where
-# # Constraint UniqueKey:eld-25
-# Human readable:Order has no meaning (and cannot be asserted to have meaning), so enforcing rules on order is improper
-#
-# Constraint: orderMeaning.empty() implies slicing.where(rules='openAtEnd' or ordered).exists().not()
-# ShEx:
-#
-# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing.  where  (rules { fhir:v ['openAtEnd'] }  OR ordered) . }
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: isDistinct
-# Unmapped construct found: select
-# # Constraint UniqueKey:eld-14
-# Human readable:Constraints must be unique by key
-#
-# Constraint: constraint.select(key).isDistinct()
-# ShEx:
-#
-#   isDistinct  ( fhir:constraint.  select  (key) )
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-24
-# Human readable:pattern[x] should be used rather than fixed[x]
-
-# Constraint: fixed.exists().not()
-# ShEx:
-
- NOT { fhir:fixed . }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: isDistinct
-# Unmapped construct found: select
-# # Constraint UniqueKey:eld-13
-# Human readable:Types must be unique by code
-#
-# Constraint: type.select(code).isDistinct()
-# ShEx:
-#
-#   isDistinct  ( fhir:type.  select  (code) )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: isDistinct
-# Unmapped construct found: select
-# # Constraint UniqueKey:eld-27
-# Human readable:Mappings SHOULD be unique by key
-#
-# Constraint: mapping.select(identity).isDistinct()
-# ShEx:
-#
-#   isDistinct  ( fhir:mapping.  select  (identity) )
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-16
-# Human readable:sliceName must be composed of proper tokens separated by "/"
-
-# Constraint: sliceName.empty() or sliceName.matches('^[a-zA-Z0-9\\/\\-_\\[\\]\\@]+$')
-# ShEx:
-
- NOT { fhir:sliceName {fhir:v .} }  OR {fhir:sliceName { fhir:v /'^[a-zA-Z0-9\/\-_\[\]\@]+$'/ } }
-
-) AND (
-
-# Constraint UniqueKey:eld-15
-# Human readable:default value and meaningWhenMissing are mutually exclusive
-
-# Constraint: defaultValue.empty() or meaningWhenMissing.empty()
-# ShEx:
-
- NOT { fhir:defaultValue {fhir:v .} }  OR  NOT { fhir:meaningWhenMissing {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:eld-18
-# Human readable:Must have a modifier reason if isModifier = true
-#
-# Constraint: (isModifier.exists() and isModifier) implies isModifierReason.exists()
-# ShEx:
-#
-#({fhir:isModifier . AND { fhir:isModifier }})  Implies  {fhir:isModifierReason .}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:eld-28
-# Human readable:Can't have valueAlternatives if mustHaveValue is true
-#
-# Constraint: mustHaveValue.value implies valueAlternatives.empty()
-# ShEx:
-#
-#{fhir:mustHaveValue.value  Implies   NOT { fhir:valueAlternatives {fhir:v .} } }
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-20
-# Human readable:Element names should be simple alphanumerics with a max of 64 characters or code generation tools may be broken
-
-# Constraint: path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$')
-# ShEx:
-
-{fhir:path { fhir:v /'^[A-Za-z][A-Za-z0-9]{0,63}(\.[a-z][A-Za-z0-9]{0,63}(\[x])?)*$'/ } }
-
-) AND (
-
-# Constraint UniqueKey:eld-4
-# Human readable:Aggregation may only be specified if one of the allowed types for the element is a reference
-
-# Constraint: aggregation.empty() or (code = 'Reference') or (code = 'canonical') or (code = 'CodeableReference')
-# ShEx:
-
- NOT { fhir:aggregation {fhir:v .} }  OR ({ fhir:code { fhir:v ['Reference'] }  }) OR ({ fhir:code { fhir:v ['canonical'] }  }) OR ({ fhir:code { fhir:v ['CodeableReference'] }  })
-
-) AND (
-
-# Constraint UniqueKey:eld-17
-# Human readable:targetProfile is only allowed if the type is Reference or canonical
-
-# Constraint: (code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()
-# ShEx:
-
-(({ fhir:code { fhir:v ['Reference'] }  }) OR ({ fhir:code { fhir:v ['canonical'] }  }) OR ({ fhir:code { fhir:v ['CodeableReference'] }  })) OR  NOT { fhir:targetProfile {fhir:v .} } 
-
-) AND (
-
-# Constraint UniqueKey:eld-21
-# Human readable:Constraints should have an expression or else validators will not be able to enforce them
-
-# Constraint: expression.exists()
-# ShEx:
-
-{fhir:expression .}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:eld-26
-# Human readable:Errors cannot be suppressed
-#
-# Constraint: (severity = 'error') implies suppress.empty()
-# ShEx:
-#
-#({ fhir:severity { fhir:v ['error'] }  })  Implies   NOT { fhir:suppress {fhir:v .} } 
-{}
-
-) AND (
-
-# Constraint UniqueKey:eld-23
-# Human readable:binding SHALL have either description or valueSet
-
-# Constraint: description.exists() or valueSet.exists()
-# ShEx:
-
-{fhir:description . OR {fhir:valueSet .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: startsWith
-# Unmapped construct found: startsWith
-# Unmapped construct found: startsWith
-# Unmapped construct found: startsWith
-# # Constraint UniqueKey:eld-12
-# Human readable:ValueSet SHALL start with http:// or https:// or urn: or #
-#
-# Constraint: valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:') or valueSet.startsWith('#'))
-# ShEx:
-#
-#{fhir:valueSet .  Implies  ({fhir:valueSet.  startsWith  ('http:') OR {fhir:valueSet.  startsWith  ('https') OR {fhir:valueSet.  startsWith  ('urn:') OR {fhir:valueSet.  startsWith  ('#')}}}})}
-{}
-
-)
- 
+# Example value (as defined for type)
+<ElementDefinition.example> EXTENDS @<Element> CLOSED {   
+    fhir:label @<string>;                   # Describes the purpose of this 
+                                            # example 
+    fhir:value @<base64Binary>  OR 
+    			@<boolean>  OR 
+    			@<canonical>  OR 
+    			@<code>  OR 
+    			@<date>  OR 
+    			@<dateTime>  OR 
+    			@<decimal>  OR 
+    			@<id>  OR 
+    			@<instant>  OR 
+    			@<integer>  OR 
+    			@<integer64>  OR 
+    			@<markdown>  OR 
+    			@<oid>  OR 
+    			@<positiveInt>  OR 
+    			@<string>  OR 
+    			@<time>  OR 
+    			@<unsignedInt>  OR 
+    			@<uri>  OR 
+    			@<url>  OR 
+    			@<uuid>  OR 
+    			@<Address>  OR 
+    			@<Age>  OR 
+    			@<Annotation>  OR 
+    			@<Attachment>  OR 
+    			@<CodeableConcept>  OR 
+    			@<CodeableReference>  OR 
+    			@<Coding>  OR 
+    			@<ContactPoint>  OR 
+    			@<Count>  OR 
+    			@<Distance>  OR 
+    			@<Duration>  OR 
+    			@<HumanName>  OR 
+    			@<Identifier>  OR 
+    			@<Money>  OR 
+    			@<Period>  OR 
+    			@<Quantity>  OR 
+    			@<Range>  OR 
+    			@<Ratio>  OR 
+    			@<RatioRange>  OR 
+    			@<Reference>  OR 
+    			@<SampledData>  OR 
+    			@<Signature>  OR 
+    			@<Timing>  OR 
+    			@<ContactDetail>  OR 
+    			@<DataRequirement>  OR 
+    			@<Expression>  OR 
+    			@<ParameterDefinition>  OR 
+    			@<RelatedArtifact>  OR 
+    			@<TriggerDefinition>  OR 
+    			@<UsageContext>  OR 
+    			@<Availability>  OR 
+    			@<ExtendedContactDetail>  OR 
+    			@<Dosage>  OR 
+    			@<Meta>  ;  # Value of Example (one of allowed 
+                                            # types) 
+}  
+
+# Additional Bindings - more rules about the binding
+<ElementDefinition.binding.additional> EXTENDS @<Element> CLOSED {   
+    fhir:purpose @<code> AND
+    	{fhir:v @fhirvs:additional-binding-purpose};  # maximum | minimum | required | 
+                                            # extensible | candidate | current | 
+                                            # preferred | ui | starter | 
+                                            # component 
+    fhir:valueSet @<canonical>;             # The value set for the additional 
+                                            # binding 
+    fhir:documentation @<markdown>?;        # Documentation of the purpose of 
+                                            # use of the binding 
+    fhir:shortDoco @<string>?;              # Concise documentation - for 
+                                            # summary tables 
+    fhir:usage @<OneOrMore_UsageContext>?;  # Qualifies the usage - 
+                                            # jurisdiction, gender, workflow 
+                                            # status etc 
+    fhir:any @<boolean>?;                   # Whether binding can applies to all 
+                                            # repeats, or just one 
+}  
+
+# Map element to another set of definitions
+<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
+    fhir:identity @<id>;                    # Reference to mapping declaration
+    fhir:language @<code> AND
+    	{fhir:v @fhirvs:mimetypes}?;  # Computable language of mapping
+    fhir:map @<string>;                     # Details of the mapping
+    fhir:comment @<markdown>?;              # Comments about the mapping or its 
+                                            # use 
+}  
 
 # Condition that must evaluate to true
 <ElementDefinition.constraint> EXTENDS @<Element> CLOSED {   
@@ -1114,7 +876,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: orderMeaning.empty() implies slicing.where(rules='openAtEnd' or ordered).exists().not()
 # ShEx:
 #
-# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing.  where  (rules { fhir:v ['openAtEnd'] }  OR ordered) . }
+# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing. where  (rules { fhir:v ['openAtEnd'] }  OR ordered). }
 {}
 
 ) AND (
@@ -1129,7 +891,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: constraint.select(key).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:constraint.  select  (key) )
+#   isDistinct  ( fhir:constraint. select  (key) )
 {}
 
 ) AND (
@@ -1140,7 +902,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: fixed.exists().not()
 # ShEx:
 
- NOT { fhir:fixed . }
+ NOT { fhir:fixed. }
 
 ) AND (
 
@@ -1154,7 +916,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: type.select(code).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:type.  select  (code) )
+#   isDistinct  ( fhir:type. select  (code) )
 {}
 
 ) AND (
@@ -1169,7 +931,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: mapping.select(identity).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:mapping.  select  (identity) )
+#   isDistinct  ( fhir:mapping. select  (identity) )
 {}
 
 ) AND (
@@ -1324,6 +1086,355 @@ IMPORT <ExtendedContactDetail.shex>
                                             # perfomring the indicated process 
 }  
 
+# Base definition information for tools
+<ElementDefinition.base> EXTENDS @<Element> CLOSED {   
+    fhir:path @<string>;                    # Path that identifies the base 
+                                            # element 
+    fhir:min @<unsignedInt>;                # Min cardinality of the base element
+    fhir:max @<string>;                     # Max cardinality of the base element
+}  
+
+# Element values that are used to distinguish the slices
+<ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:discriminator-type};  # value | exists | type | profile | 
+                                            # position 
+    fhir:path @<string>;                    # Path to element value
+}  
+
+# Data type and Profile for this element
+<ElementDefinition.type> EXTENDS @<Element> CLOSED {   
+    fhir:code @<uri>;                       # Data type or Resource (reference 
+                                            # to definition) 
+    fhir:profile @<OneOrMore_canonical>?;   # Profiles (StructureDefinition or 
+                                            # IG) - one must apply 
+    fhir:targetProfile @<OneOrMore_canonical>?;  # Profile (StructureDefinition or 
+                                            # IG) on the Reference/canonical 
+                                            # target - one must apply 
+    fhir:aggregation @<OneOrMore_code> AND
+    	{fhir:v @fhirvs:resource-aggregation-mode}?;  # contained | referenced | bundled - 
+                                            # how aggregated 
+    fhir:versioning @<code> AND
+    	{fhir:v @fhirvs:reference-version-rules}?;  # either | independent | specific
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: toInteger
+# # Constraint UniqueKey:eld-3
+# Human readable:Max SHALL be a number or "*"
+#
+# Constraint: empty() or ($this = '*') or (toInteger() >= 0)
+# ShEx:
+#
+# NOT {  {fhir:v .} }  OR ({ fhir:$this { fhir:v ['*'] }  }) OR (   toInteger  (  ) { fhir:v MinInclusive 0 } )
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-19
+# Human readable:Element names cannot include some special characters with a max of 64 characters,
+
+# Constraint: path.matches('^[^\\s\\.,:;\\\'"\\/|?!@#$%&*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*$')
+# ShEx:
+
+{fhir:path { fhir:v /'^[^\s\.,:;\'"\/|?!@#$%&*()\[\]{}]{1,64}(\.[^\s\.,:;\'"\/|?!@#$%&*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*$'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: iif
+# Unmapped construct found: LessOrEqual
+# Unmapped construct found: toInteger
+# # Constraint UniqueKey:eld-2
+# Human readable:Min <= Max
+#
+# Constraint: min.empty() or max.empty() or (max = '*') or iif(max != '*', min <= max.toInteger())
+# ShEx:
+#
+# NOT { fhir:min {fhir:v .} }  OR  NOT { fhir:max {fhir:v .} }  OR ({ fhir:max { fhir:v ['*'] }  }) OR   iif  ({ fhir:max [fhir:v  . -'*']  }, { fhir:min  LessOrEqual     toInteger  ( fhir:max ) })
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-5
+# Human readable:if the element definition has a contentReference, it cannot have type, defaultValue, fixed, pattern, example, minValue, maxValue, maxLength, or binding
+
+# Constraint: contentReference.empty() or (type.empty() and defaultValue.empty() and fixed.empty() and pattern.empty() and example.empty() and minValue.empty() and maxValue.empty() and maxLength.empty() and binding.empty())
+# ShEx:
+
+ NOT { fhir:contentReference {fhir:v .} }  OR ( NOT { fhir:type {fhir:v .} }  AND  NOT { fhir:defaultValue {fhir:v .} }  AND  NOT { fhir:fixed {fhir:v .} }  AND  NOT { fhir:pattern {fhir:v .} }  AND  NOT { fhir:example {fhir:v .} }  AND  NOT { fhir:minValue {fhir:v .} }  AND  NOT { fhir:maxValue {fhir:v .} }  AND  NOT { fhir:maxLength {fhir:v .} }  AND  NOT { fhir:binding {fhir:v .} } )
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# # Constraint UniqueKey:eld-7
+# Human readable:Pattern may only be specified if there is one type
+#
+# Constraint: pattern.empty() or (type.count() <= 1)
+# ShEx:
+#
+# NOT { fhir:pattern {fhir:v .} }  OR (   count  ( fhir:type ) { fhir:v MaxInclusive 1 } )
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# # Constraint UniqueKey:eld-6
+# Human readable:Fixed value may only be specified if there is one type
+#
+# Constraint: fixed.empty() or (type.count()  <= 1)
+# ShEx:
+#
+# NOT { fhir:fixed {fhir:v .} }  OR (   count  ( fhir:type ) { fhir:v MaxInclusive 1 } )
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:eld-22
+# Human readable:sliceIsConstraining can only appear if slicename is present
+#
+# Constraint: sliceIsConstraining.exists() implies sliceName.exists()
+# ShEx:
+#
+#{fhir:sliceIsConstraining .  Implies  {fhir:sliceName .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: select
+# # Constraint UniqueKey:eld-11
+# Human readable:Binding can only be present for coded elements, string, and uri if using FHIR-defined types
+#
+# Constraint: binding.empty() or type.code.empty() or type.code.contains(":") or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri') or (code = 'Duration')).exists()
+# ShEx:
+#
+# NOT { fhir:binding {fhir:v .} }  OR  NOT { fhir:type.code {fhir:v .} }  OR {fhir:type.code { fhir:v [':'] }  OR {fhir:type.  select  (code { fhir:v ['code'] }  OR code { fhir:v ['Coding'] }  OR code { fhir:v ['CodeableConcept'] }  OR code { fhir:v ['Quantity'] }  OR code { fhir:v ['string'] }  OR code { fhir:v ['uri'] }  OR code { fhir:v ['Duration'] } ) .}}
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-8
+# Human readable:Pattern and fixed are mutually exclusive
+
+# Constraint: pattern.empty() or fixed.empty()
+# ShEx:
+
+ NOT { fhir:pattern {fhir:v .} }  OR  NOT { fhir:fixed {fhir:v .} } 
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: where
+# # Constraint UniqueKey:eld-25
+# Human readable:Order has no meaning (and cannot be asserted to have meaning), so enforcing rules on order is improper
+#
+# Constraint: orderMeaning.empty() implies slicing.where(rules='openAtEnd' or ordered).exists().not()
+# ShEx:
+#
+# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing. where  (rules { fhir:v ['openAtEnd'] }  OR ordered). }
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: isDistinct
+# Unmapped construct found: select
+# # Constraint UniqueKey:eld-14
+# Human readable:Constraints must be unique by key
+#
+# Constraint: constraint.select(key).isDistinct()
+# ShEx:
+#
+#   isDistinct  ( fhir:constraint. select  (key) )
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-24
+# Human readable:pattern[x] should be used rather than fixed[x]
+
+# Constraint: fixed.exists().not()
+# ShEx:
+
+ NOT { fhir:fixed. }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: isDistinct
+# Unmapped construct found: select
+# # Constraint UniqueKey:eld-13
+# Human readable:Types must be unique by code
+#
+# Constraint: type.select(code).isDistinct()
+# ShEx:
+#
+#   isDistinct  ( fhir:type. select  (code) )
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: isDistinct
+# Unmapped construct found: select
+# # Constraint UniqueKey:eld-27
+# Human readable:Mappings SHOULD be unique by key
+#
+# Constraint: mapping.select(identity).isDistinct()
+# ShEx:
+#
+#   isDistinct  ( fhir:mapping. select  (identity) )
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-16
+# Human readable:sliceName must be composed of proper tokens separated by "/"
+
+# Constraint: sliceName.empty() or sliceName.matches('^[a-zA-Z0-9\\/\\-_\\[\\]\\@]+$')
+# ShEx:
+
+ NOT { fhir:sliceName {fhir:v .} }  OR {fhir:sliceName { fhir:v /'^[a-zA-Z0-9\/\-_\[\]\@]+$'/ } }
+
+) AND (
+
+# Constraint UniqueKey:eld-15
+# Human readable:default value and meaningWhenMissing are mutually exclusive
+
+# Constraint: defaultValue.empty() or meaningWhenMissing.empty()
+# ShEx:
+
+ NOT { fhir:defaultValue {fhir:v .} }  OR  NOT { fhir:meaningWhenMissing {fhir:v .} } 
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:eld-18
+# Human readable:Must have a modifier reason if isModifier = true
+#
+# Constraint: (isModifier.exists() and isModifier) implies isModifierReason.exists()
+# ShEx:
+#
+#({fhir:isModifier . AND { fhir:isModifier }})  Implies  {fhir:isModifierReason .}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:eld-28
+# Human readable:Can't have valueAlternatives if mustHaveValue is true
+#
+# Constraint: mustHaveValue.value implies valueAlternatives.empty()
+# ShEx:
+#
+#{fhir:mustHaveValue.value  Implies   NOT { fhir:valueAlternatives {fhir:v .} } }
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-20
+# Human readable:Element names should be simple alphanumerics with a max of 64 characters or code generation tools may be broken
+
+# Constraint: path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$')
+# ShEx:
+
+{fhir:path { fhir:v /'^[A-Za-z][A-Za-z0-9]{0,63}(\.[a-z][A-Za-z0-9]{0,63}(\[x])?)*$'/ } }
+
+) AND (
+
+# Constraint UniqueKey:eld-4
+# Human readable:Aggregation may only be specified if one of the allowed types for the element is a reference
+
+# Constraint: aggregation.empty() or (code = 'Reference') or (code = 'canonical') or (code = 'CodeableReference')
+# ShEx:
+
+ NOT { fhir:aggregation {fhir:v .} }  OR ({ fhir:code { fhir:v ['Reference'] }  }) OR ({ fhir:code { fhir:v ['canonical'] }  }) OR ({ fhir:code { fhir:v ['CodeableReference'] }  })
+
+) AND (
+
+# Constraint UniqueKey:eld-17
+# Human readable:targetProfile is only allowed if the type is Reference or canonical
+
+# Constraint: (code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()
+# ShEx:
+
+(({ fhir:code { fhir:v ['Reference'] }  }) OR ({ fhir:code { fhir:v ['canonical'] }  }) OR ({ fhir:code { fhir:v ['CodeableReference'] }  })) OR  NOT { fhir:targetProfile {fhir:v .} } 
+
+) AND (
+
+# Constraint UniqueKey:eld-21
+# Human readable:Constraints should have an expression or else validators will not be able to enforce them
+
+# Constraint: expression.exists()
+# ShEx:
+
+{fhir:expression .}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:eld-26
+# Human readable:Errors cannot be suppressed
+#
+# Constraint: (severity = 'error') implies suppress.empty()
+# ShEx:
+#
+#({ fhir:severity { fhir:v ['error'] }  })  Implies   NOT { fhir:suppress {fhir:v .} } 
+{}
+
+) AND (
+
+# Constraint UniqueKey:eld-23
+# Human readable:binding SHALL have either description or valueSet
+
+# Constraint: description.exists() or valueSet.exists()
+# ShEx:
+
+{fhir:description . OR {fhir:valueSet .}}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: startsWith
+# Unmapped construct found: startsWith
+# Unmapped construct found: startsWith
+# Unmapped construct found: startsWith
+# # Constraint UniqueKey:eld-12
+# Human readable:ValueSet SHALL start with http:// or https:// or urn: or #
+#
+# Constraint: valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:') or valueSet.startsWith('#'))
+# ShEx:
+#
+#{fhir:valueSet .  Implies  ({fhir:valueSet.  startsWith  ('http:') OR {fhir:valueSet.  startsWith  ('https') OR {fhir:valueSet.  startsWith  ('urn:') OR {fhir:valueSet.  startsWith  ('#')}}}})}
+{}
+
+)
+ 
+
 # ValueSet details if this is coded
 <ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
     fhir:strength @<code> AND
@@ -1462,7 +1573,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: orderMeaning.empty() implies slicing.where(rules='openAtEnd' or ordered).exists().not()
 # ShEx:
 #
-# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing.  where  (rules { fhir:v ['openAtEnd'] }  OR ordered) . }
+# NOT { fhir:orderMeaning {fhir:v .} }   Implies   NOT { fhir:slicing. where  (rules { fhir:v ['openAtEnd'] }  OR ordered). }
 {}
 
 ) AND (
@@ -1477,7 +1588,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: constraint.select(key).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:constraint.  select  (key) )
+#   isDistinct  ( fhir:constraint. select  (key) )
 {}
 
 ) AND (
@@ -1488,7 +1599,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: fixed.exists().not()
 # ShEx:
 
- NOT { fhir:fixed . }
+ NOT { fhir:fixed. }
 
 ) AND (
 
@@ -1502,7 +1613,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: type.select(code).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:type.  select  (code) )
+#   isDistinct  ( fhir:type. select  (code) )
 {}
 
 ) AND (
@@ -1517,7 +1628,7 @@ IMPORT <ExtendedContactDetail.shex>
 # Constraint: mapping.select(identity).isDistinct()
 # ShEx:
 #
-#   isDistinct  ( fhir:mapping.  select  (identity) )
+#   isDistinct  ( fhir:mapping. select  (identity) )
 {}
 
 ) AND (
@@ -1653,117 +1764,6 @@ IMPORT <ExtendedContactDetail.shex>
 )
  
 
-# Element values that are used to distinguish the slices
-<ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:discriminator-type};  # value | exists | type | profile | 
-                                            # position 
-    fhir:path @<string>;                    # Path to element value
-}  
-
-# This element is sliced - slices follow
-<ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
-    fhir:discriminator @<OneOrMore_Element>?;  # Element values that are used to 
-                                            # distinguish the slices 
-    fhir:description @<string>?;            # Text description of how slicing 
-                                            # works (or not) 
-    fhir:ordered @<boolean>?;               # If elements must be in same order 
-                                            # as slices 
-    fhir:rules @<code> AND
-    	{fhir:v @fhirvs:resource-slicing-rules};  # closed | open | openAtEnd
-}  
-
-# Example value (as defined for type)
-<ElementDefinition.example> EXTENDS @<Element> CLOSED {   
-    fhir:label @<string>;                   # Describes the purpose of this 
-                                            # example 
-    fhir:value @<base64Binary>  OR 
-    			@<boolean>  OR 
-    			@<canonical>  OR 
-    			@<code>  OR 
-    			@<date>  OR 
-    			@<dateTime>  OR 
-    			@<decimal>  OR 
-    			@<id>  OR 
-    			@<instant>  OR 
-    			@<integer>  OR 
-    			@<integer64>  OR 
-    			@<markdown>  OR 
-    			@<oid>  OR 
-    			@<positiveInt>  OR 
-    			@<string>  OR 
-    			@<time>  OR 
-    			@<unsignedInt>  OR 
-    			@<uri>  OR 
-    			@<url>  OR 
-    			@<uuid>  OR 
-    			@<Address>  OR 
-    			@<Age>  OR 
-    			@<Annotation>  OR 
-    			@<Attachment>  OR 
-    			@<CodeableConcept>  OR 
-    			@<CodeableReference>  OR 
-    			@<Coding>  OR 
-    			@<ContactPoint>  OR 
-    			@<Count>  OR 
-    			@<Distance>  OR 
-    			@<Duration>  OR 
-    			@<HumanName>  OR 
-    			@<Identifier>  OR 
-    			@<Money>  OR 
-    			@<Period>  OR 
-    			@<Quantity>  OR 
-    			@<Range>  OR 
-    			@<Ratio>  OR 
-    			@<RatioRange>  OR 
-    			@<Reference>  OR 
-    			@<SampledData>  OR 
-    			@<Signature>  OR 
-    			@<Timing>  OR 
-    			@<ContactDetail>  OR 
-    			@<DataRequirement>  OR 
-    			@<Expression>  OR 
-    			@<ParameterDefinition>  OR 
-    			@<RelatedArtifact>  OR 
-    			@<TriggerDefinition>  OR 
-    			@<UsageContext>  OR 
-    			@<Availability>  OR 
-    			@<ExtendedContactDetail>  OR 
-    			@<Dosage>  OR 
-    			@<Meta>  ;  # Value of Example (one of allowed 
-                                            # types) 
-}  
-
-# Map element to another set of definitions
-<ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
-    fhir:identity @<id>;                    # Reference to mapping declaration
-    fhir:language @<code> AND
-    	{fhir:v @fhirvs:mimetypes}?;  # Computable language of mapping
-    fhir:map @<string>;                     # Details of the mapping
-    fhir:comment @<markdown>?;              # Comments about the mapping or its 
-                                            # use 
-}  
-
-# Additional Bindings - more rules about the binding
-<ElementDefinition.binding.additional> EXTENDS @<Element> CLOSED {   
-    fhir:purpose @<code> AND
-    	{fhir:v @fhirvs:additional-binding-purpose};  # maximum | minimum | required | 
-                                            # extensible | candidate | current | 
-                                            # preferred | ui | starter | 
-                                            # component 
-    fhir:valueSet @<canonical>;             # The value set for the additional 
-                                            # binding 
-    fhir:documentation @<markdown>?;        # Documentation of the purpose of 
-                                            # use of the binding 
-    fhir:shortDoco @<string>?;              # Concise documentation - for 
-                                            # summary tables 
-    fhir:usage @<OneOrMore_UsageContext>?;  # Qualifies the usage - 
-                                            # jurisdiction, gender, workflow 
-                                            # status etc 
-    fhir:any @<boolean>?;                   # Whether binding can applies to all 
-                                            # repeats, or just one 
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_code> CLOSED {
@@ -1808,11 +1808,8 @@ IMPORT <ExtendedContactDetail.shex>
 
 #---------------------- Value Sets ------------------------
 
-# Additional Binding Purpose
-fhirvs:additional-binding-purpose ["maximum" "minimum" "required" "extensible" "candidate" "current" "preferred" "ui" "starter" "component"]
-
-# Indication of the degree of conformance expectations associated with a binding.
-fhirvs:binding-strength ["required" "extensible" "preferred" "example"]
+# How a property is represented when serialized.
+fhirvs:property-representation ["xmlAttr" "xmlText" "typeAttr" "cdaText" "xhtml"]
 
 # How slices are interpreted when evaluating an instance.
 fhirvs:resource-slicing-rules ["closed" "open" "openAtEnd"]
@@ -1820,8 +1817,8 @@ fhirvs:resource-slicing-rules ["closed" "open" "openAtEnd"]
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
 fhirvs:mimetypes xsd:string #EXTERNAL
 
-# How resource references can be aggregated.
-fhirvs:resource-aggregation-mode ["contained" "referenced" "bundled"]
+# Indication of the degree of conformance expectations associated with a binding.
+fhirvs:binding-strength ["required" "extensible" "preferred" "example"]
 
 # How an element value is interpreted when discrimination is evaluated.
 fhirvs:discriminator-type ["value" "exists" "pattern" "type" "profile" "position"]
@@ -1829,9 +1826,12 @@ fhirvs:discriminator-type ["value" "exists" "pattern" "type" "profile" "position
 # SHALL applications comply with this constraint?
 fhirvs:constraint-severity ["error" "warning"]
 
-# How a property is represented when serialized.
-fhirvs:property-representation ["xmlAttr" "xmlText" "typeAttr" "cdaText" "xhtml"]
-
 # Whether a reference needs to be version specific or version independent, or whether either can be used.
 fhirvs:reference-version-rules ["either" "independent" "specific"]
+
+# Additional Binding Purpose
+fhirvs:additional-binding-purpose ["maximum" "minimum" "required" "extensible" "candidate" "current" "preferred" "ui" "starter" "component"]
+
+# How resource references can be aggregated.
+fhirvs:resource-aggregation-mode ["contained" "referenced" "bundled"]
 

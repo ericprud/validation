@@ -18,16 +18,16 @@ start=@<publishableconceptmap> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Concept in target system for element
-<ConceptMap.group.element.target> EXTENDS @<BackboneElement> CLOSED {   
+# Other properties required for this mapping
+<ConceptMap.group.element.target.dependsOn> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Mappings for a concept from the source set
 <ConceptMap.group.element> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Other properties required for this mapping
-<ConceptMap.group.element.target.dependsOn> EXTENDS @<BackboneElement> CLOSED {   
+# Concept in target system for element
+<ConceptMap.group.element.target> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Same source and target systems

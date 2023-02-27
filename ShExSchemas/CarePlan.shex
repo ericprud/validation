@@ -286,15 +286,15 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes identifying the lifecycle stage of a request.
-fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
-
-# Codes indicating the degree of authority/intentionality associated with a care plan.
-fhirvs:care-plan-intent ["proposal" "plan" "order" "option" "directive"]
+# Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
+fhirvs:care-plan-activity-kind ["Appointment" "CommunicationRequest" "DeviceRequest" "MedicationRequest" "NutritionOrder" "Task" "ServiceRequest" "VisionPrescription"]
 
 # Codes that reflect the current state of a care plan activity within its overall life cycle.
 fhirvs:care-plan-activity-status ["not-started" "scheduled" "in-progress" "on-hold" "completed" "cancelled" "stopped" "unknown" "entered-in-error"]
 
-# Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
-fhirvs:care-plan-activity-kind ["Appointment" "CommunicationRequest" "DeviceRequest" "MedicationRequest" "NutritionOrder" "Task" "ServiceRequest" "VisionPrescription"]
+# Codes indicating the degree of authority/intentionality associated with a care plan.
+fhirvs:care-plan-intent ["proposal" "plan" "order" "option" "directive"]
+
+# Codes identifying the lifecycle stage of a request.
+fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
 

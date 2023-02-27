@@ -171,11 +171,18 @@ start=@<Task> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: lastModified.exists().not() or authoredOn.exists().not() or lastModified >= authoredOn
 # ShEx:
 #
-# NOT { fhir:lastModified . } OR  NOT { fhir:authoredOn . } OR ({ fhir:lastModified  GreaterOrEqual  { fhir:authoredOn } })
+# NOT { fhir:lastModified. } OR  NOT { fhir:authoredOn. } OR ({ fhir:lastModified  GreaterOrEqual  { fhir:authoredOn } })
 {}
 
 )
  
+
+# Constraints on fulfillment tasks
+<Task.restriction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:repetitions @<positiveInt>?;       # How many times to repeat
+    fhir:period @<Period>?;                 # When fulfillment is sought
+    fhir:recipient @<OneOrMore_Reference_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # For whom is fulfillment sought?
+}  
 
 # Information used to perform task
 <Task.input> EXTENDS @<BackboneElement> CLOSED {   
@@ -235,13 +242,6 @@ start=@<Task> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Dosage>  OR 
     			@<Meta>  ;  # Content to use in performing the 
                                             # task 
-}  
-
-# Constraints on fulfillment tasks
-<Task.restriction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:repetitions @<positiveInt>?;       # How many times to repeat
-    fhir:period @<Period>?;                 # When fulfillment is sought
-    fhir:recipient @<OneOrMore_Reference_Group_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # For whom is fulfillment sought?
 }  
 
 # Information produced as part of task

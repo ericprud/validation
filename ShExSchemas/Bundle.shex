@@ -54,7 +54,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&resource.meta.versionId).isDistinct()
 # ShEx:
 #
-#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry.  where  (fullUrl .).  select  (fullUrl  Concatenate  resource.meta.versionId) )
+#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry. where  (fullUrl .). select  (fullUrl  Concatenate  resource.meta.versionId) )
 {}
 
 ) AND (
@@ -245,7 +245,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: fullUrl.exists() implies fullUrl.contains('/_history/').not()
 # ShEx:
 #
-#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl { fhir:v ['/_history/'] }  }}
+#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl{ fhir:v ['/_history/'] } }}
 {}
 
 ) AND (
@@ -260,27 +260,6 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 
 )
  
-
-# Search related information
-<Bundle.entry.search> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:mode @<code> AND
-    	{fhir:v @fhirvs:search-entry-mode}?;  # match | include - why this is in 
-                                            # the result set 
-    fhir:score @<decimal>?;                 # Search ranking (between 0 and 1)
-}  
-
-# Additional execution information (transaction/batch/history)
-<Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:method @<code> AND
-    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
-                                            # PATCH 
-    fhir:url @<uri>;                        # URL for HTTP equivalent of this 
-                                            # entry 
-    fhir:ifNoneMatch @<string>?;            # For managing cache validation
-    fhir:ifModifiedSince @<instant>?;       # For managing cache currency
-    fhir:ifMatch @<string>?;                # For managing update contention
-    fhir:ifNoneExist @<string>?;            # For conditional creates
-}  
 
 # Entry in the bundle - will have a resource or information
 <Bundle.entry> EXTENDS @<BackboneElement> CLOSED {   
@@ -308,7 +287,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&resource.meta.versionId).isDistinct()
 # ShEx:
 #
-#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry.  where  (fullUrl .).  select  (fullUrl  Concatenate  resource.meta.versionId) )
+#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry. where  (fullUrl .). select  (fullUrl  Concatenate  resource.meta.versionId) )
 {}
 
 ) AND (
@@ -499,7 +478,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: fullUrl.exists() implies fullUrl.contains('/_history/').not()
 # ShEx:
 #
-#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl { fhir:v ['/_history/'] }  }}
+#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl{ fhir:v ['/_history/'] } }}
 {}
 
 ) AND (
@@ -515,16 +494,6 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Links related to this Bundle
-<Bundle.link> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:relation @<code> AND
-    	{fhir:v @fhirvs:iana-link-relations};  # See 
-                                            # http://www.iana.org/assignments/-
-                                            # link-relations/link-relations.xh-
-                                            # tml#link-relations-1 
-    fhir:url @<uri>;                        # Reference details for the link
-}  
-
 # Results of execution (transaction/batch/history)
 <Bundle.entry.response> EXTENDS @<BackboneElement> CLOSED {   
     fhir:status @<string>;                  # Status response code (text 
@@ -536,6 +505,37 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:lastModified @<instant>?;          # Server's date time modified
     fhir:outcome @<Resource>?;              # OperationOutcome with hints and 
                                             # warnings (for batch/transaction) 
+}  
+
+# Search related information
+<Bundle.entry.search> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:mode @<code> AND
+    	{fhir:v @fhirvs:search-entry-mode}?;  # match | include - why this is in 
+                                            # the result set 
+    fhir:score @<decimal>?;                 # Search ranking (between 0 and 1)
+}  
+
+# Links related to this Bundle
+<Bundle.link> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:relation @<code> AND
+    	{fhir:v @fhirvs:iana-link-relations};  # See 
+                                            # http://www.iana.org/assignments/-
+                                            # link-relations/link-relations.xh-
+                                            # tml#link-relations-1 
+    fhir:url @<uri>;                        # Reference details for the link
+}  
+
+# Additional execution information (transaction/batch/history)
+<Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:method @<code> AND
+    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
+                                            # PATCH 
+    fhir:url @<uri>;                        # URL for HTTP equivalent of this 
+                                            # entry 
+    fhir:ifNoneMatch @<string>?;            # For managing cache validation
+    fhir:ifModifiedSince @<instant>?;       # For managing cache currency
+    fhir:ifMatch @<string>?;                # For managing update contention
+    fhir:ifNoneExist @<string>?;            # For conditional creates
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -552,11 +552,11 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Indicates the purpose of a bundle - how it is intended to be used.
-fhirvs:bundle-type ["document" "message" "transaction" "transaction-response" "batch" "batch-response" "history" "searchset" "collection" "subscription-notification"]
-
 # HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.
 fhirvs:http-verb ["GET" "HEAD" "POST" "PUT" "DELETE" "PATCH"]
+
+# Indicates the purpose of a bundle - how it is intended to be used.
+fhirvs:bundle-type ["document" "message" "transaction" "transaction-response" "batch" "batch-response" "history" "searchset" "collection" "subscription-notification"]
 
 # Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
 fhirvs:search-entry-mode ["match" "include" "outcome"]

@@ -111,13 +111,6 @@ start=@<ChargeItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Group of properties which are applicable under the same conditions
-<ChargeItemDefinition.propertyGroup> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:applicability @<OneOrMore_ChargeItemDefinition.applicability>?;  # Conditions under which the 
-                                            # priceComponent is applicable 
-    fhir:priceComponent @<OneOrMore_MonetaryComponent>?;  # Components of total line item price
-}  
-
 # Whether or not the billing code is applicable
 <ChargeItemDefinition.applicability> EXTENDS @<BackboneElement> CLOSED {   
     fhir:condition @<Expression>?;          # Boolean-valued expression
@@ -126,6 +119,13 @@ start=@<ChargeItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:relatedArtifact @<RelatedArtifact>?;  # Reference to / quotation of the 
                                             # external source of the group of 
                                             # properties 
+}  
+
+# Group of properties which are applicable under the same conditions
+<ChargeItemDefinition.propertyGroup> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:applicability @<OneOrMore_ChargeItemDefinition.applicability>?;  # Conditions under which the 
+                                            # priceComponent is applicable 
+    fhir:priceComponent @<OneOrMore_MonetaryComponent>?;  # Components of total line item price
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

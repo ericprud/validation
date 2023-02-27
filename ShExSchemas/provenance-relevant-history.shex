@@ -22,11 +22,11 @@ start=@<provenance-relevant-history> AND {fhir:nodeRole [fhir:treeRoot]}
 <Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Who was involved with change
-<Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # An entity used in this activity
 <Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Who was involved with change
+<Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

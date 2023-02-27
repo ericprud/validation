@@ -7,8 +7,8 @@ BASE <http://hl7.org/fhir/shape/>
 IMPORT <Coding.shex>
 IMPORT <Quantity.shex>
 IMPORT <vitalsigns.shex>
-IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
 
 
 start=@<heartrate> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -21,12 +21,16 @@ start=@<heartrate> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
-# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Code defined by a terminology system
@@ -37,19 +41,15 @@ start=@<heartrate> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+# Heart Rate
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Heart Rate
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 

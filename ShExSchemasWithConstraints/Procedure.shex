@@ -124,13 +124,6 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # procedure 
 }  
 
-# Manipulated, implanted, or removed device
-<Procedure.focalDevice> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<CodeableConcept>?;        # Kind of change to device
-    fhir:manipulated @<Reference> AND {fhir:link 
-    			@<Device> ? };  # Device that was changed
-}  
-
 # The people who performed the procedure
 <Procedure.performer> EXTENDS @<BackboneElement> CLOSED {   
     fhir:function @<CodeableConcept>?;      # Type of performance
@@ -148,6 +141,13 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # practitioner was acting for 
     fhir:period @<Period>?;                 # When the performer performed the 
                                             # procedure 
+}  
+
+# Manipulated, implanted, or removed device
+<Procedure.focalDevice> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<CodeableConcept>?;        # Kind of change to device
+    fhir:manipulated @<Reference> AND {fhir:link 
+    			@<Device> ? };  # Device that was changed
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

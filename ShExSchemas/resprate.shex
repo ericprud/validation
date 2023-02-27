@@ -21,6 +21,10 @@ start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
@@ -29,27 +33,23 @@ start=@<resprate> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
-# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
-}  
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Respiratory Rate
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
 # Used when reporting systolic and diastolic blood pressure.
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Respiratory Rate
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 

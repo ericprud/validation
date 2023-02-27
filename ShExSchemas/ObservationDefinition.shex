@@ -122,6 +122,32 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# Characteristics of quantitative results
+<ObservationDefinition.quantitativeDetails> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:unit @<CodeableConcept>?;          # Primary unit for quantitative 
+                                            # results 
+    fhir:customaryUnit @<CodeableConcept>?;  # Customary (secondary) unit for 
+                                            # quantitative results 
+    fhir:conversionFactor @<decimal>?;      # Primary to secondary unit 
+                                            # conversion factor 
+    fhir:decimalPrecision @<integer>?;      # Decimal precision of observation 
+                                            # quantitative results 
+}  
+
+# Component results
+<ObservationDefinition.component> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Type of observation
+    fhir:permittedDataType @<OneOrMore_code> AND
+    	{fhir:v @fhirvs:permitted-data-type}?;  # Quantity | CodeableConcept | 
+                                            # string | boolean | integer | Range 
+                                            # | Ratio | SampledData | time | 
+                                            # dateTime | Period 
+    fhir:quantitativeDetails @<ObservationDefinition.quantitativeDetails>?;  # Characteristics of quantitative 
+                                            # results 
+    fhir:qualifiedValue @<OneOrMore_ObservationDefinition.qualifiedValue>?;  # Set of qualified values for 
+                                            # observation results 
+}  
+
 # Set of qualified values for observation results
 <ObservationDefinition.qualifiedValue> EXTENDS @<BackboneElement> CLOSED {   
     fhir:context @<CodeableConcept>?;       # Context qualifier for the set of 
@@ -152,32 +178,6 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:criticalCodedValueSet @<canonical>?;  # Value set of critical coded values 
                                             # as part of this set of qualified 
                                             # values 
-}  
-
-# Component results
-<ObservationDefinition.component> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Type of observation
-    fhir:permittedDataType @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:permitted-data-type}?;  # Quantity | CodeableConcept | 
-                                            # string | boolean | integer | Range 
-                                            # | Ratio | SampledData | time | 
-                                            # dateTime | Period 
-    fhir:quantitativeDetails @<ObservationDefinition.quantitativeDetails>?;  # Characteristics of quantitative 
-                                            # results 
-    fhir:qualifiedValue @<OneOrMore_ObservationDefinition.qualifiedValue>?;  # Set of qualified values for 
-                                            # observation results 
-}  
-
-# Characteristics of quantitative results
-<ObservationDefinition.quantitativeDetails> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:unit @<CodeableConcept>?;          # Primary unit for quantitative 
-                                            # results 
-    fhir:customaryUnit @<CodeableConcept>?;  # Customary (secondary) unit for 
-                                            # quantitative results 
-    fhir:conversionFactor @<decimal>?;      # Primary to secondary unit 
-                                            # conversion factor 
-    fhir:decimalPrecision @<integer>?;      # Decimal precision of observation 
-                                            # quantitative results 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -244,15 +244,15 @@ start=@<ObservationDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The gender of a person used for administrative purposes.
+fhirvs:administrative-gender ["male" "female" "other" "unknown"]
+
 # Codes identifying the category of observation range.
 fhirvs:observation-range-category ["reference" "critical" "absolute"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # Permitted data type for observation value.
 fhirvs:permitted-data-type ["Quantity" "CodeableConcept" "string" "boolean" "integer" "Range" "Ratio" "SampledData" "time" "dateTime" "Period"]
 
-# The gender of a person used for administrative purposes.
-fhirvs:administrative-gender ["male" "female" "other" "unknown"]
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

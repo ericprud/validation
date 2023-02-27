@@ -8,8 +8,8 @@ IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Ratio.shex>
 IMPORT <Period.shex>
-IMPORT <Device.shex>
 IMPORT <string.shex>
+IMPORT <Device.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
@@ -94,18 +94,6 @@ start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Who or what performed the medication administration and what type of performance they did
-<MedicationAdministration.performer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:function @<CodeableConcept>?;      # Type of performance
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<Device> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> ? };  # Who performed the medication 
-                                            # administration 
-}  
-
 # Details of how medication was taken
 <MedicationAdministration.dosage> EXTENDS @<BackboneElement> CLOSED {   
     fhir:text @<string>?;                   # Free text dosage instructions e.g. 
@@ -128,6 +116,18 @@ start=@<MedicationAdministration> AND {fhir:nodeRole [fhir:treeRoot]}
 
 )
  
+
+# Who or what performed the medication administration and what type of performance they did
+<MedicationAdministration.performer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:function @<CodeableConcept>?;      # Type of performance
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<Device> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? };  # Who performed the medication 
+                                            # administration 
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

@@ -114,9 +114,9 @@ start=@<Location> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Indicates whether a resource instance represents a specific location or a class of locations.
-fhirvs:location-mode ["instance" "kind"]
-
 # Indicates whether the location is still in use.
 fhirvs:location-status ["active" "suspended" "inactive"]
+
+# Indicates whether a resource instance represents a specific location or a class of locations.
+fhirvs:location-mode ["instance" "kind"]
 

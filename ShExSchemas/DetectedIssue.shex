@@ -76,6 +76,12 @@ start=@<DetectedIssue> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:mitigation @<OneOrMore_DetectedIssue.mitigation>?;  # Step taken to address
 }  
 
+# Supporting evidence
+<DetectedIssue.evidence> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<OneOrMore_CodeableConcept>?;  # Manifestation
+    fhir:detail @<OneOrMore_Reference_Resource>?;  # Supporting information
+}  
+
 # Step taken to address
 <DetectedIssue.mitigation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:action @<CodeableConcept>;         # What mitigation?
@@ -83,12 +89,6 @@ start=@<DetectedIssue> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:author @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
     			@<PractitionerRole> ? }?;  # Who is committing?
-}  
-
-# Supporting evidence
-<DetectedIssue.evidence> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<OneOrMore_CodeableConcept>?;  # Manifestation
-    fhir:detail @<OneOrMore_Reference_Resource>?;  # Supporting information
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

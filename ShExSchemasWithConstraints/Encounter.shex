@@ -7,8 +7,8 @@ BASE <http://hl7.org/fhir/shape/>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Period.shex>
-IMPORT <Coding.shex>
 IMPORT <Device.shex>
+IMPORT <Coding.shex>
 IMPORT <Patient.shex>
 IMPORT <Account.shex>
 IMPORT <dateTime.shex>
@@ -130,19 +130,11 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()
 # ShEx:
 #
-#   resolve  ( fhir:actor ) a Patient OR    resolve  (  ) a Group  Implies   NOT { fhir:type . }
+#   resolve  ( fhir:actor ) a Patient OR    resolve  (  ) a Group  Implies   NOT { fhir:type. }
 {}
 
 )
  
-
-# List of past encounter classes
-<Encounter.classHistory> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:class @<Coding>;                   # inpatient | outpatient | 
-                                            # ambulatory | emergency + 
-    fhir:period @<Period>;                  # The time that the episode was in 
-                                            # the specified class 
-}  
 
 # List of locations where the patient has been
 <Encounter.location> EXTENDS @<BackboneElement> CLOSED {   
@@ -222,7 +214,7 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()
 # ShEx:
 #
-#   resolve  ( fhir:actor ) a Patient OR    resolve  (  ) a Group  Implies   NOT { fhir:type . }
+#   resolve  ( fhir:actor ) a Patient OR    resolve  (  ) a Group  Implies   NOT { fhir:type. }
 {}
 
 )
@@ -254,6 +246,14 @@ start=@<Encounter> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # patient is discharged 
     fhir:dischargeDisposition @<CodeableConcept>?;  # Category or kind of location after 
                                             # discharge 
+}  
+
+# List of past encounter classes
+<Encounter.classHistory> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:class @<Coding>;                   # inpatient | outpatient | 
+                                            # ambulatory | emergency + 
+    fhir:period @<Period>;                  # The time that the episode was in 
+                                            # the specified class 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

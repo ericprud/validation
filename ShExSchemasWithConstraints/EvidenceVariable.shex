@@ -145,6 +145,24 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Range>  ?;  # Definition of the grouping
 }  
 
+# Observation time from study specified event
+<EvidenceVariable.characteristic.timeFromEvent> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>?;            # Human readable description
+    fhir:note @<OneOrMore_Annotation>?;     # Used for footnotes or explanatory 
+                                            # notes 
+    fhir:event @<CodeableConcept>  OR 
+    			@<Reference>  OR 
+    			@<dateTime>  OR 
+    			@<id>  ?;  # The event used as a base point 
+                                            # (reference point) in time 
+    fhir:quantity @<Quantity>?;             # Used to express the observation at 
+                                            # a defined amount of time after the 
+                                            # study start 
+    fhir:range @<Range>?;                   # Used to express the observation 
+                                            # within a period after the study 
+                                            # start 
+}  
+
 # A defining factor of the EvidenceVariable
 <EvidenceVariable.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:linkId @<id>?;                     # Label for internal linking
@@ -265,24 +283,6 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:offset @<CodeableConcept>?;        # Reference point for valueQuantity
 }  
 
-# Observation time from study specified event
-<EvidenceVariable.characteristic.timeFromEvent> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>?;            # Human readable description
-    fhir:note @<OneOrMore_Annotation>?;     # Used for footnotes or explanatory 
-                                            # notes 
-    fhir:event @<CodeableConcept>  OR 
-    			@<Reference>  OR 
-    			@<dateTime>  OR 
-    			@<id>  ?;  # The event used as a base point 
-                                            # (reference point) in time 
-    fhir:quantity @<Quantity>?;             # Used to express the observation at 
-                                            # a defined amount of time after the 
-                                            # study start 
-    fhir:range @<Range>?;                   # Used to express the observation 
-                                            # within a period after the study 
-                                            # start 
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
@@ -335,9 +335,9 @@ start=@<EvidenceVariable> AND {fhir:nodeRole [fhir:treeRoot]}
 # Logical grouping of characteristics.
 fhirvs:characteristic-combination ["all-of" "any-of" "at-least" "at-most" "statistical" "net-effect" "dataset"]
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
 fhirvs:variable-handling ["continuous" "dichotomous" "ordinal" "polychotomous"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

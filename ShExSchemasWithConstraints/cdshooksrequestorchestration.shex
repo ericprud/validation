@@ -18,20 +18,20 @@ start=@<cdshooksrequestorchestration> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Input data requirements
-<RequestOrchestration.action.input> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Output data definition
 <RequestOrchestration.action.output> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Dynamic aspects of the definition
-<RequestOrchestration.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+# Input data requirements
+<RequestOrchestration.action.input> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Proposed actions, if any
-<RequestOrchestration.action> EXTENDS @<BackboneElement> CLOSED {   
+# Who should perform the action
+<RequestOrchestration.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Dynamic aspects of the definition
+<RequestOrchestration.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Whether or not the action is applicable
@@ -42,7 +42,7 @@ start=@<cdshooksrequestorchestration> AND {fhir:nodeRole [fhir:treeRoot]}
 <RequestOrchestration.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Who should perform the action
-<RequestOrchestration.action.participant> EXTENDS @<BackboneElement> CLOSED {   
+# Proposed actions, if any
+<RequestOrchestration.action> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

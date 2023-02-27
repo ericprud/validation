@@ -19,17 +19,17 @@ IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <integer.shex>
 IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Location.shex>
 IMPORT <Endpoint.shex>
-IMPORT <Resource.shex>
 IMPORT <Quantity.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
+IMPORT <base64Binary.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
-IMPORT <base64Binary.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DeviceRequest.shex>
 IMPORT <DomainResource.shex>
@@ -80,6 +80,18 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:entity @<OneOrMore_AuditEvent.entity>?;  # Data or objects used
 }  
 
+# Data or objects used
+<AuditEvent.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Specific instance of resource
+    fhir:role @<CodeableConcept>?;          # What role the entity played
+    fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Security labels on the entity
+    fhir:query @<base64Binary>?;            # Query parameters
+    fhir:detail @<OneOrMore_AuditEvent.entity.detail>?;  # Additional Information about the 
+                                            # entity 
+    fhir:agent @<OneOrMore_AuditEvent.agent>?;  # Entity is attributed to this agent
+}  
+
 # Whether the event succeeded or failed
 <AuditEvent.outcome> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<Coding>;                    # Whether the event succeeded or 
@@ -111,18 +123,6 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the activity 
     fhir:authorization @<OneOrMore_CodeableConcept>?;  # Allowable authorization for this 
                                             # agent 
-}  
-
-# Data or objects used
-<AuditEvent.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> ? }?;  # Specific instance of resource
-    fhir:role @<CodeableConcept>?;          # What role the entity played
-    fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Security labels on the entity
-    fhir:query @<base64Binary>?;            # Query parameters
-    fhir:detail @<OneOrMore_AuditEvent.entity.detail>?;  # Additional Information about the 
-                                            # entity 
-    fhir:agent @<OneOrMore_AuditEvent.agent>?;  # Entity is attributed to this agent
 }  
 
 # Audit Event Reporter
@@ -188,21 +188,21 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_AuditEvent.entity> 
 }
 
-<OneOrMore_uri> CLOSED {
-    rdf:first @<uri>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
-}
-
 <OneOrMore_AuditEvent.entity.detail> CLOSED {
     rdf:first @<AuditEvent.entity.detail>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_AuditEvent.entity.detail> 
 }
 
-#---------------------- Value Sets ------------------------
+<OneOrMore_uri> CLOSED {
+    rdf:first @<uri>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
+}
 
-# Indicator for type of action performed during the event that generated the event.
-fhirvs:audit-event-action ["C" "R" "U" "D" "E"]
+#---------------------- Value Sets ------------------------
 
 # The severity of the audit entry.
 fhirvs:audit-event-severity ["emergency" "alert" "critical" "error" "warning" "notice" "informational" "debug"]
+
+# Indicator for type of action performed during the event that generated the event.
+fhirvs:audit-event-action ["C" "R" "U" "D" "E"]
 

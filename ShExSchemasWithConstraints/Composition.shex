@@ -224,9 +224,9 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "deprecated" "unknown"]
-
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
+
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "deprecated" "unknown"]
 

@@ -38,7 +38,7 @@ IMPORT <Identifier.shex>
 # Constraint: reference.exists()  implies (reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids')) or (reference='#' and %rootResource!=%resource))
 # ShEx:
 #
-#{fhir:reference .  Implies  ( NOT { fhir:reference.  startsWith  ('#') } OR ({fhir:reference.  substring  (1).  trace  ('url') { fhir:v ['%rootResource'.contained.id.  trace  ('ids')] } }) OR (({ fhir:reference { fhir:v ['#'] }  }) AND 'false' [fhir:v  . -'null'] ))}
+#{fhir:reference .  Implies  ( NOT { fhir:reference. startsWith  ('#') } OR ({fhir:reference.  substring  (1).  trace  ('url') { fhir:v ['%rootResource'.contained.id.  trace  ('ids')] } }) OR (({ fhir:reference { fhir:v ['#'] }  }) AND 'false' [fhir:v  . -'null'] ))}
 {}
 
 ) AND (

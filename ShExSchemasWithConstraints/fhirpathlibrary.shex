@@ -23,11 +23,11 @@ start=@<fhirpathlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 <Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 
-# FHIRPath Content
+# Contents of the library, either embedded or referenced
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 
-# Contents of the library, either embedded or referenced
+# FHIRPath Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 

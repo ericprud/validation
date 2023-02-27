@@ -54,10 +54,6 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # chemical makeup 
 }  
 
-# A component that this component contains or is made from
-<ManufacturedItemDefinition.component.componentnull> CLOSED {   
-}  
-
 # General characteristics of this item
 <ManufacturedItemDefinition.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # A code expressing the type of 
@@ -67,6 +63,10 @@ start=@<ManufacturedItemDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<date>  OR 
     			@<boolean>  OR 
     			@<Attachment>  ?;  # A value for the characteristic
+}  
+
+# A component that this component contains or is made from
+<ManufacturedItemDefinition.component.componentnull> CLOSED {   
 }  
 
 # A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)

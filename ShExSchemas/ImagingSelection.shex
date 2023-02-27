@@ -88,11 +88,22 @@ start=@<ImagingSelection> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # frame of reference 
 }  
 
-# A specific 3D region in a DICOM frame of reference
-<ImagingSelection.imageRegion> EXTENDS @<BackboneElement> CLOSED {   
+# The selected instances
+<ImagingSelection.instance> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:uid @<id>;                         # DICOM SOP Instance UID
+    fhir:number @<unsignedInt>?;            # DICOM Instance Number
+    fhir:sopClass @<Coding>?;               # DICOM SOP Class UID
+    fhir:subset @<OneOrMore_string>?;       # The selected subset of the SOP 
+                                            # Instance 
+    fhir:imageRegion @<OneOrMore_ImagingSelection.instance.imageRegion>?;  # A specific 2D region in a DICOM 
+                                            # image / frame 
+}  
+
+# A specific 2D region in a DICOM image / frame
+<ImagingSelection.instance.imageRegion> EXTENDS @<BackboneElement> CLOSED {   
     fhir:regionType @<code> AND
-    	{fhir:v @fhirvs:imagingselection-3dgraphictype};  # point | multipoint | polyline | 
-                                            # polygon | ellipse | ellipsoid 
+    	{fhir:v @fhirvs:imagingselection-2dgraphictype};  # point | polyline | interpolated | 
+                                            # circle | ellipse 
     fhir:coordinate @<OneOrMore_decimal>;   # Specifies the coordinates that 
                                             # define the image region 
 }  
@@ -111,24 +122,13 @@ start=@<ImagingSelection> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<RelatedPerson> ? }?;  # Author (human or machine)
 }  
 
-# A specific 2D region in a DICOM image / frame
-<ImagingSelection.instance.imageRegion> EXTENDS @<BackboneElement> CLOSED {   
+# A specific 3D region in a DICOM frame of reference
+<ImagingSelection.imageRegion> EXTENDS @<BackboneElement> CLOSED {   
     fhir:regionType @<code> AND
-    	{fhir:v @fhirvs:imagingselection-2dgraphictype};  # point | polyline | interpolated | 
-                                            # circle | ellipse 
+    	{fhir:v @fhirvs:imagingselection-3dgraphictype};  # point | multipoint | polyline | 
+                                            # polygon | ellipse | ellipsoid 
     fhir:coordinate @<OneOrMore_decimal>;   # Specifies the coordinates that 
                                             # define the image region 
-}  
-
-# The selected instances
-<ImagingSelection.instance> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:uid @<id>;                         # DICOM SOP Instance UID
-    fhir:number @<unsignedInt>?;            # DICOM Instance Number
-    fhir:sopClass @<Coding>?;               # DICOM SOP Class UID
-    fhir:subset @<OneOrMore_string>?;       # The selected subset of the SOP 
-                                            # Instance 
-    fhir:imageRegion @<OneOrMore_ImagingSelection.instance.imageRegion>?;  # A specific 2D region in a DICOM 
-                                            # image / frame 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -186,11 +186,6 @@ start=@<ImagingSelection> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ImagingSelection.imageRegion> 
 }
 
-<OneOrMore_decimal> CLOSED {
-    rdf:first @<decimal>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_decimal> 
-}
-
 <OneOrMore_string> CLOSED {
     rdf:first @<string>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_string> 
@@ -201,14 +196,19 @@ start=@<ImagingSelection> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ImagingSelection.instance.imageRegion> 
 }
 
+<OneOrMore_decimal> CLOSED {
+    rdf:first @<decimal>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_decimal> 
+}
+
 #---------------------- Value Sets ------------------------
 
 # The type of 2D coordinates describing a 2D image region.
 fhirvs:imagingselection-2dgraphictype ["point" "polyline" "interpolated" "circle" "ellipse"]
 
-# The type of coordinates describing a 3D image region.
-fhirvs:imagingselection-3dgraphictype ["point" "multipoint" "polyline" "polygon" "ellipse" "ellipsoid"]
-
 # The status of the ImagingSelection.
 fhirvs:imagingselection-status ["available" "entered-in-error" "unknown"]
+
+# The type of coordinates describing a 3D image region.
+fhirvs:imagingselection-3dgraphictype ["point" "multipoint" "polyline" "polygon" "ellipse" "ellipsoid"]
 

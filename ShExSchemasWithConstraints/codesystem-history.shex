@@ -21,7 +21,7 @@ IMPORT <Extension.shex>
 
 }  
 
-# Information about the change
+# Version marker after the change was made
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
@@ -29,7 +29,7 @@ IMPORT <Extension.shex>
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
-# Version marker after the change was made
+# Information about the change
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 

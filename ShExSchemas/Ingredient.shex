@@ -66,7 +66,7 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (Ingredient.allergenicIndicator.where(value='true').count() + Ingredient.substance.code.reference.count())  < 2
 # ShEx:
 #
-#(   count  ( fhir:Ingredient.allergenicIndicator.  where  (value { fhir:v ['true'] } ) )  Plus     count  ( fhir:Ingredient.substance.code.reference )) { fhir:v MaxExclusive 2 } 
+#(   count  ( fhir:Ingredient.allergenicIndicator. where  (value { fhir:v ['true'] } ) )  Plus     count  ( fhir:Ingredient.substance.code.reference )) { fhir:v MaxExclusive 2 } 
 {}
 
 )
@@ -80,6 +80,27 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:strength @<OneOrMore_Ingredient.substance.strength>?;  # The quantity of substance, per 
                                             # presentation, or per volume or 
                                             # mass, and type of quantity 
+}  
+
+# Strength expressed in terms of a reference substance
+<Ingredient.substance.strength.referenceStrength> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:substance @<CodeableReference>?;   # Relevant reference substance
+    fhir:strength @<Ratio>  OR 
+    			@<RatioRange>  OR 
+    			@<Quantity>  ;  # Strength expressed in terms of a 
+                                            # reference substance 
+    fhir:measurementPoint @<string>?;       # When strength is measured at a 
+                                            # particular point or distance 
+    fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
+}  
+
+# An organization that manufactures this ingredient
+<Ingredient.manufacturer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<code> AND
+    	{fhir:v @fhirvs:ingredient-manufacturer-role}?;  # allowed | possible | actual
+    fhir:manufacturer @<Reference> AND {fhir:link 
+    			@<Organization> ? };  # An organization that manufactures 
+                                            # this ingredient 
 }  
 
 # The quantity of substance, per presentation, or per volume or mass, and type of quantity
@@ -114,27 +135,6 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # reference substance 
 }  
 
-# An organization that manufactures this ingredient
-<Ingredient.manufacturer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<code> AND
-    	{fhir:v @fhirvs:ingredient-manufacturer-role}?;  # allowed | possible | actual
-    fhir:manufacturer @<Reference> AND {fhir:link 
-    			@<Organization> ? };  # An organization that manufactures 
-                                            # this ingredient 
-}  
-
-# Strength expressed in terms of a reference substance
-<Ingredient.substance.strength.referenceStrength> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:substance @<CodeableReference>?;   # Relevant reference substance
-    fhir:strength @<Ratio>  OR 
-    			@<RatioRange>  OR 
-    			@<Quantity>  ;  # Strength expressed in terms of a 
-                                            # reference substance 
-    fhir:measurementPoint @<string>?;       # When strength is measured at a 
-                                            # particular point or distance 
-    fhir:country @<OneOrMore_CodeableConcept>?;  # Where the strength range applies
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Reference_AdministrableProductDefinition_OR_ManufacturedItemDefinition_OR_MedicinalProductDefinition> CLOSED {
@@ -167,9 +167,9 @@ start=@<Ingredient> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role.
 fhirvs:ingredient-manufacturer-role ["allowed" "possible" "actual"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

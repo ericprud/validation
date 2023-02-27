@@ -18,15 +18,15 @@ start=@<catalog> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
+# Composition is broken into sections
+<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Attests to accuracy of composition
 <Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # The clinical service(s) being documented
 <Composition.event> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Composition is broken into sections
-<Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

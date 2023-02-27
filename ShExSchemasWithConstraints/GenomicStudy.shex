@@ -97,6 +97,27 @@ start=@<GenomicStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # input file 
 }  
 
+# Performer for the analysis event
+<GenomicStudy.analysis.performer> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<Device> OR 
+    			@<Organization> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> ? }?;  # The organization, healthcare 
+                                            # professional, or others who 
+                                            # participated in performing this 
+                                            # analysis 
+    fhir:role @<CodeableConcept>?;          # Role of the actor for this analysis
+}  
+
+# Outputs for the analysis event
+<GenomicStudy.analysis.output> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:file @<Reference> AND {fhir:link 
+    			@<DocumentReference> ? }?;  # File containing output data
+    fhir:type @<CodeableConcept>?;          # Type of output data (e.g., VCF, 
+                                            # MAF, or BAM) 
+}  
+
 # Genomic Analysis Event
 <GenomicStudy.analysis> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifiers for the analysis event
@@ -148,33 +169,12 @@ start=@<GenomicStudy> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # with settings and parameters 
 }  
 
-# Outputs for the analysis event
-<GenomicStudy.analysis.output> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:file @<Reference> AND {fhir:link 
-    			@<DocumentReference> ? }?;  # File containing output data
-    fhir:type @<CodeableConcept>?;          # Type of output data (e.g., VCF, 
-                                            # MAF, or BAM) 
-}  
-
 # Devices used for the analysis (e.g., instruments, software), with settings and parameters
 <GenomicStudy.analysis.device> EXTENDS @<BackboneElement> CLOSED {   
     fhir:device @<Reference> AND {fhir:link 
     			@<Device> ? }?;  # Device used for the analysis
     fhir:function @<CodeableConcept>?;      # Specific function for the device 
                                             # used for the analysis 
-}  
-
-# Performer for the analysis event
-<GenomicStudy.analysis.performer> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:actor @<Reference> AND {fhir:link 
-    			@<Device> OR 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> ? }?;  # The organization, healthcare 
-                                            # professional, or others who 
-                                            # participated in performing this 
-                                            # analysis 
-    fhir:role @<CodeableConcept>?;          # Role of the actor for this analysis
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

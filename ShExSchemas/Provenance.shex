@@ -12,8 +12,8 @@ IMPORT <instant.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
 IMPORT <Location.shex>
-IMPORT <CareTeam.shex>
 IMPORT <Resource.shex>
+IMPORT <CareTeam.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
@@ -105,7 +105,7 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()
 # ShEx:
 #
-#(   resolve  ( fhir:who ).  ofType  (Organization) . AND    resolve  ( fhir:onBehalfOf.   resolve  (  ).  ofType  (PractitionerRole).organization ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf.   resolve  (  ).organization ))
+#(   resolve  ( fhir:who ).  ofType  (Organization) . AND    resolve  ( fhir:onBehalfOf. resolve  (  ). ofType  (PractitionerRole).organization ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf. resolve  (  ).organization ))
 {}
 
 ) AND (
@@ -128,11 +128,21 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()
 # ShEx:
 #
-#(   resolve  ( fhir:who.   resolve  (  ).  ofType  (PractitionerRole).practitioner ) . AND    resolve  ( fhir:onBehalfOf ).  ofType  (Practitioner) .)  Implies  (   resolve  ( fhir:who.   resolve  (  ).practitioner )  NotEquals     resolve  ( fhir:onBehalfOf ))
+#(   resolve  ( fhir:who. resolve  (  ). ofType  (PractitionerRole).practitioner ) . AND    resolve  ( fhir:onBehalfOf ).  ofType  (Practitioner) .)  Implies  (   resolve  ( fhir:who. resolve  (  ).practitioner )  NotEquals     resolve  ( fhir:onBehalfOf ))
 {}
 
 )
  
+
+# An entity used in this activity
+<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<code> AND
+    	{fhir:v @fhirvs:provenance-entity-role};  # revision | quotation | source | 
+                                            # instantiates | removal 
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> ? };  # Identity of entity
+    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
+}  
 
 # Actor involved
 <Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
@@ -192,7 +202,7 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()
 # ShEx:
 #
-#(   resolve  ( fhir:who ).  ofType  (Organization) . AND    resolve  ( fhir:onBehalfOf.   resolve  (  ).  ofType  (PractitionerRole).organization ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf.   resolve  (  ).organization ))
+#(   resolve  ( fhir:who ).  ofType  (Organization) . AND    resolve  ( fhir:onBehalfOf. resolve  (  ). ofType  (PractitionerRole).organization ) .)  Implies  (   resolve  ( fhir:who )  NotEquals     resolve  ( fhir:onBehalfOf. resolve  (  ).organization ))
 {}
 
 ) AND (
@@ -215,21 +225,11 @@ start=@<Provenance> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()
 # ShEx:
 #
-#(   resolve  ( fhir:who.   resolve  (  ).  ofType  (PractitionerRole).practitioner ) . AND    resolve  ( fhir:onBehalfOf ).  ofType  (Practitioner) .)  Implies  (   resolve  ( fhir:who.   resolve  (  ).practitioner )  NotEquals     resolve  ( fhir:onBehalfOf ))
+#(   resolve  ( fhir:who. resolve  (  ). ofType  (PractitionerRole).practitioner ) . AND    resolve  ( fhir:onBehalfOf ).  ofType  (Practitioner) .)  Implies  (   resolve  ( fhir:who. resolve  (  ).practitioner )  NotEquals     resolve  ( fhir:onBehalfOf ))
 {}
 
 )
  
-
-# An entity used in this activity
-<Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<code> AND
-    	{fhir:v @fhirvs:provenance-entity-role};  # revision | quotation | source | 
-                                            # instantiates | removal 
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> ? };  # Identity of entity
-    fhir:agent @<OneOrMore_Provenance.agent>?;  # Entity is attributed to this agent
-}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

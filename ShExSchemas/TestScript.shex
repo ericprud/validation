@@ -426,26 +426,28 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # only on error? 
 }  
 
-# Capabilities  that are assumed to function correctly on the FHIR server being tested
-<TestScript.metadata.capability> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:required @<boolean>;               # Are the capabilities required?
-    fhir:validated @<boolean>;              # Are the capabilities validated?
-    fhir:description @<string>?;            # The expected capabilities of the 
-                                            # server 
-    fhir:origin @<OneOrMore_integer>?;      # Which origin server these 
-                                            # requirements apply to 
-    fhir:destination @<integer>?;           # Which server these requirements 
-                                            # apply to 
-    fhir:link @<OneOrMore_uri>?;            # Links to the FHIR specification
-    fhir:capabilities @<canonical>;         # Required Capability Statement
-}  
-
 # Indication of the artifact(s) that are tested by this test case
 <TestScript.scope> EXTENDS @<BackboneElement> CLOSED {   
     fhir:artifact @<canonical>;             # The specific conformance artifact 
                                             # being tested 
     fhir:conformance @<CodeableConcept>?;   # required | optional | strict
     fhir:phase @<CodeableConcept>?;         # unit | integration | production
+}  
+
+# Each operation can have one or more header elements
+<TestScript.setup.action.operation.requestHeader> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:field @<string>;                   # HTTP header field name
+    fhir:value @<string>;                   # HTTP headerfield value
+}  
+
+# Fixture in the test script - by reference (uri)
+<TestScript.fixture> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:autocreate @<boolean>;             # Whether or not to implicitly 
+                                            # create the fixture during setup 
+    fhir:autodelete @<boolean>;             # Whether or not to implicitly 
+                                            # delete the fixture during teardown 
+    fhir:resource @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Reference of the resource
 }  
 
 # The setup operation to perform
@@ -480,17 +482,6 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the [id],  [type], and [vid] for 
                                             # GET requests 
     fhir:url @<string>?;                    # Request URL
-}  
-
-# An abstract server representing a destination or receiver in a message exchange
-<TestScript.destination> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:index @<integer>;                  # The index of the abstract 
-                                            # destination server starting at 1 
-    fhir:profile @<Coding>;                 # FHIR-Server | FHIR-SDC-FormManager 
-                                            # | FHIR-SDC-FormReceiver | 
-                                            # FHIR-SDC-FormProcessor 
-    fhir:url @<url>?;                       # The url path of the destination 
-                                            # server 
 }  
 
 # Required capability that is assumed to function correctly on the FHIR server being tested
@@ -792,16 +783,67 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Each operation can have one or more header elements
-<TestScript.setup.action.operation.requestHeader> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:field @<string>;                   # HTTP header field name
-    fhir:value @<string>;                   # HTTP headerfield value
-}  
-
 # Links to the FHIR specification
 <TestScript.metadata.link> EXTENDS @<BackboneElement> CLOSED {   
     fhir:url @<uri>;                        # URL to the specification
     fhir:description @<string>?;            # Short description
+}  
+
+# A setup operation or assert to perform
+<TestScript.setup.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
+    fhir:assert @<TestScript.setup.action.assert>?;  # The assertion to perform
+}  
+
+# An abstract server representing a destination or receiver in a message exchange
+<TestScript.destination> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:index @<integer>;                  # The index of the abstract 
+                                            # destination server starting at 1 
+    fhir:profile @<Coding>;                 # FHIR-Server | FHIR-SDC-FormManager 
+                                            # | FHIR-SDC-FormReceiver | 
+                                            # FHIR-SDC-FormProcessor 
+    fhir:url @<url>?;                       # The url path of the destination 
+                                            # server 
+}  
+
+# A series of required setup operations before tests are executed
+<TestScript.setup> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_TestScript.setup.action>;  # A setup operation or assert to 
+                                            # perform 
+}  
+
+# A test in this script
+<TestScript.test> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Tracking/logging name of this test
+    fhir:description @<string>?;            # Tracking/reporting short 
+                                            # description of the test 
+    fhir:action @<OneOrMore_TestScript.test.action>;  # A test operation or assert to 
+                                            # perform 
+}  
+
+# One or more teardown operations to perform
+<TestScript.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestScript.setup.action.operation>;  # The teardown operation to perform
+}  
+
+# Capabilities  that are assumed to function correctly on the FHIR server being tested
+<TestScript.metadata.capability> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:required @<boolean>;               # Are the capabilities required?
+    fhir:validated @<boolean>;              # Are the capabilities validated?
+    fhir:description @<string>?;            # The expected capabilities of the 
+                                            # server 
+    fhir:origin @<OneOrMore_integer>?;      # Which origin server these 
+                                            # requirements apply to 
+    fhir:destination @<integer>?;           # Which server these requirements 
+                                            # apply to 
+    fhir:link @<OneOrMore_uri>?;            # Links to the FHIR specification
+    fhir:capabilities @<canonical>;         # Required Capability Statement
+}  
+
+# A series of required clean up steps
+<TestScript.teardown> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_TestScript.teardown.action>;  # One or more teardown operations to 
+                                            # perform 
 }  
 
 # Placeholder for evaluated elements
@@ -1122,48 +1164,6 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:url @<url>?;                       # The url path of the origin server
 }  
 
-# One or more teardown operations to perform
-<TestScript.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestScript.setup.action.operation>;  # The teardown operation to perform
-}  
-
-# A series of required setup operations before tests are executed
-<TestScript.setup> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_TestScript.setup.action>;  # A setup operation or assert to 
-                                            # perform 
-}  
-
-# Fixture in the test script - by reference (uri)
-<TestScript.fixture> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:autocreate @<boolean>;             # Whether or not to implicitly 
-                                            # create the fixture during setup 
-    fhir:autodelete @<boolean>;             # Whether or not to implicitly 
-                                            # delete the fixture during teardown 
-    fhir:resource @<Reference> AND {fhir:link 
-    			@<Resource> ? }?;  # Reference of the resource
-}  
-
-# A setup operation or assert to perform
-<TestScript.setup.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
-    fhir:assert @<TestScript.setup.action.assert>?;  # The assertion to perform
-}  
-
-# A series of required clean up steps
-<TestScript.teardown> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_TestScript.teardown.action>;  # One or more teardown operations to 
-                                            # perform 
-}  
-
-# A test in this script
-<TestScript.test> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Tracking/logging name of this test
-    fhir:description @<string>?;            # Tracking/reporting short 
-                                            # description of the test 
-    fhir:action @<OneOrMore_TestScript.test.action>;  # A test operation or assert to 
-                                            # perform 
-}  
-
 # A test operation or assert to perform
 <TestScript.test.action> EXTENDS @<BackboneElement> CLOSED {   
     fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
@@ -1227,16 +1227,6 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.test> 
 }
 
-<OneOrMore_integer> CLOSED {
-    rdf:first @<integer>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_integer> 
-}
-
-<OneOrMore_uri> CLOSED {
-    rdf:first @<uri>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
-}
-
 <OneOrMore_TestScript.setup.action.operation.requestHeader> CLOSED {
     rdf:first @<TestScript.setup.action.operation.requestHeader>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.setup.action.operation.requestHeader> 
@@ -1257,33 +1247,43 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.setup.action> 
 }
 
-<OneOrMore_TestScript.teardown.action> CLOSED {
-    rdf:first @<TestScript.teardown.action>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.teardown.action> 
-}
-
 <OneOrMore_TestScript.test.action> CLOSED {
     rdf:first @<TestScript.test.action>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.test.action> 
 }
 
+<OneOrMore_integer> CLOSED {
+    rdf:first @<integer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_integer> 
+}
+
+<OneOrMore_uri> CLOSED {
+    rdf:first @<uri>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
+}
+
+<OneOrMore_TestScript.teardown.action> CLOSED {
+    rdf:first @<TestScript.teardown.action>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.teardown.action> 
+}
+
 #---------------------- Value Sets ------------------------
+
+# This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
+fhirvs:mimetypes xsd:string #EXTERNAL
+
+# The type of operator to use for assertion.
+fhirvs:assert-operator-codes ["equals" "notEquals" "in" "notIn" "greaterThan" "lessThan" "empty" "notEmpty" "contains" "notContains" "eval"]
+
+# The type of response code to use for assertion.
+fhirvs:assert-response-code-types ["okay" "created" "noContent" "notModified" "bad" "forbidden" "notFound" "methodNotAllowed" "conflict" "gone" "preconditionFailed" "unprocessable"]
+
+# The type of direction to use for assertion.
+fhirvs:assert-direction-codes ["response" "request"]
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # The allowable request method or HTTP operation codes.
 fhirvs:http-operations ["delete" "get" "options" "patch" "post" "put" "head"]
-
-# The type of direction to use for assertion.
-fhirvs:assert-direction-codes ["response" "request"]
-
-# This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes xsd:string #EXTERNAL
-
-# The type of response code to use for assertion.
-fhirvs:assert-response-code-types ["okay" "created" "noContent" "notModified" "bad" "forbidden" "notFound" "methodNotAllowed" "conflict" "gone" "preconditionFailed" "unprocessable"]
-
-# The type of operator to use for assertion.
-fhirvs:assert-operator-codes ["equals" "notEquals" "in" "notIn" "greaterThan" "lessThan" "empty" "notEmpty" "contains" "notContains" "eval"]
 

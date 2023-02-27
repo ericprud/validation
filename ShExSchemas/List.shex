@@ -101,9 +101,9 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The processing mode that applies to this list.
-fhirvs:list-mode ["working" "snapshot" "changes"]
-
 # The current state of the list.
 fhirvs:list-status ["current" "retired" "entered-in-error"]
+
+# The processing mode that applies to this list.
+fhirvs:list-mode ["working" "snapshot" "changes"]
 

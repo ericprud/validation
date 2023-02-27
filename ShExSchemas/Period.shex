@@ -27,7 +27,7 @@ IMPORT <dateTime.shex>
 # Constraint: start.hasValue().not() or end.hasValue().not() or (start <= end)
 # ShEx:
 #
-# NOT { fhir:start . } OR  NOT { fhir:end . } OR ({ fhir:start  LessOrEqual  { fhir:end } })
+# NOT { fhir:start. } OR  NOT { fhir:end. } OR ({ fhir:start  LessOrEqual  { fhir:end } })
 {}
 
 )

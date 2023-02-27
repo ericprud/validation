@@ -19,19 +19,19 @@ start=@<elmlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# ELM JSON Content
-<Library.content> EXTENDS @<Attachment> CLOSED {   
-}  
-
-# ELM XML Content
-<Library.content> EXTENDS @<Attachment> CLOSED {   
-}  
-
 # Additional documentation, citations, etc.
 <Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 
+# ELM JSON Content
+<Library.content> EXTENDS @<Attachment> CLOSED {   
+}  
+
 # Contents of the library, either embedded or referenced
+<Library.content> EXTENDS @<Attachment> CLOSED {   
+}  
+
+# ELM XML Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 

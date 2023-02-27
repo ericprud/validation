@@ -178,6 +178,15 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# Dynamic aspects of the definition
+<ActivityDefinition.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:path @<string>;                    # The path to the element to be set 
+                                            # dynamically 
+    fhir:expression @<Expression>;          # An expression that provides the 
+                                            # dynamic value for the 
+                                            # customization 
+}  
+
 # Who should participate in the action
 <ActivityDefinition.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
@@ -203,15 +212,6 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent, etc.
     fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
                                             # etc. 
-}  
-
-# Dynamic aspects of the definition
-<ActivityDefinition.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:path @<string>;                    # The path to the element to be set 
-                                            # dynamically 
-    fhir:expression @<Expression>;          # An expression that provides the 
-                                            # dynamic value for the 
-                                            # customization 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -263,18 +263,18 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes indicating the degree of authority/intentionality associated with a request.
-fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
 
 # The type of participant for the action.
 fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
 
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+# Codes indicating the degree of authority/intentionality associated with a request.
+fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # All Resource Types that represent request resources
 fhirvs:request-resource-types ["Appointment" "AppointmentResponse" "CarePlan" "Claim" "CommunicationRequest" "Contract" "CoverageEligibilityRequest" "DeviceRequest" "EnrollmentRequest" "ImmunizationRecommendation" "MedicationRequest" "NutritionOrder" "RequestOrchestration" "ServiceRequest" "SupplyRequest" "VisionPrescription"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

@@ -29,13 +29,6 @@ start=@<SubstanceReferenceInformation> AND {fhir:nodeRole [fhir:treeRoot]}
 }  
 
 # Todo
-<SubstanceReferenceInformation.geneElement> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>?;          # Todo
-    fhir:element @<Identifier>?;            # Todo
-    fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
-}  
-
-# Todo
 <SubstanceReferenceInformation.gene> EXTENDS @<BackboneElement> CLOSED {   
     fhir:geneSequenceOrigin @<CodeableConcept>?;  # Todo
     fhir:gene @<CodeableConcept>?;          # Todo
@@ -53,6 +46,13 @@ start=@<SubstanceReferenceInformation> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Range>  OR 
     			@<string>  ?;  # Todo
     fhir:amountType @<CodeableConcept>?;    # Todo
+    fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
+}  
+
+# Todo
+<SubstanceReferenceInformation.geneElement> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>?;          # Todo
+    fhir:element @<Identifier>?;            # Todo
     fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
 }  
 

@@ -29,6 +29,21 @@ IMPORT <CodeableConcept.shex>
 
 
 # This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: allFalse
+# Unmapped construct found: select
+# # Constraint UniqueKey:tim-9
+# Human readable:If there's an offset, there must be a when (and not C, CM, CD, CV)
+#
+# Constraint: offset.empty() or (when.exists() and when.select($this in ('C' | 'CM' | 'CD' | 'CV')).allFalse())
+# ShEx:
+#
+# NOT { fhir:offset {fhir:v .} }  OR ({fhir:when . AND    allFalse  ( fhir:when. select  ($this { fhir:v ['C' 'CM' 'CD' 'CV'] } ) )})
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
 # Unmapped construct found: Implies
 # # Constraint UniqueKey:tim-5
 # Human readable:period SHALL be a non-negative value
@@ -154,6 +169,21 @@ IMPORT <CodeableConcept.shex>
 
 
 # This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: allFalse
+# Unmapped construct found: select
+# # Constraint UniqueKey:tim-9
+# Human readable:If there's an offset, there must be a when (and not C, CM, CD, CV)
+#
+# Constraint: offset.empty() or (when.exists() and when.select($this in ('C' | 'CM' | 'CD' | 'CV')).allFalse())
+# ShEx:
+#
+# NOT { fhir:offset {fhir:v .} }  OR ({fhir:when . AND    allFalse  ( fhir:when. select  ($this { fhir:v ['C' 'CM' 'CD' 'CV'] } ) )})
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
 # Unmapped construct found: Implies
 # # Constraint UniqueKey:tim-5
 # Human readable:period SHALL be a non-negative value
@@ -263,9 +293,9 @@ IMPORT <CodeableConcept.shex>
 # Real world event relating to the schedule.
 fhirvs:event-timing ["MORN" "MORN.early" "MORN.late" "NOON" "AFT" "AFT.early" "AFT.late" "EVE" "EVE.early" "EVE.late" "NIGHT" "PHS" "IMD" "HS" "WAKE" "C" "CM" "CD" "CV" "AC" "ACM" "ACD" "ACV" "PC" "PCM" "PCD" "PCV"]
 
-# A unit of time (units from UCUM).
-fhirvs:units-of-time xsd:string #EXTERNAL
-
 # The days of the week.
 fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
+
+# A unit of time (units from UCUM).
+fhirvs:units-of-time xsd:string #EXTERNAL
 

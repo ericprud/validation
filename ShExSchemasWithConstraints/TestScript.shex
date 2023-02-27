@@ -372,6 +372,53 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# An abstract server representing a client or sender in a message exchange
+<TestScript.origin> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:index @<integer>;                  # The index of the abstract origin 
+                                            # server starting at 1 
+    fhir:profile @<Coding>;                 # FHIR-Client | FHIR-SDC-FormFiller
+    fhir:url @<url>?;                       # The url path of the origin server
+}  
+
+# A test in this script
+<TestScript.test> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>?;                   # Tracking/logging name of this test
+    fhir:description @<string>?;            # Tracking/reporting short 
+                                            # description of the test 
+    fhir:action @<OneOrMore_TestScript.test.action>;  # A test operation or assert to 
+                                            # perform 
+}  
+
+# An abstract server representing a destination or receiver in a message exchange
+<TestScript.destination> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:index @<integer>;                  # The index of the abstract 
+                                            # destination server starting at 1 
+    fhir:profile @<Coding>;                 # FHIR-Server | FHIR-SDC-FormManager 
+                                            # | FHIR-SDC-FormReceiver | 
+                                            # FHIR-SDC-FormProcessor 
+    fhir:url @<url>?;                       # The url path of the destination 
+                                            # server 
+}  
+
+# A series of required setup operations before tests are executed
+<TestScript.setup> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_TestScript.setup.action>;  # A setup operation or assert to 
+                                            # perform 
+}  
+
+# One or more teardown operations to perform
+<TestScript.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestScript.setup.action.operation>;  # The teardown operation to perform
+}  
+
+# Indication of the artifact(s) that are tested by this test case
+<TestScript.scope> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:artifact @<canonical>;             # The specific conformance artifact 
+                                            # being tested 
+    fhir:conformance @<CodeableConcept>?;   # required | optional | strict
+    fhir:phase @<CodeableConcept>?;         # unit | integration | production
+}  
+
 # The assertion to perform
 <TestScript.setup.action.assert> EXTENDS @<BackboneElement> CLOSED {   
     fhir:label @<string>?;                  # Tracking/logging assertion label
@@ -426,6 +473,28 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # only on error? 
 }  
 
+# A series of required clean up steps
+<TestScript.teardown> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:action @<OneOrMore_TestScript.teardown.action>;  # One or more teardown operations to 
+                                            # perform 
+}  
+
+# Fixture in the test script - by reference (uri)
+<TestScript.fixture> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:autocreate @<boolean>;             # Whether or not to implicitly 
+                                            # create the fixture during setup 
+    fhir:autodelete @<boolean>;             # Whether or not to implicitly 
+                                            # delete the fixture during teardown 
+    fhir:resource @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Reference of the resource
+}  
+
+# A test operation or assert to perform
+<TestScript.test.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
+    fhir:assert @<TestScript.setup.action.assert>?;  # The setup assertion to perform
+}  
+
 # Capabilities  that are assumed to function correctly on the FHIR server being tested
 <TestScript.metadata.capability> EXTENDS @<BackboneElement> CLOSED {   
     fhir:required @<boolean>;               # Are the capabilities required?
@@ -440,357 +509,11 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:capabilities @<canonical>;         # Required Capability Statement
 }  
 
-# Indication of the artifact(s) that are tested by this test case
-<TestScript.scope> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:artifact @<canonical>;             # The specific conformance artifact 
-                                            # being tested 
-    fhir:conformance @<CodeableConcept>?;   # required | optional | strict
-    fhir:phase @<CodeableConcept>?;         # unit | integration | production
+# A setup operation or assert to perform
+<TestScript.setup.action> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
+    fhir:assert @<TestScript.setup.action.assert>?;  # The assertion to perform
 }  
-
-# The setup operation to perform
-<TestScript.setup.action.operation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<Coding>?;                   # The operation code type that will 
-                                            # be executed 
-    fhir:resource @<uri>?;                  # Resource type
-    fhir:label @<string>?;                  # Tracking/logging operation label
-    fhir:description @<string>?;            # Tracking/reporting operation 
-                                            # description 
-    fhir:accept @<code> AND
-    	{fhir:v @fhirvs:mimetypes}?;  # Mime type to accept in the payload 
-                                            # of the response, with charset etc. 
-    fhir:contentType @<code> AND
-    	{fhir:v @fhirvs:mimetypes}?;  # Mime type of the request payload 
-                                            # contents, with charset etc. 
-    fhir:destination @<integer>?;           # Server responding to the request
-    fhir:encodeRequestUrl @<boolean>;       # Whether or not to send the request 
-                                            # url in encoded format 
-    fhir:method @<code> AND
-    	{fhir:v @fhirvs:http-operations}?;  # delete | get | options | patch | 
-                                            # post | put | head 
-    fhir:origin @<integer>?;                # Server initiating the request
-    fhir:params @<string>?;                 # Explicitly defined path parameters
-    fhir:requestHeader @<OneOrMore_TestScript.setup.action.operation.requestHeader>?;  # Each operation can have one or 
-                                            # more header elements 
-    fhir:requestId @<id>?;                  # Fixture Id of mapped request
-    fhir:responseId @<id>?;                 # Fixture Id of mapped response
-    fhir:sourceId @<id>?;                   # Fixture Id of body for PUT and 
-                                            # POST requests 
-    fhir:targetId @<id>?;                   # Id of fixture used for extracting 
-                                            # the [id],  [type], and [vid] for 
-                                            # GET requests 
-    fhir:url @<string>?;                    # Request URL
-}  
-
-# An abstract server representing a destination or receiver in a message exchange
-<TestScript.destination> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:index @<integer>;                  # The index of the abstract 
-                                            # destination server starting at 1 
-    fhir:profile @<Coding>;                 # FHIR-Server | FHIR-SDC-FormManager 
-                                            # | FHIR-SDC-FormReceiver | 
-                                            # FHIR-SDC-FormProcessor 
-    fhir:url @<url>?;                       # The url path of the destination 
-                                            # server 
-}  
-
-# Required capability that is assumed to function correctly on the FHIR server being tested
-<TestScript.metadata> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:link @<OneOrMore_TestScript.metadata.link>?;  # Links to the FHIR specification
-    fhir:capability @<OneOrMore_TestScript.metadata.capability>;  # Capabilities  that are assumed to 
-                                            # function correctly on the FHIR 
-                                            # server being tested 
-} AND (
-
-# Constraint UniqueKey:cnl-1
-# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
-
-# Constraint: url.matches('([^|#])*')
-# ShEx:
-
-{fhir:url { fhir:v /'([^|#])*'/ } }
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-# Constraint UniqueKey:tst-4
-# Human readable:TestScript metadata capability SHALL contain required or validated or both.
-
-# Constraint: capability.required.exists() or capability.validated.exists()
-# ShEx:
-
-{fhir:capability.required . OR {fhir:capability.validated .}}
-
-) AND (
-
-# Constraint UniqueKey:tst-3
-# Human readable:Variable can only contain one of expression, headerField or path.
-
-# Constraint: expression.empty() or headerField.empty() or path.empty()
-# ShEx:
-
- NOT { fhir:expression {fhir:v .} }  OR  NOT { fhir:headerField {fhir:v .} }  OR  NOT { fhir:path {fhir:v .} } 
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:tst-1
-# Human readable:Setup action SHALL contain either an operation or assert but not both.
-#
-# Constraint: operation.exists() xor assert.exists()
-# ShEx:
-#
-#{fhir:operation .  Xor  {fhir:assert .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:tst-7
-# Human readable:Setup operation SHALL contain either sourceId or targetId or params or url.
-#
-# Constraint: sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' |'search' | 'transaction' | 'history'))
-# ShEx:
-#
-#{fhir:sourceId . OR ((   count  ( fhir:targetId )  Plus     count  ( fhir:url )  Plus     count  ( fhir:params )) { fhir:v [1] } ) OR ({fhir:type.code { fhir:v ['capabilities' 'search' 'transaction' 'history'] } })}
-{}
-
-) AND (
-
-# Constraint UniqueKey:tst-12
-# Human readable:Setup action assert response and responseCode SHALL be empty when direction equals request
-
-# Constraint: (response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'
-# ShEx:
-
-( NOT { fhir:response {fhir:v .} }  AND  NOT { fhir:responseCode {fhir:v .} }  AND ({ fhir:direction { fhir:v ['request'] }  })) OR  NOT { fhir:direction {fhir:v .} }  OR ({ fhir:direction { fhir:v ['response'] }  })
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:tst-5
-# Human readable:Only a single assertion SHALL be present within setup action assert element.
-#
-# Constraint: extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))
-# ShEx:
-#
-#{fhir:extension . OR ((   count  ( fhir:contentType )  Plus     count  ( fhir:expression )  Plus     count  ( fhir:headerField )  Plus     count  ( fhir:minimumId )  Plus     count  ( fhir:navigationLinks )  Plus     count  ( fhir:path )  Plus     count  ( fhir:requestMethod )  Plus     count  ( fhir:resource )  Plus     count  ( fhir:responseCode )  Plus     count  ( fhir:response )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ) OR ((((   count  ( fhir:expression )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:expression )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } )) OR ((((   count  ( fhir:path )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:path )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ))}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:tst-10
-# Human readable:Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.
-#
-# Constraint: compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())
-# ShEx:
-#
-# NOT { fhir:compareToSourceId {fhir:v .} }   Xor  ({fhir:compareToSourceExpression . OR {fhir:compareToSourcePath .}})
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:tst-2
-# Human readable:Test action SHALL contain either an operation or assert but not both.
-#
-# Constraint: operation.exists() xor assert.exists()
-# ShEx:
-#
-#{fhir:operation .  Xor  {fhir:assert .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:tst-8
-# Human readable:Test operation SHALL contain either sourceId or targetId or params or url.
-#
-# Constraint: sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))
-# ShEx:
-#
-#{fhir:sourceId . OR ((   count  ( fhir:targetId )  Plus     count  ( fhir:url )  Plus     count  ( fhir:params )) { fhir:v [1] } ) OR ({fhir:type.code { fhir:v ['capabilities' 'search' 'transaction' 'history'] } })}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Xor
-# # Constraint UniqueKey:tst-11
-# Human readable:Test action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.
-#
-# Constraint: compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())
-# ShEx:
-#
-# NOT { fhir:compareToSourceId {fhir:v .} }   Xor  ({fhir:compareToSourceExpression . OR {fhir:compareToSourcePath .}})
-{}
-
-) AND (
-
-# Constraint UniqueKey:tst-13
-# Human readable:Test action assert response and response and responseCode SHALL be empty when direction equals request
-
-# Constraint: (response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'
-# ShEx:
-
-( NOT { fhir:response {fhir:v .} }  AND  NOT { fhir:responseCode {fhir:v .} }  AND ({ fhir:direction { fhir:v ['request'] }  })) OR  NOT { fhir:direction {fhir:v .} }  OR ({ fhir:direction { fhir:v ['response'] }  })
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:tst-6
-# Human readable:Only a single assertion SHALL be present within test action assert element.
-#
-# Constraint: extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))
-# ShEx:
-#
-#{fhir:extension . OR ((   count  ( fhir:contentType )  Plus     count  ( fhir:expression )  Plus     count  ( fhir:headerField )  Plus     count  ( fhir:minimumId )  Plus     count  ( fhir:navigationLinks )  Plus     count  ( fhir:path )  Plus     count  ( fhir:requestMethod )  Plus     count  ( fhir:resource )  Plus     count  ( fhir:responseCode )  Plus     count  ( fhir:response )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ) OR ((((   count  ( fhir:expression )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:expression )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } )) OR ((((   count  ( fhir:path )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:path )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ))}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# Unmapped construct found: Plus
-# Unmapped construct found: count
-# # Constraint UniqueKey:tst-9
-# Human readable:Teardown operation SHALL contain either sourceId or targetId or params or url.
-#
-# Constraint: sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))
-# ShEx:
-#
-#{fhir:sourceId . OR ((   count  ( fhir:targetId )  Plus     count  ( fhir:url )  Plus     count  ( fhir:params )) { fhir:v [1] } ) OR ({fhir:type.code { fhir:v ['capabilities' 'search' 'transaction' 'history'] } })}
-{}
-
-)
- 
 
 # Each operation can have one or more header elements
 <TestScript.setup.action.operation.requestHeader> EXTENDS @<BackboneElement> CLOSED {   
@@ -1114,61 +837,338 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# An abstract server representing a client or sender in a message exchange
-<TestScript.origin> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:index @<integer>;                  # The index of the abstract origin 
-                                            # server starting at 1 
-    fhir:profile @<Coding>;                 # FHIR-Client | FHIR-SDC-FormFiller
-    fhir:url @<url>?;                       # The url path of the origin server
+# The setup operation to perform
+<TestScript.setup.action.operation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<Coding>?;                   # The operation code type that will 
+                                            # be executed 
+    fhir:resource @<uri>?;                  # Resource type
+    fhir:label @<string>?;                  # Tracking/logging operation label
+    fhir:description @<string>?;            # Tracking/reporting operation 
+                                            # description 
+    fhir:accept @<code> AND
+    	{fhir:v @fhirvs:mimetypes}?;  # Mime type to accept in the payload 
+                                            # of the response, with charset etc. 
+    fhir:contentType @<code> AND
+    	{fhir:v @fhirvs:mimetypes}?;  # Mime type of the request payload 
+                                            # contents, with charset etc. 
+    fhir:destination @<integer>?;           # Server responding to the request
+    fhir:encodeRequestUrl @<boolean>;       # Whether or not to send the request 
+                                            # url in encoded format 
+    fhir:method @<code> AND
+    	{fhir:v @fhirvs:http-operations}?;  # delete | get | options | patch | 
+                                            # post | put | head 
+    fhir:origin @<integer>?;                # Server initiating the request
+    fhir:params @<string>?;                 # Explicitly defined path parameters
+    fhir:requestHeader @<OneOrMore_TestScript.setup.action.operation.requestHeader>?;  # Each operation can have one or 
+                                            # more header elements 
+    fhir:requestId @<id>?;                  # Fixture Id of mapped request
+    fhir:responseId @<id>?;                 # Fixture Id of mapped response
+    fhir:sourceId @<id>?;                   # Fixture Id of body for PUT and 
+                                            # POST requests 
+    fhir:targetId @<id>?;                   # Id of fixture used for extracting 
+                                            # the [id],  [type], and [vid] for 
+                                            # GET requests 
+    fhir:url @<string>?;                    # Request URL
 }  
 
-# One or more teardown operations to perform
-<TestScript.teardown.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestScript.setup.action.operation>;  # The teardown operation to perform
-}  
+# Required capability that is assumed to function correctly on the FHIR server being tested
+<TestScript.metadata> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:link @<OneOrMore_TestScript.metadata.link>?;  # Links to the FHIR specification
+    fhir:capability @<OneOrMore_TestScript.metadata.capability>;  # Capabilities  that are assumed to 
+                                            # function correctly on the FHIR 
+                                            # server being tested 
+} AND (
 
-# A series of required setup operations before tests are executed
-<TestScript.setup> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_TestScript.setup.action>;  # A setup operation or assert to 
-                                            # perform 
-}  
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
 
-# Fixture in the test script - by reference (uri)
-<TestScript.fixture> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:autocreate @<boolean>;             # Whether or not to implicitly 
-                                            # create the fixture during setup 
-    fhir:autodelete @<boolean>;             # Whether or not to implicitly 
-                                            # delete the fixture during teardown 
-    fhir:resource @<Reference> AND {fhir:link 
-    			@<Resource> ? }?;  # Reference of the resource
-}  
+# Constraint: url.matches('([^|#])*')
+# ShEx:
 
-# A setup operation or assert to perform
-<TestScript.setup.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
-    fhir:assert @<TestScript.setup.action.assert>?;  # The assertion to perform
-}  
+{fhir:url { fhir:v /'([^|#])*'/ } }
 
-# A series of required clean up steps
-<TestScript.teardown> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:action @<OneOrMore_TestScript.teardown.action>;  # One or more teardown operations to 
-                                            # perform 
-}  
+) AND (
 
-# A test in this script
-<TestScript.test> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>?;                   # Tracking/logging name of this test
-    fhir:description @<string>?;            # Tracking/reporting short 
-                                            # description of the test 
-    fhir:action @<OneOrMore_TestScript.test.action>;  # A test operation or assert to 
-                                            # perform 
-}  
 
-# A test operation or assert to perform
-<TestScript.test.action> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:operation @<TestScript.setup.action.operation>?;  # The setup operation to perform
-    fhir:assert @<TestScript.setup.action.assert>?;  # The setup assertion to perform
-}  
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+) AND (
+
+# Constraint UniqueKey:tst-4
+# Human readable:TestScript metadata capability SHALL contain required or validated or both.
+
+# Constraint: capability.required.exists() or capability.validated.exists()
+# ShEx:
+
+{fhir:capability.required . OR {fhir:capability.validated .}}
+
+) AND (
+
+# Constraint UniqueKey:tst-3
+# Human readable:Variable can only contain one of expression, headerField or path.
+
+# Constraint: expression.empty() or headerField.empty() or path.empty()
+# ShEx:
+
+ NOT { fhir:expression {fhir:v .} }  OR  NOT { fhir:headerField {fhir:v .} }  OR  NOT { fhir:path {fhir:v .} } 
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:tst-1
+# Human readable:Setup action SHALL contain either an operation or assert but not both.
+#
+# Constraint: operation.exists() xor assert.exists()
+# ShEx:
+#
+#{fhir:operation .  Xor  {fhir:assert .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# # Constraint UniqueKey:tst-7
+# Human readable:Setup operation SHALL contain either sourceId or targetId or params or url.
+#
+# Constraint: sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' |'search' | 'transaction' | 'history'))
+# ShEx:
+#
+#{fhir:sourceId . OR ((   count  ( fhir:targetId )  Plus     count  ( fhir:url )  Plus     count  ( fhir:params )) { fhir:v [1] } ) OR ({fhir:type.code { fhir:v ['capabilities' 'search' 'transaction' 'history'] } })}
+{}
+
+) AND (
+
+# Constraint UniqueKey:tst-12
+# Human readable:Setup action assert response and responseCode SHALL be empty when direction equals request
+
+# Constraint: (response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'
+# ShEx:
+
+( NOT { fhir:response {fhir:v .} }  AND  NOT { fhir:responseCode {fhir:v .} }  AND ({ fhir:direction { fhir:v ['request'] }  })) OR  NOT { fhir:direction {fhir:v .} }  OR ({ fhir:direction { fhir:v ['response'] }  })
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# # Constraint UniqueKey:tst-5
+# Human readable:Only a single assertion SHALL be present within setup action assert element.
+#
+# Constraint: extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))
+# ShEx:
+#
+#{fhir:extension . OR ((   count  ( fhir:contentType )  Plus     count  ( fhir:expression )  Plus     count  ( fhir:headerField )  Plus     count  ( fhir:minimumId )  Plus     count  ( fhir:navigationLinks )  Plus     count  ( fhir:path )  Plus     count  ( fhir:requestMethod )  Plus     count  ( fhir:resource )  Plus     count  ( fhir:responseCode )  Plus     count  ( fhir:response )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ) OR ((((   count  ( fhir:expression )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:expression )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } )) OR ((((   count  ( fhir:path )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:path )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ))}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:tst-10
+# Human readable:Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.
+#
+# Constraint: compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())
+# ShEx:
+#
+# NOT { fhir:compareToSourceId {fhir:v .} }   Xor  ({fhir:compareToSourceExpression . OR {fhir:compareToSourcePath .}})
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:tst-2
+# Human readable:Test action SHALL contain either an operation or assert but not both.
+#
+# Constraint: operation.exists() xor assert.exists()
+# ShEx:
+#
+#{fhir:operation .  Xor  {fhir:assert .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# # Constraint UniqueKey:tst-8
+# Human readable:Test operation SHALL contain either sourceId or targetId or params or url.
+#
+# Constraint: sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))
+# ShEx:
+#
+#{fhir:sourceId . OR ((   count  ( fhir:targetId )  Plus     count  ( fhir:url )  Plus     count  ( fhir:params )) { fhir:v [1] } ) OR ({fhir:type.code { fhir:v ['capabilities' 'search' 'transaction' 'history'] } })}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:tst-11
+# Human readable:Test action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.
+#
+# Constraint: compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())
+# ShEx:
+#
+# NOT { fhir:compareToSourceId {fhir:v .} }   Xor  ({fhir:compareToSourceExpression . OR {fhir:compareToSourcePath .}})
+{}
+
+) AND (
+
+# Constraint UniqueKey:tst-13
+# Human readable:Test action assert response and response and responseCode SHALL be empty when direction equals request
+
+# Constraint: (response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'
+# ShEx:
+
+( NOT { fhir:response {fhir:v .} }  AND  NOT { fhir:responseCode {fhir:v .} }  AND ({ fhir:direction { fhir:v ['request'] }  })) OR  NOT { fhir:direction {fhir:v .} }  OR ({ fhir:direction { fhir:v ['response'] }  })
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# # Constraint UniqueKey:tst-6
+# Human readable:Only a single assertion SHALL be present within test action assert element.
+#
+# Constraint: extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))
+# ShEx:
+#
+#{fhir:extension . OR ((   count  ( fhir:contentType )  Plus     count  ( fhir:expression )  Plus     count  ( fhir:headerField )  Plus     count  ( fhir:minimumId )  Plus     count  ( fhir:navigationLinks )  Plus     count  ( fhir:path )  Plus     count  ( fhir:requestMethod )  Plus     count  ( fhir:resource )  Plus     count  ( fhir:responseCode )  Plus     count  ( fhir:response )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ) OR ((((   count  ( fhir:expression )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:expression )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } )) OR ((((   count  ( fhir:path )  Plus     count  ( fhir:minimumId )) { fhir:v MaxInclusive 2 } ) OR ((   count  ( fhir:path )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 2 } )) AND ((   count  ( fhir:expression )  Plus     count  ( fhir:path )) { fhir:v MaxInclusive 1 } ) AND ((   count  ( fhir:minimumId )  Plus     count  ( fhir:validateProfileId )) { fhir:v MaxInclusive 1 } ))}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# Unmapped construct found: Plus
+# Unmapped construct found: count
+# # Constraint UniqueKey:tst-9
+# Human readable:Teardown operation SHALL contain either sourceId or targetId or params or url.
+#
+# Constraint: sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))
+# ShEx:
+#
+#{fhir:sourceId . OR ((   count  ( fhir:targetId )  Plus     count  ( fhir:url )  Plus     count  ( fhir:params )) { fhir:v [1] } ) OR ({fhir:type.code { fhir:v ['capabilities' 'search' 'transaction' 'history'] } })}
+{}
+
+)
+ 
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -1227,6 +1227,21 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.test> 
 }
 
+<OneOrMore_TestScript.test.action> CLOSED {
+    rdf:first @<TestScript.test.action>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.test.action> 
+}
+
+<OneOrMore_TestScript.setup.action> CLOSED {
+    rdf:first @<TestScript.setup.action>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.setup.action> 
+}
+
+<OneOrMore_TestScript.teardown.action> CLOSED {
+    rdf:first @<TestScript.teardown.action>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.teardown.action> 
+}
+
 <OneOrMore_integer> CLOSED {
     rdf:first @<integer>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_integer> 
@@ -1252,38 +1267,23 @@ start=@<TestScript> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.metadata.capability> 
 }
 
-<OneOrMore_TestScript.setup.action> CLOSED {
-    rdf:first @<TestScript.setup.action>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.setup.action> 
-}
-
-<OneOrMore_TestScript.teardown.action> CLOSED {
-    rdf:first @<TestScript.teardown.action>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.teardown.action> 
-}
-
-<OneOrMore_TestScript.test.action> CLOSED {
-    rdf:first @<TestScript.test.action>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TestScript.test.action> 
-}
-
 #---------------------- Value Sets ------------------------
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
 fhirvs:mimetypes xsd:string #EXTERNAL
 
-# The allowable request method or HTTP operation codes.
-fhirvs:http-operations ["delete" "get" "options" "patch" "post" "put" "head"]
+# The type of operator to use for assertion.
+fhirvs:assert-operator-codes ["equals" "notEquals" "in" "notIn" "greaterThan" "lessThan" "empty" "notEmpty" "contains" "notContains" "eval"]
 
 # The type of direction to use for assertion.
 fhirvs:assert-direction-codes ["response" "request"]
 
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
 # The type of response code to use for assertion.
 fhirvs:assert-response-code-types ["okay" "created" "noContent" "notModified" "bad" "forbidden" "notFound" "methodNotAllowed" "conflict" "gone" "preconditionFailed" "unprocessable"]
 
-# The type of operator to use for assertion.
-fhirvs:assert-operator-codes ["equals" "notEquals" "in" "notIn" "greaterThan" "lessThan" "empty" "notEmpty" "contains" "notContains" "eval"]
+# The allowable request method or HTTP operation codes.
+fhirvs:http-operations ["delete" "get" "options" "patch" "post" "put" "head"]
 

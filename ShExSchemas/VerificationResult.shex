@@ -59,6 +59,28 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # validating information 
 }  
 
+# Information about the primary source(s) involved in validation
+<VerificationResult.primarySource> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:who @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> ? }?;  # Reference to the primary source
+    fhir:type @<OneOrMore_CodeableConcept>?;  # Type of primary source (License 
+                                            # Board; Primary Education; 
+                                            # Continuing Education; Postal 
+                                            # Service; Relationship owner; 
+                                            # Registration Authority; legal 
+                                            # source; issuing source; 
+                                            # authoritative source) 
+    fhir:communicationMethod @<OneOrMore_CodeableConcept>?;  # Method for exchanging information 
+                                            # with the primary source 
+    fhir:validationStatus @<CodeableConcept>?;  # successful | failed | unknown
+    fhir:validationDate @<dateTime>?;       # When the target was validated 
+                                            # against the primary source 
+    fhir:canPushUpdates @<CodeableConcept>?;  # yes | no | undetermined
+    fhir:pushTypeAvailable @<OneOrMore_CodeableConcept>?;  # specific | any | source
+}  
+
 # Information about the entity attesting to information
 <VerificationResult.attestation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:who @<Reference> AND {fhir:link 
@@ -86,28 +108,6 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # behalf of the attestation source 
     fhir:proxySignature @<Signature>?;      # Proxy signature
     fhir:sourceSignature @<Signature>?;     # Attester signature
-}  
-
-# Information about the primary source(s) involved in validation
-<VerificationResult.primarySource> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:who @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> ? }?;  # Reference to the primary source
-    fhir:type @<OneOrMore_CodeableConcept>?;  # Type of primary source (License 
-                                            # Board; Primary Education; 
-                                            # Continuing Education; Postal 
-                                            # Service; Relationship owner; 
-                                            # Registration Authority; legal 
-                                            # source; issuing source; 
-                                            # authoritative source) 
-    fhir:communicationMethod @<OneOrMore_CodeableConcept>?;  # Method for exchanging information 
-                                            # with the primary source 
-    fhir:validationStatus @<CodeableConcept>?;  # successful | failed | unknown
-    fhir:validationDate @<dateTime>?;       # When the target was validated 
-                                            # against the primary source 
-    fhir:canPushUpdates @<CodeableConcept>?;  # yes | no | undetermined
-    fhir:pushTypeAvailable @<OneOrMore_CodeableConcept>?;  # specific | any | source
 }  
 
 # Information about the entity validating information

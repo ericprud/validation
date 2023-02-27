@@ -12,8 +12,8 @@ IMPORT <Device.shex>
 IMPORT <markdown.shex>
 IMPORT <Reference.shex>
 IMPORT <Substance.shex>
-IMPORT <Medication.shex>
 IMPORT <Expression.shex>
+IMPORT <Medication.shex>
 IMPORT <DomainResource.shex>
 IMPORT <PlanDefinition.shex>
 IMPORT <CodeableConcept.shex>
@@ -87,61 +87,6 @@ start=@<ClinicalUseDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# A possible negative outcome from the use of this treatment
-<ClinicalUseDefinition.undesirableEffect> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:symptomConditionEffect @<CodeableReference>?;  # The situation in which the 
-                                            # undesirable effect may manifest 
-    fhir:classification @<CodeableConcept>?;  # High level classification of the 
-                                            # effect 
-    fhir:frequencyOfOccurrence @<CodeableConcept>?;  # How often the effect is seen
-}  
-
-# Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'
-<ClinicalUseDefinition.warning> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<markdown>?;          # A textual definition of this 
-                                            # warning, with formatting 
-    fhir:code @<CodeableConcept>?;          # A coded or unformatted textual 
-                                            # definition of this warning 
-}  
-
-# Specifics for when this is an interaction
-<ClinicalUseDefinition.interaction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:interactant @<OneOrMore_ClinicalUseDefinition.interaction.interactant>?;  # The specific medication, food, 
-                                            # substance or laboratory test that 
-                                            # interacts 
-    fhir:type @<CodeableConcept>?;          # The type of the interaction e.g. 
-                                            # drug-drug interaction, drug-lab 
-                                            # test interaction 
-    fhir:effect @<CodeableReference>?;      # The effect of the interaction, for 
-                                            # example "reduced gastric 
-                                            # absorption of primary medication" 
-    fhir:incidence @<CodeableConcept>?;     # The incidence of the interaction, 
-                                            # e.g. theoretical, observed 
-    fhir:management @<OneOrMore_CodeableConcept>?;  # Actions for managing the 
-                                            # interaction 
-}  
-
-# Information about use of the product in relation to other therapies described as part of the contraindication
-<ClinicalUseDefinition.contraindication.otherTherapy> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:relationshipType @<CodeableConcept>;  # The type of relationship between 
-                                            # the product 
-                                            # indication/contraindication and 
-                                            # another therapy 
-    fhir:treatment @<CodeableReference>;    # Reference to a specific medication 
-                                            # as part of an indication or 
-                                            # contraindication 
-}  
-
-# The specific medication, food, substance or laboratory test that interacts
-<ClinicalUseDefinition.interaction.interactant> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item (@<Reference>  AND {fhir:link @<MedicinalProductDefinition> OR 
-    			 @<Medication> OR 
-    			 @<Substance> OR 
-    			 @<ObservationDefinition> })  OR 
-    			@<CodeableConcept>  ;  # The specific medication, food or 
-                                            # laboratory test that interacts 
-}  
-
 # Specifics for when this is an indication
 <ClinicalUseDefinition.indication> EXTENDS @<BackboneElement> CLOSED {   
     fhir:diseaseSymptomProcedure @<CodeableReference>?;  # The situation that is being 
@@ -170,6 +115,17 @@ start=@<ClinicalUseDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # indication 
 }  
 
+# Information about use of the product in relation to other therapies described as part of the contraindication
+<ClinicalUseDefinition.contraindication.otherTherapy> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:relationshipType @<CodeableConcept>;  # The type of relationship between 
+                                            # the product 
+                                            # indication/contraindication and 
+                                            # another therapy 
+    fhir:treatment @<CodeableReference>;    # Reference to a specific medication 
+                                            # as part of an indication or 
+                                            # contraindication 
+}  
+
 # Specifics for when this is a contraindication
 <ClinicalUseDefinition.contraindication> EXTENDS @<BackboneElement> CLOSED {   
     fhir:diseaseSymptomProcedure @<CodeableReference>?;  # The situation that is being 
@@ -190,6 +146,50 @@ start=@<ClinicalUseDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # product in relation to other 
                                             # therapies described as part of the 
                                             # contraindication 
+}  
+
+# Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'
+<ClinicalUseDefinition.warning> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<markdown>?;          # A textual definition of this 
+                                            # warning, with formatting 
+    fhir:code @<CodeableConcept>?;          # A coded or unformatted textual 
+                                            # definition of this warning 
+}  
+
+# The specific medication, food, substance or laboratory test that interacts
+<ClinicalUseDefinition.interaction.interactant> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item (@<Reference>  AND {fhir:link @<MedicinalProductDefinition> OR 
+    			 @<Medication> OR 
+    			 @<Substance> OR 
+    			 @<ObservationDefinition> })  OR 
+    			@<CodeableConcept>  ;  # The specific medication, food or 
+                                            # laboratory test that interacts 
+}  
+
+# A possible negative outcome from the use of this treatment
+<ClinicalUseDefinition.undesirableEffect> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:symptomConditionEffect @<CodeableReference>?;  # The situation in which the 
+                                            # undesirable effect may manifest 
+    fhir:classification @<CodeableConcept>?;  # High level classification of the 
+                                            # effect 
+    fhir:frequencyOfOccurrence @<CodeableConcept>?;  # How often the effect is seen
+}  
+
+# Specifics for when this is an interaction
+<ClinicalUseDefinition.interaction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:interactant @<OneOrMore_ClinicalUseDefinition.interaction.interactant>?;  # The specific medication, food, 
+                                            # substance or laboratory test that 
+                                            # interacts 
+    fhir:type @<CodeableConcept>?;          # The type of the interaction e.g. 
+                                            # drug-drug interaction, drug-lab 
+                                            # test interaction 
+    fhir:effect @<CodeableReference>?;      # The effect of the interaction, for 
+                                            # example "reduced gastric 
+                                            # absorption of primary medication" 
+    fhir:incidence @<CodeableConcept>?;     # The incidence of the interaction, 
+                                            # e.g. theoretical, observed 
+    fhir:management @<OneOrMore_CodeableConcept>?;  # Actions for managing the 
+                                            # interaction 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -227,11 +227,6 @@ start=@<ClinicalUseDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_canonical> 
 }
 
-<OneOrMore_ClinicalUseDefinition.interaction.interactant> CLOSED {
-    rdf:first @<ClinicalUseDefinition.interaction.interactant>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ClinicalUseDefinition.interaction.interactant> 
-}
-
 <OneOrMore_CodeableReference> CLOSED {
     rdf:first @<CodeableReference>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
@@ -246,6 +241,11 @@ start=@<ClinicalUseDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <OneOrMore_ClinicalUseDefinition.contraindication.otherTherapy> CLOSED {
     rdf:first @<ClinicalUseDefinition.contraindication.otherTherapy>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ClinicalUseDefinition.contraindication.otherTherapy> 
+}
+
+<OneOrMore_ClinicalUseDefinition.interaction.interactant> CLOSED {
+    rdf:first @<ClinicalUseDefinition.interaction.interactant>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ClinicalUseDefinition.interaction.interactant> 
 }
 
 #---------------------- Value Sets ------------------------

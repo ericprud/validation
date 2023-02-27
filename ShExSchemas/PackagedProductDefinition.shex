@@ -81,6 +81,42 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # "nurse prescribable" 
 }  
 
+# The legal status of supply of the packaged item as classified by the regulator
+<PackagedProductDefinition.legalStatusOfSupply> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # The actual status of supply. In 
+                                            # what situation this package type 
+                                            # may be supplied for use 
+    fhir:jurisdiction @<CodeableConcept>?;  # The place where the legal status 
+                                            # of supply applies 
+}  
+
+# The item(s) within the packaging
+<PackagedProductDefinition.packaging.containedItem> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item @<CodeableReference>;         # The actual item(s) of medication, 
+                                            # as manufactured, or a device, or 
+                                            # other medically related item 
+                                            # (food, biologicals, raw materials, 
+                                            # medical fluids, gases etc.), as 
+                                            # contained in the package 
+    fhir:amount @<Quantity>?;               # The number of this type of item 
+                                            # within this packaging 
+}  
+
+# General characteristics of this item
+<PackagedProductDefinition.packaging.property> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # A code expressing the type of 
+                                            # characteristic 
+    fhir:value @<CodeableConcept>  OR 
+    			@<Quantity>  OR 
+    			@<date>  OR 
+    			@<boolean>  OR 
+    			@<Attachment>  ?;  # A value for the characteristic
+}  
+
+# Allows containers (and parts of containers) within containers, still as a part of single packaged product
+<PackagedProductDefinition.packaging.packagingnull> CLOSED {   
+}  
+
 # A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap
 <PackagedProductDefinition.packaging> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<OneOrMore_Identifier>?;  # An identifier that is specific to 
@@ -113,42 +149,6 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # containers) within containers, 
                                             # still as a part of single packaged 
                                             # product 
-}  
-
-# The legal status of supply of the packaged item as classified by the regulator
-<PackagedProductDefinition.legalStatusOfSupply> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # The actual status of supply. In 
-                                            # what situation this package type 
-                                            # may be supplied for use 
-    fhir:jurisdiction @<CodeableConcept>?;  # The place where the legal status 
-                                            # of supply applies 
-}  
-
-# General characteristics of this item
-<PackagedProductDefinition.packaging.property> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # A code expressing the type of 
-                                            # characteristic 
-    fhir:value @<CodeableConcept>  OR 
-    			@<Quantity>  OR 
-    			@<date>  OR 
-    			@<boolean>  OR 
-    			@<Attachment>  ?;  # A value for the characteristic
-}  
-
-# Allows containers (and parts of containers) within containers, still as a part of single packaged product
-<PackagedProductDefinition.packaging.packagingnull> CLOSED {   
-}  
-
-# The item(s) within the packaging
-<PackagedProductDefinition.packaging.containedItem> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item @<CodeableReference>;         # The actual item(s) of medication, 
-                                            # as manufactured, or a device, or 
-                                            # other medically related item 
-                                            # (food, biologicals, raw materials, 
-                                            # medical fluids, gases etc.), as 
-                                            # contained in the package 
-    fhir:amount @<Quantity>?;               # The number of this type of item 
-                                            # within this packaging 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

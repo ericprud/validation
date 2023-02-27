@@ -70,7 +70,7 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: telecom.where(use = 'home').empty()
 # ShEx:
 #
-# NOT { fhir:telecom.  where  (use { fhir:v ['home'] } ) {fhir:v .} } 
+# NOT { fhir:telecom. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
 {}
 
 ) AND (
@@ -84,7 +84,7 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: address.where(use = 'home').empty()
 # ShEx:
 #
-# NOT { fhir:address.  where  (use { fhir:v ['home'] } ) {fhir:v .} } 
+# NOT { fhir:address. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
 {}
 
 )

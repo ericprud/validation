@@ -141,7 +141,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind!='requirements') or (implementation.exists().not() and software.exists().not())
 # ShEx:
 
-({ fhir:kind [fhir:v  . -'requirements']  }) OR ( NOT { fhir:implementation . } AND  NOT { fhir:software . })
+({ fhir:kind [fhir:v  . -'requirements']  }) OR ( NOT { fhir:implementation. } AND  NOT { fhir:software. })
 
 ) AND (
 
@@ -151,7 +151,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind != 'capability') or (implementation.exists().not() and software.exists())
 # ShEx:
 
-({ fhir:kind [fhir:v  . -'capability']  }) OR ( NOT { fhir:implementation . } AND {fhir:software .})
+({ fhir:kind [fhir:v  . -'capability']  }) OR ( NOT { fhir:implementation. } AND {fhir:software .})
 
 ) AND (
 
@@ -209,68 +209,11 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: version.where(isDefault = true).count() <= 1
 # ShEx:
 #
-#   count  ( fhir:version.  where  (isDefault { fhir:v [true] } ) ) { fhir:v MaxInclusive 1 } 
+#   count  ( fhir:version. where  (isDefault { fhir:v [true] } ) ) { fhir:v MaxInclusive 1 } 
 {}
 
 )
  
-
-# Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation
-<TerminologyCapabilities.validateCode> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:translations @<boolean>;           # Whether translations are validated
-}  
-
-# Supported expansion parameter
-<TerminologyCapabilities.expansion.parameter> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<code>;                      # Name of the supported expansion 
-                                            # parameter 
-    fhir:documentation @<string>?;          # Description of support for 
-                                            # parameter 
-}  
-
-# Software that is covered by this terminology capability statement
-<TerminologyCapabilities.software> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:name @<string>;                    # A name the software is known by
-    fhir:version @<string>?;                # Version covered by this statement
-}  
-
-# Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation
-<TerminologyCapabilities.closure> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:translation @<boolean>?;           # If cross-system closure is 
-                                            # supported 
-}  
-
-# Filter Properties supported
-<TerminologyCapabilities.codeSystem.version.filter> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code>;                      # Code of the property supported
-    fhir:op @<OneOrMore_code>;              # Operations supported for the 
-                                            # property 
-}  
-
-# Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation
-<TerminologyCapabilities.translation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:needsMap @<boolean>;               # Whether the client must identify 
-                                            # the map 
-}  
-
-# If this describes a specific instance
-<TerminologyCapabilities.implementation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>;             # Describes this specific instance
-    fhir:url @<url>?;                       # Base URL for the implementation
-}  
-
-# Version of Code System supported
-<TerminologyCapabilities.codeSystem.version> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<string>?;                   # Version identifier for this version
-    fhir:isDefault @<boolean>?;             # If this is the default version for 
-                                            # this code system 
-    fhir:compositional @<boolean>?;         # If compositional grammar is 
-                                            # supported 
-    fhir:language @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:languages}?;  # Language Displays supported
-    fhir:filter @<OneOrMore_TerminologyCapabilities.codeSystem.version.filter>?;  # Filter Properties supported
-    fhir:property @<OneOrMore_code>?;       # Properties supported for $lookup
-}  
 
 # A code system supported by the server
 <TerminologyCapabilities.codeSystem> EXTENDS @<BackboneElement> CLOSED {   
@@ -341,7 +284,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind!='requirements') or (implementation.exists().not() and software.exists().not())
 # ShEx:
 
-({ fhir:kind [fhir:v  . -'requirements']  }) OR ( NOT { fhir:implementation . } AND  NOT { fhir:software . })
+({ fhir:kind [fhir:v  . -'requirements']  }) OR ( NOT { fhir:implementation. } AND  NOT { fhir:software. })
 
 ) AND (
 
@@ -351,7 +294,7 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind != 'capability') or (implementation.exists().not() and software.exists())
 # ShEx:
 
-({ fhir:kind [fhir:v  . -'capability']  }) OR ( NOT { fhir:implementation . } AND {fhir:software .})
+({ fhir:kind [fhir:v  . -'capability']  }) OR ( NOT { fhir:implementation. } AND {fhir:software .})
 
 ) AND (
 
@@ -409,11 +352,38 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: version.where(isDefault = true).count() <= 1
 # ShEx:
 #
-#   count  ( fhir:version.  where  (isDefault { fhir:v [true] } ) ) { fhir:v MaxInclusive 1 } 
+#   count  ( fhir:version. where  (isDefault { fhir:v [true] } ) ) { fhir:v MaxInclusive 1 } 
 {}
 
 )
  
+
+# Software that is covered by this terminology capability statement
+<TerminologyCapabilities.software> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<string>;                    # A name the software is known by
+    fhir:version @<string>?;                # Version covered by this statement
+}  
+
+# Supported expansion parameter
+<TerminologyCapabilities.expansion.parameter> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:name @<code>;                      # Name of the supported expansion 
+                                            # parameter 
+    fhir:documentation @<string>?;          # Description of support for 
+                                            # parameter 
+}  
+
+# Filter Properties supported
+<TerminologyCapabilities.codeSystem.version.filter> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code>;                      # Code of the property supported
+    fhir:op @<OneOrMore_code>;              # Operations supported for the 
+                                            # property 
+}  
+
+# If this describes a specific instance
+<TerminologyCapabilities.implementation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<string>;             # Describes this specific instance
+    fhir:url @<url>?;                       # Base URL for the implementation
+}  
 
 # Information about the [ValueSet/$expand](valueset-operation-expand.html) operation
 <TerminologyCapabilities.expansion> EXTENDS @<BackboneElement> CLOSED {   
@@ -426,6 +396,36 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:parameter @<OneOrMore_TerminologyCapabilities.expansion.parameter>?;  # Supported expansion parameter
     fhir:textFilter @<markdown>?;           # Documentation about text searching 
                                             # works 
+}  
+
+# Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation
+<TerminologyCapabilities.validateCode> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:translations @<boolean>;           # Whether translations are validated
+}  
+
+# Version of Code System supported
+<TerminologyCapabilities.codeSystem.version> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<string>?;                   # Version identifier for this version
+    fhir:isDefault @<boolean>?;             # If this is the default version for 
+                                            # this code system 
+    fhir:compositional @<boolean>?;         # If compositional grammar is 
+                                            # supported 
+    fhir:language @<OneOrMore_code> AND
+    	{fhir:v @fhirvs:languages}?;  # Language Displays supported
+    fhir:filter @<OneOrMore_TerminologyCapabilities.codeSystem.version.filter>?;  # Filter Properties supported
+    fhir:property @<OneOrMore_code>?;       # Properties supported for $lookup
+}  
+
+# Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation
+<TerminologyCapabilities.translation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:needsMap @<boolean>;               # Whether the client must identify 
+                                            # the map 
+}  
+
+# Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation
+<TerminologyCapabilities.closure> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:translation @<boolean>?;           # If cross-system closure is 
+                                            # supported 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -455,19 +455,14 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TerminologyCapabilities.codeSystem> 
 }
 
-<OneOrMore_code> CLOSED {
-    rdf:first @<code>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_code> 
-}
-
-<OneOrMore_TerminologyCapabilities.codeSystem.version.filter> CLOSED {
-    rdf:first @<TerminologyCapabilities.codeSystem.version.filter>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_TerminologyCapabilities.codeSystem.version.filter> 
-}
-
 <OneOrMore_TerminologyCapabilities.codeSystem.version> CLOSED {
     rdf:first @<TerminologyCapabilities.codeSystem.version>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_TerminologyCapabilities.codeSystem.version> 
+}
+
+<OneOrMore_code> CLOSED {
+    rdf:first @<code>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_code> 
 }
 
 <OneOrMore_TerminologyCapabilities.expansion.parameter> CLOSED {
@@ -475,20 +470,25 @@ start=@<TerminologyCapabilities> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_TerminologyCapabilities.expansion.parameter> 
 }
 
+<OneOrMore_TerminologyCapabilities.codeSystem.version.filter> CLOSED {
+    rdf:first @<TerminologyCapabilities.codeSystem.version.filter>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_TerminologyCapabilities.codeSystem.version.filter> 
+}
+
 #---------------------- Value Sets ------------------------
+
+# This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)
+fhirvs:languages xsd:string #EXTERNAL
 
 # How a capability statement is intended to be used.
 fhirvs:capability-statement-kind ["instance" "capability" "requirements"]
+
+# The degree to which the server supports the code search parameter on ValueSet, if it is supported.
+fhirvs:code-search-support ["in-compose" "in-expansion" "in-compose-or-expansion"]
 
 # The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.
 fhirvs:codesystem-content-mode ["not-present" "example" "fragment" "complete" "supplement"]
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
-# This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)
-fhirvs:languages xsd:string #EXTERNAL
-
-# The degree to which the server supports the code search parameter on ValueSet, if it is supported.
-fhirvs:code-search-support ["in-compose" "in-expansion" "in-compose-or-expansion"]
 

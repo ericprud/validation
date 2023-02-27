@@ -89,7 +89,7 @@ start=@<Condition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()
 # ShEx:
 #
-#{fhir:category.coding.  where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-category'] }  AND code { fhir:v ['problem-list-item'] } ) .  Implies   NOT { fhir:clinicalStatus.coding.  where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-clinical'] }  AND code { fhir:v ['unknown'] } ) . }}
+#{fhir:category.coding.  where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-category'] }  AND code { fhir:v ['problem-list-item'] } ) .  Implies   NOT { fhir:clinicalStatus.coding. where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-clinical'] }  AND code { fhir:v ['unknown'] } ). }}
 {}
 
 ) AND (
@@ -153,7 +153,7 @@ start=@<Condition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()
 # ShEx:
 #
-#{fhir:category.coding.  where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-category'] }  AND code { fhir:v ['problem-list-item'] } ) .  Implies   NOT { fhir:clinicalStatus.coding.  where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-clinical'] }  AND code { fhir:v ['unknown'] } ) . }}
+#{fhir:category.coding.  where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-category'] }  AND code { fhir:v ['problem-list-item'] } ) .  Implies   NOT { fhir:clinicalStatus.coding. where  (system { fhir:v ['http://terminology.hl7.org/CodeSystem/condition-clinical'] }  AND code { fhir:v ['unknown'] } ). }}
 {}
 
 ) AND (

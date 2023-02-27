@@ -88,7 +88,7 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()
 # ShEx:
 #
-#   allTrue  (   repeat  ({ fhir:answer { fhir:item } }).  select  (   isDistinct  ( .item.  where  (answer.value .).linkId )) )
+#   allTrue  (   repeat  ({ fhir:answer { fhir:item } }). select  (   isDistinct  ( .item. where  (answer.value .).linkId )) )
 {}
 
 ) AND (
@@ -122,10 +122,6 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:item @<OneOrMore_QuestionnaireResponse.item>?;  # Child items of question
 }  
 
-# Child items of group item
-<QuestionnaireResponse.item.itemnull> CLOSED {   
-}  
-
 # Groups and questions
 <QuestionnaireResponse.item> EXTENDS @<BackboneElement> CLOSED {   
     fhir:linkId @<string>;                  # Pointer to specific item from 
@@ -150,7 +146,7 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()
 # ShEx:
 #
-#   allTrue  (   repeat  ({ fhir:answer { fhir:item } }).  select  (   isDistinct  ( .item.  where  (answer.value .).linkId )) )
+#   allTrue  (   repeat  ({ fhir:answer { fhir:item } }). select  (   isDistinct  ( .item. where  (answer.value .).linkId )) )
 {}
 
 ) AND (
@@ -165,6 +161,10 @@ start=@<QuestionnaireResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 )
  
+
+# Child items of group item
+<QuestionnaireResponse.item.itemnull> CLOSED {   
+}  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

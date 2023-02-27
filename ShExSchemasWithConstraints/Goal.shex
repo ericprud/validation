@@ -87,7 +87,7 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (detail.exists() and measure.exists()) or detail.exists().not()
 # ShEx:
 
-({fhir:detail . AND {fhir:measure .}}) OR  NOT { fhir:detail . }
+({fhir:detail . AND {fhir:measure .}}) OR  NOT { fhir:detail. }
 
 )
  
@@ -113,7 +113,7 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (detail.exists() and measure.exists()) or detail.exists().not()
 # ShEx:
 
-({fhir:detail . AND {fhir:measure .}}) OR  NOT { fhir:detail . }
+({fhir:detail . AND {fhir:measure .}}) OR  NOT { fhir:detail. }
 
 )
  

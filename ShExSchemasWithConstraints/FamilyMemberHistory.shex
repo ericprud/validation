@@ -106,6 +106,23 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# Procedures that the related person had
+<FamilyMemberHistory.procedure> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Procedures performed on the 
+                                            # related person 
+    fhir:outcome @<CodeableConcept>?;       # What happened following the 
+                                            # procedure 
+    fhir:contributedToDeath @<boolean>?;    # Whether the procedure contributed 
+                                            # to the cause of death 
+    fhir:performed @<Age>  OR 
+    			@<Range>  OR 
+    			@<Period>  OR 
+    			@<string>  OR 
+    			@<dateTime>  ?;  # When the procedure was performed
+    fhir:note @<OneOrMore_Annotation>?;     # Extra information about the 
+                                            # procedure 
+}  
+
 # Who or what participated in the activities related to the family member history and how they were involved
 <FamilyMemberHistory.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:function @<CodeableConcept>?;      # Type of involvement
@@ -133,23 +150,6 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Period>  OR 
     			@<string>  ?;  # When condition first manifested
     fhir:note @<OneOrMore_Annotation>?;     # Extra information about condition
-}  
-
-# Procedures that the related person had
-<FamilyMemberHistory.procedure> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Procedures performed on the 
-                                            # related person 
-    fhir:outcome @<CodeableConcept>?;       # What happened following the 
-                                            # procedure 
-    fhir:contributedToDeath @<boolean>?;    # Whether the procedure contributed 
-                                            # to the cause of death 
-    fhir:performed @<Age>  OR 
-    			@<Range>  OR 
-    			@<Period>  OR 
-    			@<string>  OR 
-    			@<dateTime>  ?;  # When the procedure was performed
-    fhir:note @<OneOrMore_Annotation>?;     # Extra information about the 
-                                            # procedure 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

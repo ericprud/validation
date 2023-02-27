@@ -110,7 +110,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()
 # ShEx:
 #
-# NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).label {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).code {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).requirements {fhir:v .} } 
+# NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).label {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).code {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).requirements {fhir:v .} } 
 {}
 
 ) AND (
@@ -126,7 +126,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind!='logical'  and differential.element.first().path.contains('.').not()) implies differential.element.first().type.empty()
 # ShEx:
 #
-#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element.   first  (  ).path { fhir:v ['.'] }  })  Implies   NOT { fhir:differential.element.   first  (  ).type {fhir:v .} } 
+#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element. first  (  ).path{ fhir:v ['.'] } })  Implies   NOT { fhir:differential.element. first  (  ).type {fhir:v .} } 
 {}
 
 ) AND (
@@ -158,7 +158,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()
 # ShEx:
 #
-#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id.  trace  ('ids') )}
+#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id. trace  ('ids') )}
 {}
 
 ) AND (
@@ -187,7 +187,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: kind!='logical'  implies snapshot.element.first().type.empty()
 # ShEx:
 #
-#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element.   first  (  ).type {fhir:v .} } 
+#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element. first  (  ).type {fhir:v .} } 
 {}
 
 ) AND (
@@ -216,7 +216,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: ((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()
 # ShEx:
 #
-#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element.  where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
+#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element. where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
 {}
 
 ) AND (
@@ -232,7 +232,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()
 # ShEx:
 #
-#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id.  trace  ('ids') )}
+#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id. trace  ('ids') )}
 {}
 
 ) AND (
@@ -247,7 +247,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (snapshot | differential).element.all(path.contains('.').not() implies sliceName.empty())
 # ShEx:
 #
-#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path { fhir:v ['.'] }  }  Implies   NOT { .sliceName {fhir:v .} } )
+#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path{ fhir:v ['.'] } }  Implies   NOT { .sliceName {fhir:v .} } )
 {}
 
 ) AND (
@@ -308,7 +308,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: derivation = 'constraint' or snapshot.element.select(path).isDistinct()
 # ShEx:
 #
-#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element.  select  (path) )
+#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element. select  (path) )
 {}
 
 ) AND (
@@ -381,7 +381,49 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.'))
 # ShEx:
 #
-#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-25
+# Human readable:For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept
+#
+# Constraint: element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['CodeableConcept'] } ) . AND path.  endsWith  ('.concept') AND binding . AND   substring  (0,    length  ( .path.$this.path )  Minus  8) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-24
+# Human readable:For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference
+#
+# Constraint: element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['Reference'] } ) . AND path.  endsWith  ('.reference') AND type.targetProfile . AND   substring  (0,    length  ( .path.$this.path )  Minus  10) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
 {}
 
 ) AND (
@@ -420,7 +462,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())
 # ShEx:
 
- NOT { fhir:slicing . } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
+ NOT { fhir:slicing. } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
 
 ) AND (
 
@@ -443,7 +485,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: element.where(path.contains('.').not()).slicing.empty()
 # ShEx:
 #
-# NOT { fhir:element.  where  ( NOT { .path { fhir:v ['.'] }  }).slicing {fhir:v .} } 
+# NOT { fhir:element. where  ( NOT { .path{ fhir:v ['.'] } }).slicing {fhir:v .} } 
 {}
 
 ) AND (
@@ -465,415 +507,11 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&'.')))
 # ShEx:
 #
-#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element.   tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
+#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element. tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
 {}
 
 )
  
-
-# Snapshot view of the structure
-<StructureDefinition.snapshot> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:element @<OneOrMore_ElementDefinition>;  # Definition of elements in the 
-                                            # resource (if no 
-                                            # StructureDefinition) 
-} AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:cnl-0
-# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
-#
-# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
-# ShEx:
-#
-#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: children
-# Unmapped construct found: where
-# Unmapped construct found: children
-# Unmapped construct found: where
-# Unmapped construct found: children
-# Unmapped construct found: where
-# # Constraint UniqueKey:sdf-9
-# Human readable:In any snapshot or differential, no label, code or requirements on an element without a "." in the path (e.g. the first element)
-#
-# Constraint: children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()
-# ShEx:
-#
-# NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).label {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).code {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).requirements {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: first
-# Unmapped construct found: Implies
-# Unmapped construct found: first
-# # Constraint UniqueKey:sdf-15a
-# Human readable:If the first element in a differential has no "." in the path and it's not a logical model, it has no type
-#
-# Constraint: (kind!='logical'  and differential.element.first().path.contains('.').not()) implies differential.element.first().type.empty()
-# ShEx:
-#
-#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element.   first  (  ).path { fhir:v ['.'] }  })  Implies   NOT { fhir:differential.element.   first  (  ).type {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: startsWith
-# Unmapped construct found: Implies
-# Unmapped construct found: all
-# # Constraint UniqueKey:sdf-19
-# Human readable:FHIR Specification models only use FHIR defined types
-#
-# Constraint: url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (differential | snapshot).element.type.code.all(matches('^[a-zA-Z0-9]+$') or matches('^http:\\/\\/hl7\\.org\\/fhirpath\\/System\\.[A-Z][A-Za-z]+$'))
-# ShEx:
-#
-#{fhir:url.  startsWith  ('http://hl7.org/fhir/StructureDefinition')  Implies  ({ fhir:differential { fhir:snapshot } }).element.type.code.  all  ( { fhir:v /'^[a-zA-Z0-9]+$'/ }  { fhir:v /'^http:\/\/hl7\.org\/fhirpath\/System\.[A-Z][A-Za-z]+$'/ } )}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# Unmapped construct found: isDistinct
-# Unmapped construct found: trace
-# # Constraint UniqueKey:sdf-16
-# Human readable:All element definitions must have unique ids (snapshot)
-#
-# Constraint: snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()
-# ShEx:
-#
-#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id.  trace  ('ids') )}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:sdf-27
-# Human readable:If there's a base definition, there must be a derivation 
-#
-# Constraint: baseDefinition.exists() implies derivation.exists()
-# ShEx:
-#
-#{fhir:baseDefinition .  Implies  {fhir:derivation .}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: first
-# # Constraint UniqueKey:sdf-15
-# Human readable:The first element in a snapshot has no type unless model is a logical model.
-#
-# Constraint: kind!='logical'  implies snapshot.element.first().type.empty()
-# ShEx:
-#
-#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element.   first  (  ).type {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:sdf-18
-# Human readable:Context Invariants can only be used for extensions
-#
-# Constraint: contextInvariant.exists() implies type = 'Extension'
-# ShEx:
-#
-#{fhir:contextInvariant .  Implies  ({ fhir:type { fhir:v ['Extension'] }  })}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: where
-# # Constraint UniqueKey:sdf-29
-# Human readable:Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *
-#
-# Constraint: ((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()
-# ShEx:
-#
-#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element.  where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# Unmapped construct found: isDistinct
-# Unmapped construct found: trace
-# # Constraint UniqueKey:sdf-17
-# Human readable:All element definitions must have unique ids (diff)
-#
-# Constraint: differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()
-# ShEx:
-#
-#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id.  trace  ('ids') )}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:sdf-23
-# Human readable:No slice name on root
-#
-# Constraint: (snapshot | differential).element.all(path.contains('.').not() implies sliceName.empty())
-# ShEx:
-#
-#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path { fhir:v ['.'] }  }  Implies   NOT { .sliceName {fhir:v .} } )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# Unmapped construct found: first
-# Unmapped construct found: Equals
-# # Constraint UniqueKey:sdf-11
-# Human readable:If there's a type, its content must match the path name in the first element of a snapshot
-#
-# Constraint: kind != 'logical' implies snapshot.empty() or snapshot.element.first().path = type
-# ShEx:
-#
-#({ fhir:kind [fhir:v  . -'logical']  })  Implies  ( NOT { fhir:snapshot {fhir:v .} }  OR (   first  ( fhir:snapshot.element ).path  Equals  { fhir:type }))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: startsWith
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:sdf-22
-# Human readable:FHIR Specification models never have default values
-#
-# Constraint: url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (snapshot.element.defaultValue.empty() and differential.element.defaultValue.empty())
-# ShEx:
-#
-#{fhir:url.  startsWith  ('http://hl7.org/fhir/StructureDefinition')  Implies  ( NOT { fhir:snapshot.element.defaultValue {fhir:v .} }  AND  NOT { fhir:differential.element.defaultValue {fhir:v .} } )}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# Unmapped construct found: all
-# # Constraint UniqueKey:sdf-14
-# Human readable:All element definitions must have an id
-#
-# Constraint: snapshot.element.all(id.exists()) and differential.element.all(id.exists())
-# ShEx:
-#
-#{fhir:snapshot.element.  all  (id .) AND {fhir:differential.element.  all  (id .)}}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: isDistinct
-# Unmapped construct found: select
-# # Constraint UniqueKey:sdf-1
-# Human readable:Element paths must be unique unless the structure is a constraint
-#
-# Constraint: derivation = 'constraint' or snapshot.element.select(path).isDistinct()
-# ShEx:
-#
-#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element.  select  (path) )
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: Implies
-# # Constraint UniqueKey:sdf-21
-# Human readable:Default values can only be specified on specializations
-#
-# Constraint: differential.element.defaultValue.exists() implies (derivation = 'specialization')
-# ShEx:
-#
-#{fhir:differential.element.defaultValue .  Implies  ({ fhir:derivation { fhir:v ['specialization'] }  })}
-{}
-
-) AND (
-
-# Constraint UniqueKey:sdf-6
-# Human readable:A structure must have either a differential, or a snapshot (or both)
-
-# Constraint: snapshot.exists() or differential.exists()
-# ShEx:
-
-{fhir:snapshot . OR {fhir:differential .}}
-
-) AND (
-
-# Constraint UniqueKey:sdf-5
-# Human readable:If the structure defines an extension then the structure must have context information
-
-# Constraint: type != 'Extension' or derivation = 'specialization' or (context.exists())
-# ShEx:
-
-({ fhir:type [fhir:v  . -'Extension']  }) OR ({ fhir:derivation { fhir:v ['specialization'] }  }) OR ({fhir:context .})
-
-) AND (
-
-# Constraint UniqueKey:sdf-4
-# Human readable:If the structure is not abstract, then there SHALL be a baseDefinition
-
-# Constraint: abstract = true or baseDefinition.exists()
-# ShEx:
-
-({ fhir:abstract { fhir:v [true] }  }) OR {fhir:baseDefinition .}
-
-) AND (
-
-# Constraint UniqueKey:sdf-2
-# Human readable:Must have at least a name or a uri (or both)
-
-# Constraint: name.exists() or uri.exists()
-# ShEx:
-
-{fhir:name . OR {fhir:uri .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: first
-# Unmapped construct found: all
-# Unmapped construct found: startsWith
-# Unmapped construct found: first
-# Unmapped construct found: tail
-# Unmapped construct found: Concatenate
-# # Constraint UniqueKey:sdf-8
-# Human readable:All snapshot elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models
-#
-# Constraint: (%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.'))
-# ShEx:
-#
-#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# # Constraint UniqueKey:sdf-3
-# Human readable:Each element definition in a snapshot must have a formal definition and cardinalities, unless model is a logical model
-#
-# Constraint: %resource.kind = 'logical' or element.all(definition.exists() and min.exists() and max.exists())
-# ShEx:
-#
-#'false'.kind { fhir:v ['logical'] }  OR {fhir:element.  all  (definition . AND min . AND max .)}
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: all
-# # Constraint UniqueKey:sdf-8b
-# Human readable:All snapshot elements must have a base definition
-#
-# Constraint: element.all(base.exists())
-# ShEx:
-#
-#{fhir:element.  all  (base .)}
-{}
-
-) AND (
-
-# Constraint UniqueKey:sdf-28
-# Human readable:If there are no discriminators, there must be a definition
-
-# Constraint: slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())
-# ShEx:
-
- NOT { fhir:slicing . } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
-
-) AND (
-
-# Constraint UniqueKey:sdf-10
-# Human readable:provide either a binding reference or a description (or both)
-
-# Constraint: binding.empty() or binding.valueSet.exists() or binding.description.exists()
-# ShEx:
-
- NOT { fhir:binding {fhir:v .} }  OR {fhir:binding.valueSet . OR {fhir:binding.description .}}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: where
-# # Constraint UniqueKey:sdf-20
-# Human readable:No slicing on the root element
-#
-# Constraint: element.where(path.contains('.').not()).slicing.empty()
-# ShEx:
-#
-# NOT { fhir:element.  where  ( NOT { .path { fhir:v ['.'] }  }).slicing {fhir:v .} } 
-{}
-
-) AND (
-
-
-# This constraint does not have mapping to a ShEx construct yet.
-# Unmapped construct found: first
-# Unmapped construct found: startsWith
-# Unmapped construct found: tail
-# Unmapped construct found: all
-# Unmapped construct found: startsWith
-# Unmapped construct found: first
-# Unmapped construct found: tail
-# Unmapped construct found: replaceMatches
-# Unmapped construct found: Concatenate
-# # Constraint UniqueKey:sdf-8a
-# Human readable:In any differential, all the elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models
-#
-# Constraint: (%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&'.')))
-# ShEx:
-#
-#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element.   tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
-{}
-
-)
- 
-
-# If an extension, where it can be used in instances
-<StructureDefinition.context> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:extension-context-type};  # fhirpath | element | extension
-    fhir:expression @<string>;              # Where the extension can be used in 
-                                            # instances 
-}  
 
 # External specification that the content is mapped to
 <StructureDefinition.mapping> EXTENDS @<BackboneElement> CLOSED {   
@@ -914,7 +552,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()
 # ShEx:
 #
-# NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).label {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).code {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).requirements {fhir:v .} } 
+# NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).label {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).code {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).requirements {fhir:v .} } 
 {}
 
 ) AND (
@@ -930,7 +568,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind!='logical'  and differential.element.first().path.contains('.').not()) implies differential.element.first().type.empty()
 # ShEx:
 #
-#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element.   first  (  ).path { fhir:v ['.'] }  })  Implies   NOT { fhir:differential.element.   first  (  ).type {fhir:v .} } 
+#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element. first  (  ).path{ fhir:v ['.'] } })  Implies   NOT { fhir:differential.element. first  (  ).type {fhir:v .} } 
 {}
 
 ) AND (
@@ -962,7 +600,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()
 # ShEx:
 #
-#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id.  trace  ('ids') )}
+#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id. trace  ('ids') )}
 {}
 
 ) AND (
@@ -991,7 +629,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: kind!='logical'  implies snapshot.element.first().type.empty()
 # ShEx:
 #
-#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element.   first  (  ).type {fhir:v .} } 
+#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element. first  (  ).type {fhir:v .} } 
 {}
 
 ) AND (
@@ -1020,7 +658,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: ((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()
 # ShEx:
 #
-#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element.  where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
+#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element. where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
 {}
 
 ) AND (
@@ -1036,7 +674,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()
 # ShEx:
 #
-#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id.  trace  ('ids') )}
+#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id. trace  ('ids') )}
 {}
 
 ) AND (
@@ -1051,7 +689,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (snapshot | differential).element.all(path.contains('.').not() implies sliceName.empty())
 # ShEx:
 #
-#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path { fhir:v ['.'] }  }  Implies   NOT { .sliceName {fhir:v .} } )
+#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path{ fhir:v ['.'] } }  Implies   NOT { .sliceName {fhir:v .} } )
 {}
 
 ) AND (
@@ -1112,7 +750,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: derivation = 'constraint' or snapshot.element.select(path).isDistinct()
 # ShEx:
 #
-#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element.  select  (path) )
+#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element. select  (path) )
 {}
 
 ) AND (
@@ -1185,7 +823,49 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.'))
 # ShEx:
 #
-#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-25
+# Human readable:For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept
+#
+# Constraint: element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['CodeableConcept'] } ) . AND path.  endsWith  ('.concept') AND binding . AND   substring  (0,    length  ( .path.$this.path )  Minus  8) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-24
+# Human readable:For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference
+#
+# Constraint: element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['Reference'] } ) . AND path.  endsWith  ('.reference') AND type.targetProfile . AND   substring  (0,    length  ( .path.$this.path )  Minus  10) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
 {}
 
 ) AND (
@@ -1224,7 +904,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())
 # ShEx:
 
- NOT { fhir:slicing . } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
+ NOT { fhir:slicing. } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
 
 ) AND (
 
@@ -1247,7 +927,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: element.where(path.contains('.').not()).slicing.empty()
 # ShEx:
 #
-# NOT { fhir:element.  where  ( NOT { .path { fhir:v ['.'] }  }).slicing {fhir:v .} } 
+# NOT { fhir:element. where  ( NOT { .path{ fhir:v ['.'] } }).slicing {fhir:v .} } 
 {}
 
 ) AND (
@@ -1269,11 +949,457 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&'.')))
 # ShEx:
 #
-#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element.   tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
+#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element. tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
 {}
 
 )
  
+
+# Snapshot view of the structure
+<StructureDefinition.snapshot> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:element @<OneOrMore_ElementDefinition>;  # Definition of elements in the 
+                                            # resource (if no 
+                                            # StructureDefinition) 
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: children
+# Unmapped construct found: where
+# Unmapped construct found: children
+# Unmapped construct found: where
+# Unmapped construct found: children
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-9
+# Human readable:In any snapshot or differential, no label, code or requirements on an element without a "." in the path (e.g. the first element)
+#
+# Constraint: children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()
+# ShEx:
+#
+# NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).label {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).code {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).requirements {fhir:v .} } 
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: first
+# Unmapped construct found: Implies
+# Unmapped construct found: first
+# # Constraint UniqueKey:sdf-15a
+# Human readable:If the first element in a differential has no "." in the path and it's not a logical model, it has no type
+#
+# Constraint: (kind!='logical'  and differential.element.first().path.contains('.').not()) implies differential.element.first().type.empty()
+# ShEx:
+#
+#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element. first  (  ).path{ fhir:v ['.'] } })  Implies   NOT { fhir:differential.element. first  (  ).type {fhir:v .} } 
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: startsWith
+# Unmapped construct found: Implies
+# Unmapped construct found: all
+# # Constraint UniqueKey:sdf-19
+# Human readable:FHIR Specification models only use FHIR defined types
+#
+# Constraint: url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (differential | snapshot).element.type.code.all(matches('^[a-zA-Z0-9]+$') or matches('^http:\\/\\/hl7\\.org\\/fhirpath\\/System\\.[A-Z][A-Za-z]+$'))
+# ShEx:
+#
+#{fhir:url.  startsWith  ('http://hl7.org/fhir/StructureDefinition')  Implies  ({ fhir:differential { fhir:snapshot } }).element.type.code.  all  ( { fhir:v /'^[a-zA-Z0-9]+$'/ }  { fhir:v /'^http:\/\/hl7\.org\/fhirpath\/System\.[A-Z][A-Za-z]+$'/ } )}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: all
+# Unmapped construct found: isDistinct
+# Unmapped construct found: trace
+# # Constraint UniqueKey:sdf-16
+# Human readable:All element definitions must have unique ids (snapshot)
+#
+# Constraint: snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()
+# ShEx:
+#
+#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id. trace  ('ids') )}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:sdf-27
+# Human readable:If there's a base definition, there must be a derivation 
+#
+# Constraint: baseDefinition.exists() implies derivation.exists()
+# ShEx:
+#
+#{fhir:baseDefinition .  Implies  {fhir:derivation .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: first
+# # Constraint UniqueKey:sdf-15
+# Human readable:The first element in a snapshot has no type unless model is a logical model.
+#
+# Constraint: kind!='logical'  implies snapshot.element.first().type.empty()
+# ShEx:
+#
+#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element. first  (  ).type {fhir:v .} } 
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:sdf-18
+# Human readable:Context Invariants can only be used for extensions
+#
+# Constraint: contextInvariant.exists() implies type = 'Extension'
+# ShEx:
+#
+#{fhir:contextInvariant .  Implies  ({ fhir:type { fhir:v ['Extension'] }  })}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-29
+# Human readable:Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *
+#
+# Constraint: ((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()
+# ShEx:
+#
+#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element. where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: all
+# Unmapped construct found: isDistinct
+# Unmapped construct found: trace
+# # Constraint UniqueKey:sdf-17
+# Human readable:All element definitions must have unique ids (diff)
+#
+# Constraint: differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()
+# ShEx:
+#
+#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id. trace  ('ids') )}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: all
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:sdf-23
+# Human readable:No slice name on root
+#
+# Constraint: (snapshot | differential).element.all(path.contains('.').not() implies sliceName.empty())
+# ShEx:
+#
+#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path{ fhir:v ['.'] } }  Implies   NOT { .sliceName {fhir:v .} } )
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: first
+# Unmapped construct found: Equals
+# # Constraint UniqueKey:sdf-11
+# Human readable:If there's a type, its content must match the path name in the first element of a snapshot
+#
+# Constraint: kind != 'logical' implies snapshot.empty() or snapshot.element.first().path = type
+# ShEx:
+#
+#({ fhir:kind [fhir:v  . -'logical']  })  Implies  ( NOT { fhir:snapshot {fhir:v .} }  OR (   first  ( fhir:snapshot.element ).path  Equals  { fhir:type }))
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: startsWith
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:sdf-22
+# Human readable:FHIR Specification models never have default values
+#
+# Constraint: url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (snapshot.element.defaultValue.empty() and differential.element.defaultValue.empty())
+# ShEx:
+#
+#{fhir:url.  startsWith  ('http://hl7.org/fhir/StructureDefinition')  Implies  ( NOT { fhir:snapshot.element.defaultValue {fhir:v .} }  AND  NOT { fhir:differential.element.defaultValue {fhir:v .} } )}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: all
+# Unmapped construct found: all
+# # Constraint UniqueKey:sdf-14
+# Human readable:All element definitions must have an id
+#
+# Constraint: snapshot.element.all(id.exists()) and differential.element.all(id.exists())
+# ShEx:
+#
+#{fhir:snapshot.element.  all  (id .) AND {fhir:differential.element.  all  (id .)}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: isDistinct
+# Unmapped construct found: select
+# # Constraint UniqueKey:sdf-1
+# Human readable:Element paths must be unique unless the structure is a constraint
+#
+# Constraint: derivation = 'constraint' or snapshot.element.select(path).isDistinct()
+# ShEx:
+#
+#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element. select  (path) )
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:sdf-21
+# Human readable:Default values can only be specified on specializations
+#
+# Constraint: differential.element.defaultValue.exists() implies (derivation = 'specialization')
+# ShEx:
+#
+#{fhir:differential.element.defaultValue .  Implies  ({ fhir:derivation { fhir:v ['specialization'] }  })}
+{}
+
+) AND (
+
+# Constraint UniqueKey:sdf-6
+# Human readable:A structure must have either a differential, or a snapshot (or both)
+
+# Constraint: snapshot.exists() or differential.exists()
+# ShEx:
+
+{fhir:snapshot . OR {fhir:differential .}}
+
+) AND (
+
+# Constraint UniqueKey:sdf-5
+# Human readable:If the structure defines an extension then the structure must have context information
+
+# Constraint: type != 'Extension' or derivation = 'specialization' or (context.exists())
+# ShEx:
+
+({ fhir:type [fhir:v  . -'Extension']  }) OR ({ fhir:derivation { fhir:v ['specialization'] }  }) OR ({fhir:context .})
+
+) AND (
+
+# Constraint UniqueKey:sdf-4
+# Human readable:If the structure is not abstract, then there SHALL be a baseDefinition
+
+# Constraint: abstract = true or baseDefinition.exists()
+# ShEx:
+
+({ fhir:abstract { fhir:v [true] }  }) OR {fhir:baseDefinition .}
+
+) AND (
+
+# Constraint UniqueKey:sdf-2
+# Human readable:Must have at least a name or a uri (or both)
+
+# Constraint: name.exists() or uri.exists()
+# ShEx:
+
+{fhir:name . OR {fhir:uri .}}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: first
+# Unmapped construct found: all
+# Unmapped construct found: startsWith
+# Unmapped construct found: first
+# Unmapped construct found: tail
+# Unmapped construct found: Concatenate
+# # Constraint UniqueKey:sdf-8
+# Human readable:All snapshot elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models
+#
+# Constraint: (%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.'))
+# ShEx:
+#
+#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-25
+# Human readable:For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept
+#
+# Constraint: element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['CodeableConcept'] } ) . AND path.  endsWith  ('.concept') AND binding . AND   substring  (0,    length  ( .path.$this.path )  Minus  8) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-24
+# Human readable:For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference
+#
+# Constraint: element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['Reference'] } ) . AND path.  endsWith  ('.reference') AND type.targetProfile . AND   substring  (0,    length  ( .path.$this.path )  Minus  10) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: all
+# # Constraint UniqueKey:sdf-3
+# Human readable:Each element definition in a snapshot must have a formal definition and cardinalities, unless model is a logical model
+#
+# Constraint: %resource.kind = 'logical' or element.all(definition.exists() and min.exists() and max.exists())
+# ShEx:
+#
+#'false'.kind { fhir:v ['logical'] }  OR {fhir:element.  all  (definition . AND min . AND max .)}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: all
+# # Constraint UniqueKey:sdf-8b
+# Human readable:All snapshot elements must have a base definition
+#
+# Constraint: element.all(base.exists())
+# ShEx:
+#
+#{fhir:element.  all  (base .)}
+{}
+
+) AND (
+
+# Constraint UniqueKey:sdf-28
+# Human readable:If there are no discriminators, there must be a definition
+
+# Constraint: slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())
+# ShEx:
+
+ NOT { fhir:slicing. } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
+
+) AND (
+
+# Constraint UniqueKey:sdf-10
+# Human readable:provide either a binding reference or a description (or both)
+
+# Constraint: binding.empty() or binding.valueSet.exists() or binding.description.exists()
+# ShEx:
+
+ NOT { fhir:binding {fhir:v .} }  OR {fhir:binding.valueSet . OR {fhir:binding.description .}}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-20
+# Human readable:No slicing on the root element
+#
+# Constraint: element.where(path.contains('.').not()).slicing.empty()
+# ShEx:
+#
+# NOT { fhir:element. where  ( NOT { .path{ fhir:v ['.'] } }).slicing {fhir:v .} } 
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: first
+# Unmapped construct found: startsWith
+# Unmapped construct found: tail
+# Unmapped construct found: all
+# Unmapped construct found: startsWith
+# Unmapped construct found: first
+# Unmapped construct found: tail
+# Unmapped construct found: replaceMatches
+# Unmapped construct found: Concatenate
+# # Constraint UniqueKey:sdf-8a
+# Human readable:In any differential, all the elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models
+#
+# Constraint: (%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&'.')))
+# ShEx:
+#
+#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element. tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
+{}
+
+)
+ 
+
+# If an extension, where it can be used in instances
+<StructureDefinition.context> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:extension-context-type};  # fhirpath | element | extension
+    fhir:expression @<string>;              # Where the extension can be used in 
+                                            # instances 
+}  
 
 # Differential view of the structure
 <StructureDefinition.differential> EXTENDS @<BackboneElement> CLOSED {   
@@ -1310,7 +1436,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()
 # ShEx:
 #
-# NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).label {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).code {fhir:v .} }  AND  NOT {    children  (  ).element.  where  ( NOT { .path { fhir:v ['.'] }  }).requirements {fhir:v .} } 
+# NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).label {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).code {fhir:v .} }  AND  NOT {    children  (  ).element. where  ( NOT { .path{ fhir:v ['.'] } }).requirements {fhir:v .} } 
 {}
 
 ) AND (
@@ -1326,7 +1452,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (kind!='logical'  and differential.element.first().path.contains('.').not()) implies differential.element.first().type.empty()
 # ShEx:
 #
-#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element.   first  (  ).path { fhir:v ['.'] }  })  Implies   NOT { fhir:differential.element.   first  (  ).type {fhir:v .} } 
+#(({ fhir:kind [fhir:v  . -'logical']  }) AND  NOT { fhir:differential.element. first  (  ).path{ fhir:v ['.'] } })  Implies   NOT { fhir:differential.element. first  (  ).type {fhir:v .} } 
 {}
 
 ) AND (
@@ -1358,7 +1484,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()
 # ShEx:
 #
-#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id.  trace  ('ids') )}
+#{fhir:snapshot.element.  all  (id .) AND    isDistinct  ( fhir:snapshot.element.id. trace  ('ids') )}
 {}
 
 ) AND (
@@ -1387,7 +1513,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: kind!='logical'  implies snapshot.element.first().type.empty()
 # ShEx:
 #
-#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element.   first  (  ).type {fhir:v .} } 
+#({ fhir:kind [fhir:v  . -'logical']  })  Implies   NOT { fhir:snapshot.element. first  (  ).type {fhir:v .} } 
 {}
 
 ) AND (
@@ -1416,7 +1542,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: ((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()
 # ShEx:
 #
-#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element.  where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
+#(({ fhir:kind { fhir:v ['resource' 'complex-type'] }  }) AND ({ fhir:specialization { fhir:v ['derivation'] }  }))  Implies   NOT { fhir:differential.element. where  (min [fhir:v  . -0]  AND min [fhir:v  . -1]  OR max [fhir:v  . -'1']  AND max [fhir:v  . -'*'] ) {fhir:v .} } 
 {}
 
 ) AND (
@@ -1432,7 +1558,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()
 # ShEx:
 #
-#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id.  trace  ('ids') )}
+#{fhir:differential.element.  all  (id .) AND    isDistinct  ( fhir:differential.element.id. trace  ('ids') )}
 {}
 
 ) AND (
@@ -1447,7 +1573,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (snapshot | differential).element.all(path.contains('.').not() implies sliceName.empty())
 # ShEx:
 #
-#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path { fhir:v ['.'] }  }  Implies   NOT { .sliceName {fhir:v .} } )
+#  all  ( NOT { { fhir:snapshot { fhir:differential } }.element.path{ fhir:v ['.'] } }  Implies   NOT { .sliceName {fhir:v .} } )
 {}
 
 ) AND (
@@ -1508,7 +1634,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: derivation = 'constraint' or snapshot.element.select(path).isDistinct()
 # ShEx:
 #
-#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element.  select  (path) )
+#({ fhir:derivation { fhir:v ['constraint'] }  }) OR    isDistinct  ( fhir:snapshot.element. select  (path) )
 {}
 
 ) AND (
@@ -1581,7 +1707,49 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.'))
 # ShEx:
 #
-#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+#'false'.kind { fhir:v ['logical'] }  OR (   first  ( fhir:element ).path { fhir:v ['StructureDefinition'.type] } ) AND   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.snapshot.element ).path  Concatenate  '.'))
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-25
+# Human readable:For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept
+#
+# Constraint: element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['CodeableConcept'] } ) . AND path.  endsWith  ('.concept') AND binding . AND   substring  (0,    length  ( .path.$this.path )  Minus  8) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: where
+# Unmapped construct found: endsWith
+# Unmapped construct found: substring
+# Unmapped construct found: length
+# Unmapped construct found: Minus
+# Unmapped construct found: where
+# Unmapped construct found: where
+# # Constraint UniqueKey:sdf-24
+# Human readable:For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference
+#
+# Constraint: element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()
+# ShEx:
+#
+# NOT { fhir:element. where  (type.  where  (code { fhir:v ['Reference'] } ) . AND path.  endsWith  ('.reference') AND type.targetProfile . AND   substring  (0,    length  ( .path.$this.path )  Minus  10) { fhir:v ['%context'.element.  where  (type.  where  (code { fhir:v ['CodeableReference'] } ) .).path] } ). }
 {}
 
 ) AND (
@@ -1620,7 +1788,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())
 # ShEx:
 
- NOT { fhir:slicing . } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
+ NOT { fhir:slicing. } OR ({fhir:slicing.discriminator . OR {fhir:slicing.description .}})
 
 ) AND (
 
@@ -1643,7 +1811,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: element.where(path.contains('.').not()).slicing.empty()
 # ShEx:
 #
-# NOT { fhir:element.  where  ( NOT { .path { fhir:v ['.'] }  }).slicing {fhir:v .} } 
+# NOT { fhir:element. where  ( NOT { .path{ fhir:v ['.'] } }).slicing {fhir:v .} } 
 {}
 
 ) AND (
@@ -1665,7 +1833,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&'.')))
 # ShEx:
 #
-#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element.   tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element.   tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
+#'false'.kind { fhir:v ['logical'] }  OR    first  ( fhir:element ).path.  startsWith  ('StructureDefinition'.type) AND ( NOT { fhir:element. tail  (  ) {fhir:v .} }  OR   all  (  startsWith  (   first  ( fhir:element. tail  (  ).path.'StructureDefinition.'.differential.element ).path.  replaceMatches  ('\..*', '')  Concatenate  '.')))
 {}
 
 )
@@ -1720,18 +1888,18 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+# How an extension context is interpreted.
+fhirvs:extension-context-type ["fhirpath" "element" "extension"]
+
+# How a type relates to its baseDefinition.
+fhirvs:type-derivation-rule ["specialization" "constraint"]
 
 # All published FHIR Versions.
 fhirvs:FHIR-version ["0.01" "0.05" "0.06" "0.11" "0.0" "0.0.80" "0.0.81" "0.0.82" "0.4" "0.4.0" "0.5" "0.5.0" "1.0" "1.0.0" "1.0.1" "1.0.2" "1.1" "1.1.0" "1.4" "1.4.0" "1.6" "1.6.0" "1.8" "1.8.0" "3.0" "3.0.0" "3.0.1" "3.0.2" "3.3" "3.3.0" "3.5" "3.5.0" "4.0" "4.0.0" "4.0.1" "4.1" "4.1.0" "4.2" "4.2.0" "4.3" "4.3.0" "4.3.0-cibuild" "4.3.0-snapshot1" "4.4" "4.4.0" "4.5" "4.5.0" "4.6" "4.6.0" "5.0" "5.0.0" "5.0.0-cibuild" "5.0.0-snapshot1" "5.0.0-snapshot2" "5.0.0-ballot" "5.0.0-snapshot3"]
 
-# How an extension context is interpreted.
-fhirvs:extension-context-type ["fhirpath" "element" "extension"]
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # Defines the type of structure that a definition is describing.
 fhirvs:structure-definition-kind ["primitive-type" "complex-type" "resource" "logical"]
-
-# How a type relates to its baseDefinition.
-fhirvs:type-derivation-rule ["specialization" "constraint"]
 

@@ -19,10 +19,6 @@ start=@<cholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Cholesterol value
 <Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
@@ -33,5 +29,9 @@ start=@<cholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Component results
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

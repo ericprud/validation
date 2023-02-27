@@ -97,6 +97,24 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# A sequence defined relative to another sequence
+<MolecularSequence.relative> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:coordinateSystem @<CodeableConcept>;  # Ways of identifying nucleotides or 
+                                            # amino acids within a sequence 
+    fhir:ordinalPosition @<integer>?;       # Indicates the order in which the 
+                                            # sequence should be considered when 
+                                            # putting multiple 'relative' 
+                                            # elements together 
+    fhir:sequenceRange @<Range>?;           # Indicates the nucleotide range in 
+                                            # the composed sequence when 
+                                            # multiple 'relative' elements are 
+                                            # used together 
+    fhir:startingSequence @<MolecularSequence.relative.startingSequence>?;  # A sequence used as starting 
+                                            # sequence 
+    fhir:edit @<OneOrMore_MolecularSequence.relative.edit>?;  # Changes in sequence from the 
+                                            # starting sequence 
+}  
+
 # Changes in sequence from the starting sequence
 <MolecularSequence.relative.edit> EXTENDS @<BackboneElement> CLOSED {   
     fhir:start @<integer>?;                 # Start position of the edit on the 
@@ -126,24 +144,6 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:strand-type}?;  # watson | crick
 }  
 
-# A sequence defined relative to another sequence
-<MolecularSequence.relative> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:coordinateSystem @<CodeableConcept>;  # Ways of identifying nucleotides or 
-                                            # amino acids within a sequence 
-    fhir:ordinalPosition @<integer>?;       # Indicates the order in which the 
-                                            # sequence should be considered when 
-                                            # putting multiple 'relative' 
-                                            # elements together 
-    fhir:sequenceRange @<Range>?;           # Indicates the nucleotide range in 
-                                            # the composed sequence when 
-                                            # multiple 'relative' elements are 
-                                            # used together 
-    fhir:startingSequence @<MolecularSequence.relative.startingSequence>?;  # A sequence used as starting 
-                                            # sequence 
-    fhir:edit @<OneOrMore_MolecularSequence.relative.edit>?;  # Changes in sequence from the 
-                                            # starting sequence 
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
@@ -168,12 +168,12 @@ start=@<MolecularSequence> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Type for orientation.
-fhirvs:orientation-type ["sense" "antisense"]
+# Type if a sequence -- DNA, RNA, or amino acid sequence.
+fhirvs:sequence-type ["aa" "dna" "rna"]
 
 # Type for strand.
 fhirvs:strand-type ["watson" "crick"]
 
-# Type if a sequence -- DNA, RNA, or amino acid sequence.
-fhirvs:sequence-type ["aa" "dna" "rna"]
+# Type for orientation.
+fhirvs:orientation-type ["sense" "antisense"]
 

@@ -7,8 +7,8 @@ BASE <http://hl7.org/fhir/shape/>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Period.shex>
-IMPORT <Device.shex>
 IMPORT <Timing.shex>
+IMPORT <Device.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
@@ -89,6 +89,22 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # consumption 
 }  
 
+# What food or fluid product or item was consumed
+<NutritionIntake.consumedItem> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # The type of food or fluid product
+    fhir:nutritionProduct @<CodeableReference>;  # Code that identifies the food or 
+                                            # fluid product that was consumed 
+    fhir:schedule @<Timing>?;               # Scheduled frequency of consumption
+    fhir:amount @<Quantity>?;               # Quantity of the specified food
+    fhir:rate @<Quantity>?;                 # Rate at which enteral feeding was 
+                                            # administered 
+    fhir:notConsumed @<boolean>?;           # Flag to indicate if the food or 
+                                            # fluid item was refused or 
+                                            # otherwise not consumed 
+    fhir:notConsumedReason @<CodeableConcept>?;  # Reason food or fluid was not 
+                                            # consumed 
+}  
+
 # Total nutrient for the whole meal, product, serving
 <NutritionIntake.ingredientLabel> EXTENDS @<BackboneElement> CLOSED {   
     fhir:nutrient @<CodeableReference>;     # Total nutrient consumed
@@ -106,22 +122,6 @@ start=@<NutritionIntake> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? };  # Who performed the intake
-}  
-
-# What food or fluid product or item was consumed
-<NutritionIntake.consumedItem> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # The type of food or fluid product
-    fhir:nutritionProduct @<CodeableReference>;  # Code that identifies the food or 
-                                            # fluid product that was consumed 
-    fhir:schedule @<Timing>?;               # Scheduled frequency of consumption
-    fhir:amount @<Quantity>?;               # Quantity of the specified food
-    fhir:rate @<Quantity>?;                 # Rate at which enteral feeding was 
-                                            # administered 
-    fhir:notConsumed @<boolean>?;           # Flag to indicate if the food or 
-                                            # fluid item was refused or 
-                                            # otherwise not consumed 
-    fhir:notConsumedReason @<CodeableConcept>?;  # Reason food or fluid was not 
-                                            # consumed 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

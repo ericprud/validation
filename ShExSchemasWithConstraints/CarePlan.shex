@@ -34,8 +34,8 @@ IMPORT <ServiceRequest.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <PractitionerRole.shex>
-IMPORT <CodeableReference.shex>
 IMPORT <MedicationRequest.shex>
+IMPORT <CodeableReference.shex>
 IMPORT <HealthcareService.shex>
 IMPORT <VisionPrescription.shex>
 IMPORT <CommunicationRequest.shex>
@@ -110,6 +110,40 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
+# Action to occur or has occurred as part of plan
+<CarePlan.activity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:performedActivity @<OneOrMore_CodeableReference>?;  # Results of the activity (concept, 
+                                            # or Appointment, Encounter, 
+                                            # Procedure, etc) 
+    fhir:progress @<OneOrMore_Annotation>?;  # Comments about the activity 
+                                            # status/progress 
+    fhir:plannedActivityReference @<Reference> AND {fhir:link 
+    			@<Appointment> OR 
+    			@<CommunicationRequest> OR 
+    			@<DeviceRequest> OR 
+    			@<ImmunizationRecommendation> OR 
+    			@<MedicationRequest> OR 
+    			@<NutritionOrder> OR 
+    			@<RequestOrchestration> OR 
+    			@<ServiceRequest> OR 
+    			@<SupplyRequest> OR 
+    			@<Task> OR 
+    			@<VisionPrescription> ? }?;  # Activity that is intended to be 
+                                            # part of the care plan 
+    fhir:plannedActivityDetail @<CarePlan.activity.plannedActivityDetail>?;  # In-line definition of activity
+} AND (
+
+# Constraint UniqueKey:cpl-3
+# Human readable:Cannot have both plannedActivityReference and plannedActivityDetail
+
+# Constraint: plannedActivityDetail.empty() or plannedActivityReference.empty()
+# ShEx:
+
+ NOT { fhir:plannedActivityDetail {fhir:v .} }  OR  NOT { fhir:plannedActivityReference {fhir:v .} } 
+
+)
+ 
+
 # In-line definition of activity
 <CarePlan.activity.plannedActivityDetail> EXTENDS @<BackboneElement> CLOSED {   
     fhir:kind @<code> AND
@@ -154,40 +188,6 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<string>?;            # Extra info describing activity to 
                                             # perform 
 }  
-
-# Action to occur or has occurred as part of plan
-<CarePlan.activity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:performedActivity @<OneOrMore_CodeableReference>?;  # Results of the activity (concept, 
-                                            # or Appointment, Encounter, 
-                                            # Procedure, etc) 
-    fhir:progress @<OneOrMore_Annotation>?;  # Comments about the activity 
-                                            # status/progress 
-    fhir:plannedActivityReference @<Reference> AND {fhir:link 
-    			@<Appointment> OR 
-    			@<CommunicationRequest> OR 
-    			@<DeviceRequest> OR 
-    			@<ImmunizationRecommendation> OR 
-    			@<MedicationRequest> OR 
-    			@<NutritionOrder> OR 
-    			@<RequestOrchestration> OR 
-    			@<ServiceRequest> OR 
-    			@<SupplyRequest> OR 
-    			@<Task> OR 
-    			@<VisionPrescription> ? }?;  # Activity that is intended to be 
-                                            # part of the care plan 
-    fhir:plannedActivityDetail @<CarePlan.activity.plannedActivityDetail>?;  # In-line definition of activity
-} AND (
-
-# Constraint UniqueKey:cpl-3
-# Human readable:Cannot have both plannedActivityReference and plannedActivityDetail
-
-# Constraint: plannedActivityDetail.empty() or plannedActivityReference.empty()
-# ShEx:
-
- NOT { fhir:plannedActivityDetail {fhir:v .} }  OR  NOT { fhir:plannedActivityReference {fhir:v .} } 
-
-)
- 
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -289,12 +289,12 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 # Codes identifying the lifecycle stage of a request.
 fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
 
+# Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
+fhirvs:care-plan-activity-kind ["Appointment" "CommunicationRequest" "DeviceRequest" "MedicationRequest" "NutritionOrder" "Task" "ServiceRequest" "VisionPrescription"]
+
 # Codes indicating the degree of authority/intentionality associated with a care plan.
 fhirvs:care-plan-intent ["proposal" "plan" "order" "option" "directive"]
 
 # Codes that reflect the current state of a care plan activity within its overall life cycle.
 fhirvs:care-plan-activity-status ["not-started" "scheduled" "in-progress" "on-hold" "completed" "cancelled" "stopped" "unknown" "entered-in-error"]
-
-# Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
-fhirvs:care-plan-activity-kind ["Appointment" "CommunicationRequest" "DeviceRequest" "MedicationRequest" "NutritionOrder" "Task" "ServiceRequest" "VisionPrescription"]
 

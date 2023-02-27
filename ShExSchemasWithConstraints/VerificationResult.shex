@@ -59,35 +59,6 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # validating information 
 }  
 
-# Information about the entity attesting to information
-<VerificationResult.attestation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:who @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> ? }?;  # The individual or organization 
-                                            # attesting to information 
-    fhir:onBehalfOf @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> ? }?;  # When the who is asserting on 
-                                            # behalf of another (organization or 
-                                            # individual) 
-    fhir:communicationMethod @<CodeableConcept>?;  # The method by which attested 
-                                            # information was 
-                                            # submitted/retrieved 
-    fhir:date @<date>?;                     # The date the information was 
-                                            # attested to 
-    fhir:sourceIdentityCertificate @<string>?;  # A digital identity certificate 
-                                            # associated with the attestation 
-                                            # source 
-    fhir:proxyIdentityCertificate @<string>?;  # A digital identity certificate 
-                                            # associated with the proxy entity 
-                                            # submitting attested information on 
-                                            # behalf of the attestation source 
-    fhir:proxySignature @<Signature>?;      # Proxy signature
-    fhir:sourceSignature @<Signature>?;     # Attester signature
-}  
-
 # Information about the primary source(s) involved in validation
 <VerificationResult.primarySource> EXTENDS @<BackboneElement> CLOSED {   
     fhir:who @<Reference> AND {fhir:link 
@@ -118,6 +89,35 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identityCertificate @<string>?;    # A digital identity certificate 
                                             # associated with the validator 
     fhir:attestationSignature @<Signature>?;  # Validator signature
+}  
+
+# Information about the entity attesting to information
+<VerificationResult.attestation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:who @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> ? }?;  # The individual or organization 
+                                            # attesting to information 
+    fhir:onBehalfOf @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> ? }?;  # When the who is asserting on 
+                                            # behalf of another (organization or 
+                                            # individual) 
+    fhir:communicationMethod @<CodeableConcept>?;  # The method by which attested 
+                                            # information was 
+                                            # submitted/retrieved 
+    fhir:date @<date>?;                     # The date the information was 
+                                            # attested to 
+    fhir:sourceIdentityCertificate @<string>?;  # A digital identity certificate 
+                                            # associated with the attestation 
+                                            # source 
+    fhir:proxyIdentityCertificate @<string>?;  # A digital identity certificate 
+                                            # associated with the proxy entity 
+                                            # submitting attested information on 
+                                            # behalf of the attestation source 
+    fhir:proxySignature @<Signature>?;      # Proxy signature
+    fhir:sourceSignature @<Signature>?;     # Attester signature
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

@@ -18,11 +18,11 @@ start=@<groupdefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 }  
 
-# Include / Exclude group members by Trait
-<Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Who or what is in group
 <Group.member> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Include / Exclude group members by Trait
+<Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

@@ -11,25 +11,25 @@ IMPORT <Task.shex>
 IMPORT <Range.shex>
 IMPORT <Ratio.shex>
 IMPORT <Period.shex>
-IMPORT <string.shex>
 IMPORT <Device.shex>
+IMPORT <string.shex>
 IMPORT <Coding.shex>
 IMPORT <instant.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <integer.shex>
 IMPORT <dateTime.shex>
-IMPORT <Quantity.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Location.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Resource.shex>
+IMPORT <Quantity.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
-IMPORT <base64Binary.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
+IMPORT <base64Binary.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DeviceRequest.shex>
 IMPORT <DomainResource.shex>
@@ -80,22 +80,6 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:entity @<OneOrMore_AuditEvent.entity>?;  # Data or objects used
 }  
 
-# Additional Information about the entity
-<AuditEvent.entity.detail> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Name of the property
-    fhir:value @<Quantity>  OR 
-    			@<CodeableConcept>  OR 
-    			@<string>  OR 
-    			@<boolean>  OR 
-    			@<integer>  OR 
-    			@<Range>  OR 
-    			@<Ratio>  OR 
-    			@<time>  OR 
-    			@<dateTime>  OR 
-    			@<Period>  OR 
-    			@<base64Binary>  ;  # Property value
-}  
-
 # Actor involved in the event
 <AuditEvent.agent> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>?;          # How agent participated
@@ -122,18 +106,6 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # agent 
 }  
 
-# Data or objects used
-<AuditEvent.entity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:what @<Reference> AND {fhir:link 
-    			@<Resource> ? }?;  # Specific instance of resource
-    fhir:role @<CodeableConcept>?;          # What role the entity played
-    fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Security labels on the entity
-    fhir:query @<base64Binary>?;            # Query parameters
-    fhir:detail @<OneOrMore_AuditEvent.entity.detail>?;  # Additional Information about the 
-                                            # entity 
-    fhir:agent @<OneOrMore_AuditEvent.agent>?;  # Entity is attributed to this agent
-}  
-
 # Whether the event succeeded or failed
 <AuditEvent.outcome> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<Coding>;                    # Whether the event succeeded or 
@@ -157,6 +129,34 @@ start=@<AuditEvent> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the event 
     fhir:type @<OneOrMore_CodeableConcept>?;  # The type of source where event 
                                             # originated 
+}  
+
+# Data or objects used
+<AuditEvent.entity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:what @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Specific instance of resource
+    fhir:role @<CodeableConcept>?;          # What role the entity played
+    fhir:securityLabel @<OneOrMore_CodeableConcept>?;  # Security labels on the entity
+    fhir:query @<base64Binary>?;            # Query parameters
+    fhir:detail @<OneOrMore_AuditEvent.entity.detail>?;  # Additional Information about the 
+                                            # entity 
+    fhir:agent @<OneOrMore_AuditEvent.agent>?;  # Entity is attributed to this agent
+}  
+
+# Additional Information about the entity
+<AuditEvent.entity.detail> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Name of the property
+    fhir:value @<Quantity>  OR 
+    			@<CodeableConcept>  OR 
+    			@<string>  OR 
+    			@<boolean>  OR 
+    			@<integer>  OR 
+    			@<Range>  OR 
+    			@<Ratio>  OR 
+    			@<time>  OR 
+    			@<dateTime>  OR 
+    			@<Period>  OR 
+    			@<base64Binary>  ;  # Property value
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

@@ -17,15 +17,15 @@ IMPORT <Period.shex>
 IMPORT <Device.shex>
 IMPORT <Timing.shex>
 IMPORT <boolean.shex>
-IMPORT <integer.shex>
 IMPORT <Patient.shex>
+IMPORT <integer.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <Duration.shex>
-IMPORT <Quantity.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Location.shex>
+IMPORT <Duration.shex>
+IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
 IMPORT <canonical.shex>
 IMPORT <Expression.shex>
@@ -177,75 +177,6 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Output data definition
-<PlanDefinition.action.output> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:title @<string>?;                  # User-visible title
-    fhir:requirement @<DataRequirement>?;   # What data is provided
-    fhir:relatedData @<string>?;            # What data is provided
-}  
-
-# Dynamic aspects of the definition
-<PlanDefinition.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:path @<string>?;                   # The path to the element to be set 
-                                            # dynamically 
-    fhir:expression @<Expression>?;         # An expression that provides the 
-                                            # dynamic value for the 
-                                            # customization 
-}  
-
-# Actors within the plan
-<PlanDefinition.actor> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:title @<string>?;                  # User-visible title
-    fhir:description @<markdown>?;          # Describes the actor
-    fhir:option @<OneOrMore_PlanDefinition.actor.option>;  # Who or what can be this actor
-}  
-
-# Whether or not the action is applicable
-<PlanDefinition.action.condition> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:kind @<code> AND
-    	{fhir:v @fhirvs:action-condition-kind};  # applicability | start | stop
-    fhir:expression @<Expression>?;         # Boolean-valued expression
-}  
-
-# Relationship to another action
-<PlanDefinition.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:targetId @<id>;                    # What action is this related to
-    fhir:relationship @<code> AND
-    	{fhir:v @fhirvs:action-relationship-type};  # before-start | before | before-end 
-                                            # | concurrent-with-start | 
-                                            # concurrent | concurrent-with-end | 
-                                            # after-start | after | after-end 
-    fhir:offset @<Duration>  OR 
-    			@<Range>  ?;  # Time offset for the relationship
-}  
-
-# What the plan is trying to accomplish
-<PlanDefinition.goal> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>?;      # E.g. Treatment, dietary, behavioral
-    fhir:description @<CodeableConcept>;    # Code or text describing the goal
-    fhir:priority @<CodeableConcept>?;      # high-priority | medium-priority | 
-                                            # low-priority 
-    fhir:start @<CodeableConcept>?;         # When goal pursuit begins
-    fhir:addresses @<OneOrMore_CodeableConcept>?;  # What does the goal address
-    fhir:documentation @<OneOrMore_RelatedArtifact>?;  # Supporting documentation for the 
-                                            # goal 
-    fhir:target @<OneOrMore_PlanDefinition.goal.target>?;  # Target outcome for the goal
-}  
-
-# Target outcome for the goal
-<PlanDefinition.goal.target> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:measure @<CodeableConcept>?;       # The parameter whose value is to be 
-                                            # tracked 
-    fhir:detail @<Quantity>  OR 
-    			@<Range>  OR 
-    			@<CodeableConcept>  OR 
-    			@<string>  OR 
-    			@<boolean>  OR 
-    			@<integer>  OR 
-    			@<Ratio>  ?;  # The target value to be achieved
-    fhir:due @<Duration>?;                  # Reach goal within
-}  
-
 # Who should participate in the action
 <PlanDefinition.action.participant> EXTENDS @<BackboneElement> CLOSED {   
     fhir:actorId @<string>?;                # What actor
@@ -272,6 +203,20 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent
     fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
                                             # etc. 
+}  
+
+# Input data requirements
+<PlanDefinition.action.input> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:title @<string>?;                  # User-visible title
+    fhir:requirement @<DataRequirement>?;   # What data is provided
+    fhir:relatedData @<id>?;                # What data is provided
+}  
+
+# Output data definition
+<PlanDefinition.action.output> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:title @<string>?;                  # User-visible title
+    fhir:requirement @<DataRequirement>?;   # What data is provided
+    fhir:relatedData @<string>?;            # What data is provided
 }  
 
 # Action defined by the plan
@@ -339,6 +284,20 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:action @<OneOrMore_PlanDefinition.action>?;  # A sub-action
 }  
 
+# Target outcome for the goal
+<PlanDefinition.goal.target> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:measure @<CodeableConcept>?;       # The parameter whose value is to be 
+                                            # tracked 
+    fhir:detail @<Quantity>  OR 
+    			@<Range>  OR 
+    			@<CodeableConcept>  OR 
+    			@<string>  OR 
+    			@<boolean>  OR 
+    			@<integer>  OR 
+    			@<Ratio>  ?;  # The target value to be achieved
+    fhir:due @<Duration>?;                  # Reach goal within
+}  
+
 # Who or what can be this actor
 <PlanDefinition.actor.option> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<code> AND
@@ -368,11 +327,52 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <PlanDefinition.action.actionnull> CLOSED {   
 }  
 
-# Input data requirements
-<PlanDefinition.action.input> EXTENDS @<BackboneElement> CLOSED {   
+# Relationship to another action
+<PlanDefinition.action.relatedAction> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:targetId @<id>;                    # What action is this related to
+    fhir:relationship @<code> AND
+    	{fhir:v @fhirvs:action-relationship-type};  # before-start | before | before-end 
+                                            # | concurrent-with-start | 
+                                            # concurrent | concurrent-with-end | 
+                                            # after-start | after | after-end 
+    fhir:offset @<Duration>  OR 
+    			@<Range>  ?;  # Time offset for the relationship
+}  
+
+# Whether or not the action is applicable
+<PlanDefinition.action.condition> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:kind @<code> AND
+    	{fhir:v @fhirvs:action-condition-kind};  # applicability | start | stop
+    fhir:expression @<Expression>?;         # Boolean-valued expression
+}  
+
+# Dynamic aspects of the definition
+<PlanDefinition.action.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:path @<string>?;                   # The path to the element to be set 
+                                            # dynamically 
+    fhir:expression @<Expression>?;         # An expression that provides the 
+                                            # dynamic value for the 
+                                            # customization 
+}  
+
+# What the plan is trying to accomplish
+<PlanDefinition.goal> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>?;      # E.g. Treatment, dietary, behavioral
+    fhir:description @<CodeableConcept>;    # Code or text describing the goal
+    fhir:priority @<CodeableConcept>?;      # high-priority | medium-priority | 
+                                            # low-priority 
+    fhir:start @<CodeableConcept>?;         # When goal pursuit begins
+    fhir:addresses @<OneOrMore_CodeableConcept>?;  # What does the goal address
+    fhir:documentation @<OneOrMore_RelatedArtifact>?;  # Supporting documentation for the 
+                                            # goal 
+    fhir:target @<OneOrMore_PlanDefinition.goal.target>?;  # Target outcome for the goal
+}  
+
+# Actors within the plan
+<PlanDefinition.actor> EXTENDS @<BackboneElement> CLOSED {   
     fhir:title @<string>?;                  # User-visible title
-    fhir:requirement @<DataRequirement>?;   # What data is provided
-    fhir:relatedData @<id>?;                # What data is provided
+    fhir:description @<markdown>?;          # Describes the actor
+    fhir:option @<OneOrMore_PlanDefinition.actor.option>;  # Who or what can be this actor
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -422,16 +422,6 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_PlanDefinition.action> 
 }
 
-<OneOrMore_PlanDefinition.actor.option> CLOSED {
-    rdf:first @<PlanDefinition.actor.option>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_PlanDefinition.actor.option> 
-}
-
-<OneOrMore_PlanDefinition.goal.target> CLOSED {
-    rdf:first @<PlanDefinition.goal.target>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_PlanDefinition.goal.target> 
-}
-
 <OneOrMore_id> CLOSED {
     rdf:first @<id>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_id> 
@@ -472,35 +462,45 @@ start=@<PlanDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_PlanDefinition.action.dynamicValue> 
 }
 
+<OneOrMore_PlanDefinition.goal.target> CLOSED {
+    rdf:first @<PlanDefinition.goal.target>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PlanDefinition.goal.target> 
+}
+
+<OneOrMore_PlanDefinition.actor.option> CLOSED {
+    rdf:first @<PlanDefinition.actor.option>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PlanDefinition.actor.option> 
+}
+
 #---------------------- Value Sets ------------------------
-
-# Defines the types of relationships between actions.
-fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
-
-# Defines expectations around whether an action or action group is required.
-fhirvs:action-required-behavior ["must" "could" "must-unless-documented"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
-# Defines selection behavior of a group.
-fhirvs:action-selection-behavior ["any" "all" "all-or-none" "exactly-one" "at-most-one" "one-or-more"]
-
-# Defines organization behavior of a group.
-fhirvs:action-grouping-behavior ["visual-group" "logical-group" "sentence-group"]
-
-# The type of participant for the action.
-fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
-
-# Identifies the level of importance to be assigned to actioning the request.
-fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
-
-# Defines selection frequency behavior for an action or group.
-fhirvs:action-precheck-behavior ["yes" "no"]
 
 # Defines behavior for an action or a group for how many times that item may be repeated.
 fhirvs:action-cardinality-behavior ["single" "multiple"]
 
+# Identifies the level of importance to be assigned to actioning the request.
+fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
 # Defines the kinds of conditions that can appear on actions.
 fhirvs:action-condition-kind ["applicability" "start" "stop"]
+
+# The type of participant for the action.
+fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
+
+# Defines organization behavior of a group.
+fhirvs:action-grouping-behavior ["visual-group" "logical-group" "sentence-group"]
+
+# Defines selection behavior of a group.
+fhirvs:action-selection-behavior ["any" "all" "all-or-none" "exactly-one" "at-most-one" "one-or-more"]
+
+# Defines the types of relationships between actions.
+fhirvs:action-relationship-type ["before-start" "before" "before-end" "concurrent-with-start" "concurrent" "concurrent-with-end" "after-start" "after" "after-end"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Defines expectations around whether an action or action group is required.
+fhirvs:action-required-behavior ["must" "could" "must-unless-documented"]
+
+# Defines selection frequency behavior for an action or group.
+fhirvs:action-precheck-behavior ["yes" "no"]
 

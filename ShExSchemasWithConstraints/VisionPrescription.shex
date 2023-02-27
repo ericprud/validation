@@ -98,11 +98,11 @@ start=@<VisionPrescription> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# A coded concept listing the base codes.
-fhirvs:vision-base-codes ["up" "down" "in" "out"]
-
 # This value set includes Status codes.
 fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
+
+# A coded concept listing the base codes.
+fhirvs:vision-base-codes ["up" "down" "in" "out"]
 
 # A coded concept listing the eye codes.
 fhirvs:vision-eye-codes ["right" "left"]

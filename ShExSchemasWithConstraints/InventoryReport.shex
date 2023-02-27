@@ -96,9 +96,9 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The status of the InventoryReport.
-fhirvs:inventoryreport-status ["draft" "requested" "active" "entered-in-error"]
-
 # The type of count.
 fhirvs:inventoryreport-counttype ["snapshot" "difference"]
+
+# The status of the InventoryReport.
+fhirvs:inventoryreport-status ["draft" "requested" "active" "entered-in-error"]
 

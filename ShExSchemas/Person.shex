@@ -110,9 +110,9 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
-fhirvs:identity-assuranceLevel ["level1" "level2" "level3" "level4"]
-
 # The gender of a person used for administrative purposes.
 fhirvs:administrative-gender ["male" "female" "other" "unknown"]
+
+# The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
+fhirvs:identity-assuranceLevel ["level1" "level2" "level3" "level4"]
 

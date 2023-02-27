@@ -102,18 +102,31 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Questionnaire for this condition
-<ConditionDefinition.questionnaire> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:purpose @<code> AND
-    	{fhir:v @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
+# Plan that is appropriate
+<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<CodeableConcept>?;          # Use for the plan
     fhir:reference @<Reference> AND {fhir:link 
-    			@<Questionnaire> ? };  # Specific Questionnaire
+    			@<PlanDefinition> ? };  # The actual plan
 }  
 
 # Observations particularly relevant to this condition
 <ConditionDefinition.observation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:category @<CodeableConcept>?;      # Category that is relevant
     fhir:code @<CodeableConcept>?;          # Code for relevant Observation
+}  
+
+# Medications particularly relevant for this condition
+<ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>?;      # Category that is relevant
+    fhir:code @<CodeableConcept>?;          # Code for relevant Medication
+}  
+
+# Questionnaire for this condition
+<ConditionDefinition.questionnaire> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:purpose @<code> AND
+    	{fhir:v @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<Questionnaire> ? };  # Specific Questionnaire
 }  
 
 # Observation that suggets this condition
@@ -123,19 +136,6 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>;           # Code for relevant Observation
     fhir:value @<CodeableConcept>  OR 
     			@<Quantity>  ?;  # Value of Observation
-}  
-
-# Medications particularly relevant for this condition
-<ConditionDefinition.medication> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>?;      # Category that is relevant
-    fhir:code @<CodeableConcept>?;          # Code for relevant Medication
-}  
-
-# Plan that is appropriate
-<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<CodeableConcept>?;          # Use for the plan
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<PlanDefinition> ? };  # The actual plan
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

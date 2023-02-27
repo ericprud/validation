@@ -12,8 +12,8 @@ IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
-IMPORT <Duration.shex>
 IMPORT <Quantity.shex>
+IMPORT <Duration.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Resource.shex>
 IMPORT <CareTeam.shex>
@@ -116,13 +116,10 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # the lifecycle 
 }  
 
-# Any restrictions on medication substitution
-<MedicationRequest.substitution> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:allowed @<boolean>  OR 
-    			@<CodeableConcept>  ;  # Whether substitution is allowed or 
-                                            # not 
-    fhir:reason @<CodeableConcept>?;        # Why should (not) substitution be 
-                                            # made 
+# First fill details
+<MedicationRequest.dispenseRequest.initialFill> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:quantity @<Quantity>?;             # First fill quantity
+    fhir:duration @<Duration>?;             # First fill duration
 }  
 
 # Medication supply authorization
@@ -144,6 +141,15 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # for the dispense 
 }  
 
+# Any restrictions on medication substitution
+<MedicationRequest.substitution> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:allowed @<boolean>  OR 
+    			@<CodeableConcept>  ;  # Whether substitution is allowed or 
+                                            # not 
+    fhir:reason @<CodeableConcept>?;        # Why should (not) substitution be 
+                                            # made 
+}  
+
 # How the medication should be taken
 <MedicationRequest.dose> EXTENDS @<BackboneElement> CLOSED {   
     fhir:renderedDosageInstruction @<string>?;  # Full representation of the dosage 
@@ -152,12 +158,6 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # is to be taken 
     fhir:dosageInstruction @<OneOrMore_Dosage>?;  # Specific instructions for how the 
                                             # medication should be taken 
-}  
-
-# First fill details
-<MedicationRequest.dispenseRequest.initialFill> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:quantity @<Quantity>?;             # First fill quantity
-    fhir:duration @<Duration>?;             # First fill duration
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -243,9 +243,9 @@ start=@<MedicationRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 # MedicationRequest Intent Codes
 fhirvs:medicationrequest-intent ["proposal" "plan" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
-# MedicationRequest Status Codes
-fhirvs:medicationrequest-status ["active" "on-hold" "ended" "stopped" "completed" "cancelled" "entered-in-error" "draft" "unknown"]
-
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
+# MedicationRequest Status Codes
+fhirvs:medicationrequest-status ["active" "on-hold" "ended" "stopped" "completed" "cancelled" "entered-in-error" "draft" "unknown"]
 

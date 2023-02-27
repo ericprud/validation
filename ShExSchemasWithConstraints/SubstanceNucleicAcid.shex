@@ -53,22 +53,6 @@ start=@<SubstanceNucleicAcid> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # repeated multiple times 
 }  
 
-# 5.3.6.8.1 Sugar ID (Mandatory)
-<SubstanceNucleicAcid.subunit.sugar> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier @<Identifier>?;         # The Substance ID of the sugar or 
-                                            # sugar-like component that make up 
-                                            # the nucleotide 
-    fhir:name @<string>?;                   # The name of the sugar or 
-                                            # sugar-like component that make up 
-                                            # the nucleotide 
-    fhir:residueSite @<string>?;            # The residues that contain a given 
-                                            # sugar will be captured. The order 
-                                            # of given residues will be captured 
-                                            # in the 5‘-3‘direction consistent 
-                                            # with the base sequences listed 
-                                            # above 
-}  
-
 # The linkages between sugar residues will also be captured
 <SubstanceNucleicAcid.subunit.linkage> EXTENDS @<BackboneElement> CLOSED {   
     fhir:connectivity @<string>?;           # The entity that links the sugar 
@@ -133,6 +117,22 @@ start=@<SubstanceNucleicAcid> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:linkage @<OneOrMore_SubstanceNucleicAcid.subunit.linkage>?;  # The linkages between sugar 
                                             # residues will also be captured 
     fhir:sugar @<OneOrMore_SubstanceNucleicAcid.subunit.sugar>?;  # 5.3.6.8.1 Sugar ID (Mandatory)
+}  
+
+# 5.3.6.8.1 Sugar ID (Mandatory)
+<SubstanceNucleicAcid.subunit.sugar> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier @<Identifier>?;         # The Substance ID of the sugar or 
+                                            # sugar-like component that make up 
+                                            # the nucleotide 
+    fhir:name @<string>?;                   # The name of the sugar or 
+                                            # sugar-like component that make up 
+                                            # the nucleotide 
+    fhir:residueSite @<string>?;            # The residues that contain a given 
+                                            # sugar will be captured. The order 
+                                            # of given residues will be captured 
+                                            # in the 5‘-3‘direction consistent 
+                                            # with the base sequences listed 
+                                            # above 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

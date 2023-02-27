@@ -11,8 +11,8 @@ IMPORT <Range.shex>
 IMPORT <Device.shex>
 IMPORT <Period.shex>
 IMPORT <Patient.shex>
-IMPORT <integer.shex>
 IMPORT <boolean.shex>
+IMPORT <integer.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Location.shex>
 IMPORT <dateTime.shex>
@@ -106,10 +106,22 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type != 'data-exchange') or group.exists().not()
 # ShEx:
 
-({ fhir:type [fhir:v  . -'data-exchange']  }) OR  NOT { fhir:group . }
+({ fhir:type [fhir:v  . -'data-exchange']  }) OR  NOT { fhir:group. }
 
 )
  
+
+# Stratifier component values
+<MeasureReport.group.stratifier.stratum.component> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # What stratifier component of the 
+                                            # group 
+    fhir:value @<CodeableConcept>  OR 
+    			@<boolean>  OR 
+    			@<Quantity>  OR 
+    			@<Range>  OR 
+    			@<Reference>  ;  # The stratum component value, e.g. 
+                                            # male 
+}  
 
 # The populations in the group
 <MeasureReport.group.population> EXTENDS @<BackboneElement> CLOSED {   
@@ -126,25 +138,21 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # subject results in this population 
 }  
 
-# Stratifier component values
-<MeasureReport.group.stratifier.stratum.component> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # What stratifier component of the 
-                                            # group 
+# Stratum results, one for each unique value, or set of values, in the stratifier, or stratifier components
+<MeasureReport.group.stratifier.stratum> EXTENDS @<BackboneElement> CLOSED {   
     fhir:value @<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
-    			@<Reference>  ;  # The stratum component value, e.g. 
-                                            # male 
-}  
-
-# Stratification results
-<MeasureReport.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # What stratifier of the group
-    fhir:stratum @<OneOrMore_MeasureReport.group.stratifier.stratum>?;  # Stratum results, one for each 
-                                            # unique value, or set of values, in 
-                                            # the stratifier, or stratifier 
-                                            # components 
+    			@<Reference>  ?;  # The stratum value, e.g. male
+    fhir:component @<OneOrMore_MeasureReport.group.stratifier.stratum.component>?;  # Stratifier component values
+    fhir:population @<OneOrMore_MeasureReport.group.stratifier.stratum.population>?;  # Population results in this stratum
+    fhir:measureScore @<Quantity>  OR 
+    			@<dateTime>  OR 
+    			@<CodeableConcept>  OR 
+    			@<Period>  OR 
+    			@<Range>  OR 
+    			@<Duration>  ?;  # What score this stratum achieved
 }  
 
 # Population results in this stratum
@@ -175,21 +183,13 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:stratifier @<OneOrMore_MeasureReport.group.stratifier>?;  # Stratification results
 }  
 
-# Stratum results, one for each unique value, or set of values, in the stratifier, or stratifier components
-<MeasureReport.group.stratifier.stratum> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:value @<CodeableConcept>  OR 
-    			@<boolean>  OR 
-    			@<Quantity>  OR 
-    			@<Range>  OR 
-    			@<Reference>  ?;  # The stratum value, e.g. male
-    fhir:component @<OneOrMore_MeasureReport.group.stratifier.stratum.component>?;  # Stratifier component values
-    fhir:population @<OneOrMore_MeasureReport.group.stratifier.stratum.population>?;  # Population results in this stratum
-    fhir:measureScore @<Quantity>  OR 
-    			@<dateTime>  OR 
-    			@<CodeableConcept>  OR 
-    			@<Period>  OR 
-    			@<Range>  OR 
-    			@<Duration>  ?;  # What score this stratum achieved
+# Stratification results
+<MeasureReport.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # What stratifier of the group
+    fhir:stratum @<OneOrMore_MeasureReport.group.stratifier.stratum>?;  # Stratum results, one for each 
+                                            # unique value, or set of values, in 
+                                            # the stratifier, or stratifier 
+                                            # components 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -210,9 +210,14 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
 
-<OneOrMore_MeasureReport.group.stratifier.stratum> CLOSED {
-    rdf:first @<MeasureReport.group.stratifier.stratum>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier.stratum> 
+<OneOrMore_MeasureReport.group.stratifier.stratum.component> CLOSED {
+    rdf:first @<MeasureReport.group.stratifier.stratum.component>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier.stratum.component> 
+}
+
+<OneOrMore_MeasureReport.group.stratifier.stratum.population> CLOSED {
+    rdf:first @<MeasureReport.group.stratifier.stratum.population>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier.stratum.population> 
 }
 
 <OneOrMore_MeasureReport.group.population> CLOSED {
@@ -225,24 +230,19 @@ start=@<MeasureReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier> 
 }
 
-<OneOrMore_MeasureReport.group.stratifier.stratum.component> CLOSED {
-    rdf:first @<MeasureReport.group.stratifier.stratum.component>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier.stratum.component> 
-}
-
-<OneOrMore_MeasureReport.group.stratifier.stratum.population> CLOSED {
-    rdf:first @<MeasureReport.group.stratifier.stratum.population>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier.stratum.population> 
+<OneOrMore_MeasureReport.group.stratifier.stratum> CLOSED {
+    rdf:first @<MeasureReport.group.stratifier.stratum>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MeasureReport.group.stratifier.stratum> 
 }
 
 #---------------------- Value Sets ------------------------
+
+# The type of the measure report.
+fhirvs:measure-report-type ["individual" "subject-list" "summary" "data-exchange"]
 
 # Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates
 fhirvs:submit-data-update-type ["incremental" "snapshot"]
 
 # The status of the measure report.
 fhirvs:measure-report-status ["complete" "pending" "error"]
-
-# The type of the measure report.
-fhirvs:measure-report-type ["individual" "subject-list" "summary" "data-exchange"]
 

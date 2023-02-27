@@ -54,7 +54,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&resource.meta.versionId).isDistinct()
 # ShEx:
 #
-#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry.  where  (fullUrl .).  select  (fullUrl  Concatenate  resource.meta.versionId) )
+#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry. where  (fullUrl .). select  (fullUrl  Concatenate  resource.meta.versionId) )
 {}
 
 ) AND (
@@ -245,7 +245,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: fullUrl.exists() implies fullUrl.contains('/_history/').not()
 # ShEx:
 #
-#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl { fhir:v ['/_history/'] }  }}
+#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl{ fhir:v ['/_history/'] } }}
 {}
 
 ) AND (
@@ -269,17 +269,27 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:score @<decimal>?;                 # Search ranking (between 0 and 1)
 }  
 
-# Additional execution information (transaction/batch/history)
-<Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:method @<code> AND
-    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
-                                            # PATCH 
-    fhir:url @<uri>;                        # URL for HTTP equivalent of this 
-                                            # entry 
-    fhir:ifNoneMatch @<string>?;            # For managing cache validation
-    fhir:ifModifiedSince @<instant>?;       # For managing cache currency
-    fhir:ifMatch @<string>?;                # For managing update contention
-    fhir:ifNoneExist @<string>?;            # For conditional creates
+# Results of execution (transaction/batch/history)
+<Bundle.entry.response> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:status @<string>;                  # Status response code (text 
+                                            # optional) 
+    fhir:location @<uri>?;                  # The location (if the operation 
+                                            # returns a location) 
+    fhir:etag @<string>?;                   # The Etag for the resource (if 
+                                            # relevant) 
+    fhir:lastModified @<instant>?;          # Server's date time modified
+    fhir:outcome @<Resource>?;              # OperationOutcome with hints and 
+                                            # warnings (for batch/transaction) 
+}  
+
+# Links related to this Bundle
+<Bundle.link> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:relation @<code> AND
+    	{fhir:v @fhirvs:iana-link-relations};  # See 
+                                            # http://www.iana.org/assignments/-
+                                            # link-relations/link-relations.xh-
+                                            # tml#link-relations-1 
+    fhir:url @<uri>;                        # Reference details for the link
 }  
 
 # Entry in the bundle - will have a resource or information
@@ -308,7 +318,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: (type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&resource.meta.versionId).isDistinct()
 # ShEx:
 #
-#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry.  where  (fullUrl .).  select  (fullUrl  Concatenate  resource.meta.versionId) )
+#({ fhir:type { fhir:v ['history'] }  }) OR    isDistinct  ( fhir:entry. where  (fullUrl .). select  (fullUrl  Concatenate  resource.meta.versionId) )
 {}
 
 ) AND (
@@ -499,7 +509,7 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Constraint: fullUrl.exists() implies fullUrl.contains('/_history/').not()
 # ShEx:
 #
-#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl { fhir:v ['/_history/'] }  }}
+#{fhir:fullUrl .  Implies   NOT { fhir:fullUrl{ fhir:v ['/_history/'] } }}
 {}
 
 ) AND (
@@ -515,27 +525,17 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 )
  
 
-# Links related to this Bundle
-<Bundle.link> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:relation @<code> AND
-    	{fhir:v @fhirvs:iana-link-relations};  # See 
-                                            # http://www.iana.org/assignments/-
-                                            # link-relations/link-relations.xh-
-                                            # tml#link-relations-1 
-    fhir:url @<uri>;                        # Reference details for the link
-}  
-
-# Results of execution (transaction/batch/history)
-<Bundle.entry.response> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:status @<string>;                  # Status response code (text 
-                                            # optional) 
-    fhir:location @<uri>?;                  # The location (if the operation 
-                                            # returns a location) 
-    fhir:etag @<string>?;                   # The Etag for the resource (if 
-                                            # relevant) 
-    fhir:lastModified @<instant>?;          # Server's date time modified
-    fhir:outcome @<Resource>?;              # OperationOutcome with hints and 
-                                            # warnings (for batch/transaction) 
+# Additional execution information (transaction/batch/history)
+<Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:method @<code> AND
+    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
+                                            # PATCH 
+    fhir:url @<uri>;                        # URL for HTTP equivalent of this 
+                                            # entry 
+    fhir:ifNoneMatch @<string>?;            # For managing cache validation
+    fhir:ifModifiedSince @<instant>?;       # For managing cache currency
+    fhir:ifMatch @<string>?;                # For managing update contention
+    fhir:ifNoneExist @<string>?;            # For conditional creates
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -555,12 +555,12 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Indicates the purpose of a bundle - how it is intended to be used.
 fhirvs:bundle-type ["document" "message" "transaction" "transaction-response" "batch" "batch-response" "history" "searchset" "collection" "subscription-notification"]
 
-# HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.
-fhirvs:http-verb ["GET" "HEAD" "POST" "PUT" "DELETE" "PATCH"]
-
 # Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
 fhirvs:search-entry-mode ["match" "include" "outcome"]
 
 # Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1
 fhirvs:iana-link-relations ["about" "acl" "alternate" "amphtml" "appendix" "apple-touch-icon" "apple-touch-startup-image" "archives" "author" "blocked-by" "bookmark" "canonical" "chapter" "cite-as" "collection" "contents" "convertedFrom" "copyright" "create-form" "current" "describedby" "describes" "disclosure" "dns-prefetch" "duplicate" "edit" "edit-form" "edit-media" "enclosure" "external" "first" "glossary" "help" "hosts" "hub" "icon" "index" "intervalAfter" "intervalBefore" "intervalContains" "intervalDisjoint" "intervalDuring" "intervalEquals" "intervalFinishedBy" "intervalFinishes" "intervalIn" "intervalMeets" "intervalMetBy" "intervalOverlappedBy" "intervalOverlaps" "intervalStartedBy" "intervalStarts" "item" "last" "latest-version" "license" "linkset" "lrdd" "manifest" "mask-icon" "media-feed" "memento" "micropub" "modulepreload" "monitor" "monitor-group" "next" "next-archive" "nofollow" "noopener" "noreferrer" "opener" "openid2.local_id" "openid2.provider" "original" "P3Pv1" "payment" "pingback" "preconnect" "predecessor-version" "prefetch" "preload" "prerender" "prev" "preview" "previous" "prev-archive" "privacy-policy" "profile" "publication" "related" "restconf" "replies" "ruleinput" "search" "section" "self" "service" "service-desc" "service-doc" "service-meta" "sponsored" "start" "status" "stylesheet" "subsection" "successor-version" "sunset" "tag" "terms-of-service" "timegate" "timemap" "type" "ugc" "up" "version-history" "via" "webmention" "working-copy" "working-copy-of"]
+
+# HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.
+fhirvs:http-verb ["GET" "HEAD" "POST" "PUT" "DELETE" "PATCH"]
 
