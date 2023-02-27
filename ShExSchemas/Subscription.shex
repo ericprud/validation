@@ -2,6 +2,7 @@
 PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+BASE <http://hl7.org/fhir/shape/>
 
 IMPORT <url.shex>
 IMPORT <uri.shex>
@@ -9,11 +10,19 @@ IMPORT <code.shex>
 IMPORT <string.shex>
 IMPORT <Coding.shex>
 IMPORT <instant.shex>
+IMPORT <Patient.shex>
+IMPORT <CareTeam.shex>
 IMPORT <canonical.shex>
+IMPORT <Reference.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <positiveInt.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
 
 
 start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -21,8 +30,9 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
 # Notification about a SubscriptionTopic
 <Subscription> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Subscription];
+    a [fhir:Subscription]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Additional identifiers (business 
                                             # identifier) 
     fhir:name @<string>?;                   # Human readable name for this 
@@ -36,9 +46,18 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # troubleshooting) 
     fhir:end @<instant>?;                   # When to automatically delete the 
                                             # subscription 
+    fhir:managingEntity @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<HealthcareService> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? }?;  # Entity responsible for 
+                                            # Subscription changes 
     fhir:reason @<string>?;                 # Description of why this 
                                             # subscription was created 
-    fhir:filterBy @<OneOrMore_BackboneElement>?;  # Criteria for narrowing the 
+    fhir:filterBy @<OneOrMore_Subscription.filterBy>?;  # Criteria for narrowing the 
                                             # subscription topic stream 
     fhir:channelType @<Coding>;             # Channel type for notifications
     fhir:endpoint @<url>?;                  # Where the channel points to
@@ -68,7 +87,7 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:subscription-search-modifier}?;  # = | eq | ne | gt | lt | ge | le | 
                                             # sa | eb | ap | above | below | in 
                                             # | not-in | of-type 
-    fhir:v @<string>;                   # Literal value or resource path
+    fhir:value @<string>;                   # Literal value or resource path
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -83,9 +102,9 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ContactPoint> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Subscription.filterBy> CLOSED {
+    rdf:first @<Subscription.filterBy>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Subscription.filterBy> 
 }
 
 <OneOrMore_string> CLOSED {
@@ -95,15 +114,15 @@ start=@<Subscription> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes to represent how much resource content to send in the notification payload.
-fhirvs:subscription-payload-content ["empty" "id-only" "full-resource"]
+# State values for FHIR Subscriptions.
+fhirvs:subscription-status ["requested" "active" "error" "off" "entered-in-error"]
 
 # FHIR search modifiers allowed for use in Subscriptions and SubscriptionTopics.
 fhirvs:subscription-search-modifier ["=" "eq" "ne" "gt" "lt" "ge" "le" "sa" "eb" "ap" "above" "below" "in" "not-in" "of-type"]
 
-# State values for FHIR Subscriptions.
-fhirvs:subscription-status ["requested" "active" "error" "off" "entered-in-error"]
-
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes xsd:string # EXTERNAL
+fhirvs:mimetypes xsd:string #EXTERNAL
+
+# Codes to represent how much resource content to send in the notification payload.
+fhirvs:subscription-payload-content ["empty" "id-only" "full-resource"]
 
