@@ -105,5 +105,5 @@ fhirvs:subscription-search-modifier ["=" "eq" "ne" "gt" "lt" "ge" "le" "sa" "eb"
 fhirvs:subscription-status ["requested" "active" "error" "off" "entered-in-error"]
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes EXTERNAL
+fhirvs:mimetypes xsd:string # EXTERNAL
 

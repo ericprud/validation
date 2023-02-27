@@ -25,5 +25,5 @@ IMPORT <Extension.shex>
 #---------------------- Value Sets ------------------------
 
 # IANA Timezone Codes
-fhirvs:timezones EXTERNAL
+fhirvs:timezones xsd:string # EXTERNAL
 

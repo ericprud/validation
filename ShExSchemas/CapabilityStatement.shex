@@ -299,7 +299,7 @@ fhirvs:document-mode ["producer" "consumer"]
 fhirvs:FHIR-version ["0.01" "0.05" "0.06" "0.11" "0.0" "0.0.80" "0.0.81" "0.0.82" "0.4" "0.4.0" "0.5" "0.5.0" "1.0" "1.0.0" "1.0.1" "1.0.2" "1.1" "1.1.0" "1.4" "1.4.0" "1.6" "1.6.0" "1.8" "1.8.0" "3.0" "3.0.0" "3.0.1" "3.0.2" "3.3" "3.3.0" "3.5" "3.5.0" "4.0" "4.0.0" "4.0.1" "4.1" "4.1.0" "4.2" "4.2.0" "4.3" "4.3.0" "4.4" "4.4.0" "4.5" "4.5.0" "4.6" "4.6.0"]
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes EXTERNAL
+fhirvs:mimetypes xsd:string # EXTERNAL
 
 # Operations supported by REST at the system level.
 fhirvs:system-restful-interaction ["transaction" "batch" "search-system" "history-system"]

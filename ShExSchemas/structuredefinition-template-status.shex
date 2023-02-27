@@ -23,5 +23,5 @@ IMPORT <Extension.shex>
 #---------------------- Value Sets ------------------------
 
 # Description Needed Here
-fhirvs:template-status-code EXTERNAL
+fhirvs:template-status-code xsd:string # EXTERNAL
 

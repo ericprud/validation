@@ -494,5 +494,5 @@ fhirvs:constraint-severity ["error" "warning"]
 fhirvs:discriminator-type ["value" "exists" "pattern" "type" "profile"]
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes EXTERNAL
+fhirvs:mimetypes xsd:string # EXTERNAL
 

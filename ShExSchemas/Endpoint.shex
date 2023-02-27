@@ -88,5 +88,5 @@ start=@<Endpoint> AND {fhir:nodeRole [fhir:treeRoot]}
 fhirvs:endpoint-status ["active" "suspended" "error" "off" "entered-in-error" "test"]
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes EXTERNAL
+fhirvs:mimetypes xsd:string # EXTERNAL
 
