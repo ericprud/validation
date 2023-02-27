@@ -9,5 +9,6 @@ IMPORT <integer.shex>
 <positiveInt> EXTENDS @<integer> CLOSED {   
 
     a [fhir:positiveInt]?;
+
 }  
 

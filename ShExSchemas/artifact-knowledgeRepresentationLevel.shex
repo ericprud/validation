@@ -10,14 +10,15 @@ IMPORT <Extension.shex>
 # narrative | semi-structured | structured | executable
 <artifact-knowledgeRepresentationLevel> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:artifact-knowledgeRepresentationLevel];
+    a [fhir:artifact-knowledgeRepresentationLevel]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-knowledgeRepresentationLevel"]}; 
-    fhir:v (@<code> AND
-    	{fhir:v @fhirvs:knowledge-representation-level} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-knowledgeRepresentationLevel"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @fhirvs:knowledge-representation-level}  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 
 #---------------------- Value Sets ------------------------

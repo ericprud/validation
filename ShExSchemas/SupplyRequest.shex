@@ -16,6 +16,7 @@ IMPORT <CareTeam.shex>
 IMPORT <Location.shex>
 IMPORT <Resource.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
@@ -32,8 +33,9 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 # Request for a medication, substance or device
 <SupplyRequest> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:SupplyRequest];
+    a [fhir:SupplyRequest]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for 
                                             # SupplyRequest 
     fhir:status @<code> AND
@@ -44,14 +46,17 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # non-stock, etc.) 
     fhir:priority @<code> AND
     	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
+    fhir:deliverFor @<Reference> AND {fhir:link 
+    			@<Patient> ? }?;  # The patient for who the supply 
+                                            # request is for 
     fhir:item @<CodeableReference>;         # Medication, Substance, or Device 
                                             # requested to be supplied 
     fhir:quantity @<Quantity>;              # The requested amount of the item 
                                             # indicated 
-    fhir:parameter @<OneOrMore_BackboneElement>?;  # Ordered item details
-    fhir:occurrence (@<dateTime>  OR 
+    fhir:parameter @<OneOrMore_SupplyRequest.parameter>?;  # Ordered item details
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # When the request should be 
+    			@<Timing>  ?;  # When the request should be 
                                             # fulfilled 
     fhir:authoredOn @<dateTime>?;           # When the request was made
     fhir:requester @<Reference> AND {fhir:link 
@@ -61,27 +66,27 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Individual making the request
+    			@<RelatedPerson> ? }?;  # Individual making the request
     fhir:supplier @<OneOrMore_Reference_HealthcareService_OR_Organization>?;  # Who is intended to fulfill the 
                                             # request 
     fhir:reason @<OneOrMore_CodeableReference>?;  # The reason why the supply item was 
                                             # requested 
     fhir:deliverFrom @<Reference> AND {fhir:link 
     			@<Location> OR 
-    			@<Organization> }?;  # The origin of the supply
+    			@<Organization> ? }?;  # The origin of the supply
     fhir:deliverTo @<Reference> AND {fhir:link 
     			@<Location> OR 
     			@<Organization> OR 
-    			@<Patient> }?;  # The destination of the supply
+    			@<Patient> ? }?;  # The destination of the supply
 }  
 
 # Ordered item details
 <SupplyRequest.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>?;          # Item detail
-    fhir:v (@<CodeableConcept>  OR 
+    fhir:value @<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
-    			@<boolean> )  AND { rdf:type IRI } ?;  # Value of detail
+    			@<boolean>  ?;  # Value of detail
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -97,9 +102,9 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_SupplyRequest.parameter> CLOSED {
+    rdf:first @<SupplyRequest.parameter>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SupplyRequest.parameter> 
 }
 
 <OneOrMore_Reference_HealthcareService_OR_Organization> CLOSED {
@@ -116,9 +121,9 @@ start=@<SupplyRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Status of the supply request.
-fhirvs:supplyrequest-status ["draft" "active" "suspended" "cancelled" "completed" "entered-in-error" "unknown"]
-
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
+# Status of the supply request.
+fhirvs:supplyrequest-status ["draft" "active" "suspended" "cancelled" "completed" "entered-in-error" "unknown"]
 

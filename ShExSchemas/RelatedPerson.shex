@@ -8,10 +8,15 @@ IMPORT <date.shex>
 IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <Patient.shex>
+IMPORT <Address.shex>
 IMPORT <Reference.shex>
+IMPORT <HumanName.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <ContactPoint.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 
 
 start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -21,11 +26,12 @@ start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
 
     a [fhir:RelatedPerson]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # A human identifier for this person
     fhir:active @<boolean>?;                # Whether this related person's 
                                             # record is in active use 
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # The patient this person is related 
+    			@<Patient> ? };  # The patient this person is related 
                                             # to 
     fhir:relationship @<OneOrMore_CodeableConcept>?;  # The relationship of the related 
                                             # person to the patient 
@@ -40,7 +46,7 @@ start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:photo @<OneOrMore_Attachment>?;    # Image of the person
     fhir:period @<Period>?;                 # Period of time that this 
                                             # relationship is considered valid 
-    fhir:communication @<OneOrMore_BackboneElement>?;  # A language which may be used to 
+    fhir:communication @<OneOrMore_RelatedPerson.communication>?;  # A language which may be used to 
                                             # communicate with the related 
                                             # person about the patient's health 
 }  
@@ -85,9 +91,9 @@ start=@<RelatedPerson> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Attachment> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_RelatedPerson.communication> CLOSED {
+    rdf:first @<RelatedPerson.communication>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_RelatedPerson.communication> 
 }
 
 #---------------------- Value Sets ------------------------

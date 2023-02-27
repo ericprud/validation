@@ -9,8 +9,8 @@ IMPORT <Quantity.shex>
 # A ratio of two Quantity values - a numerator and a denominator
 <Ratio> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Ratio];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Ratio]?;
+
     fhir:numerator @<Quantity>?;            # Numerator value
     fhir:denominator @<Quantity>?;          # Denominator value
 }  

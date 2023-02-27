@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Certainty that the substance was the cause of the manifestation
 <allergyintolerance-certainty> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:allergyintolerance-certainty];
+    a [fhir:allergyintolerance-certainty]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-certainty"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-certainty"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

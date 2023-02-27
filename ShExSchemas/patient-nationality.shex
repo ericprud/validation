@@ -9,13 +9,14 @@ IMPORT <Extension.shex>
 # Nationality
 <patient-nationality> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:patient-nationality];
+    a [fhir:patient-nationality]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:code @<Extension>?; 
     fhir:period @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-nationality"]}; 
-    ^fhir:extension { a [fhir:Patient]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-nationality"]}; 
+    ^fhir:extension { a [fhir:Patient]}
+
 }  
 

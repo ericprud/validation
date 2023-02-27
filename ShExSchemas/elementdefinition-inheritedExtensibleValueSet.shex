@@ -11,13 +11,14 @@ IMPORT <canonical.shex>
 # An extensible Value Set specified in a parent profile
 <elementdefinition-inheritedExtensibleValueSet> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-inheritedExtensibleValueSet];
+    a [fhir:elementdefinition-inheritedExtensibleValueSet]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-inheritedExtensibleValueSet"]}; 
-    fhir:v (@<uri>  OR 
-    			(@<canonical>  AND {fhir:link @<ValueSet> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-inheritedExtensibleValueSet"]}; 
+    fhir:value @<uri>  OR 
+    			(@<canonical>  AND {fhir:link @<ValueSet> })  ; 
+    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}}
+
 }  
 

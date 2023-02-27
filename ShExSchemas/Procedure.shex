@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <Age.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
@@ -14,14 +15,15 @@ IMPORT <Timing.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <Location.shex>
-IMPORT <dateTime.shex>
 IMPORT <CareTeam.shex>
+IMPORT <dateTime.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Resource.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
-IMPORT <Procedure.shex>
-IMPORT <Condition.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Observation.shex>
 IMPORT <Composition.shex>
 IMPORT <Organization.shex>
@@ -33,6 +35,7 @@ IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <DiagnosticReport.shex>
+IMPORT <CodeableReference.shex>
 IMPORT <HealthcareService.shex>
 IMPORT <DocumentReference.shex>
 IMPORT <MedicationAdministration.shex>
@@ -43,8 +46,9 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
 # An action that is being or was performed on an individual or entity
 <Procedure> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Procedure];
+    a [fhir:Procedure]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Identifiers for this 
                                             # procedure 
     fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
@@ -67,17 +71,27 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Location> OR 
     			@<Organization> OR 
     			@<Patient> OR 
-    			@<Practitioner> };  # Individual or entity the procedure 
+    			@<Practitioner> ? };  # Individual or entity the procedure 
                                             # was performed on 
+    fhir:focus @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Group> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? }?;  # Who is the target of the procedure 
+                                            # when it is not the subject of 
+                                            # record only 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # The Encounter during which this 
+    			@<Encounter> ? }?;  # The Encounter during which this 
                                             # Procedure was created 
-    fhir:occurrence (@<dateTime>  OR 
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
     			@<string>  OR 
     			@<Age>  OR 
     			@<Range>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # When the procedure occurred or is 
+    			@<Timing>  ?;  # When the procedure occurred or is 
                                             # occurring 
     fhir:recorded @<dateTime>?;             # When the procedure was first 
                                             # captured in the subject's record 
@@ -85,31 +99,29 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who recorded the procedure
-    fhir:reported (@<boolean>  OR 
+    			@<RelatedPerson> ? }?;  # Who recorded the procedure
+    fhir:reported @<boolean>  OR 
     			(@<Reference>  AND {fhir:link @<Patient> OR 
     			 @<RelatedPerson> OR 
     			 @<Practitioner> OR 
     			 @<PractitionerRole> OR 
-    			 @<Organization> }) )  AND { rdf:type IRI } ?;  # Reported rather than primary record
-    fhir:performer @<OneOrMore_BackboneElement>?;  # The people who performed the 
+    			 @<Organization> })  ?;  # Reported rather than primary record
+    fhir:performer @<OneOrMore_Procedure.performer>?;  # The people who performed the 
                                             # procedure 
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the procedure happened
+    			@<Location> ? }?;  # Where the procedure happened
     fhir:reason @<OneOrMore_CodeableReference>?;  # The justification that the 
                                             # procedure was performed 
     fhir:bodySite @<OneOrMore_CodeableConcept>?;  # Target body sites
     fhir:outcome @<CodeableConcept>?;       # The result of procedure
     fhir:report @<OneOrMore_Reference_Composition_OR_DiagnosticReport_OR_DocumentReference>?;  # Any report resulting from the 
                                             # procedure 
-    fhir:complication @<OneOrMore_CodeableConcept>?;  # Complication following the 
+    fhir:complication @<OneOrMore_CodeableReference>?;  # Complication following the 
                                             # procedure 
-    fhir:complicationDetail @<OneOrMore_Reference_Condition>?;  # A condition that is a result of 
-                                            # the procedure 
     fhir:followUp @<OneOrMore_CodeableConcept>?;  # Instructions for follow up
     fhir:note @<OneOrMore_Annotation>?;     # Additional information about the 
                                             # procedure 
-    fhir:focalDevice @<OneOrMore_BackboneElement>?;  # Manipulated, implanted, or removed 
+    fhir:focalDevice @<OneOrMore_Procedure.focalDevice>?;  # Manipulated, implanted, or removed 
                                             # device 
     fhir:used @<OneOrMore_CodeableReference>?;  # Items used during procedure
     fhir:supportingInfo @<OneOrMore_Reference_Resource>?;  # Extra information relevant to the 
@@ -127,17 +139,19 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Who performed the procedure
+    			@<RelatedPerson> ? };  # Who performed the procedure
     fhir:onBehalfOf @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization the device or 
+    			@<Organization> ? }?;  # Organization the device or 
                                             # practitioner was acting for 
+    fhir:period @<Period>?;                 # When the performer performed the 
+                                            # procedure 
 }  
 
 # Manipulated, implanted, or removed device
 <Procedure.focalDevice> EXTENDS @<BackboneElement> CLOSED {   
     fhir:action @<CodeableConcept>?;        # Kind of change to device
     fhir:manipulated @<Reference> AND {fhir:link 
-    			@<Device> };  # Device that was changed
+    			@<Device> ? };  # Device that was changed
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -177,9 +191,9 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Procedure.performer> CLOSED {
+    rdf:first @<Procedure.performer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Procedure.performer> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {
@@ -195,15 +209,14 @@ start=@<Procedure> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Composition_OR_DiagnosticReport_OR_DocumentReference> 
 }
 
-<OneOrMore_Reference_Condition> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<Condition> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Condition> 
-}
-
 <OneOrMore_Annotation> CLOSED {
     rdf:first @<Annotation>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Annotation> 
+}
+
+<OneOrMore_Procedure.focalDevice> CLOSED {
+    rdf:first @<Procedure.focalDevice>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Procedure.focalDevice> 
 }
 
 <OneOrMore_Reference_Resource> CLOSED {

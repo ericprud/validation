@@ -4,6 +4,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <uri.shex>
+IMPORT <Base.shex>
 IMPORT <code.shex>
 IMPORT <date.shex>
 IMPORT <Group.shex>
@@ -12,22 +13,29 @@ IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
 
 # Definition Pattern
-<Definition> CLOSED {   
+<Definition> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Definition];
+    a [fhir:Definition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Logical canonical URL to reference 
                                             # this {{title}} (globally unique) 
-    fhir:identifier @<Identifier>?;         # Business Identifier for {{title}}
+    fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for {{title}}
     fhir:version @<string>?;                # Business version of the {{title}}
+    fhir:name @<string>?;                   # Name for this {{title}} (Computer 
+                                            # friendly) 
     fhir:title @<string>?;                  # Name for this {{title}} (Human 
                                             # friendly) 
     fhir:derivedFromCanonical @<OneOrMore_canonical>?;  # Based on FHIR protocol or 
@@ -35,19 +43,18 @@ IMPORT <PractitionerRole.shex>
     fhir:derivedFromUri @<OneOrMore_uri>?;  # Based on external protocol or 
                                             # definition 
     fhir:partOf @<OneOrMore_canonical>?;    # Part of referenced definition
-    fhir:replaces @<OneOrMore_canonical>?;  # Request(s) replaced by this request
     fhir:status @<code> AND
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # If for testing purposes, not real 
                                             # usage 
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # Type of individual the defined 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> })  ?;  # Type of individual the defined 
                                             # service is for 
     fhir:date @<dateTime>?;                 # Date status first applied
     fhir:publisher @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # The name of the individual or 
+    			@<PractitionerRole> ? }?;  # The name of the individual or 
                                             # organization that published the 
                                             # {{title}} 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
@@ -57,6 +64,11 @@ IMPORT <PractitionerRole.shex>
                                             # contexts 
     fhir:jurisdiction @<OneOrMore_CodeableConcept>?;  # Intended jurisdiction for 
                                             # {{title}} (if applicable) 
+    fhir:category @<OneOrMore_CodeableConcept>?;  # Partitions the {{title}} into one 
+                                            # or more categories that can be 
+                                            # used to filter searching, to 
+                                            # govern access control and/or to 
+                                            # guide system behavior. 
     fhir:purpose @<markdown>?;              # Why this {{title}} is defined
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
     fhir:approvalDate @<date>?;             # When {{title}} approved by 
@@ -65,9 +77,16 @@ IMPORT <PractitionerRole.shex>
     fhir:effectivePeriod @<Period>?;        # The effective date range for the 
                                             # {{title}} 
     fhir:performerType @<CodeableConcept>?;  # Desired kind of service performer
+    fhir:code @<CodeableConcept>?;          # Service to be done
+    fhir:product @<CodeableReference>?;     # Product to use/manipulate
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
+
+<OneOrMore_Identifier> CLOSED {
+    rdf:first @<Identifier>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
+}
 
 <OneOrMore_canonical> CLOSED {
     rdf:first @<canonical>  ;

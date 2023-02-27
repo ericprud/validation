@@ -11,8 +11,9 @@ IMPORT <CodeableConcept.shex>
 # The shelf-life and storage information for a medicinal product item or container can be described using this class
 <ProductShelfLife> EXTENDS @<BackboneType> CLOSED {   
 
-    a [fhir:ProductShelfLife];
+    a [fhir:ProductShelfLife]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:type @<CodeableConcept>?;          # This describes the shelf life, 
                                             # taking into account various 
                                             # scenarios such as shelf life of 
@@ -26,8 +27,8 @@ IMPORT <CodeableConcept.shex>
                                             # The controlled term and the 
                                             # controlled term identifier shall 
                                             # be specified 
-    fhir:period (@<Duration>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # The shelf life time period can be 
+    fhir:period @<Duration>  OR 
+    			@<string>  ?;  # The shelf life time period can be 
                                             # specified using a numerical value 
                                             # for the period of time and its 
                                             # unit of time measurement The unit 

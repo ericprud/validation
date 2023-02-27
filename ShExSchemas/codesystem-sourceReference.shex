@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Where did this content come from
 <codesystem-sourceReference> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-sourceReference];
+    a [fhir:codesystem-sourceReference]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-sourceReference"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:CodeSystem]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-sourceReference"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { a [fhir:CodeSystem]}
+
 }  
 

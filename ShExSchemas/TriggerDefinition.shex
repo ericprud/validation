@@ -10,14 +10,17 @@ IMPORT <Timing.shex>
 IMPORT <DataType.shex>
 IMPORT <dateTime.shex>
 IMPORT <Schedule.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Expression.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <DataRequirement.shex>
 
 # Defines an expected trigger for a module
 <TriggerDefinition> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:TriggerDefinition];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:TriggerDefinition]?;
+
     fhir:type @<code> AND
     	{fhir:v @fhirvs:trigger-type};  # named-event | periodic | 
                                             # data-changed | data-added | 
@@ -25,10 +28,12 @@ IMPORT <Expression.shex>
                                             # data-accessed | data-access-ended 
     fhir:name @<string>?;                   # Name or URI that identifies the 
                                             # event 
-    fhir:timing (@<Timing>  OR 
+    fhir:code @<CodeableConcept>?;          # Coded definition of the event
+    fhir:subscriptionTopic @<canonical>?;   # What event
+    fhir:timing @<Timing>  OR 
     			(@<Reference>  AND {fhir:link @<Schedule> })  OR 
     			@<date>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # Timing of the event
+    			@<dateTime>  ?;  # Timing of the event
     fhir:data @<OneOrMore_DataRequirement>?;  # Triggering data of the event 
                                             # (multiple = 'and') 
     fhir:condition @<Expression>?;          # Whether the event triggers 

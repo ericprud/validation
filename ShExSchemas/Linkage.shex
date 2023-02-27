@@ -19,15 +19,16 @@ start=@<Linkage> AND {fhir:nodeRole [fhir:treeRoot]}
 # Links records for 'same' item
 <Linkage> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Linkage];
+    a [fhir:Linkage]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:active @<boolean>?;                # Whether this linkage assertion is 
                                             # active or not 
     fhir:author @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Who is responsible for linkages
-    fhir:item @<OneOrMore_BackboneElement>;  # Item to be linked
+    			@<PractitionerRole> ? }?;  # Who is responsible for linkages
+    fhir:item @<OneOrMore_Linkage.item>;    # Item to be linked
 }  
 
 # Item to be linked
@@ -35,14 +36,14 @@ start=@<Linkage> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<code> AND
     	{fhir:v @fhirvs:linkage-type};  # source | alternate | historical
     fhir:resource @<Reference> AND {fhir:link 
-    			@<Resource> };  # Resource being linked
+    			@<Resource> ? };  # Resource being linked
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Linkage.item> CLOSED {
+    rdf:first @<Linkage.item>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Linkage.item> 
 }
 
 #---------------------- Value Sets ------------------------

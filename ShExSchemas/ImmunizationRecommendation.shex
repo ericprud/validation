@@ -8,6 +8,7 @@ IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
 IMPORT <Resource.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Immunization.shex>
 IMPORT <DomainResource.shex>
@@ -21,22 +22,23 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Guidance or advice relating to an immunization
 <ImmunizationRecommendation> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ImmunizationRecommendation];
+    a [fhir:ImmunizationRecommendation]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
-    fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
-                                            # definition for the immunization 
-                                            # recommendation 
-    fhir:instantiatesUri @<OneOrMore_uri>?;  # Instantiates external protocol or 
-                                            # definition for the immunization 
-                                            # recommendation 
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # Who this profile is for
+    			@<Patient> ? };  # Who this profile is for
     fhir:date @<dateTime>;                  # Date recommendation(s) created
     fhir:authority @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Who is responsible for protocol
-    fhir:recommendation @<OneOrMore_BackboneElement>;  # Vaccine administration 
+    			@<Organization> ? }?;  # Who is responsible for protocol
+    fhir:recommendation @<OneOrMore_ImmunizationRecommendation.recommendation>;  # Vaccine administration 
                                             # recommendations 
+}  
+
+# Dates governing proposed immunization
+<ImmunizationRecommendation.recommendation.dateCriterion> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Type of date
+    fhir:value @<dateTime>;                 # Recommended date
 }  
 
 # Vaccine administration recommendations
@@ -49,7 +51,7 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:forecastStatus @<CodeableConcept>;  # Vaccine recommendation status
     fhir:forecastReason @<OneOrMore_CodeableConcept>?;  # Vaccine administration status 
                                             # reason 
-    fhir:dateCriterion @<OneOrMore_BackboneElement>?;  # Dates governing proposed 
+    fhir:dateCriterion @<OneOrMore_ImmunizationRecommendation.recommendation.dateCriterion>?;  # Dates governing proposed 
                                             # immunization 
     fhir:description @<string>?;            # Protocol details
     fhir:series @<string>?;                 # Name of vaccination series
@@ -63,12 +65,6 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # recommendation 
 }  
 
-# Dates governing proposed immunization
-<ImmunizationRecommendation.recommendation.dateCriterion> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Type of date
-    fhir:v @<dateTime>;                 # Recommended date
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
@@ -76,24 +72,19 @@ start=@<ImmunizationRecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_canonical> CLOSED {
-    rdf:first @<canonical>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_canonical> 
-}
-
-<OneOrMore_uri> CLOSED {
-    rdf:first @<uri>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
-}
-
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ImmunizationRecommendation.recommendation> CLOSED {
+    rdf:first @<ImmunizationRecommendation.recommendation>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ImmunizationRecommendation.recommendation> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
+<OneOrMore_ImmunizationRecommendation.recommendation.dateCriterion> CLOSED {
+    rdf:first @<ImmunizationRecommendation.recommendation.dateCriterion>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ImmunizationRecommendation.recommendation.dateCriterion> 
 }
 
 <OneOrMore_Reference_Immunization_OR_ImmunizationEvaluation> CLOSED {

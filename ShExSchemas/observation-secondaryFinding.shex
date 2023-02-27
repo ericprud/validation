@@ -13,12 +13,13 @@ For more detail, please see:
 https://ghr.nlm.nih.gov/primer/testing/secondaryfindings
 <observation-secondaryFinding> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:observation-secondaryFinding];
+    a [fhir:observation-secondaryFinding]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-secondaryFinding"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Observation]}
+
 }  
 

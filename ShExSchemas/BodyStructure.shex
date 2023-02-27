@@ -7,6 +7,8 @@ IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <Patient.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
@@ -17,28 +19,19 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
 # Specific and identified anatomical structure
 <BodyStructure> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:BodyStructure];
+    a [fhir:BodyStructure]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Bodystructure identifier
     fhir:active @<boolean>?;                # Whether this record is in active 
                                             # use 
     fhir:morphology @<CodeableConcept>?;    # Kind of Structure
-    fhir:includedStructure @<OneOrMore_BackboneElement>;  # Included anatomic location(s)
-    fhir:excludedStructure @<OneOrMore_BackboneElement>?;  # Excluded anatomic locations(s)
+    fhir:includedStructure @<OneOrMore_BodyStructure.includedStructure>;  # Included anatomic location(s)
+    fhir:excludedStructure @<OneOrMore_BodyStructure.excludedStructure>?;  # Excluded anatomic locations(s)
     fhir:description @<string>?;            # Text description
     fhir:image @<OneOrMore_Attachment>?;    # Attached images
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # Who this is about
-}  
-
-# Excluded anatomic locations(s)
-<BodyStructure.excludedStructure> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:structure @<CodeableConcept>;      # Code that represents the excluded 
-                                            # structure 
-    fhir:laterality @<CodeableConcept>?;    # Code that represents the excluded 
-                                            # structure laterality 
-    fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the excluded 
-                                            # structure qualifier 
+    			@<Patient> ? };  # Who this is about
 }  
 
 # Included anatomic location(s)
@@ -51,6 +44,16 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # structure qualifier 
 }  
 
+# Excluded anatomic locations(s)
+<BodyStructure.excludedStructure> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:structure @<CodeableConcept>;      # Code that represents the excluded 
+                                            # structure 
+    fhir:laterality @<CodeableConcept>?;    # Code that represents the excluded 
+                                            # structure laterality 
+    fhir:qualifier @<OneOrMore_CodeableConcept>?;  # Code that represents the excluded 
+                                            # structure qualifier 
+}  
+
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
@@ -58,9 +61,14 @@ start=@<BodyStructure> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_BodyStructure.includedStructure> CLOSED {
+    rdf:first @<BodyStructure.includedStructure>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_BodyStructure.includedStructure> 
+}
+
+<OneOrMore_BodyStructure.excludedStructure> CLOSED {
+    rdf:first @<BodyStructure.excludedStructure>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_BodyStructure.excludedStructure> 
 }
 
 <OneOrMore_Attachment> CLOSED {

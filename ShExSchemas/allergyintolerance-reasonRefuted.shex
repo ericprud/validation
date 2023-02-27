@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Explanation associated with refuted status
 <allergyintolerance-reasonRefuted> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:allergyintolerance-reasonRefuted];
+    a [fhir:allergyintolerance-reasonRefuted]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:AllergyIntolerance]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:AllergyIntolerance]}
+
 }  
 

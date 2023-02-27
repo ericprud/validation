@@ -10,12 +10,13 @@ IMPORT <positiveInt.shex>
 # Day of Month for schedule
 <timing-dayOfMonth> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:timing-dayOfMonth];
+    a [fhir:timing-dayOfMonth]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth"]}; 
-    fhir:v (@<positiveInt> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:repeat {a [fhir:Timing]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth"]}; 
+    fhir:value @<positiveInt>  ; 
+    ^fhir:extension { ^fhir:repeat {a [fhir:Timing]}}
+
 }  
 

@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Range.shex>
@@ -18,14 +19,15 @@ IMPORT <CareTeam.shex>
 IMPORT <Quantity.shex>
 IMPORT <Resource.shex>
 IMPORT <Coverage.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Provenance.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
-IMPORT <DeviceRequest.shex>
 IMPORT <ClaimResponse.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
@@ -40,8 +42,9 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 # Medical device request
 <DeviceRequest> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:DeviceRequest];
+    a [fhir:DeviceRequest]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Request identifier
     fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
                                             # definition 
@@ -65,23 +68,23 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # not to start using the device 
     fhir:code @<CodeableReference>;         # Device requested
     fhir:quantity @<integer>?;              # Quantity of devices to supply
-    fhir:parameter @<OneOrMore_BackboneElement>?;  # Device details
+    fhir:parameter @<OneOrMore_DeviceRequest.parameter>?;  # Device details
     fhir:subject @<Reference> AND {fhir:link 
     			@<Device> OR 
     			@<Group> OR 
     			@<Location> OR 
-    			@<Patient> };  # Focus of request
+    			@<Patient> ? };  # Focus of request
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter motivating request
-    fhir:occurrence (@<dateTime>  OR 
+    			@<Encounter> ? }?;  # Encounter motivating request
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # Desired time or schedule for use
+    			@<Timing>  ?;  # Desired time or schedule for use
     fhir:authoredOn @<dateTime>?;           # When recorded
     fhir:requester @<Reference> AND {fhir:link 
     			@<Device> OR 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Who/what submitted the device 
+    			@<PractitionerRole> ? }?;  # Who/what submitted the device 
                                             # request 
     fhir:performerType @<CodeableConcept>?;  # Filler role
     fhir:performer @<Reference> AND {fhir:link 
@@ -92,8 +95,10 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Requested Filler
+    			@<RelatedPerson> ? }?;  # Requested Filler
     fhir:reason @<OneOrMore_CodeableReference>?;  # Coded/Linked Reason for request
+    fhir:asNeeded @<boolean>?;              # PRN status of request
+    fhir:asNeededFor @<CodeableConcept>?;   # Device usage reason
     fhir:insurance @<OneOrMore_Reference_ClaimResponse_OR_Coverage>?;  # Associated insurance coverage
     fhir:supportingInfo @<OneOrMore_Reference_Resource>?;  # Additional clinical information
     fhir:note @<OneOrMore_Annotation>?;     # Notes or comments
@@ -103,10 +108,10 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 # Device details
 <DeviceRequest.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>?;          # Device detail
-    fhir:v (@<CodeableConcept>  OR 
+    fhir:value @<CodeableConcept>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
-    			@<boolean> )  AND { rdf:type IRI } ?;  # Value of detail
+    			@<boolean>  ?;  # Value of detail
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -138,9 +143,9 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_DeviceRequest> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_DeviceRequest.parameter> CLOSED {
+    rdf:first @<DeviceRequest.parameter>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_DeviceRequest.parameter> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {
@@ -168,12 +173,12 @@ start=@<DeviceRequest> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes identifying the lifecycle stage of a request.
-fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
-
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
+# Codes identifying the lifecycle stage of a request.
+fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
 

@@ -8,7 +8,8 @@ IMPORT <Quantity.shex>
 # An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)
 <MoneyQuantity> EXTENDS @<Quantity> CLOSED {   
 
-    a [fhir:MoneyQuantity];
+    a [fhir:MoneyQuantity]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 

@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Local number that must always be dialled
 <contactpoint-local> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:contactpoint-local];
+    a [fhir:contactpoint-local]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/contactpoint-local"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ContactPoint]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/contactpoint-local"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:ContactPoint]}
+
 }  
 

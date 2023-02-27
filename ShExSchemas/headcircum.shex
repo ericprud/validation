@@ -15,8 +15,13 @@ start=@<headcircum> AND {fhir:nodeRole [fhir:treeRoot]}
 # FHIR Head Circumference Profile
 <headcircum> EXTENDS @<vitalsigns> CLOSED {   
 
-    a [fhir:headcircum];
+    a [fhir:headcircum]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
 # Provides guide for interpretation
@@ -27,12 +32,12 @@ start=@<headcircum> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
-# Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
 # Triggering observation(s)
@@ -41,10 +46,6 @@ start=@<headcircum> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Head Circumference

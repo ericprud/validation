@@ -9,13 +9,14 @@ IMPORT <Extension.shex>
 # Mother(s) & Father(s) - genetic & other
 <family-member-history-genetics-parent> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:family-member-history-genetics-parent];
+    a [fhir:family-member-history-genetics-parent]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:type @<Extension>; 
     fhir:reference @<Extension>; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent"]}; 
-    ^fhir:extension { a [fhir:FamilyMemberHistory]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent"]}; 
+    ^fhir:extension { a [fhir:FamilyMemberHistory]}
+
 }  
 

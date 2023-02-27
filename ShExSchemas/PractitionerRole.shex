@@ -3,17 +3,17 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
-IMPORT <time.shex>
 IMPORT <Period.shex>
-IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <Location.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Practitioner.shex>
 IMPORT <Organization.shex>
+IMPORT <Availability.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
 IMPORT <HealthcareService.shex>
 IMPORT <ExtendedContactDetail.shex>
 
@@ -25,6 +25,7 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
 
     a [fhir:PractitionerRole]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifiers that are 
                                             # specific to a role/location 
     fhir:active @<boolean>?;                # Whether this practitioner role 
@@ -33,11 +34,11 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # practitioner is authorized to 
                                             # perform in these role(s) 
     fhir:practitioner @<Reference> AND {fhir:link 
-    			@<Practitioner> }?;  # Practitioner that is able to 
+    			@<Practitioner> ? }?;  # Practitioner that is able to 
                                             # provide the defined services for 
                                             # the organization 
     fhir:organization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization where the roles are 
+    			@<Organization> ? }?;  # Organization where the roles are 
                                             # available 
     fhir:code @<OneOrMore_CodeableConcept>?;  # Roles which this practitioner may 
                                             # perform 
@@ -50,36 +51,13 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # role's Organization/Location(s) 
     fhir:contact @<OneOrMore_ExtendedContactDetail>?;  # Official contact details relating 
                                             # to this PractitionerRole 
-    fhir:telecom @<OneOrMore_ContactPoint>?;  # Deprecated - use contact.telecom
-    fhir:availableTime @<OneOrMore_BackboneElement>?;  # Times the Service Site is available
-    fhir:notAvailable @<OneOrMore_BackboneElement>?;  # Not available during this time due 
-                                            # to provided reason 
-    fhir:availabilityExceptions @<string>?;  # Description of availability 
-                                            # exceptions 
+    fhir:availability @<OneOrMore_Availability>?;  # Times the Practitioner is 
+                                            # available at this location and/or 
+                                            # healthcare service (including 
+                                            # exceptions) 
     fhir:endpoint @<OneOrMore_Reference_Endpoint>?;  # Technical endpoints providing 
                                             # access to services operated for 
                                             # the practitioner with this role 
-}  
-
-# Times the Service Site is available
-<PractitionerRole.availableTime> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:daysOfWeek @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
-                                            # | sun 
-    fhir:allDay @<boolean>?;                # Always available? i.e. 24 hour 
-                                            # service 
-    fhir:availableStartTime @<time>?;       # Opening time of day (ignored if 
-                                            # allDay = true) 
-    fhir:availableEndTime @<time>?;         # Closing time of day (ignored if 
-                                            # allDay = true) 
-}  
-
-# Not available during this time due to provided reason
-<PractitionerRole.notAvailable> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>;             # Reason presented to the user 
-                                            # explaining why time not available 
-    fhir:during @<Period>?;                 # Service not available from this 
-                                            # date 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -111,14 +89,9 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ExtendedContactDetail> 
 }
 
-<OneOrMore_ContactPoint> CLOSED {
-    rdf:first @<ContactPoint>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ContactPoint> 
-}
-
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Availability> CLOSED {
+    rdf:first @<Availability>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Availability> 
 }
 
 <OneOrMore_Reference_Endpoint> CLOSED {
@@ -126,14 +99,4 @@ start=@<PractitionerRole> AND {fhir:nodeRole [fhir:treeRoot]}
 			@<Endpoint> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Endpoint> 
 }
-
-<OneOrMore_code> CLOSED {
-    rdf:first @<code>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_code> 
-}
-
-#---------------------- Value Sets ------------------------
-
-# The days of the week.
-fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
 

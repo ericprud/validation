@@ -11,6 +11,7 @@ IMPORT <DataType.shex>
 <Narrative> EXTENDS @<DataType> CLOSED {   
 
     a [fhir:Narrative]?;
+
     fhir:status @<code> AND
     	{fhir:v @fhirvs:narrative-status};  # generated | extensions | 
                                             # additional | empty 

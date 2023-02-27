@@ -5,8 +5,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <code.shex>
 IMPORT <date.shex>
-IMPORT <Timing.shex>
 IMPORT <string.shex>
+IMPORT <Timing.shex>
 IMPORT <dateTime.shex>
 IMPORT <Resource.shex>
 IMPORT <Reference.shex>
@@ -24,8 +24,9 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
 # Describes validation requirements, source(s), status and dates for one or more elements
 <VerificationResult> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:VerificationResult];
+    a [fhir:VerificationResult]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:target @<OneOrMore_Reference_Resource>?;  # A resource that was validated
     fhir:targetLocation @<OneOrMore_string>?;  # The fhirpath location(s) within 
                                             # the resource that was validated 
@@ -49,11 +50,11 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:nextScheduled @<date>?;            # The date when target is next 
                                             # validated, if appropriate 
     fhir:failureAction @<CodeableConcept>?;  # fatal | warn | rec-only | none
-    fhir:primarySource @<OneOrMore_BackboneElement>?;  # Information about the primary 
+    fhir:primarySource @<OneOrMore_VerificationResult.primarySource>?;  # Information about the primary 
                                             # source(s) involved in validation 
-    fhir:attestation @<BackboneElement>?;   # Information about the entity 
+    fhir:attestation @<VerificationResult.attestation>?;  # Information about the entity 
                                             # attesting to information 
-    fhir:validator @<OneOrMore_BackboneElement>?;  # Information about the entity 
+    fhir:validator @<OneOrMore_VerificationResult.validator>?;  # Information about the entity 
                                             # validating information 
 }  
 
@@ -62,12 +63,12 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:who @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # The individual or organization 
+    			@<PractitionerRole> ? }?;  # The individual or organization 
                                             # attesting to information 
     fhir:onBehalfOf @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # When the who is asserting on 
+    			@<PractitionerRole> ? }?;  # When the who is asserting on 
                                             # behalf of another (organization or 
                                             # individual) 
     fhir:communicationMethod @<CodeableConcept>?;  # The method by which attested 
@@ -91,7 +92,7 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:who @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Reference to the primary source
+    			@<PractitionerRole> ? }?;  # Reference to the primary source
     fhir:type @<OneOrMore_CodeableConcept>?;  # Type of primary source (License 
                                             # Board; Primary Education; 
                                             # Continuing Education; Postal 
@@ -111,7 +112,7 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
 # Information about the entity validating information
 <VerificationResult.validator> EXTENDS @<BackboneElement> CLOSED {   
     fhir:organization @<Reference> AND {fhir:link 
-    			@<Organization> };  # Reference to the organization 
+    			@<Organization> ? };  # Reference to the organization 
                                             # validating information 
     fhir:identityCertificate @<string>?;    # A digital identity certificate 
                                             # associated with the validator 
@@ -136,9 +137,14 @@ start=@<VerificationResult> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_VerificationResult.primarySource> CLOSED {
+    rdf:first @<VerificationResult.primarySource>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_VerificationResult.primarySource> 
+}
+
+<OneOrMore_VerificationResult.validator> CLOSED {
+    rdf:first @<VerificationResult.validator>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_VerificationResult.validator> 
 }
 
 #---------------------- Value Sets ------------------------

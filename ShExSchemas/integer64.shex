@@ -8,8 +8,8 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type integer64
 <integer64> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:integer64];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:integer64]?;
+
     fhir:v xsd:long MININCLUSIVE -9223372036854775808 MAXINCLUSIVE 9223372036854775807?;  # Primitive value for integer64
 }  
 

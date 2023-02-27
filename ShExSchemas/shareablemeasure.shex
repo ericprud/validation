@@ -12,8 +12,9 @@ start=@<shareablemeasure> AND {fhir:nodeRole [fhir:treeRoot]}
 # A quality measure definition
 <shareablemeasure> EXTENDS @<Measure> CLOSED {   
 
-    a [fhir:shareablemeasure];
+    a [fhir:shareablemeasure]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Population criteria group
@@ -24,15 +25,19 @@ start=@<shareablemeasure> AND {fhir:nodeRole [fhir:treeRoot]}
 <Measure.group.stratifier.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Defined terms used in the measure documentation
+<Measure.term> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
 # Population criteria
 <Measure.group.population> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Stratifier criteria for the measure
-<Measure.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # What other data should be reported with the measure
 <Measure.supplementalData> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Stratifier criteria for the measure
+<Measure.group.stratifier> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

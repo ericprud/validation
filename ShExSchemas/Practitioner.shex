@@ -7,12 +7,17 @@ IMPORT <code.shex>
 IMPORT <date.shex>
 IMPORT <Period.shex>
 IMPORT <boolean.shex>
+IMPORT <Address.shex>
 IMPORT <dateTime.shex>
+IMPORT <HumanName.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <ContactPoint.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 
 
 start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -22,6 +27,7 @@ start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}
 
     a [fhir:Practitioner]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # An identifier for the person as 
                                             # this agent 
     fhir:active @<boolean>?;                # Whether this practitioner's record 
@@ -31,25 +37,26 @@ start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:telecom @<OneOrMore_ContactPoint>?;  # A contact detail for the 
                                             # practitioner (that apply to all 
                                             # roles) 
-    fhir:deceased (@<boolean>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # Indicates if the practitioner is 
-                                            # deceased or not 
-    fhir:address @<OneOrMore_Address>?;     # Address(es) of the practitioner 
-                                            # that are not role specific 
-                                            # (typically home address) 
     fhir:gender @<code> AND
     	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:birthDate @<date>?;                # The date  on which the 
                                             # practitioner was born 
+    fhir:deceased @<boolean>  OR 
+    			@<dateTime>  ?;  # Indicates if the practitioner is 
+                                            # deceased or not 
+    fhir:address @<OneOrMore_Address>?;     # Address(es) of the practitioner 
+                                            # that are not role specific 
+                                            # (typically home address) 
     fhir:photo @<OneOrMore_Attachment>?;    # Image of the person
-    fhir:qualification @<OneOrMore_BackboneElement>?;  # Certification, licenses, or 
-                                            # training pertaining to the 
+    fhir:qualification @<OneOrMore_Practitioner.qualification>?;  # Qualifications, certifications, 
+                                            # accreditations, licenses, 
+                                            # training, etc pertaining to the 
                                             # provision of care 
     fhir:communication @<OneOrMore_CodeableConcept>?;  # A language the practitioner can 
                                             # use in patient communication 
 }  
 
-# Certification, licenses, or training pertaining to the provision of care
+# Qualifications, certifications, accreditations, licenses, training, etc pertaining to the provision of care
 <Practitioner.qualification> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<OneOrMore_Identifier>?;  # An identifier for this 
                                             # qualification for the practitioner 
@@ -58,7 +65,7 @@ start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:period @<Period>?;                 # Period during which the 
                                             # qualification is valid 
     fhir:issuer @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization that regulates and 
+    			@<Organization> ? }?;  # Organization that regulates and 
                                             # issues the qualification 
 }  
 
@@ -89,9 +96,9 @@ start=@<Practitioner> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Attachment> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Practitioner.qualification> CLOSED {
+    rdf:first @<Practitioner.qualification>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Practitioner.qualification> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {

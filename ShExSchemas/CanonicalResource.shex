@@ -6,25 +6,33 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <string.shex>
+IMPORT <Coding.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
 IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
 
 
 start=@<CanonicalResource> AND {fhir:nodeRole [fhir:treeRoot]}
 
-# Common Ancestor declaration for definitional resources
+# Common Interface declaration for definitional resources
 <CanonicalResource> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:CanonicalResource];
+    a [fhir:CanonicalResource]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
-                                            # {{title}}, represented as a URI 
-                                            # (globally unique) 
+                                            # {{title}}, represented as an 
+                                            # absolute URI (globally unique) 
     fhir:identifier @<OneOrMore_Identifier>?;  # Additional identifier for the 
                                             # {{title}} 
     fhir:version @<string>?;                # Business version of the {{title}}
+    fhir:versionAlgorithm @<string>  OR 
+    			@<Coding>  ?;  # How to compare versions
     fhir:name @<string>?;                   # Name for this {{title}} (computer 
                                             # friendly) 
     fhir:title @<string>?;                  # Name for this {{title}} (human 
@@ -34,7 +42,7 @@ start=@<CanonicalResource> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -45,6 +53,7 @@ start=@<CanonicalResource> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # {{title}} (if applicable) 
     fhir:purpose @<markdown>?;              # Why this {{title}} is defined
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
+    fhir:copyrightLabel @<string>?;         # Copyright holder and year(s)
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

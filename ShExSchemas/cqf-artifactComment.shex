@@ -9,17 +9,18 @@ IMPORT <Extension.shex>
 # Additional documentation, review, or usage guidance
 <cqf-artifactComment> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-artifactComment];
+    a [fhir:cqf-artifactComment]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:type @<Extension>; 
     fhir:text @<Extension>; 
     fhir:target @<OneOrMore_Extension>?; 
     fhir:reference @<OneOrMore_Extension>?; 
     fhir:user @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]}; 
-    ^fhir:extension { a [fhir:Element]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"]}; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

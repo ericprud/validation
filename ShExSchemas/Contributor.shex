@@ -6,12 +6,13 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <code.shex>
 IMPORT <string.shex>
 IMPORT <DataType.shex>
+IMPORT <ContactDetail.shex>
 
 # Contributor information
 <Contributor> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Contributor];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Contributor]?;
+
     fhir:type @<code> AND
     	{fhir:v @fhirvs:contributor-type};  # author | editor | reviewer | 
                                             # endorser 

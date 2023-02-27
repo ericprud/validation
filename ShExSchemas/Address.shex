@@ -12,6 +12,7 @@ IMPORT <DataType.shex>
 <Address> EXTENDS @<DataType> CLOSED {   
 
     a [fhir:Address]?;
+
     fhir:use @<code> AND
     	{fhir:v @fhirvs:address-use}?;  # home | work | temp | old | billing 
                                             # - purpose of this address 

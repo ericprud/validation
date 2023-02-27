@@ -12,8 +12,13 @@ start=@<provenance-relevant-history> AND {fhir:nodeRole [fhir:treeRoot]}
 # Who, What, When for a set of resources
 <provenance-relevant-history> EXTENDS @<Provenance> CLOSED {   
 
-    a [fhir:provenance-relevant-history];
+    a [fhir:provenance-relevant-history]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Author
+<Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Who was involved with change
@@ -22,9 +27,5 @@ start=@<provenance-relevant-history> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # An entity used in this activity
 <Provenance.entity> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Author
-<Provenance.agent> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

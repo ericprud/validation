@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Device.shex>
@@ -12,18 +13,21 @@ IMPORT <CareTeam.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Resource.shex>
 IMPORT <Location.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Attachment.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
-IMPORT <Communication.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <HealthcareService.shex>
+IMPORT <CodeableReference.shex>
 
 
 start=@<Communication> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -31,8 +35,9 @@ start=@<Communication> AND {fhir:nodeRole [fhir:treeRoot]}
 # A clinical or business level record of information being transmitted or shared
 <Communication> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Communication];
+    a [fhir:Communication]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique identifier
     fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
                                             # definition 
@@ -55,12 +60,12 @@ start=@<Communication> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:medium @<OneOrMore_CodeableConcept>?;  # A channel of communication
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> }?;  # Focus of message
+    			@<Patient> ? }?;  # Focus of message
     fhir:topic @<CodeableConcept>?;         # Description of the purpose/content
     fhir:about @<OneOrMore_Reference_Resource>?;  # Resources that pertain to this 
                                             # communication 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # The Encounter during which this 
+    			@<Encounter> ? }?;  # The Encounter during which this 
                                             # Communication was created 
     fhir:sent @<dateTime>?;                 # When sent
     fhir:received @<dateTime>?;             # When received
@@ -74,18 +79,18 @@ start=@<Communication> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who shares the information
+    			@<RelatedPerson> ? }?;  # Who shares the information
     fhir:reason @<OneOrMore_CodeableReference>?;  # Indication for message
-    fhir:payload @<OneOrMore_BackboneElement>?;  # Message payload
+    fhir:payload @<OneOrMore_Communication.payload>?;  # Message payload
     fhir:note @<OneOrMore_Annotation>?;     # Comments made about the 
                                             # communication 
 }  
 
 # Message payload
 <Communication.payload> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:content (@<Attachment>  OR 
+    fhir:content @<Attachment>  OR 
     			(@<Reference>  AND {fhir:link @<Resource> })  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # Message part content
+    			@<CodeableConcept>  ;  # Message part content
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -143,9 +148,9 @@ start=@<Communication> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Communication.payload> CLOSED {
+    rdf:first @<Communication.payload>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Communication.payload> 
 }
 
 <OneOrMore_Annotation> CLOSED {

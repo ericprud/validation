@@ -9,14 +9,15 @@ IMPORT <Extension.shex>
 # Individual acceptance of goal
 <goal-acceptance> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:goal-acceptance];
+    a [fhir:goal-acceptance]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:individual @<Extension>; 
     fhir:status @<Extension>?; 
     fhir:priority @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/goal-acceptance"]}; 
-    ^fhir:extension { a [fhir:Goal]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/goal-acceptance"]}; 
+    ^fhir:extension { a [fhir:Goal]}
+
 }  
 

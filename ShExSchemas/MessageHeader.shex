@@ -3,22 +3,22 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
-IMPORT <uri.shex>
 IMPORT <url.shex>
 IMPORT <code.shex>
 IMPORT <Coding.shex>
 IMPORT <string.shex>
 IMPORT <Device.shex>
 IMPORT <Resource.shex>
-IMPORT <Reference.shex>
 IMPORT <canonical.shex>
+IMPORT <Reference.shex>
 IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <ContactPoint.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
+IMPORT <EventDefinition.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <OperationOutcome.shex>
 
@@ -28,33 +28,44 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
 # A resource that describes a message that is exchanged between systems
 <MessageHeader> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:MessageHeader];
+    a [fhir:MessageHeader]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:event (@<Coding>  OR 
-    			@<uri> )  AND { rdf:type IRI } ;  # Code for the event this message 
-                                            # represents or link to event 
-                                            # definition 
-    fhir:destination @<OneOrMore_BackboneElement>?;  # Message destination application(s)
+
+    fhir:event @<Coding>  OR 
+    			(@<canonical>  AND {fhir:link @<EventDefinition> })  ;  # Event code or link to 
+                                            # EventDefinition 
+    fhir:destination @<OneOrMore_MessageHeader.destination>?;  # Message destination application(s)
     fhir:sender @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Real world sender of the message
+    			@<PractitionerRole> ? }?;  # Real world sender of the message
     fhir:enterer @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # The source of the data entry
+    			@<PractitionerRole> ? }?;  # The source of the data entry
     fhir:author @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # The source of the decision
-    fhir:source @<BackboneElement>;         # Message source application
+    			@<PractitionerRole> ? }?;  # The source of the decision
+    fhir:source @<MessageHeader.source>;    # Message source application
     fhir:responsible @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Final responsibility for event
+    			@<PractitionerRole> ? }?;  # Final responsibility for event
     fhir:reason @<CodeableConcept>?;        # Cause of event
-    fhir:response @<BackboneElement>?;      # If this is a reply to prior message
+    fhir:response @<MessageHeader.response>?;  # If this is a reply to prior message
     fhir:focus @<OneOrMore_Reference_Resource>?;  # The actual content of the message
     fhir:definition @<canonical>?;          # Link to the definition for this 
                                             # message 
+}  
+
+# If this is a reply to prior message
+<MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:identifier @<Identifier>;          # Bundle.identifier of original 
+                                            # message 
+    fhir:code @<code> AND
+    	{fhir:v @fhirvs:response-code};  # ok | transient-error | fatal-error
+    fhir:details @<Reference> AND {fhir:link 
+    			@<OperationOutcome> ? }?;  # Specific list of 
+                                            # hints/warnings/errors 
 }  
 
 # Message source application
@@ -66,35 +77,25 @@ start=@<MessageHeader> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:endpoint @<url>?;                  # Actual message source address or id
 }  
 
-# If this is a reply to prior message
-<MessageHeader.response> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:identifier @<Identifier>;          # Id of original message
-    fhir:code @<code> AND
-    	{fhir:v @fhirvs:response-code};  # ok | transient-error | fatal-error
-    fhir:details @<Reference> AND {fhir:link 
-    			@<OperationOutcome> }?;  # Specific list of 
-                                            # hints/warnings/errors 
-}  
-
 # Message destination application(s)
 <MessageHeader.destination> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>?;                   # Name of system
     fhir:target @<Reference> AND {fhir:link 
-    			@<Device> }?;  # Particular delivery destination 
+    			@<Device> ? }?;  # Particular delivery destination 
                                             # within the destination 
     fhir:endpoint @<url>?;                  # Actual destination address or id
     fhir:receiver @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Intended "real-world" recipient 
+    			@<PractitionerRole> ? }?;  # Intended "real-world" recipient 
                                             # for the data 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_MessageHeader.destination> CLOSED {
+    rdf:first @<MessageHeader.destination>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MessageHeader.destination> 
 }
 
 <OneOrMore_Reference_Resource> CLOSED {

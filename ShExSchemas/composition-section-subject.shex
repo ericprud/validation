@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Section has a different subject that it's container
 <composition-section-subject> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:composition-section-subject];
+    a [fhir:composition-section-subject]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/composition-section-subject"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:section {a [fhir:Composition]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/composition-section-subject"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:section {a [fhir:Composition]}}
+
 }  
 

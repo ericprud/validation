@@ -16,8 +16,8 @@ IMPORT <base64Binary.shex>
 # Content in a format defined elsewhere
 <Attachment> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Attachment];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Attachment]?;
+
     fhir:contentType @<code> AND
     	{fhir:v @fhirvs:mimetypes}?;  # Mime type of the content, with 
                                             # charset etc. 
@@ -43,5 +43,5 @@ IMPORT <base64Binary.shex>
 #---------------------- Value Sets ------------------------
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes xsd:string # EXTERNAL
+fhirvs:mimetypes xsd:string #EXTERNAL
 

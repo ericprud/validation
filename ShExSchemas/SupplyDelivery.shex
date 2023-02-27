@@ -14,15 +14,16 @@ IMPORT <Quantity.shex>
 IMPORT <Contract.shex>
 IMPORT <Reference.shex>
 IMPORT <Substance.shex>
+IMPORT <Identifier.shex>
 IMPORT <Medication.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <SupplyRequest.shex>
 IMPORT <DomainResource.shex>
-IMPORT <SupplyDelivery.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
+IMPORT <BiologicallyDerivedProduct.shex>
 
 
 start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -30,8 +31,9 @@ start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
 # Delivery of bulk Supplies
 <SupplyDelivery> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:SupplyDelivery];
+    a [fhir:SupplyDelivery]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External identifier
     fhir:basedOn @<OneOrMore_Reference_SupplyRequest>?;  # Fulfills plan, proposal or order
     fhir:partOf @<OneOrMore_Reference_Contract_OR_SupplyDelivery>?;  # Part of referenced event
@@ -39,30 +41,32 @@ start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:supplydelivery-status}?;  # in-progress | completed | 
                                             # abandoned | entered-in-error 
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> }?;  # Patient for whom the item is 
+    			@<Patient> ? }?;  # Patient for whom the item is 
                                             # supplied 
-    fhir:type @<CodeableConcept>?;          # Category of dispense event
-    fhir:suppliedItem @<BackboneElement>?;  # The item that is delivered or 
+    fhir:type @<CodeableConcept>?;          # Category of supply event
+    fhir:suppliedItem @<OneOrMore_SupplyDelivery.suppliedItem>?;  # The item that is delivered or 
                                             # supplied 
-    fhir:occurrence (@<dateTime>  OR 
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # When event occurred
+    			@<Timing>  ?;  # When event occurred
     fhir:supplier @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Dispenser
+    			@<PractitionerRole> ? }?;  # The item supplier
     fhir:destination @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the Supply was sent
-    fhir:receiver @<OneOrMore_Reference_Practitioner_OR_PractitionerRole>?;  # Who collected the Supply
+    			@<Location> ? }?;  # Where the delivery was sent
+    fhir:receiver @<OneOrMore_Reference_Organization_OR_Practitioner_OR_PractitionerRole>?;  # Who received the delivery
 }  
 
 # The item that is delivered or supplied
 <SupplyDelivery.suppliedItem> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:quantity @<Quantity>?;             # Amount dispensed
-    fhir:item (@<CodeableConcept>  OR 
+    fhir:quantity @<Quantity>?;             # Amount supplied
+    fhir:item @<CodeableConcept>  OR 
     			(@<Reference>  AND {fhir:link @<Medication> OR 
     			 @<Substance> OR 
-    			 @<Device> }) )  AND { rdf:type IRI } ?;  # Medication, Substance, or Device 
+    			 @<Device> OR 
+    			 @<BiologicallyDerivedProduct> })  ?;  # Medication, Substance, Device or 
+                                            # Biologically Derived Product 
                                             # supplied 
 }  
 
@@ -86,11 +90,17 @@ start=@<SupplyDelivery> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Contract_OR_SupplyDelivery> 
 }
 
-<OneOrMore_Reference_Practitioner_OR_PractitionerRole> CLOSED {
+<OneOrMore_SupplyDelivery.suppliedItem> CLOSED {
+    rdf:first @<SupplyDelivery.suppliedItem>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SupplyDelivery.suppliedItem> 
+}
+
+<OneOrMore_Reference_Organization_OR_Practitioner_OR_PractitionerRole> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
+			@<Organization> OR 
 			@<Practitioner> OR 
 			@<PractitionerRole> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Practitioner_OR_PractitionerRole> 
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Organization_OR_Practitioner_OR_PractitionerRole> 
 }
 
 #---------------------- Value Sets ------------------------

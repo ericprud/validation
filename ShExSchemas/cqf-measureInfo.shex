@@ -9,14 +9,15 @@ IMPORT <Extension.shex>
 # Measure criteria for the resource
 <cqf-measureInfo> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-measureInfo];
+    a [fhir:cqf-measureInfo]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:measure @<Extension>?; 
     fhir:groupId @<Extension>?; 
     fhir:populationId @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-measureInfo"]}; 
-    ^fhir:extension { a [fhir:Element]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-measureInfo"]}; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

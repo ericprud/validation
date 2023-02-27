@@ -20,8 +20,9 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
 # Contains a collection of resources
 <Bundle> EXTENDS @<Resource> CLOSED {   
 
-    a [fhir:Bundle];
+    a [fhir:Bundle]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<Identifier>?;         # Persistent identifier for the 
                                             # bundle 
     fhir:type @<code> AND
@@ -33,53 +34,18 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:timestamp @<instant>?;             # When the bundle was assembled
     fhir:total @<unsignedInt>?;             # If search, the total number of 
                                             # matches 
-    fhir:link @<OneOrMore_BackboneElement>?;  # Links related to this Bundle
-    fhir:entry @<OneOrMore_BackboneElement>?;  # Entry in the bundle - will have a 
+    fhir:link @<OneOrMore_Bundle.link>?;    # Links related to this Bundle
+    fhir:entry @<OneOrMore_Bundle.entry>?;  # Entry in the bundle - will have a 
                                             # resource or information 
     fhir:signature @<Signature>?;           # Digital Signature
-}  
-
-# Entry in the bundle - will have a resource or information
-<Bundle.entry> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:link @<OneOrMore_Bundle.link>?;    # Links related to this entry
-    fhir:fullUrl @<uri>?;                   # URI for resource (Absolute URL 
-                                            # server address or URI for 
-                                            # UUID/OID) 
-    fhir:resource @<Resource>?;             # A resource in the bundle
-    fhir:search @<BackboneElement>?;        # Search related information
-    fhir:request @<BackboneElement>?;       # Additional execution information 
-                                            # (transaction/batch/history) 
-    fhir:response @<BackboneElement>?;      # Results of execution 
-                                            # (transaction/batch/history) 
-}  
-
-# Links related to this Bundle
-<Bundle.link> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:relation @<string>;                # See 
-                                            # http://www.iana.org/assignments/-
-                                            # link-relations/link-relations.xh-
-                                            # tml#link-relations-1 
-    fhir:url @<uri>;                        # Reference details for the link
-}  
-
-# Additional execution information (transaction/batch/history)
-<Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:method @<code> AND
-    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
-                                            # PATCH 
-    fhir:url @<uri>;                        # URL for HTTP equivalent of this 
-                                            # entry 
-    fhir:ifNoneMatch @<string>?;            # For managing cache currency
-    fhir:ifModifiedSince @<instant>?;       # For managing cache currency
-    fhir:ifMatch @<string>?;                # For managing update contention
-    fhir:ifNoneExist @<string>?;            # For conditional creates
+    fhir:issues @<Resource>?;               # Issues with the Bundle
 }  
 
 # Search related information
 <Bundle.entry.search> EXTENDS @<BackboneElement> CLOSED {   
     fhir:mode @<code> AND
-    	{fhir:v @fhirvs:search-entry-mode}?;  # match | include | outcome - why 
-                                            # this is in the result set 
+    	{fhir:v @fhirvs:search-entry-mode}?;  # match | include - why this is in 
+                                            # the result set 
     fhir:score @<decimal>?;                 # Search ranking (between 0 and 1)
 }  
 
@@ -96,26 +62,66 @@ start=@<Bundle> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # warnings (for batch/transaction) 
 }  
 
-#---------------------- Cardinality Types (OneOrMore) -------------------
+# Links related to this Bundle
+<Bundle.link> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:relation @<code> AND
+    	{fhir:v @fhirvs:iana-link-relations};  # See 
+                                            # http://www.iana.org/assignments/-
+                                            # link-relations/link-relations.xh-
+                                            # tml#link-relations-1 
+    fhir:url @<uri>;                        # Reference details for the link
+}  
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
-}
+# Entry in the bundle - will have a resource or information
+<Bundle.entry> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:link @<OneOrMore_Bundle.link>?;    # Links related to this entry
+    fhir:fullUrl @<uri>?;                   # URI for resource (e.g. the 
+                                            # absolute URL server address, URI 
+                                            # for UUID/OID, etc.) 
+    fhir:resource @<Resource>?;             # A resource in the bundle
+    fhir:search @<Bundle.entry.search>?;    # Search related information
+    fhir:request @<Bundle.entry.request>?;  # Additional execution information 
+                                            # (transaction/batch/history) 
+    fhir:response @<Bundle.entry.response>?;  # Results of execution 
+                                            # (transaction/batch/history) 
+}  
+
+# Additional execution information (transaction/batch/history)
+<Bundle.entry.request> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:method @<code> AND
+    	{fhir:v @fhirvs:http-verb};  # GET | HEAD | POST | PUT | DELETE | 
+                                            # PATCH 
+    fhir:url @<uri>;                        # URL for HTTP equivalent of this 
+                                            # entry 
+    fhir:ifNoneMatch @<string>?;            # For managing cache validation
+    fhir:ifModifiedSince @<instant>?;       # For managing cache currency
+    fhir:ifMatch @<string>?;                # For managing update contention
+    fhir:ifNoneExist @<string>?;            # For conditional creates
+}  
+
+#---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Bundle.link> CLOSED {
     rdf:first @<Bundle.link>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Bundle.link> 
 }
 
+<OneOrMore_Bundle.entry> CLOSED {
+    rdf:first @<Bundle.entry>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Bundle.entry> 
+}
+
 #---------------------- Value Sets ------------------------
+
+# Indicates the purpose of a bundle - how it is intended to be used.
+fhirvs:bundle-type ["document" "message" "transaction" "transaction-response" "batch" "batch-response" "history" "searchset" "collection" "subscription-notification"]
 
 # HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.
 fhirvs:http-verb ["GET" "HEAD" "POST" "PUT" "DELETE" "PATCH"]
 
+# Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1
+fhirvs:iana-link-relations ["about" "acl" "alternate" "amphtml" "appendix" "apple-touch-icon" "apple-touch-startup-image" "archives" "author" "blocked-by" "bookmark" "canonical" "chapter" "cite-as" "collection" "contents" "convertedFrom" "copyright" "create-form" "current" "describedby" "describes" "disclosure" "dns-prefetch" "duplicate" "edit" "edit-form" "edit-media" "enclosure" "external" "first" "glossary" "help" "hosts" "hub" "icon" "index" "intervalAfter" "intervalBefore" "intervalContains" "intervalDisjoint" "intervalDuring" "intervalEquals" "intervalFinishedBy" "intervalFinishes" "intervalIn" "intervalMeets" "intervalMetBy" "intervalOverlappedBy" "intervalOverlaps" "intervalStartedBy" "intervalStarts" "item" "last" "latest-version" "license" "linkset" "lrdd" "manifest" "mask-icon" "media-feed" "memento" "micropub" "modulepreload" "monitor" "monitor-group" "next" "next-archive" "nofollow" "noopener" "noreferrer" "opener" "openid2.local_id" "openid2.provider" "original" "P3Pv1" "payment" "pingback" "preconnect" "predecessor-version" "prefetch" "preload" "prerender" "prev" "preview" "previous" "prev-archive" "privacy-policy" "profile" "publication" "related" "restconf" "replies" "ruleinput" "search" "section" "self" "service" "service-desc" "service-doc" "service-meta" "sponsored" "start" "status" "stylesheet" "subsection" "successor-version" "sunset" "tag" "terms-of-service" "timegate" "timemap" "type" "ugc" "up" "version-history" "via" "webmention" "working-copy" "working-copy-of"]
+
 # Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
 fhirvs:search-entry-mode ["match" "include" "outcome"]
-
-# Indicates the purpose of a bundle - how it is intended to be used.
-fhirvs:bundle-type ["document" "message" "transaction" "transaction-response" "batch" "batch-response" "history" "searchset" "collection" "subscription-notification"]
 

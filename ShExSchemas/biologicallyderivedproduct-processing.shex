@@ -46,10 +46,10 @@ IMPORT <Expression.shex>
 IMPORT <positiveInt.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <SampledData.shex>
-IMPORT <Contributor.shex>
 IMPORT <base64Binary.shex>
 IMPORT <ContactPoint.shex>
 IMPORT <UsageContext.shex>
+IMPORT <Availability.shex>
 IMPORT <ContactDetail.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <DataRequirement.shex>
@@ -57,18 +57,20 @@ IMPORT <RelatedArtifact.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <TriggerDefinition.shex>
 IMPORT <ParameterDefinition.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 # Any processing of the product during collection
 <biologicallyderivedproduct-processing> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:biologicallyderivedproduct-processing];
+    a [fhir:biologicallyderivedproduct-processing]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:description @<Extension>?; 
     fhir:procedure @<Extension>?; 
     fhir:additive @<Extension>?; 
     fhir:time[x] @<Extension>?; 
-    fhir:v @<uri>; 
-    fhir:v (@<base64Binary>  OR 
+    fhir:url @<uri>; 
+    fhir:value @<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -112,16 +114,17 @@ IMPORT <ParameterDefinition.shex>
     			@<Signature>  OR 
     			@<Timing>  OR 
     			@<ContactDetail>  OR 
-    			@<Contributor>  OR 
     			@<DataRequirement>  OR 
     			@<Expression>  OR 
     			@<ParameterDefinition>  OR 
     			@<RelatedArtifact>  OR 
     			@<TriggerDefinition>  OR 
     			@<UsageContext>  OR 
+    			@<Availability>  OR 
+    			@<ExtendedContactDetail>  OR 
     			@<Dosage>  OR 
-    			@<Meta> )  AND { rdf:type IRI } ?; 
-    ^fhir:extension { a [fhir:BiologicallyDerivedProduct]
-        }
+    			@<Meta>  ?; 
+    ^fhir:extension { a [fhir:BiologicallyDerivedProduct]}
+
 }  
 

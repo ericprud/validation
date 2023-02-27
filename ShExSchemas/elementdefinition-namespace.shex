@@ -9,13 +9,14 @@ IMPORT <Extension.shex>
 # specify namespace other than http://hl7.org/fhir
 <elementdefinition-namespace> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-namespace];
+    a [fhir:elementdefinition-namespace]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ElementDefinition] OR 
-          a [fhir:StructureDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { a [fhir:ElementDefinition]} OR 
+          {a [fhir:StructureDefinition]}
+
 }  
 

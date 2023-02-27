@@ -8,7 +8,7 @@ IMPORT <uri.shex>
 # Primitive Type uuid
 <uuid> EXTENDS @<uri> CLOSED {   
 
-    a [fhir:uuid];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:uuid]?;
+
 }  
 

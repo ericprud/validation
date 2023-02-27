@@ -10,14 +10,15 @@ IMPORT <Signature.shex>
 # A signature attesting to the content
 <questionnaireresponse-signature> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaireresponse-signature];
+    a [fhir:questionnaireresponse-signature]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature"]}; 
-    fhir:v (@<Signature> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:QuestionnaireResponse] OR 
-          ^fhir:item {a [fhir:QuestionnaireResponse]} OR 
-          ^fhir:item {^fhir:item {a [fhir:QuestionnaireResponse]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature"]}; 
+    fhir:value @<Signature>  ; 
+    ^fhir:extension { a [fhir:QuestionnaireResponse]} OR 
+          {^fhir:item {a [fhir:QuestionnaireResponse]}} OR 
+          {^fhir:item {^fhir:item {a [fhir:QuestionnaireResponse]}}}
+
 }  
 

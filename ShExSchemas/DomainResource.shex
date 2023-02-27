@@ -15,6 +15,7 @@ start=@<DomainResource> AND {fhir:nodeRole [fhir:treeRoot]}
 
     a [fhir:DomainResource]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:text @<Narrative>?;                # Text summary of the resource, for 
                                             # human interpretation 
     fhir:contained @<OneOrMore_Resource>?;  # Contained, inline Resources

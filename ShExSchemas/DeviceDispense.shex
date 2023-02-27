@@ -16,6 +16,8 @@ IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Procedure.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Provenance.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
@@ -33,8 +35,9 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
 # Device Dispense
 <DeviceDispense> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:DeviceDispense];
+    a [fhir:DeviceDispense]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier for this 
                                             # dispensation 
     fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_DeviceRequest>?;  # The order or request that this 
@@ -51,14 +54,14 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:category @<OneOrMore_CodeableConcept>?;  # Type of device dispense
     fhir:device @<CodeableReference>;       # What device was supplied
     fhir:subject @<Reference> AND {fhir:link 
-    			@<Patient> };  # Who the dispense is for
+    			@<Patient> ? };  # Who the dispense is for
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter associated with event
+    			@<Encounter> ? }?;  # Encounter associated with event
     fhir:supportingInformation @<OneOrMore_Reference_Resource>?;  # Information that supports the 
                                             # dispensing of the device 
-    fhir:performer @<OneOrMore_BackboneElement>?;  # Who performed event
+    fhir:performer @<OneOrMore_DeviceDispense.performer>?;  # Who performed event
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the dispense occurred
+    			@<Location> ? }?;  # Where the dispense occurred
     fhir:type @<CodeableConcept>?;          # Trial fill, partial fill, 
                                             # emergency fill, etc. 
     fhir:quantity @<Quantity>?;             # Amount dispensed
@@ -66,7 +69,7 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # reviewed 
     fhir:whenHandedOver @<dateTime>?;       # When product was given out
     fhir:destination @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the device was sent or 
+    			@<Location> ? }?;  # Where the device was sent or 
                                             # should be sent 
     fhir:note @<OneOrMore_Annotation>?;     # Information about the dispense
     fhir:usageInstruction @<string>?;       # Full representation of the usage 
@@ -85,7 +88,7 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Individual who was performing
+    			@<RelatedPerson> ? };  # Individual who was performing
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -119,9 +122,9 @@ start=@<DeviceDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_DeviceDispense.performer> CLOSED {
+    rdf:first @<DeviceDispense.performer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_DeviceDispense.performer> 
 }
 
 <OneOrMore_Annotation> CLOSED {

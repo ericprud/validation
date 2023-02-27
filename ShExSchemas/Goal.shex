@@ -17,6 +17,8 @@ IMPORT <Quantity.shex>
 IMPORT <Duration.shex>
 IMPORT <Reference.shex>
 IMPORT <Condition.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Observation.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
@@ -29,6 +31,7 @@ IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <MedicationUsage.shex>
 IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
 IMPORT <MedicationRequest.shex>
 
 
@@ -37,8 +40,9 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
 # Describes the intended objective(s) for a patient, group or organization
 <Goal> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Goal];
+    a [fhir:Goal]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Ids for this goal
     fhir:lifecycleStatus @<code> AND
     	{fhir:v @fhirvs:goal-status};  # proposed | planned | accepted | 
@@ -60,10 +64,10 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
     			@<Organization> OR 
-    			@<Patient> };  # Who this goal is intended for
-    fhir:start (@<date>  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ?;  # When goal pursuit begins
-    fhir:target @<OneOrMore_BackboneElement>?;  # Target outcome for the goal
+    			@<Patient> ? };  # Who this goal is intended for
+    fhir:start @<date>  OR 
+    			@<CodeableConcept>  ?;  # When goal pursuit begins
+    fhir:target @<OneOrMore_Goal.target>?;  # Target outcome for the goal
     fhir:statusDate @<date>?;               # When goal status took effect
     fhir:statusReason @<string>?;           # Reason for current status
     fhir:source @<Reference> AND {fhir:link 
@@ -71,7 +75,7 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who's responsible for creating 
+    			@<RelatedPerson> ? }?;  # Who's responsible for creating 
                                             # Goal? 
     fhir:addresses @<OneOrMore_Reference_Condition_OR_MedicationRequest_OR_MedicationUsage_OR_NutritionOrder_OR_Observation_OR_RiskAssessment_OR_ServiceRequest>?;  # Issues addressed by this goal
     fhir:note @<OneOrMore_Annotation>?;     # Comments about the goal
@@ -83,15 +87,15 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
 <Goal.target> EXTENDS @<BackboneElement> CLOSED {   
     fhir:measure @<CodeableConcept>?;       # The parameter whose value is being 
                                             # tracked 
-    fhir:detail (@<Quantity>  OR 
+    fhir:detail @<Quantity>  OR 
     			@<Range>  OR 
     			@<CodeableConcept>  OR 
     			@<string>  OR 
     			@<boolean>  OR 
     			@<integer>  OR 
-    			@<Ratio> )  AND { rdf:type IRI } ?;  # The target value to be achieved
-    fhir:due (@<date>  OR 
-    			@<Duration> )  AND { rdf:type IRI } ?;  # Reach goal on or before
+    			@<Ratio>  ?;  # The target value to be achieved
+    fhir:due @<date>  OR 
+    			@<Duration>  ?;  # Reach goal on or before
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -106,9 +110,9 @@ start=@<Goal> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Goal.target> CLOSED {
+    rdf:first @<Goal.target>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Goal.target> 
 }
 
 <OneOrMore_Reference_Condition_OR_MedicationRequest_OR_MedicationUsage_OR_NutritionOrder_OR_Observation_OR_RiskAssessment_OR_ServiceRequest> CLOSED {

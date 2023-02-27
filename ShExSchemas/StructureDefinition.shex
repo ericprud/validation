@@ -7,21 +7,28 @@ IMPORT <id.shex>
 IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <string.shex>
+IMPORT <Coding.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <CanonicalResource.shex>
+IMPORT <ElementDefinition.shex>
 
 
 start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Structural Definition
-<StructureDefinition> EXTENDS @<CanonicalResource> CLOSED {   
+<StructureDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:StructureDefinition];
+    a [fhir:StructureDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>;                        # Canonical identifier for this 
                                             # structure definition, represented 
                                             # as a URI (globally unique) 
@@ -29,6 +36,8 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # structure definition 
     fhir:version @<string>?;                # Business version of the structure 
                                             # definition 
+    fhir:versionAlgorithm @<string>  OR 
+    			@<Coding>  ?;  # How to compare versions
     fhir:name @<string>;                    # Name for this structure definition 
                                             # (computer friendly) 
     fhir:title @<string>?;                  # Name for this structure definition 
@@ -38,7 +47,7 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -51,17 +60,18 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:purpose @<markdown>?;              # Why this structure definition is 
                                             # defined 
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
+    fhir:copyrightLabel @<string>?;         # Copyright holder and year(s)
     fhir:keyword @<OneOrMore_Coding>?;      # Assist with indexing and finding
     fhir:fhirVersion @<code> AND
     	{fhir:v @fhirvs:FHIR-version}?;  # FHIR Version this 
                                             # StructureDefinition targets 
-    fhir:mapping @<OneOrMore_BackboneElement>?;  # External specification that the 
+    fhir:mapping @<OneOrMore_StructureDefinition.mapping>?;  # External specification that the 
                                             # content is mapped to 
     fhir:kind @<code> AND
     	{fhir:v @fhirvs:structure-definition-kind};  # primitive-type | complex-type | 
                                             # resource | logical 
     fhir:abstract @<boolean>;               # Whether the structure is abstract
-    fhir:context @<OneOrMore_BackboneElement>?;  # If an extension, where it can be 
+    fhir:context @<OneOrMore_StructureDefinition.context>?;  # If an extension, where it can be 
                                             # used in instances 
     fhir:contextInvariant @<OneOrMore_string>?;  # FHIRPath invariants - when the 
                                             # extension can be used 
@@ -72,8 +82,8 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:derivation @<code> AND
     	{fhir:v @fhirvs:type-derivation-rule}?;  # specialization | constraint - How 
                                             # relates to base definition 
-    fhir:snapshot @<BackboneElement>?;      # Snapshot view of the structure
-    fhir:differential @<BackboneElement>?;  # Differential view of the structure
+    fhir:snapshot @<StructureDefinition.snapshot>?;  # Snapshot view of the structure
+    fhir:differential @<StructureDefinition.differential>?;  # Differential view of the structure
 }  
 
 # Snapshot view of the structure
@@ -81,6 +91,14 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:element @<OneOrMore_ElementDefinition>;  # Definition of elements in the 
                                             # resource (if no 
                                             # StructureDefinition) 
+}  
+
+# If an extension, where it can be used in instances
+<StructureDefinition.context> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:extension-context-type};  # fhirpath | element | extension
+    fhir:expression @<string>;              # Where the extension can be used in 
+                                            # instances 
 }  
 
 # Differential view of the structure
@@ -99,14 +117,6 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:name @<string>?;                   # Names what this mapping refers to
     fhir:comment @<string>?;                # Versions, Issues, Scope 
                                             # limitations etc. 
-}  
-
-# If an extension, where it can be used in instances
-<StructureDefinition.context> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:extension-context-type};  # fhirpath | element | extension
-    fhir:expression @<string>;              # Where the extension can be used in 
-                                            # instances 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -136,9 +146,14 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Coding> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_StructureDefinition.mapping> CLOSED {
+    rdf:first @<StructureDefinition.mapping>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_StructureDefinition.mapping> 
+}
+
+<OneOrMore_StructureDefinition.context> CLOSED {
+    rdf:first @<StructureDefinition.context>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_StructureDefinition.context> 
 }
 
 <OneOrMore_string> CLOSED {
@@ -153,17 +168,17 @@ start=@<StructureDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Defines the type of structure that a definition is describing.
-fhirvs:structure-definition-kind ["primitive-type" "complex-type" "resource" "logical"]
-
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+# All published FHIR Versions.
+fhirvs:FHIR-version ["0.01" "0.05" "0.06" "0.11" "0.0" "0.0.80" "0.0.81" "0.0.82" "0.4" "0.4.0" "0.5" "0.5.0" "1.0" "1.0.0" "1.0.1" "1.0.2" "1.1" "1.1.0" "1.4" "1.4.0" "1.6" "1.6.0" "1.8" "1.8.0" "3.0" "3.0.0" "3.0.1" "3.0.2" "3.3" "3.3.0" "3.5" "3.5.0" "4.0" "4.0.0" "4.0.1" "4.1" "4.1.0" "4.2" "4.2.0" "4.3" "4.3.0" "4.3.0-cibuild" "4.3.0-snapshot1" "4.4" "4.4.0" "4.5" "4.5.0" "4.6" "4.6.0" "5.0" "5.0.0" "5.0.0-cibuild" "5.0.0-snapshot1" "5.0.0-snapshot2" "5.0.0-ballot" "5.0.0-snapshot3"]
 
 # How an extension context is interpreted.
 fhirvs:extension-context-type ["fhirpath" "element" "extension"]
 
-# All published FHIR Versions.
-fhirvs:FHIR-version ["0.01" "0.05" "0.06" "0.11" "0.0" "0.0.80" "0.0.81" "0.0.82" "0.4" "0.4.0" "0.5" "0.5.0" "1.0" "1.0.0" "1.0.1" "1.0.2" "1.1" "1.1.0" "1.4" "1.4.0" "1.6" "1.6.0" "1.8" "1.8.0" "3.0" "3.0.0" "3.0.1" "3.0.2" "3.3" "3.3.0" "3.5" "3.5.0" "4.0" "4.0.0" "4.0.1" "4.1" "4.1.0" "4.2" "4.2.0" "4.3" "4.3.0" "4.4" "4.4.0" "4.5" "4.5.0" "4.6" "4.6.0"]
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Defines the type of structure that a definition is describing.
+fhirvs:structure-definition-kind ["primitive-type" "complex-type" "resource" "logical"]
 
 # How a type relates to its baseDefinition.
 fhirvs:type-derivation-rule ["specialization" "constraint"]

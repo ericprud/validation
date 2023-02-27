@@ -8,7 +8,8 @@ IMPORT <Quantity.shex>
 # A length - a value with a unit that is a physical distance
 <Distance> EXTENDS @<Quantity> CLOSED {   
 
-    a [fhir:Distance];
+    a [fhir:Distance]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 

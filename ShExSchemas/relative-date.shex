@@ -9,15 +9,17 @@ IMPORT <Extension.shex>
 # Relative Date Criteria
 <relative-date> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:relative-date];
+    a [fhir:relative-date]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:event @<Extension>; 
+
+    fhir:target @<Extension>; 
+    fhir:targetPath @<Extension>?; 
     fhir:relationship @<Extension>; 
     fhir:offset @<Extension>; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/relative-date"]}; 
-    ^fhir:extension { a [fhir:date] OR 
-          a [fhir:dateTime]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/relative-date"]}; 
+    ^fhir:extension { a [fhir:date]} OR 
+          {a [fhir:dateTime]}
+
 }  
 

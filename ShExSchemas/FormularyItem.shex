@@ -4,6 +4,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <code.shex>
+IMPORT <Identifier.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 
@@ -13,8 +14,9 @@ start=@<FormularyItem> AND {fhir:nodeRole [fhir:treeRoot]}
 # Definition of a FormularyItem
 <FormularyItem> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:FormularyItem];
+    a [fhir:FormularyItem]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier for this 
                                             # formulary item 
     fhir:code @<CodeableConcept>?;          # Codes that identify this formulary 

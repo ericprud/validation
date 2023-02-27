@@ -11,12 +11,13 @@ IMPORT <CodeSystem.shex>
 # Declares dependency on a particular supplment
 <valueset-supplement> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-supplement];
+    a [fhir:valueset-supplement]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-supplement"]}; 
-    fhir:v ((@<canonical>  AND {fhir:link @<CodeSystem> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ValueSet]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-supplement"]}; 
+    fhir:value (@<canonical>  AND {fhir:link @<CodeSystem> })  ; 
+    ^fhir:extension { a [fhir:ValueSet]}
+
 }  
 

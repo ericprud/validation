@@ -13,23 +13,24 @@ start=@<cholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 # Measurements and simple assertions
 <cholesterol> EXTENDS @<Observation> CLOSED {   
 
-    a [fhir:cholesterol];
+    a [fhir:cholesterol]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Cholesterol value
+<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Component results
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Cholesterol value
-<Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
+# Component results
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

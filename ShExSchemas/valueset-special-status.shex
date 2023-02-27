@@ -10,13 +10,14 @@ IMPORT <Extension.shex>
 # Special note about status for implementers
 <valueset-special-status> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-special-status];
+    a [fhir:valueset-special-status]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-special-status"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ValueSet] OR 
-          a [fhir:CodeSystem]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-special-status"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:ValueSet]} OR 
+          {a [fhir:CodeSystem]}
+
 }  
 

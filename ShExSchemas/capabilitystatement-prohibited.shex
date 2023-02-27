@@ -10,17 +10,18 @@ IMPORT <Extension.shex>
 # Functionality not allowed
 <capabilitystatement-prohibited> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:capabilitystatement-prohibited];
+    a [fhir:capabilitystatement-prohibited]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited"]}; 
-    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:interaction {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
-          ^fhir:searchParam {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
-          ^fhir:searchParam {^fhir:rest {a [fhir:CapabilityStatement]}} OR 
-          ^fhir:operation {^fhir:rest {a [fhir:CapabilityStatement]}} OR 
-          ^fhir:document {a [fhir:CapabilityStatement]} OR 
-          ^fhir:interaction {^fhir:rest {a [fhir:CapabilityStatement]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited"]}; 
+    fhir:value @<boolean>  ; 
+    ^fhir:extension { ^fhir:interaction {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}}} OR 
+          {^fhir:searchParam {^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}}} OR 
+          {^fhir:searchParam {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          {^fhir:operation {^fhir:rest {a [fhir:CapabilityStatement]}}} OR 
+          {^fhir:document {a [fhir:CapabilityStatement]}} OR 
+          {^fhir:interaction {^fhir:rest {a [fhir:CapabilityStatement]}}}
+
 }  
 

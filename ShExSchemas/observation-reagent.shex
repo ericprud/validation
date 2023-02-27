@@ -11,12 +11,13 @@ IMPORT <Substance.shex>
 # Reference to reagents used to generate this observation.
 <observation-reagent> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:observation-reagent];
+    a [fhir:observation-reagent]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-reagent"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Substance> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-reagent"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Substance> })  ; 
+    ^fhir:extension { a [fhir:Observation]}
+
 }  
 

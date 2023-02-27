@@ -11,18 +11,23 @@ IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <BackboneElement.shex>
+IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
-IMPORT <CanonicalResource.shex>
+IMPORT <BackboneElement.shex>
 
 
 start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The definition of a specific topic for triggering events within the Subscriptions framework
-<SubscriptionTopic> EXTENDS @<CanonicalResource> CLOSED {   
+<SubscriptionTopic> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:SubscriptionTopic];
+    a [fhir:SubscriptionTopic]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>;                        # Canonical identifier for this 
                                             # subscription topic definition, 
                                             # represented as a URI (globally 
@@ -53,22 +58,61 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:purpose @<markdown>?;              # Why this SubscriptionTopic is 
                                             # defined 
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
+    fhir:copyrightLabel @<string>?;         # Copyright holder and year(s)
     fhir:approvalDate @<date>?;             # When SubscriptionTopic is/was 
                                             # approved by publisher 
     fhir:lastReviewDate @<date>?;           # Date the Subscription Topic was 
                                             # last reviewed by the publisher 
     fhir:effectivePeriod @<Period>?;        # The effective date range for the 
                                             # SubscriptionTopic 
-    fhir:resourceTrigger @<OneOrMore_BackboneElement>?;  # Definition of a resource-based 
+    fhir:resourceTrigger @<OneOrMore_SubscriptionTopic.resourceTrigger>?;  # Definition of a resource-based 
                                             # trigger for the subscription topic 
-    fhir:eventTrigger @<OneOrMore_BackboneElement>?;  # Event definitions the 
+    fhir:eventTrigger @<OneOrMore_SubscriptionTopic.eventTrigger>?;  # Event definitions the 
                                             # SubscriptionTopic 
-    fhir:canFilterBy @<OneOrMore_BackboneElement>?;  # Properties by which a Subscription 
+    fhir:canFilterBy @<OneOrMore_SubscriptionTopic.canFilterBy>?;  # Properties by which a Subscription 
                                             # can filter notifications from the 
                                             # SubscriptionTopic 
-    fhir:notificationShape @<OneOrMore_BackboneElement>?;  # Properties for describing the 
+    fhir:notificationShape @<OneOrMore_SubscriptionTopic.notificationShape>?;  # Properties for describing the 
                                             # shape of notifications generated 
                                             # by this topic 
+}  
+
+# Definition of a resource-based trigger for the subscription topic
+<SubscriptionTopic.resourceTrigger> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<markdown>?;          # Text representation of the 
+                                            # resource trigger 
+    fhir:resource @<uri>;                   # Data Type or Resource (reference 
+                                            # to definition) for this trigger 
+                                            # definition 
+    fhir:supportedInteraction @<OneOrMore_code> AND
+    	{fhir:v @fhirvs:interaction-trigger}?;  # create | update | delete
+    fhir:queryCriteria @<SubscriptionTopic.resourceTrigger.queryCriteria>?;  # Query based trigger rule
+    fhir:fhirPathCriteria @<string>?;       # FHIRPath based trigger rule
+}  
+
+# Event definitions the SubscriptionTopic
+<SubscriptionTopic.eventTrigger> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:description @<markdown>?;          # Text representation of the event 
+                                            # trigger 
+    fhir:event @<CodeableConcept>;          # Event which can trigger a 
+                                            # notification from the 
+                                            # SubscriptionTopic 
+    fhir:resource @<uri>;                   # Data Type or Resource (reference 
+                                            # to definition) for this trigger 
+                                            # definition 
+}  
+
+# Query based trigger rule
+<SubscriptionTopic.resourceTrigger.queryCriteria> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:previous @<string>?;               # Rule applied to previous resource 
+                                            # state 
+    fhir:resultForCreate @<code> AND
+    	{fhir:v @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
+    fhir:current @<string>?;                # Rule applied to current resource 
+                                            # state 
+    fhir:resultForDelete @<code> AND
+    	{fhir:v @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
+    fhir:requireBoth @<boolean>?;           # Both must be true flag
 }  
 
 # Properties by which a Subscription can filter notifications from the SubscriptionTopic
@@ -91,32 +135,6 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # | not-in | of-type 
 }  
 
-# Definition of a resource-based trigger for the subscription topic
-<SubscriptionTopic.resourceTrigger> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<markdown>?;          # Text representation of the 
-                                            # resource trigger 
-    fhir:resource @<uri>;                   # Data Type or Resource (reference 
-                                            # to definition) for this trigger 
-                                            # definition 
-    fhir:supportedInteraction @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:interaction-trigger}?;  # create | update | delete
-    fhir:queryCriteria @<BackboneElement>?;  # Query based trigger rule
-    fhir:fhirPathCriteria @<string>?;       # FHIRPath based trigger rule
-}  
-
-# Query based trigger rule
-<SubscriptionTopic.resourceTrigger.queryCriteria> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:previous @<string>?;               # Rule applied to previous resource 
-                                            # state 
-    fhir:resultForCreate @<code> AND
-    	{fhir:v @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
-    fhir:current @<string>?;                # Rule applied to current resource 
-                                            # state 
-    fhir:resultForDelete @<code> AND
-    	{fhir:v @fhirvs:subscriptiontopic-cr-behavior}?;  # test-passes | test-fails
-    fhir:requireBoth @<boolean>?;           # Both must be true flag
-}  
-
 # Properties for describing the shape of notifications generated by this topic
 <SubscriptionTopic.notificationShape> EXTENDS @<BackboneElement> CLOSED {   
     fhir:resource @<uri>;                   # URL of the Resource that is the 
@@ -126,18 +144,6 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # resource for this shape 
     fhir:revInclude @<OneOrMore_string>?;   # Reverse include directives, rooted 
                                             # in the resource for this shape 
-}  
-
-# Event definitions the SubscriptionTopic
-<SubscriptionTopic.eventTrigger> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<markdown>?;          # Text representation of the event 
-                                            # trigger 
-    fhir:event @<CodeableConcept>;          # Event which can trigger a 
-                                            # notification from the 
-                                            # SubscriptionTopic 
-    fhir:resource @<uri>;                   # Data Type or Resource (reference 
-                                            # to definition) for this trigger 
-                                            # definition 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -167,9 +173,24 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_SubscriptionTopic.resourceTrigger> CLOSED {
+    rdf:first @<SubscriptionTopic.resourceTrigger>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubscriptionTopic.resourceTrigger> 
+}
+
+<OneOrMore_SubscriptionTopic.eventTrigger> CLOSED {
+    rdf:first @<SubscriptionTopic.eventTrigger>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubscriptionTopic.eventTrigger> 
+}
+
+<OneOrMore_SubscriptionTopic.canFilterBy> CLOSED {
+    rdf:first @<SubscriptionTopic.canFilterBy>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubscriptionTopic.canFilterBy> 
+}
+
+<OneOrMore_SubscriptionTopic.notificationShape> CLOSED {
+    rdf:first @<SubscriptionTopic.notificationShape>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubscriptionTopic.notificationShape> 
 }
 
 <OneOrMore_code> CLOSED {
@@ -184,15 +205,15 @@ start=@<SubscriptionTopic> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # FHIR RESTful interaction codes used for SubscriptionTopic trigger.
 fhirvs:interaction-trigger ["create" "update" "delete"]
 
-# Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).
-fhirvs:subscriptiontopic-cr-behavior ["test-passes" "test-fails"]
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # FHIR search modifiers allowed for use in Subscriptions and SubscriptionTopics.
 fhirvs:subscription-search-modifier ["=" "eq" "ne" "gt" "lt" "ge" "le" "sa" "eb" "ap" "above" "below" "in" "not-in" "of-type"]
+
+# Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).
+fhirvs:subscriptiontopic-cr-behavior ["test-passes" "test-fails"]
 

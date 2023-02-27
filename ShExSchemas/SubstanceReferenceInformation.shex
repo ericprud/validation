@@ -18,12 +18,20 @@ start=@<SubstanceReferenceInformation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Todo
 <SubstanceReferenceInformation> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:SubstanceReferenceInformation];
+    a [fhir:SubstanceReferenceInformation]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:comment @<string>?;                # Todo
-    fhir:gene @<OneOrMore_BackboneElement>?;  # Todo
-    fhir:geneElement @<OneOrMore_BackboneElement>?;  # Todo
-    fhir:target @<OneOrMore_BackboneElement>?;  # Todo
+    fhir:gene @<OneOrMore_SubstanceReferenceInformation.gene>?;  # Todo
+    fhir:geneElement @<OneOrMore_SubstanceReferenceInformation.geneElement>?;  # Todo
+    fhir:target @<OneOrMore_SubstanceReferenceInformation.target>?;  # Todo
+}  
+
+# Todo
+<SubstanceReferenceInformation.gene> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:geneSequenceOrigin @<CodeableConcept>?;  # Todo
+    fhir:gene @<CodeableConcept>?;          # Todo
+    fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
 }  
 
 # Todo
@@ -33,9 +41,9 @@ start=@<SubstanceReferenceInformation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:interaction @<CodeableConcept>?;   # Todo
     fhir:organism @<CodeableConcept>?;      # Todo
     fhir:organismType @<CodeableConcept>?;  # Todo
-    fhir:amount (@<Quantity>  OR 
+    fhir:amount @<Quantity>  OR 
     			@<Range>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # Todo
+    			@<string>  ?;  # Todo
     fhir:amountType @<CodeableConcept>?;    # Todo
     fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
 }  
@@ -47,18 +55,21 @@ start=@<SubstanceReferenceInformation> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
 }  
 
-# Todo
-<SubstanceReferenceInformation.gene> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:geneSequenceOrigin @<CodeableConcept>?;  # Todo
-    fhir:gene @<CodeableConcept>?;          # Todo
-    fhir:source @<OneOrMore_Reference_DocumentReference>?;  # Todo
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_SubstanceReferenceInformation.gene> CLOSED {
+    rdf:first @<SubstanceReferenceInformation.gene>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubstanceReferenceInformation.gene> 
+}
+
+<OneOrMore_SubstanceReferenceInformation.geneElement> CLOSED {
+    rdf:first @<SubstanceReferenceInformation.geneElement>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubstanceReferenceInformation.geneElement> 
+}
+
+<OneOrMore_SubstanceReferenceInformation.target> CLOSED {
+    rdf:first @<SubstanceReferenceInformation.target>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubstanceReferenceInformation.target> 
 }
 
 <OneOrMore_Reference_DocumentReference> CLOSED {

@@ -11,12 +11,13 @@ IMPORT <Reference.shex>
 # Pertains to goal
 <resource-pertainsToGoal> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:resource-pertainsToGoal];
+    a [fhir:resource-pertainsToGoal]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Goal> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Resource]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Goal> })  ; 
+    ^fhir:extension { a [fhir:Resource]}
+
 }  
 

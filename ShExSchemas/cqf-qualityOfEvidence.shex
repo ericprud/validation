@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # The quality of the evidence
 <cqf-qualityOfEvidence> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-qualityOfEvidence];
+    a [fhir:cqf-qualityOfEvidence]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

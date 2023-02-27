@@ -13,17 +13,17 @@ IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
-IMPORT <Quantity.shex>
 IMPORT <Duration.shex>
+IMPORT <Quantity.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Identifier.shex>
-IMPORT <Organization.shex>
-IMPORT <Practitioner.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
 IMPORT <DomainResource.shex>
 IMPORT <SimpleQuantity.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <PractitionerRole.shex>
 IMPORT <SubstanceDefinition.shex>
 
 
@@ -32,8 +32,9 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Kind of specimen
 <SpecimenDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:SpecimenDefinition];
+    a [fhir:SpecimenDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Logical canonical URL to reference 
                                             # this SpecimenDefinition (globally 
                                             # unique) 
@@ -49,14 +50,11 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # If this SpecimenDefinition is not 
                                             # for real usage 
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # Type of subject for specimen 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> })  ?;  # Type of subject for specimen 
                                             # collection 
     fhir:date @<dateTime>?;                 # Date status first applied
-    fhir:publisher @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # The name of the individual or 
+    fhir:publisher @<string>?;              # The name of the individual or 
                                             # organization that published the 
                                             # SpecimenDefinition 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
@@ -79,8 +77,24 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:patientPreparation @<OneOrMore_CodeableConcept>?;  # Patient preparation for collection
     fhir:timeAspect @<string>?;             # Time aspect for collection
     fhir:collection @<OneOrMore_CodeableConcept>?;  # Specimen collection procedure
-    fhir:typeTested @<OneOrMore_BackboneElement>?;  # Specimen in container intended for 
+    fhir:typeTested @<OneOrMore_SpecimenDefinition.typeTested>?;  # Specimen in container intended for 
                                             # testing by lab 
+}  
+
+# Additive associated with container
+<SpecimenDefinition.typeTested.container.additive> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:additive @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<SubstanceDefinition> })  ;  # Additive associated with container
+}  
+
+# Specimen handling before testing
+<SpecimenDefinition.typeTested.handling> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:temperatureQualifier @<CodeableConcept>?;  # Qualifies the interval of 
+                                            # temperature 
+    fhir:temperatureRange @<Range>?;        # Temperature range for these 
+                                            # handling instructions 
+    fhir:maxDuration @<Duration>?;          # Maximum preservation time
+    fhir:instruction @<string>?;            # Preservation instruction
 }  
 
 # The specimen's container
@@ -94,27 +108,11 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # container 
     fhir:capacity @<Quantity>?;             # The capacity of this kind of 
                                             # container 
-    fhir:minimumVolume (@<SimpleQuantity>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # Minimum volume
-    fhir:additive @<OneOrMore_BackboneElement>?;  # Additive associated with container
+    fhir:minimumVolume @<SimpleQuantity>  OR 
+    			@<string>  ?;  # Minimum volume
+    fhir:additive @<OneOrMore_SpecimenDefinition.typeTested.container.additive>?;  # Additive associated with container
     fhir:preparation @<string>?;            # Special processing applied to the 
                                             # container for this specimen type 
-}  
-
-# Additive associated with container
-<SpecimenDefinition.typeTested.container.additive> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:additive (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<SubstanceDefinition> }) )  AND { rdf:type IRI } ;  # Additive associated with container
-}  
-
-# Specimen handling before testing
-<SpecimenDefinition.typeTested.handling> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:temperatureQualifier @<CodeableConcept>?;  # Qualifies the interval of 
-                                            # temperature 
-    fhir:temperatureRange @<Range>?;        # Temperature range for these 
-                                            # handling instructions 
-    fhir:maxDuration @<Duration>?;          # Maximum preservation time
-    fhir:instruction @<string>?;            # Preservation instruction
 }  
 
 # Specimen in container intended for testing by lab
@@ -123,7 +121,7 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>?;          # Type of intended specimen
     fhir:preference @<code> AND
     	{fhir:v @fhirvs:specimen-contained-preference};  # preferred | alternate
-    fhir:container @<BackboneElement>?;     # The specimen's container
+    fhir:container @<SpecimenDefinition.typeTested.container>?;  # The specimen's container
     fhir:requirement @<string>?;            # Requirements for specimen delivery 
                                             # and special handling 
     fhir:retentionTime @<Duration>?;        # The usual time for retaining this 
@@ -131,7 +129,7 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:singleUse @<boolean>?;             # Specimen for single use only
     fhir:rejectionCriterion @<OneOrMore_CodeableConcept>?;  # Criterion specified for specimen 
                                             # rejection 
-    fhir:handling @<OneOrMore_BackboneElement>?;  # Specimen handling before testing
+    fhir:handling @<OneOrMore_SpecimenDefinition.typeTested.handling>?;  # Specimen handling before testing
     fhir:testingDestination @<OneOrMore_CodeableConcept>?;  # Where the specimen will be tested
 }  
 
@@ -162,16 +160,26 @@ start=@<SpecimenDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_SpecimenDefinition.typeTested> CLOSED {
+    rdf:first @<SpecimenDefinition.typeTested>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested> 
+}
+
+<OneOrMore_SpecimenDefinition.typeTested.container.additive> CLOSED {
+    rdf:first @<SpecimenDefinition.typeTested.container.additive>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested.container.additive> 
+}
+
+<OneOrMore_SpecimenDefinition.typeTested.handling> CLOSED {
+    rdf:first @<SpecimenDefinition.typeTested.handling>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SpecimenDefinition.typeTested.handling> 
 }
 
 #---------------------- Value Sets ------------------------
 
-# Degree of preference of a type of conditioned specimen.
-fhirvs:specimen-contained-preference ["preferred" "alternate"]
-
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
+# Degree of preference of a type of conditioned specimen.
+fhirvs:specimen-contained-preference ["preferred" "alternate"]
 

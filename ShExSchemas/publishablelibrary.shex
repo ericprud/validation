@@ -12,8 +12,9 @@ start=@<publishablelibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Represents a library of quality improvement components
 <publishablelibrary> EXTENDS @<shareablelibrary> CLOSED {   
 
-    a [fhir:publishablelibrary];
+    a [fhir:publishablelibrary]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Additional documentation, citations, etc.

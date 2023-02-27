@@ -10,35 +10,44 @@ IMPORT <ElementDefinition.shex>
 # Definition of an element in a resource or extension
 <elementdefinition-de> EXTENDS @<ElementDefinition> CLOSED {   
 
-    a [fhir:elementdefinition-de];
+    a [fhir:elementdefinition-de]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:Question @<OneOrMore_Extension>?;  # Prompt for element phrased as 
                                             # question 
     fhir:AllowedUnits @<Extension>?;        # Units to use for measured value
-}  
-
-# Element values that are used to distinguish the slices
-<ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
 }  
 
 # Example value (as defined for type)
 <ElementDefinition.example> EXTENDS @<Element> CLOSED {   
 }  
 
+# This element is sliced - slices follow
+<ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
+}  
+
 # Base definition information for tools
 <ElementDefinition.base> EXTENDS @<Element> CLOSED {   
 }  
 
-# ValueSet details if this is coded
-<ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
+# Additional Bindings - more rules about the binding
+<ElementDefinition.binding.additional> EXTENDS @<Element> CLOSED {   
 }  
 
 # Map element to another set of definitions
 <ElementDefinition.mapping> EXTENDS @<Element> CLOSED {   
 }  
 
-# This element is sliced - slices follow
-<ElementDefinition.slicing> EXTENDS @<Element> CLOSED {   
+# Element values that are used to distinguish the slices
+<ElementDefinition.slicing.discriminator> EXTENDS @<Element> CLOSED {   
+}  
+
+# Documents obligations for applications making use of this element
+<ElementDefinition.obligation> EXTENDS @<Element> CLOSED {   
+}  
+
+# ValueSet details if this is coded
+<ElementDefinition.binding> EXTENDS @<Element> CLOSED {   
 }  
 
 # Data type and Profile for this element

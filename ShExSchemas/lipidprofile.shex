@@ -12,8 +12,13 @@ start=@<lipidprofile> AND {fhir:nodeRole [fhir:treeRoot]}
 # Lipid Lab Report
 <lipidprofile> EXTENDS @<DiagnosticReport> CLOSED {   
 
-    a [fhir:lipidprofile];
+    a [fhir:lipidprofile]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Additional information supporting the diagnostic report
+<DiagnosticReport.supportingInfo> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Key images or data associated with this report

@@ -11,7 +11,8 @@ start=@<shareablelibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Represents a library of quality improvement components
 <shareablelibrary> EXTENDS @<Library> CLOSED {   
 
-    a [fhir:shareablelibrary];
+    a [fhir:shareablelibrary]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 

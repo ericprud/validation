@@ -5,14 +5,16 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <id.shex>
 IMPORT <uri.shex>
+IMPORT <Coding.shex>
 IMPORT <instant.shex>
 IMPORT <DataType.shex>
+IMPORT <canonical.shex>
 
 # Metadata about a resource
 <Meta> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Meta];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Meta]?;
+
     fhir:versionId @<id>?;                  # Version specific identifier
     fhir:lastUpdated @<instant>?;           # When the resource version last 
                                             # changed 

@@ -4,6 +4,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <code.shex>
+IMPORT <Coding.shex>
 IMPORT <Device.shex>
 IMPORT <instant.shex>
 IMPORT <Patient.shex>
@@ -18,8 +19,8 @@ IMPORT <PractitionerRole.shex>
 # A Signature - XML DigSig, JWS, Graphical image of signature, etc.
 <Signature> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Signature];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Signature]?;
+
     fhir:type @<OneOrMore_Coding>?;         # Indication of the reason the 
                                             # entity signed the object(s) 
     fhir:when @<instant>?;                  # When the signature was created
@@ -29,14 +30,14 @@ IMPORT <PractitionerRole.shex>
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who signed
+    			@<RelatedPerson> ? }?;  # Who signed
     fhir:onBehalfOf @<Reference> AND {fhir:link 
     			@<Device> OR 
     			@<Organization> OR 
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # The party represented
+    			@<RelatedPerson> ? }?;  # The party represented
     fhir:targetFormat @<code> AND
     	{fhir:v @fhirvs:mimetypes}?;  # The technical format of the signed 
                                             # resources 
@@ -57,5 +58,5 @@ IMPORT <PractitionerRole.shex>
 #---------------------- Value Sets ------------------------
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes xsd:string # EXTERNAL
+fhirvs:mimetypes xsd:string #EXTERNAL
 

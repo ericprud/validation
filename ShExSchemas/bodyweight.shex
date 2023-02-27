@@ -15,28 +15,13 @@ start=@<bodyweight> AND {fhir:nodeRole [fhir:treeRoot]}
 # FHIR Body Weight Profile
 <bodyweight> EXTENDS @<vitalsigns> CLOSED {   
 
-    a [fhir:bodyweight];
+    a [fhir:bodyweight]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
-# Body Weight
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
-}  
-
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Triggering observation(s)
@@ -49,5 +34,21 @@ start=@<bodyweight> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
+# Body Weight
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 

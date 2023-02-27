@@ -9,13 +9,14 @@ IMPORT <Extension.shex>
 # The absolute geographic location
 <geolocation> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:geolocation];
+    a [fhir:geolocation]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:latitude @<Extension>; 
     fhir:longitude @<Extension>; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/geolocation"]}; 
-    ^fhir:extension { a [fhir:Address]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/geolocation"]}; 
+    ^fhir:extension { a [fhir:Address]}
+
 }  
 

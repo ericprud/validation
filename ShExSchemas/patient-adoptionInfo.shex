@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # The adoption status of the patient
 <patient-adoptionInfo> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:patient-adoptionInfo];
+    a [fhir:patient-adoptionInfo]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-adoptionInfo"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Patient]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-adoptionInfo"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Patient]}
+
 }  
 

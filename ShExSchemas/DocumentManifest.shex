@@ -27,8 +27,9 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
 # A list that defines a set of documents
 <DocumentManifest> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:DocumentManifest];
+    a [fhir:DocumentManifest]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:masterIdentifier @<Identifier>?;   # Unique Identifier for the set of 
                                             # documents 
     fhir:identifier @<OneOrMore_Identifier>?;  # Other identifiers for the manifest
@@ -40,7 +41,7 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Device> OR 
     			@<Group> OR 
     			@<Patient> OR 
-    			@<Practitioner> }?;  # The subject of the set of documents
+    			@<Practitioner> ? }?;  # The subject of the set of documents
     fhir:created @<dateTime>?;              # When this document manifest created
     fhir:author @<OneOrMore_Reference_Device_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who and/or what authored the 
                                             # DocumentManifest 
@@ -50,7 +51,7 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # system/application/software 
     fhir:description @<string>?;            # Human-readable description (title)
     fhir:content @<OneOrMore_Reference_Resource>;  # Items in manifest
-    fhir:related @<OneOrMore_BackboneElement>?;  # Related things
+    fhir:related @<OneOrMore_DocumentManifest.related>?;  # Related things
 }  
 
 # Related things
@@ -58,7 +59,7 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:identifier @<Identifier>?;         # Identifiers of things that are 
                                             # related 
     fhir:ref @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Related Resource
+    			@<Resource> ? }?;  # Related Resource
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -95,9 +96,9 @@ start=@<DocumentManifest> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_DocumentManifest.related> CLOSED {
+    rdf:first @<DocumentManifest.related>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_DocumentManifest.related> 
 }
 
 #---------------------- Value Sets ------------------------

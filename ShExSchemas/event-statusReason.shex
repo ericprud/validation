@@ -10,16 +10,17 @@ IMPORT <CodeableConcept.shex>
 # Reason for current status
 <event-statusReason> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:event-statusReason];
+    a [fhir:event-statusReason]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/event-statusReason"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation] OR 
-          a [fhir:DiagnosticReport] OR 
-          a [fhir:DocumentReference] OR 
-          a [fhir:SupplyDelivery] OR 
-          a [fhir:DeviceUsage]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-statusReason"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Observation]} OR 
+          {a [fhir:DiagnosticReport]} OR 
+          {a [fhir:DocumentReference]} OR 
+          {a [fhir:SupplyDelivery]} OR 
+          {a [fhir:DeviceUsage]}
+
 }  
 

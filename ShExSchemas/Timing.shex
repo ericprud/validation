@@ -4,10 +4,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <code.shex>
+IMPORT <time.shex>
 IMPORT <Range.shex>
 IMPORT <Period.shex>
 IMPORT <Element.shex>
 IMPORT <decimal.shex>
+IMPORT <dateTime.shex>
 IMPORT <Duration.shex>
 IMPORT <positiveInt.shex>
 IMPORT <unsignedInt.shex>
@@ -17,8 +19,9 @@ IMPORT <CodeableConcept.shex>
 # A timing schedule that specifies an event that may occur multiple times
 <Timing> EXTENDS @<BackboneType> CLOSED {   
 
-    a [fhir:Timing];
+    a [fhir:Timing]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:event @<OneOrMore_dateTime>?;      # When the event occurs
     fhir:repeat @<Element>?;                # When the event is to occur
     fhir:code @<CodeableConcept>?;          # C | BID | TID | QID | AM | PM | QD 
@@ -27,9 +30,9 @@ IMPORT <CodeableConcept.shex>
 
 # When the event is to occur
 <Timing.repeat> EXTENDS @<Element> CLOSED {   
-    fhir:bounds (@<Duration>  OR 
+    fhir:bounds @<Duration>  OR 
     			@<Range>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Length/Range of lengths, or (Start 
+    			@<Period>  ?;  # Length/Range of lengths, or (Start 
                                             # and/or end) limits 
     fhir:count @<positiveInt>?;             # Number of times to repeat
     fhir:countMax @<positiveInt>?;          # Maximum number of times to repeat
@@ -80,12 +83,12 @@ IMPORT <CodeableConcept.shex>
 
 #---------------------- Value Sets ------------------------
 
+# The days of the week.
+fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
+
 # Real world event relating to the schedule.
 fhirvs:event-timing ["MORN" "MORN.early" "MORN.late" "NOON" "AFT" "AFT.early" "AFT.late" "EVE" "EVE.early" "EVE.late" "NIGHT" "PHS" "IMD" "HS" "WAKE" "C" "CM" "CD" "CV" "AC" "ACM" "ACD" "ACV" "PC" "PCM" "PCD" "PCV"]
 
 # A unit of time (units from UCUM).
-fhirvs:units-of-time xsd:string # EXTERNAL
-
-# The days of the week.
-fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
+fhirvs:units-of-time xsd:string #EXTERNAL
 

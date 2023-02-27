@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # External Identifier associated with this element
 <identifier-validDate> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:identifier-validDate];
+    a [fhir:identifier-validDate]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/identifier-validDate"]}; 
-    fhir:v (@<dateTime> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Identifier]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/identifier-validDate"]}; 
+    fhir:value @<dateTime>  ; 
+    ^fhir:extension { a [fhir:Identifier]}
+
 }  
 

@@ -5,14 +5,17 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <code.shex>
 IMPORT <date.shex>
-IMPORT <Person.shex>
 IMPORT <boolean.shex>
+IMPORT <Address.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
+IMPORT <HumanName.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <ContactPoint.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
-IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
@@ -23,8 +26,9 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
 # A generic person record
 <Person> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Person];
+    a [fhir:Person]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # A human identifier for this person
     fhir:active @<boolean>?;                # This person's record is in active 
                                             # use 
@@ -34,29 +38,21 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:administrative-gender}?;  # male | female | other | unknown
     fhir:birthDate @<date>?;                # The date on which the person was 
                                             # born 
-    fhir:deceased (@<boolean>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # Indicates if the individual is 
+    fhir:deceased @<boolean>  OR 
+    			@<dateTime>  ?;  # Indicates if the individual is 
                                             # deceased or not 
     fhir:address @<OneOrMore_Address>?;     # One or more addresses for the 
                                             # person 
     fhir:maritalStatus @<CodeableConcept>?;  # Marital (civil) status of a person
     fhir:photo @<OneOrMore_Attachment>?;    # Image of the person
+    fhir:communication @<OneOrMore_Person.communication>?;  # A language which may be used to 
+                                            # communicate with the person about 
+                                            # his or her health 
     fhir:managingOrganization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # The organization that is the 
+    			@<Organization> ? }?;  # The organization that is the 
                                             # custodian of the person record 
-    fhir:communication @<OneOrMore_BackboneElement>?;  # A language which may be used to 
-                                            # communicate with the person about 
-                                            # his or her health 
-    fhir:link @<OneOrMore_BackboneElement>?;  # Link to a resource that concerns 
+    fhir:link @<OneOrMore_Person.link>?;    # Link to a resource that concerns 
                                             # the same actual person 
-}  
-
-# A language which may be used to communicate with the person about his or her health
-<Person.communication> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:language @<CodeableConcept>;       # The language which can be used to 
-                                            # communicate with the person about 
-                                            # his or her health 
-    fhir:preferred @<boolean>?;             # Language preference indicator
 }  
 
 # Link to a resource that concerns the same actual person
@@ -65,10 +61,18 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Person> OR 
     			@<Practitioner> OR 
-    			@<RelatedPerson> };  # The resource to which this actual 
+    			@<RelatedPerson> ? };  # The resource to which this actual 
                                             # person is associated 
     fhir:assurance @<code> AND
     	{fhir:v @fhirvs:identity-assuranceLevel}?;  # level1 | level2 | level3 | level4
+}  
+
+# A language which may be used to communicate with the person about his or her health
+<Person.communication> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:language @<CodeableConcept>;       # The language which can be used to 
+                                            # communicate with the person about 
+                                            # his or her health 
+    fhir:preferred @<boolean>?;             # Language preference indicator
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -98,16 +102,21 @@ start=@<Person> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Attachment> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Person.communication> CLOSED {
+    rdf:first @<Person.communication>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Person.communication> 
+}
+
+<OneOrMore_Person.link> CLOSED {
+    rdf:first @<Person.link>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Person.link> 
 }
 
 #---------------------- Value Sets ------------------------
 
-# The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
-fhirvs:identity-assuranceLevel ["level1" "level2" "level3" "level4"]
-
 # The gender of a person used for administrative purposes.
 fhirvs:administrative-gender ["male" "female" "other" "unknown"]
+
+# The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
+fhirvs:identity-assuranceLevel ["level1" "level2" "level3" "level4"]
 

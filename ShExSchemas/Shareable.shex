@@ -4,30 +4,35 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <uri.shex>
+IMPORT <Base.shex>
 IMPORT <code.shex>
 IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <markdown.shex>
+IMPORT <CodeableConcept.shex>
 
 # Shareable Pattern
-<Shareable> CLOSED {   
+<Shareable> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Shareable];
+    a [fhir:Shareable]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>;                        # Canonical identifier for this 
                                             # {{title}}, represented as a URI 
                                             # (globally unique) 
     fhir:version @<string>;                 # Business version of the {{title}}
+    fhir:name @<string>?;                   # Name for this {{title}} (computer 
+                                            # friendly) 
+    fhir:title @<string>;                   # Name for this {{title}} 
+                                            # (human-friendly) 
     fhir:status @<code> AND
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
-    fhir:publisher @<string>;               # Name of the publisher (or steward) 
+    fhir:publisher @<string>?;              # Name of the publisher (or steward) 
                                             # (organization or individual) 
     fhir:description @<markdown>;           # Natural language description of 
                                             # the {{title}} 
-    fhir:knowledgeCapability @<OneOrMore_CodeableConcept>?;  # shareable | publishable | 
-                                            # computable | executable 
     fhir:knowledgeRepresentationLevel @<OneOrMore_CodeableConcept>?;  # narrative | semi-structured | 
                                             # structured | executable 
 }  

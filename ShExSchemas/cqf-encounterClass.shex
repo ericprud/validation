@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Extension
 <cqf-encounterClass> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-encounterClass];
+    a [fhir:cqf-encounterClass]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-encounterClass"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Basic]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-encounterClass"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Basic]}
+
 }  
 

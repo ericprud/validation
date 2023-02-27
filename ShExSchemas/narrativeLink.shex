@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Narrative Link
 <narrativeLink> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:narrativeLink];
+    a [fhir:narrativeLink]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/narrativeLink"]}; 
-    fhir:v (@<url> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/narrativeLink"]}; 
+    fhir:value @<url>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

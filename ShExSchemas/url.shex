@@ -9,5 +9,6 @@ IMPORT <uri.shex>
 <url> EXTENDS @<uri> CLOSED {   
 
     a [fhir:url]?;
+
 }  
 

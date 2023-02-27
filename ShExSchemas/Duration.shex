@@ -8,7 +8,8 @@ IMPORT <Quantity.shex>
 # A length of time
 <Duration> EXTENDS @<Quantity> CLOSED {   
 
-    a [fhir:Duration];
+    a [fhir:Duration]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 

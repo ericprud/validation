@@ -11,12 +11,13 @@ IMPORT <StructureDefinition.shex>
 # Declares the profile(s) a coding is added to for conformance purposes
 <coding-conformance> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:coding-conformance];
+    a [fhir:coding-conformance]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/coding-conformance"]}; 
-    fhir:v ((@<canonical>  AND {fhir:link @<StructureDefinition> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Coding]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/coding-conformance"]}; 
+    fhir:value (@<canonical>  AND {fhir:link @<StructureDefinition> })  ; 
+    ^fhir:extension { a [fhir:Coding]}
+
 }  
 

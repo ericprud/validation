@@ -12,8 +12,9 @@ start=@<groupdefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # Group of multiple entities
 <groupdefinition> EXTENDS @<Group> CLOSED {   
 
-    a [fhir:groupdefinition];
+    a [fhir:groupdefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Who or what is in group

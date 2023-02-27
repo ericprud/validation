@@ -5,26 +5,35 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <uri.shex>
 IMPORT <code.shex>
+IMPORT <date.shex>
 IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <MetadataResource.shex>
 
 
 start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # System of unique identification
-<NamingSystem> EXTENDS @<MetadataResource> CLOSED {   
+<NamingSystem> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:NamingSystem];
+    a [fhir:NamingSystem]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # naming system, represented as a 
                                             # URI (globally unique) 
+    fhir:identifier @<OneOrMore_Identifier>?;  # Additional identifier for the 
+                                            # naming system (business 
+                                            # identifier) 
     fhir:version @<string>?;                # Business version of the naming 
                                             # system 
     fhir:name @<string>;                    # Name for this naming system 
@@ -35,8 +44,10 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:kind @<code> AND
     	{fhir:v @fhirvs:namingsystem-type};  # codesystem | identifier | root
+    fhir:experimental @<boolean>?;          # For testing purposes, not real 
+                                            # usage 
     fhir:date @<dateTime>;                  # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:responsible @<string>?;            # Who maintains system namespace?
@@ -48,8 +59,24 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # intended to support 
     fhir:jurisdiction @<OneOrMore_CodeableConcept>?;  # Intended jurisdiction for naming 
                                             # system (if applicable) 
+    fhir:purpose @<markdown>?;              # Why this naming system is defined
+    fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
+    fhir:approvalDate @<date>?;             # When the NamingSystem was approved 
+                                            # by publisher 
+    fhir:lastReviewDate @<date>?;           # When the NamingSystem was last 
+                                            # reviewed 
+    fhir:effectivePeriod @<Period>?;        # When the NamingSystem is expected 
+                                            # to be used 
+    fhir:topic @<OneOrMore_CodeableConcept>?;  # E.g. Education, Treatment, 
+                                            # Assessment, etc. 
+    fhir:author @<OneOrMore_ContactDetail>?;  # Who authored the CodeSystem
+    fhir:editor @<OneOrMore_ContactDetail>?;  # Who edited the NamingSystem
+    fhir:reviewer @<OneOrMore_ContactDetail>?;  # Who reviewed the NamingSystem
+    fhir:endorser @<OneOrMore_ContactDetail>?;  # Who endorsed the NamingSystem
+    fhir:relatedArtifact @<OneOrMore_RelatedArtifact>?;  # Additional documentation, 
+                                            # citations, etc. 
     fhir:usage @<string>?;                  # How/where is it used
-    fhir:uniqueId @<OneOrMore_BackboneElement>;  # Unique identifiers used for system
+    fhir:uniqueId @<OneOrMore_NamingSystem.uniqueId>;  # Unique identifiers used for system
 }  
 
 # Unique identifiers used for system
@@ -57,7 +84,7 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<code> AND
     	{fhir:v @fhirvs:namingsystem-identifier-type};  # oid | uuid | uri | v2csmnemonic | 
                                             # other 
-    fhir:v @<string>;                   # The unique identifier
+    fhir:value @<string>;                   # The unique identifier
     fhir:preferred @<boolean>?;             # Is this the id that should be used 
                                             # for this type 
     fhir:comment @<string>?;                # Notes about identifier usage
@@ -67,6 +94,11 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
+
+<OneOrMore_Identifier> CLOSED {
+    rdf:first @<Identifier>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
+}
 
 <OneOrMore_ContactDetail> CLOSED {
     rdf:first @<ContactDetail>  ;
@@ -83,9 +115,14 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_RelatedArtifact> CLOSED {
+    rdf:first @<RelatedArtifact>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_RelatedArtifact> 
+}
+
+<OneOrMore_NamingSystem.uniqueId> CLOSED {
+    rdf:first @<NamingSystem.uniqueId>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_NamingSystem.uniqueId> 
 }
 
 #---------------------- Value Sets ------------------------
@@ -93,9 +130,9 @@ start=@<NamingSystem> AND {fhir:nodeRole [fhir:treeRoot]}
 # Identifies the style of unique identifier used to identify a namespace.
 fhirvs:namingsystem-identifier-type ["oid" "uuid" "uri" "v2csmnemonic" "other"]
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # Identifies the purpose of the naming system.
 fhirvs:namingsystem-type ["codesystem" "identifier" "root"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

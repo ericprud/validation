@@ -5,8 +5,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <Coding.shex>
 IMPORT <Observation.shex>
-IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
 
 
 start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -14,8 +14,17 @@ start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
 # FHIR Vital Signs Profile
 <vitalsigns> EXTENDS @<Observation> CLOSED {   
 
-    a [fhir:vitalsigns];
+    a [fhir:vitalsigns]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Provides guide for interpretation
+<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Triggering observation(s)
+<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Code defined by a terminology system
@@ -26,15 +35,7 @@ start=@<vitalsigns> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
-# Provides guide for interpretation
-<Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
 # Used when reporting systolic and diastolic blood pressure.
 <Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Triggering observation(s)
-<Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

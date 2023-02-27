@@ -4,6 +4,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <code.shex>
+IMPORT <date.shex>
 IMPORT <string.shex>
 IMPORT <DataType.shex>
 IMPORT <markdown.shex>
@@ -11,12 +12,13 @@ IMPORT <Resource.shex>
 IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Attachment.shex>
+IMPORT <CodeableConcept.shex>
 
 # Related artifacts for a knowledge resource
 <RelatedArtifact> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:RelatedArtifact];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:RelatedArtifact]?;
+
     fhir:type @<code> AND
     	{fhir:v @fhirvs:related-artifact-type};  # documentation | justification | 
                                             # citation | predecessor | successor 
@@ -31,7 +33,9 @@ IMPORT <Attachment.shex>
                                             # retracted-by | signs | similar-to 
                                             # | supports | supported-with | 
                                             # transforms | transformed-into | 
-                                            # transformed-with 
+                                            # transformed-with | documents | 
+                                            # specification-of | created-with | 
+                                            # cite-as 
     fhir:classifier @<OneOrMore_CodeableConcept>?;  # Additional classifiers
     fhir:label @<string>?;                  # Short label
     fhir:display @<string>?;                # Brief description of the related 
@@ -41,8 +45,12 @@ IMPORT <Attachment.shex>
     fhir:document @<Attachment>?;           # What document is being referenced
     fhir:resource @<canonical>?;            # What artifact is being referenced
     fhir:resourceReference @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # What artifact, if not a 
+    			@<Resource> ? }?;  # What artifact, if not a 
                                             # conformance resource 
+    fhir:publicationStatus @<code> AND
+    	{fhir:v @fhirvs:publication-status}?;  # draft | active | retired | unknown
+    fhir:publicationDate @<date>?;          # Date of publication of the 
+                                            # artifact being referred to 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -54,6 +62,9 @@ IMPORT <Attachment.shex>
 
 #---------------------- Value Sets ------------------------
 
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+
 # The type of relationship to the related artifact.
-fhirvs:related-artifact-type ["documentation" "justification" "citation" "predecessor" "successor" "derived-from" "depends-on" "composed-of" "part-of" "amends" "amended-with" "appends" "appended-with" "cites" "cited-by" "comments-on" "comment-in" "contains" "contained-in" "corrects" "correction-in" "replaces" "replaced-with" "retracts" "retracted-by" "signs" "similar-to" "supports" "supported-with" "transforms" "transformed-into" "transformed-with"]
+fhirvs:related-artifact-type ["documentation" "justification" "citation" "predecessor" "successor" "derived-from" "depends-on" "composed-of" "part-of" "amends" "amended-with" "appends" "appended-with" "cites" "cited-by" "comments-on" "comment-in" "contains" "contained-in" "corrects" "correction-in" "replaces" "replaced-with" "retracts" "retracted-by" "signs" "similar-to" "supports" "supported-with" "transforms" "transformed-into" "transformed-with" "documents" "specification-of" "created-with" "cite-as"]
 

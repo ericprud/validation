@@ -6,8 +6,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <Coding.shex>
 IMPORT <Quantity.shex>
 IMPORT <vitalsigns.shex>
-IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <CodeableConcept.shex>
 
 
 start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -15,16 +15,13 @@ start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
 # FHIR Oxygen Saturation Profile
 <oxygensat> EXTENDS @<vitalsigns> CLOSED {   
 
-    a [fhir:oxygensat];
+    a [fhir:oxygensat]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.
 <Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
-}  
-
-# Oxygen Saturation
-<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Triggering observation(s)
@@ -35,12 +32,8 @@ start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
 }  
 
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+# Oxygen Saturation
+<Observation.code> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Code defined by a terminology system
@@ -49,5 +42,13 @@ start=@<oxygensat> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Provides guide for interpretation
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 

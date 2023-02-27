@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # RFC 3966 compliant telephone or fax number
 <iso21090-TEL-address> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-TEL-address];
+    a [fhir:iso21090-TEL-address]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"]}; 
-    fhir:v (@<url> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ContactPoint]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"]}; 
+    fhir:value @<url>  ; 
+    ^fhir:extension { a [fhir:ContactPoint]}
+
 }  
 

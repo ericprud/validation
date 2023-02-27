@@ -9,7 +9,10 @@ IMPORT <instant.shex>
 IMPORT <boolean.shex>
 IMPORT <Schedule.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <CodeableReference.shex>
 
 
 start=@<Slot> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -17,8 +20,9 @@ start=@<Slot> AND {fhir:nodeRole [fhir:treeRoot]}
 # A slot of time on a schedule that may be available for booking appointments
 <Slot> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Slot];
+    a [fhir:Slot]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Ids for this item
     fhir:serviceCategory @<OneOrMore_CodeableConcept>?;  # A broad categorization of the 
                                             # service that is to be performed 
@@ -39,7 +43,7 @@ start=@<Slot> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # patient that may be booked in the 
                                             # slot (not service type) 
     fhir:schedule @<Reference> AND {fhir:link 
-    			@<Schedule> };  # The schedule resource that this 
+    			@<Schedule> ? };  # The schedule resource that this 
                                             # slot defines an interval of status 
                                             # information 
     fhir:status @<code> AND

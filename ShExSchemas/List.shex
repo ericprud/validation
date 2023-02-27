@@ -4,17 +4,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <code.shex>
-IMPORT <Group.shex>
 IMPORT <string.shex>
 IMPORT <Device.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
-IMPORT <Location.shex>
+IMPORT <Resource.shex>
 IMPORT <dateTime.shex>
 IMPORT <CareTeam.shex>
-IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
@@ -29,8 +29,9 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
 # A list is a curated collection of resources
 <List> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:List];
+    a [fhir:List]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
     fhir:status @<code> AND
     	{fhir:v @fhirvs:list-status};  # current | retired | 
@@ -40,13 +41,10 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:title @<string>?;                  # Descriptive name for the list
     fhir:code @<CodeableConcept>?;          # What the purpose of this list is
     fhir:subject @<Reference> AND {fhir:link 
-    			@<Device> OR 
-    			@<Group> OR 
-    			@<Location> OR 
-    			@<Patient> }?;  # If all resources have the same 
+    			@<Resource> ? }?;  # If all resources have the same 
                                             # subject 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Context in which list created
+    			@<Encounter> ? }?;  # Context in which list created
     fhir:date @<dateTime>?;                 # When the list was prepared
     fhir:source @<Reference> AND {fhir:link 
     			@<CareTeam> OR 
@@ -55,11 +53,11 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who and/or what defined the list 
+    			@<RelatedPerson> ? }?;  # Who and/or what defined the list 
                                             # contents (aka Author) 
     fhir:orderedBy @<CodeableConcept>?;     # What order the list has
     fhir:note @<OneOrMore_Annotation>?;     # Comments about the list
-    fhir:entry @<OneOrMore_BackboneElement>?;  # Entries in the list
+    fhir:entry @<OneOrMore_List.entry>?;    # Entries in the list
     fhir:emptyReason @<CodeableConcept>?;   # Why list is empty
 }  
 
@@ -71,7 +69,7 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # deleted 
     fhir:date @<dateTime>?;                 # When item added to list
     fhir:item @<Reference> AND {fhir:link 
-    			@<Resource> };  # Actual entry
+    			@<Resource> ? };  # Actual entry
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -86,16 +84,16 @@ start=@<List> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Annotation> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_List.entry> CLOSED {
+    rdf:first @<List.entry>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_List.entry> 
 }
 
 #---------------------- Value Sets ------------------------
 
-# The current state of the list.
-fhirvs:list-status ["current" "retired" "entered-in-error"]
-
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
+
+# The current state of the list.
+fhirvs:list-status ["current" "retired" "entered-in-error"]
 

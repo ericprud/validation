@@ -8,7 +8,8 @@ IMPORT <Quantity.shex>
 # A measured or measurable amount
 <Count> EXTENDS @<Quantity> CLOSED {   
 
-    a [fhir:Count];
+    a [fhir:Count]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 

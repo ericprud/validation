@@ -3,8 +3,8 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
-IMPORT <Range.shex>
 IMPORT <Ratio.shex>
+IMPORT <Range.shex>
 IMPORT <string.shex>
 IMPORT <Timing.shex>
 IMPORT <integer.shex>
@@ -18,8 +18,9 @@ IMPORT <CodeableConcept.shex>
 # How the medication is/was taken or should be taken
 <Dosage> EXTENDS @<BackboneType> CLOSED {   
 
-    a [fhir:Dosage];
+    a [fhir:Dosage]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:sequence @<integer>?;              # The order of the dosage 
                                             # instructions 
     fhir:text @<string>?;                   # Free text dosage instructions e.g. 
@@ -52,11 +53,11 @@ IMPORT <CodeableConcept.shex>
 # Amount of medication administered, to be administered or typical amount to be administered
 <Dosage.doseAndRate> EXTENDS @<Element> CLOSED {   
     fhir:type @<CodeableConcept>?;          # The kind of dose or rate specified
-    fhir:dose (@<Range>  OR 
-    			@<SimpleQuantity> )  AND { rdf:type IRI } ?;  # Amount of medication per dose
-    fhir:rate (@<Ratio>  OR 
+    fhir:dose @<Range>  OR 
+    			@<SimpleQuantity>  ?;  # Amount of medication per dose
+    fhir:rate @<Ratio>  OR 
     			@<Range>  OR 
-    			@<SimpleQuantity> )  AND { rdf:type IRI } ?;  # Amount of medication per unit of 
+    			@<SimpleQuantity>  ?;  # Amount of medication per unit of 
                                             # time 
 }  
 

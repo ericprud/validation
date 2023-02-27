@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # streetNameBase
 <iso21090-ADXP-streetNameBase> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-ADXP-streetNameBase];
+    a [fhir:iso21090-ADXP-streetNameBase]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:line {a [fhir:Address]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:line {a [fhir:Address]}}
+
 }  
 

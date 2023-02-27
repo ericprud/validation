@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Are styles important for processing?
 <rendering-styleSensitive> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:rendering-styleSensitive];
+    a [fhir:rendering-styleSensitive]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive"]}; 
-    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive"]}; 
+    fhir:value @<boolean>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

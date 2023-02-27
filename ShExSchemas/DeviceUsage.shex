@@ -12,6 +12,8 @@ IMPORT <dateTime.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Procedure.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Observation.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
@@ -32,27 +34,28 @@ start=@<DeviceUsage> AND {fhir:nodeRole [fhir:treeRoot]}
 # Record of use of a device
 <DeviceUsage> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:DeviceUsage];
+    a [fhir:DeviceUsage]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External identifier for this record
     fhir:basedOn @<OneOrMore_Reference_ServiceRequest>?;  # Fulfills plan, proposal or order
     fhir:status @<code> AND
-    	{fhir:v @fhirvs:device-usage-status};  # active | completed | not-done | 
+    	{fhir:v @fhirvs:deviceusage-status};  # active | completed | not-done | 
                                             # entered-in-error + 
     fhir:category @<OneOrMore_CodeableConcept>?;  # The category of the statement - 
                                             # classifying how the statement is 
                                             # made 
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # Patient using device
+    			@<Patient> ? };  # Patient using device
     fhir:derivedFrom @<OneOrMore_Reference_Claim_OR_DocumentReference_OR_Observation_OR_Procedure_OR_QuestionnaireResponse_OR_ServiceRequest>?;  # Supporting information
     fhir:context @<Reference> AND {fhir:link 
     			@<Encounter> OR 
-    			@<EpisodeOfCare> }?;  # The encounter or episode of care 
+    			@<EpisodeOfCare> ? }?;  # The encounter or episode of care 
                                             # that establishes the context for 
                                             # this device use statement 
-    fhir:timing (@<Timing>  OR 
+    fhir:timing @<Timing>  OR 
     			@<Period>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # How often  the device was used
+    			@<dateTime>  ?;  # How often  the device was used
     fhir:dateAsserted @<dateTime>?;         # When the statement was made (and 
                                             # recorded) 
     fhir:usageStatus @<CodeableConcept>?;   # The status of the device usage, 
@@ -62,13 +65,13 @@ start=@<DeviceUsage> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:usageReason @<OneOrMore_CodeableConcept>?;  # The reason for asserting the usage 
                                             # status - for example forgot, lost, 
                                             # stolen, broken 
-    fhir:adherence @<BackboneElement>?;     # How device is being used
+    fhir:adherence @<DeviceUsage.adherence>?;  # How device is being used
     fhir:informationSource @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who made the statement
+    			@<RelatedPerson> ? }?;  # Who made the statement
     fhir:device @<CodeableReference>;       # Code or Reference to device used
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why device was used
     fhir:bodySite @<CodeableReference>?;    # Target body site
@@ -125,5 +128,5 @@ start=@<DeviceUsage> AND {fhir:nodeRole [fhir:treeRoot]}
 #---------------------- Value Sets ------------------------
 
 # A coded concept indicating the current status of the Device Usage.
-fhirvs:device-usage-status ["active" "completed" "not-done" "entered-in-error" "intended" "stopped" "on-hold"]
+fhirvs:deviceusage-status ["active" "completed" "not-done" "entered-in-error" "intended" "stopped" "on-hold"]
 

@@ -10,8 +10,8 @@ IMPORT <CodeableConcept.shex>
 # Reference to a resource or a concept
 <CodeableReference> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:CodeableReference];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:CodeableReference]?;
+
     fhir:concept @<CodeableConcept>?;       # Reference to a concept (by class)
     fhir:reference @<Reference>?;           # Reference to a resource (by 
                                             # instance) 

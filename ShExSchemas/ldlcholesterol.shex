@@ -12,16 +12,17 @@ start=@<ldlcholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 # LDL Cholesterol Result
 <ldlcholesterol> EXTENDS @<Observation> CLOSED {   
 
-    a [fhir:ldlcholesterol];
+    a [fhir:ldlcholesterol]?;
     fhir:nodeRole [fhir:treeRoot]?;
-}  
 
-# Component results
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Component results
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Provides guide for interpretation

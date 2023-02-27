@@ -9,8 +9,8 @@ IMPORT <Quantity.shex>
 # Set of values bounded by low and high
 <Range> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Range];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:Range]?;
+
     fhir:low @<Quantity>?;                  # Low limit
     fhir:high @<Quantity>?;                 # High limit
 }  

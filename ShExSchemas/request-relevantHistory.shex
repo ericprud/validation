@@ -11,14 +11,15 @@ IMPORT <Provenance.shex>
 # Key events in history of request
 <request-relevantHistory> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:request-relevantHistory];
+    a [fhir:request-relevantHistory]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/request-relevantHistory"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Provenance> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:NutritionOrder] OR 
-          a [fhir:CommunicationRequest] OR 
-          a [fhir:CarePlan]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/request-relevantHistory"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Provenance> })  ; 
+    ^fhir:extension { a [fhir:NutritionOrder]} OR 
+          {a [fhir:CommunicationRequest]} OR 
+          {a [fhir:CarePlan]}
+
 }  
 

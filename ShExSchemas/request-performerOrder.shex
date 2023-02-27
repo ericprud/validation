@@ -10,12 +10,14 @@ IMPORT <Extension.shex>
 # Performer Order
 <request-performerOrder> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:request-performerOrder];
+    a [fhir:request-performerOrder]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/request-performerOrder"]}; 
-    fhir:v (@<integer> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:performer {a [fhir:ServiceRequest]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/request-performerOrder"]}; 
+    fhir:value @<integer>  ; 
+    ^fhir:extension { ^fhir:performer {a [fhir:ServiceRequest]}} OR 
+          {^fhir:requestedPerformer {a [fhir:Task]}}
+
 }  
 

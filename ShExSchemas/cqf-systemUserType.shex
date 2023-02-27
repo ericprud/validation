@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # The type of user initiating the request
 <cqf-systemUserType> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-systemUserType];
+    a [fhir:cqf-systemUserType]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-systemUserType"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Basic]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-systemUserType"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Basic]}
+
 }  
 

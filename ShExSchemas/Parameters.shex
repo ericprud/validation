@@ -46,10 +46,10 @@ IMPORT <Expression.shex>
 IMPORT <positiveInt.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <SampledData.shex>
-IMPORT <Contributor.shex>
 IMPORT <base64Binary.shex>
 IMPORT <ContactPoint.shex>
 IMPORT <UsageContext.shex>
+IMPORT <Availability.shex>
 IMPORT <ContactDetail.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
@@ -58,6 +58,7 @@ IMPORT <RelatedArtifact.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <TriggerDefinition.shex>
 IMPORT <ParameterDefinition.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 
 start=@<Parameters> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -65,15 +66,16 @@ start=@<Parameters> AND {fhir:nodeRole [fhir:treeRoot]}
 # Operation Request or Response
 <Parameters> EXTENDS @<Resource> CLOSED {   
 
-    a [fhir:Parameters];
+    a [fhir:Parameters]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:parameter @<OneOrMore_BackboneElement>?;  # Operation Parameter
+
+    fhir:parameter @<OneOrMore_Parameters.parameter>?;  # Operation Parameter
 }  
 
 # Operation Parameter
 <Parameters.parameter> EXTENDS @<BackboneElement> CLOSED {   
     fhir:name @<string>;                    # Name from the definition
-    fhir:v (@<base64Binary>  OR 
+    fhir:value @<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -117,30 +119,26 @@ start=@<Parameters> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Signature>  OR 
     			@<Timing>  OR 
     			@<ContactDetail>  OR 
-    			@<Contributor>  OR 
     			@<DataRequirement>  OR 
     			@<Expression>  OR 
     			@<ParameterDefinition>  OR 
     			@<RelatedArtifact>  OR 
     			@<TriggerDefinition>  OR 
     			@<UsageContext>  OR 
+    			@<Availability>  OR 
+    			@<ExtendedContactDetail>  OR 
     			@<Dosage>  OR 
-    			@<Meta> )  AND { rdf:type IRI } ?;  # If parameter is a data type
+    			@<Meta>  ?;  # If parameter is a data type
     fhir:resource @<Resource>?;             # If parameter is a whole resource
     fhir:part @<OneOrMore_Parameters.parameter>?;  # Named part of a multi-part 
                                             # parameter 
 }  
 
 # Named part of a multi-part parameter
-<Parameters.parameter.part> CLOSED {   
+<Parameters.parameter.partnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
-
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
-}
 
 <OneOrMore_Parameters.parameter> CLOSED {
     rdf:first @<Parameters.parameter>  ;

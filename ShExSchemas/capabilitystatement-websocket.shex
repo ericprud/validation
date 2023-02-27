@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Where server websocket end point is found
 <capabilitystatement-websocket> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:capabilitystatement-websocket];
+    a [fhir:capabilitystatement-websocket]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:rest {a [fhir:CapabilityStatement]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { ^fhir:rest {a [fhir:CapabilityStatement]}}
+
 }  
 

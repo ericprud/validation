@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Age that the allergy or intolerance resolved
 <allergyintolerance-resolutionAge> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:allergyintolerance-resolutionAge];
+    a [fhir:allergyintolerance-resolutionAge]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge"]}; 
-    fhir:v (@<Age> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:AllergyIntolerance]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge"]}; 
+    fhir:value @<Age>  ; 
+    ^fhir:extension { a [fhir:AllergyIntolerance]}
+
 }  
 

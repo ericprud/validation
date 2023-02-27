@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <Task.shex>
 IMPORT <Goal.shex>
@@ -16,29 +17,32 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Quantity.shex>
-IMPORT <CarePlan.shex>
 IMPORT <Resource.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Substance.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Medication.shex>
 IMPORT <Appointment.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
-IMPORT <RequestGroup.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DeviceRequest.shex>
+IMPORT <SupplyRequest.shex>
 IMPORT <DomainResource.shex>
 IMPORT <NutritionOrder.shex>
 IMPORT <ServiceRequest.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
-IMPORT <MedicationRequest.shex>
 IMPORT <CodeableReference.shex>
+IMPORT <MedicationRequest.shex>
 IMPORT <HealthcareService.shex>
 IMPORT <VisionPrescription.shex>
 IMPORT <CommunicationRequest.shex>
+IMPORT <RequestOrchestration.shex>
 IMPORT <ImmunizationRecommendation.shex>
 
 
@@ -47,14 +51,15 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 # Healthcare plan for patient or group
 <CarePlan> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:CarePlan];
+    a [fhir:CarePlan]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Ids for this plan
     fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
                                             # definition 
     fhir:instantiatesUri @<OneOrMore_uri>?;  # Instantiates external protocol or 
                                             # definition 
-    fhir:basedOn @<OneOrMore_Reference_CarePlan>?;  # Fulfills CarePlan
+    fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest>?;  # Fulfills plan, proposal or order
     fhir:replaces @<OneOrMore_Reference_CarePlan>?;  # CarePlan replaced by this CarePlan
     fhir:partOf @<OneOrMore_Reference_CarePlan>?;  # Part of referenced CarePlan
     fhir:status @<code> AND
@@ -70,9 +75,9 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<string>?;            # Summary of nature of plan
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Who the care plan is for
+    			@<Patient> ? };  # Who the care plan is for
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # The Encounter during which this 
+    			@<Encounter> ? }?;  # The Encounter during which this 
                                             # CarePlan was created 
     fhir:period @<Period>?;                 # Time period plan covers
     fhir:created @<dateTime>?;              # Date record was first recorded
@@ -83,7 +88,7 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who is the designated responsible 
+    			@<RelatedPerson> ? }?;  # Who is the designated responsible 
                                             # party 
     fhir:contributor @<OneOrMore_Reference_CareTeam_OR_Device_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who provided the content of the 
                                             # care plan 
@@ -92,31 +97,9 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:supportingInfo @<OneOrMore_Reference_Resource>?;  # Information considered as part of 
                                             # plan 
     fhir:goal @<OneOrMore_Reference_Goal>?;  # Desired outcome of plan
-    fhir:activity @<OneOrMore_BackboneElement>?;  # Action to occur or has occurred as 
+    fhir:activity @<OneOrMore_CarePlan.activity>?;  # Action to occur or has occurred as 
                                             # part of plan 
     fhir:note @<OneOrMore_Annotation>?;     # Comments about the plan
-}  
-
-# Action to occur or has occurred as part of plan
-<CarePlan.activity> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:performedActivity @<OneOrMore_CodeableReference>?;  # Results of the activity (concept, 
-                                            # or Appointment, Encounter, 
-                                            # Procedure, etc) 
-    fhir:progress @<OneOrMore_Annotation>?;  # Comments about the activity 
-                                            # status/progress 
-    fhir:plannedActivityReference @<Reference> AND {fhir:link 
-    			@<Appointment> OR 
-    			@<CommunicationRequest> OR 
-    			@<DeviceRequest> OR 
-    			@<ImmunizationRecommendation> OR 
-    			@<MedicationRequest> OR 
-    			@<NutritionOrder> OR 
-    			@<RequestGroup> OR 
-    			@<ServiceRequest> OR 
-    			@<Task> OR 
-    			@<VisionPrescription> }?;  # Activity that is intended to be 
-                                            # part of the care plan 
-    fhir:plannedActivityDetail @<BackboneElement>?;  # In-line definition of activity
 }  
 
 # In-line definition of activity
@@ -143,25 +126,48 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
     fhir:doNotPerform @<boolean>?;          # If true, activity is prohibiting 
                                             # action 
-    fhir:scheduled (@<Timing>  OR 
+    fhir:scheduled @<Timing>  OR 
     			@<Period>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # When activity is to occur
+    			@<string>  ?;  # When activity is to occur
     fhir:location @<CodeableReference>?;    # Where it should happen
-    fhir:reported (@<boolean>  OR 
+    fhir:reported @<boolean>  OR 
     			(@<Reference>  AND {fhir:link @<Patient> OR 
     			 @<RelatedPerson> OR 
     			 @<Practitioner> OR 
     			 @<PractitionerRole> OR 
-    			 @<Organization> }) )  AND { rdf:type IRI } ?;  # Reported rather than primary record
+    			 @<Organization> })  ?;  # Reported rather than primary record
     fhir:performer @<OneOrMore_Reference_CareTeam_OR_Device_OR_HealthcareService_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who will be responsible?
-    fhir:product (@<CodeableConcept>  OR 
+    fhir:product @<CodeableConcept>  OR 
     			(@<Reference>  AND {fhir:link @<Medication> OR 
-    			 @<Substance> }) )  AND { rdf:type IRI } ?;  # What is to be administered/supplied
+    			 @<Substance> })  ?;  # What is to be administered/supplied
     fhir:dailyAmount @<Quantity>?;          # How to consume/day?
     fhir:quantity @<Quantity>?;             # How much to 
                                             # administer/supply/consume 
     fhir:description @<string>?;            # Extra info describing activity to 
                                             # perform 
+}  
+
+# Action to occur or has occurred as part of plan
+<CarePlan.activity> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:performedActivity @<OneOrMore_CodeableReference>?;  # Results of the activity (concept, 
+                                            # or Appointment, Encounter, 
+                                            # Procedure, etc) 
+    fhir:progress @<OneOrMore_Annotation>?;  # Comments about the activity 
+                                            # status/progress 
+    fhir:plannedActivityReference @<Reference> AND {fhir:link 
+    			@<Appointment> OR 
+    			@<CommunicationRequest> OR 
+    			@<DeviceRequest> OR 
+    			@<ImmunizationRecommendation> OR 
+    			@<MedicationRequest> OR 
+    			@<NutritionOrder> OR 
+    			@<RequestOrchestration> OR 
+    			@<ServiceRequest> OR 
+    			@<SupplyRequest> OR 
+    			@<Task> OR 
+    			@<VisionPrescription> ? }?;  # Activity that is intended to be 
+                                            # part of the care plan 
+    fhir:plannedActivityDetail @<CarePlan.activity.plannedActivityDetail>?;  # In-line definition of activity
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -179,6 +185,15 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 <OneOrMore_uri> CLOSED {
     rdf:first @<uri>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
+}
+
+<OneOrMore_Reference_CarePlan_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<CarePlan> OR 
+			@<NutritionOrder> OR 
+			@<RequestOrchestration> OR 
+			@<ServiceRequest> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_CarePlan_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest> 
 }
 
 <OneOrMore_Reference_CarePlan> CLOSED {
@@ -227,9 +242,9 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Goal> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_CarePlan.activity> CLOSED {
+    rdf:first @<CarePlan.activity>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CarePlan.activity> 
 }
 
 <OneOrMore_Annotation> CLOSED {
@@ -252,15 +267,15 @@ start=@<CarePlan> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# Codes indicating the degree of authority/intentionality associated with a care plan.
-fhirvs:care-plan-intent ["proposal" "plan" "order" "option" "directive"]
-
-# Codes identifying the lifecycle stage of a request.
-fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
-
 # Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
 fhirvs:care-plan-activity-kind ["Appointment" "CommunicationRequest" "DeviceRequest" "MedicationRequest" "NutritionOrder" "Task" "ServiceRequest" "VisionPrescription"]
 
 # Codes that reflect the current state of a care plan activity within its overall life cycle.
 fhirvs:care-plan-activity-status ["not-started" "scheduled" "in-progress" "on-hold" "completed" "cancelled" "stopped" "unknown" "entered-in-error"]
+
+# Codes indicating the degree of authority/intentionality associated with a care plan.
+fhirvs:care-plan-intent ["proposal" "plan" "order" "option" "directive"]
+
+# Codes identifying the lifecycle stage of a request.
+fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
 

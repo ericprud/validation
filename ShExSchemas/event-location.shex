@@ -11,15 +11,16 @@ IMPORT <Reference.shex>
 # Where event occurred
 <event-location> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:event-location];
+    a [fhir:event-location]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/event-location"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Location> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation] OR 
-          a [fhir:DiagnosticReport] OR 
-          a [fhir:DocumentReference] OR 
-          a [fhir:SupplyDelivery]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-location"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Location> })  ; 
+    ^fhir:extension { a [fhir:Observation]} OR 
+          {a [fhir:DiagnosticReport]} OR 
+          {a [fhir:DocumentReference]} OR 
+          {a [fhir:SupplyDelivery]}
+
 }  
 

@@ -46,10 +46,10 @@ IMPORT <Expression.shex>
 IMPORT <positiveInt.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <SampledData.shex>
-IMPORT <Contributor.shex>
 IMPORT <base64Binary.shex>
 IMPORT <ContactPoint.shex>
 IMPORT <UsageContext.shex>
+IMPORT <Availability.shex>
 IMPORT <ContactDetail.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <DataRequirement.shex>
@@ -57,17 +57,19 @@ IMPORT <RelatedArtifact.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <TriggerDefinition.shex>
 IMPORT <ParameterDefinition.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 # Constraint
 <questionnaire-optionRestriction> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaire-optionRestriction];
+    a [fhir:questionnaire-optionRestriction]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:option @<OneOrMore_Extension>; 
     fhir:expression @<Extension>; 
     fhir:url @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"]}; 
-    fhir:v (@<base64Binary>  OR 
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"]}; 
+    fhir:value @<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -111,17 +113,19 @@ IMPORT <ParameterDefinition.shex>
     			@<Signature>  OR 
     			@<Timing>  OR 
     			@<ContactDetail>  OR 
-    			@<Contributor>  OR 
     			@<DataRequirement>  OR 
     			@<Expression>  OR 
     			@<ParameterDefinition>  OR 
     			@<RelatedArtifact>  OR 
     			@<TriggerDefinition>  OR 
     			@<UsageContext>  OR 
+    			@<Availability>  OR 
+    			@<ExtendedContactDetail>  OR 
     			@<Dosage>  OR 
-    			@<Meta> )  AND { rdf:type IRI } ?; 
-    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}
-        }
+    			@<Meta>  ?; 
+    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}} OR 
+          {a [fhir:ElementDefinition]}
+
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

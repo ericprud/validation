@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Additional confidentiality codes
 <composition-clinicaldocument-otherConfidentiality> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:composition-clinicaldocument-otherConfidentiality];
+    a [fhir:composition-clinicaldocument-otherConfidentiality]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-otherConfidentiality"]}; 
-    fhir:v (@<Coding> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Composition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-otherConfidentiality"]}; 
+    fhir:value @<Coding>  ; 
+    ^fhir:extension { a [fhir:Composition]}
+
 }  
 

@@ -19,6 +19,8 @@ IMPORT <Endpoint.shex>
 IMPORT <Specimen.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <Appointment.shex>
 IMPORT <Practitioner.shex>
@@ -26,8 +28,8 @@ IMPORT <Organization.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
 IMPORT <ServiceRequest.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <HealthcareService.shex>
@@ -39,8 +41,9 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
 # A set of images produced in single study (one or more series of references images)
 <ImagingStudy> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ImagingStudy];
+    a [fhir:ImagingStudy]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifiers for the whole study
     fhir:status @<code> AND
     	{fhir:v @fhirvs:imagingstudy-status};  # registered | available | cancelled 
@@ -50,28 +53,28 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:subject @<Reference> AND {fhir:link 
     			@<Device> OR 
     			@<Group> OR 
-    			@<Patient> };  # Who or what is the subject of the 
+    			@<Patient> ? };  # Who or what is the subject of the 
                                             # study 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter with which this imaging 
+    			@<Encounter> ? }?;  # Encounter with which this imaging 
                                             # study is associated 
     fhir:started @<dateTime>?;              # When the study was started
     fhir:basedOn @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_ServiceRequest_OR_Task>?;  # Request fulfilled
     fhir:referrer @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Referring physician
+    			@<PractitionerRole> ? }?;  # Referring physician
     fhir:interpreter @<OneOrMore_Reference_Practitioner_OR_PractitionerRole>?;  # Who interpreted images
     fhir:endpoint @<OneOrMore_Reference_Endpoint>?;  # Study access endpoint
     fhir:numberOfSeries @<unsignedInt>?;    # Number of Study Related Series
     fhir:numberOfInstances @<unsignedInt>?;  # Number of Study Related Instances
     fhir:procedure @<OneOrMore_CodeableReference>?;  # The performed procedure or code
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where ImagingStudy occurred
+    			@<Location> ? }?;  # Where ImagingStudy occurred
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why the study was requested / 
                                             # performed 
     fhir:note @<OneOrMore_Annotation>?;     # User-defined comments
     fhir:description @<string>?;            # Institution-generated description
-    fhir:series @<OneOrMore_BackboneElement>?;  # Each study has one or more series 
+    fhir:series @<OneOrMore_ImagingStudy.series>?;  # Each study has one or more series 
                                             # of instances 
 }  
 
@@ -98,8 +101,8 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:laterality @<CodeableConcept>?;    # Body part laterality
     fhir:specimen @<OneOrMore_Reference_Specimen>?;  # Specimen imaged
     fhir:started @<dateTime>?;              # When the series started
-    fhir:performer @<OneOrMore_BackboneElement>?;  # Who performed the series
-    fhir:instance @<OneOrMore_BackboneElement>?;  # A single SOP instance from the 
+    fhir:performer @<OneOrMore_ImagingStudy.series.performer>?;  # Who performed the series
+    fhir:instance @<OneOrMore_ImagingStudy.series.instance>?;  # A single SOP instance from the 
                                             # series 
 }  
 
@@ -114,7 +117,7 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Who performed the series
+    			@<RelatedPerson> ? };  # Who performed the series
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -162,15 +165,25 @@ start=@<ImagingStudy> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Annotation> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ImagingStudy.series> CLOSED {
+    rdf:first @<ImagingStudy.series>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ImagingStudy.series> 
 }
 
 <OneOrMore_Reference_Specimen> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<Specimen> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Specimen> 
+}
+
+<OneOrMore_ImagingStudy.series.performer> CLOSED {
+    rdf:first @<ImagingStudy.series.performer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ImagingStudy.series.performer> 
+}
+
+<OneOrMore_ImagingStudy.series.instance> CLOSED {
+    rdf:first @<ImagingStudy.series.instance>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ImagingStudy.series.instance> 
 }
 
 #---------------------- Value Sets ------------------------

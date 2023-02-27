@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # When the contribution was made
 <cqf-contributionTime> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-contributionTime];
+    a [fhir:cqf-contributionTime]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-contributionTime"]}; 
-    fhir:v (@<dateTime> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ContactDetail]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-contributionTime"]}; 
+    fhir:value @<dateTime>  ; 
+    ^fhir:extension { a [fhir:ContactDetail]}
+
 }  
 

@@ -10,13 +10,15 @@ IMPORT <CodeableConcept.shex>
 # Is signature needed?
 <questionnaire-signatureRequired> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaire-signatureRequired];
+    a [fhir:questionnaire-signatureRequired]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Questionnaire] OR 
-          ^fhir:item {a [fhir:Questionnaire]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Questionnaire]} OR 
+          {^fhir:item {a [fhir:Questionnaire]}} OR 
+          {a [fhir:ElementDefinition]}
+
 }  
 

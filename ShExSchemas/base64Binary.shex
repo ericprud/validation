@@ -8,8 +8,8 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type base64Binary
 <base64Binary> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:base64Binary];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:base64Binary]?;
+
     fhir:v xsd:base64Binary?;               # Primitive value for base64Binary
 }  
 

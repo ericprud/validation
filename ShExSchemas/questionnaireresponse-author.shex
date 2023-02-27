@@ -16,18 +16,19 @@ IMPORT <PractitionerRole.shex>
 # Who answered question/group
 <questionnaireresponse-author> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaireresponse-author];
+    a [fhir:questionnaireresponse-author]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-author"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Device> OR 
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-author"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Device> OR 
     			 @<Practitioner> OR 
     			 @<PractitionerRole> OR 
     			 @<Patient> OR 
     			 @<RelatedPerson> OR 
-    			 @<Organization> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:item {a [fhir:QuestionnaireResponse]} OR 
-          ^fhir:item {^fhir:item {a [fhir:QuestionnaireResponse]}}
-        }
+    			 @<Organization> })  ; 
+    ^fhir:extension { ^fhir:item {a [fhir:QuestionnaireResponse]}} OR 
+          {^fhir:item {^fhir:item {a [fhir:QuestionnaireResponse]}}}
+
 }  
 

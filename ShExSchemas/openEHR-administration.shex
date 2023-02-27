@@ -11,12 +11,13 @@ IMPORT <MedicationAdministration.shex>
 # Actual medication record, if known
 <openEHR-administration> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:openEHR-administration];
+    a [fhir:openEHR-administration]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-administration"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<MedicationAdministration> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-administration"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<MedicationAdministration> })  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

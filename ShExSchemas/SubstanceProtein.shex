@@ -17,8 +17,9 @@ start=@<SubstanceProtein> AND {fhir:nodeRole [fhir:treeRoot]}
 # A SubstanceProtein is defined as a single unit of a linear amino acid sequence, or a combination of subunits that are either covalently linked or have a defined invariant stoichiometric relationship. This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators
 <SubstanceProtein> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:SubstanceProtein];
+    a [fhir:SubstanceProtein]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:sequenceType @<CodeableConcept>?;  # The SubstanceProtein descriptive 
                                             # elements will only be used when a 
                                             # complete or partial amino acid 
@@ -45,7 +46,7 @@ start=@<SubstanceProtein> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # positions shall actually contain 
                                             # the amino acid Cysteine at the 
                                             # respective positions 
-    fhir:subunit @<OneOrMore_BackboneElement>?;  # This subclause refers to the 
+    fhir:subunit @<OneOrMore_SubstanceProtein.subunit>?;  # This subclause refers to the 
                                             # description of each subunit 
                                             # constituting the SubstanceProtein. 
                                             # A subunit is a linear sequence of 
@@ -134,8 +135,8 @@ start=@<SubstanceProtein> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_string> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_SubstanceProtein.subunit> CLOSED {
+    rdf:first @<SubstanceProtein.subunit>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_SubstanceProtein.subunit> 
 }
 

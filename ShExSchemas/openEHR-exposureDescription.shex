@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Text description about exposure to the Substance
 <openEHR-exposureDescription> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:openEHR-exposureDescription];
+    a [fhir:openEHR-exposureDescription]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-exposureDescription"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-exposureDescription"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

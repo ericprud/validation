@@ -13,17 +13,23 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
-IMPORT <MetadataResource.shex>
+IMPORT <RelatedArtifact.shex>
+IMPORT <TriggerDefinition.shex>
 
 
 start=@<EventDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # A description of when an event can occur
-<EventDefinition> EXTENDS @<MetadataResource> CLOSED {   
+<EventDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:EventDefinition];
+    a [fhir:EventDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # event definition, represented as a 
                                             # URI (globally unique) 
@@ -41,11 +47,11 @@ start=@<EventDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # Type of individual the event 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> })  ?;  # Type of individual the event 
                                             # definition is focused on 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 

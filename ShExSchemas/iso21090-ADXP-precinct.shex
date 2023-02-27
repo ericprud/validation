@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # precinct
 <iso21090-ADXP-precinct> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-ADXP-precinct];
+    a [fhir:iso21090-ADXP-precinct]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Address]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:Address]}
+
 }  
 

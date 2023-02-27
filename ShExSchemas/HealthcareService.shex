@@ -3,34 +3,38 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
-IMPORT <time.shex>
 IMPORT <string.shex>
-IMPORT <Period.shex>
 IMPORT <boolean.shex>
 IMPORT <markdown.shex>
 IMPORT <Location.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Attachment.shex>
 IMPORT <Organization.shex>
+IMPORT <Availability.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <ExtendedContactDetail.shex>
+
 
 start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The details of a healthcare service available at a location
 <HealthcareService> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:HealthcareService];
+    a [fhir:HealthcareService]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External identifiers for this item
     fhir:active @<boolean>?;                # Whether this HealthcareService 
                                             # record is in active use 
     fhir:providedBy @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization that provides this 
+    			@<Organization> ? }?;  # Organization that provides this 
                                             # service 
+    fhir:offeredIn @<OneOrMore_Reference_HealthcareService>?;  # The service within which this 
+                                            # service is offered 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Broad category of service being 
                                             # performed or delivered 
     fhir:type @<OneOrMore_CodeableConcept>?;  # Type of service that may be 
@@ -52,12 +56,11 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # of the service 
     fhir:contact @<OneOrMore_ExtendedContactDetail>?;  # Official contact details for the 
                                             # HealthcareService 
-    fhir:telecom @<OneOrMore_ContactPoint>?;  # Deprecated - use contact.telecom
     fhir:coverageArea @<OneOrMore_Reference_Location>?;  # Location(s) service is intended 
                                             # for/available to 
     fhir:serviceProvisionCode @<OneOrMore_CodeableConcept>?;  # Conditions under which service is 
                                             # available/offered 
-    fhir:eligibility @<OneOrMore_BackboneElement>?;  # Specific eligibility requirements 
+    fhir:eligibility @<OneOrMore_HealthcareService.eligibility>?;  # Specific eligibility requirements 
                                             # required to use the service 
     fhir:program @<OneOrMore_CodeableConcept>?;  # Programs that this service is 
                                             # applicable to 
@@ -69,23 +72,12 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # referrals 
     fhir:appointmentRequired @<boolean>?;   # If an appointment is required for 
                                             # access to this service 
-    fhir:availableTime @<OneOrMore_BackboneElement>?;  # Times the Service Site is available
-    fhir:notAvailable @<OneOrMore_BackboneElement>?;  # Not available during this time due 
-                                            # to provided reason 
-    fhir:availabilityExceptions @<string>?;  # Description of availability 
-                                            # exceptions 
+    fhir:availability @<OneOrMore_Availability>?;  # Times the healthcare service is 
+                                            # available (including exceptions) 
     fhir:endpoint @<OneOrMore_Reference_Endpoint>?;  # Technical endpoints providing 
                                             # access to electronic services 
                                             # operated for the healthcare 
                                             # service 
-}  
-
-# Not available during this time due to provided reason
-<HealthcareService.notAvailable> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:description @<string>;             # Reason presented to the user 
-                                            # explaining why time not available 
-    fhir:during @<Period>?;                 # Service not available from this 
-                                            # date 
 }  
 
 # Specific eligibility requirements required to use the service
@@ -95,24 +87,17 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # conditions for the service 
 }  
 
-# Times the Service Site is available
-<HealthcareService.availableTime> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:daysOfWeek @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:days-of-week}?;  # mon | tue | wed | thu | fri | sat 
-                                            # | sun 
-    fhir:allDay @<boolean>?;                # Always available? i.e. 24 hour 
-                                            # service 
-    fhir:availableStartTime @<time>?;       # Opening time of day (ignored if 
-                                            # allDay = true) 
-    fhir:availableEndTime @<time>?;         # Closing time of day (ignored if 
-                                            # allDay = true) 
-}  
-
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
 <OneOrMore_Identifier> CLOSED {
     rdf:first @<Identifier>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
+}
+
+<OneOrMore_Reference_HealthcareService> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<HealthcareService> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_HealthcareService> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {
@@ -131,14 +116,14 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ExtendedContactDetail> 
 }
 
-<OneOrMore_ContactPoint> CLOSED {
-    rdf:first @<ContactPoint>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ContactPoint> 
+<OneOrMore_HealthcareService.eligibility> CLOSED {
+    rdf:first @<HealthcareService.eligibility>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_HealthcareService.eligibility> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Availability> CLOSED {
+    rdf:first @<Availability>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Availability> 
 }
 
 <OneOrMore_Reference_Endpoint> CLOSED {
@@ -146,14 +131,4 @@ start=@<HealthcareService> AND {fhir:nodeRole [fhir:treeRoot]}
 			@<Endpoint> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Endpoint> 
 }
-
-<OneOrMore_code> CLOSED {
-    rdf:first @<code>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_code> 
-}
-
-#---------------------- Value Sets ------------------------
-
-# The days of the week.
-fhirvs:days-of-week ["mon" "tue" "wed" "thu" "fri" "sat" "sun"]
 

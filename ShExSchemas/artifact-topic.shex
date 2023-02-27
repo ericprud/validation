@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # E.g. Education, Treatment, Assessment, etc.
 <artifact-topic> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:artifact-topic];
+    a [fhir:artifact-topic]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-topic"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Label for activity
 <careplan-activity-title> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:careplan-activity-title];
+    a [fhir:careplan-activity-title]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/careplan-activity-title"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:activity {a [fhir:CarePlan]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/careplan-activity-title"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:activity {a [fhir:CarePlan]}}
+
 }  
 

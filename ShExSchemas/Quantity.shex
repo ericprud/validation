@@ -12,9 +12,9 @@ IMPORT <DataType.shex>
 # A measured or measurable amount
 <Quantity> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Quantity];
-    fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<decimal>?;                 # Numerical value (with implicit 
+    a [fhir:Quantity]?;
+
+    fhir:value @<decimal>?;                 # Numerical value (with implicit 
                                             # precision) 
     fhir:comparator @<code> AND
     	{fhir:v @fhirvs:quantity-comparator}?;  # < | <= | >= | > | ad - how to 

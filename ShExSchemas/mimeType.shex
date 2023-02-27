@@ -10,19 +10,20 @@ IMPORT <Extension.shex>
 # Type of attachment
 <mimeType> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:mimeType];
+    a [fhir:mimeType]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/mimeType"]}; 
-    fhir:v (@<code> AND
-    	{fhir:v @fhirvs:mimetypes} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]} OR 
-          a [fhir:ElementDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/mimeType"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @fhirvs:mimetypes}  ; 
+    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}} OR 
+          {a [fhir:ElementDefinition]}
+
 }  
 
 #---------------------- Value Sets ------------------------
 
 # This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)
-fhirvs:mimetypes xsd:string # EXTERNAL
+fhirvs:mimetypes xsd:string #EXTERNAL
 

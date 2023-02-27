@@ -5,16 +5,20 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <date.shex>
 IMPORT <Period.shex>
-IMPORT <CanonicalResource.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 
 
 start=@<MetadataResource> AND {fhir:nodeRole [fhir:treeRoot]}
 
-# Common Ancestor declaration for definitional resources
-<MetadataResource> EXTENDS @<CanonicalResource> CLOSED {   
+# Common Interface declaration for definitional resources
+<MetadataResource> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:MetadataResource];
+    a [fhir:MetadataResource]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:approvalDate @<date>?;             # When the {{title}} was approved by 
                                             # publisher 
     fhir:lastReviewDate @<date>?;           # When the {{title}} was last 

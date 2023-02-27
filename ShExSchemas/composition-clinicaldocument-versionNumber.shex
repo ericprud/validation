@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Version-specific identifier for composition
 <composition-clinicaldocument-versionNumber> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:composition-clinicaldocument-versionNumber];
+    a [fhir:composition-clinicaldocument-versionNumber]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Composition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:Composition]}
+
 }  
 

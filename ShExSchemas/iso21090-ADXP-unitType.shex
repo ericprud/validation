@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # unitType
 <iso21090-ADXP-unitType> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-ADXP-unitType];
+    a [fhir:iso21090-ADXP-unitType]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-unitType"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:line {a [fhir:Address]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-unitType"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:line {a [fhir:Address]}}
+
 }  
 

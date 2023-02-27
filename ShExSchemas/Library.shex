@@ -13,17 +13,25 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
-IMPORT <MetadataResource.shex>
+IMPORT <RelatedArtifact.shex>
+IMPORT <DataRequirement.shex>
+IMPORT <ParameterDefinition.shex>
 
 
 start=@<Library> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Represents a library of quality improvement components
-<Library> EXTENDS @<MetadataResource> CLOSED {   
+<Library> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Library];
+    a [fhir:Library]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # library, represented as a URI 
                                             # (globally unique) 
@@ -42,11 +50,11 @@ start=@<Library> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>;           # logic-library | model-definition | 
                                             # asset-collection | 
                                             # module-definition 
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # Type of individual the library 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> })  ?;  # Type of individual the library 
                                             # content is focused on 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 

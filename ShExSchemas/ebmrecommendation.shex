@@ -12,8 +12,9 @@ start=@<ebmrecommendation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Adds metadata-supported comments, classifiers or ratings related to a Resource
 <ebmrecommendation> EXTENDS @<ArtifactAssessment> CLOSED {   
 
-    a [fhir:ebmrecommendation];
+    a [fhir:ebmrecommendation]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Comment, classifier, or rating content

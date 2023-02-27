@@ -14,6 +14,7 @@ IMPORT <Specimen.shex>
 IMPORT <dateTime.shex>
 IMPORT <Reference.shex>
 IMPORT <Substance.shex>
+IMPORT <Identifier.shex>
 IMPORT <Medication.shex>
 IMPORT <ResearchStudy.shex>
 IMPORT <DomainResource.shex>
@@ -27,16 +28,17 @@ start=@<ResearchSubject> AND {fhir:nodeRole [fhir:treeRoot]}
 # Physical entity which is the primary unit of interest in the study
 <ResearchSubject> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ResearchSubject];
+    a [fhir:ResearchSubject]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for research 
                                             # subject in a study 
     fhir:status @<code> AND
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
-    fhir:progress @<OneOrMore_BackboneElement>?;  # Subject status
+    fhir:progress @<OneOrMore_ResearchSubject.progress>?;  # Subject status
     fhir:period @<Period>?;                 # Start and end of participation
     fhir:study @<Reference> AND {fhir:link 
-    			@<ResearchStudy> };  # Study subject is part of
+    			@<ResearchStudy> ? };  # Study subject is part of
     fhir:subject @<Reference> AND {fhir:link 
     			@<BiologicallyDerivedProduct> OR 
     			@<Device> OR 
@@ -44,11 +46,11 @@ start=@<ResearchSubject> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Medication> OR 
     			@<Patient> OR 
     			@<Specimen> OR 
-    			@<Substance> };  # Who or what is part of study
+    			@<Substance> ? };  # Who or what is part of study
     fhir:assignedArm @<string>?;            # What path should be followed
     fhir:actualArm @<string>?;              # What path was followed
     fhir:consent @<Reference> AND {fhir:link 
-    			@<Consent> }?;  # Agreement to participate in study
+    			@<Consent> ? }?;  # Agreement to participate in study
 }  
 
 # Subject status
@@ -75,9 +77,9 @@ start=@<ResearchSubject> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ResearchSubject.progress> CLOSED {
+    rdf:first @<ResearchSubject.progress>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ResearchSubject.progress> 
 }
 
 #---------------------- Value Sets ------------------------

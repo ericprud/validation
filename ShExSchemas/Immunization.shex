@@ -3,7 +3,6 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
-IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <date.shex>
 IMPORT <string.shex>
@@ -13,8 +12,11 @@ IMPORT <dateTime.shex>
 IMPORT <Location.shex>
 IMPORT <Quantity.shex>
 IMPORT <CarePlan.shex>
+IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
@@ -25,7 +27,6 @@ IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <MedicationRequest.shex>
-IMPORT <ImmunizationRecommendation.shex>
 
 
 start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -33,54 +34,49 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
 # Immunization event information
 <Immunization> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Immunization];
+    a [fhir:Immunization]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
-    fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
-                                            # definition for the immunization 
-                                            # event 
-    fhir:instantiatesUri @<OneOrMore_uri>?;  # Instantiates external protocol or 
-                                            # definition for the immunization 
-                                            # event 
     fhir:basedOn @<OneOrMore_Reference_CarePlan_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_ServiceRequest>?;  # Authority that the immunization 
                                             # event is based on 
     fhir:status @<code> AND
     	{fhir:v @fhirvs:immunization-status};  # completed | entered-in-error | 
                                             # not-done 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
-    fhir:vaccineCode @<CodeableConcept>;    # Vaccine product administered
-    fhir:manufacturer @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Vaccine manufacturer
+    fhir:vaccineCode @<CodeableConcept>;    # Vaccine administered
+    fhir:administeredProduct @<CodeableReference>?;  # Product that was administered
+    fhir:manufacturer @<CodeableReference>?;  # Vaccine manufacturer
     fhir:lotNumber @<string>?;              # Vaccine lot number
     fhir:expirationDate @<date>?;           # Vaccine expiration date
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # Who was immunized
+    			@<Patient> ? };  # Who was immunized
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter immunization was part of
-    fhir:occurrence (@<dateTime>  OR 
-    			@<string> )  AND { rdf:type IRI } ;  # Vaccine administration date
+    			@<Encounter> ? }?;  # Encounter immunization was part of
+    fhir:supportingInformation @<OneOrMore_Reference_Resource>?;  # Additional information in support 
+                                            # of the immunization 
+    fhir:occurrence @<dateTime>  OR 
+    			@<string>  ;  # Vaccine administration date
     fhir:primarySource @<boolean>?;         # Indicates context the data was 
-                                            # recorded in 
+                                            # captured in 
     fhir:informationSource @<CodeableReference>?;  # Indicates the source of a  
                                             # reported record 
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where immunization occurred
+    			@<Location> ? }?;  # Where immunization occurred
     fhir:site @<CodeableConcept>?;          # Body site vaccine  was administered
     fhir:route @<CodeableConcept>?;         # How vaccine entered body
     fhir:doseQuantity @<Quantity>?;         # Amount of vaccine administered
-    fhir:performer @<OneOrMore_BackboneElement>?;  # Who performed event
+    fhir:performer @<OneOrMore_Immunization.performer>?;  # Who performed event
     fhir:note @<OneOrMore_Annotation>?;     # Additional immunization notes
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why immunization occurred
     fhir:isSubpotent @<boolean>?;           # Dose potency
     fhir:subpotentReason @<OneOrMore_CodeableConcept>?;  # Reason for being subpotent
-    fhir:education @<OneOrMore_BackboneElement>?;  # Educational material presented to 
-                                            # patient 
-    fhir:programEligibility @<OneOrMore_CodeableConcept>?;  # Patient eligibility for a 
+    fhir:programEligibility @<OneOrMore_Immunization.programEligibility>?;  # Patient eligibility for a specific 
                                             # vaccination program 
     fhir:fundingSource @<CodeableConcept>?;  # Funding source for the vaccine
-    fhir:reaction @<OneOrMore_BackboneElement>?;  # Details of a reaction that follows 
+    fhir:reaction @<OneOrMore_Immunization.reaction>?;  # Details of a reaction that follows 
                                             # immunization 
-    fhir:protocolApplied @<OneOrMore_BackboneElement>?;  # Protocol followed by the provider
+    fhir:protocolApplied @<OneOrMore_Immunization.protocolApplied>?;  # Protocol followed by the provider
 }  
 
 # Who performed event
@@ -91,30 +87,26 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Individual or organization who was 
+    			@<RelatedPerson> ? };  # Individual or organization who was 
                                             # performing 
 }  
 
-# Educational material presented to patient
-<Immunization.education> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:documentType @<string>?;           # Educational material document 
-                                            # identifier 
-    fhir:reference @<uri>?;                 # Educational material reference 
-                                            # pointer 
-    fhir:publicationDate @<dateTime>?;      # Educational material publication 
-                                            # date 
-    fhir:presentationDate @<dateTime>?;     # Educational material presentation 
-                                            # date 
+# Patient eligibility for a specific vaccination program
+<Immunization.programEligibility> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:program @<CodeableConcept>;        # The program that eligibility is 
+                                            # declared for 
+    fhir:programStatus @<CodeableConcept>;  # The patient's eligibility status 
+                                            # for the program 
 }  
 
 # Protocol followed by the provider
 <Immunization.protocolApplied> EXTENDS @<BackboneElement> CLOSED {   
     fhir:series @<string>?;                 # Name of vaccine series
     fhir:authority @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Who is responsible for publishing 
+    			@<Organization> ? }?;  # Who is responsible for publishing 
                                             # the recommendations 
     fhir:targetDisease @<OneOrMore_CodeableConcept>?;  # Vaccine preventatable disease 
-                                            # being targetted 
+                                            # being targeted 
     fhir:doseNumber @<string>;              # Dose number within series
     fhir:seriesDoses @<string>?;            # Recommended number of doses for 
                                             # immunity 
@@ -134,16 +126,6 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_canonical> CLOSED {
-    rdf:first @<canonical>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_canonical> 
-}
-
-<OneOrMore_uri> CLOSED {
-    rdf:first @<uri>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
-}
-
 <OneOrMore_Reference_CarePlan_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_ServiceRequest> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<CarePlan> OR 
@@ -153,9 +135,15 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_CarePlan_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_ServiceRequest> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Reference_Resource> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<Resource> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
+}
+
+<OneOrMore_Immunization.performer> CLOSED {
+    rdf:first @<Immunization.performer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Immunization.performer> 
 }
 
 <OneOrMore_Annotation> CLOSED {
@@ -171,6 +159,21 @@ start=@<Immunization> AND {fhir:nodeRole [fhir:treeRoot]}
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
+<OneOrMore_Immunization.programEligibility> CLOSED {
+    rdf:first @<Immunization.programEligibility>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Immunization.programEligibility> 
+}
+
+<OneOrMore_Immunization.reaction> CLOSED {
+    rdf:first @<Immunization.reaction>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Immunization.reaction> 
+}
+
+<OneOrMore_Immunization.protocolApplied> CLOSED {
+    rdf:first @<Immunization.protocolApplied>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Immunization.protocolApplied> 
 }
 
 #---------------------- Value Sets ------------------------

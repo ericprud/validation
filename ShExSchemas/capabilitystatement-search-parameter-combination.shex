@@ -9,14 +9,15 @@ IMPORT <Extension.shex>
 # An allowable parameter combination
 <capabilitystatement-search-parameter-combination> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:capabilitystatement-search-parameter-combination];
+    a [fhir:capabilitystatement-search-parameter-combination]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:required @<OneOrMore_Extension>; 
+
+    fhir:required @<OneOrMore_Extension>?; 
     fhir:optional @<OneOrMore_Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination"]}; 
-    ^fhir:extension { ^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination"]}; 
+    ^fhir:extension { ^fhir:resource {^fhir:rest {a [fhir:CapabilityStatement]}}}
+
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

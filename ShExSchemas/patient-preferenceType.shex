@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # The type of the patient's preferred language.
 <patient-preferenceType> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:patient-preferenceType];
+    a [fhir:patient-preferenceType]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-preferenceType"]}; 
-    fhir:v (@<Coding> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:preferred {^fhir:communication {a [fhir:Patient]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-preferenceType"]}; 
+    fhir:value @<Coding>  ; 
+    ^fhir:extension { ^fhir:preferred {^fhir:communication {a [fhir:Patient]}}}
+
 }  
 

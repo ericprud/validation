@@ -15,17 +15,18 @@ IMPORT <Extension.shex>
 # Must be <= this value
 <maxValue> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:maxValue];
+    a [fhir:maxValue]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/maxValue"]}; 
-    fhir:v (@<date>  OR 
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/maxValue"]}; 
+    fhir:value @<date>  OR 
     			@<dateTime>  OR 
     			@<time>  OR 
     			@<decimal>  OR 
     			@<integer>  OR 
-    			@<Quantity> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}
-        }
+    			@<Quantity>  ; 
+    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}}
+
 }  
 

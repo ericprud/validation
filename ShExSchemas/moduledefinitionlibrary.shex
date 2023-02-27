@@ -12,8 +12,9 @@ start=@<moduledefinitionlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Represents a library of quality improvement components
 <moduledefinitionlibrary> EXTENDS @<shareablelibrary> CLOSED {   
 
-    a [fhir:moduledefinitionlibrary];
+    a [fhir:moduledefinitionlibrary]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Additional documentation, citations, etc.

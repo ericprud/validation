@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # The sequence number of the sample
 <specimen-sequenceNumber> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:specimen-sequenceNumber];
+    a [fhir:specimen-sequenceNumber]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber"]}; 
-    fhir:v (@<integer> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:container {a [fhir:Specimen]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber"]}; 
+    fhir:value @<integer>  ; 
+    ^fhir:extension { ^fhir:container {a [fhir:Specimen]}}
+
 }  
 

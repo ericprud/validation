@@ -10,14 +10,15 @@ IMPORT <Extension.shex>
 # shareable | computable | publishable | executable
 <artifact-knowledgeCapability> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:artifact-knowledgeCapability];
+    a [fhir:artifact-knowledgeCapability]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-knowledgeCapability"]}; 
-    fhir:v (@<code> AND
-    	{fhir:v @fhirvs:knowledge-capability} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-knowledgeCapability"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @fhirvs:knowledge-capability}  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 
 #---------------------- Value Sets ------------------------

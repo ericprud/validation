@@ -9,19 +9,21 @@ IMPORT <Extension.shex>
 # Constraint
 <questionnaire-constraint> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaire-constraint];
+    a [fhir:questionnaire-constraint]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:key @<Extension>; 
     fhir:requirements @<Extension>?; 
     fhir:severity @<Extension>; 
     fhir:expression @<Extension>; 
     fhir:human @<Extension>; 
     fhir:location @<OneOrMore_Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-constraint"]}; 
-    ^fhir:extension { a [fhir:Questionnaire] OR 
-          ^fhir:item {a [fhir:Questionnaire]}
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-constraint"]}; 
+    ^fhir:extension { a [fhir:Questionnaire]} OR 
+          {^fhir:item {a [fhir:Questionnaire]}} OR 
+          {a [fhir:ElementDefinition]}
+
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
