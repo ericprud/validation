@@ -9,17 +9,18 @@ IMPORT <Extension.shex>
 # The pronouns to use when communicating about an individual.
 <individual-pronouns> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:individual-pronouns];
+    a [fhir:individual-pronouns]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<Extension>; 
+
+    fhir:value @<Extension>; 
     fhir:period @<Extension>?; 
     fhir:comment @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/individual-pronouns"]}; 
-    ^fhir:extension { a [fhir:Patient] OR 
-          a [fhir:RelatedPerson] OR 
-          a [fhir:Person] OR 
-          a [fhir:Practitioner]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/individual-pronouns"]}; 
+    ^fhir:extension { a [fhir:Patient]} OR 
+          {a [fhir:RelatedPerson]} OR 
+          {a [fhir:Person]} OR 
+          {a [fhir:Practitioner]}
+
 }  
 

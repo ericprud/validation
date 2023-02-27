@@ -8,8 +8,8 @@ IMPORT <PrimitiveType.shex>
 # Primitive Type instant
 <instant> EXTENDS @<PrimitiveType> CLOSED {   
 
-    a [fhir:instant];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:instant]?;
+
     fhir:v xsd:dateTime?;                   # Primitive value for instant
 }  
 

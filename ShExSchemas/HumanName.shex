@@ -8,10 +8,11 @@ IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <DataType.shex>
 
-# Name of a human - parts and usage
+# Name of a human or other living entity - parts and usage
 <HumanName> EXTENDS @<DataType> CLOSED {   
 
     a [fhir:HumanName]?;
+
     fhir:use @<code> AND
     	{fhir:v @fhirvs:name-use}?;  # usual | official | temp | nickname 
                                             # | anonymous | old | maiden 

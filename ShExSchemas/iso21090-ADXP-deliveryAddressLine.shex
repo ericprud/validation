@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # deliveryAddressLine
 <iso21090-ADXP-deliveryAddressLine> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-ADXP-deliveryAddressLine];
+    a [fhir:iso21090-ADXP-deliveryAddressLine]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-deliveryAddressLine"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:line {a [fhir:Address]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-deliveryAddressLine"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:line {a [fhir:Address]}}
+
 }  
 

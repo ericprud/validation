@@ -11,12 +11,28 @@ IMPORT <Reference.shex>
 # Fulfills plan, proposal or order
 <event-basedOn> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:event-basedOn];
+    a [fhir:event-basedOn]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/event-basedOn"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Resource> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Condition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/event-basedOn"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Resource> })  ; 
+    ^fhir:extension { a [fhir:Condition]} OR 
+          {a [fhir:ChargeItem]} OR 
+          {a [fhir:ClinicalImpression]} OR 
+          {a [fhir:Composition]} OR 
+          {a [fhir:Consent]} OR 
+          {a [fhir:Coverage]} OR 
+          {a [fhir:DetectedIssue]} OR 
+          {a [fhir:DocumentManifest]} OR 
+          {a [fhir:EpisodeOfCare]} OR 
+          {a [fhir:ExplanationOfBenefit]} OR 
+          {a [fhir:FamilyMemberHistory]} OR 
+          {a [fhir:ImmunizationEvaluation]} OR 
+          {a [fhir:InventoryReport]} OR 
+          {a [fhir:MedicationUsage]} OR 
+          {a [fhir:PaymentNotice]} OR 
+          {a [fhir:PaymentReconciliation]}
+
 }  
 

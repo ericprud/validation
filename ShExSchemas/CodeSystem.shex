@@ -5,7 +5,9 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <uri.shex>
 IMPORT <code.shex>
+IMPORT <date.shex>
 IMPORT <string.shex>
+IMPORT <Period.shex>
 IMPORT <Coding.shex>
 IMPORT <boolean.shex>
 IMPORT <integer.shex>
@@ -13,18 +15,24 @@ IMPORT <decimal.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
 IMPORT <unsignedInt.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <CanonicalResource.shex>
 
 
 start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Declares the existence of and describes a code system or code system supplement
-<CodeSystem> EXTENDS @<CanonicalResource> CLOSED {   
+<CodeSystem> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:CodeSystem];
+    a [fhir:CodeSystem]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this code 
                                             # system, represented as a URI 
                                             # (globally unique) (Coding.system) 
@@ -41,7 +49,7 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -52,6 +60,20 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # system (if applicable) 
     fhir:purpose @<markdown>?;              # Why this code system is defined
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
+    fhir:approvalDate @<date>?;             # When the CodeSystem was approved 
+                                            # by publisher 
+    fhir:lastReviewDate @<date>?;           # When the CodeSystem was last 
+                                            # reviewed 
+    fhir:effectivePeriod @<Period>?;        # When the CodeSystem is expected to 
+                                            # be used 
+    fhir:topic @<OneOrMore_CodeableConcept>?;  # E.g. Education, Treatment, 
+                                            # Assessment, etc. 
+    fhir:author @<OneOrMore_ContactDetail>?;  # Who authored the CodeSystem
+    fhir:editor @<OneOrMore_ContactDetail>?;  # Who edited the CodeSystem
+    fhir:reviewer @<OneOrMore_ContactDetail>?;  # Who reviewed the CodeSystem
+    fhir:endorser @<OneOrMore_ContactDetail>?;  # Who endorsed the CodeSystem
+    fhir:relatedArtifact @<OneOrMore_RelatedArtifact>?;  # Additional documentation, 
+                                            # citations, etc. 
     fhir:caseSensitive @<boolean>?;         # If code comparison is case 
                                             # sensitive 
     fhir:valueSet @<canonical>?;            # Canonical reference to the value 
@@ -69,35 +91,126 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # adds designations and properties 
                                             # to 
     fhir:count @<unsignedInt>?;             # Total concepts in the code system
-    fhir:filter @<OneOrMore_BackboneElement>?;  # Filter that can be used in a value 
+    fhir:filter @<OneOrMore_CodeSystem.filter>?;  # Filter that can be used in a value 
                                             # set 
-    fhir:property @<OneOrMore_BackboneElement>?;  # Additional information supplied 
+    fhir:property @<OneOrMore_CodeSystem.property>?;  # Additional information supplied 
                                             # about each concept 
-    fhir:concept @<OneOrMore_BackboneElement>?;  # Concepts in the code system
-}  
+    fhir:concept @<OneOrMore_CodeSystem.concept>?;  # Concepts in the code system
+} AND (
 
-# Concepts in the code system
-<CodeSystem.concept> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code>;                      # Code that identifies concept
-    fhir:display @<string>?;                # Text to display to the user
-    fhir:definition @<string>?;             # Formal definition
-    fhir:designation @<OneOrMore_BackboneElement>?;  # Additional representations for the 
-                                            # concept 
-    fhir:property @<OneOrMore_BackboneElement>?;  # Property value for the concept
-    fhir:concept @<OneOrMore_CodeSystem.concept>?;  # Child Concepts 
-                                            # (is-a/contains/categorizes) 
-}  
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
 
-# Additional representations for the concept
-<CodeSystem.concept.designation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:language @<code>?;                 # Human language of the designation
-    fhir:use @<Coding>?;                    # Details how this designation would 
-                                            # be used 
-    fhir:v @<string>;                   # The text value for this designation
+# Constraint: url.matches('([^|#])*')
+# ShEx:
+
+{fhir:url { fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: isDistinct
+# Unmapped construct found: combine
+# Unmapped construct found: descendants
+# # Constraint UniqueKey:csd-1
+# Human readable:Within a code system definition, all the codes SHALL be unique
+#
+# Constraint: concept.exists() implies concept.code.combine(%resource.concept.descendants().concept.code).isDistinct()
+# ShEx:
+#
+#{fhir:concept .  Implies     isDistinct  ( fhir:concept.code. combine  (   descendants  ( .'%resource'.concept ).concept.code) )}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:csd-2
+# Human readable:If there is a explicit hierarchy, a hierarchyMeaning should be provided
+#
+# Constraint: concept.concept.exists() implies hierarchyMeaning.exists()
+# ShEx:
+#
+#{fhir:concept.concept .  Implies  {fhir:hierarchyMeaning .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:csd-3
+# Human readable:If there is a implicit hierarchy, a hierarchyMeaning should be provided
+#
+# Constraint: concept.where(property.code = 'parent' or property.code = 'child').exists() implies hierarchyMeaning.exists()
+# ShEx:
+#
+#{fhir:concept.  where  (property.code { fhir:v ['parent'] }  OR property.code { fhir:v ['child'] } ) .  Implies  {fhir:hierarchyMeaning .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:csd-4
+# Human readable:If the code system content = supplement, it must nominate what it's a supplement for
+#
+# Constraint: CodeSystem.content = 'supplement' implies CodeSystem.supplements.exists()
+# ShEx:
+#
+#({fhir:CodeSystem.content { fhir:v ['supplement'] } })  Implies  {fhir:CodeSystem.supplements .}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:csd-5
+# Human readable:Must have a value for concept.designation.use if concept.designation.additionalUse is present
+#
+# Constraint: additionalUse.exists() implies use.exists()
+# ShEx:
+#
+#{fhir:additionalUse .  Implies  {fhir:use .}}
+{}
+
+)
+ 
+
+# Filter that can be used in a value set
+<CodeSystem.filter> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code>;                      # Code that identifies the filter
+    fhir:description @<string>?;            # How or why the filter is used
+    fhir:operator @<OneOrMore_code> AND
+    	{fhir:v @fhirvs:filter-operator};  # = | is-a | descendent-of | 
+                                            # is-not-a | regex | in | not-in | 
+                                            # generalizes | child-of | 
+                                            # descendent-leaf | exists 
+    fhir:value @<string>;                   # What to use for the value
 }  
 
 # Child Concepts (is-a/contains/categorizes)
-<CodeSystem.concept.concept> CLOSED {   
+<CodeSystem.concept.conceptnull> CLOSED {   
 }  
 
 # Additional information supplied about each concept
@@ -113,29 +226,39 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # boolean | dateTime | decimal 
 }  
 
-# Filter that can be used in a value set
-<CodeSystem.filter> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<code>;                      # Code that identifies the filter
-    fhir:description @<string>?;            # How or why the filter is used
-    fhir:operator @<OneOrMore_code> AND
-    	{fhir:v @fhirvs:filter-operator};  # = | is-a | descendent-of | 
-                                            # is-not-a | regex | in | not-in | 
-                                            # generalizes | child-of | 
-                                            # descendent-leaf | exists 
-    fhir:v @<string>;                   # What to use for the value
+# Concepts in the code system
+<CodeSystem.concept> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<code>;                      # Code that identifies concept
+    fhir:display @<string>?;                # Text to display to the user
+    fhir:definition @<string>?;             # Formal definition
+    fhir:designation @<OneOrMore_CodeSystem.concept.designation>?;  # Additional representations for the 
+                                            # concept 
+    fhir:property @<OneOrMore_CodeSystem.concept.property>?;  # Property value for the concept
+    fhir:concept @<OneOrMore_CodeSystem.concept>?;  # Child Concepts 
+                                            # (is-a/contains/categorizes) 
+}  
+
+# Additional representations for the concept
+<CodeSystem.concept.designation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:language @<code>?;                 # Human language of the designation
+    fhir:use @<Coding>?;                    # Details how this designation would 
+                                            # be used 
+    fhir:additionalUse @<OneOrMore_Coding>?;  # Additional ways how this 
+                                            # designation would be used 
+    fhir:value @<string>;                   # The text value for this designation
 }  
 
 # Property value for the concept
 <CodeSystem.concept.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code>;                      # Reference to 
                                             # CodeSystem.property.code 
-    fhir:v (@<code>  OR 
+    fhir:value @<code>  OR 
     			@<Coding>  OR 
     			@<string>  OR 
     			@<integer>  OR 
     			@<boolean>  OR 
     			@<dateTime>  OR 
-    			@<decimal> )  AND { rdf:type IRI } ;  # Value of the property for this 
+    			@<decimal>  ;  # Value of the property for this 
                                             # concept 
 }  
 
@@ -161,9 +284,19 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_RelatedArtifact> CLOSED {
+    rdf:first @<RelatedArtifact>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_RelatedArtifact> 
+}
+
+<OneOrMore_CodeSystem.filter> CLOSED {
+    rdf:first @<CodeSystem.filter>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeSystem.filter> 
+}
+
+<OneOrMore_CodeSystem.property> CLOSED {
+    rdf:first @<CodeSystem.property>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeSystem.property> 
 }
 
 <OneOrMore_CodeSystem.concept> CLOSED {
@@ -176,10 +309,28 @@ start=@<CodeSystem> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_code> 
 }
 
+<OneOrMore_CodeSystem.concept.designation> CLOSED {
+    rdf:first @<CodeSystem.concept.designation>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeSystem.concept.designation> 
+}
+
+<OneOrMore_CodeSystem.concept.property> CLOSED {
+    rdf:first @<CodeSystem.concept.property>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeSystem.concept.property> 
+}
+
+<OneOrMore_Coding> CLOSED {
+    rdf:first @<Coding>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Coding> 
+}
+
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
+# The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.
+fhirvs:codesystem-content-mode ["not-present" "example" "fragment" "complete" "supplement"]
+
+# The meaning of the hierarchy of concepts in a code system.
+fhirvs:codesystem-hierarchy-meaning ["grouped-by" "is-a" "part-of" "classified-with"]
 
 # The type of a property value.
 fhirvs:concept-property-type ["code" "Coding" "string" "integer" "boolean" "dateTime" "decimal"]
@@ -187,9 +338,6 @@ fhirvs:concept-property-type ["code" "Coding" "string" "integer" "boolean" "date
 # The kind of operation to perform as a part of a property based filter.
 fhirvs:filter-operator ["=" "is-a" "descendent-of" "is-not-a" "regex" "in" "not-in" "generalizes" "child-of" "descendent-leaf" "exists"]
 
-# The meaning of the hierarchy of concepts in a code system.
-fhirvs:codesystem-hierarchy-meaning ["grouped-by" "is-a" "part-of" "classified-with"]
-
-# The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.
-fhirvs:codesystem-content-mode ["not-present" "example" "fragment" "complete" "supplement"]
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

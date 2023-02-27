@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # careOf
 <iso21090-ADXP-careOf> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-ADXP-careOf];
+    a [fhir:iso21090-ADXP-careOf]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:line {a [fhir:Address]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:line {a [fhir:Address]}}
+
 }  
 

@@ -11,8 +11,9 @@ IMPORT <CodeableConcept.shex>
 # The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available
 <MarketingStatus> EXTENDS @<BackboneType> CLOSED {   
 
-    a [fhir:MarketingStatus];
+    a [fhir:MarketingStatus]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:country @<CodeableConcept>?;       # The country in which the marketing 
                                             # authorisation has been granted 
                                             # shall be specified It should be 

@@ -13,8 +13,13 @@ start=@<fhirpathlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Represents a library of quality improvement components
 <fhirpathlibrary> EXTENDS @<logiclibrary> CLOSED {   
 
-    a [fhir:fhirpathlibrary];
+    a [fhir:fhirpathlibrary]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Contents of the library, either embedded or referenced
+<Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 
 # FHIRPath Content
@@ -23,9 +28,5 @@ start=@<fhirpathlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Additional documentation, citations, etc.
 <Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
-}  
-
-# Contents of the library, either embedded or referenced
-<Library.content> EXTENDS @<Attachment> CLOSED {   
 }  
 

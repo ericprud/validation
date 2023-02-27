@@ -21,11 +21,12 @@ IMPORT <ImmunizationRecommendation.shex>
 # Related item that caused this procedure.
 <procedure-causedBy> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:procedure-causedBy];
+    a [fhir:procedure-causedBy]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/procedure-causedBy"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<AllergyIntolerance> OR 
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/procedure-causedBy"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<AllergyIntolerance> OR 
     			 @<DiagnosticReport> OR 
     			 @<FamilyMemberHistory> OR 
     			 @<ImagingStudy> OR 
@@ -35,8 +36,8 @@ IMPORT <ImmunizationRecommendation.shex>
     			 @<MedicationRequest> OR 
     			 @<MedicationUsage> OR 
     			 @<Observation> OR 
-    			 @<Procedure> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Procedure]
-        }
+    			 @<Procedure> })  ; 
+    ^fhir:extension { a [fhir:Procedure]}
+
 }  
 

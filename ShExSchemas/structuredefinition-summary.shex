@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Additional text for the summary presentation
 <structuredefinition-summary> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:structuredefinition-summary];
+    a [fhir:structuredefinition-summary]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/structuredefinition-summary"]}; 
-    fhir:v (@<markdown> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:StructureDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-summary"]}; 
+    fhir:value @<markdown>  ; 
+    ^fhir:extension { a [fhir:StructureDefinition]}
+
 }  
 

@@ -6,26 +6,27 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <string.shex>
+IMPORT <Coding.shex>
 IMPORT <Period.shex>
 IMPORT <Element.shex>
 IMPORT <DataType.shex>
 IMPORT <dateTime.shex>
 IMPORT <Duration.shex>
-IMPORT <Reference.shex>
 IMPORT <canonical.shex>
+IMPORT <Reference.shex>
 IMPORT <positiveInt.shex>
 IMPORT <CodeableConcept.shex>
 
 # Describes a required data item
 <DataRequirement> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:DataRequirement];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:DataRequirement]?;
+
     fhir:type @<code> AND
-    	{fhir:v @fhirvs:all-types};  # The type of the required data
+    	{fhir:v @fhirvs:fhir-types};  # The type of the required data
     fhir:profile @<OneOrMore_canonical>?;   # The profile of the required data
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # E.g. Patient, Practitioner, 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> })  ?;  # E.g. Patient, Practitioner, 
                                             # RelatedPerson, Organization, 
                                             # Location, Device 
     fhir:mustSupport @<OneOrMore_string>?;  # Indicates specific structure 
@@ -33,9 +34,39 @@ IMPORT <CodeableConcept.shex>
                                             # the knowledge module 
     fhir:codeFilter @<OneOrMore_Element>?;  # What codes are expected
     fhir:dateFilter @<OneOrMore_Element>?;  # What dates/date ranges are expected
+    fhir:valueFilter @<OneOrMore_Element>?;  # What values are expected
     fhir:limit @<positiveInt>?;             # Number of results
     fhir:sort @<OneOrMore_Element>?;        # Order of the results
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:drq-1
+# Human readable:Either a path or a searchParam must be provided, but not both
+#
+# Constraint: path.exists() xor searchParam.exists()
+# ShEx:
+#
+#{fhir:path .  Xor  {fhir:searchParam .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:drq-2
+# Human readable:Either a path or a searchParam must be provided, but not both
+#
+# Constraint: path.exists() xor searchParam.exists()
+# ShEx:
+#
+#{fhir:path .  Xor  {fhir:searchParam .}}
+{}
+
+)
+ 
 
 # What codes are expected
 <DataRequirement.codeFilter> EXTENDS @<Element> CLOSED {   
@@ -45,6 +76,48 @@ IMPORT <CodeableConcept.shex>
                                             # search on 
     fhir:valueSet @<canonical>?;            # Valueset for the filter
     fhir:code @<OneOrMore_Coding>?;         # What code is expected
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:drq-1
+# Human readable:Either a path or a searchParam must be provided, but not both
+#
+# Constraint: path.exists() xor searchParam.exists()
+# ShEx:
+#
+#{fhir:path .  Xor  {fhir:searchParam .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:drq-2
+# Human readable:Either a path or a searchParam must be provided, but not both
+#
+# Constraint: path.exists() xor searchParam.exists()
+# ShEx:
+#
+#{fhir:path .  Xor  {fhir:searchParam .}}
+{}
+
+)
+ 
+
+# What values are expected
+<DataRequirement.valueFilter> EXTENDS @<Element> CLOSED {   
+    fhir:path @<string>?;                   # An attribute to filter on
+    fhir:searchParam @<string>?;            # A parameter to search on
+    fhir:comparator @<code> AND
+    	{fhir:v @fhirvs:value-filter-comparator}?;  # eq | gt | lt | ge | le | sa | eb
+    fhir:value @<dateTime>  OR 
+    			@<Period>  OR 
+    			@<Duration>  ?;  # The value of the filter, as a 
+                                            # Period, DateTime, or Duration 
+                                            # value 
 }  
 
 # What dates/date ranges are expected
@@ -53,12 +126,41 @@ IMPORT <CodeableConcept.shex>
                                             # on 
     fhir:searchParam @<string>?;            # A date valued parameter to search 
                                             # on 
-    fhir:v (@<dateTime>  OR 
+    fhir:value @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Duration> )  AND { rdf:type IRI } ?;  # The value of the filter, as a 
+    			@<Duration>  ?;  # The value of the filter, as a 
                                             # Period, DateTime, or Duration 
                                             # value 
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:drq-1
+# Human readable:Either a path or a searchParam must be provided, but not both
+#
+# Constraint: path.exists() xor searchParam.exists()
+# ShEx:
+#
+#{fhir:path .  Xor  {fhir:searchParam .}}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:drq-2
+# Human readable:Either a path or a searchParam must be provided, but not both
+#
+# Constraint: path.exists() xor searchParam.exists()
+# ShEx:
+#
+#{fhir:path .  Xor  {fhir:searchParam .}}
+{}
+
+)
+ 
 
 # Order of the results
 <DataRequirement.sort> EXTENDS @<Element> CLOSED {   
@@ -92,9 +194,12 @@ IMPORT <CodeableConcept.shex>
 
 #---------------------- Value Sets ------------------------
 
+# All FHIR types
+fhirvs:fhir-types ["Base" "Element" "BackboneElement" "DataType" "Address" "Annotation" "Attachment" "Availability" "BackboneType" "Dosage" "ElementDefinition" "MarketingStatus" "Population" "ProductShelfLife" "Timing" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "DataRequirement" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "Meta" "MonetaryComponent" "Money" "Narrative" "ParameterDefinition" "Period" "PrimitiveType" "base64Binary" "boolean" "date" "dateTime" "decimal" "instant" "integer" "positiveInt" "unsignedInt" "integer64" "string" "code" "id" "markdown" "time" "uri" "canonical" "oid" "url" "uuid" "Quantity" "Age" "Count" "Distance" "Duration" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "TriggerDefinition" "UsageContext" "VirtualServiceDetail" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MetadataResource" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription" "Parameters"]
+
 # The possible sort directions, ascending or descending.
 fhirvs:sort-direction ["ascending" "descending"]
 
-# A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types.
-fhirvs:all-types ["Address" "Age" "Annotation" "Attachment" "BackboneElement" "BackboneType" "Base" "CodeableConcept" "CodeableReference" "Coding" "ContactDetail" "ContactPoint" "Contributor" "Count" "DataRequirement" "DataType" "Distance" "Dosage" "Duration" "Element" "ElementDefinition" "Expression" "ExtendedContactDetail" "Extension" "HumanName" "Identifier" "MarketingStatus" "Meta" "Money" "MoneyQuantity" "Narrative" "ParameterDefinition" "Period" "Population" "PrimitiveType" "ProductShelfLife" "Quantity" "Range" "Ratio" "RatioRange" "Reference" "RelatedArtifact" "SampledData" "Signature" "SimpleQuantity" "Timing" "TriggerDefinition" "UsageContext" "base64Binary" "boolean" "canonical" "code" "date" "dateTime" "decimal" "id" "instant" "integer" "integer64" "markdown" "oid" "positiveInt" "string" "time" "unsignedInt" "uri" "url" "uuid" "xhtml" "Resource" "Binary" "Bundle" "DomainResource" "Account" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CapabilityStatement2" "CodeSystem" "CompartmentDefinition" "ExampleScenario" "GraphDefinition" "ImplementationGuide" "MessageDefinition" "MetadataResource" "ActivityDefinition" "ChargeItemDefinition" "Citation" "ConceptMap" "ConditionDefinition" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "Library" "Measure" "NamingSystem" "PlanDefinition" "Questionnaire" "OperationDefinition" "SearchParameter" "StructureDefinition" "StructureMap" "SubscriptionTopic" "TerminologyCapabilities" "TestScript" "ValueSet" "CarePlan" "CareTeam" "ChargeItem" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "Communication" "CommunicationRequest" "Composition" "Condition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "Goal" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Linkage" "List" "Location" "ManufacturedItemDefinition" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageHeader" "MolecularSequence" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestGroup" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "Subscription" "SubscriptionStatus" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TestReport" "Transport" "VerificationResult" "VisionPrescription" "Parameters" "Type" "Any"]
+# The type of comparator operator to use
+fhirvs:value-filter-comparator ["eq" "gt" "lt" "ge" "le" "sa" "eb"]
 

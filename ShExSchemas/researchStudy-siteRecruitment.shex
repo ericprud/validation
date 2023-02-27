@@ -9,14 +9,15 @@ IMPORT <Extension.shex>
 # Target and actual numbers of sites for a study
 <researchStudy-siteRecruitment> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:researchStudy-siteRecruitment];
+    a [fhir:researchStudy-siteRecruitment]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:targetNumber @<Extension>?; 
     fhir:actualNumber @<Extension>?; 
     fhir:eligibility @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/patient-animal"]}; 
-    ^fhir:extension { a [fhir:ResearchStudy]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/patient-animal"]}; 
+    ^fhir:extension { a [fhir:ResearchStudy]}
+
 }  
 

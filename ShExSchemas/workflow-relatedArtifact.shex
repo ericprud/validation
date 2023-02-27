@@ -10,13 +10,15 @@ IMPORT <RelatedArtifact.shex>
 # Documentation relevant to the 'parent' resource
 <workflow-relatedArtifact> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:workflow-relatedArtifact];
+    a [fhir:workflow-relatedArtifact]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-relatedArtifact"]}; 
-    fhir:v (@<RelatedArtifact> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:DiagnosticReport] OR 
-          a [fhir:Observation]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-relatedArtifact"]}; 
+    fhir:value @<RelatedArtifact>  ; 
+    ^fhir:extension { a [fhir:ConceptMap]} OR 
+          {a [fhir:DiagnosticReport]} OR 
+          {a [fhir:Observation]}
+
 }  
 

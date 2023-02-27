@@ -11,12 +11,13 @@ IMPORT <Observation.shex>
 # Genetic markers, ethnicity, etc.
 <family-member-history-genetics-observation> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:family-member-history-genetics-observation];
+    a [fhir:family-member-history-genetics-observation]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Observation> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:FamilyMemberHistory]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Observation> })  ; 
+    ^fhir:extension { a [fhir:FamilyMemberHistory]}
+
 }  
 

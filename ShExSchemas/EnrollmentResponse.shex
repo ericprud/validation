@@ -7,6 +7,7 @@ IMPORT <code.shex>
 IMPORT <string.shex>
 IMPORT <dateTime.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <DomainResource.shex>
@@ -19,24 +20,25 @@ start=@<EnrollmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 # EnrollmentResponse resource
 <EnrollmentResponse> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:EnrollmentResponse];
+    a [fhir:EnrollmentResponse]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier
     fhir:status @<code> AND
     	{fhir:v @fhirvs:fm-status}?;  # active | cancelled | draft | 
                                             # entered-in-error 
     fhir:request @<Reference> AND {fhir:link 
-    			@<EnrollmentRequest> }?;  # Claim reference
+    			@<EnrollmentRequest> ? }?;  # Claim reference
     fhir:outcome @<code> AND
     	{fhir:v @fhirvs:enrollment-outcome}?;  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition Message
     fhir:created @<dateTime>?;              # Creation date
     fhir:organization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Insurer
+    			@<Organization> ? }?;  # Insurer
     fhir:requestProvider @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Responsible practitioner
+    			@<PractitionerRole> ? }?;  # Responsible practitioner
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -48,9 +50,9 @@ start=@<EnrollmentResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# This value set includes Status codes.
-fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
-
 # The outcome of the processing.
 fhirvs:enrollment-outcome ["queued" "complete" "error" "partial"]
+
+# This value set includes Status codes.
+fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
 

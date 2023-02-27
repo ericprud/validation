@@ -10,13 +10,14 @@ IMPORT <CodeableConcept.shex>
 # The body position during the observation
 <observation-bodyPosition> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:observation-bodyPosition];
+    a [fhir:observation-bodyPosition]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-bodyPosition"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation] OR 
-          ^fhir:collection {a [fhir:Specimen]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-bodyPosition"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Observation]} OR 
+          {^fhir:collection {a [fhir:Specimen]}}
+
 }  
 

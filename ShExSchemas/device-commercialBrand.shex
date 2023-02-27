@@ -10,13 +10,14 @@ IMPORT <Extension.shex>
 # Commercial Brand
 <device-commercialBrand> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:device-commercialBrand];
+    a [fhir:device-commercialBrand]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/device-commercialBrand"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Device] OR 
-          a [fhir:DeviceDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/device-commercialBrand"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:Device]} OR 
+          {a [fhir:DeviceDefinition]}
+
 }  
 

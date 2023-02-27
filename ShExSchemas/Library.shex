@@ -13,17 +13,25 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Attachment.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
-IMPORT <MetadataResource.shex>
+IMPORT <RelatedArtifact.shex>
+IMPORT <DataRequirement.shex>
+IMPORT <ParameterDefinition.shex>
 
 
 start=@<Library> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Represents a library of quality improvement components
-<Library> EXTENDS @<MetadataResource> CLOSED {   
+<Library> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Library];
+    a [fhir:Library]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # library, represented as a URI 
                                             # (globally unique) 
@@ -42,11 +50,11 @@ start=@<Library> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:type @<CodeableConcept>;           # logic-library | model-definition | 
                                             # asset-collection | 
                                             # module-definition 
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> }) )  AND { rdf:type IRI } ?;  # Type of individual the library 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> })  ?;  # Type of individual the library 
                                             # content is focused on 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -77,7 +85,32 @@ start=@<Library> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # library 
     fhir:content @<OneOrMore_Attachment>?;  # Contents of the library, either 
                                             # embedded or referenced 
-}  
+} AND (
+
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+
+# Constraint: url.matches('([^|#])*')
+# ShEx:
+
+{fhir:url { fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+)
+ 
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

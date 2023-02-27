@@ -1,0 +1,38 @@
+﻿PREFIX fhir: <http://hl7.org/fhir/> 
+PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+IMPORT <url.shex>
+IMPORT <Coding.shex>
+IMPORT <string.shex>
+IMPORT <DataType.shex>
+IMPORT <positiveInt.shex>
+IMPORT <ContactPoint.shex>
+IMPORT <ExtendedContactDetail.shex>
+
+# Virtual Service Contact Details
+<VirtualServiceDetail> EXTENDS @<DataType> CLOSED {   
+
+    a [fhir:VirtualServiceDetail]?;
+
+    fhir:channelType @<Coding>?;            # Channel Type
+    fhir:address @<url>  OR 
+    			@<string>  OR 
+    			@<ContactPoint>  OR 
+    			@<ExtendedContactDetail>  ?;  # Contact address/number
+    fhir:additionalInfo @<OneOrMore_url>?;  # Address to see alternative 
+                                            # connection details 
+    fhir:maxParticipants @<positiveInt>?;   # Maximum number of participants 
+                                            # supported by the virtual service 
+    fhir:sessionKey @<string>?;             # Session Key required by the 
+                                            # virtual service 
+}  
+
+#---------------------- Cardinality Types (OneOrMore) -------------------
+
+<OneOrMore_url> CLOSED {
+    rdf:first @<url>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_url> 
+}
+

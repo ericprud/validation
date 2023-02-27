@@ -12,6 +12,7 @@ IMPORT <dateTime.shex>
 IMPORT <Location.shex>
 IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Annotation.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
@@ -26,8 +27,9 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # A report of inventory or stock items
 <InventoryReport> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:InventoryReport];
+    a [fhir:InventoryReport]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Identifiers for the report
     fhir:status @<code> AND
     	{fhir:v @fhirvs:inventoryreport-status};  # draft | requested | active | 
@@ -43,9 +45,9 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Device> OR 
     			@<Patient> OR 
     			@<Practitioner> OR 
-    			@<RelatedPerson> }?;  # Who submits the report
+    			@<RelatedPerson> ? }?;  # Who submits the report
     fhir:reportingPeriod @<Period>?;        # The period the report refers to
-    fhir:inventoryListing @<OneOrMore_BackboneElement>?;  # An inventory listing section 
+    fhir:inventoryListing @<OneOrMore_InventoryReport.inventoryListing>?;  # An inventory listing section 
                                             # (grouped by any of the attributes) 
     fhir:note @<Annotation>?;               # A note associated with the 
                                             # InventoryReport 
@@ -54,11 +56,11 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
 # An inventory listing section (grouped by any of the attributes)
 <InventoryReport.inventoryListing> EXTENDS @<BackboneElement> CLOSED {   
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Location of the inventory items
+    			@<Location> ? }?;  # Location of the inventory items
     fhir:itemStatus @<CodeableConcept>?;    # The status of the items
     fhir:countingDateTime @<dateTime>?;     # The date and time when the items 
                                             # were counted 
-    fhir:items @<OneOrMore_BackboneElement>?;  # The item or items in this listing
+    fhir:items @<OneOrMore_InventoryReport.inventoryListing.items>?;  # The item or items in this listing
 }  
 
 # The item or items in this listing
@@ -82,9 +84,14 @@ start=@<InventoryReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_InventoryReport.inventoryListing> CLOSED {
+    rdf:first @<InventoryReport.inventoryListing>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_InventoryReport.inventoryListing> 
+}
+
+<OneOrMore_InventoryReport.inventoryListing.items> CLOSED {
+    rdf:first @<InventoryReport.inventoryListing.items>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_InventoryReport.inventoryListing.items> 
 }
 
 #---------------------- Value Sets ------------------------

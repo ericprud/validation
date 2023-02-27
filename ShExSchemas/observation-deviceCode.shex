@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # A code representing the the type of device used for this observation.  Should only be used if not implicit in the code found in `Observation.code`
 <observation-deviceCode> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:observation-deviceCode];
+    a [fhir:observation-deviceCode]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-deviceCode"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-deviceCode"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Observation]}
+
 }  
 

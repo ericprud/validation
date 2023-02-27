@@ -6,6 +6,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <string.shex>
+IMPORT <Dosage.shex>
 IMPORT <Device.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
@@ -18,6 +19,8 @@ IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Procedure.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Provenance.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
@@ -36,8 +39,9 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
 # Dispensing a medication to a named patient
 <MedicationDispense> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:MedicationDispense];
+    a [fhir:MedicationDispense]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External identifier
     fhir:basedOn @<OneOrMore_Reference_CarePlan>?;  # Plan that is fulfilled by this 
                                             # dispense 
@@ -53,14 +57,14 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:medication @<CodeableReference>;   # What medication was supplied
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Who the dispense is for
+    			@<Patient> ? };  # Who the dispense is for
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter associated with event
+    			@<Encounter> ? }?;  # Encounter associated with event
     fhir:supportingInformation @<OneOrMore_Reference_Resource>?;  # Information that supports the 
                                             # dispensing of the medication 
-    fhir:performer @<OneOrMore_BackboneElement>?;  # Who performed event
+    fhir:performer @<OneOrMore_MedicationDispense.performer>?;  # Who performed event
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the dispense occurred
+    			@<Location> ? }?;  # Where the dispense occurred
     fhir:authorizingPrescription @<OneOrMore_Reference_MedicationRequest>?;  # Medication order that authorizes 
                                             # the dispense 
     fhir:type @<CodeableConcept>?;          # Trial fill, partial fill, 
@@ -74,7 +78,7 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # reviewed 
     fhir:whenHandedOver @<dateTime>?;       # When product was given out
     fhir:destination @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the medication was sent
+    			@<Location> ? }?;  # Where the medication was sent
     fhir:receiver @<OneOrMore_Reference_Location_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who collected the medication or 
                                             # where the medication was delivered 
     fhir:note @<OneOrMore_Annotation>?;     # Information about the dispense
@@ -83,10 +87,25 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:dosageInstruction @<OneOrMore_Dosage>?;  # How the medication is to be used 
                                             # by the patient or administered by 
                                             # the caregiver 
-    fhir:substitution @<BackboneElement>?;  # Whether a substitution was 
+    fhir:substitution @<MedicationDispense.substitution>?;  # Whether a substitution was 
                                             # performed on the dispense 
     fhir:eventHistory @<OneOrMore_Reference_Provenance>?;  # A list of relevant lifecycle events
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: GreaterOrEqual
+# # Constraint UniqueKey:mdd-1
+# Human readable:whenHandedOver cannot be before whenPrepared
+#
+# Constraint: whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver >= whenPrepared
+# ShEx:
+#
+# NOT { fhir:whenHandedOver {fhir:v .} }  OR  NOT { fhir:whenPrepared {fhir:v .} }  OR ({ fhir:whenHandedOver  GreaterOrEqual  { fhir:whenPrepared } })
+{}
+
+)
+ 
 
 # Who performed event
 <MedicationDispense.performer> EXTENDS @<BackboneElement> CLOSED {   
@@ -99,7 +118,7 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Individual who was performing
+    			@<RelatedPerson> ? };  # Individual who was performing
 }  
 
 # Whether a substitution was performed on the dispense
@@ -113,7 +132,7 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:responsibleParty @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Who is responsible for the 
+    			@<PractitionerRole> ? }?;  # Who is responsible for the 
                                             # substitution 
 }  
 
@@ -148,9 +167,9 @@ start=@<MedicationDispense> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_MedicationDispense.performer> CLOSED {
+    rdf:first @<MedicationDispense.performer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicationDispense.performer> 
 }
 
 <OneOrMore_Reference_MedicationRequest> CLOSED {

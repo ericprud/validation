@@ -12,20 +12,24 @@ IMPORT <markdown.shex>
 IMPORT <Quantity.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
 IMPORT <Questionnaire.shex>
+IMPORT <DomainResource.shex>
 IMPORT <PlanDefinition.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <MetadataResource.shex>
 
 
 start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # A definition of a condition
-<ConditionDefinition> EXTENDS @<MetadataResource> CLOSED {   
+<ConditionDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ConditionDefinition];
+    a [fhir:ConditionDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # condition definition, represented 
                                             # as a URI (globally unique) 
@@ -44,7 +48,7 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -64,22 +68,46 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:hasBodySite @<boolean>?;           # Whether bodySite is appropriate
     fhir:hasStage @<boolean>?;              # Whether stage is appropriate
     fhir:definition @<OneOrMore_uri>?;      # Formal Definition for the condition
-    fhir:observation @<OneOrMore_BackboneElement>?;  # Observations particularly relevant 
+    fhir:observation @<OneOrMore_ConditionDefinition.observation>?;  # Observations particularly relevant 
                                             # to this condition 
-    fhir:medication @<OneOrMore_BackboneElement>?;  # Medications particularly relevant 
+    fhir:medication @<OneOrMore_ConditionDefinition.medication>?;  # Medications particularly relevant 
                                             # for this condition 
-    fhir:precondition @<OneOrMore_BackboneElement>?;  # Observation that suggets this 
+    fhir:precondition @<OneOrMore_ConditionDefinition.precondition>?;  # Observation that suggets this 
                                             # condition 
     fhir:team @<OneOrMore_Reference_CareTeam>?;  # Appropriate team for this condition
-    fhir:questionnaire @<OneOrMore_BackboneElement>?;  # Questionnaire for this condition
-    fhir:plan @<OneOrMore_BackboneElement>?;  # Plan that is appropriate
-}  
+    fhir:questionnaire @<OneOrMore_ConditionDefinition.questionnaire>?;  # Questionnaire for this condition
+    fhir:plan @<OneOrMore_ConditionDefinition.plan>?;  # Plan that is appropriate
+} AND (
 
-# Plan that is appropriate
-<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:role @<CodeableConcept>?;          # Use for the plan
-    fhir:reference @<Reference> AND {fhir:link 
-    			@<PlanDefinition> };  # The actual plan
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+
+# Constraint: url.matches('([^|#])*')
+# ShEx:
+
+{fhir:url { fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+)
+ 
+
+# Observations particularly relevant to this condition
+<ConditionDefinition.observation> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:category @<CodeableConcept>?;      # Category that is relevant
+    fhir:code @<CodeableConcept>?;          # Code for relevant Observation
 }  
 
 # Medications particularly relevant for this condition
@@ -88,10 +116,13 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:code @<CodeableConcept>?;          # Code for relevant Medication
 }  
 
-# Observations particularly relevant to this condition
-<ConditionDefinition.observation> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:category @<CodeableConcept>?;      # Category that is relevant
-    fhir:code @<CodeableConcept>?;          # Code for relevant Observation
+# Observation that suggets this condition
+<ConditionDefinition.precondition> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<code> AND
+    	{fhir:v @fhirvs:condition-precondition-type};  # sensitive | specific
+    fhir:code @<CodeableConcept>;           # Code for relevant Observation
+    fhir:value @<CodeableConcept>  OR 
+    			@<Quantity>  ?;  # Value of Observation
 }  
 
 # Questionnaire for this condition
@@ -99,16 +130,14 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:purpose @<code> AND
     	{fhir:v @fhirvs:condition-questionnaire-purpose};  # preadmit | diff-diagnosis | outcome
     fhir:reference @<Reference> AND {fhir:link 
-    			@<Questionnaire> };  # Specific Questionnaire
+    			@<Questionnaire> ? };  # Specific Questionnaire
 }  
 
-# Observation that suggets this condition
-<ConditionDefinition.precondition> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<code> AND
-    	{fhir:v @fhirvs:condition-precondition-type};  # sensitive | specific
-    fhir:code @<CodeableConcept>;           # Code for relevant Observation
-    fhir:v (@<CodeableConcept>  OR 
-    			@<Quantity> )  AND { rdf:type IRI } ?;  # Value of Observation
+# Plan that is appropriate
+<ConditionDefinition.plan> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:role @<CodeableConcept>?;          # Use for the plan
+    fhir:reference @<Reference> AND {fhir:link 
+    			@<PlanDefinition> ? };  # The actual plan
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -138,9 +167,19 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ConditionDefinition.observation> CLOSED {
+    rdf:first @<ConditionDefinition.observation>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ConditionDefinition.observation> 
+}
+
+<OneOrMore_ConditionDefinition.medication> CLOSED {
+    rdf:first @<ConditionDefinition.medication>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ConditionDefinition.medication> 
+}
+
+<OneOrMore_ConditionDefinition.precondition> CLOSED {
+    rdf:first @<ConditionDefinition.precondition>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ConditionDefinition.precondition> 
 }
 
 <OneOrMore_Reference_CareTeam> CLOSED {
@@ -149,14 +188,24 @@ start=@<ConditionDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_CareTeam> 
 }
 
+<OneOrMore_ConditionDefinition.questionnaire> CLOSED {
+    rdf:first @<ConditionDefinition.questionnaire>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ConditionDefinition.questionnaire> 
+}
+
+<OneOrMore_ConditionDefinition.plan> CLOSED {
+    rdf:first @<ConditionDefinition.plan>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ConditionDefinition.plan> 
+}
+
 #---------------------- Value Sets ------------------------
 
 # Kind of precondition for the condition.
 fhirvs:condition-precondition-type ["sensitive" "specific"]
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # The use of a questionnaire.
 fhirvs:condition-questionnaire-purpose ["preadmit" "diff-diagnosis" "outcome"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 

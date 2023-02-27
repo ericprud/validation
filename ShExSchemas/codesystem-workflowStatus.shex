@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Indicates the state of development of the value set
 <codesystem-workflowStatus> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-workflowStatus];
+    a [fhir:codesystem-workflowStatus]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:CodeSystem]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:CodeSystem]}
+
 }  
 

@@ -12,8 +12,8 @@ IMPORT <positiveInt.shex>
 # Details of a Technology mediated contact point (phone, fax, email, etc.)
 <ContactPoint> EXTENDS @<DataType> CLOSED {   
 
-#     a [fhir:ContactPoint];
-#     fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:ContactPoint]?;
+
     fhir:system @<code> AND
     	{fhir:v @fhirvs:contact-point-system}?;  # phone | fax | email | pager | url 
                                             # | sms | other 
@@ -25,13 +25,24 @@ IMPORT <positiveInt.shex>
                                             # = highest) 
     fhir:period @<Period>?;                 # Time period when the contact point 
                                             # was/is in use 
-}  
+} AND (
+
+# Constraint UniqueKey:cpt-2
+# Human readable:A system is required if a value is provided.
+
+# Constraint: value.empty() or system.exists()
+# ShEx:
+
+ NOT { fhir:value {fhir:v .} }  OR {fhir:system .}
+
+)
+ 
 
 #---------------------- Value Sets ------------------------
 
-# Use of contact point.
-fhirvs:contact-point-use ["home" "work" "temp" "old" "mobile"]
-
 # Telecommunications form for contact point.
 fhirvs:contact-point-system ["phone" "fax" "email" "pager" "url" "sms" "other"]
+
+# Use of contact point.
+fhirvs:contact-point-use ["home" "work" "temp" "old" "mobile"]
 

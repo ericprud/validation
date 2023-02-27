@@ -10,12 +10,13 @@ IMPORT <Attachment.shex>
 # A boundary shape that represents the outside edge of the location (in GeoJSON format)
 <location-boundary-geojson> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:location-boundary-geojson];
+    a [fhir:location-boundary-geojson]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/location-boundary-geojson"]}; 
-    fhir:v (@<Attachment> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Location]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/location-boundary-geojson"]}; 
+    fhir:value @<Attachment>  ; 
+    ^fhir:extension { a [fhir:Location]}
+
 }  
 

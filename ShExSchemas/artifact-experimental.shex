@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # For testing purposes, not real usage
 <artifact-experimental> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:artifact-experimental];
+    a [fhir:artifact-experimental]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]}; 
-    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-experimental"]}; 
+    fhir:value @<boolean>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

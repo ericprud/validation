@@ -11,13 +11,14 @@ IMPORT <CodeableConcept.shex>
 # Mark a warning invariant as 'best practice'
 <elementdefinition-bestpractice> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-bestpractice];
+    a [fhir:elementdefinition-bestpractice]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice"]}; 
-    fhir:v (@<boolean>  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:constraint {a [fhir:ElementDefinition]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice"]}; 
+    fhir:value @<boolean>  OR 
+    			@<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:constraint {a [fhir:ElementDefinition]}}
+
 }  
 

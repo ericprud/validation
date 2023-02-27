@@ -8,7 +8,7 @@ IMPORT <integer.shex>
 # Primitive Type unsignedInt
 <unsignedInt> EXTENDS @<integer> CLOSED {   
 
-    a [fhir:unsignedInt];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:unsignedInt]?;
+
 }  
 

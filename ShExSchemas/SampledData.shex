@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <code.shex>
 IMPORT <string.shex>
 IMPORT <decimal.shex>
 IMPORT <DataType.shex>
@@ -12,11 +13,14 @@ IMPORT <positiveInt.shex>
 # A series of measurements taken by a device
 <SampledData> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:SampledData];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:SampledData]?;
+
     fhir:origin @<Quantity>;                # Zero value and units
-    fhir:period @<decimal>;                 # Number of milliseconds between 
+    fhir:interval @<decimal>;               # Number of intervalUnits between 
                                             # samples 
+    fhir:intervalUnit @<code> AND
+    	{fhir:v @fhirvs:ucum-units};  # The measurement unit of the 
+                                            # interval between samples 
     fhir:factor @<decimal>?;                # Multiply data by this before 
                                             # adding to origin 
     fhir:lowerLimit @<decimal>?;            # Lower limit of detection
@@ -26,4 +30,9 @@ IMPORT <positiveInt.shex>
     fhir:data @<string>?;                   # Decimal values with spaces, or "E" 
                                             # | "U" | "L" 
 }  
+
+#---------------------- Value Sets ------------------------
+
+# Unified Code for Units of Measure (UCUM). This value set includes all UCUM codes
+fhirvs:ucum-units xsd:string #EXTERNAL
 

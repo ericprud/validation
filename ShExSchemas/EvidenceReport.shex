@@ -19,19 +19,24 @@ IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
 IMPORT <Narrative.shex>
 IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
+IMPORT <UsageContext.shex>
 IMPORT <Organization.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <MetadataResource.shex>
 
 
 start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # A EvidenceReport
-<EvidenceReport> EXTENDS @<MetadataResource> CLOSED {   
+<EvidenceReport> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:EvidenceReport];
+    a [fhir:EvidenceReport]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # EvidenceReport, represented as a 
                                             # globally unique URI 
@@ -44,59 +49,50 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:relatedIdentifier @<OneOrMore_Identifier>?;  # Identifiers for articles that may 
                                             # relate to more than one evidence 
                                             # report 
-    fhir:citeAs ((@<Reference>  AND {fhir:link @<Citation> })  OR 
-    			@<markdown> )  AND { rdf:type IRI } ?;  # Citation for this report
+    fhir:citeAs (@<Reference>  AND {fhir:link @<Citation> })  OR 
+    			@<markdown>  ?;  # Citation for this report
     fhir:type @<CodeableConcept>?;          # Kind of report
     fhir:note @<OneOrMore_Annotation>?;     # Used for footnotes and annotations
     fhir:relatedArtifact @<OneOrMore_RelatedArtifact>?;  # Link, description or reference to 
                                             # artifact associated with the 
                                             # report 
-    fhir:subject @<BackboneElement>;        # Focus of the report
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:subject @<EvidenceReport.subject>;  # Focus of the report
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:author @<OneOrMore_ContactDetail>?;  # Who authored the content
     fhir:editor @<OneOrMore_ContactDetail>?;  # Who edited the content
     fhir:reviewer @<OneOrMore_ContactDetail>?;  # Who reviewed the content
     fhir:endorser @<OneOrMore_ContactDetail>?;  # Who endorsed the content
-    fhir:relatesTo @<OneOrMore_BackboneElement>?;  # Relationships to other 
+    fhir:relatesTo @<OneOrMore_EvidenceReport.relatesTo>?;  # Relationships to other 
                                             # compositions/documents 
-    fhir:section @<OneOrMore_BackboneElement>?;  # Composition is broken into sections
-}  
+    fhir:section @<OneOrMore_EvidenceReport.section>?;  # Composition is broken into sections
+} AND (
 
-# Target of the relationship
-<EvidenceReport.relatesTo.target> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:url @<uri>?;                       # Target of the relationship URL
-    fhir:identifier @<Identifier>?;         # Target of the relationship 
-                                            # Identifier 
-    fhir:display @<markdown>?;              # Target of the relationship Display
-    fhir:resource @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Target of the relationship 
-                                            # Resource reference 
-}  
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
 
-# Characteristic
-<EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>;           # Characteristic code
-    fhir:v ((@<Reference>  AND {fhir:link @<Resource> })  OR 
-    			@<CodeableConcept>  OR 
-    			@<boolean>  OR 
-    			@<Quantity>  OR 
-    			@<Range> )  AND { rdf:type IRI } ;  # Characteristic value
-    fhir:exclude @<boolean>?;               # Is used to express not the 
-                                            # characteristic 
-    fhir:period @<Period>?;                 # Timeframe for the characteristic
-}  
+# Constraint: url.matches('([^|#])*')
+# ShEx:
 
-# Focus of the report
-<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Characteristic
-    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
-}  
+{fhir:url { fhir:v /'([^|#])*'/ } }
 
-# Nested Section
-<EvidenceReport.section.section> CLOSED {   
-}  
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+)
+ 
 
 # Composition is broken into sections
 <EvidenceReport.section> EXTENDS @<BackboneElement> CLOSED {   
@@ -104,7 +100,7 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:focus @<CodeableConcept>?;         # Classification of section 
                                             # (recommended) 
     fhir:focusReference @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Classification of section by 
+    			@<Resource> ? }?;  # Classification of section by 
                                             # Resource 
     fhir:author @<OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Person>?;  # Who and/or what authored the 
                                             # section 
@@ -120,6 +116,23 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:section @<OneOrMore_EvidenceReport.section>?;  # Nested Section
 }  
 
+# Target of the relationship
+<EvidenceReport.relatesTo.target> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:url @<uri>?;                       # Target of the relationship URL
+    fhir:identifier @<Identifier>?;         # Target of the relationship 
+                                            # Identifier 
+    fhir:display @<markdown>?;              # Target of the relationship Display
+    fhir:resource @<Reference> AND {fhir:link 
+    			@<Resource> ? }?;  # Target of the relationship 
+                                            # Resource reference 
+}  
+
+# Focus of the report
+<EvidenceReport.subject> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:characteristic @<OneOrMore_EvidenceReport.subject.characteristic>?;  # Characteristic
+    fhir:note @<OneOrMore_Annotation>?;     # Footnotes and/or explanatory notes
+}  
+
 # Relationships to other compositions/documents
 <EvidenceReport.relatesTo> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<code> AND
@@ -127,7 +140,24 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # transforms | replacedWith | 
                                             # amendedWith | appendedWith | 
                                             # transformedWith 
-    fhir:target @<BackboneElement>;         # Target of the relationship
+    fhir:target @<EvidenceReport.relatesTo.target>;  # Target of the relationship
+}  
+
+# Characteristic
+<EvidenceReport.subject.characteristic> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>;           # Characteristic code
+    fhir:value (@<Reference>  AND {fhir:link @<Resource> })  OR 
+    			@<CodeableConcept>  OR 
+    			@<boolean>  OR 
+    			@<Quantity>  OR 
+    			@<Range>  ;  # Characteristic value
+    fhir:exclude @<boolean>?;               # Is used to express not the 
+                                            # characteristic 
+    fhir:period @<Period>?;                 # Timeframe for the characteristic
+}  
+
+# Nested Section
+<EvidenceReport.section.sectionnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -157,9 +187,14 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_ContactDetail> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_EvidenceReport.relatesTo> CLOSED {
+    rdf:first @<EvidenceReport.relatesTo>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.relatesTo> 
+}
+
+<OneOrMore_EvidenceReport.section> CLOSED {
+    rdf:first @<EvidenceReport.section>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.section> 
 }
 
 <OneOrMore_Reference_Device_OR_Group_OR_Organization_OR_Person> CLOSED {
@@ -187,18 +222,18 @@ start=@<EvidenceReport> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Quantity> 
 }
 
-<OneOrMore_EvidenceReport.section> CLOSED {
-    rdf:first @<EvidenceReport.section>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.section> 
+<OneOrMore_EvidenceReport.subject.characteristic> CLOSED {
+    rdf:first @<EvidenceReport.subject.characteristic>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_EvidenceReport.subject.characteristic> 
 }
 
 #---------------------- Value Sets ------------------------
 
-# The lifecycle status of an artifact.
-fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
+
+# The lifecycle status of an artifact.
+fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
 # The type of relationship between reports.
 fhirvs:report-relation-type ["replaces" "amends" "appends" "transforms" "replacedWith" "amendedWith" "appendedWith" "transformedWith"]

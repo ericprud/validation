@@ -11,15 +11,17 @@ IMPORT <Reference.shex>
 # Other information that may be relevant to this event.
 <workflow-supportingInfo> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:workflow-supportingInfo];
+    a [fhir:workflow-supportingInfo]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-supportingInfo"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Resource> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:DiagnosticReport] OR 
-          a [fhir:DocumentReference] OR 
-          a [fhir:Observation] OR 
-          a [fhir:CommunicationRequest]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-supportingInfo"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Resource> })  ; 
+    ^fhir:extension { a [fhir:DiagnosticReport]} OR 
+          {a [fhir:DocumentReference]} OR 
+          {a [fhir:Encounter]} OR 
+          {a [fhir:Observation]} OR 
+          {a [fhir:CommunicationRequest]}
+
 }  
 

@@ -7,14 +7,25 @@ IMPORT <code.shex>
 IMPORT <Task.shex>
 IMPORT <date.shex>
 IMPORT <Money.shex>
+IMPORT <Claim.shex>
 IMPORT <Period.shex>
+IMPORT <Person.shex>
 IMPORT <string.shex>
+IMPORT <Patient.shex>
+IMPORT <Account.shex>
+IMPORT <Invoice.shex>
 IMPORT <dateTime.shex>
-IMPORT <Resource.shex>
+IMPORT <Location.shex>
+IMPORT <Contract.shex>
 IMPORT <Reference.shex>
+IMPORT <Encounter.shex>
 IMPORT <Identifier.shex>
+IMPORT <ChargeItem.shex>
+IMPORT <positiveInt.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
+IMPORT <ClaimResponse.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
@@ -26,56 +37,90 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
 # PaymentReconciliation resource
 <PaymentReconciliation> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:PaymentReconciliation];
+    a [fhir:PaymentReconciliation]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for a payment 
                                             # reconciliation 
+    fhir:type @<CodeableConcept>;           # Category of payment
     fhir:status @<code> AND
     	{fhir:v @fhirvs:fm-status};  # active | cancelled | draft | 
                                             # entered-in-error 
+    fhir:kind @<CodeableConcept>?;          # Workflow originating payment
     fhir:period @<Period>?;                 # Period covered
     fhir:created @<dateTime>;               # Creation date
+    fhir:enterer @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> ? }?;  # Who entered the payment
+    fhir:issuerType @<CodeableConcept>?;    # Nature of the source
     fhir:paymentIssuer @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Party generating payment
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Person> OR 
+    			@<RelatedPerson> ? }?;  # Party generating payment
     fhir:request @<Reference> AND {fhir:link 
-    			@<Task> }?;  # Reference to requesting resource
+    			@<Task> ? }?;  # Reference to requesting resource
     fhir:requestor @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Responsible practitioner
+    			@<PractitionerRole> ? }?;  # Responsible practitioner
     fhir:outcome @<code> AND
     	{fhir:v @fhirvs:payment-outcome}?;  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition message
-    fhir:paymentDate @<date>;               # When payment issued
-    fhir:paymentAmount @<Money>;            # Total amount of Payment
+    fhir:date @<date>;                      # When payment issued
+    fhir:location @<Reference> AND {fhir:link 
+    			@<Location> ? }?;  # Where payment collected
+    fhir:method @<CodeableConcept>?;        # Payment instrument
+    fhir:cardBrand @<string>?;              # Type of card
+    fhir:accountNumber @<string>?;          # Digits for verification
+    fhir:expirationDate @<date>?;           # Expiration year-month
+    fhir:processor @<string>?;              # Processor name
+    fhir:referenceNumber @<string>?;        # Check number or payment reference
+    fhir:authorization @<string>?;          # Authorization number
+    fhir:tenderedAmount @<Money>?;          # Amount offered by the issuer
+    fhir:returnedAmount @<Money>?;          # Amount returned by the receiver
+    fhir:amount @<Money>;                   # Total amount of Payment
     fhir:paymentIdentifier @<Identifier>?;  # Business identifier for the payment
-    fhir:detail @<OneOrMore_BackboneElement>?;  # Settlement particulars
+    fhir:allocation @<OneOrMore_PaymentReconciliation.allocation>?;  # Settlement particulars
     fhir:formCode @<CodeableConcept>?;      # Printed form identifier
-    fhir:processNote @<OneOrMore_BackboneElement>?;  # Note concerning processing
+    fhir:processNote @<OneOrMore_PaymentReconciliation.processNote>?;  # Note concerning processing
 }  
 
 # Settlement particulars
-<PaymentReconciliation.detail> EXTENDS @<BackboneElement> CLOSED {   
+<PaymentReconciliation.allocation> EXTENDS @<BackboneElement> CLOSED {   
     fhir:identifier @<Identifier>?;         # Business identifier of the payment 
                                             # detail 
     fhir:predecessor @<Identifier>?;        # Business identifier of the prior 
                                             # payment detail 
-    fhir:type @<CodeableConcept>;           # Category of payment
-    fhir:request @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Request giving rise to the payment
+    fhir:target @<Reference> AND {fhir:link 
+    			@<Account> OR 
+    			@<ChargeItem> OR 
+    			@<Claim> OR 
+    			@<Contract> OR 
+    			@<Encounter> OR 
+    			@<Invoice> ? }?;  # Subject of the payment
+    fhir:targetItem @<string>  OR 
+    			@<Identifier>  OR 
+    			@<positiveInt>  ?;  # Sub-element of the subject
+    fhir:encounter @<Reference> AND {fhir:link 
+    			@<Encounter> ? }?;  # Applied-to encounter
+    fhir:account @<Reference> AND {fhir:link 
+    			@<Account> ? }?;  # Applied-to account
+    fhir:type @<CodeableConcept>?;          # Category of payment
     fhir:submitter @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Submitter of the request
+    			@<PractitionerRole> ? }?;  # Submitter of the request
     fhir:response @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Response committing to a payment
+    			@<ClaimResponse> ? }?;  # Response committing to a payment
     fhir:date @<date>?;                     # Date of commitment to pay
     fhir:responsible @<Reference> AND {fhir:link 
-    			@<PractitionerRole> }?;  # Contact for the response
+    			@<PractitionerRole> ? }?;  # Contact for the response
     fhir:payee @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Recipient of the payment
+    			@<PractitionerRole> ? }?;  # Recipient of the payment
     fhir:amount @<Money>?;                  # Amount allocated to this payable
 }  
 
@@ -93,9 +138,14 @@ start=@<PaymentReconciliation> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_PaymentReconciliation.allocation> CLOSED {
+    rdf:first @<PaymentReconciliation.allocation>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PaymentReconciliation.allocation> 
+}
+
+<OneOrMore_PaymentReconciliation.processNote> CLOSED {
+    rdf:first @<PaymentReconciliation.processNote>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PaymentReconciliation.processNote> 
 }
 
 #---------------------- Value Sets ------------------------

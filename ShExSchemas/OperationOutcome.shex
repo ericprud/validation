@@ -15,9 +15,10 @@ start=@<OperationOutcome> AND {fhir:nodeRole [fhir:treeRoot]}
 # Information about the success/failure of an action
 <OperationOutcome> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:OperationOutcome];
+    a [fhir:OperationOutcome]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:issue @<OneOrMore_BackboneElement>;  # A single issue associated with the 
+
+    fhir:issue @<OneOrMore_OperationOutcome.issue>;  # A single issue associated with the 
                                             # action 
 }  
 
@@ -39,9 +40,9 @@ start=@<OperationOutcome> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_OperationOutcome.issue> CLOSED {
+    rdf:first @<OperationOutcome.issue>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_OperationOutcome.issue> 
 }
 
 <OneOrMore_string> CLOSED {
@@ -51,9 +52,9 @@ start=@<OperationOutcome> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
-# A code that describes the type of issue.
-fhirvs:issue-type ["invalid" "structure" "required" "value" "invariant" "security" "login" "unknown" "expired" "forbidden" "suppressed" "processing" "not-supported" "duplicate" "multiple-matches" "not-found" "deleted" "too-long" "code-invalid" "extension" "too-costly" "business-rule" "conflict" "transient" "lock-error" "no-store" "exception" "timeout" "incomplete" "throttled" "informational"]
-
 # How the issue affects the success of the action.
 fhirvs:issue-severity ["fatal" "error" "warning" "information"]
+
+# A code that describes the type of issue.
+fhirvs:issue-type ["invalid" "structure" "required" "value" "invariant" "security" "login" "unknown" "expired" "forbidden" "suppressed" "processing" "not-supported" "duplicate" "multiple-matches" "not-found" "deleted" "too-long" "code-invalid" "extension" "too-costly" "business-rule" "conflict" "transient" "lock-error" "no-store" "exception" "timeout" "incomplete" "throttled" "informational"]
 

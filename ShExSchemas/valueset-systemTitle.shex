@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Code system title
 <valueset-systemTitle> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-systemTitle];
+    a [fhir:valueset-systemTitle]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-systemTitle"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:include {^fhir:compose {a [fhir:ValueSet]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-systemTitle"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}
+
 }  
 

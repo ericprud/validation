@@ -11,12 +11,13 @@ IMPORT <DiagnosticReport.shex>
 # Related reports
 <diagnosticReport-extends> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:diagnosticReport-extends];
+    a [fhir:diagnosticReport-extends]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/diagnosticReport-extends"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<DiagnosticReport> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:DiagnosticReport]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/diagnosticReport-extends"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<DiagnosticReport> })  ; 
+    ^fhir:extension { a [fhir:DiagnosticReport]}
+
 }  
 

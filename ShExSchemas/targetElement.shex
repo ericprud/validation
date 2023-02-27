@@ -9,12 +9,14 @@ IMPORT <Extension.shex>
 # A particular element of interest in the target resource (by id)
 <targetElement> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:targetElement];
+    a [fhir:targetElement]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/targetElement"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Reference]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/targetElement"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { a [fhir:Reference]} OR 
+          {a [fhir:canonical]}
+
 }  
 

@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Prompt for element phrased as question
 <elementdefinition-question> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-question];
+    a [fhir:elementdefinition-question]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-question"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ElementDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-question"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:ElementDefinition]}
+
 }  
 

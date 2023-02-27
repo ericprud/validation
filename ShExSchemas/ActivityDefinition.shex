@@ -12,6 +12,7 @@ IMPORT <Range.shex>
 IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <Timing.shex>
+IMPORT <Dosage.shex>
 IMPORT <Device.shex>
 IMPORT <boolean.shex>
 IMPORT <Patient.shex>
@@ -20,33 +21,44 @@ IMPORT <markdown.shex>
 IMPORT <Duration.shex>
 IMPORT <Quantity.shex>
 IMPORT <CareTeam.shex>
+IMPORT <Endpoint.shex>
 IMPORT <Location.shex>
 IMPORT <Reference.shex>
 IMPORT <canonical.shex>
 IMPORT <Substance.shex>
+IMPORT <Identifier.shex>
 IMPORT <Medication.shex>
 IMPORT <Ingredient.shex>
 IMPORT <Expression.shex>
+IMPORT <UsageContext.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
+IMPORT <ContactDetail.shex>
 IMPORT <RelatedPerson.shex>
+IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <MetadataResource.shex>
+IMPORT <EvidenceVariable.shex>
+IMPORT <DeviceDefinition.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <HealthcareService.shex>
-IMPORT <SpecimenDefinition.shex>
-IMPORT <ObservationDefinition.shex>
+IMPORT <SubstanceDefinition.shex>
+IMPORT <PackagedProductDefinition.shex>
+IMPORT <MedicinalProductDefinition.shex>
+IMPORT <ManufacturedItemDefinition.shex>
+IMPORT <AdministrableProductDefinition.shex>
 
 
 start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # The definition of a specific activity to be taken, independent of any particular patient or context
-<ActivityDefinition> EXTENDS @<MetadataResource> CLOSED {   
+<ActivityDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ActivityDefinition];
+    a [fhir:ActivityDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # activity definition, represented 
                                             # as a URI (globally unique) 
@@ -64,12 +76,17 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:publication-status};  # draft | active | retired | unknown
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
-    fhir:subject (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Group> })  OR 
-    			@<canonical> )  AND { rdf:type IRI } ?;  # Type of individual the activity 
+    fhir:subject @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Group> OR 
+    			 @<MedicinalProductDefinition> OR 
+    			 @<SubstanceDefinition> OR 
+    			 @<AdministrableProductDefinition> OR 
+    			 @<ManufacturedItemDefinition> OR 
+    			 @<PackagedProductDefinition> })  OR 
+    			(@<canonical>  AND {fhir:link @<EvidenceVariable> })  ?;  # Type of individual the activity 
                                             # definition is intended for 
     fhir:date @<dateTime>?;                 # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -113,39 +130,57 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:doNotPerform @<boolean>?;          # True if the activity should not be 
                                             # performed 
-    fhir:timing (@<Timing>  OR 
+    fhir:timing @<Timing>  OR 
     			@<Age>  OR 
     			@<Range>  OR 
-    			@<Duration> )  AND { rdf:type IRI } ?;  # When activity is to occur
+    			@<Duration>  ?;  # When activity is to occur
+    fhir:asNeeded @<boolean>  OR 
+    			@<CodeableConcept>  ?;  # Preconditions for service
     fhir:location @<CodeableReference>?;    # Where it should happen
-    fhir:participant @<OneOrMore_BackboneElement>?;  # Who should participate in the 
+    fhir:participant @<OneOrMore_ActivityDefinition.participant>?;  # Who should participate in the 
                                             # action 
-    fhir:product ((@<Reference>  AND {fhir:link @<Medication> OR 
+    fhir:product (@<Reference>  AND {fhir:link @<Medication> OR 
     			 @<Substance> OR 
     			 @<Ingredient> })  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ?;  # What's administered/supplied
+    			@<CodeableConcept>  ?;  # What's administered/supplied
     fhir:quantity @<Quantity>?;             # How much is 
                                             # administered/consumed/supplied 
     fhir:dosage @<OneOrMore_Dosage>?;       # Detailed dosage instructions
     fhir:bodySite @<OneOrMore_CodeableConcept>?;  # What part of body to perform on
-    fhir:specimenRequirement @<OneOrMore_Reference_SpecimenDefinition>?;  # What specimens are required to 
+    fhir:specimenRequirement @<OneOrMore_canonical>?;  # What specimens are required to 
                                             # perform this action 
-    fhir:observationRequirement @<OneOrMore_Reference_ObservationDefinition>?;  # What observations are required to 
+    fhir:observationRequirement @<OneOrMore_canonical>?;  # What observations are required to 
                                             # perform this action 
-    fhir:observationResultRequirement @<OneOrMore_Reference_ObservationDefinition>?;  # What observations must be produced 
+    fhir:observationResultRequirement @<OneOrMore_canonical>?;  # What observations must be produced 
                                             # by this action 
     fhir:transform @<canonical>?;           # Transform to apply the template
-    fhir:dynamicValue @<OneOrMore_BackboneElement>?;  # Dynamic aspects of the definition
-}  
+    fhir:dynamicValue @<OneOrMore_ActivityDefinition.dynamicValue>?;  # Dynamic aspects of the definition
+} AND (
 
-# Dynamic aspects of the definition
-<ActivityDefinition.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:path @<string>;                    # The path to the element to be set 
-                                            # dynamically 
-    fhir:expression @<Expression>;          # An expression that provides the 
-                                            # dynamic value for the 
-                                            # customization 
-}  
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+
+# Constraint: url.matches('([^|#])*')
+# ShEx:
+
+{fhir:url { fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+)
+ 
 
 # Who should participate in the action
 <ActivityDefinition.participant> EXTENDS @<BackboneElement> CLOSED {   
@@ -155,9 +190,12 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # organization | patient | 
                                             # practitioner | practitionerrole | 
                                             # relatedperson 
+    fhir:typeCanonical @<canonical>?;       # Who or what can participate
     fhir:typeReference @<Reference> AND {fhir:link 
     			@<CareTeam> OR 
     			@<Device> OR 
+    			@<DeviceDefinition> OR 
+    			@<Endpoint> OR 
     			@<Group> OR 
     			@<HealthcareService> OR 
     			@<Location> OR 
@@ -165,10 +203,19 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who or what can participate
+    			@<RelatedPerson> ? }?;  # Who or what can participate
     fhir:role @<CodeableConcept>?;          # E.g. Nurse, Surgeon, Parent, etc.
     fhir:function @<CodeableConcept>?;      # E.g. Author, Reviewer, Witness, 
                                             # etc. 
+}  
+
+# Dynamic aspects of the definition
+<ActivityDefinition.dynamicValue> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:path @<string>;                    # The path to the element to be set 
+                                            # dynamically 
+    fhir:expression @<Expression>;          # An expression that provides the 
+                                            # dynamic value for the 
+                                            # customization 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -203,9 +250,9 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_canonical> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ActivityDefinition.participant> CLOSED {
+    rdf:first @<ActivityDefinition.participant>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ActivityDefinition.participant> 
 }
 
 <OneOrMore_Dosage> CLOSED {
@@ -213,32 +260,25 @@ start=@<ActivityDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Dosage> 
 }
 
-<OneOrMore_Reference_SpecimenDefinition> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<SpecimenDefinition> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_SpecimenDefinition> 
-}
-
-<OneOrMore_Reference_ObservationDefinition> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<ObservationDefinition> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_ObservationDefinition> 
+<OneOrMore_ActivityDefinition.dynamicValue> CLOSED {
+    rdf:first @<ActivityDefinition.dynamicValue>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ActivityDefinition.dynamicValue> 
 }
 
 #---------------------- Value Sets ------------------------
 
-# A list of all the request resource types defined in this version of the FHIR specification.
-fhirvs:request-resource-types ["Appointment" "AppointmentResponse" "CarePlan" "Claim" "CommunicationRequest" "Contract" "DeviceRequest" "EnrollmentRequest" "ImmunizationRecommendation" "MedicationRequest" "NutritionOrder" "ServiceRequest" "SupplyRequest" "Task" "VisionPrescription"]
+# The type of participant for the action.
+fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
 
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
-
-# The type of participant for the action.
-fhirvs:action-participant-type ["careteam" "device" "group" "healthcareservice" "location" "organization" "patient" "practitioner" "practitionerrole" "relatedperson"]
 
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
+# All Resource Types that represent request resources
+fhirvs:request-resource-types ["Appointment" "AppointmentResponse" "CarePlan" "Claim" "CommunicationRequest" "Contract" "CoverageEligibilityRequest" "DeviceRequest" "EnrollmentRequest" "ImmunizationRecommendation" "MedicationRequest" "NutritionOrder" "RequestOrchestration" "ServiceRequest" "SupplyRequest" "VisionPrescription"]
 

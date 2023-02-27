@@ -3,14 +3,17 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <string.shex>
 IMPORT <boolean.shex>
+IMPORT <Identifier.shex>
 
 # Participant Pattern
-<Participant> CLOSED {   
+<Participant> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Participant];
+    a [fhir:Participant]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for participant
     fhir:active @<boolean>?;                # Whether the participant is 
                                             # currently active 

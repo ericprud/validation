@@ -10,12 +10,13 @@ IMPORT <Expression.shex>
 # Equivalent expression in an alternate language
 <cqf-alternativeExpression> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-alternativeExpression];
+    a [fhir:cqf-alternativeExpression]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-alternativeExpression"]}; 
-    fhir:v (@<Expression> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Expression]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-alternativeExpression"]}; 
+    fhir:value @<Expression>  ; 
+    ^fhir:extension { a [fhir:Expression]}
+
 }  
 

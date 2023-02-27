@@ -3,19 +3,30 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <Age.shex>
 IMPORT <code.shex>
 IMPORT <date.shex>
 IMPORT <Range.shex>
 IMPORT <string.shex>
 IMPORT <Period.shex>
+IMPORT <Device.shex>
 IMPORT <Patient.shex>
 IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
+IMPORT <CareTeam.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
+IMPORT <Organization.shex>
+IMPORT <Practitioner.shex>
+IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
 
 
 start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -23,8 +34,9 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
 # Information about patient's relatives, relevant for patient
 <FamilyMemberHistory> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:FamilyMemberHistory];
+    a [fhir:FamilyMemberHistory]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Id(s) for this record
     fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
                                             # definition 
@@ -36,32 +48,67 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:dataAbsentReason @<CodeableConcept>?;  # subject-unknown | withheld | 
                                             # unable-to-obtain | deferred 
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # Patient history is about
+    			@<Patient> ? };  # Patient history is about
     fhir:date @<dateTime>?;                 # When history was recorded or last 
                                             # updated 
+    fhir:participant @<OneOrMore_FamilyMemberHistory.participant>?;  # Who or what participated in the 
+                                            # activities related to the family 
+                                            # member history and how they were 
+                                            # involved 
     fhir:name @<string>?;                   # The family member described
     fhir:relationship @<CodeableConcept>;   # Relationship to the subject
     fhir:sex @<CodeableConcept>?;           # male | female | other | unknown
-    fhir:born (@<Period>  OR 
+    fhir:born @<Period>  OR 
     			@<date>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # (approximate) date of birth
-    fhir:age (@<Age>  OR 
+    			@<string>  ?;  # (approximate) date of birth
+    fhir:age @<Age>  OR 
     			@<Range>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # (approximate) age
+    			@<string>  ?;  # (approximate) age
     fhir:estimatedAge @<boolean>?;          # Age is estimated?
-    fhir:deceased (@<boolean>  OR 
+    fhir:deceased @<boolean>  OR 
     			@<Age>  OR 
     			@<Range>  OR 
     			@<date>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # Dead? How old/when?
+    			@<string>  ?;  # Dead? How old/when?
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why was family member history 
                                             # performed? 
     fhir:note @<OneOrMore_Annotation>?;     # General note about related person
-    fhir:condition @<OneOrMore_BackboneElement>?;  # Condition that the related person 
+    fhir:condition @<OneOrMore_FamilyMemberHistory.condition>?;  # Condition that the related person 
                                             # had 
-    fhir:procedure @<OneOrMore_BackboneElement>?;  # Procedures that the related person 
+    fhir:procedure @<OneOrMore_FamilyMemberHistory.procedure>?;  # Procedures that the related person 
                                             # had 
-}  
+} AND (
+
+# Constraint UniqueKey:fhs-2
+# Human readable:Can only have estimatedAge if age[x] is present
+
+# Constraint: age.exists() or estimatedAge.empty()
+# ShEx:
+
+{fhir:age . OR  NOT { fhir:estimatedAge {fhir:v .} } }
+
+) AND (
+
+# Constraint UniqueKey:fhs-3
+# Human readable:Can have age[x] or deceased[x], but not both
+
+# Constraint: age.empty() or deceased.empty()
+# ShEx:
+
+ NOT { fhir:age {fhir:v .} }  OR  NOT { fhir:deceased {fhir:v .} } 
+
+) AND (
+
+# Constraint UniqueKey:fhs-1
+# Human readable:Can have age[x] or born[x], but not both
+
+# Constraint: age.empty() or born.empty()
+# ShEx:
+
+ NOT { fhir:age {fhir:v .} }  OR  NOT { fhir:born {fhir:v .} } 
+
+)
+ 
 
 # Condition that the related person had
 <FamilyMemberHistory.condition> EXTENDS @<BackboneElement> CLOSED {   
@@ -70,10 +117,10 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # etc. 
     fhir:contributedToDeath @<boolean>?;    # Whether the condition contributed 
                                             # to the cause of death 
-    fhir:onset (@<Age>  OR 
+    fhir:onset @<Age>  OR 
     			@<Range>  OR 
     			@<Period>  OR 
-    			@<string> )  AND { rdf:type IRI } ?;  # When condition first manifested
+    			@<string>  ?;  # When condition first manifested
     fhir:note @<OneOrMore_Annotation>?;     # Extra information about condition
 }  
 
@@ -85,13 +132,28 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # procedure 
     fhir:contributedToDeath @<boolean>?;    # Whether the procedure contributed 
                                             # to the cause of death 
-    fhir:performed (@<Age>  OR 
+    fhir:performed @<Age>  OR 
     			@<Range>  OR 
     			@<Period>  OR 
     			@<string>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # When the procedure was performed
+    			@<dateTime>  ?;  # When the procedure was performed
     fhir:note @<OneOrMore_Annotation>?;     # Extra information about the 
                                             # procedure 
+}  
+
+# Who or what participated in the activities related to the family member history and how they were involved
+<FamilyMemberHistory.participant> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:function @<CodeableConcept>?;      # Type of involvement
+    fhir:actor @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
+    			@<Device> OR 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? };  # Who or what participated in the 
+                                            # activities related to the family 
+                                            # member history 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -111,6 +173,11 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
 }
 
+<OneOrMore_FamilyMemberHistory.participant> CLOSED {
+    rdf:first @<FamilyMemberHistory.participant>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_FamilyMemberHistory.participant> 
+}
+
 <OneOrMore_CodeableReference> CLOSED {
     rdf:first @<CodeableReference>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
@@ -121,9 +188,14 @@ start=@<FamilyMemberHistory> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Annotation> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_FamilyMemberHistory.condition> CLOSED {
+    rdf:first @<FamilyMemberHistory.condition>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_FamilyMemberHistory.condition> 
+}
+
+<OneOrMore_FamilyMemberHistory.procedure> CLOSED {
+    rdf:first @<FamilyMemberHistory.procedure>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_FamilyMemberHistory.procedure> 
 }
 
 #---------------------- Value Sets ------------------------

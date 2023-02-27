@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Extension
 <valueset-compose-createdBy> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-compose-createdBy];
+    a [fhir:valueset-compose-createdBy]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:compose {a [fhir:ValueSet]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:compose {a [fhir:ValueSet]}}
+
 }  
 

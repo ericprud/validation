@@ -10,17 +10,18 @@ IMPORT <Extension.shex>
 # LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN | VV
 <iso21090-EN-qualifier> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-EN-qualifier];
+    a [fhir:iso21090-EN-qualifier]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"]}; 
-    fhir:v (@<code> AND
-    	{fhir:v @fhirvs:name-part-qualifier} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:family {a [fhir:HumanName]} OR 
-          ^fhir:given {a [fhir:HumanName]} OR 
-          ^fhir:prefix {a [fhir:HumanName]} OR 
-          ^fhir:suffix {a [fhir:HumanName]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @fhirvs:name-part-qualifier}  ; 
+    ^fhir:extension { ^fhir:family {a [fhir:HumanName]}} OR 
+          {^fhir:given {a [fhir:HumanName]}} OR 
+          {^fhir:prefix {a [fhir:HumanName]}} OR 
+          {^fhir:suffix {a [fhir:HumanName]}}
+
 }  
 
 #---------------------- Value Sets ------------------------

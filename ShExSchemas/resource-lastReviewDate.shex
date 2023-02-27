@@ -10,22 +10,23 @@ IMPORT <Extension.shex>
 # Last review date for the resource
 <resource-lastReviewDate> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:resource-lastReviewDate];
+    a [fhir:resource-lastReviewDate]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate"]}; 
-    fhir:v (@<date> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:StructureDefinition] OR 
-          a [fhir:StructureMap] OR 
-          a [fhir:CapabilityStatement] OR 
-          a [fhir:OperationDefinition] OR 
-          a [fhir:SearchParameter] OR 
-          a [fhir:CompartmentDefinition] OR 
-          a [fhir:ImplementationGuide] OR 
-          a [fhir:CodeSystem] OR 
-          a [fhir:ValueSet] OR 
-          a [fhir:ConceptMap] OR 
-          a [fhir:NamingSystem]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate"]}; 
+    fhir:value @<date>  ; 
+    ^fhir:extension { a [fhir:StructureDefinition]} OR 
+          {a [fhir:StructureMap]} OR 
+          {a [fhir:CapabilityStatement]} OR 
+          {a [fhir:OperationDefinition]} OR 
+          {a [fhir:SearchParameter]} OR 
+          {a [fhir:CompartmentDefinition]} OR 
+          {a [fhir:ImplementationGuide]} OR 
+          {a [fhir:CodeSystem]} OR 
+          {a [fhir:ValueSet]} OR 
+          {a [fhir:ConceptMap]} OR 
+          {a [fhir:NamingSystem]}
+
 }  
 

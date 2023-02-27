@@ -11,12 +11,13 @@ IMPORT <Reference.shex>
 # Clinical Management Details
 <openEHR-careplan> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:openEHR-careplan];
+    a [fhir:openEHR-careplan]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-careplan"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<CarePlan> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-careplan"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<CarePlan> })  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

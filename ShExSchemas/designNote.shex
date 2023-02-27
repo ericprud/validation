@@ -10,15 +10,16 @@ IMPORT <Extension.shex>
 # Design comments
 <designNote> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:designNote];
+    a [fhir:designNote]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/designNote"]}; 
-    fhir:v (@<markdown> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Questionnaire] OR 
-          ^fhir:item {a [fhir:Questionnaire]} OR 
-          ^fhir:item {^fhir:item {a [fhir:Questionnaire]}} OR 
-          a [fhir:ElementDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/designNote"]}; 
+    fhir:value @<markdown>  ; 
+    ^fhir:extension { a [fhir:Questionnaire]} OR 
+          {^fhir:item {a [fhir:Questionnaire]}} OR 
+          {^fhir:item {^fhir:item {a [fhir:Questionnaire]}}} OR 
+          {a [fhir:ElementDefinition]}
+
 }  
 

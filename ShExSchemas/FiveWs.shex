@@ -3,15 +3,19 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <code.shex>
 IMPORT <string.shex>
+IMPORT <Timing.shex>
 IMPORT <Period.shex>
 IMPORT <instant.shex>
 IMPORT <Patient.shex>
 IMPORT <Resource.shex>
 IMPORT <dateTime.shex>
+IMPORT <Location.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <EpisodeOfCare.shex>
@@ -19,10 +23,11 @@ IMPORT <RelatedPerson.shex>
 IMPORT <CodeableConcept.shex>
 
 # Who What When Where Why - Common pattern for all resources that deals with attribution
-<FiveWs> CLOSED {   
+<FiveWs> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:FiveWs];
+    a [fhir:FiveWs]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier
     fhir:version @<string>?;                # Identifier for this version
     fhir:status @<code> AND
@@ -31,19 +36,19 @@ IMPORT <CodeableConcept.shex>
     fhir:grade @<CodeableConcept>?;         # A field that indicates the 
                                             # potential impact of the content of 
                                             # the resource 
-    fhir:what (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Resource> }) )  AND { rdf:type IRI } ?;  # What this resource is about
+    fhir:what @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Resource> })  ?;  # What this resource is about
     fhir:subject @<OneOrMore_Reference_Organization_OR_Patient_OR_Practitioner_OR_RelatedPerson>?;  # Who this resource is about
     fhir:context @<Reference> AND {fhir:link 
     			@<Encounter> OR 
-    			@<EpisodeOfCare> }?;  # Context for the work described in 
+    			@<EpisodeOfCare> ? }?;  # Context for the work described in 
                                             # this resource 
     fhir:init @<dateTime>?;                 # When the work described in this 
                                             # resource was started (or will be) 
     fhir:planned @<OneOrMore_Timing>?;      # When this resource is planned to 
                                             # occur 
-    fhir:done (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # When the work described in this 
+    fhir:done @<dateTime>  OR 
+    			@<Period>  ?;  # When the work described in this 
                                             # resource was completed (or will 
                                             # be) 
     fhir:recorded @<instant>?;              # When this resource itself was 
@@ -60,10 +65,10 @@ IMPORT <CodeableConcept.shex>
                                             # resource (individual or org) 
     fhir:who @<OneOrMore_Reference_Organization_OR_Patient_OR_Practitioner_OR_RelatedPerson>?;  # An actor involved in the work 
                                             # described by this resource 
-    fhir:where (@<OneOrMore_CodeableConcept>  OR 
-    			(@<OneOrMore_Reference>  AND {fhir:link @<OneOrMore_Location> }) )  AND { rdf:type IRI } ?;  # The location of the work described
-    fhir:why (@<OneOrMore_CodeableConcept>  OR 
-    			(@<OneOrMore_Reference>  AND {fhir:link @<OneOrMore_Resource> }) )  AND { rdf:type IRI } ?;  # Why this work was done
+    fhir:where @<OneOrMore_CodeableConcept>  OR 
+    			(@<OneOrMore_Reference>  AND {fhir:link @<OneOrMore_Location> })  ?;  # The location of the work described
+    fhir:why @<OneOrMore_CodeableConcept>  OR 
+    			(@<OneOrMore_Reference>  AND {fhir:link @<OneOrMore_Resource> })  ?;  # Why this work was done
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

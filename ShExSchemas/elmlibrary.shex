@@ -13,8 +13,13 @@ start=@<elmlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Represents a library of quality improvement components
 <elmlibrary> EXTENDS @<logiclibrary> CLOSED {   
 
-    a [fhir:elmlibrary];
+    a [fhir:elmlibrary]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
+}  
+
+# Additional documentation, citations, etc.
+<Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 
 # ELM XML Content
@@ -27,9 +32,5 @@ start=@<elmlibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # ELM JSON Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
-}  
-
-# Additional documentation, citations, etc.
-<Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 

@@ -8,5 +8,6 @@ IMPORT <Element.shex>
 # Reuseable Types
 <DataType> EXTENDS @<Element> CLOSED {   
 
+
 }  
 

@@ -10,12 +10,24 @@ IMPORT <Extension.shex>
 # Pertains to goal
 <resource-instance-name> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:resource-instance-name];
+    a [fhir:resource-instance-name]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/resource-instance-name"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Resource]
-        }
-}  
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/resource-instance-name"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:Resource]}
+
+} AND (
+
+# Constraint UniqueKey:rin-1
+# Human readable:Cannot be used where title already exists.
+
+# Constraint: %resource.title.exists().not()
+# ShEx:
+
+ NOT { 'false'.title. }
+
+)
+ 
 

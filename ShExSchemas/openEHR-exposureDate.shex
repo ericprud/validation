@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Date(/time) of first exposure to Substance
 <openEHR-exposureDate> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:openEHR-exposureDate];
+    a [fhir:openEHR-exposureDate]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-exposureDate"]}; 
-    fhir:v (@<dateTime> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-exposureDate"]}; 
+    fhir:value @<dateTime>  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

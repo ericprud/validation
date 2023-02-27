@@ -8,7 +8,7 @@ IMPORT <string.shex>
 # Primitive Type markdown
 <markdown> EXTENDS @<string> CLOSED {   
 
-    a [fhir:markdown];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:markdown]?;
+
 }  
 

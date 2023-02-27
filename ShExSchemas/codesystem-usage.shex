@@ -9,13 +9,14 @@ IMPORT <Extension.shex>
 # Who has used and how?
 <codesystem-usage> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-usage];
+    a [fhir:codesystem-usage]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:user @<Extension>; 
     fhir:use @<Extension>; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-usage"]}; 
-    ^fhir:extension { a [fhir:CodeSystem]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-usage"]}; 
+    ^fhir:extension { a [fhir:CodeSystem]}
+
 }  
 

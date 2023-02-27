@@ -5,7 +5,6 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <code.shex>
 IMPORT <Range.shex>
-IMPORT <Group.shex>
 IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <Device.shex>
@@ -13,8 +12,11 @@ IMPORT <boolean.shex>
 IMPORT <Patient.shex>
 IMPORT <markdown.shex>
 IMPORT <Quantity.shex>
+IMPORT <CareTeam.shex>
+IMPORT <Location.shex>
 IMPORT <Specimen.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
@@ -23,6 +25,7 @@ IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
+IMPORT <HealthcareService.shex>
 
 
 start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -30,15 +33,20 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
 # Group of multiple entities
 <Group> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Group];
+    a [fhir:Group]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique id
     fhir:active @<boolean>?;                # Whether this group's record is in 
                                             # active use 
     fhir:type @<code> AND
     	{fhir:v @fhirvs:group-type};  # person | animal | practitioner | 
-                                            # device | medication | substance 
-    fhir:actual @<boolean>;                 # Descriptive or actual
+                                            # device | careteam | 
+                                            # healthcareservice | location | 
+                                            # organization | relatedperson | 
+                                            # specimen 
+    fhir:membership @<code> AND
+    	{fhir:v @fhirvs:group-membership-basis};  # definitional | enumerated
     fhir:code @<CodeableConcept>?;          # Kind of Group members
     fhir:name @<string>?;                   # Label for Group
     fhir:description @<markdown>?;          # Natural language description of 
@@ -48,21 +56,21 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Organization> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Entity that is the custodian of 
+    			@<RelatedPerson> ? }?;  # Entity that is the custodian of 
                                             # the Group's definition 
-    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Include / Exclude group members by 
+    fhir:characteristic @<OneOrMore_Group.characteristic>?;  # Include / Exclude group members by 
                                             # Trait 
-    fhir:member @<OneOrMore_BackboneElement>?;  # Who or what is in group
+    fhir:member @<OneOrMore_Group.member>?;  # Who or what is in group
 }  
 
 # Include / Exclude group members by Trait
 <Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:code @<CodeableConcept>;           # Kind of characteristic
-    fhir:v (@<CodeableConcept>  OR 
+    fhir:value @<CodeableConcept>  OR 
     			@<boolean>  OR 
     			@<Quantity>  OR 
     			@<Range>  OR 
-    			@<Reference> )  AND { rdf:type IRI } ;  # Value held by characteristic
+    			@<Reference>  ;  # Value held by characteristic
     fhir:exclude @<boolean>;                # Group includes or excludes
     fhir:period @<Period>?;                 # Period over which characteristic 
                                             # is tested 
@@ -71,13 +79,17 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
 # Who or what is in group
 <Group.member> EXTENDS @<BackboneElement> CLOSED {   
     fhir:entity @<Reference> AND {fhir:link 
+    			@<CareTeam> OR 
     			@<Device> OR 
     			@<Group> OR 
+    			@<HealthcareService> OR 
+    			@<Location> OR 
+    			@<Organization> OR 
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> OR 
-    			@<Specimen> };  # Reference to the group member
+    			@<Specimen> ? };  # Reference to the group member
     fhir:period @<Period>?;                 # Period member belonged to the group
     fhir:inactive @<boolean>?;              # If member is no longer in group
 }  
@@ -89,13 +101,21 @@ start=@<Group> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Group.characteristic> CLOSED {
+    rdf:first @<Group.characteristic>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Group.characteristic> 
+}
+
+<OneOrMore_Group.member> CLOSED {
+    rdf:first @<Group.member>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Group.member> 
 }
 
 #---------------------- Value Sets ------------------------
 
+# Basis for membership in a group
+fhirvs:group-membership-basis ["definitional" "enumerated"]
+
 # Types of resources that are part of group.
-fhirvs:group-type ["person" "animal" "practitioner" "device" "medication" "substance"]
+fhirvs:group-type ["person" "animal" "practitioner" "device" "careteam" "healthcareservice" "location" "organization" "relatedperson" "specimen"]
 

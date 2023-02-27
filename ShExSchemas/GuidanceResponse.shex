@@ -14,11 +14,14 @@ IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Parameters.shex>
-IMPORT <RequestGroup.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <DataRequirement.shex>
 IMPORT <OperationOutcome.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <RequestOrchestration.shex>
 
 
 start=@<GuidanceResponse> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -26,41 +29,42 @@ start=@<GuidanceResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 # The formal response to a guidance request
 <GuidanceResponse> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:GuidanceResponse];
+    a [fhir:GuidanceResponse]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:requestIdentifier @<Identifier>?;  # The identifier of the request 
                                             # associated with this response, if 
                                             # any 
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
-    fhir:module (@<uri>  OR 
+    fhir:module @<uri>  OR 
     			@<canonical>  OR 
-    			@<CodeableConcept> )  AND { rdf:type IRI } ;  # What guidance was requested
+    			@<CodeableConcept>  ;  # What guidance was requested
     fhir:status @<code> AND
     	{fhir:v @fhirvs:guidance-response-status};  # success | data-requested | 
                                             # data-required | in-progress | 
                                             # failure | entered-in-error 
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> }?;  # Patient the request was performed 
+    			@<Patient> ? }?;  # Patient the request was performed 
                                             # for 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter during which the 
+    			@<Encounter> ? }?;  # Encounter during which the 
                                             # response was returned 
     fhir:occurrenceDateTime @<dateTime>?;   # When the guidance response was 
                                             # processed 
     fhir:performer @<Reference> AND {fhir:link 
-    			@<Device> }?;  # Device returning the guidance
+    			@<Device> ? }?;  # Device returning the guidance
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why guidance is needed
     fhir:note @<OneOrMore_Annotation>?;     # Additional notes about the response
     fhir:evaluationMessage @<OneOrMore_Reference_OperationOutcome>?;  # Messages resulting from the 
                                             # evaluation of the artifact or 
                                             # artifacts 
     fhir:outputParameters @<Reference> AND {fhir:link 
-    			@<Parameters> }?;  # The output parameters of the 
+    			@<Parameters> ? }?;  # The output parameters of the 
                                             # evaluation, if any 
     fhir:result @<Reference> AND {fhir:link 
     			@<CarePlan> OR 
-    			@<RequestGroup> }?;  # Proposed actions, if any
+    			@<RequestOrchestration> ? }?;  # Proposed actions, if any
     fhir:dataRequirement @<OneOrMore_DataRequirement>?;  # Additional required data
 }  
 

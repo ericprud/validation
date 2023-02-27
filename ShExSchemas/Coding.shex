@@ -13,6 +13,7 @@ IMPORT <DataType.shex>
 <Coding> EXTENDS @<DataType> CLOSED {   
 
     a [fhir:Coding]?;
+
     a NONLITERAL?;
     fhir:system @<uri>?;                    # Identity of the terminology system
     fhir:version @<string>?;                # Version of the system - if relevant
@@ -22,5 +23,20 @@ IMPORT <DataType.shex>
                                             # system 
     fhir:userSelected @<boolean>?;          # If this coding was chosen directly 
                                             # by the user 
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cod-1
+# Human readable:A Coding SHOULD NOT have a display unless a code is also present.  Computation on Coding.display alone is generally unsafe.  Consider using CodeableConcept.text
+#
+# Constraint: code.exists().not() implies display.exists().not()
+# ShEx:
+#
+# NOT { fhir:code. }  Implies   NOT { fhir:display. }
+{}
+
+)
+ 
 

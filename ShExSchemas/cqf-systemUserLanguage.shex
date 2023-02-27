@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Extension
 <cqf-systemUserLanguage> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-systemUserLanguage];
+    a [fhir:cqf-systemUserLanguage]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-systemUserLanguage"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Basic]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-systemUserLanguage"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Basic]}
+
 }  
 

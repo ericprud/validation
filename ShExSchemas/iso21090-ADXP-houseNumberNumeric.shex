@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # houseNumberNumeric
 <iso21090-ADXP-houseNumberNumeric> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-ADXP-houseNumberNumeric];
+    a [fhir:iso21090-ADXP-houseNumberNumeric]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumberNumeric"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:line {a [fhir:Address]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumberNumeric"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:line {a [fhir:Address]}}
+
 }  
 

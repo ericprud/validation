@@ -10,14 +10,17 @@ IMPORT <Timing.shex>
 IMPORT <DataType.shex>
 IMPORT <dateTime.shex>
 IMPORT <Schedule.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Expression.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <DataRequirement.shex>
 
 # Defines an expected trigger for a module
 <TriggerDefinition> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:TriggerDefinition];
-    fhir:nodeRole [fhir:treeRoot]?;
+    a [fhir:TriggerDefinition]?;
+
     fhir:type @<code> AND
     	{fhir:v @fhirvs:trigger-type};  # named-event | periodic | 
                                             # data-changed | data-added | 
@@ -25,15 +28,59 @@ IMPORT <Expression.shex>
                                             # data-accessed | data-access-ended 
     fhir:name @<string>?;                   # Name or URI that identifies the 
                                             # event 
-    fhir:timing (@<Timing>  OR 
+    fhir:code @<CodeableConcept>?;          # Coded definition of the event
+    fhir:subscriptionTopic @<canonical>?;   # What event
+    fhir:timing @<Timing>  OR 
     			(@<Reference>  AND {fhir:link @<Schedule> })  OR 
     			@<date>  OR 
-    			@<dateTime> )  AND { rdf:type IRI } ?;  # Timing of the event
+    			@<dateTime>  ?;  # Timing of the event
     fhir:data @<OneOrMore_DataRequirement>?;  # Triggering data of the event 
                                             # (multiple = 'and') 
     fhir:condition @<Expression>?;          # Whether the event triggers 
                                             # (boolean expression) 
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# Unmapped construct found: Implies
+# Unmapped construct found: startsWith
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:trd-3
+# Human readable:A named event requires a name, a periodic event requires timing, and a data event requires data
+#
+# Constraint: (type = 'named-event' implies name.exists()) and (type = 'periodic' implies timing.exists()) and (type.startsWith('data-') implies data.exists())
+# ShEx:
+#
+#(({ fhir:type { fhir:v ['named-event'] }  })  Implies  {fhir:name .}) AND (({ fhir:type { fhir:v ['periodic'] }  })  Implies  {fhir:timing .}) AND ({fhir:type.  startsWith  ('data-')  Implies  {fhir:data .}})
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:trd-2
+# Human readable:A condition only if there is a data requirement
+#
+# Constraint: condition.exists() implies data.exists()
+# ShEx:
+#
+#{fhir:condition .  Implies  {fhir:data .}}
+{}
+
+) AND (
+
+# Constraint UniqueKey:trd-1
+# Human readable:Either timing, or a data requirement, but not both
+
+# Constraint: data.empty() or timing.empty()
+# ShEx:
+
+ NOT { fhir:data {fhir:v .} }  OR  NOT { fhir:timing {fhir:v .} } 
+
+)
+ 
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 

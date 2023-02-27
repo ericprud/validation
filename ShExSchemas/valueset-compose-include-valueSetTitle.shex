@@ -8,14 +8,15 @@ IMPORT <string.shex>
 IMPORT <Extension.shex>
 
 # Code system name
-<valueset-systemName> EXTENDS @<Extension> CLOSED {   
+<valueset-compose-include-valueSetTitle> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-systemName];
+    a [fhir:valueset-compose-include-valueSetTitle]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:valueSet {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:valueSet {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}}
+
 }  
 

@@ -11,12 +11,13 @@ IMPORT <DetectedIssue.shex>
 # Reference to a contra-indication that is the basis for this error
 <operationoutcome-detectedIssue> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:operationoutcome-detectedIssue];
+    a [fhir:operationoutcome-detectedIssue]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/operationoutcome-detectedIssue"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<DetectedIssue> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:issue {a [fhir:OperationOutcome]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/operationoutcome-detectedIssue"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<DetectedIssue> })  ; 
+    ^fhir:extension { ^fhir:issue {a [fhir:OperationOutcome]}}
+
 }  
 

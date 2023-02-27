@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # A code that replaces this
 <codesystem-replacedby> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-replacedby];
+    a [fhir:codesystem-replacedby]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-replacedby"]}; 
-    fhir:v (@<Coding> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:concept {a [fhir:CodeSystem]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-replacedby"]}; 
+    fhir:value @<Coding>  ; 
+    ^fhir:extension { ^fhir:concept {a [fhir:CodeSystem]}}
+
 }  
 

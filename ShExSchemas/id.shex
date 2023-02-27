@@ -9,5 +9,6 @@ IMPORT <string.shex>
 <id> EXTENDS @<string> CLOSED {   
 
     a [fhir:id]?;
+
 }  
 

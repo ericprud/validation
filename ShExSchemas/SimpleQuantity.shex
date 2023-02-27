@@ -8,7 +8,19 @@ IMPORT <Quantity.shex>
 # A fixed quantity (no comparator)
 <SimpleQuantity> EXTENDS @<Quantity> CLOSED {   
 
-    a [fhir:SimpleQuantity];
+    a [fhir:SimpleQuantity]?;
     fhir:nodeRole [fhir:treeRoot]?;
-}  
+
+} AND (
+
+# Constraint UniqueKey:sqty-1
+# Human readable:The comparator is not used on a SimpleQuantity
+
+# Constraint: comparator.empty()
+# ShEx:
+
+ NOT { fhir:comparator {fhir:v .} } 
+
+)
+ 
 

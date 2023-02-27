@@ -11,13 +11,14 @@ IMPORT <RiskAssessment.shex>
 # Risk
 <diagnosticReport-risk> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:diagnosticReport-risk];
+    a [fhir:diagnosticReport-risk]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/diagnosticReport-risk"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<RiskAssessment> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:DiagnosticReport] OR 
-          a [fhir:Observation]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/diagnosticReport-risk"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<RiskAssessment> })  ; 
+    ^fhir:extension { a [fhir:DiagnosticReport]} OR 
+          {a [fhir:Observation]}
+
 }  
 

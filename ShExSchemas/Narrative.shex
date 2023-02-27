@@ -11,11 +11,41 @@ IMPORT <DataType.shex>
 <Narrative> EXTENDS @<DataType> CLOSED {   
 
     a [fhir:Narrative]?;
+
     fhir:status @<code> AND
     	{fhir:v @fhirvs:narrative-status};  # generated | extensions | 
                                             # additional | empty 
     fhir:div @<xhtml>;                      # Limited xhtml content
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: htmlChecks
+# # Constraint UniqueKey:txt-1
+# Human readable:The narrative SHALL contain only the basic html formatting elements and attributes described in chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, <a> elements (either name or href), images and internally contained style attributes
+#
+# Constraint: htmlChecks()
+# ShEx:
+#
+#   htmlChecks  (  )
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: htmlChecks
+# # Constraint UniqueKey:txt-2
+# Human readable:The narrative SHALL have some non-whitespace content
+#
+# Constraint: htmlChecks()
+# ShEx:
+#
+#   htmlChecks  (  )
+{}
+
+)
+ 
 
 #---------------------- Value Sets ------------------------
 

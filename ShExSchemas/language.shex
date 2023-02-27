@@ -10,16 +10,17 @@ IMPORT <Extension.shex>
 # Human Language for the item
 <language> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:language];
+    a [fhir:language]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/language"]}; 
-    fhir:v (@<code> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:HumanName] OR 
-          a [fhir:Address] OR 
-          a [fhir:Annotation] OR 
-          a [fhir:string] OR 
-          a [fhir:markdown]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/language"]}; 
+    fhir:value @<code>  ; 
+    ^fhir:extension { a [fhir:HumanName]} OR 
+          {a [fhir:Address]} OR 
+          {a [fhir:Annotation]} OR 
+          {a [fhir:string]} OR 
+          {a [fhir:markdown]}
+
 }  
 

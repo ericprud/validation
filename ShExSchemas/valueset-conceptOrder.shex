@@ -10,13 +10,14 @@ IMPORT <Extension.shex>
 # Appearance order for user selection
 <valueset-conceptOrder> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-conceptOrder];
+    a [fhir:valueset-conceptOrder]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder"]}; 
-    fhir:v (@<integer> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:concept {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}} OR 
-          ^fhir:contains {^fhir:expansion {a [fhir:ValueSet]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder"]}; 
+    fhir:value @<integer>  ; 
+    ^fhir:extension { ^fhir:concept {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}} OR 
+          {^fhir:contains {^fhir:expansion {a [fhir:ValueSet]}}}
+
 }  
 

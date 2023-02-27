@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Portion derived from person's partner's surname
 <humanname-partner-name> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:humanname-partner-name];
+    a [fhir:humanname-partner-name]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/humanname-partner-name"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:family {a [fhir:HumanName]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/humanname-partner-name"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:family {a [fhir:HumanName]}}
+
 }  
 

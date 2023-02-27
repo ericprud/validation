@@ -4,18 +4,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <uri.shex>
+IMPORT <url.shex>
 IMPORT <string.shex>
 IMPORT <Extension.shex>
 
 # Original Text that represents the data as seen/selected/uttered originally
 <originalText> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:originalText];
+    a [fhir:originalText]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/originalText"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/originalText"]}; 
+    fhir:value @<string>  OR 
+    			@<url>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

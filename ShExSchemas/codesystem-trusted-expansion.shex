@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Reference to a trusted expansion
 <codesystem-trusted-expansion> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-trusted-expansion];
+    a [fhir:codesystem-trusted-expansion]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-trusted-expansion"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:CodeSystem]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-trusted-expansion"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { a [fhir:CodeSystem]}
+
 }  
 

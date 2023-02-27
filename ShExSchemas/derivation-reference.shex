@@ -9,16 +9,34 @@ IMPORT <Extension.shex>
 # References a location within a set of source text from which the discrete information described by this Resource/Element was extracted.
 <derivation-reference> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:derivation-reference];
+    a [fhir:derivation-reference]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:reference @<Extension>?; 
     fhir:path @<Extension>?; 
     fhir:offset @<Extension>?; 
     fhir:length @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/derivation-reference"]}; 
-    ^fhir:extension { a [fhir:Resource] OR 
-          a [fhir:Element]
-        }
-}  
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/derivation-reference"]}; 
+    ^fhir:extension { a [fhir:Resource]} OR 
+          {a [fhir:Element]}
+
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# Unmapped construct found: Implies
+# Unmapped construct found: where
+# # Constraint UniqueKey:der-1
+# Human readable:Cannot have length if offset is missing.
+#
+# Constraint: extension.where(url='length').exists() implies extension.where(url='offset').exists()
+# ShEx:
+#
+#{fhir:extension.  where  (url { fhir:v ['length'] } ) .  Implies  {fhir:extension.  where  (url { fhir:v ['offset'] } ) .}}
+{}
+
+)
+ 
 

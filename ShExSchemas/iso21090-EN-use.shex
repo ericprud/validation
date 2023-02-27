@@ -5,17 +5,25 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <uri.shex>
 IMPORT <code.shex>
+IMPORT <http:.shex>
 IMPORT <Extension.shex>
 
 # A | ANON | I | P | R | C | M | ABC | IDE | SYL | OLD | DN | OR | PHON | SRCH | T
 <iso21090-EN-use> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:iso21090-EN-use];
+    a [fhir:iso21090-EN-use]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/iso21090-EN-use"]}; 
-    fhir:v (@<code> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:HumanName]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/iso21090-EN-use"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @<http://terminology.hl7.org/ValueSet/v3-EntityNameUseR2>}  ; 
+    ^fhir:extension { a [fhir:HumanName]}
+
 }  
+
+#---------------------- Value Sets ------------------------
+
+# **Description:**A set of codes advising a system or user which name in a set of names to select for a given purpose.
+<http://terminology.hl7.org/ValueSet/v3-EntityNameUseR2> ["Assumed" "A" "ANON" "I" "P" "R" "C" "N" "M" "NameRepresentationUse" "ABC" "IDE" "SYL" "OLD" "DN" "OR" "PHON" "SRCH" "T"]
 

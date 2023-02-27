@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Urgency for collection
 <specimen-collectionPriority> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:specimen-collectionPriority];
+    a [fhir:specimen-collectionPriority]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/specimen-collectionPriority"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:collection {a [fhir:Specimen]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/specimen-collectionPriority"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:collection {a [fhir:Specimen]}}
+
 }  
 

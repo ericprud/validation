@@ -10,14 +10,15 @@ IMPORT <Extension.shex>
 # not-present | partial | complete
 <codesystem-properties-mode> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-properties-mode];
+    a [fhir:codesystem-properties-mode]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-properties-mode"]}; 
-    fhir:v (@<code> AND
-    	{fhir:v @fhirvs:codesystem-properties-mode} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:CodeSystem]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-properties-mode"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @fhirvs:codesystem-properties-mode}  ; 
+    ^fhir:extension { a [fhir:CodeSystem]}
+
 }  
 
 #---------------------- Value Sets ------------------------

@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # The group which this usage context is part of
 <usagecontext-group> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:usagecontext-group];
+    a [fhir:usagecontext-group]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/usagecontext-group"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:UsageContext]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/usagecontext-group"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { a [fhir:UsageContext]}
+
 }  
 

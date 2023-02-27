@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Contributor address
 <cqf-contactAddress> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-contactAddress];
+    a [fhir:cqf-contactAddress]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-contactAddress"]}; 
-    fhir:v (@<Address> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ContactDetail]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-contactAddress"]}; 
+    fhir:value @<Address>  ; 
+    ^fhir:extension { a [fhir:ContactDetail]}
+
 }  
 

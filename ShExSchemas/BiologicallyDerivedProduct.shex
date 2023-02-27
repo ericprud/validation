@@ -20,10 +20,9 @@ IMPORT <Practitioner.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <ServiceRequest.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
-IMPORT <BiologicallyDerivedProduct.shex>
 
 
 start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -31,11 +30,12 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
 # This resource reflects an instance of a biologically derived product
 <BiologicallyDerivedProduct> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:BiologicallyDerivedProduct];
+    a [fhir:BiologicallyDerivedProduct]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:productCategory @<Coding>?;        # organ | tissue | fluid | cells | 
                                             # biologicalAgent 
-    fhir:productCode @<Coding>?;            # A code that identifies the kind of 
+    fhir:productCode @<CodeableConcept>?;   # A code that identifies the kind of 
                                             # this biologically derived product 
     fhir:parent @<OneOrMore_Reference_BiologicallyDerivedProduct>?;  # The parent biologically-derived 
                                             # product 
@@ -56,10 +56,10 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:productStatus @<Coding>?;          # available | unavailable
     fhir:expirationDate @<dateTime>?;       # Date, and where relevant time, of 
                                             # expiration 
-    fhir:collection @<BackboneElement>?;    # How this product was collected
+    fhir:collection @<BiologicallyDerivedProduct.collection>?;  # How this product was collected
     fhir:storageTempRequirements @<Range>?;  # Product storage temperature 
                                             # requirements 
-    fhir:property @<OneOrMore_BackboneElement>?;  # A property that is specific to 
+    fhir:property @<OneOrMore_BiologicallyDerivedProduct.property>?;  # A property that is specific to 
                                             # this BiologicallyDerviedProduct 
                                             # instance 
 }  
@@ -68,19 +68,19 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
 <BiologicallyDerivedProduct.collection> EXTENDS @<BackboneElement> CLOSED {   
     fhir:collector @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Individual performing collection
+    			@<PractitionerRole> ? }?;  # Individual performing collection
     fhir:source @<Reference> AND {fhir:link 
     			@<Organization> OR 
-    			@<Patient> }?;  # The patient or entity providing 
+    			@<Patient> ? }?;  # The patient or entity providing 
                                             # the product 
-    fhir:collected (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Time of product collection
+    fhir:collected @<dateTime>  OR 
+    			@<Period>  ?;  # Time of product collection
 }  
 
 # A property that is specific to this BiologicallyDerviedProduct instance
 <BiologicallyDerivedProduct.property> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<Coding>;                    # Code that specifies the property
-    fhir:v (@<boolean>  OR 
+    fhir:value @<boolean>  OR 
     			@<integer>  OR 
     			@<CodeableConcept>  OR 
     			@<Period>  OR 
@@ -88,7 +88,7 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Range>  OR 
     			@<Ratio>  OR 
     			@<string>  OR 
-    			@<Attachment> )  AND { rdf:type IRI } ;  # Property values
+    			@<Attachment>  ;  # Property values
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -116,8 +116,8 @@ start=@<BiologicallyDerivedProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Organization> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_BiologicallyDerivedProduct.property> CLOSED {
+    rdf:first @<BiologicallyDerivedProduct.property>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_BiologicallyDerivedProduct.property> 
 }
 

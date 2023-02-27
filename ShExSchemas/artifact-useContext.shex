@@ -10,12 +10,13 @@ IMPORT <UsageContext.shex>
 # The context that the content is intended to support
 <artifact-useContext> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:artifact-useContext];
+    a [fhir:artifact-useContext]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-useContext"]}; 
-    fhir:v (@<UsageContext> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-useContext"]}; 
+    fhir:value @<UsageContext>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

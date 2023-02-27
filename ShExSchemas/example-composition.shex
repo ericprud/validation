@@ -12,8 +12,9 @@ start=@<example-composition> AND {fhir:nodeRole [fhir:treeRoot]}
 # A set of resources composed into a single coherent clinical statement with clinical attestation
 <example-composition> EXTENDS @<Composition> CLOSED {   
 
-    a [fhir:example-composition];
+    a [fhir:example-composition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # The clinical service(s) being documented
@@ -32,11 +33,11 @@ start=@<example-composition> AND {fhir:nodeRole [fhir:treeRoot]}
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# A set of resources composed into a single coherent clinical statement with clinical attestation
+# Composition is broken into sections
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
-# Composition is broken into sections
+# A set of resources composed into a single coherent clinical statement with clinical attestation
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

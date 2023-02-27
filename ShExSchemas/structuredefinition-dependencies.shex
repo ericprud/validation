@@ -11,12 +11,13 @@ IMPORT <StructureDefinition.shex>
 # Dependent Profiles - must be valid against these too
 <structuredefinition-dependencies> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:structuredefinition-dependencies];
+    a [fhir:structuredefinition-dependencies]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/structuredefinition-dependencies"]}; 
-    fhir:v ((@<canonical>  AND {fhir:link @<StructureDefinition> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:StructureDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/structuredefinition-dependencies"]}; 
+    fhir:value (@<canonical>  AND {fhir:link @<StructureDefinition> })  ; 
+    ^fhir:extension { a [fhir:StructureDefinition]}
+
 }  
 

@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Claim.shex>
@@ -15,51 +16,45 @@ IMPORT <dateTime.shex>
 IMPORT <CareTeam.shex>
 IMPORT <CarePlan.shex>
 IMPORT <Contract.shex>
+IMPORT <Endpoint.shex>
+IMPORT <Location.shex>
 IMPORT <Coverage.shex>
 IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Provenance.shex>
 IMPORT <Appointment.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
-IMPORT <RequestGroup.shex>
 IMPORT <RelatedPerson.shex>
-IMPORT <DeviceRequest.shex>
-IMPORT <SupplyRequest.shex>
 IMPORT <ClaimResponse.shex>
 IMPORT <NutritionOrder.shex>
-IMPORT <ServiceRequest.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <PractitionerRole.shex>
+IMPORT <CodeableReference.shex>
 IMPORT <HealthcareService.shex>
-IMPORT <EnrollmentRequest.shex>
-IMPORT <MedicationRequest.shex>
+IMPORT <HealthCareService.shex>
 IMPORT <VisionPrescription.shex>
 IMPORT <AppointmentResponse.shex>
-IMPORT <CommunicationRequest.shex>
-IMPORT <CoverageEligibilityRequest.shex>
 IMPORT <ImmunizationRecommendation.shex>
 
 # Request Pattern
-<Request> CLOSED {   
+<Request> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Request];
+    a [fhir:Request]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for {{title}}
-    fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
-                                            # definition 
-    fhir:instantiatesUri @<OneOrMore_uri>?;  # Instantiates external protocol or 
-                                            # definition 
-    fhir:basedOn @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Fulfills plan, proposal or order
-    fhir:replaces @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Request(s) replaced by this 
+    fhir:basedOn @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Fulfills plan, proposal or order
+    fhir:replaces @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Request(s) replaced by this 
                                             # {{title}} 
     fhir:groupIdentifier @<Identifier>?;    # Composite request this is part of
     fhir:status @<code> AND
-    	{fhir:v @fhirvs:request-status};  # draft | active | suspended | 
-                                            # cancelled | completed | 
-                                            # entered-in-error | unknown 
+    	{fhir:v @fhirvs:request-status};  # draft | active | on-hold | revoked 
+                                            # | completed | entered-in-error | 
+                                            # unknown 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
     fhir:intent @<code> AND
     	{fhir:v @fhirvs:request-intent};  # proposal | plan | order (immutable)
@@ -67,16 +62,22 @@ IMPORT <ImmunizationRecommendation.shex>
     	{fhir:v @fhirvs:request-priority}?;  # routine | urgent | asap | stat
     fhir:doNotPerform @<boolean>?;          # true if request is prohibiting 
                                             # action 
-    fhir:code @<CodeableConcept>?;          # What's being requested/ordered
+    fhir:category @<OneOrMore_CodeableConcept>?;  # Partitions the {{title}} into one 
+                                            # or more categories that can be 
+                                            # used to filter searching, to 
+                                            # govern access control and/or to 
+                                            # guide system behavior. 
+    fhir:code @<CodeableConcept>?;          # Service requested/ordered
+    fhir:product @<CodeableReference>?;     # Product requested/ordered
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Individual the service is 
+    			@<Patient> ? };  # Individual the service is 
                                             # ordered/prohibited for 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter created as part of
-    fhir:occurrence (@<dateTime>  OR 
+    			@<Encounter> ? }?;  # Encounter the {{title}} is tied to
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # When service should (not) occur
+    			@<Timing>  ?;  # When service should (not) occur
     fhir:authoredOn @<dateTime>?;           # When request was 
                                             # created/transitioned to active 
     fhir:requester @<Reference> AND {fhir:link 
@@ -85,13 +86,13 @@ IMPORT <ImmunizationRecommendation.shex>
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who/what is requesting service
-    fhir:reported (@<boolean>  OR 
+    			@<RelatedPerson> ? }?;  # Who/what is requesting service
+    fhir:reported @<boolean>  OR 
     			(@<Reference>  AND {fhir:link @<Patient> OR 
     			 @<RelatedPerson> OR 
     			 @<Practitioner> OR 
     			 @<PractitionerRole> OR 
-    			 @<Organization> }) )  AND { rdf:type IRI } ?;  # Reported rather than primary record
+    			 @<Organization> })  ?;  # Reported rather than primary record
     fhir:performerType @<CodeableConcept>?;  # Desired kind of service performer
     fhir:performer @<Reference> AND {fhir:link 
     			@<CareTeam> OR 
@@ -101,7 +102,9 @@ IMPORT <ImmunizationRecommendation.shex>
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Specific desired (non)performer
+    			@<RelatedPerson> ? }?;  # Specific desired (non)performer
+    fhir:deliverTo @<OneOrMore_Reference_CareTeam_OR_Device_OR_Endpoint_OR_HealthCareService_OR_Location_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who should receive result of 
+                                            # {{title}} 
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why is service (not) needed?
     fhir:insurance @<OneOrMore_Reference_ClaimResponse_OR_Coverage>?;  # Associated insurance coverage
     fhir:supportingInfo @<OneOrMore_Reference_Resource>?;  # Extra information to use in 
@@ -117,17 +120,7 @@ IMPORT <ImmunizationRecommendation.shex>
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_canonical> CLOSED {
-    rdf:first @<canonical>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_canonical> 
-}
-
-<OneOrMore_uri> CLOSED {
-    rdf:first @<uri>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
-}
-
-<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> CLOSED {
+<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<Appointment> OR 
 			@<AppointmentResponse> OR 
@@ -141,11 +134,31 @@ IMPORT <ImmunizationRecommendation.shex>
 			@<ImmunizationRecommendation> OR 
 			@<MedicationRequest> OR 
 			@<NutritionOrder> OR 
-			@<RequestGroup> OR 
+			@<RequestOrchestration> OR 
 			@<ServiceRequest> OR 
 			@<SupplyRequest> OR 
 			@<VisionPrescription> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> 
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> 
+}
+
+<OneOrMore_CodeableConcept> CLOSED {
+    rdf:first @<CodeableConcept>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
+<OneOrMore_Reference_CareTeam_OR_Device_OR_Endpoint_OR_HealthCareService_OR_Location_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<CareTeam> OR 
+			@<Device> OR 
+			@<Endpoint> OR 
+			@<HealthCareService> OR 
+			@<Location> OR 
+			@<Organization> OR 
+			@<Patient> OR 
+			@<Practitioner> OR 
+			@<PractitionerRole> OR 
+			@<RelatedPerson> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_CareTeam_OR_Device_OR_Endpoint_OR_HealthCareService_OR_Location_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {
@@ -179,12 +192,12 @@ IMPORT <ImmunizationRecommendation.shex>
 
 #---------------------- Value Sets ------------------------
 
-# Codes identifying the lifecycle stage of a request.
-fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
-
 # Codes indicating the degree of authority/intentionality associated with a request.
 fhirvs:request-intent ["proposal" "plan" "directive" "order" "original-order" "reflex-order" "filler-order" "instance-order" "option"]
 
 # Identifies the level of importance to be assigned to actioning the request.
 fhirvs:request-priority ["routine" "urgent" "asap" "stat"]
+
+# Codes identifying the lifecycle stage of a request.
+fhirvs:request-status ["draft" "active" "on-hold" "revoked" "completed" "entered-in-error" "unknown"]
 

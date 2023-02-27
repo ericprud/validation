@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Anonymized state
 <auditevent-Anonymized> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:auditevent-Anonymized];
+    a [fhir:auditevent-Anonymized]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/auditevent-Anonymized"]}; 
-    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/auditevent-Anonymized"]}; 
+    fhir:value @<boolean>  ; 
+    ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}}
+
 }  
 

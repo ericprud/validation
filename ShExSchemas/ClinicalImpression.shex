@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <string.shex>
@@ -13,6 +14,8 @@ IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Condition.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Practitioner.shex>
 IMPORT <DomainResource.shex>
 IMPORT <RiskAssessment.shex>
@@ -28,8 +31,9 @@ start=@<ClinicalImpression> AND {fhir:nodeRole [fhir:treeRoot]}
 # A clinical assessment performed when planning treatments and management strategies for a patient
 <ClinicalImpression> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ClinicalImpression];
+    a [fhir:ClinicalImpression]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier
     fhir:status @<code> AND
     	{fhir:v @fhirvs:event-status};  # preparation | in-progress | 
@@ -41,24 +45,28 @@ start=@<ClinicalImpression> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # performed 
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Patient or group assessed
+    			@<Patient> ? };  # Patient or group assessed
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # The Encounter during which this 
+    			@<Encounter> ? }?;  # The Encounter during which this 
                                             # ClinicalImpression was created 
-    fhir:effective (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Time of assessment
+    fhir:effective @<dateTime>  OR 
+    			@<Period>  ?;  # Time of assessment
     fhir:date @<dateTime>?;                 # When the assessment was documented
     fhir:performer @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # The clinician performing the 
+    			@<PractitionerRole> ? }?;  # The clinician performing the 
                                             # assessment 
     fhir:previous @<Reference> AND {fhir:link 
-    			@<ClinicalImpression> }?;  # Reference to last assessment
+    			@<ClinicalImpression> ? }?;  # Reference to last assessment
     fhir:problem @<OneOrMore_Reference_AllergyIntolerance_OR_Condition>?;  # Relevant impressions of patient 
                                             # state 
+    fhir:changePattern @<CodeableConcept>?;  # Change in the status/pattern of a 
+                                            # subject's condition since 
+                                            # previously assessed, such as 
+                                            # worsening, improving, or no change 
     fhir:protocol @<OneOrMore_uri>?;        # Clinical Protocol followed
     fhir:summary @<string>?;                # Summary of the assessment
-    fhir:finding @<OneOrMore_BackboneElement>?;  # Possible or likely findings and 
+    fhir:finding @<OneOrMore_ClinicalImpression.finding>?;  # Possible or likely findings and 
                                             # diagnoses 
     fhir:prognosisCodeableConcept @<OneOrMore_CodeableConcept>?;  # Estimate of likely outcome
     fhir:prognosisReference @<OneOrMore_Reference_RiskAssessment>?;  # RiskAssessment expressing likely 
@@ -95,9 +103,9 @@ start=@<ClinicalImpression> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ClinicalImpression.finding> CLOSED {
+    rdf:first @<ClinicalImpression.finding>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ClinicalImpression.finding> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {

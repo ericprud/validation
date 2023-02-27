@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Reference to where the rule is defined
 <operationoutcome-authority> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:operationoutcome-authority];
+    a [fhir:operationoutcome-authority]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/operationoutcome-authority"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:issue {a [fhir:OperationOutcome]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/operationoutcome-authority"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { ^fhir:issue {a [fhir:OperationOutcome]}}
+
 }  
 

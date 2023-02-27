@@ -10,13 +10,14 @@ IMPORT <CodeableConcept.shex>
 # The Species of the Service Animal
 <practitioner-animalSpecies> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:practitioner-animalSpecies];
+    a [fhir:practitioner-animalSpecies]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/practitioner-animalSpecies"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Practitioner] OR 
-          a [fhir:RelatedPerson]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/practitioner-animalSpecies"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Practitioner]} OR 
+          {a [fhir:RelatedPerson]}
+
 }  
 

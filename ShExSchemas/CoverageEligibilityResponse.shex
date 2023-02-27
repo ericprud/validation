@@ -14,6 +14,7 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <Coverage.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
@@ -29,8 +30,9 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
 # CoverageEligibilityResponse resource
 <CoverageEligibilityResponse> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:CoverageEligibilityResponse];
+    a [fhir:CoverageEligibilityResponse]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for coverage 
                                             # eligiblity request 
     fhir:status @<code> AND
@@ -40,35 +42,61 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:eligibilityresponse-purpose};  # auth-requirements | benefits | 
                                             # discovery | validation 
     fhir:patient @<Reference> AND {fhir:link 
-    			@<Patient> };  # Intended recipient of products and 
+    			@<Patient> ? };  # Intended recipient of products and 
                                             # services 
-    fhir:serviced (@<date>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Estimated date or dates of service
+    fhir:serviced @<date>  OR 
+    			@<Period>  ?;  # Estimated date or dates of service
     fhir:created @<dateTime>;               # Response creation date
     fhir:requestor @<Reference> AND {fhir:link 
     			@<Organization> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Party responsible for the request
+    			@<PractitionerRole> ? }?;  # Party responsible for the request
     fhir:request @<Reference> AND {fhir:link 
-    			@<CoverageEligibilityRequest> };  # Eligibility request reference
+    			@<CoverageEligibilityRequest> ? };  # Eligibility request reference
     fhir:outcome @<code> AND
     	{fhir:v @fhirvs:eligibility-outcome};  # queued | complete | error | partial
     fhir:disposition @<string>?;            # Disposition Message
     fhir:insurer @<Reference> AND {fhir:link 
-    			@<Organization> };  # Coverage issuer
-    fhir:insurance @<OneOrMore_BackboneElement>?;  # Patient insurance information
+    			@<Organization> ? };  # Coverage issuer
+    fhir:insurance @<OneOrMore_CoverageEligibilityResponse.insurance>?;  # Patient insurance information
     fhir:preAuthRef @<string>?;             # Preauthorization reference
     fhir:form @<CodeableConcept>?;          # Printed form identifier
-    fhir:error @<OneOrMore_BackboneElement>?;  # Processing errors
-}  
+    fhir:error @<OneOrMore_CoverageEligibilityResponse.error>?;  # Processing errors
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Xor
+# # Constraint UniqueKey:ces-1
+# Human readable:SHALL contain a category or a billcode but not both.
+#
+# Constraint: category.exists() xor productOrService.exists()
+# ShEx:
+#
+#{fhir:category .  Xor  {fhir:productOrService .}}
+{}
+
+)
+ 
 
 # Patient insurance information
 <CoverageEligibilityResponse.insurance> EXTENDS @<BackboneElement> CLOSED {   
     fhir:coverage @<Reference> AND {fhir:link 
-    			@<Coverage> };  # Insurance information
+    			@<Coverage> ? };  # Insurance information
     fhir:inforce @<boolean>?;               # Coverage inforce indicator
     fhir:benefitPeriod @<Period>?;          # When the benefits are applicable
-    fhir:item @<OneOrMore_BackboneElement>?;  # Benefits and authorization details
+    fhir:item @<OneOrMore_CoverageEligibilityResponse.insurance.item>?;  # Benefits and authorization details
+}  
+
+# Benefit Summary
+<CoverageEligibilityResponse.insurance.item.benefit> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Benefit classification
+    fhir:allowed @<unsignedInt>  OR 
+    			@<string>  OR 
+    			@<Money>  ?;  # Benefits allowed
+    fhir:used @<unsignedInt>  OR 
+    			@<string>  OR 
+    			@<Money>  ?;  # Benefits used
 }  
 
 # Processing errors
@@ -86,7 +114,7 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # modifiers 
     fhir:provider @<Reference> AND {fhir:link 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Performing practitioner
+    			@<PractitionerRole> ? }?;  # Performing practitioner
     fhir:excluded @<boolean>?;              # Excluded from the plan
     fhir:name @<string>?;                   # Short name for the benefit
     fhir:description @<string>?;            # Description of the benefit or 
@@ -94,23 +122,12 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:network @<CodeableConcept>?;       # In or out of network
     fhir:unit @<CodeableConcept>?;          # Individual or family
     fhir:term @<CodeableConcept>?;          # Annual or lifetime
-    fhir:benefit @<OneOrMore_BackboneElement>?;  # Benefit Summary
+    fhir:benefit @<OneOrMore_CoverageEligibilityResponse.insurance.item.benefit>?;  # Benefit Summary
     fhir:authorizationRequired @<boolean>?;  # Authorization required flag
     fhir:authorizationSupporting @<OneOrMore_CodeableConcept>?;  # Type of required supporting 
                                             # materials 
     fhir:authorizationUrl @<uri>?;          # Preauthorization requirements 
                                             # endpoint 
-}  
-
-# Benefit Summary
-<CoverageEligibilityResponse.insurance.item.benefit> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Benefit classification
-    fhir:allowed (@<unsignedInt>  OR 
-    			@<string>  OR 
-    			@<Money> )  AND { rdf:type IRI } ?;  # Benefits allowed
-    fhir:used (@<unsignedInt>  OR 
-    			@<string>  OR 
-    			@<Money> )  AND { rdf:type IRI } ?;  # Benefits used
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -125,9 +142,19 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_code> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_CoverageEligibilityResponse.insurance> CLOSED {
+    rdf:first @<CoverageEligibilityResponse.insurance>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.insurance> 
+}
+
+<OneOrMore_CoverageEligibilityResponse.error> CLOSED {
+    rdf:first @<CoverageEligibilityResponse.error>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.error> 
+}
+
+<OneOrMore_CoverageEligibilityResponse.insurance.item> CLOSED {
+    rdf:first @<CoverageEligibilityResponse.insurance.item>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.insurance.item> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {
@@ -135,14 +162,19 @@ start=@<CoverageEligibilityResponse> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-#---------------------- Value Sets ------------------------
+<OneOrMore_CoverageEligibilityResponse.insurance.item.benefit> CLOSED {
+    rdf:first @<CoverageEligibilityResponse.insurance.item.benefit>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CoverageEligibilityResponse.insurance.item.benefit> 
+}
 
-# This value set includes Status codes.
-fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
+#---------------------- Value Sets ------------------------
 
 # The outcome of the processing.
 fhirvs:eligibility-outcome ["queued" "complete" "error" "partial"]
 
 # A code specifying the types of information being requested.
 fhirvs:eligibilityresponse-purpose ["auth-requirements" "benefits" "discovery" "validation"]
+
+# This value set includes Status codes.
+fhirvs:fm-status ["active" "cancelled" "draft" "entered-in-error"]
 

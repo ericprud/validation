@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Where did this content come from
 <valueset-sourceReference> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-sourceReference];
+    a [fhir:valueset-sourceReference]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-sourceReference"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ValueSet]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-sourceReference"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { a [fhir:ValueSet]}
+
 }  
 

@@ -9,17 +9,20 @@ IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <Device.shex>
 IMPORT <Patient.shex>
-IMPORT <Resource.shex>
 IMPORT <dateTime.shex>
+IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Narrative.shex>
 IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
+IMPORT <UsageContext.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 
@@ -29,27 +32,30 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
 # A set of resources composed into a single coherent clinical statement with clinical attestation
 <Composition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Composition];
+    a [fhir:Composition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Canonical identifier for this 
                                             # Composition, represented as a URI 
                                             # (globally unique) 
-    fhir:identifier @<Identifier>?;         # Version-independent identifier for 
+    fhir:identifier @<OneOrMore_Identifier>?;  # Version-independent identifier for 
                                             # the Composition 
     fhir:version @<string>?;                # An explicitly assigned identifer 
                                             # of a variation of the content in 
                                             # the Composition 
     fhir:status @<code> AND
-    	{fhir:v @fhirvs:composition-status};  # preliminary | final | amended | 
-                                            # entered-in-error | deprecated 
+    	{fhir:v @fhirvs:composition-status};  # registered | partial | preliminary 
+                                            # | final | amended | corrected | 
+                                            # appended | cancelled | 
+                                            # entered-in-error | deprecated | 
+                                            # unknown 
     fhir:type @<CodeableConcept>;           # Kind of composition (LOINC if 
                                             # possible) 
     fhir:category @<OneOrMore_CodeableConcept>?;  # Categorization of Composition
-    fhir:subject @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Who and/or what the composition is 
+    fhir:subject @<OneOrMore_Reference_Resource>?;  # Who and/or what the composition is 
                                             # about 
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Context of the Composition
+    			@<Encounter> ? }?;  # Context of the Composition
     fhir:date @<dateTime>;                  # Composition editing time
     fhir:useContext @<OneOrMore_UsageContext>?;  # The context that the content is 
                                             # intended to support 
@@ -59,31 +65,37 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # (computer friendly) 
     fhir:title @<string>;                   # Human Readable name/title
     fhir:note @<OneOrMore_Annotation>?;     # For any additional notes
-    fhir:confidentiality @<code> AND
-    	{fhir:v @<http://terminology.hl7.org/ValueSet/v3-Confidentiality>}?;  # As defined by affinity domain
-    fhir:attester @<OneOrMore_BackboneElement>?;  # Attests to accuracy of composition
+    fhir:attester @<OneOrMore_Composition.attester>?;  # Attests to accuracy of composition
     fhir:custodian @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization which maintains the 
+    			@<Organization> ? }?;  # Organization which maintains the 
                                             # composition 
     fhir:relatesTo @<OneOrMore_RelatedArtifact>?;  # Relationships to other 
                                             # compositions/documents 
-    fhir:event @<OneOrMore_BackboneElement>?;  # The clinical service(s) being 
+    fhir:event @<OneOrMore_Composition.event>?;  # The clinical service(s) being 
                                             # documented 
-    fhir:section @<OneOrMore_BackboneElement>?;  # Composition is broken into sections
-}  
+    fhir:section @<OneOrMore_Composition.section>?;  # Composition is broken into sections
+} AND (
 
-# Attests to accuracy of composition
-<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
-                                            # official 
-    fhir:time @<dateTime>?;                 # When the composition was attested
-    fhir:party @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who attested the composition
-}  
+# Constraint UniqueKey:cmp-1
+# Human readable:A section must contain at least one of text, entries, or sub-sections
+
+# Constraint: text.exists() or entry.exists() or section.exists()
+# ShEx:
+
+{fhir:text . OR {fhir:entry . OR {fhir:section .}}}
+
+) AND (
+
+# Constraint UniqueKey:cmp-2
+# Human readable:A section can only have an emptyReason if it is empty
+
+# Constraint: emptyReason.empty() or entry.empty()
+# ShEx:
+
+ NOT { fhir:emptyReason {fhir:v .} }  OR  NOT { fhir:entry {fhir:v .} } 
+
+)
+ 
 
 # Composition is broken into sections
 <Composition.section> EXTENDS @<BackboneElement> CLOSED {   
@@ -93,7 +105,7 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:author @<OneOrMore_Reference_Device_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who and/or what authored the 
                                             # section 
     fhir:focus @<Reference> AND {fhir:link 
-    			@<Resource> }?;  # Who/what the section is about, 
+    			@<Resource> ? }?;  # Who/what the section is about, 
                                             # when it is not about the subject 
                                             # of composition 
     fhir:text @<Narrative>?;                # Text summary of the section, for 
@@ -105,10 +117,44 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # this section 
     fhir:emptyReason @<CodeableConcept>?;   # Why the section is empty
     fhir:section @<OneOrMore_Composition.section>?;  # Nested Section
+} AND (
+
+# Constraint UniqueKey:cmp-1
+# Human readable:A section must contain at least one of text, entries, or sub-sections
+
+# Constraint: text.exists() or entry.exists() or section.exists()
+# ShEx:
+
+{fhir:text . OR {fhir:entry . OR {fhir:section .}}}
+
+) AND (
+
+# Constraint UniqueKey:cmp-2
+# Human readable:A section can only have an emptyReason if it is empty
+
+# Constraint: emptyReason.empty() or entry.empty()
+# ShEx:
+
+ NOT { fhir:emptyReason {fhir:v .} }  OR  NOT { fhir:entry {fhir:v .} } 
+
+)
+ 
+
+# Attests to accuracy of composition
+<Composition.attester> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:mode @<CodeableConcept>;           # personal | professional | legal | 
+                                            # official 
+    fhir:time @<dateTime>?;                 # When the composition was attested
+    fhir:party @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? }?;  # Who attested the composition
 }  
 
 # Nested Section
-<Composition.section.section> CLOSED {   
+<Composition.section.sectionnull> CLOSED {   
 }  
 
 # The clinical service(s) being documented
@@ -122,9 +168,20 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
+<OneOrMore_Identifier> CLOSED {
+    rdf:first @<Identifier>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
+}
+
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
+<OneOrMore_Reference_Resource> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<Resource> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
 }
 
 <OneOrMore_UsageContext> CLOSED {
@@ -148,9 +205,9 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Annotation> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Composition.attester> CLOSED {
+    rdf:first @<Composition.attester>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Composition.attester> 
 }
 
 <OneOrMore_RelatedArtifact> CLOSED {
@@ -158,10 +215,9 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_RelatedArtifact> 
 }
 
-<OneOrMore_Reference_Resource> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<Resource> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Resource> 
+<OneOrMore_Composition.event> CLOSED {
+    rdf:first @<Composition.event>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Composition.event> 
 }
 
 <OneOrMore_Composition.section> CLOSED {
@@ -171,12 +227,9 @@ start=@<Composition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 #---------------------- Value Sets ------------------------
 
+# The workflow/clinical status of the composition.
+fhirvs:composition-status ["registered" "partial" "preliminary" "final" "amended" "corrected" "appended" "cancelled" "entered-in-error" "deprecated" "unknown"]
+
 # The processing mode that applies to this list.
 fhirvs:list-mode ["working" "snapshot" "changes"]
-
-# The workflow/clinical status of the composition.
-fhirvs:composition-status ["preliminary" "final" "amended" "entered-in-error" "deprecated"]
-
-# Set of codes used to value Act.Confidentiality and Role.Confidentiality attribute in accordance with the definition for concept domain "Confidentiality".
-<http://terminology.hl7.org/ValueSet/v3-Confidentiality> ["L" "M" "N" "R" "U" "V"]
 

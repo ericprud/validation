@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Lifecycle
 <auditevent-Lifecycle> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:auditevent-Lifecycle];
+    a [fhir:auditevent-Lifecycle]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/auditevent-Lifecycle"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/auditevent-Lifecycle"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:entity {a [fhir:AuditEvent]}}
+
 }  
 

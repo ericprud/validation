@@ -10,9 +10,9 @@ IMPORT <DataType.shex>
 # An amount of economic utility in some recognized currency
 <Money> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Money];
-    fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<decimal>?;                 # Numerical value (with implicit 
+    a [fhir:Money]?;
+
+    fhir:value @<decimal>?;                 # Numerical value (with implicit 
                                             # precision) 
     fhir:currency @<code> AND
     	{fhir:v @fhirvs:currencies}?;  # ISO 4217 Currency Code
@@ -21,5 +21,5 @@ IMPORT <DataType.shex>
 #---------------------- Value Sets ------------------------
 
 # Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
-fhirvs:currencies xsd:string # EXTERNAL
+fhirvs:currencies xsd:string #EXTERNAL
 

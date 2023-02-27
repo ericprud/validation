@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Claim.shex>
@@ -23,7 +24,8 @@ IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Procedure.shex>
 IMPORT <Transport.shex>
-IMPORT <AuditEvent.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <ChargeItem.shex>
 IMPORT <Provenance.shex>
 IMPORT <Appointment.shex>
@@ -32,7 +34,6 @@ IMPORT <DeviceUsage.shex>
 IMPORT <Observation.shex>
 IMPORT <Practitioner.shex>
 IMPORT <Organization.shex>
-IMPORT <RequestGroup.shex>
 IMPORT <ImagingStudy.shex>
 IMPORT <Immunization.shex>
 IMPORT <RelatedPerson.shex>
@@ -57,6 +58,7 @@ IMPORT <DiagnosticReport.shex>
 IMPORT <DocumentManifest.shex>
 IMPORT <GuidanceResponse.shex>
 IMPORT <ImagingSelection.shex>
+IMPORT <CodeableReference.shex>
 IMPORT <EnrollmentRequest.shex>
 IMPORT <MedicationRequest.shex>
 IMPORT <DocumentReference.shex>
@@ -67,6 +69,7 @@ IMPORT <MedicationDispense.shex>
 IMPORT <AppointmentResponse.shex>
 IMPORT <FamilyMemberHistory.shex>
 IMPORT <CommunicationRequest.shex>
+IMPORT <RequestOrchestration.shex>
 IMPORT <ExplanationOfBenefit.shex>
 IMPORT <PaymentReconciliation.shex>
 IMPORT <QuestionnaireResponse.shex>
@@ -77,16 +80,13 @@ IMPORT <ImmunizationRecommendation.shex>
 IMPORT <CoverageEligibilityResponse.shex>
 
 # Event Pattern
-<Event> CLOSED {   
+<Event> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Event];
+    a [fhir:Event]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for {{title}}
-    fhir:instantiatesCanonical @<OneOrMore_canonical>?;  # Instantiates FHIR protocol or 
-                                            # definition 
-    fhir:instantiatesUri @<OneOrMore_uri>?;  # Instantiates external protocol or 
-                                            # definition 
-    fhir:basedOn @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Fulfills plan, proposal or order
+    fhir:basedOn @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription>?;  # Fulfills plan, proposal or order
     fhir:partOf @<OneOrMore_Reference_AuditEvent_OR_ChargeItem_OR_ClaimResponse_OR_ClinicalImpression_OR_Communication_OR_Composition_OR_Consent_OR_Coverage_OR_CoverageEligibilityResponse_OR_DetectedIssue_OR_DeviceUsage_OR_DiagnosticReport_OR_DocumentManifest_OR_DocumentReference_OR_Encounter_OR_EnrollmentResponse_OR_EpisodeOfCare_OR_ExplanationOfBenefit_OR_FamilyMemberHistory_OR_GuidanceResponse_OR_ImagingSelection_OR_ImagingStudy_OR_Immunization_OR_ImmunizationEvaluation_OR_InventoryReport_OR_MedicationAdministration_OR_MedicationDispense_OR_MedicationUsage_OR_NutritionIntake_OR_Observation_OR_PaymentNotice_OR_PaymentReconciliation_OR_Procedure_OR_Provenance_OR_QuestionnaireResponse_OR_RiskAssessment_OR_SupplyDelivery_OR_Transport>?;  # Part of referenced event
     fhir:researchStudy @<OneOrMore_Reference_ResearchStudy>?;  # Associated research study
     fhir:status @<code> AND
@@ -95,30 +95,34 @@ IMPORT <CoverageEligibilityResponse.shex>
                                             # completed | entered-in-error | 
                                             # unknown 
     fhir:statusReason @<CodeableConcept>?;  # Reason for current status
-    fhir:code @<CodeableConcept>?;          # What was done
+    fhir:category @<OneOrMore_CodeableConcept>?;  # High level categorization of 
+                                            # {{title}} 
+    fhir:code @<CodeableConcept>?;          # What service was done
+    fhir:product @<CodeableReference>?;     # Product used/provided
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Individual service was done for/to
+    			@<Patient> ? };  # Individual service was done for/to
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter created as part of
-    fhir:occurrence (@<dateTime>  OR 
+    			@<Encounter> ? }?;  # Encounter the {{title}} is part of
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # When {{title}} occurred/is 
+    			@<Timing>  ?;  # When {{title}} occurred/is 
                                             # occurring 
     fhir:recorded @<dateTime>?;             # When {{title}} was first captured 
                                             # in the subject's record 
-    fhir:reported (@<boolean>  OR 
+    fhir:reported @<boolean>  OR 
     			(@<Reference>  AND {fhir:link @<Patient> OR 
     			 @<RelatedPerson> OR 
     			 @<Practitioner> OR 
     			 @<PractitionerRole> OR 
-    			 @<Organization> }) )  AND { rdf:type IRI } ?;  # Reported rather than primary record
+    			 @<Organization> })  ?;  # Reported rather than primary record
     fhir:performer @<OneOrMore_Element>?;   # Who performed {{title}} and what 
                                             # they did 
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where {{title}} occurred
+    			@<Location> ? }?;  # Where {{title}} occurred
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why was {{title}} performed?
     fhir:note @<OneOrMore_Annotation>?;     # Comments made about the event
+    fhir:relevantHistory @<OneOrMore_Reference_Provenance>?;  # Key events in history of {{title}}
 }  
 
 # Who performed {{title}} and what they did
@@ -131,7 +135,7 @@ IMPORT <CoverageEligibilityResponse.shex>
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Who performed {{title}}
+    			@<RelatedPerson> ? };  # Who performed {{title}}
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -141,17 +145,7 @@ IMPORT <CoverageEligibilityResponse.shex>
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_canonical> CLOSED {
-    rdf:first @<canonical>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_canonical> 
-}
-
-<OneOrMore_uri> CLOSED {
-    rdf:first @<uri>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_uri> 
-}
-
-<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> CLOSED {
+<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<Appointment> OR 
 			@<AppointmentResponse> OR 
@@ -165,11 +159,11 @@ IMPORT <CoverageEligibilityResponse.shex>
 			@<ImmunizationRecommendation> OR 
 			@<MedicationRequest> OR 
 			@<NutritionOrder> OR 
-			@<RequestGroup> OR 
+			@<RequestOrchestration> OR 
 			@<ServiceRequest> OR 
 			@<SupplyRequest> OR 
 			@<VisionPrescription> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestGroup_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> 
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Appointment_OR_AppointmentResponse_OR_CarePlan_OR_Claim_OR_CommunicationRequest_OR_Contract_OR_CoverageEligibilityRequest_OR_DeviceRequest_OR_EnrollmentRequest_OR_ImmunizationRecommendation_OR_MedicationRequest_OR_NutritionOrder_OR_RequestOrchestration_OR_ServiceRequest_OR_SupplyRequest_OR_VisionPrescription> 
 }
 
 <OneOrMore_Reference_AuditEvent_OR_ChargeItem_OR_ClaimResponse_OR_ClinicalImpression_OR_Communication_OR_Composition_OR_Consent_OR_Coverage_OR_CoverageEligibilityResponse_OR_DetectedIssue_OR_DeviceUsage_OR_DiagnosticReport_OR_DocumentManifest_OR_DocumentReference_OR_Encounter_OR_EnrollmentResponse_OR_EpisodeOfCare_OR_ExplanationOfBenefit_OR_FamilyMemberHistory_OR_GuidanceResponse_OR_ImagingSelection_OR_ImagingStudy_OR_Immunization_OR_ImmunizationEvaluation_OR_InventoryReport_OR_MedicationAdministration_OR_MedicationDispense_OR_MedicationUsage_OR_NutritionIntake_OR_Observation_OR_PaymentNotice_OR_PaymentReconciliation_OR_Procedure_OR_Provenance_OR_QuestionnaireResponse_OR_RiskAssessment_OR_SupplyDelivery_OR_Transport> CLOSED {
@@ -221,6 +215,11 @@ IMPORT <CoverageEligibilityResponse.shex>
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_ResearchStudy> 
 }
 
+<OneOrMore_CodeableConcept> CLOSED {
+    rdf:first @<CodeableConcept>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
 <OneOrMore_Element> CLOSED {
     rdf:first @<Element>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Element> 
@@ -234,6 +233,12 @@ IMPORT <CoverageEligibilityResponse.shex>
 <OneOrMore_Annotation> CLOSED {
     rdf:first @<Annotation>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Annotation> 
+}
+
+<OneOrMore_Reference_Provenance> CLOSED {
+    rdf:first @<Reference> AND {fhir:link 
+			@<Provenance> } ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Provenance> 
 }
 
 #---------------------- Value Sets ------------------------

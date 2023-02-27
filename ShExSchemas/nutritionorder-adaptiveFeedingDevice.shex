@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Adaptive Feeding Device
 <nutritionorder-adaptiveFeedingDevice> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:nutritionorder-adaptiveFeedingDevice];
+    a [fhir:nutritionorder-adaptiveFeedingDevice]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/nutritionorder-adaptiveFeedingDevice"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:oralDiet {a [fhir:NutritionOrder]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/nutritionorder-adaptiveFeedingDevice"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:oralDiet {a [fhir:NutritionOrder]}}
+
 }  
 

@@ -3,6 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <string.shex>
@@ -11,14 +12,17 @@ IMPORT <Patient.shex>
 IMPORT <Quantity.shex>
 IMPORT <dateTime.shex>
 IMPORT <Reference.shex>
+IMPORT <Annotation.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <CodeableConcept.shex>
 
 # Product Pattern
-<Product> CLOSED {   
+<Product> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Product];
+    a [fhir:Product]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:status @<code> AND
     	{fhir:v @fhirvs:product-status};  # active | inactive | 
                                             # entered-in-error 
@@ -45,7 +49,7 @@ IMPORT <CodeableConcept.shex>
                                             # for the product 
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> }?;  # Individual the product is 
+    			@<Patient> ? }?;  # Individual the product is 
                                             # associated with, or which has used 
                                             # the product 
 }  

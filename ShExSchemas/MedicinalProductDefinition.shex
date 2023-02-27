@@ -5,6 +5,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 IMPORT <date.shex>
 IMPORT <string.shex>
+IMPORT <Coding.shex>
 IMPORT <Period.shex>
 IMPORT <integer.shex>
 IMPORT <boolean.shex>
@@ -12,25 +13,29 @@ IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Attachment.shex>
 IMPORT <Organization.shex>
 IMPORT <ResearchStudy.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <MarketingStatus.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
+IMPORT <DeviceDefinition.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <DocumentReference.shex>
 IMPORT <ManufacturedItemDefinition.shex>
-IMPORT <MarketingStatus.shex>
+
 
 start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # Detailed definition of a medicinal product
 <MedicinalProductDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:MedicinalProductDefinition];
+    a [fhir:MedicinalProductDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier for this 
                                             # product. Could be an MPID 
     fhir:type @<CodeableConcept>?;          # Regulatory type, e.g. 
@@ -69,9 +74,10 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # product, in contrast to marketing 
                                             # authorization 
     fhir:packagedMedicinalProduct @<OneOrMore_CodeableConcept>?;  # Package type for the product
-    fhir:comprisedOf @<OneOrMore_Reference_ManufacturedItemDefinition>?;  # A medicinal manufactured item that 
-                                            # this product consists of, such as 
-                                            # a tablet or capsule 
+    fhir:comprisedOf @<OneOrMore_Reference_DeviceDefinition_OR_ManufacturedItemDefinition>?;  # Types of medicinal manufactured 
+                                            # items and/or devices that this 
+                                            # product consists of, such as 
+                                            # tablets, capsule, or syringes 
     fhir:ingredient @<OneOrMore_CodeableConcept>?;  # The ingredients of this medicinal 
                                             # product - when not detailed in 
                                             # other resources 
@@ -84,37 +90,25 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:masterFile @<OneOrMore_Reference_DocumentReference>?;  # A master file for the medicinal 
                                             # product (e.g. Pharmacovigilance 
                                             # System Master File) 
-    fhir:contact @<OneOrMore_BackboneElement>?;  # A product specific contact, person 
+    fhir:contact @<OneOrMore_MedicinalProductDefinition.contact>?;  # A product specific contact, person 
                                             # (in a role), or an organization 
     fhir:clinicalTrial @<OneOrMore_Reference_ResearchStudy>?;  # Clinical trials or studies that 
                                             # this product is involved in 
     fhir:code @<OneOrMore_Coding>?;         # A code that this product is known 
                                             # by, within some formal terminology 
-    fhir:name @<OneOrMore_BackboneElement>;  # The product's name, including full 
+    fhir:name @<OneOrMore_MedicinalProductDefinition.name>;  # The product's name, including full 
                                             # name and possibly coded parts 
-    fhir:crossReference @<OneOrMore_BackboneElement>?;  # Reference to another product, e.g. 
+    fhir:crossReference @<OneOrMore_MedicinalProductDefinition.crossReference>?;  # Reference to another product, e.g. 
                                             # for linking authorised to 
                                             # investigational product 
-    fhir:operation @<OneOrMore_BackboneElement>?;  # A manufacturing or administrative 
+    fhir:operation @<OneOrMore_MedicinalProductDefinition.operation>?;  # A manufacturing or administrative 
                                             # process for the medicinal product 
-    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Key product features such as 
+    fhir:characteristic @<OneOrMore_MedicinalProductDefinition.characteristic>?;  # Key product features such as 
                                             # "sugar free", "modified release" 
 }  
 
-# A product specific contact, person (in a role), or an organization
-<MedicinalProductDefinition.contact> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>?;          # Allows the contact to be 
-                                            # classified, for example QPPV, 
-                                            # Pharmacovigilance Enquiry 
-                                            # Information 
-    fhir:contact @<Reference> AND {fhir:link 
-    			@<Organization> OR 
-    			@<PractitionerRole> };  # A product specific contact, person 
-                                            # (in a role), or an organization 
-}  
-
 # Coding words or phrases of the name
-<MedicinalProductDefinition.name.namePart> EXTENDS @<BackboneElement> CLOSED {   
+<MedicinalProductDefinition.name.part> EXTENDS @<BackboneElement> CLOSED {   
     fhir:part @<string>;                    # A fragment of a product name
     fhir:type @<CodeableConcept>;           # Identifying type for this part of 
                                             # the name (e.g. strength part) 
@@ -124,17 +118,17 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 <MedicinalProductDefinition.characteristic> EXTENDS @<BackboneElement> CLOSED {   
     fhir:type @<CodeableConcept>;           # A code expressing the type of 
                                             # characteristic 
-    fhir:v (@<CodeableConcept>  OR 
+    fhir:value @<CodeableConcept>  OR 
     			@<string>  OR 
     			@<Quantity>  OR 
     			@<integer>  OR 
     			@<date>  OR 
     			@<boolean>  OR 
-    			@<Attachment> )  AND { rdf:type IRI } ?;  # A value for the characteristic
+    			@<Attachment>  ?;  # A value for the characteristic
 }  
 
 # Country and jurisdiction where the name applies
-<MedicinalProductDefinition.name.countryLanguage> EXTENDS @<BackboneElement> CLOSED {   
+<MedicinalProductDefinition.name.usage> EXTENDS @<BackboneElement> CLOSED {   
     fhir:country @<CodeableConcept>;        # Country code for where this name 
                                             # applies 
     fhir:jurisdiction @<CodeableConcept>?;  # Jurisdiction code for where this 
@@ -166,14 +160,26 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # virtual to actual product 
 }  
 
+# A product specific contact, person (in a role), or an organization
+<MedicinalProductDefinition.contact> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>?;          # Allows the contact to be 
+                                            # classified, for example QPPV, 
+                                            # Pharmacovigilance Enquiry 
+                                            # Information 
+    fhir:contact @<Reference> AND {fhir:link 
+    			@<Organization> OR 
+    			@<PractitionerRole> ? };  # A product specific contact, person 
+                                            # (in a role), or an organization 
+}  
+
 # The product's name, including full name and possibly coded parts
 <MedicinalProductDefinition.name> EXTENDS @<BackboneElement> CLOSED {   
     fhir:productName @<string>;             # The full product name
     fhir:type @<CodeableConcept>?;          # Type of product name, such as 
                                             # rINN, BAN, Proprietary, 
                                             # Non-Proprietary 
-    fhir:namePart @<OneOrMore_BackboneElement>?;  # Coding words or phrases of the name
-    fhir:countryLanguage @<OneOrMore_BackboneElement>?;  # Country and jurisdiction where the 
+    fhir:part @<OneOrMore_MedicinalProductDefinition.name.part>?;  # Coding words or phrases of the name
+    fhir:usage @<OneOrMore_MedicinalProductDefinition.name.usage>?;  # Country and jurisdiction where the 
                                             # name applies 
 }  
 
@@ -194,10 +200,11 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_MarketingStatus> 
 }
 
-<OneOrMore_Reference_ManufacturedItemDefinition> CLOSED {
+<OneOrMore_Reference_DeviceDefinition_OR_ManufacturedItemDefinition> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
+			@<DeviceDefinition> OR 
 			@<ManufacturedItemDefinition> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_ManufacturedItemDefinition> 
+    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_DeviceDefinition_OR_ManufacturedItemDefinition> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {
@@ -211,9 +218,9 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_DocumentReference> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_MedicinalProductDefinition.contact> CLOSED {
+    rdf:first @<MedicinalProductDefinition.contact>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.contact> 
 }
 
 <OneOrMore_Reference_ResearchStudy> CLOSED {
@@ -227,9 +234,39 @@ start=@<MedicinalProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Coding> 
 }
 
+<OneOrMore_MedicinalProductDefinition.name> CLOSED {
+    rdf:first @<MedicinalProductDefinition.name>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.name> 
+}
+
+<OneOrMore_MedicinalProductDefinition.crossReference> CLOSED {
+    rdf:first @<MedicinalProductDefinition.crossReference>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.crossReference> 
+}
+
+<OneOrMore_MedicinalProductDefinition.operation> CLOSED {
+    rdf:first @<MedicinalProductDefinition.operation>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.operation> 
+}
+
+<OneOrMore_MedicinalProductDefinition.characteristic> CLOSED {
+    rdf:first @<MedicinalProductDefinition.characteristic>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.characteristic> 
+}
+
 <OneOrMore_Reference_Organization> CLOSED {
     rdf:first @<Reference> AND {fhir:link 
 			@<Organization> } ;
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Organization> 
+}
+
+<OneOrMore_MedicinalProductDefinition.name.part> CLOSED {
+    rdf:first @<MedicinalProductDefinition.name.part>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.name.part> 
+}
+
+<OneOrMore_MedicinalProductDefinition.name.usage> CLOSED {
+    rdf:first @<MedicinalProductDefinition.name.usage>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MedicinalProductDefinition.name.usage> 
 }
 

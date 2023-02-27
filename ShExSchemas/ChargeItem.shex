@@ -3,39 +3,33 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <uri.shex>
 IMPORT <code.shex>
 IMPORT <Group.shex>
-IMPORT <Money.shex>
 IMPORT <Period.shex>
 IMPORT <Timing.shex>
-IMPORT <string.shex>
 IMPORT <Device.shex>
 IMPORT <Patient.shex>
-IMPORT <decimal.shex>
 IMPORT <Account.shex>
 IMPORT <dateTime.shex>
 IMPORT <Quantity.shex>
 IMPORT <CareTeam.shex>
 IMPORT <Resource.shex>
+IMPORT <canonical.shex>
 IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
-IMPORT <Procedure.shex>
-IMPORT <ChargeItem.shex>
-IMPORT <Observation.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
-IMPORT <ImagingStudy.shex>
-IMPORT <Immunization.shex>
-IMPORT <EpisodeOfCare.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
-IMPORT <SupplyDelivery.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
-IMPORT <DiagnosticReport.shex>
-IMPORT <MedicationDispense.shex>
-IMPORT <MedicationAdministration.shex>
+IMPORT <MonetaryComponent.shex>
+IMPORT <CodeableReference.shex>
+IMPORT <HealthcareService.shex>
 
 
 start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -43,8 +37,9 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
 # Item containing charge code(s) associated with the provision of healthcare provider products
 <ChargeItem> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ChargeItem];
+    a [fhir:ChargeItem]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business Identifier for item
     fhir:definitionUri @<OneOrMore_uri>?;   # Defining information about the 
                                             # code of this charge item 
@@ -59,33 +54,32 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # like a billing code 
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Individual service was done for/to
-    fhir:context @<Reference> AND {fhir:link 
-    			@<Encounter> OR 
-    			@<EpisodeOfCare> }?;  # Encounter / Episode associated 
-                                            # with event 
-    fhir:occurrence (@<dateTime>  OR 
+    			@<Patient> ? };  # Individual service was done for/to
+    fhir:encounter @<Reference> AND {fhir:link 
+    			@<Encounter> ? }?;  # Encounter associated with this 
+                                            # ChargeItem 
+    fhir:occurrence @<dateTime>  OR 
     			@<Period>  OR 
-    			@<Timing> )  AND { rdf:type IRI } ?;  # When the charged service was 
+    			@<Timing>  ?;  # When the charged service was 
                                             # applied 
-    fhir:performer @<OneOrMore_BackboneElement>?;  # Who performed charged service
+    fhir:performer @<OneOrMore_ChargeItem.performer>?;  # Who performed charged service
     fhir:performingOrganization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization providing the charged 
+    			@<Organization> ? }?;  # Organization providing the charged 
                                             # service 
     fhir:requestingOrganization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization requesting the 
+    			@<Organization> ? }?;  # Organization requesting the 
                                             # charged service 
     fhir:costCenter @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization that has ownership of 
+    			@<Organization> ? }?;  # Organization that has ownership of 
                                             # the (potential, future) revenue 
     fhir:quantity @<Quantity>?;             # Quantity of which the charge item 
                                             # has been serviced 
     fhir:bodysite @<OneOrMore_CodeableConcept>?;  # Anatomical location, if relevant
-    fhir:factorOverride @<decimal>?;        # Factor overriding the associated 
-                                            # rules 
-    fhir:priceOverride @<Money>?;           # Price overriding the associated 
-                                            # rules 
-    fhir:overrideReason @<string>?;         # Reason for overriding the list 
+    fhir:unitPriceComponent @<MonetaryComponent>?;  # Unit price overriding the 
+                                            # associated rules 
+    fhir:totalPriceComponent @<MonetaryComponent>?;  # Total price overriding the 
+                                            # associated rules 
+    fhir:overrideReason @<CodeableConcept>?;  # Reason for overriding the list 
                                             # price/factor 
     fhir:enterer @<Reference> AND {fhir:link 
     			@<Device> OR 
@@ -93,11 +87,11 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Individual who was entering
+    			@<RelatedPerson> ? }?;  # Individual who was entering
     fhir:enteredDate @<dateTime>?;          # Date the charge item was entered
     fhir:reason @<OneOrMore_CodeableConcept>?;  # Why was the charged  service 
                                             # rendered? 
-    fhir:service @<OneOrMore_Reference_DiagnosticReport_OR_ImagingStudy_OR_Immunization_OR_MedicationAdministration_OR_MedicationDispense_OR_Observation_OR_Procedure_OR_SupplyDelivery>?;  # Which rendered service is being 
+    fhir:service @<OneOrMore_CodeableReference>?;  # Which rendered service is being 
                                             # charged? 
     fhir:product @<OneOrMore_CodeableReference>?;  # Product charged
     fhir:account @<OneOrMore_Reference_Account>?;  # Account to place this charge
@@ -112,11 +106,12 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:actor @<Reference> AND {fhir:link 
     			@<CareTeam> OR 
     			@<Device> OR 
+    			@<HealthcareService> OR 
     			@<Organization> OR 
     			@<Patient> OR 
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
-    			@<RelatedPerson> };  # Individual who was performing
+    			@<RelatedPerson> ? };  # Individual who was performing
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -142,27 +137,14 @@ start=@<ChargeItem> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_ChargeItem> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ChargeItem.performer> CLOSED {
+    rdf:first @<ChargeItem.performer>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ChargeItem.performer> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
-}
-
-<OneOrMore_Reference_DiagnosticReport_OR_ImagingStudy_OR_Immunization_OR_MedicationAdministration_OR_MedicationDispense_OR_Observation_OR_Procedure_OR_SupplyDelivery> CLOSED {
-    rdf:first @<Reference> AND {fhir:link 
-			@<DiagnosticReport> OR 
-			@<ImagingStudy> OR 
-			@<Immunization> OR 
-			@<MedicationAdministration> OR 
-			@<MedicationDispense> OR 
-			@<Observation> OR 
-			@<Procedure> OR 
-			@<SupplyDelivery> } ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_Reference_DiagnosticReport_OR_ImagingStudy_OR_Immunization_OR_MedicationAdministration_OR_MedicationDispense_OR_Observation_OR_Procedure_OR_SupplyDelivery> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {

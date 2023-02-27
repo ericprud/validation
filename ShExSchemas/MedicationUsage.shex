@@ -7,6 +7,7 @@ IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Period.shex>
 IMPORT <string.shex>
+IMPORT <Dosage.shex>
 IMPORT <Patient.shex>
 IMPORT <dateTime.shex>
 IMPORT <Resource.shex>
@@ -14,13 +15,15 @@ IMPORT <Reference.shex>
 IMPORT <Encounter.shex>
 IMPORT <Procedure.shex>
 IMPORT <Condition.shex>
+IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Observation.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <PractitionerRole.shex>
 IMPORT <CodeableReference.shex>
 
@@ -30,8 +33,9 @@ start=@<MedicationUsage> AND {fhir:nodeRole [fhir:treeRoot]}
 # Record of medication being taken by a patient
 <MedicationUsage> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:MedicationUsage];
+    a [fhir:MedicationUsage]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External identifier
     fhir:partOf @<OneOrMore_Reference_Procedure>?;  # Part of referenced event
     fhir:status @<code> AND
@@ -40,12 +44,12 @@ start=@<MedicationUsage> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:medication @<CodeableReference>;   # What medication was taken
     fhir:subject @<Reference> AND {fhir:link 
     			@<Group> OR 
-    			@<Patient> };  # Who is/was taking  the medication
+    			@<Patient> ? };  # Who is/was taking  the medication
     fhir:encounter @<Reference> AND {fhir:link 
-    			@<Encounter> }?;  # Encounter associated with 
+    			@<Encounter> ? }?;  # Encounter associated with 
                                             # MedicationUsage 
-    fhir:effective (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # The date/time or interval when the 
+    fhir:effective @<dateTime>  OR 
+    			@<Period>  ?;  # The date/time or interval when the 
                                             # medication is/was/will be taken 
     fhir:dateAsserted @<dateTime>?;         # When the usage was asserted?
     fhir:informationSource @<OneOrMore_Reference_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Person or organization that 
@@ -62,7 +66,7 @@ start=@<MedicationUsage> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # instructions 
     fhir:dosage @<OneOrMore_Dosage>?;       # Details of how medication is/was 
                                             # taken or should be taken 
-    fhir:adherence @<BackboneElement>?;     # Indicates if the medication is 
+    fhir:adherence @<MedicationUsage.adherence>?;  # Indicates if the medication is 
                                             # being consumed or administered as 
                                             # instructed 
 }  

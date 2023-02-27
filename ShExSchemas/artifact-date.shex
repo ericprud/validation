@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Date last changed
 <artifact-date> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:artifact-date];
+    a [fhir:artifact-date]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/artifact-date"]}; 
-    fhir:v (@<dateTime> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Element]
-        }
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/artifact-date"]}; 
+    fhir:value @<dateTime>  ; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 

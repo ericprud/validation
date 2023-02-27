@@ -1,0 +1,25 @@
+﻿PREFIX fhir: <http://hl7.org/fhir/> 
+PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+
+IMPORT <uri.shex>
+IMPORT <Resource.shex>
+IMPORT <Extension.shex>
+IMPORT <CodeableReference.shex>
+
+# Characteristics or strengths of individuals, families, community situations or societies that mitigate risks and promote positivewell-being and healthy development
+<workflow-protectiveFactor> EXTENDS @<Extension> CLOSED {   
+
+    a [fhir:workflow-protectiveFactor]?;
+    fhir:nodeRole [fhir:treeRoot]?;
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-protectiveFactor"]}; 
+    fhir:value (@<CodeableReference>  AND {fhir:link @<Resource> })  ; 
+    ^fhir:extension { a [fhir:Goal]} OR 
+          {a [fhir:CommunicationRequest]} OR 
+          {^fhir:activity {a [fhir:CarePlan]}}
+
+}  
+

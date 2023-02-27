@@ -8,9 +8,12 @@ IMPORT <boolean.shex>
 IMPORT <Location.shex>
 IMPORT <Endpoint.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
 IMPORT <HealthcareService.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 
 start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -18,8 +21,9 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
 # Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship
 <OrganizationAffiliation> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:OrganizationAffiliation];
+    a [fhir:OrganizationAffiliation]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifiers that are 
                                             # specific to this role 
     fhir:active @<boolean>?;                # Whether this organization 
@@ -30,15 +34,14 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # affiliated with the primary 
                                             # organization 
     fhir:organization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization where the role is 
+    			@<Organization> ? }?;  # Organization where the role is 
                                             # available 
     fhir:participatingOrganization @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization that 
+    			@<Organization> ? }?;  # Organization that 
                                             # provides/performs the role (e.g. 
                                             # providing services or is a member 
                                             # of) 
-    fhir:network @<OneOrMore_Reference_Organization>?;  # Health insurance provider network 
-                                            # in which the 
+    fhir:network @<OneOrMore_Reference_Organization>?;  # The network in which the 
                                             # participatingOrganization provides 
                                             # the role's services (if defined) 
                                             # at the indicated locations (if 
@@ -52,13 +55,42 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # occurs 
     fhir:healthcareService @<OneOrMore_Reference_HealthcareService>?;  # Healthcare services provided 
                                             # through the role 
-    fhir:telecom @<OneOrMore_ContactPoint>?;  # Contact details at the 
+    fhir:contact @<OneOrMore_ExtendedContactDetail>?;  # Official contact details at the 
                                             # participatingOrganization relevant 
                                             # to this Affiliation 
     fhir:endpoint @<OneOrMore_Reference_Endpoint>?;  # Technical endpoints providing 
                                             # access to services operated for 
                                             # this role 
-}  
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# # Constraint UniqueKey:org-3
+# Human readable:The telecom of an organization can never be of use 'home'
+#
+# Constraint: telecom.where(use = 'home').empty()
+# ShEx:
+#
+# NOT { fhir:telecom. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: where
+# # Constraint UniqueKey:org-4
+# Human readable:The address of an organization can never be of use 'home'
+#
+# Constraint: address.where(use = 'home').empty()
+# ShEx:
+#
+# NOT { fhir:address. where  (use { fhir:v ['home'] } ) {fhir:v .} } 
+{}
+
+)
+ 
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
 
@@ -90,9 +122,9 @@ start=@<OrganizationAffiliation> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_HealthcareService> 
 }
 
-<OneOrMore_ContactPoint> CLOSED {
-    rdf:first @<ContactPoint>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ContactPoint> 
+<OneOrMore_ExtendedContactDetail> CLOSED {
+    rdf:first @<ExtendedContactDetail>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ExtendedContactDetail> 
 }
 
 <OneOrMore_Reference_Endpoint> CLOSED {

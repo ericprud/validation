@@ -10,13 +10,14 @@ IMPORT <Extension.shex>
 # A definition for this code
 <valueset-concept-definition> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-concept-definition];
+    a [fhir:valueset-concept-definition]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-concept-definition"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:concept {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}} OR 
-          ^fhir:contains {^fhir:expansion {a [fhir:ValueSet]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-concept-definition"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:concept {^fhir:include {^fhir:compose {a [fhir:ValueSet]}}}} OR 
+          {^fhir:contains {^fhir:expansion {a [fhir:ValueSet]}}}
+
 }  
 

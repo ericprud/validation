@@ -11,12 +11,13 @@ IMPORT <Reference.shex>
 # Task(s) replaced by this Task
 <task-replaces> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:task-replaces];
+    a [fhir:task-replaces]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/task-replaces"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Task> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Task]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/task-replaces"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Task> })  ; 
+    ^fhir:extension { a [fhir:Task]}
+
 }  
 

@@ -46,10 +46,10 @@ IMPORT <Expression.shex>
 IMPORT <positiveInt.shex>
 IMPORT <unsignedInt.shex>
 IMPORT <SampledData.shex>
-IMPORT <Contributor.shex>
 IMPORT <base64Binary.shex>
 IMPORT <ContactPoint.shex>
 IMPORT <UsageContext.shex>
+IMPORT <Availability.shex>
 IMPORT <ContactDetail.shex>
 IMPORT <CodeableConcept.shex>
 IMPORT <DataRequirement.shex>
@@ -57,13 +57,15 @@ IMPORT <RelatedArtifact.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <TriggerDefinition.shex>
 IMPORT <ParameterDefinition.shex>
+IMPORT <ExtendedContactDetail.shex>
 
 # Optional Extensions Element
 <Extension> EXTENDS @<DataType> CLOSED {   
 
     a [fhir:Extension]?;
-    fhir:url @<uri>;
-    fhir:value @<base64Binary>  OR
+
+    fhir:url @<uri>; 
+    fhir:value @<base64Binary>  OR 
     			@<boolean>  OR 
     			@<canonical>  OR 
     			@<code>  OR 
@@ -107,14 +109,30 @@ IMPORT <ParameterDefinition.shex>
     			@<Signature>  OR 
     			@<Timing>  OR 
     			@<ContactDetail>  OR 
-    			@<Contributor>  OR 
     			@<DataRequirement>  OR 
     			@<Expression>  OR 
     			@<ParameterDefinition>  OR 
     			@<RelatedArtifact>  OR 
     			@<TriggerDefinition>  OR 
     			@<UsageContext>  OR 
+    			@<Availability>  OR 
+    			@<ExtendedContactDetail>  OR 
     			@<Dosage>  OR 
-    			@<Meta>?;
-}  
+    			@<Meta>  ?; 
+} AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: NotEquals
+# # Constraint UniqueKey:ext-1
+# Human readable:Must have either extensions or value[x], not both
+#
+# Constraint: extension.exists() != value.exists()
+# ShEx:
+#
+#{fhir:extension .  NotEquals  {fhir:value .}}
+{}
+
+)
+ 
 

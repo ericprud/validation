@@ -11,28 +11,29 @@ IMPORT <ResearchStudy.shex>
 # Associated research study
 <workflow-researchStudy> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:workflow-researchStudy];
+    a [fhir:workflow-researchStudy]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/workflow-researchStudy"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<ResearchStudy> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Composition] OR 
-          a [fhir:Consent] OR 
-          a [fhir:DeviceUsage] OR 
-          a [fhir:DiagnosticReport] OR 
-          a [fhir:Encounter] OR 
-          a [fhir:FamilyMemberHistory] OR 
-          a [fhir:Immunization] OR 
-          a [fhir:DocumentReference] OR 
-          a [fhir:MedicationAdministration] OR 
-          a [fhir:MedicationDispense] OR 
-          a [fhir:MedicationUsage] OR 
-          a [fhir:Observation] OR 
-          a [fhir:Procedure] OR 
-          a [fhir:QuestionnaireResponse] OR 
-          a [fhir:RiskAssessment] OR 
-          a [fhir:SupplyDelivery] OR 
-          a [fhir:Task]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/workflow-researchStudy"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<ResearchStudy> })  ; 
+    ^fhir:extension { a [fhir:Composition]} OR 
+          {a [fhir:Consent]} OR 
+          {a [fhir:DeviceUsage]} OR 
+          {a [fhir:DiagnosticReport]} OR 
+          {a [fhir:Encounter]} OR 
+          {a [fhir:FamilyMemberHistory]} OR 
+          {a [fhir:Immunization]} OR 
+          {a [fhir:DocumentReference]} OR 
+          {a [fhir:MedicationAdministration]} OR 
+          {a [fhir:MedicationDispense]} OR 
+          {a [fhir:MedicationUsage]} OR 
+          {a [fhir:Observation]} OR 
+          {a [fhir:Procedure]} OR 
+          {a [fhir:QuestionnaireResponse]} OR 
+          {a [fhir:RiskAssessment]} OR 
+          {a [fhir:SupplyDelivery]} OR 
+          {a [fhir:Task]}
+
 }  
 

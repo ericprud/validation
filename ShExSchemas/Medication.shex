@@ -10,6 +10,7 @@ IMPORT <boolean.shex>
 IMPORT <Quantity.shex>
 IMPORT <dateTime.shex>
 IMPORT <Reference.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
@@ -22,8 +23,9 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
 # Definition of a Medication
 <Medication> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Medication];
+    a [fhir:Medication]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Business identifier for this 
                                             # medication 
     fhir:code @<CodeableConcept>?;          # Codes that identify this medication
@@ -31,15 +33,15 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
     	{fhir:v @fhirvs:medication-status}?;  # active | inactive | 
                                             # entered-in-error 
     fhir:marketingAuthorizationHolder @<Reference> AND {fhir:link 
-    			@<Organization> }?;  # Organization that has 
+    			@<Organization> ? }?;  # Organization that has 
                                             # authorization to market medication 
     fhir:doseForm @<CodeableConcept>?;      # powder | tablets | capsule +
     fhir:totalVolume @<Ratio>?;             # When the specified product code 
                                             # does not infer a package size, 
                                             # this is the specific amount of 
                                             # drug in the product 
-    fhir:ingredient @<OneOrMore_BackboneElement>?;  # Active or inactive ingredient
-    fhir:batch @<BackboneElement>?;         # Details about packaged medications
+    fhir:ingredient @<OneOrMore_Medication.ingredient>?;  # Active or inactive ingredient
+    fhir:batch @<Medication.batch>?;        # Details about packaged medications
 }  
 
 # Active or inactive ingredient
@@ -48,9 +50,9 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # medication) that the 
                                             # ingredient.strength relates to 
     fhir:isActive @<boolean>?;              # Active ingredient indicator
-    fhir:strength (@<Ratio>  OR 
+    fhir:strength @<Ratio>  OR 
     			@<CodeableConcept>  OR 
-    			@<Quantity> )  AND { rdf:type IRI } ?;  # Quantity of ingredient present
+    			@<Quantity>  ?;  # Quantity of ingredient present
 }  
 
 # Details about packaged medications
@@ -66,9 +68,9 @@ start=@<Medication> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Medication.ingredient> CLOSED {
+    rdf:first @<Medication.ingredient>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Medication.ingredient> 
 }
 
 #---------------------- Value Sets ------------------------

@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # A code representing the the type of specimen used for this observation.  Should only be used if not implicit in the code found in `Observation.code`
 <observation-specimenCode> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:observation-specimenCode];
+    a [fhir:observation-specimenCode]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/observation-specimenCode"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Observation]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/observation-specimenCode"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:Observation]}
+
 }  
 

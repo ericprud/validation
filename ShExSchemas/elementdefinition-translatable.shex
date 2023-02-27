@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Whether translations apply to this element
 <elementdefinition-translatable> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-translatable];
+    a [fhir:elementdefinition-translatable]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable"]}; 
-    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ElementDefinition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable"]}; 
+    fhir:value @<boolean>  ; 
+    ^fhir:extension { a [fhir:ElementDefinition]}
+
 }  
 

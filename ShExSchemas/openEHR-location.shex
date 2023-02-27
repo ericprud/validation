@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # Body site of manifestations
 <openEHR-location> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:openEHR-location];
+    a [fhir:openEHR-location]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/openEHR-location"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/openEHR-location"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

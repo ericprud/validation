@@ -11,13 +11,14 @@ IMPORT <canonical.shex>
 # Minimum Value Set (what system must support)
 <elementdefinition-minValueSet> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-minValueSet];
+    a [fhir:elementdefinition-minValueSet]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet"]}; 
-    fhir:v (@<uri>  OR 
-    			(@<canonical>  AND {fhir:link @<ValueSet> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet"]}; 
+    fhir:value @<uri>  OR 
+    			(@<canonical>  AND {fhir:link @<ValueSet> })  ; 
+    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}}
+
 }  
 

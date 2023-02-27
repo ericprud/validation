@@ -4,6 +4,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <uri.shex>
+IMPORT <date.shex>
 IMPORT <code.shex>
 IMPORT <Device.shex>
 IMPORT <Patient.shex>
@@ -14,11 +15,13 @@ IMPORT <dateTime.shex>
 IMPORT <Resource.shex>
 IMPORT <Reference.shex>
 IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
 IMPORT <Organization.shex>
 IMPORT <Practitioner.shex>
 IMPORT <DomainResource.shex>
 IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 IMPORT <PractitionerRole.shex>
 
 
@@ -27,23 +30,24 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
 # Adds metadata-supported comments, classifiers or ratings related to a Resource
 <ArtifactAssessment> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:ArtifactAssessment];
+    a [fhir:ArtifactAssessment]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Additional identifier for the 
                                             # artifact assessment 
-    fhir:citeAs ((@<Reference>  AND {fhir:link @<Citation> })  OR 
-    			@<markdown> )  AND { rdf:type IRI } ?;  # How to cite the comment or rating
+    fhir:citeAs (@<Reference>  AND {fhir:link @<Citation> })  OR 
+    			@<markdown>  ?;  # How to cite the comment or rating
     fhir:date @<dateTime>?;                 # Date last changed
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
-    fhir:approvalDate @<dateTime>?;         # When the artifact assessment was 
+    fhir:approvalDate @<date>?;             # When the artifact assessment was 
                                             # approved by publisher 
-    fhir:lastReviewDate @<dateTime>?;       # When the artifact assessment was 
+    fhir:lastReviewDate @<date>?;           # When the artifact assessment was 
                                             # last reviewed 
-    fhir:artifact ((@<Reference>  AND {fhir:link @<Resource> })  OR 
+    fhir:artifact (@<Reference>  AND {fhir:link @<Resource> })  OR 
     			@<canonical>  OR 
-    			@<uri> )  AND { rdf:type IRI } ;  # The artifact assessed, commented 
+    			@<uri>  ;  # The artifact assessed, commented 
                                             # upon or rated 
-    fhir:content @<OneOrMore_BackboneElement>?;  # Comment, classifier, or rating 
+    fhir:content @<OneOrMore_ArtifactAssessment.content>?;  # Comment, classifier, or rating 
                                             # content 
     fhir:workflowStatus @<code> AND
     	{fhir:v @fhirvs:artifactassessment-workflow-status}?;  # submitted | triaged | 
@@ -73,7 +77,7 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Organization> OR 
     			@<Patient> OR 
     			@<Practitioner> OR 
-    			@<PractitionerRole> }?;  # Who authored the content
+    			@<PractitionerRole> ? }?;  # Who authored the content
     fhir:path @<OneOrMore_uri>?;            # What the comment is directed to
     fhir:relatedArtifact @<OneOrMore_RelatedArtifact>?;  # Additional information
     fhir:freeToShare @<boolean>?;           # Acceptable to publicly share the 
@@ -82,7 +86,7 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
 }  
 
 # Contained content
-<ArtifactAssessment.content.component> CLOSED {   
+<ArtifactAssessment.content.componentnull> CLOSED {   
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -92,9 +96,9 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Identifier> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_ArtifactAssessment.content> CLOSED {
+    rdf:first @<ArtifactAssessment.content>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_ArtifactAssessment.content> 
 }
 
 <OneOrMore_CodeableConcept> CLOSED {
@@ -112,19 +116,14 @@ start=@<ArtifactAssessment> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_RelatedArtifact> 
 }
 
-<OneOrMore_ArtifactAssessment.content> CLOSED {
-    rdf:first @<ArtifactAssessment.content>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_ArtifactAssessment.content> 
-}
-
 #---------------------- Value Sets ------------------------
 
-# Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.
-fhirvs:artifactassessment-workflow-status ["submitted" "triaged" "waiting-for-input" "resolved-no-change" "resolved-change-required" "deferred" "duplicate" "applied" "published"]
+# Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.
+fhirvs:artifactassessment-disposition ["unresolved" "not-persuasive" "persuasive" "persuasive-with-modification" "not-persuasive-with-modification"]
 
 # The type of information contained in a component of an artifact assessment.
 fhirvs:artifactassessment-information-type ["comment" "classifier" "rating" "container" "response" "change-request"]
 
-# Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.
-fhirvs:artifactassessment-disposition ["unresolved" "not-persuasive" "persuasive" "persuasive-with-modification" "not-persuasive-with-modification"]
+# Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.
+fhirvs:artifactassessment-workflow-status ["submitted" "triaged" "waiting-for-input" "resolved-no-change" "resolved-change-required" "deferred" "duplicate" "applied" "published"]
 

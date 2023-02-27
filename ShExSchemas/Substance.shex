@@ -10,10 +10,10 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
-IMPORT <Substance.shex>
+IMPORT <Identifier.shex>
 IMPORT <DomainResource.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 IMPORT <CodeableReference.shex>
 
 
@@ -22,8 +22,9 @@ start=@<Substance> AND {fhir:nodeRole [fhir:treeRoot]}
 # A homogeneous material with a definite composition
 <Substance> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Substance];
+    a [fhir:Substance]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Unique identifier
     fhir:instance @<boolean>;               # Is this an instance of a substance 
                                             # or a kind of one 
@@ -37,15 +38,15 @@ start=@<Substance> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # substance, comments 
     fhir:expiry @<dateTime>?;               # When no longer valid to use
     fhir:quantity @<Quantity>?;             # Amount of substance in the package
-    fhir:ingredient @<OneOrMore_BackboneElement>?;  # Composition information about the 
+    fhir:ingredient @<OneOrMore_Substance.ingredient>?;  # Composition information about the 
                                             # substance 
 }  
 
 # Composition information about the substance
 <Substance.ingredient> EXTENDS @<BackboneElement> CLOSED {   
     fhir:quantity @<Ratio>?;                # Optional amount (concentration)
-    fhir:substance (@<CodeableConcept>  OR 
-    			(@<Reference>  AND {fhir:link @<Substance> }) )  AND { rdf:type IRI } ;  # A component of the substance
+    fhir:substance @<CodeableConcept>  OR 
+    			(@<Reference>  AND {fhir:link @<Substance> })  ;  # A component of the substance
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -60,9 +61,9 @@ start=@<Substance> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_Substance.ingredient> CLOSED {
+    rdf:first @<Substance.ingredient>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Substance.ingredient> 
 }
 
 #---------------------- Value Sets ------------------------

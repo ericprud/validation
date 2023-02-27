@@ -3,14 +3,18 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <date.shex>
 IMPORT <code.shex>
+IMPORT <Attachment.shex>
+IMPORT <CodeableConcept.shex>
 
 # Participant Pattern
-<ParticipantLiving> CLOSED {   
+<ParticipantLiving> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:ParticipantLiving];
+    a [fhir:ParticipantLiving]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:birthDate @<date>?;                # The date of birth for the 
                                             # individual 
     fhir:gender @<code> AND

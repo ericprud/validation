@@ -13,12 +13,9 @@ start=@<cqllibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 # Represents a library of quality improvement components
 <cqllibrary> EXTENDS @<logiclibrary> CLOSED {   
 
-    a [fhir:cqllibrary];
+    a [fhir:cqllibrary]?;
     fhir:nodeRole [fhir:treeRoot]?;
-}  
 
-# Additional documentation, citations, etc.
-<Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 
 # Contents of the library, either embedded or referenced
@@ -27,5 +24,9 @@ start=@<cqllibrary> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # CQL Content
 <Library.content> EXTENDS @<Attachment> CLOSED {   
+}  
+
+# Additional documentation, citations, etc.
+<Library.relatedArtifact> EXTENDS @<RelatedArtifact> CLOSED {   
 }  
 

@@ -10,12 +10,14 @@ IMPORT <CodeableConcept.shex>
 # Purpose of rendered text
 <questionnaire-displayCategory> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaire-displayCategory];
+    a [fhir:questionnaire-displayCategory]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { ^fhir:item {a [fhir:Questionnaire]}} OR 
+          {a [fhir:ElementDefinition]}
+
 }  
 

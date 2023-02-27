@@ -10,14 +10,15 @@ IMPORT <Extension.shex>
 # Declares the source of the parameter
 <valueset-parameterSource> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-parameterSource];
+    a [fhir:valueset-parameterSource]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-parameterSource"]}; 
-    fhir:v (@<code> AND
-    	{fhir:v @fhirvs:expansion-parameter-source} )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:parameter {^fhir:expansion {a [fhir:ValueSet]}}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-parameterSource"]}; 
+    fhir:value @<code> AND
+    	{fhir:v @fhirvs:expansion-parameter-source}  ; 
+    ^fhir:extension { ^fhir:parameter {^fhir:expansion {a [fhir:ValueSet]}}}
+
 }  
 
 #---------------------- Value Sets ------------------------

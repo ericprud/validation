@@ -8,18 +8,19 @@ IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <integer.shex>
 IMPORT <dateTime.shex>
-IMPORT <markdown.shex>
 IMPORT <Quantity.shex>
+IMPORT <markdown.shex>
+IMPORT <Identifier.shex>
 IMPORT <Attachment.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <MarketingStatus.shex>
 IMPORT <BackboneElement.shex>
+IMPORT <ProductShelfLife.shex>
 IMPORT <CodeableReference.shex>
 IMPORT <DocumentReference.shex>
 IMPORT <MedicinalProductDefinition.shex>
-IMPORT <MarketingStatus.shex>
-IMPORT <ProductShelfLife.shex>
 
 
 start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -27,8 +28,9 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # A medically related item or items, in a container or package
 <PackagedProductDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:PackagedProductDefinition];
+    a [fhir:PackagedProductDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # A unique identifier for this 
                                             # package as whole - not for the 
                                             # content of the package 
@@ -55,16 +57,13 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:description @<markdown>?;          # Textual description. Note that 
                                             # this is not the name of the 
                                             # package or product 
-    fhir:legalStatusOfSupply @<OneOrMore_BackboneElement>?;  # The legal status of supply of the 
+    fhir:legalStatusOfSupply @<OneOrMore_PackagedProductDefinition.legalStatusOfSupply>?;  # The legal status of supply of the 
                                             # packaged item as classified by the 
                                             # regulator 
     fhir:marketingStatus @<OneOrMore_MarketingStatus>?;  # Allows specifying that an item is 
                                             # on the market for sale, or that it 
                                             # is not available, and the dates 
                                             # and locations associated 
-    fhir:characteristic @<OneOrMore_CodeableConcept>?;  # Allows the key features to be 
-                                            # recorded, such as "hospital pack", 
-                                            # "nurse prescribable" 
     fhir:copackagedIndicator @<boolean>?;   # Identifies if the drug product is 
                                             # supplied with another item such as 
                                             # a diluent or adjuvant 
@@ -74,35 +73,14 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:attachedDocument @<OneOrMore_Reference_DocumentReference>?;  # Additional information or 
                                             # supporting documentation about the 
                                             # packaged product 
-    fhir:packaging @<BackboneElement>?;     # A packaging item, as a container 
+    fhir:packaging @<PackagedProductDefinition.packaging>?;  # A packaging item, as a container 
                                             # for medically related items, 
                                             # possibly with other packaging 
                                             # items within, or a packaging 
                                             # component, such as bottle cap 
-}  
-
-# General characteristics of this item
-<PackagedProductDefinition.packaging.property> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # A code expressing the type of 
-                                            # characteristic 
-    fhir:v (@<CodeableConcept>  OR 
-    			@<Quantity>  OR 
-    			@<date>  OR 
-    			@<boolean>  OR 
-    			@<Attachment> )  AND { rdf:type IRI } ?;  # A value for the characteristic
-}  
-
-# The legal status of supply of the packaged item as classified by the regulator
-<PackagedProductDefinition.legalStatusOfSupply> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:code @<CodeableConcept>?;          # The actual status of supply. In 
-                                            # what situation this package type 
-                                            # may be supplied for use 
-    fhir:jurisdiction @<CodeableConcept>?;  # The place where the legal status 
-                                            # of supply applies 
-}  
-
-# Allows containers (and parts of containers) within containers, still a single packaged product
-<PackagedProductDefinition.packaging.packaging> CLOSED {   
+    fhir:characteristic @<OneOrMore_PackagedProductDefinition.packaging.property>?;  # Allows the key features to be 
+                                            # recorded, such as "hospital pack", 
+                                            # "nurse prescribable" 
 }  
 
 # A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap
@@ -113,6 +91,10 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # Data Carrier Identifier 
     fhir:type @<CodeableConcept>?;          # The physical type of the container 
                                             # of the items 
+    fhir:componentPart @<boolean>?;         # Is this a part of the packaging 
+                                            # (e.g. a cap or bottle stopper), 
+                                            # rather than the packaging itself 
+                                            # (e.g. a bottle or vial) 
     fhir:quantity @<integer>?;              # The quantity of this level of 
                                             # packaging in the package that 
                                             # contains it (with the outermost 
@@ -126,12 +108,37 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:manufacturer @<OneOrMore_Reference_Organization>?;  # Manufacturer of this packaging 
                                             # item (multiple means these are all 
                                             # potential manufacturers) 
-    fhir:property @<OneOrMore_BackboneElement>?;  # General characteristics of this 
+    fhir:property @<OneOrMore_PackagedProductDefinition.packaging.property>?;  # General characteristics of this 
                                             # item 
-    fhir:containedItem @<OneOrMore_BackboneElement>?;  # The item(s) within the packaging
+    fhir:containedItem @<OneOrMore_PackagedProductDefinition.packaging.containedItem>?;  # The item(s) within the packaging
     fhir:packaging @<OneOrMore_PackagedProductDefinition.packaging>?;  # Allows containers (and parts of 
                                             # containers) within containers, 
-                                            # still a single packaged product 
+                                            # still as a part of single packaged 
+                                            # product 
+}  
+
+# General characteristics of this item
+<PackagedProductDefinition.packaging.property> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # A code expressing the type of 
+                                            # characteristic 
+    fhir:value @<CodeableConcept>  OR 
+    			@<Quantity>  OR 
+    			@<date>  OR 
+    			@<boolean>  OR 
+    			@<Attachment>  ?;  # A value for the characteristic
+}  
+
+# Allows containers (and parts of containers) within containers, still as a part of single packaged product
+<PackagedProductDefinition.packaging.packagingnull> CLOSED {   
+}  
+
+# The legal status of supply of the packaged item as classified by the regulator
+<PackagedProductDefinition.legalStatusOfSupply> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:code @<CodeableConcept>?;          # The actual status of supply. In 
+                                            # what situation this package type 
+                                            # may be supplied for use 
+    fhir:jurisdiction @<CodeableConcept>?;  # The place where the legal status 
+                                            # of supply applies 
 }  
 
 # The item(s) within the packaging
@@ -164,19 +171,14 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Quantity> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_PackagedProductDefinition.legalStatusOfSupply> CLOSED {
+    rdf:first @<PackagedProductDefinition.legalStatusOfSupply>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PackagedProductDefinition.legalStatusOfSupply> 
 }
 
 <OneOrMore_MarketingStatus> CLOSED {
     rdf:first @<MarketingStatus>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_MarketingStatus> 
-}
-
-<OneOrMore_CodeableConcept> CLOSED {
-    rdf:first @<CodeableConcept>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
 <OneOrMore_Reference_Organization> CLOSED {
@@ -191,9 +193,24 @@ start=@<PackagedProductDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_DocumentReference> 
 }
 
+<OneOrMore_PackagedProductDefinition.packaging.property> CLOSED {
+    rdf:first @<PackagedProductDefinition.packaging.property>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PackagedProductDefinition.packaging.property> 
+}
+
+<OneOrMore_CodeableConcept> CLOSED {
+    rdf:first @<CodeableConcept>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
 <OneOrMore_ProductShelfLife> CLOSED {
     rdf:first @<ProductShelfLife>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_ProductShelfLife> 
+}
+
+<OneOrMore_PackagedProductDefinition.packaging.containedItem> CLOSED {
+    rdf:first @<PackagedProductDefinition.packaging.containedItem>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_PackagedProductDefinition.packaging.containedItem> 
 }
 
 <OneOrMore_PackagedProductDefinition.packaging> CLOSED {

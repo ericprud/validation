@@ -12,9 +12,9 @@ IMPORT <DataType.shex>
 # A measured or measurable amount
 <Quantity> EXTENDS @<DataType> CLOSED {   
 
-    a [fhir:Quantity];
-    fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<decimal>?;                 # Numerical value (with implicit 
+    a [fhir:Quantity]?;
+
+    fhir:value @<decimal>?;                 # Numerical value (with implicit 
                                             # precision) 
     fhir:comparator @<code> AND
     	{fhir:v @fhirvs:quantity-comparator}?;  # < | <= | >= | > | ad - how to 
@@ -22,7 +22,18 @@ IMPORT <DataType.shex>
     fhir:unit @<string>?;                   # Unit representation
     fhir:system @<uri>?;                    # System that defines coded unit form
     fhir:code @<code>?;                     # Coded form of the unit
-}  
+} AND (
+
+# Constraint UniqueKey:qty-3
+# Human readable:If a code for the unit is present, the system SHALL also be present
+
+# Constraint: code.empty() or system.exists()
+# ShEx:
+
+ NOT { fhir:code {fhir:v .} }  OR {fhir:system .}
+
+)
+ 
 
 #---------------------- Value Sets ------------------------
 

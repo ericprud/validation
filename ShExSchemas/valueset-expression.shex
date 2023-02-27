@@ -10,12 +10,13 @@ IMPORT <Expression.shex>
 # An alternative computable expression of the value set content
 <valueset-expression> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-expression];
+    a [fhir:valueset-expression]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-expression"]}; 
-    fhir:v (@<Expression> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ValueSet]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-expression"]}; 
+    fhir:value @<Expression>  ; 
+    ^fhir:extension { a [fhir:ValueSet]}
+
 }  
 

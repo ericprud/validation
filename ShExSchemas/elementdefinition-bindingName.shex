@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Suggested Name for code generation
 <elementdefinition-bindingName> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-bindingName];
+    a [fhir:elementdefinition-bindingName]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName"]}; 
-    fhir:v (@<string> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName"]}; 
+    fhir:value @<string>  ; 
+    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}}
+
 }  
 

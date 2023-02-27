@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Extension
 <organization-period> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:organization-period];
+    a [fhir:organization-period]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/organization-period"]}; 
-    fhir:v (@<Period> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Organization]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/organization-period"]}; 
+    fhir:value @<Period>  ; 
+    ^fhir:extension { a [fhir:Organization]}
+
 }  
 

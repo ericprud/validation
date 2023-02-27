@@ -3,21 +3,25 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
+IMPORT <Base.shex>
 IMPORT <date.shex>
-IMPORT <string.shex>
 IMPORT <Period.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
+IMPORT <Identifier.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <CodeableConcept.shex>
+IMPORT <RelatedArtifact.shex>
 
 # Publishable Pattern
-<Publishable> CLOSED {   
+<Publishable> EXTENDS @<Base> CLOSED {   
 
-    a [fhir:Publishable];
+    a [fhir:Publishable]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # Additional identifier for the 
                                             # {{title}} 
-    fhir:title @<string>;                   # Name for this {{title}} (human 
-                                            # friendly) 
     fhir:date @<dateTime>;                  # Date last changed
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:useContext @<OneOrMore_UsageContext>?;  # The context that the content is 

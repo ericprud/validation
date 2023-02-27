@@ -10,12 +10,13 @@ IMPORT <CodeableConcept.shex>
 # E.g. Verbal, written, electronic
 <questionnaireresponse-completionMode> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:questionnaireresponse-completionMode];
+    a [fhir:questionnaireresponse-completionMode]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode"]}; 
-    fhir:v (@<CodeableConcept> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:QuestionnaireResponse]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode"]}; 
+    fhir:value @<CodeableConcept>  ; 
+    ^fhir:extension { a [fhir:QuestionnaireResponse]}
+
 }  
 

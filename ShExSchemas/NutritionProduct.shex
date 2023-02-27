@@ -4,12 +4,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
 IMPORT <code.shex>
+IMPORT <Ratio.shex>
 IMPORT <string.shex>
 IMPORT <boolean.shex>
 IMPORT <Quantity.shex>
 IMPORT <dateTime.shex>
-IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Attachment.shex>
+IMPORT <Identifier.shex>
 IMPORT <base64Binary.shex>
 IMPORT <Organization.shex>
 IMPORT <DomainResource.shex>
@@ -24,8 +26,9 @@ start=@<NutritionProduct> AND {fhir:nodeRole [fhir:treeRoot]}
 # A product used for nutritional purposes (i.e. food or supplement)
 <NutritionProduct> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:NutritionProduct];
+    a [fhir:NutritionProduct]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:code @<CodeableConcept>?;          # A code that can identify the 
                                             # detailed nutrients and ingredients 
                                             # in a specific food product 
@@ -39,28 +42,39 @@ start=@<NutritionProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:manufacturer @<OneOrMore_Reference_Organization>?;  # Manufacturer, representative or 
                                             # officially responsible for the 
                                             # product 
-    fhir:nutrient @<OneOrMore_BackboneElement>?;  # The product's nutritional 
+    fhir:nutrient @<OneOrMore_NutritionProduct.nutrient>?;  # The product's nutritional 
                                             # information expressed by the 
                                             # nutrients 
-    fhir:ingredient @<OneOrMore_BackboneElement>?;  # Ingredients contained in this 
+    fhir:ingredient @<OneOrMore_NutritionProduct.ingredient>?;  # Ingredients contained in this 
                                             # product 
     fhir:knownAllergen @<OneOrMore_CodeableReference>?;  # Known or suspected allergens that 
                                             # are a part of this product 
-    fhir:characteristic @<OneOrMore_BackboneElement>?;  # Specifies descriptive properties 
+    fhir:characteristic @<OneOrMore_NutritionProduct.characteristic>?;  # Specifies descriptive properties 
                                             # of the nutrition product 
-    fhir:instance @<OneOrMore_BackboneElement>?;  # One or several physical instances 
+    fhir:instance @<OneOrMore_NutritionProduct.instance>?;  # One or several physical instances 
                                             # or occurrences of the nutrition 
                                             # product 
     fhir:note @<OneOrMore_Annotation>?;     # Comments made about the product
 }  
 
-# The product's nutritional information expressed by the nutrients
-<NutritionProduct.nutrient> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item @<CodeableReference>?;        # The (relevant) nutrients in the 
+# Ingredients contained in this product
+<NutritionProduct.ingredient> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item @<CodeableReference>;         # The ingredient contained in the 
                                             # product 
-    fhir:amount @<OneOrMore_Ratio>?;        # The amount of nutrient expressed 
-                                            # in one or more units: X per pack / 
-                                            # per serving / per dose 
+    fhir:amount @<OneOrMore_Ratio>?;        # The amount of ingredient that is 
+                                            # in the product 
+}  
+
+# Specifies descriptive properties of the nutrition product
+<NutritionProduct.characteristic> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Code specifying the type of 
+                                            # characteristic 
+    fhir:value @<CodeableConcept>  OR 
+    			@<string>  OR 
+    			@<SimpleQuantity>  OR 
+    			@<base64Binary>  OR 
+    			@<Attachment>  OR 
+    			@<boolean>  ;  # The value of the characteristic
 }  
 
 # One or several physical instances or occurrences of the nutrition product
@@ -84,24 +98,13 @@ start=@<NutritionProduct> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # entities was obtained or pooled 
 }  
 
-# Ingredients contained in this product
-<NutritionProduct.ingredient> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:item @<CodeableReference>;         # The ingredient contained in the 
+# The product's nutritional information expressed by the nutrients
+<NutritionProduct.nutrient> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:item @<CodeableReference>?;        # The (relevant) nutrients in the 
                                             # product 
-    fhir:amount @<OneOrMore_Ratio>?;        # The amount of ingredient that is 
-                                            # in the product 
-}  
-
-# Specifies descriptive properties of the nutrition product
-<NutritionProduct.characteristic> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Code specifying the type of 
-                                            # characteristic 
-    fhir:v (@<CodeableConcept>  OR 
-    			@<string>  OR 
-    			@<SimpleQuantity>  OR 
-    			@<base64Binary>  OR 
-    			@<Attachment>  OR 
-    			@<boolean> )  AND { rdf:type IRI } ;  # The value of the characteristic
+    fhir:amount @<OneOrMore_Ratio>?;        # The amount of nutrient expressed 
+                                            # in one or more units: X per pack / 
+                                            # per serving / per dose 
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -117,14 +120,29 @@ start=@<NutritionProduct> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_Organization> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_NutritionProduct.nutrient> CLOSED {
+    rdf:first @<NutritionProduct.nutrient>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_NutritionProduct.nutrient> 
+}
+
+<OneOrMore_NutritionProduct.ingredient> CLOSED {
+    rdf:first @<NutritionProduct.ingredient>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_NutritionProduct.ingredient> 
 }
 
 <OneOrMore_CodeableReference> CLOSED {
     rdf:first @<CodeableReference>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableReference> 
+}
+
+<OneOrMore_NutritionProduct.characteristic> CLOSED {
+    rdf:first @<NutritionProduct.characteristic>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_NutritionProduct.characteristic> 
+}
+
+<OneOrMore_NutritionProduct.instance> CLOSED {
+    rdf:first @<NutritionProduct.instance>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_NutritionProduct.instance> 
 }
 
 <OneOrMore_Annotation> CLOSED {

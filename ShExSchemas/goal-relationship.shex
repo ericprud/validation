@@ -9,13 +9,14 @@ IMPORT <Extension.shex>
 # Goals related to this Goal
 <goal-relationship> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:goal-relationship];
+    a [fhir:goal-relationship]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:type @<Extension>; 
     fhir:target @<Extension>; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/goal-relationship"]}; 
-    ^fhir:extension { a [fhir:Goal]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/goal-relationship"]}; 
+    ^fhir:extension { a [fhir:Goal]}
+
 }  
 

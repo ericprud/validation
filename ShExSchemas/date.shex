@@ -9,6 +9,7 @@ IMPORT <PrimitiveType.shex>
 <date> EXTENDS @<PrimitiveType> CLOSED {   
 
     a [fhir:date]?;
+
     fhir:v xsd:gYear OR xsd:gYearMonth OR xsd:date?;  # Primitive value for date
 }  
 

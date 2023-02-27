@@ -9,14 +9,19 @@ IMPORT <Extension.shex>
 # What has happened over time
 <codesystem-history> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:codesystem-history];
+    a [fhir:codesystem-history]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:name @<Extension>?; 
     fhir:revision @<OneOrMore_Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/codesystem-history"]}; 
-    ^fhir:extension { a [fhir:CodeSystem]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/codesystem-history"]}; 
+    ^fhir:extension { a [fhir:CodeSystem]}
+
+}  
+
+# Date the change was made
+<Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 
 # Version marker after the change was made
@@ -28,10 +33,6 @@ IMPORT <Extension.shex>
 }  
 
 # Information about the change
-<Element.extension> EXTENDS @<Extension> CLOSED {   
-}  
-
-# Date the change was made
 <Element.extension> EXTENDS @<Extension> CLOSED {   
 }  
 

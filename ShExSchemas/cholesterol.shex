@@ -13,8 +13,9 @@ start=@<cholesterol> AND {fhir:nodeRole [fhir:treeRoot]}
 # Measurements and simple assertions
 <cholesterol> EXTENDS @<Observation> CLOSED {   
 
-    a [fhir:cholesterol];
+    a [fhir:cholesterol]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Provides guide for interpretation

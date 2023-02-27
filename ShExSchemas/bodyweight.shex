@@ -6,8 +6,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <Coding.shex>
 IMPORT <Quantity.shex>
 IMPORT <vitalsigns.shex>
-IMPORT <BackboneElement.shex>
 IMPORT <CodeableConcept.shex>
+IMPORT <BackboneElement.shex>
 
 
 start=@<bodyweight> AND {fhir:nodeRole [fhir:treeRoot]}
@@ -15,20 +15,13 @@ start=@<bodyweight> AND {fhir:nodeRole [fhir:treeRoot]}
 # FHIR Body Weight Profile
 <bodyweight> EXTENDS @<vitalsigns> CLOSED {   
 
-    a [fhir:bodyweight];
+    a [fhir:bodyweight]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
 }  
 
 # Code defined by a terminology system
 <CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
-}  
-
-# Used when reporting systolic and diastolic blood pressure.
-<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
-}  
-
-# Classification of  type of observation
-<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
 }  
 
 # Body Weight
@@ -39,6 +32,14 @@ start=@<bodyweight> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.referenceRange> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
+# Code defined by a terminology system
+<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+}  
+
+# Classification of  type of observation
+<Observation.category> EXTENDS @<CodeableConcept> CLOSED {   
+}  
+
 # Triggering observation(s)
 <Observation.triggeredBy> EXTENDS @<BackboneElement> CLOSED {   
 }  
@@ -47,7 +48,7 @@ start=@<bodyweight> AND {fhir:nodeRole [fhir:treeRoot]}
 <Observation.value[x]> EXTENDS @<Quantity> CLOSED {   
 }  
 
-# Code defined by a terminology system
-<CodeableConcept.coding> EXTENDS @<Coding> CLOSED {   
+# Used when reporting systolic and diastolic blood pressure.
+<Observation.component> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

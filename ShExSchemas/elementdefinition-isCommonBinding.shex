@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Whether used on multiple resources
 <elementdefinition-isCommonBinding> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:elementdefinition-isCommonBinding];
+    a [fhir:elementdefinition-isCommonBinding]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding"]}; 
-    fhir:v (@<boolean> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding"]}; 
+    fhir:value @<boolean>  ; 
+    ^fhir:extension { ^fhir:binding {a [fhir:ElementDefinition]}}
+
 }  
 

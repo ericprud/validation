@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # Extra warning about the correct use of the value set
 <valueset-warning> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-warning];
+    a [fhir:valueset-warning]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-warning"]}; 
-    fhir:v (@<markdown> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:ValueSet]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-warning"]}; 
+    fhir:value @<markdown>  ; 
+    ^fhir:extension { a [fhir:ValueSet]}
+
 }  
 

@@ -10,12 +10,13 @@ IMPORT <Extension.shex>
 # How long Manifestations persisted
 <allergyintolerance-duration> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:allergyintolerance-duration];
+    a [fhir:allergyintolerance-duration]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration"]}; 
-    fhir:v (@<Duration> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration"]}; 
+    fhir:value @<Duration>  ; 
+    ^fhir:extension { ^fhir:reaction {a [fhir:AllergyIntolerance]}}
+
 }  
 

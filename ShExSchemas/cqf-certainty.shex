@@ -9,17 +9,18 @@ IMPORT <Extension.shex>
 # Certainty or quality rating
 <cqf-certainty> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-certainty];
+    a [fhir:cqf-certainty]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:description @<Extension>?; 
     fhir:note @<OneOrMore_Extension>?; 
     fhir:type @<Extension>?; 
     fhir:rating @<Extension>?; 
     fhir:rater @<Extension>?; 
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-certainty"]}; 
-    ^fhir:extension { a [fhir:Element]
-        }
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-certainty"]}; 
+    ^fhir:extension { a [fhir:Element]}
+
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------

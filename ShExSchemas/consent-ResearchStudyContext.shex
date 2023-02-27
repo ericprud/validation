@@ -11,12 +11,13 @@ IMPORT <ResearchStudy.shex>
 # Specific Research Study for Research Context
 <consent-ResearchStudyContext> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:consent-ResearchStudyContext];
+    a [fhir:consent-ResearchStudyContext]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<ResearchStudy> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { ^fhir:provision {a [fhir:Consent]}
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<ResearchStudy> })  ; 
+    ^fhir:extension { ^fhir:provision {a [fhir:Consent]}}
+
 }  
 

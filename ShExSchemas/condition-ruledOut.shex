@@ -11,12 +11,13 @@ IMPORT <Condition.shex>
 # Conditions ruled out for this condition
 <condition-ruledOut> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:condition-ruledOut];
+    a [fhir:condition-ruledOut]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/condition-ruledOut"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Condition> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Condition]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/condition-ruledOut"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Condition> })  ; 
+    ^fhir:extension { a [fhir:Condition]}
+
 }  
 

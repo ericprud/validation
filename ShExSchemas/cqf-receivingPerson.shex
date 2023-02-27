@@ -14,15 +14,16 @@ IMPORT <RelatedPerson.shex>
 # Extension
 <cqf-receivingPerson> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:cqf-receivingPerson];
+    a [fhir:cqf-receivingPerson]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/cqf-receivingPerson"]}; 
-    fhir:v ((@<Reference>  AND {fhir:link @<Person> OR 
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/cqf-receivingPerson"]}; 
+    fhir:value (@<Reference>  AND {fhir:link @<Person> OR 
     			 @<Patient> OR 
     			 @<Practitioner> OR 
-    			 @<RelatedPerson> }) )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Basic]
-        }
+    			 @<RelatedPerson> })  ; 
+    ^fhir:extension { a [fhir:Basic]}
+
 }  
 

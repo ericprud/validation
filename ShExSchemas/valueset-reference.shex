@@ -9,12 +9,13 @@ IMPORT <Extension.shex>
 # Url of Value set the code was chosen from
 <valueset-reference> EXTENDS @<Extension> CLOSED {   
 
-    a [fhir:valueset-reference];
+    a [fhir:valueset-reference]?;
     fhir:nodeRole [fhir:treeRoot]?;
-    fhir:v @<uri> AND
-    	{fhir:v ["http://hl7.org/fhir/StructureDefinition/valueset-reference"]}; 
-    fhir:v (@<uri> )  AND { rdf:type IRI } ; 
-    ^fhir:extension { a [fhir:Coding]
-        }
+
+    fhir:url @<uri> AND
+    	{fhir:value ["http://hl7.org/fhir/StructureDefinition/valueset-reference"]}; 
+    fhir:value @<uri>  ; 
+    ^fhir:extension { a [fhir:Coding]}
+
 }  
 

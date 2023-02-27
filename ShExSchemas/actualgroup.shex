@@ -12,15 +12,16 @@ start=@<actualgroup> AND {fhir:nodeRole [fhir:treeRoot]}
 # Group of multiple entities
 <actualgroup> EXTENDS @<Group> CLOSED {   
 
-    a [fhir:actualgroup];
+    a [fhir:actualgroup]?;
     fhir:nodeRole [fhir:treeRoot]?;
-}  
 
-# Include / Exclude group members by Trait
-<Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   
 }  
 
 # Who or what is in group
 <Group.member> EXTENDS @<BackboneElement> CLOSED {   
+}  
+
+# Include / Exclude group members by Trait
+<Group.characteristic> EXTENDS @<BackboneElement> CLOSED {   
 }  
 

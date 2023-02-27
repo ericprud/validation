@@ -11,18 +11,23 @@ IMPORT <boolean.shex>
 IMPORT <dateTime.shex>
 IMPORT <markdown.shex>
 IMPORT <canonical.shex>
+IMPORT <Identifier.shex>
 IMPORT <unsignedInt.shex>
+IMPORT <UsageContext.shex>
+IMPORT <ContactDetail.shex>
+IMPORT <DomainResource.shex>
+IMPORT <CodeableConcept.shex>
 IMPORT <BackboneElement.shex>
-IMPORT <CanonicalResource.shex>
 
 
 start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 
 # A resource that defines a type of message that can be exchanged between systems
-<MessageDefinition> EXTENDS @<CanonicalResource> CLOSED {   
+<MessageDefinition> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:MessageDefinition];
+    a [fhir:MessageDefinition]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:url @<uri>?;                       # Business Identifier for a given 
                                             # MessageDefinition 
     fhir:identifier @<OneOrMore_Identifier>?;  # Primary key for the message 
@@ -39,7 +44,7 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:experimental @<boolean>?;          # For testing purposes, not real 
                                             # usage 
     fhir:date @<dateTime>;                  # Date last changed
-    fhir:publisher @<string>?;              # Name of the publisher 
+    fhir:publisher @<string>?;              # Name of the publisher/steward 
                                             # (organization or individual) 
     fhir:contact @<OneOrMore_ContactDetail>?;  # Contact details for the publisher
     fhir:description @<markdown>?;          # Natural language description of 
@@ -53,28 +58,60 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:copyright @<markdown>?;            # Use and/or publishing restrictions
     fhir:base @<canonical>?;                # Definition this one is based on
     fhir:parent @<OneOrMore_canonical>?;    # Protocol/workflow this is part of
-    fhir:event (@<Coding>  OR 
-    			@<uri> )  AND { rdf:type IRI } ;  # Event code  or link to the 
+    fhir:event @<Coding>  OR 
+    			@<uri>  ;  # Event code  or link to the 
                                             # EventDefinition 
     fhir:category @<code> AND
     	{fhir:v @fhirvs:message-significance-category}?;  # consequence | currency | 
                                             # notification 
-    fhir:focus @<OneOrMore_BackboneElement>?;  # Resource(s) that are the subject 
+    fhir:focus @<OneOrMore_MessageDefinition.focus>?;  # Resource(s) that are the subject 
                                             # of the event 
     fhir:responseRequired @<code> AND
     	{fhir:v @fhirvs:messageheader-response-request}?;  # always | on-error | never | 
                                             # on-success 
-    fhir:allowedResponse @<OneOrMore_BackboneElement>?;  # Responses to this message
+    fhir:allowedResponse @<OneOrMore_MessageDefinition.allowedResponse>?;  # Responses to this message
     fhir:graph @<canonical>?;               # Canonical reference to a 
                                             # GraphDefinition 
-}  
+} AND (
 
-# Responses to this message
-<MessageDefinition.allowedResponse> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:message @<canonical>;              # Reference to allowed message 
-                                            # definition response 
-    fhir:situation @<markdown>?;            # When should this response be used
-}  
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+
+# Constraint: url.matches('([^|#])*')
+# ShEx:
+
+{fhir:url { fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: toInteger
+# # Constraint UniqueKey:md-1
+# Human readable:Max must be postive int or *
+#
+# Constraint: max='*' or (max.toInteger() > 0)
+# ShEx:
+#
+#({ fhir:max { fhir:v ['*'] }  }) OR (   toInteger  ( fhir:max ) { fhir:v MinExclusive 0 } )
+{}
+
+)
+ 
 
 # Resource(s) that are the subject of the event
 <MessageDefinition.focus> EXTENDS @<BackboneElement> CLOSED {   
@@ -86,6 +123,52 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # type 
     fhir:max @<string>?;                    # Maximum number of focuses of this 
                                             # type 
+} AND (
+
+# Constraint UniqueKey:cnl-1
+# Human readable:URL should not contain | or # - these characters make processing canonical references problematic
+
+# Constraint: url.matches('([^|#])*')
+# ShEx:
+
+{fhir:url { fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: Implies
+# # Constraint UniqueKey:cnl-0
+# Human readable:Name should be usable as an identifier for the module by machine processing applications such as code generation
+#
+# Constraint: name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')
+# ShEx:
+#
+#{fhir:name .  Implies  {fhir:name { fhir:v /'[A-Z]([A-Za-z0-9_]){1,254}'/ } }}
+{}
+
+) AND (
+
+
+# This constraint does not have mapping to a ShEx construct yet.
+# Unmapped construct found: toInteger
+# # Constraint UniqueKey:md-1
+# Human readable:Max must be postive int or *
+#
+# Constraint: max='*' or (max.toInteger() > 0)
+# ShEx:
+#
+#({ fhir:max { fhir:v ['*'] }  }) OR (   toInteger  ( fhir:max ) { fhir:v MinExclusive 0 } )
+{}
+
+)
+ 
+
+# Responses to this message
+<MessageDefinition.allowedResponse> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:message @<canonical>;              # Reference to allowed message 
+                                            # definition response 
+    fhir:situation @<markdown>?;            # When should this response be used
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -115,9 +198,14 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
+<OneOrMore_MessageDefinition.focus> CLOSED {
+    rdf:first @<MessageDefinition.focus>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MessageDefinition.focus> 
+}
+
+<OneOrMore_MessageDefinition.allowedResponse> CLOSED {
+    rdf:first @<MessageDefinition.allowedResponse>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_MessageDefinition.allowedResponse> 
 }
 
 #---------------------- Value Sets ------------------------
@@ -125,12 +213,12 @@ start=@<MessageDefinition> AND {fhir:nodeRole [fhir:treeRoot]}
 # The impact of the content of a message.
 fhirvs:message-significance-category ["consequence" "currency" "notification"]
 
+# HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
+fhirvs:messageheader-response-request ["always" "on-error" "never" "on-success"]
+
 # The lifecycle status of an artifact.
 fhirvs:publication-status ["draft" "active" "retired" "unknown"]
 
-# One of the resource types defined as part of this version of FHIR.
-fhirvs:resource-types ["Resource" "Binary" "Bundle" "DomainResource" "Account" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "BiologicallyDerivedProduct" "BodyStructure" "CanonicalResource" "CapabilityStatement" "CapabilityStatement2" "CodeSystem" "CompartmentDefinition" "ExampleScenario" "GraphDefinition" "ImplementationGuide" "MessageDefinition" "MetadataResource" "ActivityDefinition" "ChargeItemDefinition" "Citation" "ConceptMap" "ConditionDefinition" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "Library" "Measure" "NamingSystem" "PlanDefinition" "Questionnaire" "OperationDefinition" "SearchParameter" "StructureDefinition" "StructureMap" "SubscriptionTopic" "TerminologyCapabilities" "TestScript" "ValueSet" "CarePlan" "CareTeam" "ChargeItem" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "Communication" "CommunicationRequest" "Composition" "Condition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "Goal" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Linkage" "List" "Location" "ManufacturedItemDefinition" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageHeader" "MolecularSequence" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestGroup" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "Subscription" "SubscriptionStatus" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TestReport" "Transport" "VerificationResult" "VisionPrescription" "Parameters"]
-
-# HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
-fhirvs:messageheader-response-request ["always" "on-error" "never" "on-success"]
+# All fhir data types
+fhirvs:resource-types ["Account" "ActivityDefinition" "ActorDefinition" "AdministrableProductDefinition" "AdverseEvent" "AllergyIntolerance" "Appointment" "AppointmentResponse" "ArtifactAssessment" "AuditEvent" "Basic" "Binary" "BiologicallyDerivedProduct" "BodyStructure" "Bundle" "CapabilityStatement" "CarePlan" "CareTeam" "ChargeItem" "ChargeItemDefinition" "Citation" "Claim" "ClaimResponse" "ClinicalImpression" "ClinicalUseDefinition" "CodeSystem" "Communication" "CommunicationRequest" "CompartmentDefinition" "Composition" "ConceptMap" "Condition" "ConditionDefinition" "Consent" "Contract" "Coverage" "CoverageEligibilityRequest" "CoverageEligibilityResponse" "DetectedIssue" "Device" "DeviceDefinition" "DeviceDispense" "DeviceMetric" "DeviceRequest" "DeviceUsage" "DiagnosticReport" "DocumentManifest" "DocumentReference" "Encounter" "Endpoint" "EnrollmentRequest" "EnrollmentResponse" "EpisodeOfCare" "EventDefinition" "Evidence" "EvidenceReport" "EvidenceVariable" "ExampleScenario" "ExplanationOfBenefit" "FamilyMemberHistory" "Flag" "FormularyItem" "GenomicStudy" "Goal" "GraphDefinition" "Group" "GuidanceResponse" "HealthcareService" "ImagingSelection" "ImagingStudy" "Immunization" "ImmunizationEvaluation" "ImmunizationRecommendation" "ImplementationGuide" "Ingredient" "InsurancePlan" "InventoryReport" "Invoice" "Library" "Linkage" "List" "Location" "ManufacturedItemDefinition" "Measure" "MeasureReport" "Medication" "MedicationAdministration" "MedicationDispense" "MedicationKnowledge" "MedicationRequest" "MedicationUsage" "MedicinalProductDefinition" "MessageDefinition" "MessageHeader" "MolecularSequence" "NamingSystem" "NutritionIntake" "NutritionOrder" "NutritionProduct" "Observation" "ObservationDefinition" "OperationDefinition" "OperationOutcome" "Organization" "OrganizationAffiliation" "PackagedProductDefinition" "Parameters" "Patient" "PaymentNotice" "PaymentReconciliation" "Permission" "Person" "PlanDefinition" "Practitioner" "PractitionerRole" "Procedure" "Provenance" "Questionnaire" "QuestionnaireResponse" "RegulatedAuthorization" "RelatedPerson" "RequestOrchestration" "Requirements" "ResearchStudy" "ResearchSubject" "RiskAssessment" "Schedule" "SearchParameter" "ServiceRequest" "Slot" "Specimen" "SpecimenDefinition" "StructureDefinition" "StructureMap" "Subscription" "SubscriptionStatus" "SubscriptionTopic" "Substance" "SubstanceDefinition" "SubstanceNucleicAcid" "SubstancePolymer" "SubstanceProtein" "SubstanceReferenceInformation" "SubstanceSourceMaterial" "SupplyDelivery" "SupplyRequest" "Task" "TerminologyCapabilities" "TestReport" "TestScript" "Transport" "ValueSet" "VerificationResult" "VisionPrescription"]
 

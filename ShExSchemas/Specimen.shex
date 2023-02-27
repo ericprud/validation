@@ -6,18 +6,18 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 IMPORT <code.shex>
 IMPORT <Group.shex>
 IMPORT <Device.shex>
-IMPORT <string.shex>
 IMPORT <Period.shex>
+IMPORT <string.shex>
 IMPORT <Patient.shex>
 IMPORT <Location.shex>
 IMPORT <dateTime.shex>
-IMPORT <Quantity.shex>
 IMPORT <Duration.shex>
-IMPORT <Specimen.shex>
+IMPORT <Quantity.shex>
 IMPORT <Reference.shex>
 IMPORT <Substance.shex>
 IMPORT <Procedure.shex>
 IMPORT <Identifier.shex>
+IMPORT <Annotation.shex>
 IMPORT <Practitioner.shex>
 IMPORT <RelatedPerson.shex>
 IMPORT <DomainResource.shex>
@@ -34,8 +34,9 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
 # Sample for analysis
 <Specimen> EXTENDS @<DomainResource> CLOSED {   
 
-    a [fhir:Specimen];
+    a [fhir:Specimen]?;
     fhir:nodeRole [fhir:treeRoot]?;
+
     fhir:identifier @<OneOrMore_Identifier>?;  # External Identifier
     fhir:accessionIdentifier @<Identifier>?;  # Identifier assigned by the lab
     fhir:status @<code> AND
@@ -49,7 +50,7 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
     			@<Group> OR 
     			@<Location> OR 
     			@<Patient> OR 
-    			@<Substance> }?;  # Where the specimen came from. This 
+    			@<Substance> ? }?;  # Where the specimen came from. This 
                                             # may be from patient(s), from a 
                                             # location (e.g., the source of an 
                                             # environmental sample), or a 
@@ -61,20 +62,41 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
     fhir:parent @<OneOrMore_Reference_Specimen>?;  # Specimen from which this specimen 
                                             # originated 
     fhir:request @<OneOrMore_Reference_ServiceRequest>?;  # Why the specimen was collected
-    fhir:feature @<OneOrMore_BackboneElement>?;  # The physical feature of a specimen 
-    fhir:collection @<BackboneElement>?;    # Collection details
-    fhir:processing @<OneOrMore_BackboneElement>?;  # Processing and processing step 
+    fhir:combined @<code> AND
+    	{fhir:v @fhirvs:specimen-combined}?;  # grouped | pooled
+    fhir:role @<OneOrMore_CodeableConcept>?;  # The role the specimen serves
+    fhir:feature @<OneOrMore_Specimen.feature>?;  # The physical feature of a specimen 
+    fhir:collection @<Specimen.collection>?;  # Collection details
+    fhir:processing @<OneOrMore_Specimen.processing>?;  # Processing and processing step 
                                             # details 
-    fhir:container @<OneOrMore_BackboneElement>?;  # Direct container of specimen 
+    fhir:container @<OneOrMore_Specimen.container>?;  # Direct container of specimen 
                                             # (tube/slide, etc.) 
     fhir:condition @<OneOrMore_CodeableConcept>?;  # State of the specimen
     fhir:note @<OneOrMore_Annotation>?;     # Comments
 }  
 
-# The physical feature of a specimen 
-<Specimen.feature> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:type @<CodeableConcept>;           # Highlighted feature
-    fhir:description @<string>;             # Information about the feature
+# Collection details
+<Specimen.collection> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:collector @<Reference> AND {fhir:link 
+    			@<Patient> OR 
+    			@<Practitioner> OR 
+    			@<PractitionerRole> OR 
+    			@<RelatedPerson> ? }?;  # Who collected the specimen
+    fhir:collected @<dateTime>  OR 
+    			@<Period>  ?;  # Collection time
+    fhir:duration @<Duration>?;             # How long it took to collect 
+                                            # specimen 
+    fhir:quantity @<Quantity>?;             # The quantity of specimen collected
+    fhir:method @<CodeableConcept>?;        # Technique used to perform 
+                                            # collection 
+    fhir:device @<CodeableReference>?;      # Device used to perform collection
+    fhir:procedure @<Reference> AND {fhir:link 
+    			@<Procedure> ? }?;  # The procedure that collects the 
+                                            # specimen 
+    fhir:bodySite @<CodeableReference>?;    # Anatomical collection site
+    fhir:fastingStatus @<CodeableConcept>  OR 
+    			@<Duration>  ?;  # Whether or how long patient 
+                                            # abstained from food and/or drink 
 }  
 
 # Processing and processing step details
@@ -84,43 +106,25 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
                                             # applied to the specimen 
     fhir:additive @<OneOrMore_Reference_Substance>?;  # Material used in the processing 
                                             # step 
-    fhir:time (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Date and time of specimen 
+    fhir:time @<dateTime>  OR 
+    			@<Period>  ?;  # Date and time of specimen 
                                             # processing 
 }  
 
 # Direct container of specimen (tube/slide, etc.)
 <Specimen.container> EXTENDS @<BackboneElement> CLOSED {   
     fhir:device @<Reference> AND {fhir:link 
-    			@<Device> };  # Device resource for the container
+    			@<Device> ? };  # Device resource for the container
     fhir:location @<Reference> AND {fhir:link 
-    			@<Location> }?;  # Where the container is
+    			@<Location> ? }?;  # Where the container is
     fhir:specimenQuantity @<Quantity>?;     # Quantity of specimen within 
                                             # container 
 }  
 
-# Collection details
-<Specimen.collection> EXTENDS @<BackboneElement> CLOSED {   
-    fhir:collector @<Reference> AND {fhir:link 
-    			@<Patient> OR 
-    			@<Practitioner> OR 
-    			@<PractitionerRole> OR 
-    			@<RelatedPerson> }?;  # Who collected the specimen
-    fhir:collected (@<dateTime>  OR 
-    			@<Period> )  AND { rdf:type IRI } ?;  # Collection time
-    fhir:duration @<Duration>?;             # How long it took to collect 
-                                            # specimen 
-    fhir:quantity @<Quantity>?;             # The quantity of specimen collected
-    fhir:method @<CodeableConcept>?;        # Technique used to perform 
-                                            # collection 
-    fhir:device @<CodeableReference>?;      # Device used to perform collection
-    fhir:procedure @<Reference> AND {fhir:link 
-    			@<Procedure> }?;  # The procedure that collects the 
-                                            # specimen 
-    fhir:bodySite @<CodeableReference>?;    # Anatomical collection site
-    fhir:fastingStatus (@<CodeableConcept>  OR 
-    			@<Duration> )  AND { rdf:type IRI } ?;  # Whether or how long patient 
-                                            # abstained from food and/or drink 
+# The physical feature of a specimen 
+<Specimen.feature> EXTENDS @<BackboneElement> CLOSED {   
+    fhir:type @<CodeableConcept>;           # Highlighted feature
+    fhir:description @<string>;             # Information about the feature
 }  
 
 #---------------------- Cardinality Types (OneOrMore) -------------------
@@ -142,14 +146,24 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
     rdf:rest [rdf:nil] OR @<OneOrMore_Reference_ServiceRequest> 
 }
 
-<OneOrMore_BackboneElement> CLOSED {
-    rdf:first @<BackboneElement>  ;
-    rdf:rest [rdf:nil] OR @<OneOrMore_BackboneElement> 
-}
-
 <OneOrMore_CodeableConcept> CLOSED {
     rdf:first @<CodeableConcept>  ;
     rdf:rest [rdf:nil] OR @<OneOrMore_CodeableConcept> 
+}
+
+<OneOrMore_Specimen.feature> CLOSED {
+    rdf:first @<Specimen.feature>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Specimen.feature> 
+}
+
+<OneOrMore_Specimen.processing> CLOSED {
+    rdf:first @<Specimen.processing>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Specimen.processing> 
+}
+
+<OneOrMore_Specimen.container> CLOSED {
+    rdf:first @<Specimen.container>  ;
+    rdf:rest [rdf:nil] OR @<OneOrMore_Specimen.container> 
 }
 
 <OneOrMore_Annotation> CLOSED {
@@ -164,6 +178,9 @@ start=@<Specimen> AND {fhir:nodeRole [fhir:treeRoot]}
 }
 
 #---------------------- Value Sets ------------------------
+
+# Codes providing the combined status of a specimen.
+fhirvs:specimen-combined ["grouped" "pooled"]
 
 # Codes providing the status/availability of a specimen.
 fhirvs:specimen-status ["available" "unavailable" "unsatisfactory" "entered-in-error"]
