@@ -1,5 +1,5 @@
 # ShEx-mainfests
-Manifest tests and examples for FHIR ShEx
+FHIR ShEx Schemas R5 Test for Structure and Constraint Patterns with Data
  
 | Example | Description |
 | ------- | ----------- |

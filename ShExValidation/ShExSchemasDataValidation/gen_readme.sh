@@ -17,7 +17,7 @@ SHEX_MANIFEST=https://fhircat.github.io/validation/ShExValidation/ShExSchemasDat
 echo "Generating New README.md ...."
 
 echo "# ShEx-mainfests" > $FILE_NAME
-echo "Manifest tests and examples for FHIR ShEx" >> $FILE_NAME
+echo "FHIR ShEx Schemas R5 Test for Structure and Constraint Patterns with Data" >> $FILE_NAME
 echo " " >> $FILE_NAME
 echo "| Example | Description |" >> $FILE_NAME
 echo "| ------- | ----------- |" >> $FILE_NAME
