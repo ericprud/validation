@@ -1,385 +1,385 @@
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: Patient-denovoChild
-  dataURL: examples/Patient-denovoChild.ttl
+  dataURL: fhir-rdf-examples/Patient-denovoChild.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: Patient-denovoFather
-  dataURL: examples/Patient-denovoFather.ttl
+  dataURL: fhir-rdf-examples/Patient-denovoFather.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: Patient-denovoMother
-  dataURL: examples/Patient-denovoMother.ttl
+  dataURL: fhir-rdf-examples/Patient-denovoMother.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-animal
-  dataURL: examples/patient-example-animal.ttl
+  dataURL: fhir-rdf-examples/patient-example-animal.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-a
-  dataURL: examples/patient-example-a.ttl
+  dataURL: fhir-rdf-examples/patient-example-a.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-b
-  dataURL: examples/patient-example-b.ttl
+  dataURL: fhir-rdf-examples/patient-example-b.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-chinese
-  dataURL: examples/patient-example-chinese.ttl
+  dataURL: fhir-rdf-examples/patient-example-chinese.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-c
-  dataURL: examples/patient-example-c.ttl
+  dataURL: fhir-rdf-examples/patient-example-c.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-dicom
-  dataURL: examples/patient-example-dicom.ttl
+  dataURL: fhir-rdf-examples/patient-example-dicom.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-d
-  dataURL: examples/patient-example-d.ttl
+  dataURL: fhir-rdf-examples/patient-example-d.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-f001-pieter
-  dataURL: examples/patient-example-f001-pieter.ttl
+  dataURL: fhir-rdf-examples/patient-example-f001-pieter.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-f201-roel
-  dataURL: examples/patient-example-f201-roel.ttl
+  dataURL: fhir-rdf-examples/patient-example-f201-roel.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-ihe-pcd
-  dataURL: examples/patient-example-ihe-pcd.ttl
+  dataURL: fhir-rdf-examples/patient-example-ihe-pcd.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-infant-fetal
-  dataURL: examples/patient-example-infant-fetal.ttl
+  dataURL: fhir-rdf-examples/patient-example-infant-fetal.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-infant-mom
-  dataURL: examples/patient-example-infant-mom.ttl
+  dataURL: fhir-rdf-examples/patient-example-infant-mom.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-infant-twin-1
-  dataURL: examples/patient-example-infant-twin-1.ttl
+  dataURL: fhir-rdf-examples/patient-example-infant-twin-1.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-infant-twin-2
-  dataURL: examples/patient-example-infant-twin-2.ttl
+  dataURL: fhir-rdf-examples/patient-example-infant-twin-2.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-mom
-  dataURL: examples/patient-example-mom.ttl
+  dataURL: fhir-rdf-examples/patient-example-mom.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-newborn
-  dataURL: examples/patient-example-newborn.ttl
+  dataURL: fhir-rdf-examples/patient-example-newborn.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-proband
-  dataURL: examples/patient-example-proband.ttl
+  dataURL: fhir-rdf-examples/patient-example-proband.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
-  dataLabel: patient-examples-cypress-template
-  dataURL: examples/patient-examples-cypress-template.ttl
+  dataLabel: patient-fhir-rdf-examples-cypress-template
+  dataURL: fhir-rdf-examples/patient-fhir-rdf-examples-cypress-template.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-sex-and-gender
-  dataURL: examples/patient-example-sex-and-gender.ttl
+  dataURL: fhir-rdf-examples/patient-example-sex-and-gender.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
-  dataLabel: patient-examples-general
-  dataURL: examples/patient-examples-general.ttl
+  dataLabel: patient-fhir-rdf-examples-general
+  dataURL: fhir-rdf-examples/patient-fhir-rdf-examples-general.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example
-  dataURL: examples/patient-example.ttl
+  dataURL: fhir-rdf-examples/patient-example.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-xcda
-  dataURL: examples/patient-example-xcda.ttl
+  dataURL: fhir-rdf-examples/patient-example-xcda.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-example-xds
-  dataURL: examples/patient-example-xds.ttl
+  dataURL: fhir-rdf-examples/patient-example-xds.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-genetics-example1
-  dataURL: examples/patient-genetics-example1.ttl
+  dataURL: fhir-rdf-examples/patient-genetics-example1.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: Patient-genomicPatient
-  dataURL: examples/Patient-genomicPatient.ttl
+  dataURL: fhir-rdf-examples/Patient-genomicPatient.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: patient-glossy-example
-  dataURL: examples/patient-glossy-example.ttl
+  dataURL: fhir-rdf-examples/patient-glossy-example.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: provenance-example-anon0
-  dataURL: examples/provenance-example-anon0.ttl
+  dataURL: fhir-rdf-examples/provenance-example-anon0.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: questionnaireresponse-example-bluebook
-  dataURL: examples/questionnaireresponse-example-bluebook.ttl
+  dataURL: fhir-rdf-examples/questionnaireresponse-example-bluebook.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: questionnaireresponse-example
-  dataURL: examples/questionnaireresponse-example.ttl
+  dataURL: fhir-rdf-examples/questionnaireresponse-example.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: questionnaireresponse-example-ussg-fht-answers
-  dataURL: examples/questionnaireresponse-example-ussg-fht-answers.ttl
+  dataURL: fhir-rdf-examples/questionnaireresponse-example-ussg-fht-answers.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: xds-example
-  dataURL: examples/xds-example.ttl
+  dataURL: fhir-rdf-examples/xds-example.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: bundle-references
-  dataURL: examples/bundle-references.ttl
+  dataURL: fhir-rdf-examples/bundle-references.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: bundle-response-medsallergies
-  dataURL: examples/bundle-response-medsallergies.ttl
+  dataURL: fhir-rdf-examples/bundle-response-medsallergies.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: bundle-response-simplesummary
-  dataURL: examples/bundle-response-simplesummary.ttl
+  dataURL: fhir-rdf-examples/bundle-response-simplesummary.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: bundle-response
-  dataURL: examples/bundle-response.ttl
+  dataURL: fhir-rdf-examples/bundle-response.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: bundle-transaction
-  dataURL: examples/bundle-transaction.ttl
+  dataURL: fhir-rdf-examples/bundle-transaction.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: claim-example-cms1500-medical
-  dataURL: examples/claim-example-cms1500-medical.ttl
+  dataURL: fhir-rdf-examples/claim-example-cms1500-medical.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: claim-example-oral-contained-identifier
-  dataURL: examples/claim-example-oral-contained-identifier.ttl
+  dataURL: fhir-rdf-examples/claim-example-oral-contained-identifier.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: claim-example-oral-contained
-  dataURL: examples/claim-example-oral-contained.ttl
+  dataURL: fhir-rdf-examples/claim-example-oral-contained.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: document-example-dischargesummary
-  dataURL: examples/document-example-dischargesummary.ttl
+  dataURL: fhir-rdf-examples/document-example-dischargesummary.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: documentreference-example-comprehensive
-  dataURL: examples/documentreference-example-comprehensive.ttl
+  dataURL: fhir-rdf-examples/documentreference-example-comprehensive.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: measurereport-general-example
-  dataURL: examples/measurereport-general-example.ttl
+  dataURL: fhir-rdf-examples/measurereport-general-example.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: message-request-link
-  dataURL: examples/message-request-link.ttl
+  dataURL: fhir-rdf-examples/message-request-link.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: message-response-link
-  dataURL: examples/message-response-link.ttl
+  dataURL: fhir-rdf-examples/message-response-link.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: notification-full-resource-with-patient
-  dataURL: examples/notification-full-resource-with-patient.ttl
+  dataURL: fhir-rdf-examples/notification-full-resource-with-patient.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: notification-query-event
-  dataURL: examples/notification-query-event.ttl
+  dataURL: fhir-rdf-examples/notification-query-event.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: observation-example-10minute-apgar-score
-  dataURL: examples/observation-example-10minute-apgar-score.ttl
+  dataURL: fhir-rdf-examples/observation-example-10minute-apgar-score.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: observation-example-1minute-apgar-score
-  dataURL: examples/observation-example-1minute-apgar-score.ttl
+  dataURL: fhir-rdf-examples/observation-example-1minute-apgar-score.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: observation-example-20minute-apgar-score
-  dataURL: examples/observation-example-20minute-apgar-score.ttl
+  dataURL: fhir-rdf-examples/observation-example-20minute-apgar-score.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: observation-example-2minute-apgar-score
-  dataURL: examples/observation-example-2minute-apgar-score.ttl
+  dataURL: fhir-rdf-examples/observation-example-2minute-apgar-score.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: observation-example-5minute-apgar-score
-  dataURL: examples/observation-example-5minute-apgar-score.ttl
+  dataURL: fhir-rdf-examples/observation-example-5minute-apgar-score.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/Patient.shex
   dataLabel: parameters-example
-  dataURL: examples/parameters-example.ttl
+  dataURL: fhir-rdf-examples/parameters-example.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
