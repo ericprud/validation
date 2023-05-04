@@ -15,5 +15,5 @@ declare -a examples=(
 					 "basic_type_test#A Basic Type Test"
 	                 "quantity_test#Quantity Resource Tests for type arcs"
 					 "constraint_tests_without_IMPORT#A collection of ShEx constraint tests without IMPORT"
-	                 "constraint_testsd#A collection of ShEx constraint tests"
+	                 "constraint_tests#A collection of ShEx constraint tests"
 	                 )
