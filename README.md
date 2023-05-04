@@ -25,3 +25,7 @@ Use the [manifest.yaml](manifest.yaml) in [shex-simple](https://shex.io/webapps/
 3. validate by `manifest.yaml` or individual command line args:
   - `validate --yaml-manifest manifest.yaml`
   - `validate -x ShExSchemas/R5/Patient.shex -d fhir-rdf-examples/patient-example.ttl -m '{FOCUS a fhir:Patient}@<Patient>'`
+
+### Testing ShEx Schema Strucure & Constraint Patterns
+
+- [ShExSchema Data Validation](ShExValidation/ShExSchemasDataValidation)
