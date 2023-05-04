@@ -6,7 +6,6 @@
 #
 # examples to include in README.md
 
-# Run this script to generate README.md programmatically
 # Following array has a list of strings
 # Each string has a delimiter "#" to split the string
 # first part (before #) is name of a sub-directory - it must match
