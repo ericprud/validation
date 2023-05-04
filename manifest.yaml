@@ -140,8 +140,8 @@
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/R5/Patient.shex
-  dataLabel: patient-fhir-rdf-examples-cypress-template
-  dataURL: fhir-rdf-examples/patient-fhir-rdf-examples-cypress-template.ttl
+  dataLabel: patient-examples-cypress-template
+  dataURL: fhir-rdf-examples/patient-examples-cypress-template.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
@@ -154,8 +154,8 @@
 
 - schemaLabel: Patient
   schemaURL: ShExSchemas/R5/Patient.shex
-  dataLabel: patient-fhir-rdf-examples-general
-  dataURL: fhir-rdf-examples/patient-fhir-rdf-examples-general.ttl
+  dataLabel: patient-examples-general
+  dataURL: fhir-rdf-examples/patient-examples-general.ttl
   queryMap: "{FOCUS a fhir:Patient}@<Patient>"
   status: conformant
 
