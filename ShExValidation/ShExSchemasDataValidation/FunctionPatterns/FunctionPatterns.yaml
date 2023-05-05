@@ -1,0 +1,13 @@
+- schemaLabel: Function Patterns Tests
+  schemaURL: FunctionPatterns.shex
+  dataLabel: Valid types
+  dataURL: FunctionPatterns.ttl
+  queryMap: |
+    <inst1>@<FunctionPatternsShape>
+
+- schemaLabel: Function Patterns Tests
+  schemaURL: FunctionPatterns.shex
+  dataLabel: Invalid types
+  dataURL: FunctionPatterns.ttl
+  queryMap: |
+    <inst2>@!<FunctionPatternsShape>
