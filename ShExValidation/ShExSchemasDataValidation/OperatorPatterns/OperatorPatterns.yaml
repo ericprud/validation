@@ -1,13 +1,13 @@
-- schemaLabel: Basic Type Test
-  schemaURL: basic_type_test.shex
+- schemaLabel: Operator Patterns Tests
+  schemaURL: OperatorPatterns.shex
   dataLabel: Valid types
-  dataURL: basic_type_test.ttl
+  dataURL: OperatorPatterns.ttl
   queryMap: |
-    <inst1>@<basic_type_test_shape>
+    <inst1>@<OperatorPatternsShape>
 
-- schemaLabel: Basic Type Test
-  schemaURL: basic_type_test.shex
+- schemaLabel: Operator Patterns Tests
+  schemaURL: OperatorPatterns.shex
   dataLabel: Invalid types
-  dataURL: basic_type_test.ttl
+  dataURL: OperatorPatterns.ttl
   queryMap: |
-    <inst2>@!<basic_type_test_shape>
+    <inst2>@!<OperatorPatternsShape>
