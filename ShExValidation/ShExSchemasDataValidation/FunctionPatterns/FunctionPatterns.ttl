@@ -3,6 +3,9 @@ PREFIX fhir: <http://hl7.org/fhir/>
 PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<inst1> fhir:value [ fhir:v 55.0 ] .
+# Valid test for exists
+<inst_exists> fhir:value1 [ fhir:v "1234" ] .
 
-<inst2> fhir:value [ fhir:v "abcd" ] . 
+# Invalid test for exists, hasValue
+# no fhir:value1 is present
+<inst_noExist> fhir:someOtherValue [ fhir:v "abcd" ] . 

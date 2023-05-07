@@ -1,13 +1,13 @@
 - schemaLabel: Function Patterns Tests
   schemaURL: FunctionPatterns.shex
-  dataLabel: Valid types
+  dataLabel: exists_hasValue
   dataURL: FunctionPatterns.ttl
   queryMap: |
-    <inst1>@<FunctionPatternsShape>
+    <inst_exists>@<FunctionPatternsShape>
 
 - schemaLabel: Function Patterns Tests
   schemaURL: FunctionPatterns.shex
-  dataLabel: Invalid types
+  dataLabel: exists_hasValue
   dataURL: FunctionPatterns.ttl
   queryMap: |
-    <inst2>@!<FunctionPatternsShape>
+    <inst_noExists>@!<FunctionPatternsShape>
