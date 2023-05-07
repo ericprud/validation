@@ -8,4 +8,4 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # Invalid test for exists, hasValue
 # no fhir:value1 is present
-<inst_noExist> fhir:someOtherValue [ fhir:v "abcd" ] . 
+<inst_noExists> fhir:someOtherValue [ fhir:v "abcd" ] . 
