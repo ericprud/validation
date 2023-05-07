@@ -4,10 +4,6 @@
   dataURL: FunctionPatterns.ttl
   queryMap: |
     <inst_exists>@<FunctionPatternsShape>
-
-- schemaLabel: Function Patterns Tests
-  schemaURL: FunctionPatterns.shex
-  dataLabel: exists_hasValue
-  dataURL: FunctionPatterns.ttl
-  queryMap: |
     <inst_noExists>@!<FunctionPatternsShape>
+
+    
