@@ -6,3 +6,4 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <inst1> fhir:value [ fhir:v 55.0 ] .
 
 <inst2> fhir:value [ fhir:v "abcd" ] . 
+
