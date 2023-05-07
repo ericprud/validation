@@ -4,13 +4,22 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <FunctionPatternsShape> CLOSED {
+  
     fhir:value1 @<string>?;
+
+    fhir:isEnrolled @<boolean>?;
+
 } AND (
     # constraint 'exists' 
     # constraint 'hasValue'
     # presence of value - example 'value1' must be present
 
     {fhir:value1 .}
+) AND (
+    # constraint 'NOT' 
+    # absence of value - example 'isEnrolled' must be absent
+
+    NOT {fhir:isEnrolled .}
 )
 
 
