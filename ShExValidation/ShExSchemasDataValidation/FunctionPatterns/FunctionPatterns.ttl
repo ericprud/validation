@@ -18,4 +18,5 @@
            fhir:isEnrolled [fhir:v true] .
 
 # fhir:url matches
-<inst_not> fhir:url [fhir:v "https://www.example.com"^^^^xsd:anyURI ] .
+<inst_matches> fhir:value1 [fhir:v "xyz" ]; 
+           fhir:url [fhir:v "^pqr" ] .
