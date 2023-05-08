@@ -8,7 +8,7 @@
 
 - schemaLabel: Function Patterns Tests
   schemaURL: FunctionPatterns.shex
-  dataLabel: NOT
+  dataLabel: empty_NOT
   dataURL: FunctionPatterns.ttl
   queryMap: |
     <inst_not>@<FunctionPatternsShape>,
