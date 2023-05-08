@@ -16,3 +16,6 @@
 # this will fail becuase 'isEnrolled' is present
 <inst_not_not> fhir:value1 [fhir:v "xyz" ];
            fhir:isEnrolled [fhir:v true] .
+
+# fhir:url matches
+<inst_not> fhir:url [fhir:v "https://www.example.com"^^^^xsd:anyURI ] .

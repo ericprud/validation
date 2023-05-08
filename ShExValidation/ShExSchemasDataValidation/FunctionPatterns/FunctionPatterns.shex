@@ -11,6 +11,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
     fhir:isEnrolled @<boolean>?;
 
+    fhir:url @<uri>?;
+
 } AND (
     # constraint 'exists' 
     # constraint 'hasValue'
@@ -22,7 +24,11 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     # absence of value - example 'isEnrolled' must be absent
 
     NOT {fhir:isEnrolled .}
+) AND (
+    # matches
+    { fhir:url {fhir:v /'([^|#])*'/ } }
 )
+
 
 <Base> CLOSED {  }
 
