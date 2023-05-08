@@ -3,7 +3,7 @@ PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 
-IMPORT <selectedTypes.shex>
+# IMPORT <selectedTypes.shex>
 
 <FunctionPatternsShape> CLOSED {
   
@@ -23,3 +23,40 @@ IMPORT <selectedTypes.shex>
 
     NOT {fhir:isEnrolled .}
 )
+
+<Base> CLOSED {  }
+
+<Element> EXTENDS @<Base> CLOSED {
+  fhir:id xsd:string?;
+  fhir:extension @<Extension>*;
+}
+
+<Extension> EXTENDS @<DataType> CLOSED {
+  fhir:id @<string>?;
+  fhir:extension @<Extension>*;
+  fhir:url @<uri>;
+  fhir:value @<code> OR @<string> OR @<boolean>?;
+}
+
+<DataType> EXTENDS @<Element> CLOSED {
+}
+
+<decimal> EXTENDS @<DataType> CLOSED {
+    fhir:v xsd:decimal OR xsd:double?;
+}
+
+<boolean> EXTENDS @<DataType> CLOSED {
+  fhir:v xsd:boolean
+}
+
+<code> EXTENDS @<DataType> CLOSED {
+  fhir:v xsd:token?;
+}
+
+<uri> EXTENDS @<DataType> CLOSED {
+  fhir:v xsd:anyURI?;
+}
+
+<string> EXTENDS @<DataType> CLOSED {
+  fhir:v xsd:string MAXLENGTH 1048576?;
+}
