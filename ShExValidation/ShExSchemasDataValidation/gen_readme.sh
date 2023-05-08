@@ -15,7 +15,8 @@ source $DIR/examples.sh
 # This script will include that sub-directory in the table of example it renders in README.md file
 
 FILE_NAME=README.md
-SHEX_VALIDATOR=http://shex.io/webapps/shex.js/doc/shex-simple?manifestURL=
+#SHEX_VALIDATOR=http://shex.io/webapps/shex.js/doc/shex-simple?manifestURL=
+SHEX_VALIDATOR=https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=
 SHEX_MANIFEST=https://fhircat.github.io/validation/ShExValidation/ShExSchemasDataValidation
 #NEW_WINDOW="{:target=\"_blank\" rel=\"noopener\"}"
 
