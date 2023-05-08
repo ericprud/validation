@@ -1,7 +1,7 @@
-BASE <http://hl7.org/fhir/shape/>
-PREFIX fhir: <http://hl7.org/fhir/>
-PREFIX fhirvs: <http://hl7.org/fhir/ValueSet/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Valid test for exists
 <inst_exists> fhir:value1 [ fhir:v "1234" ] .
