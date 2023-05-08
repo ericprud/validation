@@ -14,7 +14,7 @@
     <inst_not>@<FunctionPatternsShape>,
     <inst_not_not>@!<FunctionPatternsShape>
 
-    - schemaLabel: Function Patterns Tests
+- schemaLabel: Function Patterns Tests
   schemaURL: FunctionPatterns.shex
   dataLabel: matches
   dataURL: FunctionPatterns.ttl
