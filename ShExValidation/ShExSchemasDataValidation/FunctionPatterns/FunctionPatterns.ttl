@@ -3,13 +3,17 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# -------------------- exists -------------------- 
 # Valid test for exists
-<inst_exists> fhir:value1 [ fhir:v "1234" ] .
+<inst_exists> fhir:value1 [ fhir:v "1234" ];
+              fhir:url [fhir:v "'pqr'"^^xsd:anyURI] .
 
 # Invalid test for exists, hasValue
 # no fhir:value1 is present
-<inst_noExists> fhir:someOtherValue [ fhir:v "abcd" ] . 
+<inst_noExists> fhir:someOtherValue [ fhir:v "abcd" ];
+                fhir:url [fhir:v "'pqr'"^^xsd:anyURI] .
 
+# -------------------- NOT --------------------          
 # fhir:isEnrolled must be absent
 <inst_not> fhir:value1 [fhir:v "xyz" ] .
 
@@ -17,6 +21,7 @@
 <inst_not_not> fhir:value1 [fhir:v "xyz" ];
            fhir:isEnrolled [fhir:v true] .
 
+# -------------------- matches -------------------- 
 # fhir:url matches
 <inst_matches> fhir:value1 [fhir:v "xyz" ]; 
            fhir:url [fhir:v "'abc'"^^xsd:anyURI].
