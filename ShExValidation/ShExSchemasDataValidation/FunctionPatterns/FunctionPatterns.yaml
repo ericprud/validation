@@ -21,3 +21,11 @@
   queryMap: |
     <inst_matches>@<FunctionPatternsShape>,
     <inst_mismatches>@!<FunctionPatternsShape>
+
+- schemaLabel: Function Patterns Tests
+  schemaURL: FunctionPatterns.shex
+  dataLabel: contains
+  dataURL: FunctionPatterns.ttl
+  queryMap: |
+    <inst_contains>@<FunctionPatternsShape>,
+    <inst_notContains>@!<FunctionPatternsShape>

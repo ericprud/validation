@@ -32,9 +32,13 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
     # matches with a string in single quotes that does not start with "|" or "#"
     { fhir:url {fhir:v /'([^|#])*'/ } }
+
+) AND (
+
+    # contains one of the values
+    { fhir:myColor {fhir:v ['red' 'blue' 'teal'] } }
     
 )
-
 
 <Base> CLOSED {  }
 

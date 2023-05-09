@@ -15,7 +15,8 @@
 
 # -------------------- NOT --------------------          
 # fhir:isEnrolled must be absent
-<inst_not> fhir:value1 [fhir:v "xyz" ] .
+<inst_not> fhir:value1 [fhir:v "xyz" ] ;
+           fhir:url [fhir:v "'pqr'"^^xsd:anyURI] .
 
 # this will fail becuase 'isEnrolled' is present
 <inst_not_not> fhir:value1 [fhir:v "xyz" ];
@@ -29,3 +30,14 @@
 # fhir:url mismatch
 <inst_mismatches> fhir:value1 [fhir:v "xyz" ]; 
            fhir:url [fhir:v "'#'"^^xsd:anyURI].
+
+# -------------------- matches -------------------- 
+# fhir:url matches
+<inst_contains> fhir:myColor [fhir:v 'red' ];             
+                fhir:value1 [fhir:v "xyz" ];
+                fhir:url [fhir:v "'abc'"^^xsd:anyURI].
+
+# fhir:url mismatch
+<inst_notContains> fhir:myColor [fhir:v 'green' ];  
+                   fhir:value1 [fhir:v "xyz" ];
+                   fhir:url [fhir:v "'abc'"^^xsd:anyURI].
