@@ -5,13 +5,11 @@
 
 # -------------------- exists -------------------- 
 # Valid test for exists
-<inst_exists> fhir:value1 [ fhir:v "1234" ];
-              fhir:url [fhir:v "'pqr'"^^xsd:anyURI] .
+<inst_exists> fhir:value1 [ fhir:v "1234" ].
 
 # Invalid test for exists, hasValue
 # no fhir:value1 is present
-<inst_noExists> fhir:someOtherValue [ fhir:v "abcd" ];
-                fhir:url [fhir:v "'pqr'"^^xsd:anyURI] .
+<inst_noExists> fhir:someOtherValue [ fhir:v "abcd" ].
 
 # -------------------- NOT --------------------          
 # fhir:isEnrolled must be absent
@@ -31,13 +29,11 @@
 <inst_mismatches> fhir:value1 [fhir:v "xyz" ]; 
            fhir:url [fhir:v "'#'"^^xsd:anyURI].
 
-# -------------------- matches -------------------- 
-# fhir:url matches
+# -------------------- contains -------------------- 
+# fhir:myColor contains
 <inst_contains> fhir:myColor [fhir:v 'red' ];             
-                fhir:value1 [fhir:v "xyz" ];
-                fhir:url [fhir:v "'abc'"^^xsd:anyURI].
+                fhir:value1 [fhir:v "xyz" ].
 
-# fhir:url mismatch
+# fhir:myColor does not contain
 <inst_notContains> fhir:myColor [fhir:v 'green' ];  
-                   fhir:value1 [fhir:v "xyz" ];
-                   fhir:url [fhir:v "'abc'"^^xsd:anyURI].
+                   fhir:value1 [fhir:v "xyz" ].

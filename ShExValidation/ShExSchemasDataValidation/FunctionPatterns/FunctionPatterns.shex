@@ -32,13 +32,15 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 ) AND (
 
+    # Either fhir:url does not exist, if it does then...
     # matches with a string in single quotes that does not start with "|" or "#"
-    { fhir:url {fhir:v /'([^|#])*'/ } }
+    NOT {fhir:url .} OR { fhir:url {fhir:v /'([^|#])*'/ } }
 
 ) AND (
 
+    # Either fhir:myColor does not exist, if it does then...
     # contains one of the values
-    { fhir:myColor {fhir:v ['red' 'blue' 'teal'] } }
+    NOT {fhir:myColor .} OR { fhir:myColor {fhir:v ['red' 'blue' 'teal'] } }
     
 )
 
