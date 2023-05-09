@@ -19,4 +19,5 @@
   dataLabel: matches
   dataURL: FunctionPatterns.ttl
   queryMap: |
-    <inst_matches>@<FunctionPatternsShape>
+    <inst_matches>@<FunctionPatternsShape>,
+    <inst_mismatches>@!<FunctionPatternsShape>

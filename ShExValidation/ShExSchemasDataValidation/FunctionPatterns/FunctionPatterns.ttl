@@ -19,4 +19,8 @@
 
 # fhir:url matches
 <inst_matches> fhir:value1 [fhir:v "xyz" ]; 
-           fhir:url [fhir:v "^pqr" ] .
+           fhir:url [fhir:v "'abc'"^^xsd:anyURI].
+
+# fhir:url mismatch
+<inst_mismatches> fhir:value1 [fhir:v "xyz" ]; 
+           fhir:url [fhir:v "'#'"^^xsd:anyURI].

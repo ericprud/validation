@@ -14,19 +14,25 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     fhir:url @<uri>?;
 
 } AND (
+
     # constraint 'exists' 
     # constraint 'hasValue'
     # presence of value - example 'value1' must be present
 
     {fhir:value1 .}
+
 ) AND (
+
     # constraint 'NOT' 
     # absence of value - example 'isEnrolled' must be absent
 
     NOT {fhir:isEnrolled .}
+
 ) AND (
-    # matches
+
+    # matches with a string in single quotes that does not start with "|" or "#"
     { fhir:url {fhir:v /'([^|#])*'/ } }
+    
 )
 
 
