@@ -19,5 +19,14 @@ validate --human --yaml-manifest $YAML
 # Another way of invoking validate with SHEX and TTL
 SHEX=./FunctionPatterns/FunctionPatterns.shex
 TTL=./FunctionPatterns/FunctionPatterns.ttl
-validate -x $SHEX -d $TTL -m '<inst_exists>@<FunctionPatternsShape>,<inst_noExists>@!<FunctionPatternsShape>'
+
+# validate for a select query map
+# validate -x $SHEX -d $TTL -m '<inst_exists>@<FunctionPatternsShape>,<inst_noExists>@!<FunctionPatternsShape>'
+
+# run it as a server
+# validate -x ../validation/ShExSchemas/R5/Observation.shex --diagnose  --serve http://localhost/validate || echo fail
+
+# example to check if ShEx schema has any error
+# for example if they have duplicate shapes
+# validate -x packages/shex-cli/test/Imports/TrompPersonMissingRep/Issue.shex --diagnose --dry-run || echo fail
 set +x

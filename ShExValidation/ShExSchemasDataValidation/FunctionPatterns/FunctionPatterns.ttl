@@ -9,7 +9,7 @@
 
 # Invalid test for exists, hasValue
 # no fhir:value1 is present
-<inst_noExists> fhir:someOtherValue [ fhir:v "abcd" ].
+<inst_noExists> fhir:url [fhir:v "'pqr'"^^xsd:anyURI] .
 
 # -------------------- NOT --------------------          
 # fhir:isEnrolled must be absent
