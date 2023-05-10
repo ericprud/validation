@@ -40,7 +40,9 @@
 
 # -------------------- Not Equal -------------------- 
 # fhir:myColor contains
-<inst_ne> fhir:type [fhir:v 'screen' ].
+<inst_ne> fhir:type [fhir:v 'screen' ];  
+          fhir:value1 [fhir:v "xyz" ].
 
 # fhir:myColor does not contain
-<inst_notNe> fhir:type [fhir:v 'display' ].
+<inst_notNe> fhir:type [fhir:v 'display' ];  
+             fhir:value1 [fhir:v "xyz" ].
