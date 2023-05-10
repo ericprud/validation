@@ -37,3 +37,10 @@
 # fhir:myColor does not contain
 <inst_notContains> fhir:myColor [fhir:v 'green' ];  
                    fhir:value1 [fhir:v "xyz" ].
+
+# -------------------- Not Equal -------------------- 
+# fhir:myColor contains
+<inst_ne> fhir:type [fhir:v 'screen' ].
+
+# fhir:myColor does not contain
+<inst_notNe> fhir:type [fhir:v 'display' ].
