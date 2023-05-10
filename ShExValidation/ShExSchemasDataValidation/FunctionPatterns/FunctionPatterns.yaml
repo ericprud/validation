@@ -32,7 +32,7 @@
 
 - schemaLabel: Function Patterns Tests
   schemaURL: FunctionPatterns.shex
-  dataLabel: Not Equal
+  dataLabel: Not_Equal
   dataURL: FunctionPatterns.ttl
   queryMap: |
     <inst_ne>@<FunctionPatternsShape>,
