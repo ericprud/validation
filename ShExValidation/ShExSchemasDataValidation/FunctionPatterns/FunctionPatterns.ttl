@@ -39,10 +39,10 @@
                    fhir:value1 [fhir:v "xyz" ].
 
 # -------------------- Not Equal -------------------- 
-# fhir:myColor contains
-<inst_ne> fhir:type [fhir:v 'screen' ];  
-          fhir:value1 [fhir:v "xyz" ].
+# fhir:type not equals to 'display' - should pass
+<inst_ne> fhir:myType [fhir:v "screen" ] ;  
+          fhir:value1 [fhir:v "xyz" ] .
 
-# fhir:myColor does not contain
-<inst_notNe> fhir:type [fhir:v 'display' ];  
-             fhir:value1 [fhir:v "xyz" ].
+# fhir:type equals to forbidden value 'display' - should fail
+<inst_notNe> fhir:myType [fhir:v "display" ] ;  
+             fhir:value1 [fhir:v "xyz" ] .

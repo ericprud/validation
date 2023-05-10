@@ -15,7 +15,7 @@ IMPORT <selectedTypes.shex>
 
     fhir:myColor @<string>*;
 
-    fhir:type @<string>*;
+    fhir:myType @<string>*;
 
 } AND (
 
@@ -47,5 +47,5 @@ IMPORT <selectedTypes.shex>
 ) AND (
     
     # Not Equal - type is not equal to 'display'
-    NOT {fhir:type .} OR { fhir:type [ fhir:v  . -'display' ] }
+    NOT {fhir:myType .} OR { fhir:myType [ fhir:v  . -'display' ] }
 )
