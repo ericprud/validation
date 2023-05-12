@@ -35,5 +35,5 @@
   dataLabel: Not_Equal
   dataURL: FunctionPatterns.ttl
   queryMap: |
-    <inst_notNe>@!<FunctionPatternsShape>,
-    <inst_ne>@<FunctionPatternsShape>
+    <inst_ne>@<FunctionPatternsShape>,
+    <inst_notNe>@!<FunctionPatternsShape>
