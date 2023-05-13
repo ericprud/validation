@@ -175,7 +175,7 @@ IMPORT <ImmunizationRecommendation.shex>
     			@<Practitioner> OR 
     			@<PractitionerRole> OR 
     			@<RelatedPerson> ? }?;  # Specific desired (non)performer
-    fhir:deliverTo @<OneOrMore_Reference_CareTeam_OR_Device_OR_Endpoint_OR_HealthCareService_OR_Location_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who should receive result of 
+    fhir:deliverTo @<OneOrMore_Reference_CareTeam_OR_Device_OR_Endpoint_OR_HealthcareService_OR_Location_OR_Organization_OR_Patient_OR_Practitioner_OR_PractitionerRole_OR_RelatedPerson>?;  # Who should receive result of 
                                             # {{title}} 
     fhir:reason @<OneOrMore_CodeableReference>?;  # Why is service (not) needed?
     fhir:insurance @<OneOrMore_Reference_ClaimResponse_OR_Coverage>?;  # Associated insurance coverage
