@@ -29,4 +29,4 @@ Use the [manifest.yaml](manifest.yaml) in [shex-simple](https://shex.io/webapps/
 ### Testing ShEx Schema Strucure & Constraint Patterns
 The page dedicated to support our 2023 JBI Submission for ShEx Schema Generation
 Title: "Shape Expressions (ShEx) Schemas for the FHIR R5 Specification"
-- [ShEx Schemas Validation](2023JBISubmissionSupport/ValidationExamples)
+- [ShEx Schemas Validation](2023JBISubmissionSupport/validation_examples)
