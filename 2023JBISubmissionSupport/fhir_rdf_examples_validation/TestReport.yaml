@@ -1,7 +1,7 @@
 
 - schemaLabel: TestReport
-  schemaURL: ../../ShExSchemas/R5Plus/TestReport.shex
+  schemaURL: ShExSchemas/R5Plus/TestReport.shex
   dataLabel: testreport-example
-  dataURL: ../../../FHIR_RDF_Examples/R5/testreport-example.ttl
+  dataURL: FHIR_RDF_Examples/R5/testreport-example.ttl
   queryMap: "{FOCUS a fhir:TestReport}@<TestReport>"
   status: conformant

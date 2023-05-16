@@ -31,7 +31,7 @@ def get_shex_schema_from_examples(examples, shex, output):
         rm.write('# FHIR RDF Data Validation Mainfests\n\n| Example | Description |\n| ------- | ----------- |')
 
     shex_validator='https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=https://fhircat.github.io/validation/2023JBISubmissionSupport/fhir_rdf_examples_validation/'
-    for root, dirs, files in os.walk(examples):
+    for root, dirs, files in os.walk(os.path.join(output_loc,examples)):
         for x in files:
             if ext in x:
                 print(f'Processing File: {x}')
@@ -62,8 +62,8 @@ def get_shex_schema_from_examples(examples, shex, output):
 
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    example_dir = '../../../FHIR_RDF_Examples/R5/'
-    shex_dir = '../../ShExSchemas/R5Plus/'
+    example_dir = 'FHIR_RDF_Examples/R5/'
+    shex_dir = 'ShExSchemas/R5Plus/'
     output_dir = '../../../2023JBISubmissionSupport/fhir_rdf_examples_validation'
     resource_examples = get_shex_schema_from_examples(example_dir, shex_dir, output_dir)
 
