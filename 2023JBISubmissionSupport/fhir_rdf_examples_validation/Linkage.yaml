@@ -1,0 +1,7 @@
+
+- schemaLabel: Linkage
+	schemaURL: Linkage.shex
+	dataLabel: linkage-example
+	dataURL: linkage-example.ttl
+	queryMap: "{FOCUS a fhir:Linkage}@<Linkage>"
+	status: conformant

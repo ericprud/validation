@@ -1,0 +1,14 @@
+
+- schemaLabel: Composition
+	schemaURL: Composition.shex
+	dataLabel: composition-example
+	dataURL: composition-example.ttl
+	queryMap: "{FOCUS a fhir:Composition}@<Composition>"
+	status: conformant
+
+- schemaLabel: Composition
+	schemaURL: Composition.shex
+	dataLabel: composition-example-mixed
+	dataURL: composition-example-mixed.ttl
+	queryMap: "{FOCUS a fhir:Composition}@<Composition>"
+	status: conformant

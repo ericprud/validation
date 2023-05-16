@@ -1,0 +1,14 @@
+
+- schemaLabel: Binary
+	schemaURL: Binary.shex
+	dataLabel: binary-example
+	dataURL: binary-example.ttl
+	queryMap: "{FOCUS a fhir:Binary}@<Binary>"
+	status: conformant
+
+- schemaLabel: Binary
+	schemaURL: Binary.shex
+	dataLabel: binary-f006
+	dataURL: binary-f006.ttl
+	queryMap: "{FOCUS a fhir:Binary}@<Binary>"
+	status: conformant

@@ -1,0 +1,21 @@
+
+- schemaLabel: MessageDefinition
+	schemaURL: MessageDefinition.shex
+	dataLabel: messagedefinition-example
+	dataURL: messagedefinition-example.ttl
+	queryMap: "{FOCUS a fhir:MessageDefinition}@<MessageDefinition>"
+	status: conformant
+
+- schemaLabel: MessageDefinition
+	schemaURL: MessageDefinition.shex
+	dataLabel: messagedefinition-patient-link-response
+	dataURL: messagedefinition-patient-link-response.ttl
+	queryMap: "{FOCUS a fhir:MessageDefinition}@<MessageDefinition>"
+	status: conformant
+
+- schemaLabel: MessageDefinition
+	schemaURL: MessageDefinition.shex
+	dataLabel: messagedefinition-patient-link-notification
+	dataURL: messagedefinition-patient-link-notification.ttl
+	queryMap: "{FOCUS a fhir:MessageDefinition}@<MessageDefinition>"
+	status: conformant

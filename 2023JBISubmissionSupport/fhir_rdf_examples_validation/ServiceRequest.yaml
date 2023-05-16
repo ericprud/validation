@@ -1,0 +1,175 @@
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example
+	dataURL: servicerequest-example.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-lipid
+	dataURL: servicerequest-example-lipid.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-pt
+	dataURL: servicerequest-example-pt.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-implant
+	dataURL: servicerequest-example-implant.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicSRFather
+	dataURL: ServiceRequest-genomicSRFather.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicSRProband
+	dataURL: ServiceRequest-genomicSRProband.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-myringotomy
+	dataURL: servicerequest-example-myringotomy.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicServiceRequest2
+	dataURL: ServiceRequest-genomicServiceRequest2.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicServiceRequest3
+	dataURL: ServiceRequest-genomicServiceRequest3.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-ob
+	dataURL: servicerequest-example-ob.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-ambulation
+	dataURL: servicerequest-example-ambulation.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-colonoscopy
+	dataURL: servicerequest-example-colonoscopy.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-ventilation
+	dataURL: servicerequest-example-ventilation.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicServiceRequest4
+	dataURL: ServiceRequest-genomicServiceRequest4.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-edu
+	dataURL: servicerequest-example-edu.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-ft4
+	dataURL: servicerequest-example-ft4.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example4
+	dataURL: servicerequest-example4.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-appendectomy
+	dataURL: servicerequest-example-appendectomy.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-colonoscopy-bx
+	dataURL: servicerequest-example-colonoscopy-bx.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example3
+	dataURL: servicerequest-example3.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example2
+	dataURL: servicerequest-example2.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicServiceRequest
+	dataURL: ServiceRequest-genomicServiceRequest.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-di
+	dataURL: servicerequest-example-di.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: ServiceRequest-genomicSRMother
+	dataURL: ServiceRequest-genomicSRMother.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant
+
+- schemaLabel: ServiceRequest
+	schemaURL: ServiceRequest.shex
+	dataLabel: servicerequest-example-subrequest
+	dataURL: servicerequest-example-subrequest.ttl
+	queryMap: "{FOCUS a fhir:ServiceRequest}@<ServiceRequest>"
+	status: conformant

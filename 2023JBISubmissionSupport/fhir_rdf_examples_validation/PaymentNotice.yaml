@@ -1,0 +1,7 @@
+
+- schemaLabel: PaymentNotice
+	schemaURL: PaymentNotice.shex
+	dataLabel: paymentnotice-example
+	dataURL: paymentnotice-example.ttl
+	queryMap: "{FOCUS a fhir:PaymentNotice}@<PaymentNotice>"
+	status: conformant

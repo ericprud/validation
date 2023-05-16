@@ -1,0 +1,14 @@
+
+- schemaLabel: ImmunizationRecommendation
+	schemaURL: ImmunizationRecommendation.shex
+	dataLabel: immunizationrecommendation-example
+	dataURL: immunizationrecommendation-example.ttl
+	queryMap: "{FOCUS a fhir:ImmunizationRecommendation}@<ImmunizationRecommendation>"
+	status: conformant
+
+- schemaLabel: ImmunizationRecommendation
+	schemaURL: ImmunizationRecommendation.shex
+	dataLabel: immunizationrecommendation-example-target-disease
+	dataURL: immunizationrecommendation-example-target-disease.ttl
+	queryMap: "{FOCUS a fhir:ImmunizationRecommendation}@<ImmunizationRecommendation>"
+	status: conformant

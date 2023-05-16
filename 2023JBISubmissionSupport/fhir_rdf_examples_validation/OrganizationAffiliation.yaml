@@ -1,0 +1,21 @@
+
+- schemaLabel: OrganizationAffiliation
+	schemaURL: OrganizationAffiliation.shex
+	dataLabel: orgrole-example-hie
+	dataURL: orgrole-example-hie.ttl
+	queryMap: "{FOCUS a fhir:OrganizationAffiliation}@<OrganizationAffiliation>"
+	status: conformant
+
+- schemaLabel: OrganizationAffiliation
+	schemaURL: OrganizationAffiliation.shex
+	dataLabel: orgrole-example-services
+	dataURL: orgrole-example-services.ttl
+	queryMap: "{FOCUS a fhir:OrganizationAffiliation}@<OrganizationAffiliation>"
+	status: conformant
+
+- schemaLabel: OrganizationAffiliation
+	schemaURL: OrganizationAffiliation.shex
+	dataLabel: organizationaffiliation-example
+	dataURL: organizationaffiliation-example.ttl
+	queryMap: "{FOCUS a fhir:OrganizationAffiliation}@<OrganizationAffiliation>"
+	status: conformant

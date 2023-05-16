@@ -1,0 +1,14 @@
+
+- schemaLabel: ImagingStudy
+	schemaURL: ImagingStudy.shex
+	dataLabel: imagingstudy-example-xr
+	dataURL: imagingstudy-example-xr.ttl
+	queryMap: "{FOCUS a fhir:ImagingStudy}@<ImagingStudy>"
+	status: conformant
+
+- schemaLabel: ImagingStudy
+	schemaURL: ImagingStudy.shex
+	dataLabel: imagingstudy-example
+	dataURL: imagingstudy-example.ttl
+	queryMap: "{FOCUS a fhir:ImagingStudy}@<ImagingStudy>"
+	status: conformant

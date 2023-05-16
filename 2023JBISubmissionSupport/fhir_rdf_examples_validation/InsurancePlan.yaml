@@ -1,0 +1,7 @@
+
+- schemaLabel: InsurancePlan
+	schemaURL: InsurancePlan.shex
+	dataLabel: insuranceplan-example
+	dataURL: insuranceplan-example.ttl
+	queryMap: "{FOCUS a fhir:InsurancePlan}@<InsurancePlan>"
+	status: conformant

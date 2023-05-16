@@ -1,0 +1,14 @@
+
+- schemaLabel: Account
+	schemaURL: Account.shex
+	dataLabel: account-example-with-guarantor
+	dataURL: account-example-with-guarantor.ttl
+	queryMap: "{FOCUS a fhir:Account}@<Account>"
+	status: conformant
+
+- schemaLabel: Account
+	schemaURL: Account.shex
+	dataLabel: account-example
+	dataURL: account-example.ttl
+	queryMap: "{FOCUS a fhir:Account}@<Account>"
+	status: conformant

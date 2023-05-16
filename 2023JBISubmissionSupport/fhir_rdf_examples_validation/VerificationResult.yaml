@@ -1,0 +1,7 @@
+
+- schemaLabel: VerificationResult
+	schemaURL: VerificationResult.shex
+	dataLabel: verificationresult-example
+	dataURL: verificationresult-example.ttl
+	queryMap: "{FOCUS a fhir:VerificationResult}@<VerificationResult>"
+	status: conformant

@@ -1,0 +1,56 @@
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-example
+	dataURL: medicinalproductdefinition-example.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete
+	dataURL: medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-with-contained-package-and-ingredient
+	dataURL: medicinalproductdefinition-with-contained-package-and-ingredient.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-example-equilidem-using-ingredient-and-auth
+	dataURL: medicinalproductdefinition-example-equilidem-using-ingredient-and-auth.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-example-combo-product
+	dataURL: medicinalproductdefinition-example-combo-product.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-example-co-packaged-liquid-and-syringe
+	dataURL: medicinalproductdefinition-example-co-packaged-liquid-and-syringe.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-example-equilidem-basics
+	dataURL: medicinalproductdefinition-example-equilidem-basics.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant
+
+- schemaLabel: MedicinalProductDefinition
+	schemaURL: MedicinalProductDefinition.shex
+	dataLabel: medicinalproductdefinition-acetaminophen-500mg-tablets-box-of-20
+	dataURL: medicinalproductdefinition-acetaminophen-500mg-tablets-box-of-20.ttl
+	queryMap: "{FOCUS a fhir:MedicinalProductDefinition}@<MedicinalProductDefinition>"
+	status: conformant

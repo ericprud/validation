@@ -1,0 +1,7 @@
+
+- schemaLabel: ChargeItem
+	schemaURL: ChargeItem.shex
+	dataLabel: chargeitem-example
+	dataURL: chargeitem-example.ttl
+	queryMap: "{FOCUS a fhir:ChargeItem}@<ChargeItem>"
+	status: conformant

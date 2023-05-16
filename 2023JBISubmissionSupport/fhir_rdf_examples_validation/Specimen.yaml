@@ -1,0 +1,84 @@
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-denovo-3
+	dataURL: Specimen-denovo-3.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-denovo-2
+	dataURL: Specimen-denovo-2.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-denovo-1
+	dataURL: Specimen-denovo-1.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: specimen-example-pooled-serum
+	dataURL: specimen-example-pooled-serum.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-specimenProband
+	dataURL: Specimen-specimenProband.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-specimenMother
+	dataURL: Specimen-specimenMother.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: specimen-example-isolate
+	dataURL: specimen-example-isolate.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: specimen-example-urine
+	dataURL: specimen-example-urine.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: specimen-example-serum
+	dataURL: specimen-example-serum.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-genomicSpecimen
+	dataURL: Specimen-genomicSpecimen.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: Specimen-specimenFather
+	dataURL: Specimen-specimenFather.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant
+
+- schemaLabel: Specimen
+	schemaURL: Specimen.shex
+	dataLabel: specimen-example
+	dataURL: specimen-example.ttl
+	queryMap: "{FOCUS a fhir:Specimen}@<Specimen>"
+	status: conformant

@@ -1,0 +1,7 @@
+
+- schemaLabel: EventDefinition
+	schemaURL: EventDefinition.shex
+	dataLabel: eventdefinition-example
+	dataURL: eventdefinition-example.ttl
+	queryMap: "{FOCUS a fhir:EventDefinition}@<EventDefinition>"
+	status: conformant

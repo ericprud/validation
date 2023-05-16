@@ -1,0 +1,14 @@
+
+- schemaLabel: Basic
+	schemaURL: Basic.shex
+	dataLabel: basic-example-narrative
+	dataURL: basic-example-narrative.ttl
+	queryMap: "{FOCUS a fhir:Basic}@<Basic>"
+	status: conformant
+
+- schemaLabel: Basic
+	schemaURL: Basic.shex
+	dataLabel: basic-example2
+	dataURL: basic-example2.ttl
+	queryMap: "{FOCUS a fhir:Basic}@<Basic>"
+	status: conformant

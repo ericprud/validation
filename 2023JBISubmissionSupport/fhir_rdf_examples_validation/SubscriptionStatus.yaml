@@ -1,0 +1,7 @@
+
+- schemaLabel: SubscriptionStatus
+	schemaURL: SubscriptionStatus.shex
+	dataLabel: subscriptionstatus-example
+	dataURL: subscriptionstatus-example.ttl
+	queryMap: "{FOCUS a fhir:SubscriptionStatus}@<SubscriptionStatus>"
+	status: conformant

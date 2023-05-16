@@ -1,0 +1,7 @@
+
+- schemaLabel: EnrollmentResponse
+	schemaURL: EnrollmentResponse.shex
+	dataLabel: enrollmentresponse-example
+	dataURL: enrollmentresponse-example.ttl
+	queryMap: "{FOCUS a fhir:EnrollmentResponse}@<EnrollmentResponse>"
+	status: conformant

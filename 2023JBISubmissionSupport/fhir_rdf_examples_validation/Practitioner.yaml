@@ -1,0 +1,119 @@
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-xcda1
+	dataURL: practitioner-example-xcda1.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f005-al
+	dataURL: practitioner-example-f005-al.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f201-ab
+	dataURL: practitioner-example-f201-ab.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f006-rvdb
+	dataURL: practitioner-example-f006-rvdb.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f204-ce
+	dataURL: practitioner-example-f204-ce.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f004-rb
+	dataURL: practitioner-example-f004-rb.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-xcda-author
+	dataURL: practitioner-example-xcda-author.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f202-lm
+	dataURL: practitioner-example-f202-lm.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-prac4
+	dataURL: practitioner-example-prac4.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f007-sh
+	dataURL: practitioner-example-f007-sh.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f003-mv
+	dataURL: practitioner-example-f003-mv.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f002-pv
+	dataURL: practitioner-example-f002-pv.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: Practitioner-practitioner01
+	dataURL: Practitioner-practitioner01.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f203-jvg
+	dataURL: practitioner-example-f203-jvg.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: Practitioner-practitioner02
+	dataURL: Practitioner-practitioner02.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example
+	dataURL: practitioner-example.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant
+
+- schemaLabel: Practitioner
+	schemaURL: Practitioner.shex
+	dataLabel: practitioner-example-f001-evdb
+	dataURL: practitioner-example-f001-evdb.ttl
+	queryMap: "{FOCUS a fhir:Practitioner}@<Practitioner>"
+	status: conformant

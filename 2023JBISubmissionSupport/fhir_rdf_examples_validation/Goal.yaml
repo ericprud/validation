@@ -1,0 +1,14 @@
+
+- schemaLabel: Goal
+	schemaURL: Goal.shex
+	dataLabel: goal-example
+	dataURL: goal-example.ttl
+	queryMap: "{FOCUS a fhir:Goal}@<Goal>"
+	status: conformant
+
+- schemaLabel: Goal
+	schemaURL: Goal.shex
+	dataLabel: goal-example-stop-smoking
+	dataURL: goal-example-stop-smoking.ttl
+	queryMap: "{FOCUS a fhir:Goal}@<Goal>"
+	status: conformant

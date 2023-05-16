@@ -1,0 +1,581 @@
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: ratiorange
+	dataURL: ratiorange.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: identifier
+	dataURL: identifier.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: code
+	dataURL: code.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: range
+	dataURL: range.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: attachment
+	dataURL: attachment.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: extendedcontactdetail
+	dataURL: extendedcontactdetail.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: canonical
+	dataURL: canonical.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: uri
+	dataURL: uri.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: definition
+	dataURL: definition.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: availability
+	dataURL: availability.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: primitivetype
+	dataURL: primitivetype.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: url
+	dataURL: url.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: unsignedint
+	dataURL: unsignedint.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: coding
+	dataURL: coding.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: xhtml
+	dataURL: xhtml.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: event
+	dataURL: event.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: contributor
+	dataURL: contributor.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: markdown
+	dataURL: markdown.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: signature
+	dataURL: signature.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: ratio
+	dataURL: ratio.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: annotation
+	dataURL: annotation.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: meta
+	dataURL: meta.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: money
+	dataURL: money.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: contactpoint
+	dataURL: contactpoint.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: productshelflife
+	dataURL: productshelflife.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: participantcontactable
+	dataURL: participantcontactable.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: datetime
+	dataURL: datetime.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: product
+	dataURL: product.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: datarequirement
+	dataURL: datarequirement.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: boolean
+	dataURL: boolean.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: fivews
+	dataURL: fivews.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: shareable
+	dataURL: shareable.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: elementdefinition
+	dataURL: elementdefinition.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: moneyquantity
+	dataURL: moneyquantity.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: distance
+	dataURL: distance.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: count
+	dataURL: count.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: marketingstatus
+	dataURL: marketingstatus.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: codeablereference
+	dataURL: codeablereference.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: timing
+	dataURL: timing.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: narrative
+	dataURL: narrative.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: backboneelement
+	dataURL: backboneelement.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: usagecontext
+	dataURL: usagecontext.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: reference
+	dataURL: reference.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: integer64
+	dataURL: integer64.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: element
+	dataURL: element.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: relatedartifact
+	dataURL: relatedartifact.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: quantity
+	dataURL: quantity.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: age
+	dataURL: age.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: extension
+	dataURL: extension.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: structuredefinition-example-section-library
+	dataURL: structuredefinition-example-section-library.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: structuredefinition-example-composition
+	dataURL: structuredefinition-example-composition.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: expression
+	dataURL: expression.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: parameterdefinition
+	dataURL: parameterdefinition.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: dosage
+	dataURL: dosage.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: integer
+	dataURL: integer.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: participant
+	dataURL: participant.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: address
+	dataURL: address.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: monetarycomponent
+	dataURL: monetarycomponent.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: base
+	dataURL: base.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: uuid
+	dataURL: uuid.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: id
+	dataURL: id.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: time
+	dataURL: time.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: instant
+	dataURL: instant.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: request
+	dataURL: request.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: oid
+	dataURL: oid.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: participantliving
+	dataURL: participantliving.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: period
+	dataURL: period.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: humanname
+	dataURL: humanname.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: backbonetype
+	dataURL: backbonetype.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: triggerdefinition
+	dataURL: triggerdefinition.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: date
+	dataURL: date.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: simplequantity
+	dataURL: simplequantity.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: publishable
+	dataURL: publishable.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: contactdetail
+	dataURL: contactdetail.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: positiveint
+	dataURL: positiveint.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: virtualservicedetail
+	dataURL: virtualservicedetail.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: decimal
+	dataURL: decimal.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: base64binary
+	dataURL: base64binary.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: codeableconcept
+	dataURL: codeableconcept.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: datatype
+	dataURL: datatype.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: sampleddata
+	dataURL: sampleddata.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: duration
+	dataURL: duration.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant
+
+- schemaLabel: StructureDefinition
+	schemaURL: StructureDefinition.shex
+	dataLabel: string
+	dataURL: string.profile.ttl
+	queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
+	status: conformant

@@ -1,0 +1,21 @@
+
+- schemaLabel: BiologicallyDerivedProduct
+	schemaURL: BiologicallyDerivedProduct.shex
+	dataLabel: biologicallyderivedproduct-example-autologousHCT
+	dataURL: biologicallyderivedproduct-example-autologousHCT.ttl
+	queryMap: "{FOCUS a fhir:BiologicallyDerivedProduct}@<BiologicallyDerivedProduct>"
+	status: conformant
+
+- schemaLabel: BiologicallyDerivedProduct
+	schemaURL: BiologicallyDerivedProduct.shex
+	dataLabel: biologicallyderivedproduct-example
+	dataURL: biologicallyderivedproduct-example.ttl
+	queryMap: "{FOCUS a fhir:BiologicallyDerivedProduct}@<BiologicallyDerivedProduct>"
+	status: conformant
+
+- schemaLabel: BiologicallyDerivedProduct
+	schemaURL: BiologicallyDerivedProduct.shex
+	dataLabel: biologicallyderivedproduct-example-allogeneicHCT
+	dataURL: biologicallyderivedproduct-example-allogeneicHCT.ttl
+	queryMap: "{FOCUS a fhir:BiologicallyDerivedProduct}@<BiologicallyDerivedProduct>"
+	status: conformant

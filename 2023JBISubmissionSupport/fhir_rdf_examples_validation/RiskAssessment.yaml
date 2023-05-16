@@ -1,0 +1,42 @@
+
+- schemaLabel: RiskAssessment
+	schemaURL: RiskAssessment.shex
+	dataLabel: riskassessment-example-population
+	dataURL: riskassessment-example-population.ttl
+	queryMap: "{FOCUS a fhir:RiskAssessment}@<RiskAssessment>"
+	status: conformant
+
+- schemaLabel: RiskAssessment
+	schemaURL: RiskAssessment.shex
+	dataLabel: riskassessment-example-cardiac
+	dataURL: riskassessment-example-cardiac.ttl
+	queryMap: "{FOCUS a fhir:RiskAssessment}@<RiskAssessment>"
+	status: conformant
+
+- schemaLabel: RiskAssessment
+	schemaURL: RiskAssessment.shex
+	dataLabel: riskassessment-example
+	dataURL: riskassessment-example.ttl
+	queryMap: "{FOCUS a fhir:RiskAssessment}@<RiskAssessment>"
+	status: conformant
+
+- schemaLabel: RiskAssessment
+	schemaURL: RiskAssessment.shex
+	dataLabel: riskassessment-example-breastcancer
+	dataURL: riskassessment-example-breastcancer.ttl
+	queryMap: "{FOCUS a fhir:RiskAssessment}@<RiskAssessment>"
+	status: conformant
+
+- schemaLabel: RiskAssessment
+	schemaURL: RiskAssessment.shex
+	dataLabel: riskassessment-example-prognosis
+	dataURL: riskassessment-example-prognosis.ttl
+	queryMap: "{FOCUS a fhir:RiskAssessment}@<RiskAssessment>"
+	status: conformant
+
+- schemaLabel: RiskAssessment
+	schemaURL: RiskAssessment.shex
+	dataLabel: riskassessment-riskexample
+	dataURL: riskassessment-riskexample.ttl
+	queryMap: "{FOCUS a fhir:RiskAssessment}@<RiskAssessment>"
+	status: conformant

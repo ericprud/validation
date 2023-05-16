@@ -1,0 +1,14 @@
+
+- schemaLabel: ChargeItemDefinition
+	schemaURL: ChargeItemDefinition.shex
+	dataLabel: chargeitemdefinition-ebm-example
+	dataURL: chargeitemdefinition-ebm-example.ttl
+	queryMap: "{FOCUS a fhir:ChargeItemDefinition}@<ChargeItemDefinition>"
+	status: conformant
+
+- schemaLabel: ChargeItemDefinition
+	schemaURL: ChargeItemDefinition.shex
+	dataLabel: chargeitemdefinition-device-example
+	dataURL: chargeitemdefinition-device-example.ttl
+	queryMap: "{FOCUS a fhir:ChargeItemDefinition}@<ChargeItemDefinition>"
+	status: conformant

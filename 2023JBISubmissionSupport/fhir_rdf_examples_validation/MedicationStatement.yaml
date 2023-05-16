@@ -1,0 +1,63 @@
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample9
+	dataURL: medicationstatementexample9.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample8
+	dataURL: medicationstatementexample8.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample5
+	dataURL: medicationstatementexample5.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample4
+	dataURL: medicationstatementexample4.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample6
+	dataURL: medicationstatementexample6.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample7
+	dataURL: medicationstatementexample7.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample3
+	dataURL: medicationstatementexample3.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample2
+	dataURL: medicationstatementexample2.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant
+
+- schemaLabel: MedicationStatement
+	schemaURL: MedicationStatement.shex
+	dataLabel: medicationstatementexample1
+	dataURL: medicationstatementexample1.ttl
+	queryMap: "{FOCUS a fhir:MedicationStatement}@<MedicationStatement>"
+	status: conformant

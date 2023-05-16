@@ -1,0 +1,14 @@
+
+- schemaLabel: ImmunizationEvaluation
+	schemaURL: ImmunizationEvaluation.shex
+	dataLabel: immunizationevaluation-example
+	dataURL: immunizationevaluation-example.ttl
+	queryMap: "{FOCUS a fhir:ImmunizationEvaluation}@<ImmunizationEvaluation>"
+	status: conformant
+
+- schemaLabel: ImmunizationEvaluation
+	schemaURL: ImmunizationEvaluation.shex
+	dataLabel: immunizationevaluation-example-notvalid
+	dataURL: immunizationevaluation-example-notvalid.ttl
+	queryMap: "{FOCUS a fhir:ImmunizationEvaluation}@<ImmunizationEvaluation>"
+	status: conformant

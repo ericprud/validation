@@ -1,0 +1,7 @@
+
+- schemaLabel: ManufacturedItemDefinition
+	schemaURL: ManufacturedItemDefinition.shex
+	dataLabel: manufactureditemdefinition-example
+	dataURL: manufactureditemdefinition-example.ttl
+	queryMap: "{FOCUS a fhir:ManufacturedItemDefinition}@<ManufacturedItemDefinition>"
+	status: conformant

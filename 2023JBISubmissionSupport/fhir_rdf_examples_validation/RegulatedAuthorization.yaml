@@ -1,0 +1,14 @@
+
+- schemaLabel: RegulatedAuthorization
+	schemaURL: RegulatedAuthorization.shex
+	dataLabel: regulatedauthorization-example
+	dataURL: regulatedauthorization-example.ttl
+	queryMap: "{FOCUS a fhir:RegulatedAuthorization}@<RegulatedAuthorization>"
+	status: conformant
+
+- schemaLabel: RegulatedAuthorization
+	schemaURL: RegulatedAuthorization.shex
+	dataLabel: regulatedauthorization-example-basic-drug-auth
+	dataURL: regulatedauthorization-example-basic-drug-auth.ttl
+	queryMap: "{FOCUS a fhir:RegulatedAuthorization}@<RegulatedAuthorization>"
+	status: conformant
