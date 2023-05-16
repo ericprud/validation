@@ -1,14 +1,14 @@
 
 - schemaLabel: VisionPrescription
-  schemaURL: VisionPrescription.shex
+  schemaURL: ../../ShExSchemas/R5Plus/VisionPrescription.shex
   dataLabel: visionprescription-example-1
-  dataURL: visionprescription-example-1.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/visionprescription-example-1.ttl
   queryMap: "{FOCUS a fhir:VisionPrescription}@<VisionPrescription>"
   status: conformant
 
 - schemaLabel: VisionPrescription
-  schemaURL: VisionPrescription.shex
+  schemaURL: ../../ShExSchemas/R5Plus/VisionPrescription.shex
   dataLabel: visionprescription-example
-  dataURL: visionprescription-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/visionprescription-example.ttl
   queryMap: "{FOCUS a fhir:VisionPrescription}@<VisionPrescription>"
   status: conformant

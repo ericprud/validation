@@ -1,84 +1,84 @@
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: molecularsequence-focus-example
-  dataURL: molecularsequence-focus-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/molecularsequence-focus-example.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: coord-0base-example
-  dataURL: coord-0base-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coord-0base-example.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-example-fusion
-  dataURL: sequence-example-fusion.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-example-fusion.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: coord-1base-example
-  dataURL: coord-1base-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coord-1base-example.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-complex-variant
-  dataURL: sequence-complex-variant.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-complex-variant.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-example-pgx-2
-  dataURL: sequence-example-pgx-2.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-example-pgx-2.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-example-TPMT-one
-  dataURL: sequence-example-TPMT-one.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-example-TPMT-one.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-example-ordinal
-  dataURL: sequence-example-ordinal.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-example-ordinal.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-example-pgx-1
-  dataURL: sequence-example-pgx-1.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-example-pgx-1.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-example-TPMT-two
-  dataURL: sequence-example-TPMT-two.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-example-TPMT-two.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: sequence-genetics-example-breastcancer
-  dataURL: sequence-genetics-example-breastcancer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sequence-genetics-example-breastcancer.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant
 
 - schemaLabel: MolecularSequence
-  schemaURL: MolecularSequence.shex
+  schemaURL: ../../ShExSchemas/R5Plus/MolecularSequence.shex
   dataLabel: molecularsequence-example
-  dataURL: molecularsequence-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/molecularsequence-example.ttl
   queryMap: "{FOCUS a fhir:MolecularSequence}@<MolecularSequence>"
   status: conformant

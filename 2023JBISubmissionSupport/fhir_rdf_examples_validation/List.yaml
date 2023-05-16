@@ -1,77 +1,77 @@
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example
-  dataURL: list-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-xds
-  dataURL: list-example-xds.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-xds.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-familyhistory-genetics-profile-annie
-  dataURL: list-example-familyhistory-genetics-profile-annie.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-familyhistory-genetics-profile-annie.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-medlist
-  dataURL: list-example-medlist.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-medlist.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-long
-  dataURL: list-example-long.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-long.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-empty
-  dataURL: list-example-empty.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-empty.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-double-cousin-relationship-pedigree
-  dataURL: list-example-double-cousin-relationship-pedigree.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-double-cousin-relationship-pedigree.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-simple-empty
-  dataURL: list-example-simple-empty.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-simple-empty.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-allergies
-  dataURL: list-example-allergies.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-allergies.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-familyhistory-f201-roel
-  dataURL: list-example-familyhistory-f201-roel.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-familyhistory-f201-roel.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant
 
 - schemaLabel: List
-  schemaURL: List.shex
+  schemaURL: ../../ShExSchemas/R5Plus/List.shex
   dataLabel: list-example-familyhistory-genetics-profile
-  dataURL: list-example-familyhistory-genetics-profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/list-example-familyhistory-genetics-profile.ttl
   queryMap: "{FOCUS a fhir:List}@<List>"
   status: conformant

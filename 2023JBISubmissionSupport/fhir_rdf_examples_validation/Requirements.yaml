@@ -1,14 +1,14 @@
 
 - schemaLabel: Requirements
-  schemaURL: Requirements.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Requirements.shex
   dataLabel: Requirements-example2
-  dataURL: Requirements-example2.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/Requirements-example2.ttl
   queryMap: "{FOCUS a fhir:Requirements}@<Requirements>"
   status: conformant
 
 - schemaLabel: Requirements
-  schemaURL: Requirements.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Requirements.shex
   dataLabel: Requirements-example1
-  dataURL: Requirements-example1.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/Requirements-example1.ttl
   queryMap: "{FOCUS a fhir:Requirements}@<Requirements>"
   status: conformant

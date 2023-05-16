@@ -1,7 +1,7 @@
 
 - schemaLabel: EncounterHistory
-  schemaURL: EncounterHistory.shex
+  schemaURL: ../../ShExSchemas/R5Plus/EncounterHistory.shex
   dataLabel: encounterhistory-example
-  dataURL: encounterhistory-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/encounterhistory-example.ttl
   queryMap: "{FOCUS a fhir:EncounterHistory}@<EncounterHistory>"
   status: conformant

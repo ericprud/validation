@@ -47,11 +47,11 @@ def get_shex_schema_from_examples(examples, shex, output):
                         example_loc = x.split(".")[0]
                         filepath = os.path.join(output_loc, shex_name + '.yaml')
                         with open(filepath, 'a+') as outf:
-                            outf.write(f'\n- schemaLabel: {shex_name}\n  schemaURL: {shex_loc}\n  dataLabel: {example_loc}\n  dataURL: {x}\n  queryMap: "{{FOCUS a fhir:{shex_name}}}@<{shex_name}>"\n  status: conformant\n');
+                            outf.write(f'\n- schemaLabel: {shex_name}\n  schemaURL: {shex}{shex_loc}\n  dataLabel: {example_loc}\n  dataURL: {examples}{x}\n  queryMap: "{{FOCUS a fhir:{shex_name}}}@<{shex_name}>"\n  status: conformant\n');
 
                         if not (shex_name in unique_yamls):
                             with open(readme, 'a+') as rma:
-                                rma.write(f'\n| [{example_loc}]({shex_validator}{shex_name}.yaml) | {shex_name} |')
+                                rma.write(f'\n| {shex_name} | [{example_loc}]({shex_validator}{shex_name}.yaml) |')
                             unique_yamls.append(shex_name)
                     else:
                         print(f'Could not map for File: {x}')
@@ -62,8 +62,8 @@ def get_shex_schema_from_examples(examples, shex, output):
 
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    example_dir = '../../../FHIR_RDF_Examples/R5'
-    shex_dir = '../../../ShExSchemas/R5Plus'
+    example_dir = '../../../FHIR_RDF_Examples/R5/'
+    shex_dir = '../../ShExSchemas/R5Plus/'
     output_dir = '../../../2023JBISubmissionSupport/fhir_rdf_examples_validation'
     resource_examples = get_shex_schema_from_examples(example_dir, shex_dir, output_dir)
 

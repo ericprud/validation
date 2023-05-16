@@ -1,28 +1,28 @@
 
 - schemaLabel: Coverage
-  schemaURL: Coverage.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Coverage.shex
   dataLabel: coverage-example-2
-  dataURL: coverage-example-2.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coverage-example-2.ttl
   queryMap: "{FOCUS a fhir:Coverage}@<Coverage>"
   status: conformant
 
 - schemaLabel: Coverage
-  schemaURL: Coverage.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Coverage.shex
   dataLabel: coverage-example
-  dataURL: coverage-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coverage-example.ttl
   queryMap: "{FOCUS a fhir:Coverage}@<Coverage>"
   status: conformant
 
 - schemaLabel: Coverage
-  schemaURL: Coverage.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Coverage.shex
   dataLabel: coverage-example-ehic
-  dataURL: coverage-example-ehic.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coverage-example-ehic.ttl
   queryMap: "{FOCUS a fhir:Coverage}@<Coverage>"
   status: conformant
 
 - schemaLabel: Coverage
-  schemaURL: Coverage.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Coverage.shex
   dataLabel: coverage-example-selfpay
-  dataURL: coverage-example-selfpay.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coverage-example-selfpay.ttl
   queryMap: "{FOCUS a fhir:Coverage}@<Coverage>"
   status: conformant

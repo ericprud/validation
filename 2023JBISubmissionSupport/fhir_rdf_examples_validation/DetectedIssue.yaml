@@ -1,28 +1,28 @@
 
 - schemaLabel: DetectedIssue
-  schemaURL: DetectedIssue.shex
+  schemaURL: ../../ShExSchemas/R5Plus/DetectedIssue.shex
   dataLabel: detectedissue-example
-  dataURL: detectedissue-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/detectedissue-example.ttl
   queryMap: "{FOCUS a fhir:DetectedIssue}@<DetectedIssue>"
   status: conformant
 
 - schemaLabel: DetectedIssue
-  schemaURL: DetectedIssue.shex
+  schemaURL: ../../ShExSchemas/R5Plus/DetectedIssue.shex
   dataLabel: detectedissue-example-lab
-  dataURL: detectedissue-example-lab.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/detectedissue-example-lab.ttl
   queryMap: "{FOCUS a fhir:DetectedIssue}@<DetectedIssue>"
   status: conformant
 
 - schemaLabel: DetectedIssue
-  schemaURL: DetectedIssue.shex
+  schemaURL: ../../ShExSchemas/R5Plus/DetectedIssue.shex
   dataLabel: detectedissue-example-dup
-  dataURL: detectedissue-example-dup.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/detectedissue-example-dup.ttl
   queryMap: "{FOCUS a fhir:DetectedIssue}@<DetectedIssue>"
   status: conformant
 
 - schemaLabel: DetectedIssue
-  schemaURL: DetectedIssue.shex
+  schemaURL: ../../ShExSchemas/R5Plus/DetectedIssue.shex
   dataLabel: detectedissue-example-allergy
-  dataURL: detectedissue-example-allergy.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/detectedissue-example-allergy.ttl
   queryMap: "{FOCUS a fhir:DetectedIssue}@<DetectedIssue>"
   status: conformant

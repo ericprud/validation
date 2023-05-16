@@ -1,7 +1,7 @@
 
 - schemaLabel: EventDefinition
-  schemaURL: EventDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/EventDefinition.shex
   dataLabel: eventdefinition-example
-  dataURL: eventdefinition-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/eventdefinition-example.ttl
   queryMap: "{FOCUS a fhir:EventDefinition}@<EventDefinition>"
   status: conformant

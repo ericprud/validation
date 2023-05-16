@@ -1,42 +1,42 @@
 
 - schemaLabel: OperationOutcome
-  schemaURL: OperationOutcome.shex
+  schemaURL: ../../ShExSchemas/R5Plus/OperationOutcome.shex
   dataLabel: operationoutcome-example-allok
-  dataURL: operationoutcome-example-allok.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/operationoutcome-example-allok.ttl
   queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
   status: conformant
 
 - schemaLabel: OperationOutcome
-  schemaURL: OperationOutcome.shex
+  schemaURL: ../../ShExSchemas/R5Plus/OperationOutcome.shex
   dataLabel: operationoutcome-example-validationfail
-  dataURL: operationoutcome-example-validationfail.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/operationoutcome-example-validationfail.ttl
   queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
   status: conformant
 
 - schemaLabel: OperationOutcome
-  schemaURL: OperationOutcome.shex
+  schemaURL: ../../ShExSchemas/R5Plus/OperationOutcome.shex
   dataLabel: operationoutcome-example
-  dataURL: operationoutcome-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/operationoutcome-example.ttl
   queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
   status: conformant
 
 - schemaLabel: OperationOutcome
-  schemaURL: OperationOutcome.shex
+  schemaURL: ../../ShExSchemas/R5Plus/OperationOutcome.shex
   dataLabel: operationoutcome-example-break-the-glass
-  dataURL: operationoutcome-example-break-the-glass.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/operationoutcome-example-break-the-glass.ttl
   queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
   status: conformant
 
 - schemaLabel: OperationOutcome
-  schemaURL: OperationOutcome.shex
+  schemaURL: ../../ShExSchemas/R5Plus/OperationOutcome.shex
   dataLabel: operationoutcome-example-exception
-  dataURL: operationoutcome-example-exception.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/operationoutcome-example-exception.ttl
   queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
   status: conformant
 
 - schemaLabel: OperationOutcome
-  schemaURL: OperationOutcome.shex
+  schemaURL: ../../ShExSchemas/R5Plus/OperationOutcome.shex
   dataLabel: operationoutcome-example-searchfail
-  dataURL: operationoutcome-example-searchfail.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/operationoutcome-example-searchfail.ttl
   queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
   status: conformant

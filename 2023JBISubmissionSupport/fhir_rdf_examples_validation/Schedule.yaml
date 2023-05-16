@@ -1,28 +1,28 @@
 
 - schemaLabel: Schedule
-  schemaURL: Schedule.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Schedule.shex
   dataLabel: schedule-example
-  dataURL: schedule-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/schedule-example.ttl
   queryMap: "{FOCUS a fhir:Schedule}@<Schedule>"
   status: conformant
 
 - schemaLabel: Schedule
-  schemaURL: Schedule.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Schedule.shex
   dataLabel: schedule-provider-location2-example
-  dataURL: schedule-provider-location2-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/schedule-provider-location2-example.ttl
   queryMap: "{FOCUS a fhir:Schedule}@<Schedule>"
   status: conformant
 
 - schemaLabel: Schedule
-  schemaURL: Schedule.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Schedule.shex
   dataLabel: schedule-example-hcs
-  dataURL: schedule-example-hcs.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/schedule-example-hcs.ttl
   queryMap: "{FOCUS a fhir:Schedule}@<Schedule>"
   status: conformant
 
 - schemaLabel: Schedule
-  schemaURL: Schedule.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Schedule.shex
   dataLabel: schedule-provider-location1-example
-  dataURL: schedule-provider-location1-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/schedule-provider-location1-example.ttl
   queryMap: "{FOCUS a fhir:Schedule}@<Schedule>"
   status: conformant

@@ -1,7 +1,7 @@
 
 - schemaLabel: DeviceAssociation
-  schemaURL: DeviceAssociation.shex
+  schemaURL: ../../ShExSchemas/R5Plus/DeviceAssociation.shex
   dataLabel: deviceassociation-example
-  dataURL: deviceassociation-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/deviceassociation-example.ttl
   queryMap: "{FOCUS a fhir:DeviceAssociation}@<DeviceAssociation>"
   status: conformant

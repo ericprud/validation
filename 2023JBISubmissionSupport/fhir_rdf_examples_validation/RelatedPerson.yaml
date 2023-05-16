@@ -1,49 +1,49 @@
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: relatedperson-example-peter
-  dataURL: relatedperson-example-peter.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/relatedperson-example-peter.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: relatedperson-example
-  dataURL: relatedperson-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/relatedperson-example.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: RelatedPerson-denovoFather
-  dataURL: RelatedPerson-denovoFather.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/RelatedPerson-denovoFather.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: relatedperson-example-newborn-mom
-  dataURL: relatedperson-example-newborn-mom.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/relatedperson-example-newborn-mom.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: relatedperson-example-f002-ariadne
-  dataURL: relatedperson-example-f002-ariadne.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/relatedperson-example-f002-ariadne.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: relatedperson-example-f001-sarah
-  dataURL: relatedperson-example-f001-sarah.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/relatedperson-example-f001-sarah.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant
 
 - schemaLabel: RelatedPerson
-  schemaURL: RelatedPerson.shex
+  schemaURL: ../../ShExSchemas/R5Plus/RelatedPerson.shex
   dataLabel: RelatedPerson-denovoMother
-  dataURL: RelatedPerson-denovoMother.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/RelatedPerson-denovoMother.ttl
   queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
   status: conformant

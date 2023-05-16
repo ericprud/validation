@@ -1,28 +1,28 @@
 
 - schemaLabel: NamingSystem
-  schemaURL: NamingSystem.shex
+  schemaURL: ../../ShExSchemas/R5Plus/NamingSystem.shex
   dataLabel: namingsystem-example
-  dataURL: namingsystem-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/namingsystem-example.ttl
   queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
   status: conformant
 
 - schemaLabel: NamingSystem
-  schemaURL: NamingSystem.shex
+  schemaURL: ../../ShExSchemas/R5Plus/NamingSystem.shex
   dataLabel: namingsystem-example-metadata
-  dataURL: namingsystem-example-metadata.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/namingsystem-example-metadata.ttl
   queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
   status: conformant
 
 - schemaLabel: NamingSystem
-  schemaURL: NamingSystem.shex
+  schemaURL: ../../ShExSchemas/R5Plus/NamingSystem.shex
   dataLabel: namingsystem-example-id
-  dataURL: namingsystem-example-id.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/namingsystem-example-id.ttl
   queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
   status: conformant
 
 - schemaLabel: NamingSystem
-  schemaURL: NamingSystem.shex
+  schemaURL: ../../ShExSchemas/R5Plus/NamingSystem.shex
   dataLabel: namingsystem-example-metadata-2
-  dataURL: namingsystem-example-metadata-2.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/namingsystem-example-metadata-2.ttl
   queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
   status: conformant

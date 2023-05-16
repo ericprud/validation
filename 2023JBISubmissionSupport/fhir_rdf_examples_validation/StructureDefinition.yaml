@@ -1,581 +1,581 @@
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: ratiorange
-  dataURL: ratiorange.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/ratiorange.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: identifier
-  dataURL: identifier.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/identifier.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: code
-  dataURL: code.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/code.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: range
-  dataURL: range.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/range.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: attachment
-  dataURL: attachment.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/attachment.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: extendedcontactdetail
-  dataURL: extendedcontactdetail.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/extendedcontactdetail.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: canonical
-  dataURL: canonical.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/canonical.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: uri
-  dataURL: uri.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/uri.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: definition
-  dataURL: definition.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/definition.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: availability
-  dataURL: availability.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/availability.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: primitivetype
-  dataURL: primitivetype.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/primitivetype.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: url
-  dataURL: url.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/url.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: unsignedint
-  dataURL: unsignedint.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/unsignedint.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: coding
-  dataURL: coding.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/coding.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: xhtml
-  dataURL: xhtml.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/xhtml.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: event
-  dataURL: event.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/event.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: contributor
-  dataURL: contributor.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/contributor.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: markdown
-  dataURL: markdown.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/markdown.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: signature
-  dataURL: signature.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/signature.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: ratio
-  dataURL: ratio.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/ratio.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: annotation
-  dataURL: annotation.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/annotation.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: meta
-  dataURL: meta.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/meta.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: money
-  dataURL: money.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/money.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: contactpoint
-  dataURL: contactpoint.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/contactpoint.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: productshelflife
-  dataURL: productshelflife.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/productshelflife.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: participantcontactable
-  dataURL: participantcontactable.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/participantcontactable.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: datetime
-  dataURL: datetime.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/datetime.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: product
-  dataURL: product.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/product.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: datarequirement
-  dataURL: datarequirement.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/datarequirement.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: boolean
-  dataURL: boolean.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/boolean.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: fivews
-  dataURL: fivews.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/fivews.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: shareable
-  dataURL: shareable.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/shareable.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: elementdefinition
-  dataURL: elementdefinition.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/elementdefinition.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: moneyquantity
-  dataURL: moneyquantity.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/moneyquantity.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: distance
-  dataURL: distance.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/distance.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: count
-  dataURL: count.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/count.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: marketingstatus
-  dataURL: marketingstatus.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/marketingstatus.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: codeablereference
-  dataURL: codeablereference.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/codeablereference.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: timing
-  dataURL: timing.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/timing.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: narrative
-  dataURL: narrative.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/narrative.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: backboneelement
-  dataURL: backboneelement.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/backboneelement.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: usagecontext
-  dataURL: usagecontext.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/usagecontext.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: reference
-  dataURL: reference.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/reference.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: integer64
-  dataURL: integer64.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/integer64.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: element
-  dataURL: element.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/element.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: relatedartifact
-  dataURL: relatedartifact.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/relatedartifact.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: quantity
-  dataURL: quantity.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/quantity.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: age
-  dataURL: age.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/age.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: extension
-  dataURL: extension.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/extension.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: structuredefinition-example-section-library
-  dataURL: structuredefinition-example-section-library.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/structuredefinition-example-section-library.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: structuredefinition-example-composition
-  dataURL: structuredefinition-example-composition.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/structuredefinition-example-composition.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: expression
-  dataURL: expression.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/expression.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: parameterdefinition
-  dataURL: parameterdefinition.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/parameterdefinition.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: dosage
-  dataURL: dosage.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/dosage.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: integer
-  dataURL: integer.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/integer.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: participant
-  dataURL: participant.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/participant.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: address
-  dataURL: address.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/address.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: monetarycomponent
-  dataURL: monetarycomponent.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/monetarycomponent.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: base
-  dataURL: base.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/base.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: uuid
-  dataURL: uuid.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/uuid.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: id
-  dataURL: id.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/id.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: time
-  dataURL: time.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/time.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: instant
-  dataURL: instant.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/instant.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: request
-  dataURL: request.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/request.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: oid
-  dataURL: oid.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/oid.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: participantliving
-  dataURL: participantliving.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/participantliving.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: period
-  dataURL: period.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/period.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: humanname
-  dataURL: humanname.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/humanname.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: backbonetype
-  dataURL: backbonetype.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/backbonetype.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: triggerdefinition
-  dataURL: triggerdefinition.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/triggerdefinition.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: date
-  dataURL: date.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/date.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: simplequantity
-  dataURL: simplequantity.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/simplequantity.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: publishable
-  dataURL: publishable.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/publishable.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: contactdetail
-  dataURL: contactdetail.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/contactdetail.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: positiveint
-  dataURL: positiveint.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/positiveint.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: virtualservicedetail
-  dataURL: virtualservicedetail.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/virtualservicedetail.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: decimal
-  dataURL: decimal.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/decimal.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: base64binary
-  dataURL: base64binary.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/base64binary.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: codeableconcept
-  dataURL: codeableconcept.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/codeableconcept.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: datatype
-  dataURL: datatype.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/datatype.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: sampleddata
-  dataURL: sampleddata.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/sampleddata.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: duration
-  dataURL: duration.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/duration.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant
 
 - schemaLabel: StructureDefinition
-  schemaURL: StructureDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/StructureDefinition.shex
   dataLabel: string
-  dataURL: string.profile.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/string.profile.ttl
   queryMap: "{FOCUS a fhir:StructureDefinition}@<StructureDefinition>"
   status: conformant

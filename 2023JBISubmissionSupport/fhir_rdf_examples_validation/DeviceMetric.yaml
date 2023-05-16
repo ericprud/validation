@@ -1,7 +1,7 @@
 
 - schemaLabel: DeviceMetric
-  schemaURL: DeviceMetric.shex
+  schemaURL: ../../ShExSchemas/R5Plus/DeviceMetric.shex
   dataLabel: devicemetric-example
-  dataURL: devicemetric-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/devicemetric-example.ttl
   queryMap: "{FOCUS a fhir:DeviceMetric}@<DeviceMetric>"
   status: conformant

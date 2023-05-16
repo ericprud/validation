@@ -1,7 +1,7 @@
 
 - schemaLabel: ClinicalUseDefinition
-  schemaURL: ClinicalUseDefinition.shex
+  schemaURL: ../../ShExSchemas/R5Plus/ClinicalUseDefinition.shex
   dataLabel: clinicalusedefinition-example
-  dataURL: clinicalusedefinition-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/clinicalusedefinition-example.ttl
   queryMap: "{FOCUS a fhir:ClinicalUseDefinition}@<ClinicalUseDefinition>"
   status: conformant

@@ -1,21 +1,21 @@
 
 - schemaLabel: Endpoint
-  schemaURL: Endpoint.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Endpoint.shex
   dataLabel: endpoint-example
-  dataURL: endpoint-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/endpoint-example.ttl
   queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
   status: conformant
 
 - schemaLabel: Endpoint
-  schemaURL: Endpoint.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Endpoint.shex
   dataLabel: endpoint-example-direct
-  dataURL: endpoint-example-direct.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/endpoint-example-direct.ttl
   queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
   status: conformant
 
 - schemaLabel: Endpoint
-  schemaURL: Endpoint.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Endpoint.shex
   dataLabel: endpoint-example-wadors
-  dataURL: endpoint-example-wadors.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/endpoint-example-wadors.ttl
   queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
   status: conformant

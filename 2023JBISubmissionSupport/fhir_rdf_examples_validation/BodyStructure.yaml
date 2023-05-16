@@ -1,21 +1,21 @@
 
 - schemaLabel: BodyStructure
-  schemaURL: BodyStructure.shex
+  schemaURL: ../../ShExSchemas/R5Plus/BodyStructure.shex
   dataLabel: bodystructure-example-tumor
-  dataURL: bodystructure-example-tumor.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/bodystructure-example-tumor.ttl
   queryMap: "{FOCUS a fhir:BodyStructure}@<BodyStructure>"
   status: conformant
 
 - schemaLabel: BodyStructure
-  schemaURL: BodyStructure.shex
+  schemaURL: ../../ShExSchemas/R5Plus/BodyStructure.shex
   dataLabel: bodystructure-example-fetus
-  dataURL: bodystructure-example-fetus.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/bodystructure-example-fetus.ttl
   queryMap: "{FOCUS a fhir:BodyStructure}@<BodyStructure>"
   status: conformant
 
 - schemaLabel: BodyStructure
-  schemaURL: BodyStructure.shex
+  schemaURL: ../../ShExSchemas/R5Plus/BodyStructure.shex
   dataLabel: bodystructure-example-skin-patch
-  dataURL: bodystructure-example-skin-patch.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/bodystructure-example-skin-patch.ttl
   queryMap: "{FOCUS a fhir:BodyStructure}@<BodyStructure>"
   status: conformant

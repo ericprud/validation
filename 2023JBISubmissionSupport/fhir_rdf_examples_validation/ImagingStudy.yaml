@@ -1,14 +1,14 @@
 
 - schemaLabel: ImagingStudy
-  schemaURL: ImagingStudy.shex
+  schemaURL: ../../ShExSchemas/R5Plus/ImagingStudy.shex
   dataLabel: imagingstudy-example-xr
-  dataURL: imagingstudy-example-xr.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/imagingstudy-example-xr.ttl
   queryMap: "{FOCUS a fhir:ImagingStudy}@<ImagingStudy>"
   status: conformant
 
 - schemaLabel: ImagingStudy
-  schemaURL: ImagingStudy.shex
+  schemaURL: ../../ShExSchemas/R5Plus/ImagingStudy.shex
   dataLabel: imagingstudy-example
-  dataURL: imagingstudy-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/imagingstudy-example.ttl
   queryMap: "{FOCUS a fhir:ImagingStudy}@<ImagingStudy>"
   status: conformant

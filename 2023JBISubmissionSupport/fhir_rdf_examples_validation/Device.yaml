@@ -1,175 +1,175 @@
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-ANDThermometer
-  dataURL: device-example-ANDThermometer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-ANDThermometer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-PhilipsThermometer
-  dataURL: device-example-PhilipsThermometer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-PhilipsThermometer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-specimen-container-lavender-vacutainer
-  dataURL: device-example-specimen-container-lavender-vacutainer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-specimen-container-lavender-vacutainer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: Device-NGS-device
-  dataURL: Device-NGS-device.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/Device-NGS-device.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-RocheGlucoseMonitor
-  dataURL: device-example-RocheGlucoseMonitor.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-RocheGlucoseMonitor.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-AndroidGatewayPHG
-  dataURL: device-example-AndroidGatewayPHG.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-AndroidGatewayPHG.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-Nonin20601PulseOx
-  dataURL: device-example-Nonin20601PulseOx.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-Nonin20601PulseOx.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-pacemaker
-  dataURL: device-example-pacemaker.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-pacemaker.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-Bodimetrics
-  dataURL: device-example-Bodimetrics.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-Bodimetrics.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: Device-Triodenovo-SW
-  dataURL: Device-Triodenovo-SW.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/Device-Triodenovo-SW.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-f001-feedingtube
-  dataURL: device-example-f001-feedingtube.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-f001-feedingtube.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-specimen-container-polycup
-  dataURL: device-example-specimen-container-polycup.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-specimen-container-polycup.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-software
-  dataURL: device-example-software.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-software.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-KinsaThermometer
-  dataURL: device-example-KinsaThermometer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-KinsaThermometer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-AND20601BPMonitor
-  dataURL: device-example-AND20601BPMonitor.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-AND20601BPMonitor.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-specimen-container-red-top-vacutainer
-  dataURL: device-example-specimen-container-red-top-vacutainer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-specimen-container-red-top-vacutainer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-specimen-container-green-gel-vacutainer
-  dataURL: device-example-specimen-container-green-gel-vacutainer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-specimen-container-green-gel-vacutainer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-ihe-pcd
-  dataURL: device-example-ihe-pcd.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-ihe-pcd.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-udi4
-  dataURL: device-example-udi4.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-udi4.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-specimen-container-example-sst-vacutainer
-  dataURL: device-example-specimen-container-example-sst-vacutainer.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-specimen-container-example-sst-vacutainer.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-NoninBlePulseOx
-  dataURL: device-example-NoninBlePulseOx.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-NoninBlePulseOx.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-udi2
-  dataURL: device-example-udi2.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-udi2.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-udi3
-  dataURL: device-example-udi3.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-udi3.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example
-  dataURL: device-example.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
 
 - schemaLabel: Device
-  schemaURL: Device.shex
+  schemaURL: ../../ShExSchemas/R5Plus/Device.shex
   dataLabel: device-example-udi1
-  dataURL: device-example-udi1.ttl
+  dataURL: ../../../FHIR_RDF_Examples/R5/device-example-udi1.ttl
   queryMap: "{FOCUS a fhir:Device}@<Device>"
   status: conformant
