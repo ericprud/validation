@@ -1,0 +1,7 @@
+
+- schemaLabel: DeviceAssociation
+	schemaURL: DeviceAssociation.shex
+	dataLabel: deviceassociation-example
+	dataURL: deviceassociation-example.ttl
+	queryMap: "{FOCUS a fhir:DeviceAssociation}@<DeviceAssociation>"
+	status: conformant

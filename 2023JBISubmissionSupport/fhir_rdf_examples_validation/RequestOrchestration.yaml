@@ -1,0 +1,14 @@
+
+- schemaLabel: RequestOrchestration
+	schemaURL: RequestOrchestration.shex
+	dataLabel: requestorchestration-kdn5-example
+	dataURL: requestorchestration-kdn5-example.ttl
+	queryMap: "{FOCUS a fhir:RequestOrchestration}@<RequestOrchestration>"
+	status: conformant
+
+- schemaLabel: RequestOrchestration
+	schemaURL: RequestOrchestration.shex
+	dataLabel: requestorchestration-example
+	dataURL: requestorchestration-example.ttl
+	queryMap: "{FOCUS a fhir:RequestOrchestration}@<RequestOrchestration>"
+	status: conformant

@@ -1,0 +1,49 @@
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-component-b-example
+	dataURL: measure-component-b-example.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-hiv-indicators
+	dataURL: measure-hiv-indicators.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-composite-example
+	dataURL: measure-composite-example.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-predecessor-example
+	dataURL: measure-predecessor-example.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-component-a-example
+	dataURL: measure-component-a-example.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-exclusive-breastfeeding
+	dataURL: measure-exclusive-breastfeeding.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant
+
+- schemaLabel: Measure
+	schemaURL: Measure.shex
+	dataLabel: measure-cms146-example
+	dataURL: measure-cms146-example.ttl
+	queryMap: "{FOCUS a fhir:Measure}@<Measure>"
+	status: conformant

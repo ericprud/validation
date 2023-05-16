@@ -1,0 +1,7 @@
+
+- schemaLabel: BiologicallyDerivedProductDispense
+	schemaURL: BiologicallyDerivedProductDispense.shex
+	dataLabel: biologicallyderivedproductdispense-example
+	dataURL: biologicallyderivedproductdispense-example.ttl
+	queryMap: "{FOCUS a fhir:BiologicallyDerivedProductDispense}@<BiologicallyDerivedProductDispense>"
+	status: conformant

@@ -1,0 +1,7 @@
+
+- schemaLabel: Parameters
+	schemaURL: Parameters.shex
+	dataLabel: parameters-example
+	dataURL: parameters-example.ttl
+	queryMap: "{FOCUS a fhir:Parameters}@<Parameters>"
+	status: conformant

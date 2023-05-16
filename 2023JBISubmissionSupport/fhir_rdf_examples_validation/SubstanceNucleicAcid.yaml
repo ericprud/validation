@@ -1,0 +1,7 @@
+
+- schemaLabel: SubstanceNucleicAcid
+	schemaURL: SubstanceNucleicAcid.shex
+	dataLabel: substancenucleicacid-example
+	dataURL: substancenucleicacid-example.ttl
+	queryMap: "{FOCUS a fhir:SubstanceNucleicAcid}@<SubstanceNucleicAcid>"
+	status: conformant

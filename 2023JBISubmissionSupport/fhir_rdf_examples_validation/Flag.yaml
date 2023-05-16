@@ -1,0 +1,14 @@
+
+- schemaLabel: Flag
+	schemaURL: Flag.shex
+	dataLabel: flag-example-encounter
+	dataURL: flag-example-encounter.ttl
+	queryMap: "{FOCUS a fhir:Flag}@<Flag>"
+	status: conformant
+
+- schemaLabel: Flag
+	schemaURL: Flag.shex
+	dataLabel: flag-example
+	dataURL: flag-example.ttl
+	queryMap: "{FOCUS a fhir:Flag}@<Flag>"
+	status: conformant

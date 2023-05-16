@@ -1,0 +1,7 @@
+
+- schemaLabel: ResearchSubject
+	schemaURL: ResearchSubject.shex
+	dataLabel: researchsubject-example-crossover-placebo-to-drug
+	dataURL: researchsubject-example-crossover-placebo-to-drug.ttl
+	queryMap: "{FOCUS a fhir:ResearchSubject}@<ResearchSubject>"
+	status: conformant

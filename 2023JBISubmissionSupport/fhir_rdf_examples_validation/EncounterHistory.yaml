@@ -1,0 +1,7 @@
+
+- schemaLabel: EncounterHistory
+	schemaURL: EncounterHistory.shex
+	dataLabel: encounterhistory-example
+	dataURL: encounterhistory-example.ttl
+	queryMap: "{FOCUS a fhir:EncounterHistory}@<EncounterHistory>"
+	status: conformant

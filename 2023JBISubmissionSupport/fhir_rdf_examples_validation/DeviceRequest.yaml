@@ -1,0 +1,28 @@
+
+- schemaLabel: DeviceRequest
+	schemaURL: DeviceRequest.shex
+	dataLabel: devicerequest-right-lens
+	dataURL: devicerequest-right-lens.ttl
+	queryMap: "{FOCUS a fhir:DeviceRequest}@<DeviceRequest>"
+	status: conformant
+
+- schemaLabel: DeviceRequest
+	schemaURL: DeviceRequest.shex
+	dataLabel: devicerequest-left-lens
+	dataURL: devicerequest-left-lens.ttl
+	queryMap: "{FOCUS a fhir:DeviceRequest}@<DeviceRequest>"
+	status: conformant
+
+- schemaLabel: DeviceRequest
+	schemaURL: DeviceRequest.shex
+	dataLabel: devicerequest-example
+	dataURL: devicerequest-example.ttl
+	queryMap: "{FOCUS a fhir:DeviceRequest}@<DeviceRequest>"
+	status: conformant
+
+- schemaLabel: DeviceRequest
+	schemaURL: DeviceRequest.shex
+	dataLabel: devicerequest-example-insulinpump
+	dataURL: devicerequest-example-insulinpump.ttl
+	queryMap: "{FOCUS a fhir:DeviceRequest}@<DeviceRequest>"
+	status: conformant

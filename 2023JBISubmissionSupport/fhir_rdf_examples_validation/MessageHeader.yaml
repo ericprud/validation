@@ -1,0 +1,7 @@
+
+- schemaLabel: MessageHeader
+	schemaURL: MessageHeader.shex
+	dataLabel: messageheader-example
+	dataURL: messageheader-example.ttl
+	queryMap: "{FOCUS a fhir:MessageHeader}@<MessageHeader>"
+	status: conformant

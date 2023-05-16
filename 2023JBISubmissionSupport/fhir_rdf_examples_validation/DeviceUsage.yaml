@@ -1,0 +1,7 @@
+
+- schemaLabel: DeviceUsage
+	schemaURL: DeviceUsage.shex
+	dataLabel: deviceusage-example
+	dataURL: deviceusage-example.ttl
+	queryMap: "{FOCUS a fhir:DeviceUsage}@<DeviceUsage>"
+	status: conformant

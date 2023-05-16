@@ -1,0 +1,14 @@
+
+- schemaLabel: StructureMap
+	schemaURL: StructureMap.shex
+	dataLabel: structuremap-example
+	dataURL: structuremap-example.ttl
+	queryMap: "{FOCUS a fhir:StructureMap}@<StructureMap>"
+	status: conformant
+
+- schemaLabel: StructureMap
+	schemaURL: StructureMap.shex
+	dataLabel: structuremap-supplyrequest-transform
+	dataURL: structuremap-supplyrequest-transform.ttl
+	queryMap: "{FOCUS a fhir:StructureMap}@<StructureMap>"
+	status: conformant

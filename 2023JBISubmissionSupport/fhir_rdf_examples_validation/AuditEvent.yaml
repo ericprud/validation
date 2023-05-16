@@ -1,0 +1,91 @@
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: auditevent-example
+	dataURL: auditevent-example.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: auditevent-example-consent-authz
+	dataURL: auditevent-example-consent-authz.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: auditevent-example-disclosure
+	dataURL: auditevent-example-disclosure.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-vread
+	dataURL: audit-event-example-vread.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-login
+	dataURL: audit-event-example-login.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-pixQuery
+	dataURL: audit-event-example-pixQuery.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-create-traceID
+	dataURL: audit-event-example-create-traceID.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: auditevent-example-breakglass-start
+	dataURL: auditevent-example-breakglass-start.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-logout
+	dataURL: audit-event-example-logout.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: auditevent-example-error
+	dataURL: auditevent-example-error.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-media
+	dataURL: audit-event-example-media.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: audit-event-example-search
+	dataURL: audit-event-example-search.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant
+
+- schemaLabel: AuditEvent
+	schemaURL: AuditEvent.shex
+	dataLabel: auditevent-example-advanced-create
+	dataURL: auditevent-example-advanced-create.ttl
+	queryMap: "{FOCUS a fhir:AuditEvent}@<AuditEvent>"
+	status: conformant

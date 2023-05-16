@@ -1,0 +1,3136 @@
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contact-point-use
+	dataURL: codesystem-contact-point-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-report-type
+	dataURL: codesystem-measure-report-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-report-participant-type
+	dataURL: codesystem-report-participant-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-location-mode
+	dataURL: codesystem-location-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-namingsystem-identifier-type
+	dataURL: codesystem-namingsystem-identifier-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-inventoryitem-nametype
+	dataURL: codesystem-inventoryitem-nametype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-legalstate
+	dataURL: codesystem-contract-legalstate.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-specimen-role
+	dataURL: codesystem-specimen-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-additional-binding-purpose
+	dataURL: codesystem-additional-binding-purpose.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-list-item-flag
+	dataURL: codesystem-list-item-flag.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderivedproductdispense-performer-function
+	dataURL: codesystem-biologicallyderivedproductdispense-performer-function.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-intended-performer-role
+	dataURL: codesystem-medication-intended-performer-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-trigger-type
+	dataURL: codesystem-trigger-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-domain
+	dataURL: codesystem-medicinal-product-domain.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-package-type
+	dataURL: codesystem-package-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-example-metadata
+	dataURL: codesystem-example-metadata.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-task-code
+	dataURL: codesystem-task-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-genomicstudy-type
+	dataURL: codesystem-genomicstudy-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-amount-type
+	dataURL: codesystem-substance-amount-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-spdx-license
+	dataURL: codesystem-spdx-license.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-namingsystem-type
+	dataURL: codesystem-namingsystem-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-bundle-type
+	dataURL: codesystem-bundle-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-clinical-use-definition-category
+	dataURL: codesystem-clinical-use-definition-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-servicerequest-orderdetail-parameter-code
+	dataURL: codesystem-servicerequest-orderdetail-parameter-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-request-intent
+	dataURL: codesystem-request-intent.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-characteristic-combination
+	dataURL: codesystem-characteristic-combination.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-event-status
+	dataURL: codesystem-event-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-dose-aid
+	dataURL: codesystem-medication-dose-aid.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-constraint-severity
+	dataURL: codesystem-constraint-severity.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-precheck-behavior
+	dataURL: codesystem-action-precheck-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-category
+	dataURL: codesystem-device-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-map-input-mode
+	dataURL: codesystem-map-input-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-catalogType
+	dataURL: codesystem-catalogType.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-message-significance-category
+	dataURL: codesystem-message-significance-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-status
+	dataURL: codesystem-medication-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-cardinality-behavior
+	dataURL: codesystem-action-cardinality-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-link-type
+	dataURL: codesystem-link-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-deviceusage-status
+	dataURL: codesystem-deviceusage-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-observation-triggeredbytype
+	dataURL: codesystem-observation-triggeredbytype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conditional-delete-status
+	dataURL: codesystem-conditional-delete-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-task-status
+	dataURL: codesystem-task-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-example-summary
+	dataURL: codesystem-example-summary.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-assert-response-code-types
+	dataURL: codesystem-assert-response-code-types.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-example-supplement-2
+	dataURL: codesystem-example-supplement-2.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-organization-role
+	dataURL: codesystem-organization-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-observation-referencerange-normalvalue
+	dataURL: codesystem-observation-referencerange-normalvalue.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-type
+	dataURL: codesystem-medicinal-product-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-grade
+	dataURL: codesystem-substance-grade.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-reference-handling-policy
+	dataURL: codesystem-reference-handling-policy.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-report-status
+	dataURL: codesystem-measure-report-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-testscript-scope-phase-codes
+	dataURL: codesystem-testscript-scope-phase-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-restful-interaction
+	dataURL: codesystem-restful-interaction.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-metric-operational-status
+	dataURL: codesystem-metric-operational-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-sample-security-structural-roles
+	dataURL: codesystem-sample-security-structural-roles.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contributor-summary-style
+	dataURL: codesystem-contributor-summary-style.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-eligibilityrequest-purpose
+	dataURL: codesystem-eligibilityrequest-purpose.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-cited-medium
+	dataURL: codesystem-cited-medium.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-certainty-type
+	dataURL: codesystem-certainty-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-reason-medication-not-given-codes
+	dataURL: codesystem-reason-medication-not-given-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-questionnaire-enable-behavior
+	dataURL: codesystem-questionnaire-enable-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-explanationofbenefit-status
+	dataURL: codesystem-explanationofbenefit-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-definition-method
+	dataURL: codesystem-definition-method.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-sequence-type
+	dataURL: codesystem-sequence-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-package-material
+	dataURL: codesystem-package-material.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-assetscope
+	dataURL: codesystem-contract-assetscope.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-publication-status
+	dataURL: codesystem-publication-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-linkage-type
+	dataURL: codesystem-linkage-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-specification-category
+	dataURL: codesystem-device-specification-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-allergy-intolerance-type
+	dataURL: codesystem-allergy-intolerance-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-additional-monitoring
+	dataURL: codesystem-medicinal-product-additional-monitoring.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-artifactassessment-disposition
+	dataURL: codesystem-artifactassessment-disposition.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-concept-properties
+	dataURL: codesystem-concept-properties.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-composition-status
+	dataURL: codesystem-composition-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-definition-subtype
+	dataURL: codesystem-contract-definition-subtype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-genomicstudy-status
+	dataURL: codesystem-genomicstudy-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-week-of-month
+	dataURL: codesystem-week-of-month.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-devicedispense-status
+	dataURL: codesystem-devicedispense-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-color-names
+	dataURL: codesystem-color-names.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-study-design
+	dataURL: codesystem-study-design.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-admin-status
+	dataURL: codesystem-medication-admin-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-nametype
+	dataURL: codesystem-device-nametype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-messageheader-response-request
+	dataURL: codesystem-messageheader-response-request.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-report-relation-type
+	dataURL: codesystem-report-relation-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-account-balance-term
+	dataURL: codesystem-account-balance-term.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-imagingselection-2dgraphictype
+	dataURL: codesystem-imagingselection-2dgraphictype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-appointmentstatus
+	dataURL: codesystem-appointmentstatus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-versioning-policy
+	dataURL: codesystem-versioning-policy.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-supplyrequest-status
+	dataURL: codesystem-supplyrequest-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-unit-of-presentation
+	dataURL: codesystem-unit-of-presentation.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-status
+	dataURL: codesystem-substance-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-remittance-outcome
+	dataURL: codesystem-remittance-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-assert-operator-codes
+	dataURL: codesystem-assert-operator-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-detectedissue-status
+	dataURL: codesystem-detectedissue-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-property-representation
+	dataURL: codesystem-property-representation.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contributor-role
+	dataURL: codesystem-contributor-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-cited-artifact-abstract-type
+	dataURL: codesystem-cited-artifact-abstract-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-stereochemistry
+	dataURL: codesystem-substance-stereochemistry.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-definition-example
+	dataURL: codesystem-measure-definition-example.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-examplescenario-actor-type
+	dataURL: codesystem-examplescenario-actor-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-concept-map-relationship
+	dataURL: codesystem-concept-map-relationship.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-map-group-type-mode
+	dataURL: codesystem-map-group-type-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-administration-subpotent-reason
+	dataURL: codesystem-administration-subpotent-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-restful-capability-mode
+	dataURL: codesystem-restful-capability-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-subscription-status
+	dataURL: codesystem-subscription-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-regulated-authorization-basis
+	dataURL: codesystem-regulated-authorization-basis.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-vision-eye-codes
+	dataURL: codesystem-vision-eye-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-document-mode
+	dataURL: codesystem-document-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-relationship
+	dataURL: codesystem-relationship.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-specimen-contained-preference
+	dataURL: codesystem-specimen-contained-preference.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-nhin-purposeofuse
+	dataURL: codesystem-nhin-purposeofuse.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-imagingselection-status
+	dataURL: codesystem-imagingselection-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-days-of-week
+	dataURL: codesystem-days-of-week.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-security-classification
+	dataURL: codesystem-contract-security-classification.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-devicedispense-status-reason
+	dataURL: codesystem-devicedispense-status-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-package-type
+	dataURL: codesystem-medicinal-product-package-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-confidentiality
+	dataURL: codesystem-medicinal-product-confidentiality.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-subscription-payload-content
+	dataURL: codesystem-subscription-payload-content.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-subscriptiontopic-cr-behavior
+	dataURL: codesystem-subscriptiontopic-cr-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-account-status
+	dataURL: codesystem-account-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-citation-artifact-classifier
+	dataURL: codesystem-citation-artifact-classifier.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicationknowledge-status
+	dataURL: codesystem-medicationknowledge-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-condition-kind
+	dataURL: codesystem-action-condition-kind.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-evidence-report-type
+	dataURL: codesystem-evidence-report-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-fm-status
+	dataURL: codesystem-fm-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-search-param-type
+	dataURL: codesystem-search-param-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-operation-parameter-scope
+	dataURL: codesystem-operation-parameter-scope.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-ingredientstrength
+	dataURL: codesystem-medication-ingredientstrength.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-form
+	dataURL: codesystem-substance-form.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-phase
+	dataURL: codesystem-research-study-phase.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-questionnaire-disabled-display
+	dataURL: codesystem-questionnaire-disabled-display.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-datestype
+	dataURL: codesystem-datestype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-statement-status
+	dataURL: codesystem-medication-statement-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-scope
+	dataURL: codesystem-contract-scope.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-operation-mode
+	dataURL: codesystem-device-operation-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderivedproductdispense-status
+	dataURL: codesystem-biologicallyderivedproductdispense-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-representation-format
+	dataURL: codesystem-substance-representation-format.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-devicedefinition-regulatory-identifier-type
+	dataURL: codesystem-devicedefinition-regulatory-identifier-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-chargeitem-status
+	dataURL: codesystem-chargeitem-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-allergy-intolerance-category
+	dataURL: codesystem-allergy-intolerance-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-artifact-contribution-instance-type
+	dataURL: codesystem-artifact-contribution-instance-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-payment-issuertype
+	dataURL: codesystem-payment-issuertype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-udi-entry-type
+	dataURL: codesystem-udi-entry-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-structure-technique
+	dataURL: codesystem-substance-structure-technique.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-safety-entries
+	dataURL: codesystem-safety-entries.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-endpoint-environment
+	dataURL: codesystem-endpoint-environment.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-search-comparator
+	dataURL: codesystem-search-comparator.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-encounter-status
+	dataURL: codesystem-encounter-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-usage-context-agreement-scope
+	dataURL: codesystem-usage-context-agreement-scope.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-testscript-scope-conformance-codes
+	dataURL: codesystem-testscript-scope-conformance-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-document-relationship-type
+	dataURL: codesystem-document-relationship-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-asset-availability
+	dataURL: codesystem-asset-availability.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-assettype
+	dataURL: codesystem-contract-assettype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-task-status-reason
+	dataURL: codesystem-task-status-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-operation-outcome
+	dataURL: codesystem-operation-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-code
+	dataURL: codesystem-action-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-codesystem-content-mode
+	dataURL: codesystem-codesystem-content-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-report-result-codes
+	dataURL: codesystem-report-result-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-imagingselection-3dgraphictype
+	dataURL: codesystem-imagingselection-3dgraphictype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-availability-status
+	dataURL: codesystem-device-availability-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contact-point-system
+	dataURL: codesystem-contact-point-system.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-resource-validation-mode
+	dataURL: codesystem-resource-validation-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-supplydelivery-status
+	dataURL: codesystem-supplydelivery-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-action
+	dataURL: codesystem-device-action.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-note-type
+	dataURL: codesystem-note-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-icd-10-procedures
+	dataURL: codesystem-icd-10-procedures.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-capability-statement-kind
+	dataURL: codesystem-capability-statement-kind.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-classifiers
+	dataURL: codesystem-research-study-classifiers.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-legal-status-of-supply
+	dataURL: codesystem-legal-status-of-supply.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-product-category
+	dataURL: codesystem-product-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-payment-kind
+	dataURL: codesystem-payment-kind.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-example-supplement
+	dataURL: codesystem-example-supplement.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-deviceusage-adherence-code
+	dataURL: codesystem-deviceusage-adherence-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-definition-type
+	dataURL: codesystem-contract-definition-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-condition-precondition-type
+	dataURL: codesystem-condition-precondition-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-weight-type
+	dataURL: codesystem-substance-weight-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-observation-range-category
+	dataURL: codesystem-observation-range-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-vision-base-codes
+	dataURL: codesystem-vision-base-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-questionnaire-enable-operator
+	dataURL: codesystem-questionnaire-enable-operator.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-consent-provision-type
+	dataURL: codesystem-consent-provision-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-special-measures
+	dataURL: codesystem-medicinal-product-special-measures.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-location-characteristic
+	dataURL: codesystem-location-characteristic.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-actionstatus
+	dataURL: codesystem-contract-actionstatus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-cited-artifact-part-type
+	dataURL: codesystem-cited-artifact-part-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-interaction-incidence
+	dataURL: codesystem-interaction-incidence.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-binding-strength
+	dataURL: codesystem-binding-strength.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-flag-status
+	dataURL: codesystem-flag-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-concept-subsumption-outcome
+	dataURL: codesystem-concept-subsumption-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-discriminator-type
+	dataURL: codesystem-discriminator-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicationrequest-intent
+	dataURL: codesystem-medicationrequest-intent.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-citation-status-type
+	dataURL: codesystem-citation-status-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-artifactassessment-workflow-status
+	dataURL: codesystem-artifactassessment-workflow-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-map-target-list-mode
+	dataURL: codesystem-map-target-list-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-source-material-part
+	dataURL: codesystem-substance-source-material-part.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-permission-rule-combining
+	dataURL: codesystem-permission-rule-combining.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-metric-calibration-state
+	dataURL: codesystem-metric-calibration-state.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-selection-behavior
+	dataURL: codesystem-action-selection-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-restful-security-service
+	dataURL: codesystem-restful-security-service.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-account-billing-status
+	dataURL: codesystem-account-billing-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-reason-code
+	dataURL: codesystem-action-reason-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-deviceassociation-operationstatus
+	dataURL: codesystem-deviceassociation-operationstatus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-interaction-type
+	dataURL: codesystem-interaction-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-history-status
+	dataURL: codesystem-history-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-issue-severity
+	dataURL: codesystem-issue-severity.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-transport-intent
+	dataURL: codesystem-transport-intent.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-inventoryreport-counttype
+	dataURL: codesystem-inventoryreport-counttype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-condition-questionnaire-purpose
+	dataURL: codesystem-condition-questionnaire-purpose.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-quantity-comparator
+	dataURL: codesystem-quantity-comparator.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-statistic-model-code
+	dataURL: codesystem-statistic-model-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-claim-use
+	dataURL: codesystem-claim-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderived-product-status
+	dataURL: codesystem-biologicallyderived-product-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-audit-event-severity
+	dataURL: codesystem-audit-event-severity.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-coverage-kind
+	dataURL: codesystem-coverage-kind.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conformance-expectation
+	dataURL: codesystem-conformance-expectation.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-concept-property-type
+	dataURL: codesystem-concept-property-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-search-processingmode
+	dataURL: codesystem-search-processingmode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-address-type
+	dataURL: codesystem-address-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-clinical-use-definition-type
+	dataURL: codesystem-clinical-use-definition-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contributor-type
+	dataURL: codesystem-contributor-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-sort-direction
+	dataURL: codesystem-sort-direction.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-consent-state-codes
+	dataURL: codesystem-consent-state-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-identifier-use
+	dataURL: codesystem-identifier-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-title-type
+	dataURL: codesystem-title-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-target-species
+	dataURL: codesystem-target-species.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-list-status
+	dataURL: codesystem-list-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-pediatric-use
+	dataURL: codesystem-medicinal-product-pediatric-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measurereport-stratifier-value-example
+	dataURL: codesystem-measurereport-stratifier-value-example.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-slotstatus
+	dataURL: codesystem-slotstatus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-artifact-url-classifier
+	dataURL: codesystem-artifact-url-classifier.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-operation-kind
+	dataURL: codesystem-operation-kind.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-encounter-reason-use
+	dataURL: codesystem-encounter-reason-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-provenance-entity-role
+	dataURL: codesystem-provenance-entity-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-name-authority
+	dataURL: codesystem-substance-name-authority.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-contact-type
+	dataURL: codesystem-medicinal-product-contact-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conditional-read-status
+	dataURL: codesystem-conditional-read-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-ingredient-role
+	dataURL: codesystem-ingredient-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-goal-status
+	dataURL: codesystem-goal-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-permission-status
+	dataURL: codesystem-permission-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-supplemental-data-example
+	dataURL: codesystem-measure-supplemental-data-example.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-allergy-intolerance-criticality
+	dataURL: codesystem-allergy-intolerance-criticality.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-inventoryitem-status
+	dataURL: codesystem-inventoryitem-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-resource-slicing-rules
+	dataURL: codesystem-resource-slicing-rules.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-artifact-contribution-type
+	dataURL: codesystem-artifact-contribution-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-code-search-support
+	dataURL: codesystem-code-search-support.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-deviceassociation-status
+	dataURL: codesystem-deviceassociation-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-productidentifierinudi
+	dataURL: codesystem-device-productidentifierinudi.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-undesirable-effect-frequency
+	dataURL: codesystem-undesirable-effect-frequency.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicationrequest-status
+	dataURL: codesystem-medicationrequest-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-guidance-response-status
+	dataURL: codesystem-guidance-response-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-invoice-status
+	dataURL: codesystem-invoice-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-detectedissue-severity
+	dataURL: codesystem-detectedissue-severity.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-FHIR-version
+	dataURL: codesystem-FHIR-version.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-regulated-authorization-case-type
+	dataURL: codesystem-regulated-authorization-case-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-citation-summary-style
+	dataURL: codesystem-citation-summary-style.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-genomicstudy-methodtype
+	dataURL: codesystem-genomicstudy-methodtype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-metric-category
+	dataURL: codesystem-metric-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-fhirpath-types
+	dataURL: codesystem-fhirpath-types.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-genomicstudy-dataformat
+	dataURL: codesystem-genomicstudy-dataformat.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-account-aggregate
+	dataURL: codesystem-account-aggregate.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-transport-status-reason
+	dataURL: codesystem-transport-status-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-map-source-list-mode
+	dataURL: codesystem-map-source-list-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-resource-aggregation-mode
+	dataURL: codesystem-resource-aggregation-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-required-behavior
+	dataURL: codesystem-action-required-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-specimen-status
+	dataURL: codesystem-specimen-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-transport-status
+	dataURL: codesystem-transport-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-virtual-service-type
+	dataURL: codesystem-virtual-service-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-supplydelivery-supplyitemtype
+	dataURL: codesystem-supplydelivery-supplyitemtype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-verificationresult-status
+	dataURL: codesystem-verificationresult-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-knowledge-representation-level
+	dataURL: codesystem-knowledge-representation-level.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-compartment-type
+	dataURL: codesystem-compartment-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conceptmap-attribute-type
+	dataURL: codesystem-conceptmap-attribute-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-imagingstudy-status
+	dataURL: codesystem-imagingstudy-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-specimen-combined
+	dataURL: codesystem-specimen-combined.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-issue-type
+	dataURL: codesystem-issue-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-reaction-event-severity
+	dataURL: codesystem-reaction-event-severity.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-graph-compartment-rule
+	dataURL: codesystem-graph-compartment-rule.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-care-team-status
+	dataURL: codesystem-care-team-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-artifactassessment-information-type
+	dataURL: codesystem-artifactassessment-information-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-source-material-genus
+	dataURL: codesystem-substance-source-material-genus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-participant-function
+	dataURL: codesystem-action-participant-function.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-eligibility-outcome
+	dataURL: codesystem-eligibility-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-devicedefinition-relationtype
+	dataURL: codesystem-devicedefinition-relationtype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-arm-type
+	dataURL: codesystem-research-study-arm-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-episode-of-care-status
+	dataURL: codesystem-episode-of-care-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-claim-decision-reason
+	dataURL: codesystem-claim-decision-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-encounter-diagnosis-use
+	dataURL: codesystem-encounter-diagnosis-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-questionnaire-answer-constraint
+	dataURL: codesystem-questionnaire-answer-constraint.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-item-type
+	dataURL: codesystem-item-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-packaging-type
+	dataURL: codesystem-packaging-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-name-type
+	dataURL: codesystem-substance-name-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-event-capability-mode
+	dataURL: codesystem-event-capability-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-status
+	dataURL: codesystem-research-study-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-location-status
+	dataURL: codesystem-location-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-service-mode
+	dataURL: codesystem-service-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-warning-type
+	dataURL: codesystem-warning-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-source-material-type
+	dataURL: codesystem-substance-source-material-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-address-use
+	dataURL: codesystem-address-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-variable-handling
+	dataURL: codesystem-variable-handling.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-publicationstatus
+	dataURL: codesystem-contract-publicationstatus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-http-verb
+	dataURL: codesystem-http-verb.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-expiration-type
+	dataURL: codesystem-contract-expiration-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-administrative-gender
+	dataURL: codesystem-administrative-gender.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-tldc
+	dataURL: codesystem-tldc.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-participant-type
+	dataURL: codesystem-action-participant-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-adverse-event-actuality
+	dataURL: codesystem-adverse-event-actuality.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicationdispense-admin-location
+	dataURL: codesystem-medicationdispense-admin-location.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-submit-data-update-type
+	dataURL: codesystem-submit-data-update-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-name-use
+	dataURL: codesystem-name-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-reason-stopped
+	dataURL: codesystem-research-study-reason-stopped.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-party-organization-type
+	dataURL: codesystem-research-study-party-organization-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-grouping-behavior
+	dataURL: codesystem-action-grouping-behavior.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-participationstatus
+	dataURL: codesystem-participationstatus.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-cdshooks-indicator
+	dataURL: codesystem-cdshooks-indicator.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-map-model-mode
+	dataURL: codesystem-map-model-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-diagnostic-report-status
+	dataURL: codesystem-diagnostic-report-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-composition-attestation-mode
+	dataURL: codesystem-composition-attestation-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicationdispense-status-reason
+	dataURL: codesystem-medicationdispense-status-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-search-entry-mode
+	dataURL: codesystem-search-entry-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-event-timing
+	dataURL: codesystem-event-timing.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-eligibilityresponse-purpose
+	dataURL: codesystem-eligibilityresponse-purpose.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-party-role
+	dataURL: codesystem-contract-party-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-account-relationship
+	dataURL: codesystem-account-relationship.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contributor-summary-type
+	dataURL: codesystem-contributor-summary-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-cited-artifact-status-type
+	dataURL: codesystem-cited-artifact-status-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-administrable-dose-form
+	dataURL: codesystem-administrable-dose-form.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conceptmap-property-type
+	dataURL: codesystem-conceptmap-property-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-report-action-result-codes
+	dataURL: codesystem-report-action-result-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-report-status-codes
+	dataURL: codesystem-report-status-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-deviceassociation-status-reason
+	dataURL: codesystem-deviceassociation-status-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-type-derivation-rule
+	dataURL: codesystem-type-derivation-rule.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicationdispense-status
+	dataURL: codesystem-medicationdispense-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-stratifier-example
+	dataURL: codesystem-measure-stratifier-example.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-fhir-format-type
+	dataURL: codesystem-fhir-format-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-map-transform
+	dataURL: codesystem-map-transform.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-animal-tissue-type
+	dataURL: codesystem-animal-tissue-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-guidance-module-code
+	dataURL: codesystem-guidance-module-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-formularyitem-status
+	dataURL: codesystem-formularyitem-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-group-membership-basis
+	dataURL: codesystem-group-membership-basis.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-claim-outcome
+	dataURL: codesystem-claim-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-filter-operator
+	dataURL: codesystem-filter-operator.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-guide-parameter-code
+	dataURL: codesystem-guide-parameter-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-transport-code
+	dataURL: codesystem-transport-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-assert-manual-completion-codes
+	dataURL: codesystem-assert-manual-completion-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-optical-activity
+	dataURL: codesystem-substance-optical-activity.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-astm-signature-type
+	dataURL: codesystem-astm-signature-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-regulated-authorization-type
+	dataURL: codesystem-regulated-authorization-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderived-productcodes
+	dataURL: codesystem-biologicallyderived-productcodes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-color-rgb
+	dataURL: codesystem-color-rgb.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-endpoint-status
+	dataURL: codesystem-endpoint-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-payment-outcome
+	dataURL: codesystem-payment-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-example
+	dataURL: codesystem-example.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-graph-compartment-use
+	dataURL: codesystem-graph-compartment-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-combined-dose-form
+	dataURL: codesystem-combined-dose-form.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conceptmap-unmapped-mode
+	dataURL: codesystem-conceptmap-unmapped-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-related-artifact-type-expanded
+	dataURL: codesystem-related-artifact-type-expanded.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-nutritionproduct-status
+	dataURL: codesystem-nutritionproduct-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-response-code
+	dataURL: codesystem-response-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-security-category
+	dataURL: codesystem-contract-security-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-party-role
+	dataURL: codesystem-research-study-party-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-cost-category
+	dataURL: codesystem-medication-cost-category.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-w3c-provenance-activity-type
+	dataURL: codesystem-w3c-provenance-activity-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-cited-artifact-classification-type
+	dataURL: codesystem-cited-artifact-classification-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-assert-direction-codes
+	dataURL: codesystem-assert-direction-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-identity-assuranceLevel
+	dataURL: codesystem-identity-assuranceLevel.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-resource-status
+	dataURL: codesystem-resource-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-focus-type
+	dataURL: codesystem-research-study-focus-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-message-transport
+	dataURL: codesystem-message-transport.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-focus-characteristic-code
+	dataURL: codesystem-focus-characteristic-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-decision-mode
+	dataURL: codesystem-contract-decision-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medication-statement-adherence
+	dataURL: codesystem-medication-statement-adherence.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-structure-definition-kind
+	dataURL: codesystem-structure-definition-kind.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-conceptmap-properties
+	dataURL: codesystem-conceptmap-properties.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-relationship-type
+	dataURL: codesystem-substance-relationship-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-aggregate-method
+	dataURL: codesystem-measure-aggregate-method.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contributor-summary-source
+	dataURL: codesystem-contributor-summary-source.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-related-artifact-type
+	dataURL: codesystem-related-artifact-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-metric-calibration-type
+	dataURL: codesystem-metric-calibration-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-reference-version-rules
+	dataURL: codesystem-reference-version-rules.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-search-modifier-code
+	dataURL: codesystem-search-modifier-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-consent-data-meaning
+	dataURL: codesystem-consent-data-meaning.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-codesystem-hierarchy-meaning
+	dataURL: codesystem-codesystem-hierarchy-meaning.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-product-intended-use
+	dataURL: codesystem-product-intended-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-evidence-classifier-code
+	dataURL: codesystem-evidence-classifier-code.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-cross-reference-type
+	dataURL: codesystem-medicinal-product-cross-reference-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-narrative-status
+	dataURL: codesystem-narrative-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-orientation-type
+	dataURL: codesystem-orientation-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-list-mode
+	dataURL: codesystem-list-mode.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-genomicstudy-changetype
+	dataURL: codesystem-genomicstudy-changetype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-assetsubtype
+	dataURL: codesystem-contract-assetsubtype.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-guide-page-generation
+	dataURL: codesystem-guide-page-generation.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-observation-status
+	dataURL: codesystem-observation-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-claim-decision
+	dataURL: codesystem-claim-decision.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-ingredient-manufacturer-role
+	dataURL: codesystem-ingredient-manufacturer-role.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-iana-link-relations
+	dataURL: codesystem-iana-link-relations.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-questionnaire-answers-status
+	dataURL: codesystem-questionnaire-answers-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-name-type
+	dataURL: codesystem-medicinal-product-name-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-etsi-signature-type
+	dataURL: codesystem-etsi-signature-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-price-component-type
+	dataURL: codesystem-price-component-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-weight-method
+	dataURL: codesystem-substance-weight-method.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderivedproductdispense-origin-relationship
+	dataURL: codesystem-biologicallyderivedproductdispense-origin-relationship.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-message-events
+	dataURL: codesystem-message-events.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-published-in-type
+	dataURL: codesystem-published-in-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-permitted-data-type
+	dataURL: codesystem-permitted-data-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-manufactured-dose-form
+	dataURL: codesystem-manufactured-dose-form.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-extension-context-type
+	dataURL: codesystem-extension-context-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-medicinal-product-name-part-type
+	dataURL: codesystem-medicinal-product-name-part-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-document-reference-status
+	dataURL: codesystem-document-reference-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-operation-parameter-use
+	dataURL: codesystem-operation-parameter-use.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-evidence-report-section
+	dataURL: codesystem-evidence-report-section.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-encounter-location-status
+	dataURL: codesystem-encounter-location-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-representation-type
+	dataURL: codesystem-substance-representation-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-ingredient-function
+	dataURL: codesystem-ingredient-function.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-fhir-types
+	dataURL: codesystem-fhir-types.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderivedproductdispense-match-status
+	dataURL: codesystem-biologicallyderivedproductdispense-match-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-timing-abbreviation
+	dataURL: codesystem-timing-abbreviation.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-observation-statistics
+	dataURL: codesystem-observation-statistics.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-assetcontext
+	dataURL: codesystem-contract-assetcontext.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-citation-classification-type
+	dataURL: codesystem-citation-classification-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-action-relationship-type
+	dataURL: codesystem-action-relationship-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-fhir-old-types
+	dataURL: codesystem-fhir-old-types.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-request-status
+	dataURL: codesystem-request-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-enrollment-outcome
+	dataURL: codesystem-enrollment-outcome.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-version-algorithm
+	dataURL: codesystem-version-algorithm.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-group-type
+	dataURL: codesystem-group-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-subscription-notification-type
+	dataURL: codesystem-subscription-notification-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-correctiveactionscope
+	dataURL: codesystem-device-correctiveactionscope.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-status
+	dataURL: codesystem-contract-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-request-priority
+	dataURL: codesystem-request-priority.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-deviceusage-adherence-reason
+	dataURL: codesystem-deviceusage-adherence-reason.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-product-status
+	dataURL: codesystem-product-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-audit-event-action
+	dataURL: codesystem-audit-event-action.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-task-intent
+	dataURL: codesystem-task-intent.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-characteristic-offset
+	dataURL: codesystem-characteristic-offset.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-example-metadata-2
+	dataURL: codesystem-example-metadata-2.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-name-domain
+	dataURL: codesystem-substance-name-domain.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-contract-security-control
+	dataURL: codesystem-contract-security-control.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-therapy-relationship-type
+	dataURL: codesystem-therapy-relationship-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-extra-activity-type
+	dataURL: codesystem-extra-activity-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-objective-type
+	dataURL: codesystem-research-study-objective-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-research-study-prim-purp-type
+	dataURL: codesystem-research-study-prim-purp-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-biologicallyderived-product-property-type-codes
+	dataURL: codesystem-biologicallyderived-product-property-type-codes.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-strand-type
+	dataURL: codesystem-strand-type.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-http-operations
+	dataURL: codesystem-http-operations.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-evidence-variable-event
+	dataURL: codesystem-evidence-variable-event.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-measure-group-example
+	dataURL: codesystem-measure-group-example.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-device-status
+	dataURL: codesystem-device-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-substance-source-material-species
+	dataURL: codesystem-substance-source-material-species.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-certainty-rating
+	dataURL: codesystem-certainty-rating.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant
+
+- schemaLabel: CodeSystem
+	schemaURL: CodeSystem.shex
+	dataLabel: codesystem-inventoryreport-status
+	dataURL: codesystem-inventoryreport-status.ttl
+	queryMap: "{FOCUS a fhir:CodeSystem}@<CodeSystem>"
+	status: conformant

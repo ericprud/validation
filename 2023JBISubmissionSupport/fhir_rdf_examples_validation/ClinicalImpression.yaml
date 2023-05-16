@@ -1,0 +1,7 @@
+
+- schemaLabel: ClinicalImpression
+	schemaURL: ClinicalImpression.shex
+	dataLabel: clinicalimpression-example
+	dataURL: clinicalimpression-example.ttl
+	queryMap: "{FOCUS a fhir:ClinicalImpression}@<ClinicalImpression>"
+	status: conformant

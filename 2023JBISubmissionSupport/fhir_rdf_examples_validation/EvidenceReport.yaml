@@ -1,0 +1,7 @@
+
+- schemaLabel: EvidenceReport
+	schemaURL: EvidenceReport.shex
+	dataLabel: evidencereport-example
+	dataURL: evidencereport-example.ttl
+	queryMap: "{FOCUS a fhir:EvidenceReport}@<EvidenceReport>"
+	status: conformant

@@ -1,0 +1,7 @@
+
+- schemaLabel: SubstanceDefinition
+	schemaURL: SubstanceDefinition.shex
+	dataLabel: substancedefinition-example
+	dataURL: substancedefinition-example.ttl
+	queryMap: "{FOCUS a fhir:SubstanceDefinition}@<SubstanceDefinition>"
+	status: conformant

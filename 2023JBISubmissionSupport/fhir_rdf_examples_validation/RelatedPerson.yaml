@@ -1,0 +1,49 @@
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: relatedperson-example-peter
+	dataURL: relatedperson-example-peter.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: relatedperson-example
+	dataURL: relatedperson-example.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: RelatedPerson-denovoFather
+	dataURL: RelatedPerson-denovoFather.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: relatedperson-example-newborn-mom
+	dataURL: relatedperson-example-newborn-mom.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: relatedperson-example-f002-ariadne
+	dataURL: relatedperson-example-f002-ariadne.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: relatedperson-example-f001-sarah
+	dataURL: relatedperson-example-f001-sarah.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant
+
+- schemaLabel: RelatedPerson
+	schemaURL: RelatedPerson.shex
+	dataLabel: RelatedPerson-denovoMother
+	dataURL: RelatedPerson-denovoMother.ttl
+	queryMap: "{FOCUS a fhir:RelatedPerson}@<RelatedPerson>"
+	status: conformant

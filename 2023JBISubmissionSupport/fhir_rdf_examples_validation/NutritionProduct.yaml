@@ -1,0 +1,7 @@
+
+- schemaLabel: NutritionProduct
+	schemaURL: NutritionProduct.shex
+	dataLabel: nutritionproduct-example
+	dataURL: nutritionproduct-example.ttl
+	queryMap: "{FOCUS a fhir:NutritionProduct}@<NutritionProduct>"
+	status: conformant

@@ -1,0 +1,91 @@
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-f203-bumc
+	dataURL: organization-example-f203-bumc.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-f201-aumc
+	dataURL: organization-example-f201-aumc.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-gastro
+	dataURL: organization-example-gastro.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-good-health-care
+	dataURL: organization-example-good-health-care.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example
+	dataURL: organization-example.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-f002-burgers-card
+	dataURL: organization-example-f002-burgers-card.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-hl7pay
+	dataURL: organization-example-hl7pay.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-mmanu
+	dataURL: organization-example-mmanu.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-insurer
+	dataURL: organization-example-insurer.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-f001-burgers
+	dataURL: organization-example-f001-burgers.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-lab
+	dataURL: organization-example-lab.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-f003-burgers-ENT
+	dataURL: organization-example-f003-burgers-ENT.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant
+
+- schemaLabel: Organization
+	schemaURL: Organization.shex
+	dataLabel: organization-example-mihealth
+	dataURL: organization-example-mihealth.ttl
+	queryMap: "{FOCUS a fhir:Organization}@<Organization>"
+	status: conformant

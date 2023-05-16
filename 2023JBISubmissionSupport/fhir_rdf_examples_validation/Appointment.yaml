@@ -1,0 +1,21 @@
+
+- schemaLabel: Appointment
+	schemaURL: Appointment.shex
+	dataLabel: appointment-example2doctors
+	dataURL: appointment-example2doctors.ttl
+	queryMap: "{FOCUS a fhir:Appointment}@<Appointment>"
+	status: conformant
+
+- schemaLabel: Appointment
+	schemaURL: Appointment.shex
+	dataLabel: appointment-example
+	dataURL: appointment-example.ttl
+	queryMap: "{FOCUS a fhir:Appointment}@<Appointment>"
+	status: conformant
+
+- schemaLabel: Appointment
+	schemaURL: Appointment.shex
+	dataLabel: appointment-example-request
+	dataURL: appointment-example-request.ttl
+	queryMap: "{FOCUS a fhir:Appointment}@<Appointment>"
+	status: conformant

@@ -1,0 +1,14 @@
+
+- schemaLabel: ArtifactAssessment
+	schemaURL: ArtifactAssessment.shex
+	dataLabel: artifactassessment-risk-of-bias-example
+	dataURL: artifactassessment-risk-of-bias-example.ttl
+	queryMap: "{FOCUS a fhir:ArtifactAssessment}@<ArtifactAssessment>"
+	status: conformant
+
+- schemaLabel: ArtifactAssessment
+	schemaURL: ArtifactAssessment.shex
+	dataLabel: artifactassessment-example-certainty-rating
+	dataURL: artifactassessment-example-certainty-rating.ttl
+	queryMap: "{FOCUS a fhir:ArtifactAssessment}@<ArtifactAssessment>"
+	status: conformant

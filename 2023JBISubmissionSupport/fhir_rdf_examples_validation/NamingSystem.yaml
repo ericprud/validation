@@ -1,0 +1,28 @@
+
+- schemaLabel: NamingSystem
+	schemaURL: NamingSystem.shex
+	dataLabel: namingsystem-example
+	dataURL: namingsystem-example.ttl
+	queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
+	status: conformant
+
+- schemaLabel: NamingSystem
+	schemaURL: NamingSystem.shex
+	dataLabel: namingsystem-example-metadata
+	dataURL: namingsystem-example-metadata.ttl
+	queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
+	status: conformant
+
+- schemaLabel: NamingSystem
+	schemaURL: NamingSystem.shex
+	dataLabel: namingsystem-example-id
+	dataURL: namingsystem-example-id.ttl
+	queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
+	status: conformant
+
+- schemaLabel: NamingSystem
+	schemaURL: NamingSystem.shex
+	dataLabel: namingsystem-example-metadata-2
+	dataURL: namingsystem-example-metadata-2.ttl
+	queryMap: "{FOCUS a fhir:NamingSystem}@<NamingSystem>"
+	status: conformant

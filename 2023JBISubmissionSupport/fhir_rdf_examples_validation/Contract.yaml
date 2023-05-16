@@ -1,0 +1,56 @@
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: contract-example-ins-policy
+	dataURL: contract-example-ins-policy.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: pcd-example-notAuthor
+	dataURL: pcd-example-notAuthor.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: pcd-example-notOrg
+	dataURL: pcd-example-notOrg.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: pcd-example-notThis
+	dataURL: pcd-example-notThis.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: contract-example-42cfr-part2
+	dataURL: contract-example-42cfr-part2.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: pcd-example-notLabs
+	dataURL: pcd-example-notLabs.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: pcd-example-notThem
+	dataURL: pcd-example-notThem.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant
+
+- schemaLabel: Contract
+	schemaURL: Contract.shex
+	dataLabel: contract-example
+	dataURL: contract-example.ttl
+	queryMap: "{FOCUS a fhir:Contract}@<Contract>"
+	status: conformant

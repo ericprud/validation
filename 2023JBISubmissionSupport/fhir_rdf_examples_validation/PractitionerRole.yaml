@@ -1,0 +1,7 @@
+
+- schemaLabel: PractitionerRole
+	schemaURL: PractitionerRole.shex
+	dataLabel: practitionerrole-example
+	dataURL: practitionerrole-example.ttl
+	queryMap: "{FOCUS a fhir:PractitionerRole}@<PractitionerRole>"
+	status: conformant

@@ -1,0 +1,112 @@
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-implant
+	dataURL: procedure-example-implant.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-colonoscopy
+	dataURL: procedure-example-colonoscopy.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-colon-biopsy
+	dataURL: procedure-example-colon-biopsy.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example
+	dataURL: procedure-example.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-f003-abscess
+	dataURL: procedure-example-f003-abscess.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-education
+	dataURL: procedure-example-education.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-f001-heart
+	dataURL: procedure-example-f001-heart.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-f002-lung
+	dataURL: procedure-example-f002-lung.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-appendectomy-narrative
+	dataURL: procedure-example-appendectomy-narrative.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-physical-therapy
+	dataURL: procedure-example-physical-therapy.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-f004-tracheotomy
+	dataURL: procedure-example-f004-tracheotomy.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-f201-tpf
+	dataURL: procedure-example-f201-tpf.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-HCBS
+	dataURL: procedure-example-HCBS.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-ambulation
+	dataURL: procedure-example-ambulation.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-ob
+	dataURL: procedure-example-ob.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant
+
+- schemaLabel: Procedure
+	schemaURL: Procedure.shex
+	dataLabel: procedure-example-biopsy
+	dataURL: procedure-example-biopsy.ttl
+	queryMap: "{FOCUS a fhir:Procedure}@<Procedure>"
+	status: conformant

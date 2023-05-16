@@ -1,0 +1,7 @@
+
+- schemaLabel: ClinicalUseDefinition
+	schemaURL: ClinicalUseDefinition.shex
+	dataLabel: clinicalusedefinition-example
+	dataURL: clinicalusedefinition-example.ttl
+	queryMap: "{FOCUS a fhir:ClinicalUseDefinition}@<ClinicalUseDefinition>"
+	status: conformant

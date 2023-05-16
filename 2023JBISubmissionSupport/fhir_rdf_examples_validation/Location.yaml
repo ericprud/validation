@@ -1,0 +1,49 @@
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-example-room
+	dataURL: location-example-room.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-example
+	dataURL: location-example.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-example-ukpharmacy
+	dataURL: location-example-ukpharmacy.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-example-ambulance
+	dataURL: location-example-ambulance.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-wash-dc-metro
+	dataURL: location-wash-dc-metro.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-example-hl7hq
+	dataURL: location-example-hl7hq.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant
+
+- schemaLabel: Location
+	schemaURL: Location.shex
+	dataLabel: location-example-patients-home
+	dataURL: location-example-patients-home.ttl
+	queryMap: "{FOCUS a fhir:Location}@<Location>"
+	status: conformant

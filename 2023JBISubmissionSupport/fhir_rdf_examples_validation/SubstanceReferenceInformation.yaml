@@ -1,0 +1,7 @@
+
+- schemaLabel: SubstanceReferenceInformation
+	schemaURL: SubstanceReferenceInformation.shex
+	dataLabel: substancereferenceinformation-example
+	dataURL: substancereferenceinformation-example.ttl
+	queryMap: "{FOCUS a fhir:SubstanceReferenceInformation}@<SubstanceReferenceInformation>"
+	status: conformant

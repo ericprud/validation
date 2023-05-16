@@ -1,0 +1,7 @@
+
+- schemaLabel: SubstanceProtein
+	schemaURL: SubstanceProtein.shex
+	dataLabel: substanceprotein-example
+	dataURL: substanceprotein-example.ttl
+	queryMap: "{FOCUS a fhir:SubstanceProtein}@<SubstanceProtein>"
+	status: conformant
