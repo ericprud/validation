@@ -1,70 +1,70 @@
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-example-alteplase-dosing
-	dataURL: activitydefinition-example-alteplase-dosing.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-example-alteplase-dosing
+  dataURL: activitydefinition-example-alteplase-dosing.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-supplyrequest-example
-	dataURL: activitydefinition-supplyrequest-example.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-supplyrequest-example
+  dataURL: activitydefinition-supplyrequest-example.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-order-serum-zika-dengue-virus-igm
-	dataURL: activitydefinition-order-serum-zika-dengue-virus-igm.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-order-serum-zika-dengue-virus-igm
+  dataURL: activitydefinition-order-serum-zika-dengue-virus-igm.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-servicerequest-example
-	dataURL: activitydefinition-servicerequest-example.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-servicerequest-example
+  dataURL: activitydefinition-servicerequest-example.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-provide-mosquito-prevention-advice
-	dataURL: activitydefinition-provide-mosquito-prevention-advice.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-provide-mosquito-prevention-advice
+  dataURL: activitydefinition-provide-mosquito-prevention-advice.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-example
-	dataURL: activitydefinition-example.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-example
+  dataURL: activitydefinition-example.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-predecessor-example
-	dataURL: activitydefinition-predecessor-example.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-predecessor-example
+  dataURL: activitydefinition-predecessor-example.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-administer-zika-virus-exposure-assessment
-	dataURL: activitydefinition-administer-zika-virus-exposure-assessment.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-administer-zika-virus-exposure-assessment
+  dataURL: activitydefinition-administer-zika-virus-exposure-assessment.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-order-serum-dengue-virus-igm
-	dataURL: activitydefinition-order-serum-dengue-virus-igm.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-order-serum-dengue-virus-igm
+  dataURL: activitydefinition-order-serum-dengue-virus-igm.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant
 
 - schemaLabel: ActivityDefinition
-	schemaURL: ActivityDefinition.shex
-	dataLabel: activitydefinition-medicationorder-example
-	dataURL: activitydefinition-medicationorder-example.ttl
-	queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
-	status: conformant
+  schemaURL: ActivityDefinition.shex
+  dataLabel: activitydefinition-medicationorder-example
+  dataURL: activitydefinition-medicationorder-example.ttl
+  queryMap: "{FOCUS a fhir:ActivityDefinition}@<ActivityDefinition>"
+  status: conformant

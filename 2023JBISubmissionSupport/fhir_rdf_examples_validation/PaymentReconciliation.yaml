@@ -1,7 +1,7 @@
 
 - schemaLabel: PaymentReconciliation
-	schemaURL: PaymentReconciliation.shex
-	dataLabel: paymentreconciliation-example
-	dataURL: paymentreconciliation-example.ttl
-	queryMap: "{FOCUS a fhir:PaymentReconciliation}@<PaymentReconciliation>"
-	status: conformant
+  schemaURL: PaymentReconciliation.shex
+  dataLabel: paymentreconciliation-example
+  dataURL: paymentreconciliation-example.ttl
+  queryMap: "{FOCUS a fhir:PaymentReconciliation}@<PaymentReconciliation>"
+  status: conformant

@@ -1,7 +1,7 @@
 
 - schemaLabel: HealthcareService
-	schemaURL: HealthcareService.shex
-	dataLabel: healthcareservice-example
-	dataURL: healthcareservice-example.ttl
-	queryMap: "{FOCUS a fhir:HealthcareService}@<HealthcareService>"
-	status: conformant
+  schemaURL: HealthcareService.shex
+  dataLabel: healthcareservice-example
+  dataURL: healthcareservice-example.ttl
+  queryMap: "{FOCUS a fhir:HealthcareService}@<HealthcareService>"
+  status: conformant

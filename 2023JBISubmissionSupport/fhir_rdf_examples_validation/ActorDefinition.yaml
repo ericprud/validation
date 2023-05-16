@@ -1,14 +1,14 @@
 
 - schemaLabel: ActorDefinition
-	schemaURL: ActorDefinition.shex
-	dataLabel: actordefinition-server
-	dataURL: actordefinition-server.ttl
-	queryMap: "{FOCUS a fhir:ActorDefinition}@<ActorDefinition>"
-	status: conformant
+  schemaURL: ActorDefinition.shex
+  dataLabel: actordefinition-server
+  dataURL: actordefinition-server.ttl
+  queryMap: "{FOCUS a fhir:ActorDefinition}@<ActorDefinition>"
+  status: conformant
 
 - schemaLabel: ActorDefinition
-	schemaURL: ActorDefinition.shex
-	dataLabel: actordefinition-client
-	dataURL: actordefinition-client.ttl
-	queryMap: "{FOCUS a fhir:ActorDefinition}@<ActorDefinition>"
-	status: conformant
+  schemaURL: ActorDefinition.shex
+  dataLabel: actordefinition-client
+  dataURL: actordefinition-client.ttl
+  queryMap: "{FOCUS a fhir:ActorDefinition}@<ActorDefinition>"
+  status: conformant

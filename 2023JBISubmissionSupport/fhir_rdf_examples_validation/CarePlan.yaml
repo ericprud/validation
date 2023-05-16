@@ -1,77 +1,77 @@
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-GPVisit
-	dataURL: careplan-example-GPVisit.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-GPVisit
+  dataURL: careplan-example-GPVisit.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-f003-pharynx
-	dataURL: careplan-example-f003-pharynx.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-f003-pharynx
+  dataURL: careplan-example-f003-pharynx.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-pregnancy
-	dataURL: careplan-example-pregnancy.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-pregnancy
+  dataURL: careplan-example-pregnancy.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-f002-lung
-	dataURL: careplan-example-f002-lung.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-f002-lung
+  dataURL: careplan-example-f002-lung.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-obesity-narrative
-	dataURL: careplan-example-obesity-narrative.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-obesity-narrative
+  dataURL: careplan-example-obesity-narrative.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-f001-heart
-	dataURL: careplan-example-f001-heart.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-f001-heart
+  dataURL: careplan-example-f001-heart.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example
-	dataURL: careplan-example.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example
+  dataURL: careplan-example.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-f201-renal
-	dataURL: careplan-example-f201-renal.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-f201-renal
+  dataURL: careplan-example-f201-renal.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-f203-sepsis
-	dataURL: careplan-example-f203-sepsis.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-f203-sepsis
+  dataURL: careplan-example-f203-sepsis.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-f202-malignancy
-	dataURL: careplan-example-f202-malignancy.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-f202-malignancy
+  dataURL: careplan-example-f202-malignancy.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant
 
 - schemaLabel: CarePlan
-	schemaURL: CarePlan.shex
-	dataLabel: careplan-example-integrated
-	dataURL: careplan-example-integrated.ttl
-	queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
-	status: conformant
+  schemaURL: CarePlan.shex
+  dataLabel: careplan-example-integrated
+  dataURL: careplan-example-integrated.ttl
+  queryMap: "{FOCUS a fhir:CarePlan}@<CarePlan>"
+  status: conformant

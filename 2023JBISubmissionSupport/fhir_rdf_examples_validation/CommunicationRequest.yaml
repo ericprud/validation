@@ -1,14 +1,14 @@
 
 - schemaLabel: CommunicationRequest
-	schemaURL: CommunicationRequest.shex
-	dataLabel: communicationrequest-example
-	dataURL: communicationrequest-example.ttl
-	queryMap: "{FOCUS a fhir:CommunicationRequest}@<CommunicationRequest>"
-	status: conformant
+  schemaURL: CommunicationRequest.shex
+  dataLabel: communicationrequest-example
+  dataURL: communicationrequest-example.ttl
+  queryMap: "{FOCUS a fhir:CommunicationRequest}@<CommunicationRequest>"
+  status: conformant
 
 - schemaLabel: CommunicationRequest
-	schemaURL: CommunicationRequest.shex
-	dataLabel: communicationrequest-example-fm-solicit-attachment
-	dataURL: communicationrequest-example-fm-solicit-attachment.ttl
-	queryMap: "{FOCUS a fhir:CommunicationRequest}@<CommunicationRequest>"
-	status: conformant
+  schemaURL: CommunicationRequest.shex
+  dataLabel: communicationrequest-example-fm-solicit-attachment
+  dataURL: communicationrequest-example-fm-solicit-attachment.ttl
+  queryMap: "{FOCUS a fhir:CommunicationRequest}@<CommunicationRequest>"
+  status: conformant

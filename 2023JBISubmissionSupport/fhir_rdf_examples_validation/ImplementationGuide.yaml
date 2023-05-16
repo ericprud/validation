@@ -1,7 +1,7 @@
 
 - schemaLabel: ImplementationGuide
-	schemaURL: ImplementationGuide.shex
-	dataLabel: implementationguide-example
-	dataURL: implementationguide-example.ttl
-	queryMap: "{FOCUS a fhir:ImplementationGuide}@<ImplementationGuide>"
-	status: conformant
+  schemaURL: ImplementationGuide.shex
+  dataLabel: implementationguide-example
+  dataURL: implementationguide-example.ttl
+  queryMap: "{FOCUS a fhir:ImplementationGuide}@<ImplementationGuide>"
+  status: conformant

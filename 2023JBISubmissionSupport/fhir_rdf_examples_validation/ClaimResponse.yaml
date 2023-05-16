@@ -1,35 +1,35 @@
 
 - schemaLabel: ClaimResponse
-	schemaURL: ClaimResponse.shex
-	dataLabel: claimresponse-example-2
-	dataURL: claimresponse-example-2.ttl
-	queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
-	status: conformant
+  schemaURL: ClaimResponse.shex
+  dataLabel: claimresponse-example-2
+  dataURL: claimresponse-example-2.ttl
+  queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
+  status: conformant
 
 - schemaLabel: ClaimResponse
-	schemaURL: ClaimResponse.shex
-	dataLabel: claimresponse-example-vision-3tier
-	dataURL: claimresponse-example-vision-3tier.ttl
-	queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
-	status: conformant
+  schemaURL: ClaimResponse.shex
+  dataLabel: claimresponse-example-vision-3tier
+  dataURL: claimresponse-example-vision-3tier.ttl
+  queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
+  status: conformant
 
 - schemaLabel: ClaimResponse
-	schemaURL: ClaimResponse.shex
-	dataLabel: claimresponse-example-unsolicited-preauth
-	dataURL: claimresponse-example-unsolicited-preauth.ttl
-	queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
-	status: conformant
+  schemaURL: ClaimResponse.shex
+  dataLabel: claimresponse-example-unsolicited-preauth
+  dataURL: claimresponse-example-unsolicited-preauth.ttl
+  queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
+  status: conformant
 
 - schemaLabel: ClaimResponse
-	schemaURL: ClaimResponse.shex
-	dataLabel: claimresponse-example
-	dataURL: claimresponse-example.ttl
-	queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
-	status: conformant
+  schemaURL: ClaimResponse.shex
+  dataLabel: claimresponse-example
+  dataURL: claimresponse-example.ttl
+  queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
+  status: conformant
 
 - schemaLabel: ClaimResponse
-	schemaURL: ClaimResponse.shex
-	dataLabel: claimresponse-example-additem
-	dataURL: claimresponse-example-additem.ttl
-	queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
-	status: conformant
+  schemaURL: ClaimResponse.shex
+  dataLabel: claimresponse-example-additem
+  dataURL: claimresponse-example-additem.ttl
+  queryMap: "{FOCUS a fhir:ClaimResponse}@<ClaimResponse>"
+  status: conformant

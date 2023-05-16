@@ -1,21 +1,21 @@
 
 - schemaLabel: Endpoint
-	schemaURL: Endpoint.shex
-	dataLabel: endpoint-example
-	dataURL: endpoint-example.ttl
-	queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
-	status: conformant
+  schemaURL: Endpoint.shex
+  dataLabel: endpoint-example
+  dataURL: endpoint-example.ttl
+  queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
+  status: conformant
 
 - schemaLabel: Endpoint
-	schemaURL: Endpoint.shex
-	dataLabel: endpoint-example-direct
-	dataURL: endpoint-example-direct.ttl
-	queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
-	status: conformant
+  schemaURL: Endpoint.shex
+  dataLabel: endpoint-example-direct
+  dataURL: endpoint-example-direct.ttl
+  queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
+  status: conformant
 
 - schemaLabel: Endpoint
-	schemaURL: Endpoint.shex
-	dataLabel: endpoint-example-wadors
-	dataURL: endpoint-example-wadors.ttl
-	queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
-	status: conformant
+  schemaURL: Endpoint.shex
+  dataLabel: endpoint-example-wadors
+  dataURL: endpoint-example-wadors.ttl
+  queryMap: "{FOCUS a fhir:Endpoint}@<Endpoint>"
+  status: conformant

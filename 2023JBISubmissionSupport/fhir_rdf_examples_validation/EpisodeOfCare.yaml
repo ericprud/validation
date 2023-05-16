@@ -1,7 +1,7 @@
 
 - schemaLabel: EpisodeOfCare
-	schemaURL: EpisodeOfCare.shex
-	dataLabel: episodeofcare-example
-	dataURL: episodeofcare-example.ttl
-	queryMap: "{FOCUS a fhir:EpisodeOfCare}@<EpisodeOfCare>"
-	status: conformant
+  schemaURL: EpisodeOfCare.shex
+  dataLabel: episodeofcare-example
+  dataURL: episodeofcare-example.ttl
+  queryMap: "{FOCUS a fhir:EpisodeOfCare}@<EpisodeOfCare>"
+  status: conformant

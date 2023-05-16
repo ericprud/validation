@@ -1,7 +1,7 @@
 
 - schemaLabel: DeviceDispense
-	schemaURL: DeviceDispense.shex
-	dataLabel: devicedispense-example
-	dataURL: devicedispense-example.ttl
-	queryMap: "{FOCUS a fhir:DeviceDispense}@<DeviceDispense>"
-	status: conformant
+  schemaURL: DeviceDispense.shex
+  dataLabel: devicedispense-example
+  dataURL: devicedispense-example.ttl
+  queryMap: "{FOCUS a fhir:DeviceDispense}@<DeviceDispense>"
+  status: conformant

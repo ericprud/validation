@@ -1,49 +1,49 @@
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-example-practitioner-info
-	dataURL: questionnaire-example-practitioner-info.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-example-practitioner-info
+  dataURL: questionnaire-example-practitioner-info.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-child-rel-demo
-	dataURL: questionnaire-child-rel-demo.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-child-rel-demo
+  dataURL: questionnaire-child-rel-demo.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-zika-virus-exposure-assessment
-	dataURL: questionnaire-zika-virus-exposure-assessment.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-zika-virus-exposure-assessment
+  dataURL: questionnaire-zika-virus-exposure-assessment.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-example
-	dataURL: questionnaire-example.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-example
+  dataURL: questionnaire-example.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-example-f201-lifelines
-	dataURL: questionnaire-example-f201-lifelines.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-example-f201-lifelines
+  dataURL: questionnaire-example-f201-lifelines.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-example-bluebook
-	dataURL: questionnaire-example-bluebook.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-example-bluebook
+  dataURL: questionnaire-example-bluebook.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant
 
 - schemaLabel: Questionnaire
-	schemaURL: Questionnaire.shex
-	dataLabel: questionnaire-example-gcs
-	dataURL: questionnaire-example-gcs.ttl
-	queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
-	status: conformant
+  schemaURL: Questionnaire.shex
+  dataLabel: questionnaire-example-gcs
+  dataURL: questionnaire-example-gcs.ttl
+  queryMap: "{FOCUS a fhir:Questionnaire}@<Questionnaire>"
+  status: conformant

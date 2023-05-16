@@ -1,7 +1,7 @@
 
 - schemaLabel: SubstanceSourceMaterial
-	schemaURL: SubstanceSourceMaterial.shex
-	dataLabel: substancesourcematerial-example
-	dataURL: substancesourcematerial-example.ttl
-	queryMap: "{FOCUS a fhir:SubstanceSourceMaterial}@<SubstanceSourceMaterial>"
-	status: conformant
+  schemaURL: SubstanceSourceMaterial.shex
+  dataLabel: substancesourcematerial-example
+  dataURL: substancesourcematerial-example.ttl
+  queryMap: "{FOCUS a fhir:SubstanceSourceMaterial}@<SubstanceSourceMaterial>"
+  status: conformant

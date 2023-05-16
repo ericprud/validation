@@ -1,91 +1,91 @@
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-proteinsupplement
-	dataURL: nutritionorder-example-proteinsupplement.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-proteinsupplement
+  dataURL: nutritionorder-example-proteinsupplement.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-cardiacdiet
-	dataURL: nutritionorder-example-cardiacdiet.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-cardiacdiet
+  dataURL: nutritionorder-example-cardiacdiet.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-pureeddiet-simple
-	dataURL: nutritionorder-example-pureeddiet-simple.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-pureeddiet-simple
+  dataURL: nutritionorder-example-pureeddiet-simple.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-energysupplement
-	dataURL: nutritionorder-example-energysupplement.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-energysupplement
+  dataURL: nutritionorder-example-energysupplement.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-renaldiet
-	dataURL: nutritionorder-example-renaldiet.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-renaldiet
+  dataURL: nutritionorder-example-renaldiet.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-diabeticdiet
-	dataURL: nutritionorder-example-diabeticdiet.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-diabeticdiet
+  dataURL: nutritionorder-example-diabeticdiet.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-texture-modified
-	dataURL: nutritionorder-example-texture-modified.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-texture-modified
+  dataURL: nutritionorder-example-texture-modified.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-fiberrestricteddiet
-	dataURL: nutritionorder-example-fiberrestricteddiet.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-fiberrestricteddiet
+  dataURL: nutritionorder-example-fiberrestricteddiet.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-diabeticsupplement
-	dataURL: nutritionorder-example-diabeticsupplement.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-diabeticsupplement
+  dataURL: nutritionorder-example-diabeticsupplement.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-enteralcontinuous
-	dataURL: nutritionorder-example-enteralcontinuous.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-enteralcontinuous
+  dataURL: nutritionorder-example-enteralcontinuous.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-enteralbolus
-	dataURL: nutritionorder-example-enteralbolus.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-enteralbolus
+  dataURL: nutritionorder-example-enteralbolus.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-pureeddiet
-	dataURL: nutritionorder-example-pureeddiet.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-pureeddiet
+  dataURL: nutritionorder-example-pureeddiet.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant
 
 - schemaLabel: NutritionOrder
-	schemaURL: NutritionOrder.shex
-	dataLabel: nutritionorder-example-infantenteral
-	dataURL: nutritionorder-example-infantenteral.ttl
-	queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
-	status: conformant
+  schemaURL: NutritionOrder.shex
+  dataLabel: nutritionorder-example-infantenteral
+  dataURL: nutritionorder-example-infantenteral.ttl
+  queryMap: "{FOCUS a fhir:NutritionOrder}@<NutritionOrder>"
+  status: conformant

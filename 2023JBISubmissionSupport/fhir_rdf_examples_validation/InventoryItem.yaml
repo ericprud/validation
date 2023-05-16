@@ -1,7 +1,7 @@
 
 - schemaLabel: InventoryItem
-	schemaURL: InventoryItem.shex
-	dataLabel: inventoryitem-example
-	dataURL: inventoryitem-example.ttl
-	queryMap: "{FOCUS a fhir:InventoryItem}@<InventoryItem>"
-	status: conformant
+  schemaURL: InventoryItem.shex
+  dataLabel: inventoryitem-example
+  dataURL: inventoryitem-example.ttl
+  queryMap: "{FOCUS a fhir:InventoryItem}@<InventoryItem>"
+  status: conformant

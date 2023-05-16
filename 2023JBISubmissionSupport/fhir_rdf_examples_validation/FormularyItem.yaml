@@ -1,7 +1,7 @@
 
 - schemaLabel: FormularyItem
-	schemaURL: FormularyItem.shex
-	dataLabel: formularyitemexample01
-	dataURL: formularyitemexample01.ttl
-	queryMap: "{FOCUS a fhir:FormularyItem}@<FormularyItem>"
-	status: conformant
+  schemaURL: FormularyItem.shex
+  dataLabel: formularyitemexample01
+  dataURL: formularyitemexample01.ttl
+  queryMap: "{FOCUS a fhir:FormularyItem}@<FormularyItem>"
+  status: conformant

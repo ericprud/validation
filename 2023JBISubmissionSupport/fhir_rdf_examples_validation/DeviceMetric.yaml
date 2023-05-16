@@ -1,7 +1,7 @@
 
 - schemaLabel: DeviceMetric
-	schemaURL: DeviceMetric.shex
-	dataLabel: devicemetric-example
-	dataURL: devicemetric-example.ttl
-	queryMap: "{FOCUS a fhir:DeviceMetric}@<DeviceMetric>"
-	status: conformant
+  schemaURL: DeviceMetric.shex
+  dataLabel: devicemetric-example
+  dataURL: devicemetric-example.ttl
+  queryMap: "{FOCUS a fhir:DeviceMetric}@<DeviceMetric>"
+  status: conformant

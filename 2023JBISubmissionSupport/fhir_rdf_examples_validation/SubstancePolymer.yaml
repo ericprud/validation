@@ -1,7 +1,7 @@
 
 - schemaLabel: SubstancePolymer
-	schemaURL: SubstancePolymer.shex
-	dataLabel: substancepolymer-example
-	dataURL: substancepolymer-example.ttl
-	queryMap: "{FOCUS a fhir:SubstancePolymer}@<SubstancePolymer>"
-	status: conformant
+  schemaURL: SubstancePolymer.shex
+  dataLabel: substancepolymer-example
+  dataURL: substancepolymer-example.ttl
+  queryMap: "{FOCUS a fhir:SubstancePolymer}@<SubstancePolymer>"
+  status: conformant

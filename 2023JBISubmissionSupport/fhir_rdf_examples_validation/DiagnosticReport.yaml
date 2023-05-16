@@ -1,42 +1,42 @@
 
 - schemaLabel: DiagnosticReport
-	schemaURL: DiagnosticReport.shex
-	dataLabel: diagnosticreport-example-ultrasound
-	dataURL: diagnosticreport-example-ultrasound.ttl
-	queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
-	status: conformant
+  schemaURL: DiagnosticReport.shex
+  dataLabel: diagnosticreport-example-ultrasound
+  dataURL: diagnosticreport-example-ultrasound.ttl
+  queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
+  status: conformant
 
 - schemaLabel: DiagnosticReport
-	schemaURL: DiagnosticReport.shex
-	dataLabel: diagnosticreport-example-gingival-biopsy
-	dataURL: diagnosticreport-example-gingival-biopsy.ttl
-	queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
-	status: conformant
+  schemaURL: DiagnosticReport.shex
+  dataLabel: diagnosticreport-example-gingival-biopsy
+  dataURL: diagnosticreport-example-gingival-biopsy.ttl
+  queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
+  status: conformant
 
 - schemaLabel: DiagnosticReport
-	schemaURL: DiagnosticReport.shex
-	dataLabel: diagnosticreport-example-papsmear
-	dataURL: diagnosticreport-example-papsmear.ttl
-	queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
-	status: conformant
+  schemaURL: DiagnosticReport.shex
+  dataLabel: diagnosticreport-example-papsmear
+  dataURL: diagnosticreport-example-papsmear.ttl
+  queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
+  status: conformant
 
 - schemaLabel: DiagnosticReport
-	schemaURL: DiagnosticReport.shex
-	dataLabel: diagnosticreport-example-gingival-mass
-	dataURL: diagnosticreport-example-gingival-mass.ttl
-	queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
-	status: conformant
+  schemaURL: DiagnosticReport.shex
+  dataLabel: diagnosticreport-example-gingival-mass
+  dataURL: diagnosticreport-example-gingival-mass.ttl
+  queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
+  status: conformant
 
 - schemaLabel: DiagnosticReport
-	schemaURL: DiagnosticReport.shex
-	dataLabel: diagnosticreport-example-f201-brainct
-	dataURL: diagnosticreport-example-f201-brainct.ttl
-	queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
-	status: conformant
+  schemaURL: DiagnosticReport.shex
+  dataLabel: diagnosticreport-example-f201-brainct
+  dataURL: diagnosticreport-example-f201-brainct.ttl
+  queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
+  status: conformant
 
 - schemaLabel: DiagnosticReport
-	schemaURL: DiagnosticReport.shex
-	dataLabel: diagnosticreport-example-dxa
-	dataURL: diagnosticreport-example-dxa.ttl
-	queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
-	status: conformant
+  schemaURL: DiagnosticReport.shex
+  dataLabel: diagnosticreport-example-dxa
+  dataURL: diagnosticreport-example-dxa.ttl
+  queryMap: "{FOCUS a fhir:DiagnosticReport}@<DiagnosticReport>"
+  status: conformant

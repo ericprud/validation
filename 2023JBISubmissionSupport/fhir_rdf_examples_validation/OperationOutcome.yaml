@@ -1,42 +1,42 @@
 
 - schemaLabel: OperationOutcome
-	schemaURL: OperationOutcome.shex
-	dataLabel: operationoutcome-example-allok
-	dataURL: operationoutcome-example-allok.ttl
-	queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
-	status: conformant
+  schemaURL: OperationOutcome.shex
+  dataLabel: operationoutcome-example-allok
+  dataURL: operationoutcome-example-allok.ttl
+  queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
+  status: conformant
 
 - schemaLabel: OperationOutcome
-	schemaURL: OperationOutcome.shex
-	dataLabel: operationoutcome-example-validationfail
-	dataURL: operationoutcome-example-validationfail.ttl
-	queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
-	status: conformant
+  schemaURL: OperationOutcome.shex
+  dataLabel: operationoutcome-example-validationfail
+  dataURL: operationoutcome-example-validationfail.ttl
+  queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
+  status: conformant
 
 - schemaLabel: OperationOutcome
-	schemaURL: OperationOutcome.shex
-	dataLabel: operationoutcome-example
-	dataURL: operationoutcome-example.ttl
-	queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
-	status: conformant
+  schemaURL: OperationOutcome.shex
+  dataLabel: operationoutcome-example
+  dataURL: operationoutcome-example.ttl
+  queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
+  status: conformant
 
 - schemaLabel: OperationOutcome
-	schemaURL: OperationOutcome.shex
-	dataLabel: operationoutcome-example-break-the-glass
-	dataURL: operationoutcome-example-break-the-glass.ttl
-	queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
-	status: conformant
+  schemaURL: OperationOutcome.shex
+  dataLabel: operationoutcome-example-break-the-glass
+  dataURL: operationoutcome-example-break-the-glass.ttl
+  queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
+  status: conformant
 
 - schemaLabel: OperationOutcome
-	schemaURL: OperationOutcome.shex
-	dataLabel: operationoutcome-example-exception
-	dataURL: operationoutcome-example-exception.ttl
-	queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
-	status: conformant
+  schemaURL: OperationOutcome.shex
+  dataLabel: operationoutcome-example-exception
+  dataURL: operationoutcome-example-exception.ttl
+  queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
+  status: conformant
 
 - schemaLabel: OperationOutcome
-	schemaURL: OperationOutcome.shex
-	dataLabel: operationoutcome-example-searchfail
-	dataURL: operationoutcome-example-searchfail.ttl
-	queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
-	status: conformant
+  schemaURL: OperationOutcome.shex
+  dataLabel: operationoutcome-example-searchfail
+  dataURL: operationoutcome-example-searchfail.ttl
+  queryMap: "{FOCUS a fhir:OperationOutcome}@<OperationOutcome>"
+  status: conformant

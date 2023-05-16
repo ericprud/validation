@@ -1,14 +1,14 @@
 
 - schemaLabel: Subscription
-	schemaURL: Subscription.shex
-	dataLabel: subscription-example
-	dataURL: subscription-example.ttl
-	queryMap: "{FOCUS a fhir:Subscription}@<Subscription>"
-	status: conformant
+  schemaURL: Subscription.shex
+  dataLabel: subscription-example
+  dataURL: subscription-example.ttl
+  queryMap: "{FOCUS a fhir:Subscription}@<Subscription>"
+  status: conformant
 
 - schemaLabel: Subscription
-	schemaURL: Subscription.shex
-	dataLabel: subscription-admission
-	dataURL: subscription-admission.ttl
-	queryMap: "{FOCUS a fhir:Subscription}@<Subscription>"
-	status: conformant
+  schemaURL: Subscription.shex
+  dataLabel: subscription-admission
+  dataURL: subscription-admission.ttl
+  queryMap: "{FOCUS a fhir:Subscription}@<Subscription>"
+  status: conformant

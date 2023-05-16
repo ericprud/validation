@@ -1,21 +1,21 @@
 
 - schemaLabel: GenomicStudy
-	schemaURL: GenomicStudy.shex
-	dataLabel: genomicstudy-example-lungMass
-	dataURL: genomicstudy-example-lungMass.ttl
-	queryMap: "{FOCUS a fhir:GenomicStudy}@<GenomicStudy>"
-	status: conformant
+  schemaURL: GenomicStudy.shex
+  dataLabel: genomicstudy-example-lungMass
+  dataURL: genomicstudy-example-lungMass.ttl
+  queryMap: "{FOCUS a fhir:GenomicStudy}@<GenomicStudy>"
+  status: conformant
 
 - schemaLabel: GenomicStudy
-	schemaURL: GenomicStudy.shex
-	dataLabel: genomicstudy-example-trio2
-	dataURL: genomicstudy-example-trio2.ttl
-	queryMap: "{FOCUS a fhir:GenomicStudy}@<GenomicStudy>"
-	status: conformant
+  schemaURL: GenomicStudy.shex
+  dataLabel: genomicstudy-example-trio2
+  dataURL: genomicstudy-example-trio2.ttl
+  queryMap: "{FOCUS a fhir:GenomicStudy}@<GenomicStudy>"
+  status: conformant
 
 - schemaLabel: GenomicStudy
-	schemaURL: GenomicStudy.shex
-	dataLabel: genomicstudy-example
-	dataURL: genomicstudy-example.ttl
-	queryMap: "{FOCUS a fhir:GenomicStudy}@<GenomicStudy>"
-	status: conformant
+  schemaURL: GenomicStudy.shex
+  dataLabel: genomicstudy-example
+  dataURL: genomicstudy-example.ttl
+  queryMap: "{FOCUS a fhir:GenomicStudy}@<GenomicStudy>"
+  status: conformant

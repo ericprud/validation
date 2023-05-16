@@ -1,7 +1,7 @@
 
 - schemaLabel: Citation
-	schemaURL: Citation.shex
-	dataLabel: citation-example-research-doi
-	dataURL: citation-example-research-doi.ttl
-	queryMap: "{FOCUS a fhir:Citation}@<Citation>"
-	status: conformant
+  schemaURL: Citation.shex
+  dataLabel: citation-example-research-doi
+  dataURL: citation-example-research-doi.ttl
+  queryMap: "{FOCUS a fhir:Citation}@<Citation>"
+  status: conformant

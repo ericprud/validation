@@ -1,91 +1,91 @@
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-colonoscopy
-	dataURL: encounter-example-colonoscopy.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-colonoscopy
+  dataURL: encounter-example-colonoscopy.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-f201-20130404
-	dataURL: encounter-example-f201-20130404.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-f201-20130404
+  dataURL: encounter-example-f201-20130404.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example
-	dataURL: encounter-example.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example
+  dataURL: encounter-example.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: Encounter-genomicEncounter
-	dataURL: Encounter-genomicEncounter.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: Encounter-genomicEncounter
+  dataURL: Encounter-genomicEncounter.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: Encounter-denovoEncounter
-	dataURL: Encounter-denovoEncounter.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: Encounter-denovoEncounter
+  dataURL: Encounter-denovoEncounter.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-f003-abscess
-	dataURL: encounter-example-f003-abscess.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-f003-abscess
+  dataURL: encounter-example-f003-abscess.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-emerg
-	dataURL: encounter-example-emerg.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-emerg
+  dataURL: encounter-example-emerg.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-f203-20130311
-	dataURL: encounter-example-f203-20130311.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-f203-20130311
+  dataURL: encounter-example-f203-20130311.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-f202-20130128
-	dataURL: encounter-example-f202-20130128.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-f202-20130128
+  dataURL: encounter-example-f202-20130128.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-f001-heart
-	dataURL: encounter-example-f001-heart.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-f001-heart
+  dataURL: encounter-example-f001-heart.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-home
-	dataURL: encounter-example-home.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-home
+  dataURL: encounter-example-home.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-xcda
-	dataURL: encounter-example-xcda.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-xcda
+  dataURL: encounter-example-xcda.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant
 
 - schemaLabel: Encounter
-	schemaURL: Encounter.shex
-	dataLabel: encounter-example-f002-lung
-	dataURL: encounter-example-f002-lung.ttl
-	queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
-	status: conformant
+  schemaURL: Encounter.shex
+  dataLabel: encounter-example-f002-lung
+  dataURL: encounter-example-f002-lung.ttl
+  queryMap: "{FOCUS a fhir:Encounter}@<Encounter>"
+  status: conformant

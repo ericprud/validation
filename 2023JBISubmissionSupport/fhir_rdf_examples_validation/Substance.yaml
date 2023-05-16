@@ -1,42 +1,42 @@
 
 - schemaLabel: Substance
-	schemaURL: Substance.shex
-	dataLabel: substance-example
-	dataURL: substance-example.ttl
-	queryMap: "{FOCUS a fhir:Substance}@<Substance>"
-	status: conformant
+  schemaURL: Substance.shex
+  dataLabel: substance-example
+  dataURL: substance-example.ttl
+  queryMap: "{FOCUS a fhir:Substance}@<Substance>"
+  status: conformant
 
 - schemaLabel: Substance
-	schemaURL: Substance.shex
-	dataLabel: substance-example-f203-potassium
-	dataURL: substance-example-f203-potassium.ttl
-	queryMap: "{FOCUS a fhir:Substance}@<Substance>"
-	status: conformant
+  schemaURL: Substance.shex
+  dataLabel: substance-example-f203-potassium
+  dataURL: substance-example-f203-potassium.ttl
+  queryMap: "{FOCUS a fhir:Substance}@<Substance>"
+  status: conformant
 
 - schemaLabel: Substance
-	schemaURL: Substance.shex
-	dataLabel: substance-example-f202-staphylococcus
-	dataURL: substance-example-f202-staphylococcus.ttl
-	queryMap: "{FOCUS a fhir:Substance}@<Substance>"
-	status: conformant
+  schemaURL: Substance.shex
+  dataLabel: substance-example-f202-staphylococcus
+  dataURL: substance-example-f202-staphylococcus.ttl
+  queryMap: "{FOCUS a fhir:Substance}@<Substance>"
+  status: conformant
 
 - schemaLabel: Substance
-	schemaURL: Substance.shex
-	dataLabel: substance-example-silver-nitrate-product
-	dataURL: substance-example-silver-nitrate-product.ttl
-	queryMap: "{FOCUS a fhir:Substance}@<Substance>"
-	status: conformant
+  schemaURL: Substance.shex
+  dataLabel: substance-example-silver-nitrate-product
+  dataURL: substance-example-silver-nitrate-product.ttl
+  queryMap: "{FOCUS a fhir:Substance}@<Substance>"
+  status: conformant
 
 - schemaLabel: Substance
-	schemaURL: Substance.shex
-	dataLabel: substance-example-amoxicillin-clavulanate
-	dataURL: substance-example-amoxicillin-clavulanate.ttl
-	queryMap: "{FOCUS a fhir:Substance}@<Substance>"
-	status: conformant
+  schemaURL: Substance.shex
+  dataLabel: substance-example-amoxicillin-clavulanate
+  dataURL: substance-example-amoxicillin-clavulanate.ttl
+  queryMap: "{FOCUS a fhir:Substance}@<Substance>"
+  status: conformant
 
 - schemaLabel: Substance
-	schemaURL: Substance.shex
-	dataLabel: substance-example-f201-dust
-	dataURL: substance-example-f201-dust.ttl
-	queryMap: "{FOCUS a fhir:Substance}@<Substance>"
-	status: conformant
+  schemaURL: Substance.shex
+  dataLabel: substance-example-f201-dust
+  dataURL: substance-example-f201-dust.ttl
+  queryMap: "{FOCUS a fhir:Substance}@<Substance>"
+  status: conformant

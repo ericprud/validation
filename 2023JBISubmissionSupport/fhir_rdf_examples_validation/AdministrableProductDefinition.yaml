@@ -1,7 +1,7 @@
 
 - schemaLabel: AdministrableProductDefinition
-	schemaURL: AdministrableProductDefinition.shex
-	dataLabel: administrableproductdefinition-example
-	dataURL: administrableproductdefinition-example.ttl
-	queryMap: "{FOCUS a fhir:AdministrableProductDefinition}@<AdministrableProductDefinition>"
-	status: conformant
+  schemaURL: AdministrableProductDefinition.shex
+  dataLabel: administrableproductdefinition-example
+  dataURL: administrableproductdefinition-example.ttl
+  queryMap: "{FOCUS a fhir:AdministrableProductDefinition}@<AdministrableProductDefinition>"
+  status: conformant

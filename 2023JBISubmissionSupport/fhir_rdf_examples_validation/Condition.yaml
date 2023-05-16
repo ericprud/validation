@@ -1,91 +1,91 @@
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-stroke
-	dataURL: condition-example-stroke.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-stroke
+  dataURL: condition-example-stroke.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f001-heart
-	dataURL: condition-example-f001-heart.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f001-heart
+  dataURL: condition-example-f001-heart.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-family-history
-	dataURL: condition-example-family-history.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-family-history
+  dataURL: condition-example-family-history.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f201-fever
-	dataURL: condition-example-f201-fever.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f201-fever
+  dataURL: condition-example-f201-fever.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example
-	dataURL: condition-example.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example
+  dataURL: condition-example.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f205-infection
-	dataURL: condition-example-f205-infection.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f205-infection
+  dataURL: condition-example-f205-infection.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f003-abscess
-	dataURL: condition-example-f003-abscess.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f003-abscess
+  dataURL: condition-example-f003-abscess.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example2
-	dataURL: condition-example2.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example2
+  dataURL: condition-example2.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f204-renal
-	dataURL: condition-example-f204-renal.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f204-renal
+  dataURL: condition-example-f204-renal.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f002-lung
-	dataURL: condition-example-f002-lung.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f002-lung
+  dataURL: condition-example-f002-lung.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f203-sepsis
-	dataURL: condition-example-f203-sepsis.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f203-sepsis
+  dataURL: condition-example-f203-sepsis.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-f202-malignancy
-	dataURL: condition-example-f202-malignancy.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-f202-malignancy
+  dataURL: condition-example-f202-malignancy.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant
 
 - schemaLabel: Condition
-	schemaURL: Condition.shex
-	dataLabel: condition-example-linkage
-	dataURL: condition-example-linkage.ttl
-	queryMap: "{FOCUS a fhir:Condition}@<Condition>"
-	status: conformant
+  schemaURL: Condition.shex
+  dataLabel: condition-example-linkage
+  dataURL: condition-example-linkage.ttl
+  queryMap: "{FOCUS a fhir:Condition}@<Condition>"
+  status: conformant

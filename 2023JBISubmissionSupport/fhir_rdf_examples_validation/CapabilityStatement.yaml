@@ -1,56 +1,56 @@
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-messagedefinition
-	dataURL: capabilitystatement-messagedefinition.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-messagedefinition
+  dataURL: capabilitystatement-messagedefinition.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-phr-example
-	dataURL: capabilitystatement-phr-example.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-phr-example
+  dataURL: capabilitystatement-phr-example.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-base2
-	dataURL: capabilitystatement-base2.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-base2
+  dataURL: capabilitystatement-base2.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-base
-	dataURL: capabilitystatement-base.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-base
+  dataURL: capabilitystatement-base.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-measure-processor
-	dataURL: capabilitystatement-measure-processor.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-measure-processor
+  dataURL: capabilitystatement-measure-processor.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-example
-	dataURL: capabilitystatement-example.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-example
+  dataURL: capabilitystatement-example.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-knowledge-repository
-	dataURL: capabilitystatement-knowledge-repository.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-knowledge-repository
+  dataURL: capabilitystatement-knowledge-repository.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant
 
 - schemaLabel: CapabilityStatement
-	schemaURL: CapabilityStatement.shex
-	dataLabel: capabilitystatement-terminology-server
-	dataURL: capabilitystatement-terminology-server.ttl
-	queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
-	status: conformant
+  schemaURL: CapabilityStatement.shex
+  dataLabel: capabilitystatement-terminology-server
+  dataURL: capabilitystatement-terminology-server.ttl
+  queryMap: "{FOCUS a fhir:CapabilityStatement}@<CapabilityStatement>"
+  status: conformant

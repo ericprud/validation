@@ -47,11 +47,11 @@ def get_shex_schema_from_examples(examples, shex, output):
                         example_loc = x.split(".")[0]
                         filepath = os.path.join(output_loc, shex_name + '.yaml')
                         with open(filepath, 'a+') as outf:
-                            outf.write(f'\n- schemaLabel: {shex_name}\n\tschemaURL: {shex_loc}\n\tdataLabel: {example_loc}\n\tdataURL: {x}\n\tqueryMap: "{{FOCUS a fhir:{shex_name}}}@<{shex_name}>"\n\tstatus: conformant\n');
+                            outf.write(f'\n- schemaLabel: {shex_name}\n  schemaURL: {shex_loc}\n  dataLabel: {example_loc}\n  dataURL: {x}\n  queryMap: "{{FOCUS a fhir:{shex_name}}}@<{shex_name}>"\n  status: conformant\n');
 
                         if not (shex_name in unique_yamls):
                             with open(readme, 'a+') as rma:
-                                rma.write(f'\n|({example_loc})[{shex_validator}{shex_name}.yaml]|{shex_name}|')
+                                rma.write(f'\n| [{example_loc}]({shex_validator}{shex_name}.yaml) | {shex_name} |')
                             unique_yamls.append(shex_name)
                     else:
                         print(f'Could not map for File: {x}')

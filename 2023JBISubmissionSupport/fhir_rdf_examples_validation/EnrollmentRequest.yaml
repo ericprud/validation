@@ -1,7 +1,7 @@
 
 - schemaLabel: EnrollmentRequest
-	schemaURL: EnrollmentRequest.shex
-	dataLabel: enrollmentrequest-example
-	dataURL: enrollmentrequest-example.ttl
-	queryMap: "{FOCUS a fhir:EnrollmentRequest}@<EnrollmentRequest>"
-	status: conformant
+  schemaURL: EnrollmentRequest.shex
+  dataLabel: enrollmentrequest-example
+  dataURL: enrollmentrequest-example.ttl
+  queryMap: "{FOCUS a fhir:EnrollmentRequest}@<EnrollmentRequest>"
+  status: conformant

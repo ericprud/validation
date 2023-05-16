@@ -1,35 +1,35 @@
 
 - schemaLabel: Slot
-	schemaURL: Slot.shex
-	dataLabel: slot-example-unavailable
-	dataURL: slot-example-unavailable.ttl
-	queryMap: "{FOCUS a fhir:Slot}@<Slot>"
-	status: conformant
+  schemaURL: Slot.shex
+  dataLabel: slot-example-unavailable
+  dataURL: slot-example-unavailable.ttl
+  queryMap: "{FOCUS a fhir:Slot}@<Slot>"
+  status: conformant
 
 - schemaLabel: Slot
-	schemaURL: Slot.shex
-	dataLabel: slot-example-busy
-	dataURL: slot-example-busy.ttl
-	queryMap: "{FOCUS a fhir:Slot}@<Slot>"
-	status: conformant
+  schemaURL: Slot.shex
+  dataLabel: slot-example-busy
+  dataURL: slot-example-busy.ttl
+  queryMap: "{FOCUS a fhir:Slot}@<Slot>"
+  status: conformant
 
 - schemaLabel: Slot
-	schemaURL: Slot.shex
-	dataLabel: slot-example-hcs
-	dataURL: slot-example-hcs.ttl
-	queryMap: "{FOCUS a fhir:Slot}@<Slot>"
-	status: conformant
+  schemaURL: Slot.shex
+  dataLabel: slot-example-hcs
+  dataURL: slot-example-hcs.ttl
+  queryMap: "{FOCUS a fhir:Slot}@<Slot>"
+  status: conformant
 
 - schemaLabel: Slot
-	schemaURL: Slot.shex
-	dataLabel: slot-example
-	dataURL: slot-example.ttl
-	queryMap: "{FOCUS a fhir:Slot}@<Slot>"
-	status: conformant
+  schemaURL: Slot.shex
+  dataLabel: slot-example
+  dataURL: slot-example.ttl
+  queryMap: "{FOCUS a fhir:Slot}@<Slot>"
+  status: conformant
 
 - schemaLabel: Slot
-	schemaURL: Slot.shex
-	dataLabel: slot-example-tentative
-	dataURL: slot-example-tentative.ttl
-	queryMap: "{FOCUS a fhir:Slot}@<Slot>"
-	status: conformant
+  schemaURL: Slot.shex
+  dataLabel: slot-example-tentative
+  dataURL: slot-example-tentative.ttl
+  queryMap: "{FOCUS a fhir:Slot}@<Slot>"
+  status: conformant

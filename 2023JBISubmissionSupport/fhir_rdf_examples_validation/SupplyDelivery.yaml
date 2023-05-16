@@ -1,28 +1,28 @@
 
 - schemaLabel: SupplyDelivery
-	schemaURL: SupplyDelivery.shex
-	dataLabel: supplydelivery-example-mphodelivery
-	dataURL: supplydelivery-example-mphodelivery.ttl
-	queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
-	status: conformant
+  schemaURL: SupplyDelivery.shex
+  dataLabel: supplydelivery-example-mphodelivery
+  dataURL: supplydelivery-example-mphodelivery.ttl
+  queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
+  status: conformant
 
 - schemaLabel: SupplyDelivery
-	schemaURL: SupplyDelivery.shex
-	dataLabel: supplydelivery-example
-	dataURL: supplydelivery-example.ttl
-	queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
-	status: conformant
+  schemaURL: SupplyDelivery.shex
+  dataLabel: supplydelivery-example
+  dataURL: supplydelivery-example.ttl
+  queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
+  status: conformant
 
 - schemaLabel: SupplyDelivery
-	schemaURL: SupplyDelivery.shex
-	dataLabel: supplydelivery-example-pumpdelivery
-	dataURL: supplydelivery-example-pumpdelivery.ttl
-	queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
-	status: conformant
+  schemaURL: SupplyDelivery.shex
+  dataLabel: supplydelivery-example-pumpdelivery
+  dataURL: supplydelivery-example-pumpdelivery.ttl
+  queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
+  status: conformant
 
 - schemaLabel: SupplyDelivery
-	schemaURL: SupplyDelivery.shex
-	dataLabel: supplydelivery-example-ISBT128
-	dataURL: supplydelivery-example-ISBT128.ttl
-	queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
-	status: conformant
+  schemaURL: SupplyDelivery.shex
+  dataLabel: supplydelivery-example-ISBT128
+  dataURL: supplydelivery-example-ISBT128.ttl
+  queryMap: "{FOCUS a fhir:SupplyDelivery}@<SupplyDelivery>"
+  status: conformant

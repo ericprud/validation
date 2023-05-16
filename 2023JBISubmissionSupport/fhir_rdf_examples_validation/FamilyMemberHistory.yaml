@@ -1,21 +1,21 @@
 
 - schemaLabel: FamilyMemberHistory
-	schemaURL: FamilyMemberHistory.shex
-	dataLabel: familymemberhistory-example-mother
-	dataURL: familymemberhistory-example-mother.ttl
-	queryMap: "{FOCUS a fhir:FamilyMemberHistory}@<FamilyMemberHistory>"
-	status: conformant
+  schemaURL: FamilyMemberHistory.shex
+  dataLabel: familymemberhistory-example-mother
+  dataURL: familymemberhistory-example-mother.ttl
+  queryMap: "{FOCUS a fhir:FamilyMemberHistory}@<FamilyMemberHistory>"
+  status: conformant
 
 - schemaLabel: FamilyMemberHistory
-	schemaURL: FamilyMemberHistory.shex
-	dataLabel: familymemberhistory-example-negation
-	dataURL: familymemberhistory-example-negation.ttl
-	queryMap: "{FOCUS a fhir:FamilyMemberHistory}@<FamilyMemberHistory>"
-	status: conformant
+  schemaURL: FamilyMemberHistory.shex
+  dataLabel: familymemberhistory-example-negation
+  dataURL: familymemberhistory-example-negation.ttl
+  queryMap: "{FOCUS a fhir:FamilyMemberHistory}@<FamilyMemberHistory>"
+  status: conformant
 
 - schemaLabel: FamilyMemberHistory
-	schemaURL: FamilyMemberHistory.shex
-	dataLabel: familymemberhistory-example
-	dataURL: familymemberhistory-example.ttl
-	queryMap: "{FOCUS a fhir:FamilyMemberHistory}@<FamilyMemberHistory>"
-	status: conformant
+  schemaURL: FamilyMemberHistory.shex
+  dataLabel: familymemberhistory-example
+  dataURL: familymemberhistory-example.ttl
+  queryMap: "{FOCUS a fhir:FamilyMemberHistory}@<FamilyMemberHistory>"
+  status: conformant

@@ -1,7 +1,7 @@
 
 - schemaLabel: NutritionIntake
-	schemaURL: NutritionIntake.shex
-	dataLabel: nutritionintake-example
-	dataURL: nutritionintake-example.ttl
-	queryMap: "{FOCUS a fhir:NutritionIntake}@<NutritionIntake>"
-	status: conformant
+  schemaURL: NutritionIntake.shex
+  dataLabel: nutritionintake-example
+  dataURL: nutritionintake-example.ttl
+  queryMap: "{FOCUS a fhir:NutritionIntake}@<NutritionIntake>"
+  status: conformant

@@ -1,7 +1,7 @@
 
 - schemaLabel: ResearchStudy
-	schemaURL: ResearchStudy.shex
-	dataLabel: researchstudy-example-ctgov-study-record
-	dataURL: researchstudy-example-ctgov-study-record.ttl
-	queryMap: "{FOCUS a fhir:ResearchStudy}@<ResearchStudy>"
-	status: conformant
+  schemaURL: ResearchStudy.shex
+  dataLabel: researchstudy-example-ctgov-study-record
+  dataURL: researchstudy-example-ctgov-study-record.ttl
+  queryMap: "{FOCUS a fhir:ResearchStudy}@<ResearchStudy>"
+  status: conformant

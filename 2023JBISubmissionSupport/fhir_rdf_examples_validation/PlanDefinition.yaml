@@ -1,126 +1,126 @@
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-chlamydia-screening-intervention
-	dataURL: plandefinition-chlamydia-screening-intervention.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-chlamydia-screening-intervention
+  dataURL: plandefinition-chlamydia-screening-intervention.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-example-cardiology-os
-	dataURL: plandefinition-example-cardiology-os.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-example-cardiology-os
+  dataURL: plandefinition-example-cardiology-os.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-zika-virus-intervention
-	dataURL: plandefinition-zika-virus-intervention.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-zika-virus-intervention
+  dataURL: plandefinition-zika-virus-intervention.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-opioidcds-07
-	dataURL: plandefinition-opioidcds-07.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-opioidcds-07
+  dataURL: plandefinition-opioidcds-07.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-opioidcds-11
-	dataURL: plandefinition-opioidcds-11.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-opioidcds-11
+  dataURL: plandefinition-opioidcds-11.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-opioidcds-05
-	dataURL: plandefinition-opioidcds-05.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-opioidcds-05
+  dataURL: plandefinition-opioidcds-05.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-opioidcds-04
-	dataURL: plandefinition-opioidcds-04.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-opioidcds-04
+  dataURL: plandefinition-opioidcds-04.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-opioidcds-10
-	dataURL: plandefinition-opioidcds-10.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-opioidcds-10
+  dataURL: plandefinition-opioidcds-10.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-example
-	dataURL: plandefinition-example.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-example
+  dataURL: plandefinition-example.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-predecessor-example
-	dataURL: plandefinition-predecessor-example.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-predecessor-example
+  dataURL: plandefinition-predecessor-example.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-example-kdn5-simplified
-	dataURL: plandefinition-example-kdn5-simplified.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-example-kdn5-simplified
+  dataURL: plandefinition-example-kdn5-simplified.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-opioidcds-08
-	dataURL: plandefinition-opioidcds-08.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-opioidcds-08
+  dataURL: plandefinition-opioidcds-08.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-exclusive-breastfeeding-intervention-04
-	dataURL: plandefinition-exclusive-breastfeeding-intervention-04.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-exclusive-breastfeeding-intervention-04
+  dataURL: plandefinition-exclusive-breastfeeding-intervention-04.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-protocol-example
-	dataURL: plandefinition-protocol-example.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-protocol-example
+  dataURL: plandefinition-protocol-example.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-options-example
-	dataURL: plandefinition-options-example.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-options-example
+  dataURL: plandefinition-options-example.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-exclusive-breastfeeding-intervention-03
-	dataURL: plandefinition-exclusive-breastfeeding-intervention-03.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-exclusive-breastfeeding-intervention-03
+  dataURL: plandefinition-exclusive-breastfeeding-intervention-03.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-exclusive-breastfeeding-intervention-02
-	dataURL: plandefinition-exclusive-breastfeeding-intervention-02.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-exclusive-breastfeeding-intervention-02
+  dataURL: plandefinition-exclusive-breastfeeding-intervention-02.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant
 
 - schemaLabel: PlanDefinition
-	schemaURL: PlanDefinition.shex
-	dataLabel: plandefinition-exclusive-breastfeeding-intervention-01
-	dataURL: plandefinition-exclusive-breastfeeding-intervention-01.ttl
-	queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
-	status: conformant
+  schemaURL: PlanDefinition.shex
+  dataLabel: plandefinition-exclusive-breastfeeding-intervention-01
+  dataURL: plandefinition-exclusive-breastfeeding-intervention-01.ttl
+  queryMap: "{FOCUS a fhir:PlanDefinition}@<PlanDefinition>"
+  status: conformant

@@ -1,7 +1,7 @@
 
 - schemaLabel: Transport
-	schemaURL: Transport.shex
-	dataLabel: transport-example
-	dataURL: transport-example.ttl
-	queryMap: "{FOCUS a fhir:Transport}@<Transport>"
-	status: conformant
+  schemaURL: Transport.shex
+  dataLabel: transport-example
+  dataURL: transport-example.ttl
+  queryMap: "{FOCUS a fhir:Transport}@<Transport>"
+  status: conformant

@@ -1,427 +1,427 @@
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-medicinalproductdefinition-everything
-	dataURL: operation-medicinalproductdefinition-everything.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-medicinalproductdefinition-everything
+  dataURL: operation-medicinalproductdefinition-everything.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-subscription-events
-	dataURL: operation-subscription-events.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-subscription-events
+  dataURL: operation-subscription-events.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-valueset-validate-code
-	dataURL: operation-valueset-validate-code.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-valueset-validate-code
+  dataURL: operation-valueset-validate-code.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-episodeofcare-everything
-	dataURL: operation-episodeofcare-everything.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-episodeofcare-everything
+  dataURL: operation-episodeofcare-everything.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-patient-merge
-	dataURL: operation-patient-merge.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-patient-merge
+  dataURL: operation-patient-merge.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-valueset-expand
-	dataURL: operation-valueset-expand.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-valueset-expand
+  dataURL: operation-valueset-expand.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-subscription-get-ws-binding-token
-	dataURL: operation-subscription-get-ws-binding-token.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-subscription-get-ws-binding-token
+  dataURL: operation-subscription-get-ws-binding-token.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operationdefinition-example
-	dataURL: operationdefinition-example.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operationdefinition-example
+  dataURL: operationdefinition-example.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-measure-submit-data
-	dataURL: operation-measure-submit-data.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-measure-submit-data
+  dataURL: operation-measure-submit-data.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-patient-match
-	dataURL: operation-patient-match.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-patient-match
+  dataURL: operation-patient-match.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-graphql
-	dataURL: operation-resource-graphql.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-graphql
+  dataURL: operation-resource-graphql.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-conceptmap-translate
-	dataURL: operation-conceptmap-translate.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-conceptmap-translate
+  dataURL: operation-conceptmap-translate.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-convert
-	dataURL: operation-resource-convert.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-convert
+  dataURL: operation-resource-convert.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-capabilitystatement-subset
-	dataURL: operation-capabilitystatement-subset.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-capabilitystatement-subset
+  dataURL: operation-capabilitystatement-subset.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-observation-stats
-	dataURL: operation-observation-stats.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-observation-stats
+  dataURL: operation-observation-stats.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-codesystem-validate-code
-	dataURL: operation-codesystem-validate-code.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-codesystem-validate-code
+  dataURL: operation-codesystem-validate-code.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-add
-	dataURL: operation-resource-add.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-add
+  dataURL: operation-resource-add.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-capabilitystatement-versions
-	dataURL: operation-capabilitystatement-versions.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-capabilitystatement-versions
+  dataURL: operation-capabilitystatement-versions.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-structuredefinition-snapshot
-	dataURL: operation-structuredefinition-snapshot.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-structuredefinition-snapshot
+  dataURL: operation-structuredefinition-snapshot.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-codesystem-subsumes
-	dataURL: operation-codesystem-subsumes.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-codesystem-subsumes
+  dataURL: operation-codesystem-subsumes.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-graph
-	dataURL: operation-resource-graph.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-graph
+  dataURL: operation-resource-graph.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-measure-care-gaps
-	dataURL: operation-measure-care-gaps.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-measure-care-gaps
+  dataURL: operation-measure-care-gaps.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-measure-data-requirements
-	dataURL: operation-measure-data-requirements.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-measure-data-requirements
+  dataURL: operation-measure-data-requirements.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-activitydefinition-data-requirements
-	dataURL: operation-activitydefinition-data-requirements.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-activitydefinition-data-requirements
+  dataURL: operation-activitydefinition-data-requirements.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-group-everything
-	dataURL: operation-group-everything.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-group-everything
+  dataURL: operation-group-everything.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-meta-add
-	dataURL: operation-resource-meta-add.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-meta-add
+  dataURL: operation-resource-meta-add.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-filter
-	dataURL: operation-resource-filter.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-filter
+  dataURL: operation-resource-filter.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-documentreference-docref
-	dataURL: operation-documentreference-docref.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-documentreference-docref
+  dataURL: operation-documentreference-docref.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-meta-delete
-	dataURL: operation-resource-meta-delete.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-meta-delete
+  dataURL: operation-resource-meta-delete.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-remove
-	dataURL: operation-resource-remove.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-remove
+  dataURL: operation-resource-remove.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-specimendefinition-apply
-	dataURL: operation-specimendefinition-apply.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-specimendefinition-apply
+  dataURL: operation-specimendefinition-apply.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-canonicalresource-current-canonical
-	dataURL: operation-canonicalresource-current-canonical.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-canonicalresource-current-canonical
+  dataURL: operation-canonicalresource-current-canonical.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-namingsystem-translate-id
-	dataURL: operation-namingsystem-translate-id.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-namingsystem-translate-id
+  dataURL: operation-namingsystem-translate-id.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operationdefinition-example-query-high-risk
-	dataURL: operationdefinition-example-query-high-risk.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operationdefinition-example-query-high-risk
+  dataURL: operationdefinition-example-query-high-risk.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-validate
-	dataURL: operation-resource-validate.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-validate
+  dataURL: operation-resource-validate.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-coverageeligibilityrequest-submit
-	dataURL: operation-coverageeligibilityrequest-submit.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-coverageeligibilityrequest-submit
+  dataURL: operation-coverageeligibilityrequest-submit.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-structuremap-transform
-	dataURL: operation-structuremap-transform.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-structuremap-transform
+  dataURL: operation-structuremap-transform.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-codesystem-find-matches
-	dataURL: operation-codesystem-find-matches.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-codesystem-find-matches
+  dataURL: operation-codesystem-find-matches.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-resource-meta
-	dataURL: operation-resource-meta.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-resource-meta
+  dataURL: operation-resource-meta.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-measure-evaluate-measure
-	dataURL: operation-measure-evaluate-measure.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-measure-evaluate-measure
+  dataURL: operation-measure-evaluate-measure.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-measure-collect-data
-	dataURL: operation-measure-collect-data.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-measure-collect-data
+  dataURL: operation-measure-collect-data.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-documentreference-generate
-	dataURL: operation-documentreference-generate.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-documentreference-generate
+  dataURL: operation-documentreference-generate.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-chargeitemdefinition-apply
-	dataURL: operation-chargeitemdefinition-apply.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-chargeitemdefinition-apply
+  dataURL: operation-chargeitemdefinition-apply.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-plandefinition-apply
-	dataURL: operation-plandefinition-apply.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-plandefinition-apply
+  dataURL: operation-plandefinition-apply.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-library-data-requirements
-	dataURL: operation-library-data-requirements.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-library-data-requirements
+  dataURL: operation-library-data-requirements.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-structuredefinition-questionnaire
-	dataURL: operation-structuredefinition-questionnaire.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-structuredefinition-questionnaire
+  dataURL: operation-structuredefinition-questionnaire.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-composition-document
-	dataURL: operation-composition-document.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-composition-document
+  dataURL: operation-composition-document.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-namingsystem-preferred-id
-	dataURL: operation-namingsystem-preferred-id.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-namingsystem-preferred-id
+  dataURL: operation-namingsystem-preferred-id.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-patient-everything
-	dataURL: operation-patient-everything.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-patient-everything
+  dataURL: operation-patient-everything.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-capabilitystatement-implements
-	dataURL: operation-capabilitystatement-implements.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-capabilitystatement-implements
+  dataURL: operation-capabilitystatement-implements.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-claim-submit
-	dataURL: operation-claim-submit.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-claim-submit
+  dataURL: operation-claim-submit.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-conceptmap-closure
-	dataURL: operation-conceptmap-closure.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-conceptmap-closure
+  dataURL: operation-conceptmap-closure.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-plandefinition-data-requirements
-	dataURL: operation-plandefinition-data-requirements.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-plandefinition-data-requirements
+  dataURL: operation-plandefinition-data-requirements.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-messageheader-process-message
-	dataURL: operation-messageheader-process-message.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-messageheader-process-message
+  dataURL: operation-messageheader-process-message.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-observation-lastn
-	dataURL: operation-observation-lastn.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-observation-lastn
+  dataURL: operation-observation-lastn.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-activitydefinition-apply
-	dataURL: operation-activitydefinition-apply.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-activitydefinition-apply
+  dataURL: operation-activitydefinition-apply.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-list-find
-	dataURL: operation-list-find.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-list-find
+  dataURL: operation-list-find.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-codesystem-lookup
-	dataURL: operation-codesystem-lookup.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-codesystem-lookup
+  dataURL: operation-codesystem-lookup.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-capabilitystatement-conforms
-	dataURL: operation-capabilitystatement-conforms.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-capabilitystatement-conforms
+  dataURL: operation-capabilitystatement-conforms.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-encounter-everything
-	dataURL: operation-encounter-everything.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-encounter-everything
+  dataURL: operation-encounter-everything.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant
 
 - schemaLabel: OperationDefinition
-	schemaURL: OperationDefinition.shex
-	dataLabel: operation-subscription-status
-	dataURL: operation-subscription-status.ttl
-	queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
-	status: conformant
+  schemaURL: OperationDefinition.shex
+  dataLabel: operation-subscription-status
+  dataURL: operation-subscription-status.ttl
+  queryMap: "{FOCUS a fhir:OperationDefinition}@<OperationDefinition>"
+  status: conformant

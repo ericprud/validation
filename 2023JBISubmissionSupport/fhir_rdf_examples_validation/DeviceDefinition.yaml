@@ -1,7 +1,7 @@
 
 - schemaLabel: DeviceDefinition
-	schemaURL: DeviceDefinition.shex
-	dataLabel: devicedefinition-example
-	dataURL: devicedefinition-example.ttl
-	queryMap: "{FOCUS a fhir:DeviceDefinition}@<DeviceDefinition>"
-	status: conformant
+  schemaURL: DeviceDefinition.shex
+  dataLabel: devicedefinition-example
+  dataURL: devicedefinition-example.ttl
+  queryMap: "{FOCUS a fhir:DeviceDefinition}@<DeviceDefinition>"
+  status: conformant

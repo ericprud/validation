@@ -1,14 +1,14 @@
 
 - schemaLabel: CoverageEligibilityRequest
-	schemaURL: CoverageEligibilityRequest.shex
-	dataLabel: coverageeligibilityrequest-example-2
-	dataURL: coverageeligibilityrequest-example-2.ttl
-	queryMap: "{FOCUS a fhir:CoverageEligibilityRequest}@<CoverageEligibilityRequest>"
-	status: conformant
+  schemaURL: CoverageEligibilityRequest.shex
+  dataLabel: coverageeligibilityrequest-example-2
+  dataURL: coverageeligibilityrequest-example-2.ttl
+  queryMap: "{FOCUS a fhir:CoverageEligibilityRequest}@<CoverageEligibilityRequest>"
+  status: conformant
 
 - schemaLabel: CoverageEligibilityRequest
-	schemaURL: CoverageEligibilityRequest.shex
-	dataLabel: coverageeligibilityrequest-example
-	dataURL: coverageeligibilityrequest-example.ttl
-	queryMap: "{FOCUS a fhir:CoverageEligibilityRequest}@<CoverageEligibilityRequest>"
-	status: conformant
+  schemaURL: CoverageEligibilityRequest.shex
+  dataLabel: coverageeligibilityrequest-example
+  dataURL: coverageeligibilityrequest-example.ttl
+  queryMap: "{FOCUS a fhir:CoverageEligibilityRequest}@<CoverageEligibilityRequest>"
+  status: conformant

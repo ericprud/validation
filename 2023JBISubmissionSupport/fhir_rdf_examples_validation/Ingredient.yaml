@@ -1,14 +1,14 @@
 
 - schemaLabel: Ingredient
-	schemaURL: Ingredient.shex
-	dataLabel: ingredient-example-strength-repeat
-	dataURL: ingredient-example-strength-repeat.ttl
-	queryMap: "{FOCUS a fhir:Ingredient}@<Ingredient>"
-	status: conformant
+  schemaURL: Ingredient.shex
+  dataLabel: ingredient-example-strength-repeat
+  dataURL: ingredient-example-strength-repeat.ttl
+  queryMap: "{FOCUS a fhir:Ingredient}@<Ingredient>"
+  status: conformant
 
 - schemaLabel: Ingredient
-	schemaURL: Ingredient.shex
-	dataLabel: ingredient-example
-	dataURL: ingredient-example.ttl
-	queryMap: "{FOCUS a fhir:Ingredient}@<Ingredient>"
-	status: conformant
+  schemaURL: Ingredient.shex
+  dataLabel: ingredient-example
+  dataURL: ingredient-example.ttl
+  queryMap: "{FOCUS a fhir:Ingredient}@<Ingredient>"
+  status: conformant

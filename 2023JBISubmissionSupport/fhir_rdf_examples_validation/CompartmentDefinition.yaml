@@ -1,42 +1,42 @@
 
 - schemaLabel: CompartmentDefinition
-	schemaURL: CompartmentDefinition.shex
-	dataLabel: compartmentdefinition-practitioner
-	dataURL: compartmentdefinition-practitioner.ttl
-	queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
-	status: conformant
+  schemaURL: CompartmentDefinition.shex
+  dataLabel: compartmentdefinition-practitioner
+  dataURL: compartmentdefinition-practitioner.ttl
+  queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
+  status: conformant
 
 - schemaLabel: CompartmentDefinition
-	schemaURL: CompartmentDefinition.shex
-	dataLabel: compartmentdefinition-encounter
-	dataURL: compartmentdefinition-encounter.ttl
-	queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
-	status: conformant
+  schemaURL: CompartmentDefinition.shex
+  dataLabel: compartmentdefinition-encounter
+  dataURL: compartmentdefinition-encounter.ttl
+  queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
+  status: conformant
 
 - schemaLabel: CompartmentDefinition
-	schemaURL: CompartmentDefinition.shex
-	dataLabel: compartmentdefinition-patient
-	dataURL: compartmentdefinition-patient.ttl
-	queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
-	status: conformant
+  schemaURL: CompartmentDefinition.shex
+  dataLabel: compartmentdefinition-patient
+  dataURL: compartmentdefinition-patient.ttl
+  queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
+  status: conformant
 
 - schemaLabel: CompartmentDefinition
-	schemaURL: CompartmentDefinition.shex
-	dataLabel: compartmentdefinition-example
-	dataURL: compartmentdefinition-example.ttl
-	queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
-	status: conformant
+  schemaURL: CompartmentDefinition.shex
+  dataLabel: compartmentdefinition-example
+  dataURL: compartmentdefinition-example.ttl
+  queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
+  status: conformant
 
 - schemaLabel: CompartmentDefinition
-	schemaURL: CompartmentDefinition.shex
-	dataLabel: compartmentdefinition-device
-	dataURL: compartmentdefinition-device.ttl
-	queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
-	status: conformant
+  schemaURL: CompartmentDefinition.shex
+  dataLabel: compartmentdefinition-device
+  dataURL: compartmentdefinition-device.ttl
+  queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
+  status: conformant
 
 - schemaLabel: CompartmentDefinition
-	schemaURL: CompartmentDefinition.shex
-	dataLabel: compartmentdefinition-relatedperson
-	dataURL: compartmentdefinition-relatedperson.ttl
-	queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
-	status: conformant
+  schemaURL: CompartmentDefinition.shex
+  dataLabel: compartmentdefinition-relatedperson
+  dataURL: compartmentdefinition-relatedperson.ttl
+  queryMap: "{FOCUS a fhir:CompartmentDefinition}@<CompartmentDefinition>"
+  status: conformant

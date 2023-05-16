@@ -1,7 +1,7 @@
 
 - schemaLabel: Invoice
-	schemaURL: Invoice.shex
-	dataLabel: invoice-example
-	dataURL: invoice-example.ttl
-	queryMap: "{FOCUS a fhir:Invoice}@<Invoice>"
-	status: conformant
+  schemaURL: Invoice.shex
+  dataLabel: invoice-example
+  dataURL: invoice-example.ttl
+  queryMap: "{FOCUS a fhir:Invoice}@<Invoice>"
+  status: conformant

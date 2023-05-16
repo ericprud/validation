@@ -1,35 +1,35 @@
 
 - schemaLabel: Group
-	schemaURL: Group.shex
-	dataLabel: Group-denovoFamily
-	dataURL: Group-denovoFamily.ttl
-	queryMap: "{FOCUS a fhir:Group}@<Group>"
-	status: conformant
+  schemaURL: Group.shex
+  dataLabel: Group-denovoFamily
+  dataURL: Group-denovoFamily.ttl
+  queryMap: "{FOCUS a fhir:Group}@<Group>"
+  status: conformant
 
 - schemaLabel: Group
-	schemaURL: Group.shex
-	dataLabel: group-example-herd1
-	dataURL: group-example-herd1.ttl
-	queryMap: "{FOCUS a fhir:Group}@<Group>"
-	status: conformant
+  schemaURL: Group.shex
+  dataLabel: group-example-herd1
+  dataURL: group-example-herd1.ttl
+  queryMap: "{FOCUS a fhir:Group}@<Group>"
+  status: conformant
 
 - schemaLabel: Group
-	schemaURL: Group.shex
-	dataLabel: group-example-member
-	dataURL: group-example-member.ttl
-	queryMap: "{FOCUS a fhir:Group}@<Group>"
-	status: conformant
+  schemaURL: Group.shex
+  dataLabel: group-example-member
+  dataURL: group-example-member.ttl
+  queryMap: "{FOCUS a fhir:Group}@<Group>"
+  status: conformant
 
 - schemaLabel: Group
-	schemaURL: Group.shex
-	dataLabel: group-example
-	dataURL: group-example.ttl
-	queryMap: "{FOCUS a fhir:Group}@<Group>"
-	status: conformant
+  schemaURL: Group.shex
+  dataLabel: group-example
+  dataURL: group-example.ttl
+  queryMap: "{FOCUS a fhir:Group}@<Group>"
+  status: conformant
 
 - schemaLabel: Group
-	schemaURL: Group.shex
-	dataLabel: group-example-patientlist
-	dataURL: group-example-patientlist.ttl
-	queryMap: "{FOCUS a fhir:Group}@<Group>"
-	status: conformant
+  schemaURL: Group.shex
+  dataLabel: group-example-patientlist
+  dataURL: group-example-patientlist.ttl
+  queryMap: "{FOCUS a fhir:Group}@<Group>"
+  status: conformant

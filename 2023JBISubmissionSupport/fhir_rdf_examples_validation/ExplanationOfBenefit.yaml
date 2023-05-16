@@ -1,14 +1,14 @@
 
 - schemaLabel: ExplanationOfBenefit
-	schemaURL: ExplanationOfBenefit.shex
-	dataLabel: explanationofbenefit-example
-	dataURL: explanationofbenefit-example.ttl
-	queryMap: "{FOCUS a fhir:ExplanationOfBenefit}@<ExplanationOfBenefit>"
-	status: conformant
+  schemaURL: ExplanationOfBenefit.shex
+  dataLabel: explanationofbenefit-example
+  dataURL: explanationofbenefit-example.ttl
+  queryMap: "{FOCUS a fhir:ExplanationOfBenefit}@<ExplanationOfBenefit>"
+  status: conformant
 
 - schemaLabel: ExplanationOfBenefit
-	schemaURL: ExplanationOfBenefit.shex
-	dataLabel: explanationofbenefit-example-2
-	dataURL: explanationofbenefit-example-2.ttl
-	queryMap: "{FOCUS a fhir:ExplanationOfBenefit}@<ExplanationOfBenefit>"
-	status: conformant
+  schemaURL: ExplanationOfBenefit.shex
+  dataLabel: explanationofbenefit-example-2
+  dataURL: explanationofbenefit-example-2.ttl
+  queryMap: "{FOCUS a fhir:ExplanationOfBenefit}@<ExplanationOfBenefit>"
+  status: conformant

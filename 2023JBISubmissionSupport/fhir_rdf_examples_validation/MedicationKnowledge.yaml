@@ -1,7 +1,7 @@
 
 - schemaLabel: MedicationKnowledge
-	schemaURL: MedicationKnowledge.shex
-	dataLabel: medicationknowledge-example
-	dataURL: medicationknowledge-example.ttl
-	queryMap: "{FOCUS a fhir:MedicationKnowledge}@<MedicationKnowledge>"
-	status: conformant
+  schemaURL: MedicationKnowledge.shex
+  dataLabel: medicationknowledge-example
+  dataURL: medicationknowledge-example.ttl
+  queryMap: "{FOCUS a fhir:MedicationKnowledge}@<MedicationKnowledge>"
+  status: conformant

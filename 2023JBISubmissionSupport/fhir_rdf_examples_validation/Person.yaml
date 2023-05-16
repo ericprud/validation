@@ -1,42 +1,42 @@
 
 - schemaLabel: Person
-	schemaURL: Person.shex
-	dataLabel: person-patient-portal
-	dataURL: person-patient-portal.ttl
-	queryMap: "{FOCUS a fhir:Person}@<Person>"
-	status: conformant
+  schemaURL: Person.shex
+  dataLabel: person-patient-portal
+  dataURL: person-patient-portal.ttl
+  queryMap: "{FOCUS a fhir:Person}@<Person>"
+  status: conformant
 
 - schemaLabel: Person
-	schemaURL: Person.shex
-	dataLabel: person-grahame
-	dataURL: person-grahame.ttl
-	queryMap: "{FOCUS a fhir:Person}@<Person>"
-	status: conformant
+  schemaURL: Person.shex
+  dataLabel: person-grahame
+  dataURL: person-grahame.ttl
+  queryMap: "{FOCUS a fhir:Person}@<Person>"
+  status: conformant
 
 - schemaLabel: Person
-	schemaURL: Person.shex
-	dataLabel: person-example-per4
-	dataURL: person-example-per4.ttl
-	queryMap: "{FOCUS a fhir:Person}@<Person>"
-	status: conformant
+  schemaURL: Person.shex
+  dataLabel: person-example-per4
+  dataURL: person-example-per4.ttl
+  queryMap: "{FOCUS a fhir:Person}@<Person>"
+  status: conformant
 
 - schemaLabel: Person
-	schemaURL: Person.shex
-	dataLabel: person-example-f002-ariadne
-	dataURL: person-example-f002-ariadne.ttl
-	queryMap: "{FOCUS a fhir:Person}@<Person>"
-	status: conformant
+  schemaURL: Person.shex
+  dataLabel: person-example-f002-ariadne
+  dataURL: person-example-f002-ariadne.ttl
+  queryMap: "{FOCUS a fhir:Person}@<Person>"
+  status: conformant
 
 - schemaLabel: Person
-	schemaURL: Person.shex
-	dataLabel: person-example
-	dataURL: person-example.ttl
-	queryMap: "{FOCUS a fhir:Person}@<Person>"
-	status: conformant
+  schemaURL: Person.shex
+  dataLabel: person-example
+  dataURL: person-example.ttl
+  queryMap: "{FOCUS a fhir:Person}@<Person>"
+  status: conformant
 
 - schemaLabel: Person
-	schemaURL: Person.shex
-	dataLabel: person-provider-directory
-	dataURL: person-provider-directory.ttl
-	queryMap: "{FOCUS a fhir:Person}@<Person>"
-	status: conformant
+  schemaURL: Person.shex
+  dataLabel: person-provider-directory
+  dataURL: person-provider-directory.ttl
+  queryMap: "{FOCUS a fhir:Person}@<Person>"
+  status: conformant

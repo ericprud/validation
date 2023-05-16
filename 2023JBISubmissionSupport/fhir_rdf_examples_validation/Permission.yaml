@@ -1,21 +1,21 @@
 
 - schemaLabel: Permission
-	schemaURL: Permission.shex
-	dataLabel: permission-example
-	dataURL: permission-example.ttl
-	queryMap: "{FOCUS a fhir:Permission}@<Permission>"
-	status: conformant
+  schemaURL: Permission.shex
+  dataLabel: permission-example
+  dataURL: permission-example.ttl
+  queryMap: "{FOCUS a fhir:Permission}@<Permission>"
+  status: conformant
 
 - schemaLabel: Permission
-	schemaURL: Permission.shex
-	dataLabel: permission-example-vhdir
-	dataURL: permission-example-vhdir.ttl
-	queryMap: "{FOCUS a fhir:Permission}@<Permission>"
-	status: conformant
+  schemaURL: Permission.shex
+  dataLabel: permission-example-vhdir
+  dataURL: permission-example-vhdir.ttl
+  queryMap: "{FOCUS a fhir:Permission}@<Permission>"
+  status: conformant
 
 - schemaLabel: Permission
-	schemaURL: Permission.shex
-	dataLabel: permission-example-saner
-	dataURL: permission-example-saner.ttl
-	queryMap: "{FOCUS a fhir:Permission}@<Permission>"
-	status: conformant
+  schemaURL: Permission.shex
+  dataLabel: permission-example-saner
+  dataURL: permission-example-saner.ttl
+  queryMap: "{FOCUS a fhir:Permission}@<Permission>"
+  status: conformant

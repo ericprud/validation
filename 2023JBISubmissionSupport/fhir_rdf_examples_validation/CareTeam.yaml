@@ -1,7 +1,7 @@
 
 - schemaLabel: CareTeam
-	schemaURL: CareTeam.shex
-	dataLabel: careteam-example
-	dataURL: careteam-example.ttl
-	queryMap: "{FOCUS a fhir:CareTeam}@<CareTeam>"
-	status: conformant
+  schemaURL: CareTeam.shex
+  dataLabel: careteam-example
+  dataURL: careteam-example.ttl
+  queryMap: "{FOCUS a fhir:CareTeam}@<CareTeam>"
+  status: conformant
