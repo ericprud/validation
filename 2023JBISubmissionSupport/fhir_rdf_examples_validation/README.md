@@ -2,7 +2,7 @@
 
 | Example | Description |
 | ------- | ----------- |
-|(codesystem-contact-point-use)[https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=https://fhircat.github.io/validation/2023JBISubmissionSupport/fhir_rdf_examples_validation/CodeSystem.yaml]|CodeSystem|
+| (codesystem-contact-point-use)[https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=https://fhircat.github.io/validation/2023JBISubmissionSupport/fhir_rdf_examples_validation/CodeSystem.yaml] | CodeSystem |
 |(compartmentdefinition-practitioner)[https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=https://fhircat.github.io/validation/2023JBISubmissionSupport/fhir_rdf_examples_validation/CompartmentDefinition.yaml]|CompartmentDefinition|
 |(DocumentReference-genomicVCFfile_cnv)[https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=https://fhircat.github.io/validation/2023JBISubmissionSupport/fhir_rdf_examples_validation/DocumentReference.yaml]|DocumentReference|
 |(familymemberhistory-example-mother)[https://shex.io/webapps/packages/extension-map/doc/shexmap-simple?manifestURL=https://fhircat.github.io/validation/2023JBISubmissionSupport/fhir_rdf_examples_validation/FamilyMemberHistory.yaml]|FamilyMemberHistory|
